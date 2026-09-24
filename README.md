@@ -2,6 +2,8 @@
 
 **Find the yolk. Grow your market. / หาไข่แดง ขยายตลาด**
 
+**Live web preview:** [montri-th.github.io/yolk](https://montri-th.github.io/yolk/) · [preview source](prototype/index.html). The deployed values and POIs are synthetic.
+
 This repository shares a bilingual, mobile-first **illustrative prototype** and a production handoff for CityMETER: Yolk. The included area and POI records are **synthetic demo fixtures**. They are not actual Bangchak branches, actual CityMETER observations, or a validated market ranking. The production plan requires an approved, access-controlled real-data import before operational use.
 
 Start with the [product statement](CityMETER_Yolk_Product_Brief_v1.2.md), then the [12-task implementation plan](IMPLEMENTATION_PLAN_v1.2.md). [DESIGN.md](DESIGN.md) describes interaction and visual requirements. [DS_ASSET_INTEGRATION.md](DS_ASSET_INTEGRATION.md) and [the machine asset manifest](contracts/ds-assets.v1.2.json) pin the Landometer DS 0.9.4 assets, roles, and hashes used by the preview. These files are the dev contract; the prototype is a visual/interaction reference, not a production backend.

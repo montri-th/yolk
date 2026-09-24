@@ -9,8 +9,8 @@
     {
       "path": ".github/workflows/pages.yml",
       "role": "release-check",
-      "sha256": "a3ad5816c426c813ef4cedd03f168038faa5a804a30298cfbbf4937e176e67cf",
-      "bytes": 852,
+      "sha256": "da2fbfb35896ef4df8b02c90f4deee1ec0749d6833da6b2c5e62232fcb2bba40",
+      "bytes": 881,
       "mime": "application/octet-stream"
     },
     {
@@ -51,8 +51,8 @@
     {
       "path": "HANDOFF.md",
       "role": "handoff-document",
-      "sha256": "9a51cf5277c9f837b2675c6067ba35eafc057ea23e7398abcae616647b6755bc",
-      "bytes": 2571,
+      "sha256": "f21dac243ed6371bb79b638d248c13ed355c175f92e5d9d9d423f7ebd2192007",
+      "bytes": 2661,
       "mime": "application/octet-stream"
     },
     {
@@ -65,8 +65,8 @@
     {
       "path": "README.md",
       "role": "handoff-document",
-      "sha256": "320e79716a1b49ef39fad9f45183c707145be4111b291ce07754f8a2a0c63901",
-      "bytes": 2442,
+      "sha256": "ba728117ff469b6e0ddd90029dc95f61d8f9ec0bbad97183b0ba0db8c9e70680",
+      "bytes": 2614,
       "mime": "application/octet-stream"
     },
     {
@@ -462,8 +462,9 @@
   ],
   "runtime": {
     "mode": "http-static",
-    "provider": "GitHub source plus Sites static preview; GitHub Pages workflow prepared",
-    "status": "prepared"
+    "provider": "GitHub Pages",
+    "status": "live",
+    "url": "https://montri-th.github.io/yolk/"
   },
   "dependencies": [
     "prototype/assets/",
@@ -495,9 +496,9 @@
   "gates": [
     {
       "gate": "Public GitHub repository commit and external web preview",
-      "status": "open",
+      "status": "passed",
       "owner": "release operator",
-      "evidence": null
+      "evidence": "https://github.com/montri-th/yolk/actions/runs/35984708075"
     },
     {
       "gate": "browser responsive and Thai/English visual review",
@@ -519,10 +520,10 @@
     }
   ],
   "delivery": {
-    "status": "prepared",
+    "status": "delivered",
     "recipient": "Yolk development team",
     "channel": "public GitHub repository montri-th/yolk",
-    "evidence": null,
+    "evidence": "https://github.com/montri-th/yolk",
     "acknowledgmentEvidence": null
   }
 }
