@@ -1,0 +1,115 @@
+{
+  "contract_version": "yolk.market-landscape/1.0",
+  "status": "production_response_contract_not_claim_of_existing_api",
+  "endpoint": "GET /places/{id}/market-landscape?run_id={run_id}",
+  "required_context": [
+    "workspace_id",
+    "place_id",
+    "run_id",
+    "criteria_version",
+    "geography_profile",
+    "source_release_ids"
+  ],
+  "supply_aggregate": {
+    "source": "approved_pinned_aggregate_release_until_reconciled",
+    "fields": [
+      "own_count",
+      "competitor_count",
+      "unknown_brand_count",
+      "observed_at",
+      "source_release_id"
+    ],
+    "meaning": "recorded_station_counts_not_sales_market_share",
+    "poi_overlay_mutates_baseline": false
+  },
+  "brand_breakdown": {
+    "source": "retrieved_poi_source_records_only",
+    "fields": [
+      "brand_id",
+      "source_record_count",
+      "source_release_id",
+      "observed_at",
+      "coverage_state",
+      "identity_resolution_state"
+    ],
+    "missing_brand_breakdown": "unavailable_not_zero",
+    "unique_station_count": "null_until_entity_resolution_supported",
+    "invent_allocation_from_aggregate_competitor_total": false
+  },
+  "demand_profiles": {
+    "core_metric_ids": [
+      "gfa",
+      "gfa_per_person",
+      "gfa_per_km2",
+      "factory_count",
+      "factory_count_per_km2",
+      "factory_workers",
+      "factory_workers_per_km2",
+      "hotel_rooms",
+      "hotel_rooms_per_km2"
+    ],
+    "each_metric_fields": [
+      "metric_id",
+      "raw_value",
+      "unit",
+      "national_percentile_rank",
+      "p95_cutoff_value",
+      "p99_cutoff_value",
+      "active_cutoff_value",
+      "observed_count",
+      "universe_count",
+      "period",
+      "quality_state",
+      "missing_reason"
+    ],
+    "unknown_percentile": null,
+    "cutoff_values_and_percentile_ranks_are_distinct": true
+  },
+  "pattern_matrix": {
+    "dimensions": [
+      "demand_high",
+      "competitor_many",
+      "own_many"
+    ],
+    "names": [
+      "Crowded",
+      "FOMO",
+      "Our Farm",
+      "Pioneer",
+      "Quiet",
+      "Their War",
+      "Our Island",
+      "Winter War"
+    ],
+    "fields": [
+      "confirmed_pattern",
+      "possible_patterns",
+      "classification_reasons"
+    ],
+    "force_unknown_into_eight_classes": false
+  },
+  "point_map": {
+    "required": [
+      "source_coordinates",
+      "coordinate_precision",
+      "source_release_id"
+    ],
+    "missing_geometry_fallback": "record_list_with_coverage_note",
+    "invent_points_or_streets": false
+  },
+  "reconciliation": {
+    "fields": [
+      "same_vintage",
+      "baseline_delta_allowed",
+      "membership_verified",
+      "duplicate_resolution_state",
+      "reconciliation_version"
+    ],
+    "publish_new_counts": "only_after_reconciliation_then_new_analysis_run"
+  },
+  "capability_registry": {
+    "current_business": "fuel",
+    "current_own_brand": "bangchak",
+    "future_businesses": "same_module_contract_with_verified_metric_and_brand_registry"
+  }
+}

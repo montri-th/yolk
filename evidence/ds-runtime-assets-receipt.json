@@ -1,0 +1,253 @@
+{
+  "dsVersion": "0.9.4",
+  "authoringRevision": "0.9.4-r2",
+  "machinePackage": "v0.9.4-mp1",
+  "packageChecksumsSha256": "9a261eb4df7bf3be5cf1e23f7fb2bd7079c67ca481fc55dccc7049ac52d325cc",
+  "internalPreview": true,
+  "assets": [
+    {
+      "file": "color-srgb-07.production.css",
+      "sha256": "60fbdbf1df810980e3f233d4861c6e9f39790c4d63bdb29bf09c0d4c016d288b",
+      "source": "v0.9.4-mp1/color-srgb-07.production.css",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "Landometer-Logo-TransparentBG.png",
+      "sha256": "8d706f8021bc4b4fdc0e89117244b54868687b74045be54002321de7aaa7ef92",
+      "source": "v0.9.4-mp1/Landometer-Logo-TransparentBG.png",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "ibm-plex-sans-thai-looped-thai-700-normal.woff2",
+      "sha256": "fa03fc4dda6a69763997e79d50e0437795d06c02e1798bdacf3a2f5e685cea2c",
+      "source": "v0.9.4-mp1/ibm-plex-sans-thai-looped-thai-700-normal.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "ibm-plex-sans-thai-thai-400-normal.woff2",
+      "sha256": "2d66381c26d32bf2a95bfe559d1a5ed5475fcdac3fa128e45a33301010d42056",
+      "source": "v0.9.4-mp1/ibm-plex-sans-thai-thai-400-normal.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "material-symbols-rounded-open-in-new-300.woff2",
+      "sha256": "778b29f8befe5ba7a8f0f8188d4c12e3c53d00810dac10337609b04d8506d46e",
+      "source": "v0.9.4-mp1/material-symbols-rounded-open-in-new-300.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "arvo-latin-700-normal.woff2",
+      "sha256": "3d908a2c04ec4c59d26d1454008b2d6744480654663a5f88e439f6483976bd37",
+      "source": "v0.9.4-mp1/arvo-latin-700-normal.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "jetbrains-mono-latin-400-normal.woff2",
+      "sha256": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb",
+      "source": "v0.9.4-mp1/jetbrains-mono-latin-400-normal.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "bai-jamjuree-thai-600-normal.woff2",
+      "sha256": "547483c6fbedcc13f4c04489c4ec3f6be4c69877ae7cd4cfbf4a0d289889ba32",
+      "source": "v0.9.4-mp1/bai-jamjuree-thai-600-normal.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "bai-jamjuree-latin-600-normal.woff2",
+      "sha256": "5ae338ac0db4222226ad96bf1b4b460030c3af1affabb475c67bf218b2eaa83f",
+      "source": "v0.9.4-mp1/bai-jamjuree-latin-600-normal.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "bai-jamjuree-latin-400-normal.woff2",
+      "sha256": "5200faf54f32adc1dc47b8522adbd1399e739f4ce5c9236866806c04d6397b19",
+      "source": "v0.9.4-mp1/bai-jamjuree-latin-400-normal.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "bai-jamjuree-thai-400-normal.woff2",
+      "sha256": "357f8fe9fd08973568a061a2fc266a07819cdc33e8c9bb2b39985cc4ec49bfa9",
+      "source": "v0.9.4-mp1/bai-jamjuree-thai-400-normal.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "material-symbols-rounded-nav-300.woff2",
+      "sha256": "d7e283106ed2898726b24504c4e0f5ad524292984a90a4d29553c7dcf53b9657",
+      "source": "v0.9.4-mp1/material-symbols-rounded-nav-300.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "ibm-plex-sans-thai-looped-latin-700-normal.woff2",
+      "sha256": "47eb0fe82a8b96cc5f1ac057e2edad4d2550d6b73d4aa030697bf1678047c526",
+      "source": "v0.9.4-mp1/ibm-plex-sans-thai-looped-latin-700-normal.woff2",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "ibm-plex-sans-thai-looped-OFL.txt",
+      "sha256": "e3ac4237aef600394644cdab2375d7011b0f80d2229ff05f47df2e61a109ab57",
+      "source": "v0.9.4-mp1/ibm-plex-sans-thai-looped-OFL.txt",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "bai-jamjuree-OFL.txt",
+      "sha256": "74b7deafa632a5ed301dc322fcc2867ac200402e06b6d0b0b01faf09b8514e3e",
+      "source": "v0.9.4-mp1/bai-jamjuree-OFL.txt",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "jetbrains-mono-OFL.txt",
+      "sha256": "403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b",
+      "source": "v0.9.4-mp1/jetbrains-mono-OFL.txt",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "arvo-OFL.txt",
+      "sha256": "f4f2cb57f7050c4e615863a39bf04811eada567d76d99b10b0f33d1e10e6cccd",
+      "source": "v0.9.4-mp1/arvo-OFL.txt",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "ibm-plex-sans-thai-OFL.txt",
+      "sha256": "1b4f4d1f1463b63f1356e7b6034ad5a94311b35ffb53cc4bf83f2fbda24450e4",
+      "source": "v0.9.4-mp1/ibm-plex-sans-thai-OFL.txt",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "material-symbols-Apache-2.0.txt",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "source": "v0.9.4-mp1/material-symbols-Apache-2.0.txt",
+      "verification": "exact package checksum match"
+    },
+    {
+      "file": "dial-quiet.svg",
+      "sha256": "2e624d80b604891ad2ed3e4d5cc6268d2383f39f740ef1def5012c49aee0da1f",
+      "assetId": "landometer.dial.quiet",
+      "source": "LDS-0.9.4/build-kit/motif/svg/dial-quiet.svg",
+      "allowedJobs": [
+        "orientation",
+        "opening"
+      ],
+      "allowedFormats": [
+        "web_public",
+        "deck_16x9",
+        "social_square_1080",
+        "document_pdf",
+        "video_owner_extension"
+      ],
+      "allowedCarriers": [
+        "atmosphere.ground.current",
+        "atmosphere.measure.deep",
+        "brand.blue",
+        "surface.alt@dark",
+        "surface.beigeTint@dark",
+        "surface.blueTint@dark",
+        "surface.canvas@dark",
+        "surface.card@dark",
+        "surface.raised@dark",
+        "surface.soft@dark"
+      ]
+    },
+    {
+      "file": "dial-full.svg",
+      "sha256": "7ecfd1165a3e7ad25a0bb01b9680c35f71ff8a98edfd411dfe1b712cee12654d",
+      "assetId": "landometer.dial.full",
+      "source": "LDS-0.9.4/build-kit/motif/svg/dial-full.svg",
+      "allowedJobs": [
+        "orientation",
+        "opening"
+      ],
+      "allowedFormats": [
+        "web_public",
+        "deck_16x9",
+        "social_square_1080",
+        "document_pdf",
+        "video_owner_extension"
+      ],
+      "allowedCarriers": [
+        "brand.beige",
+        "surface.alt@light",
+        "surface.beigeTint@light",
+        "surface.blueTint@light",
+        "surface.canvas@light",
+        "surface.card@light",
+        "surface.raised@light",
+        "surface.soft@light"
+      ]
+    },
+    {
+      "file": "rings-quiet.svg",
+      "sha256": "d494be1f72e833704cd3c20d9d41f60599991d6efd5f670a86e40a7296eb566b",
+      "assetId": "landometer.rings.quiet",
+      "source": "LDS-0.9.4/build-kit/motif/svg/rings-quiet.svg",
+      "allowedJobs": [
+        "spatial_transition",
+        "section_orientation"
+      ],
+      "allowedFormats": [
+        "web_public",
+        "deck_16x9",
+        "social_square_1080",
+        "document_pdf",
+        "video_owner_extension"
+      ],
+      "allowedCarriers": [
+        "atmosphere.ground.current",
+        "atmosphere.measure.deep",
+        "brand.blue",
+        "surface.alt@dark",
+        "surface.beigeTint@dark",
+        "surface.blueTint@dark",
+        "surface.canvas@dark",
+        "surface.card@dark",
+        "surface.raised@dark",
+        "surface.soft@dark"
+      ]
+    },
+    {
+      "file": "rings-full.svg",
+      "sha256": "b50ec8fa3828ee5b3504ff05e0c47c1ae55f6b644225482454ec319809552286",
+      "assetId": "landometer.rings.full",
+      "source": "LDS-0.9.4/build-kit/motif/svg/rings-full.svg",
+      "allowedJobs": [
+        "spatial_transition",
+        "section_orientation"
+      ],
+      "allowedFormats": [
+        "web_public",
+        "deck_16x9",
+        "social_square_1080",
+        "document_pdf",
+        "video_owner_extension"
+      ],
+      "allowedCarriers": [
+        "brand.beige",
+        "surface.alt@light",
+        "surface.beigeTint@light",
+        "surface.blueTint@light",
+        "surface.canvas@light",
+        "surface.card@light",
+        "surface.raised@light",
+        "surface.soft@light"
+      ]
+    },
+    {
+      "file": "fonts.css",
+      "sha256": "868806b207db6064669db29452fd35ab634aafb344a537b5ddf1e05393ceb9e9",
+      "source": "artifact-specific adapter; not canonical DS file"
+    },
+    {
+      "file": "yolk-analytical.css",
+      "sha256": "940f9689dca0f246ee5a03890f5852ab8ffb299b11fc6305ce0147058b93346d",
+      "source": "artifact-specific adapter; not canonical DS file"
+    }
+  ],
+  "heatScaleVersion": "b2764fb9f07876d5f7bc49362d4d6c8d8295fde5f3b7666a424bc1c040b4ae6b",
+  "validation": {
+    "command": "node validate-v0.9.4.mjs --package-trust-store <external owner-trust/v0.9.4/package-release-trust-store.json> --package-trust-policy <external owner-trust/v0.9.4/package-release-trust-policy.json>",
+    "checks": 5784,
+    "warnings": 0,
+    "failures": 0,
+    "evidence": "ds-validator.log"
+  }
+}

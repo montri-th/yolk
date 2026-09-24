@@ -1,0 +1,340 @@
+{
+  "schema_version": "yolk.implementation-plan/1.0",
+  "product_version": "1.2",
+  "status": "implementation_contract_not_existing_backend",
+  "global_constraints": [
+    "Public repository uses synthetic fixtures only; real snapshots require an approved private SourceRelease.",
+    "Use confirmed data and explicit missing/availability states.",
+    "Keep default khwaeng/LAO profile and frozen nationwide benchmark.",
+    "Do not modify unrelated modules or previous deliverables.",
+    "Acceptance commands are scaffolded by task 00 before later work.",
+    "Return changed files, test results and unresolved evidence gates."
+  ],
+  "tasks": [
+    {
+      "id": "00",
+      "depends_on": [],
+      "paths": [
+        "apps/web",
+        "apps/api",
+        "apps/worker",
+        "packages/contracts",
+        "db",
+        "scripts"
+      ],
+      "inputs": [
+        "README.md",
+        "DESIGN.md",
+        "IMPLEMENTATION_PLAN_v1.2.md"
+      ],
+      "outputs": [
+        "Runnable local environment",
+        "Migration runner",
+        "CI and acceptance scripts"
+      ],
+      "acceptance_commands": [
+        "pnpm install",
+        "pnpm db:up",
+        "pnpm db:migrate",
+        "pnpm db:seed:local",
+        "pnpm test:contracts"
+      ],
+      "coding_prompt": "Scaffold the agreed modular repository and local DB. Create the commands declared in the implementation plan, TH/EN key structure, and LDS asset wrappers. Do not invent a production backend from the existing static demo."
+    },
+    {
+      "id": "01",
+      "depends_on": [
+        "00"
+      ],
+      "paths": [
+        "packages/data-adapters",
+        "packages/contracts",
+        "db/migrations/002_sources_geography",
+        "db/migrations/003_metric_registry"
+      ],
+      "inputs": [
+        "prototype/data/demo-data.json (synthetic contract fixture)",
+        "Approved private SourceRelease supplied by data owner for production"
+      ],
+      "outputs": [
+        "Source catalog and approved import gate",
+        "Manifest/permission validation",
+        "Normalized metric observations"
+      ],
+      "acceptance_commands": [
+        "pnpm fixtures:validate",
+        "pnpm test:contracts"
+      ],
+      "coding_prompt": "Build the approved private import gate using synthetic fixtures in public CI. A production source needs owner permission, stable IDs, exact nine fuel metrics, source periods, coverage, checksums and separate missing states. Never copy real rows or POI coordinates into this public repository."
+    },
+    {
+      "id": "02",
+      "depends_on": [
+        "01"
+      ],
+      "paths": [
+        "packages/geo",
+        "db/migrations/002_sources_geography"
+      ],
+      "inputs": [
+        "contracts/geography-profile-default.json",
+        "source boundary/crosswalk releases supplied by data owner"
+      ],
+      "outputs": [
+        "Pinned default cohort",
+        "Crosswalk/overlap/coverage QA",
+        "Universe checksum"
+      ],
+      "acceptance_commands": [
+        "pnpm test:contracts",
+        "pnpm test:engine"
+      ],
+      "coding_prompt": "Resolve Bangkok khwaeng and upcountry LAO tiers through a verified allowlist, excluding PAOs and overlaps. Do not treat prototype province geometry or source bounding extents as current municipality polygons. Block missing boundary evidence explicitly."
+    },
+    {
+      "id": "03",
+      "depends_on": [
+        "01",
+        "02"
+      ],
+      "paths": [
+        "apps/web/features/market",
+        "apps/web/features/place",
+        "apps/api/landscape",
+        "packages/domain/landscape"
+      ],
+      "inputs": [
+        "prototype/data/demo-data.json (synthetic UI fixture)",
+        "contracts/market-landscape.contract.json",
+        "Approved private run when connecting production data"
+      ],
+      "outputs": [
+        "Read-only map/list/detail",
+        "Market landscape DTO",
+        "Coverage fallbacks"
+      ],
+      "acceptance_commands": [
+        "pnpm test:contracts",
+        "pnpm test:api"
+      ],
+      "coding_prompt": "Build a read-only map/list/detail vertical slice. The public demo uses synthetic data; production reads a separately approved run. Render aggregate B/C/U, brand coverage only when sourced, raw Demand profiles and eight-pattern reasons with source versions. Counts are not sales share; point maps require approved real coordinates."
+    },
+    {
+      "id": "04",
+      "depends_on": [
+        "00",
+        "01",
+        "02"
+      ],
+      "paths": [
+        "packages/domain/supply",
+        "apps/api/supply",
+        "db/migrations/004_supply_targets",
+        "db/migrations/006_events_outbox"
+      ],
+      "inputs": [
+        "Event contract in product brief",
+        "Approved private POI source records, or synthetic fixtures for public tests"
+      ],
+      "outputs": [
+        "CRUD overlays",
+        "Verification and archive/restore",
+        "Atomic event/outbox"
+      ],
+      "acceptance_commands": [
+        "pnpm test:api",
+        "pnpm test:contracts"
+      ],
+      "coding_prompt": "Implement tenant-scoped Supply CRUD with evidence, revisions, no-op detection and idempotency. Commit one event per real operation. Source POI edits do not mutate the pinned aggregate baseline."
+    },
+    {
+      "id": "04b",
+      "depends_on": [
+        "04",
+        "06"
+      ],
+      "paths": [
+        "packages/domain/poi-reconciliation",
+        "apps/worker/reconcile",
+        "apps/api/reconciliation"
+      ],
+      "inputs": [
+        "Approved private source records and aggregate vintage metadata",
+        "Published run version"
+      ],
+      "outputs": [
+        "Reconciliation preview",
+        "Counts/version proposal",
+        "Published reconciled run"
+      ],
+      "acceptance_commands": [
+        "pnpm test:engine",
+        "pnpm test:api"
+      ],
+      "coding_prompt": "Reconcile POI identity, cross-layer duplicates, boundary membership, operation status and source dates. Matching totals alone do not establish same vintage. Publish new analytical counts only after successful reconciliation; preserve old runs."
+    },
+    {
+      "id": "05",
+      "depends_on": [
+        "01",
+        "02"
+      ],
+      "paths": [
+        "packages/criteria-engine",
+        "apps/api/criteria",
+        "apps/web/features/criteria"
+      ],
+      "inputs": [
+        "contracts/bangchak-v1.2.criteria.json",
+        "Data thresholds and missing fixtures"
+      ],
+      "outputs": [
+        "Deterministic fuel tiers",
+        "Private preview",
+        "Metric availability registry"
+      ],
+      "acceptance_commands": [
+        "pnpm test:engine",
+        "pnpm test:contracts"
+      ],
+      "coding_prompt": "Implement the fixed Bangchak baseline: building P99/P95/any and activity P95 hits 5/3/1 with tri-state missing. Keep B>=3/C>=3. Make extra signals opt-in and reject unavailable metrics. Explain any ranking separately from source classification."
+    },
+    {
+      "id": "06",
+      "depends_on": [
+        "03",
+        "04",
+        "05"
+      ],
+      "paths": [
+        "apps/worker/analysis",
+        "apps/api/criteria",
+        "db/migrations/005_criteria_runs"
+      ],
+      "inputs": [
+        "Valid scenario version",
+        "Approved source/universe snapshots"
+      ],
+      "outputs": [
+        "Atomic shared apply",
+        "Analysis job states",
+        "Published run pointer"
+      ],
+      "acceptance_commands": [
+        "pnpm test:api",
+        "pnpm test:engine"
+      ],
+      "coding_prompt": "Apply criteria with base revision checks for Admin/Editor only. Publish immutable run pointers atomically; preserve latest good results on failure. Draft previews do not write team events and every view must disclose the run it displays."
+    },
+    {
+      "id": "07",
+      "depends_on": [
+        "04",
+        "06"
+      ],
+      "paths": [
+        "apps/web/features/targets",
+        "apps/web/features/feed",
+        "apps/worker/outbox",
+        "db/migrations/007_work_tasks_shares"
+      ],
+      "inputs": [
+        "Event and RBAC contracts"
+      ],
+      "outputs": [
+        "Target workflow",
+        "Context feeds",
+        "Per-member inbox"
+      ],
+      "acceptance_commands": [
+        "pnpm test:api",
+        "pnpm test:contracts"
+      ],
+      "coding_prompt": "Build shared targets and context feeds that reuse one event ID across criteria/place/supply/team. Notify other authorized active members once. Revoke access at read time, not only when a notification is created."
+    },
+    {
+      "id": "08",
+      "depends_on": [
+        "07"
+      ],
+      "paths": [
+        "packages/domain/activity-summary",
+        "apps/api/activity-summary",
+        "apps/web/features/activity",
+        "db/migrations/008_activity_projection"
+      ],
+      "inputs": [
+        "contracts/activity-summary.policy.json"
+      ],
+      "outputs": [
+        "Period/category leaderboard",
+        "Unique entities",
+        "Event drill-down"
+      ],
+      "acceptance_commands": [
+        "pnpm test:api",
+        "pnpm test:contracts"
+      ],
+      "coding_prompt": "Count committed human operations only, defaulting to a 30-day period. Exclude views, clicks, sample seed events, no-ops, failed writes and retries. Count bulk commits once and affected records separately. Do not create employee performance scores."
+    },
+    {
+      "id": "09",
+      "depends_on": [
+        "01",
+        "02",
+        "05"
+      ],
+      "paths": [
+        "packages/data-adapters",
+        "packages/domain/metric-catalog",
+        "apps/web/features/criteria"
+      ],
+      "inputs": [
+        "Existing source field evidence",
+        "Data-owner metric definitions"
+      ],
+      "outputs": [
+        "Capability registry",
+        "Gated optional connectors",
+        "New preset versions when approved"
+      ],
+      "acceptance_commands": [
+        "pnpm fixtures:validate",
+        "pnpm test:engine"
+      ],
+      "coding_prompt": "Expand the metric catalog through verified adapters. Factory count is already core. School size uses verified source classification or explicit thresholds with size data; hospital beds cannot be inferred from POI types. Disabled options show what is missing."
+    },
+    {
+      "id": "10",
+      "depends_on": [
+        "03",
+        "04b",
+        "06",
+        "07",
+        "08",
+        "09"
+      ],
+      "paths": [
+        "apps/web",
+        "apps/api/shares",
+        "tests/browser",
+        "scripts/check-release"
+      ],
+      "inputs": [
+        "LDS receipts",
+        "TH/EN dictionaries",
+        "Release QA matrix"
+      ],
+      "outputs": [
+        "Manual sharing",
+        "Responsive/accessibility verification",
+        "Release evidence"
+      ],
+      "acceptance_commands": [
+        "pnpm test:browser",
+        "pnpm check:release"
+      ],
+      "coding_prompt": "Complete manual sharing with permission checks and browser verification across TH/EN and responsive sizes. Record unperformed browser checks as pending; do not fabricate screenshots. Public preview data remains synthetic."
+    }
+  ]
+}

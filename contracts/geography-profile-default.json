@@ -1,0 +1,83 @@
+{
+  "contract_version": "yolk.geography/1.0",
+  "id": "bkk_khwaeng_upcountry_lao",
+  "version": 1,
+  "status": "default_production_contract_not_live_analysis",
+  "primary_units": {
+    "bangkok": "khwaeng",
+    "other_provinces": "local_authority"
+  },
+  "local_authority_cohort": {
+    "select_authority_tier_before_build": true,
+    "include": [
+      "city_municipality",
+      "town_municipality",
+      "subdistrict_municipality",
+      "subdistrict_administrative_organization",
+      "verified_special_form_area_authority"
+    ],
+    "exclude": [
+      "provincial_administrative_organization"
+    ],
+    "require_disjoint_effective_boundaries": true,
+    "missing_boundary_policy": "review_not_zero_or_silent_replacement",
+    "overlap_policy": "block_cohort_publication_until_resolved",
+    "coverage_gaps": "record_and_display",
+    "resolved_allowlist_required": true
+  },
+  "overview": {
+    "geometry_level": "province",
+    "metric": "maximum_peak_selected_signal_percentile_among_eligible_primary_units",
+    "is_analysis_unit": false,
+    "drill_down": "primary_units_for_selected_province",
+    "display_filter_rebenchmarks": false
+  },
+  "future_modes": [
+    "province",
+    "district",
+    "subdistrict",
+    "local_authority",
+    "custom"
+  ],
+  "national_benchmark": {
+    "scope": "all_valid_primary_units_in_pinned_mode_universe",
+    "one_cutoff_per_metric": true,
+    "include_missing_as_zero": false,
+    "pin_membership_and_sources": true
+  },
+  "mode_change": {
+    "new_scenario_version": true,
+    "new_analysis_run": true,
+    "recompute": [
+      "raw_metric_aggregates",
+      "denominators",
+      "derived_ratios",
+      "national_percentiles",
+      "ranks"
+    ],
+    "aggregate_existing_percentiles_or_scores": false,
+    "aggregation_method": "metric_specific_with_validated_source_crosswalk",
+    "custom_overlap_policy": "do_not_insert_overlapping_custom_areas_into_national_cohort"
+  },
+  "required_identity_fields": [
+    "place_id",
+    "boundary_type",
+    "authority_tier",
+    "source_entity_id",
+    "geometry_version",
+    "boundary_effective_period",
+    "crosswalk_version",
+    "universe_id",
+    "universe_membership_checksum"
+  ],
+  "prototype": {
+    "province_geometry_count": 77,
+    "primary_unit_source": "synthetic_public_demo",
+    "primary_unit_count": 308,
+    "bangkok_demo_area_count": 4,
+    "upcountry_demo_area_count": 304,
+    "actual_khwaeng_or_local_authority_polygons": false,
+    "source_identity_crosswalk": "none; public demo IDs are synthetic",
+    "production_crosswalk_verified": false
+  }
+}

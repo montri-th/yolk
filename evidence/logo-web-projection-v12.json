@@ -1,0 +1,49 @@
+{
+  "source": "v0.9.4-mp1/Landometer-Logo-TransparentBG.png",
+  "sourceSha256": "8d706f8021bc4b4fdc0e89117244b54868687b74045be54002321de7aaa7ef92",
+  "sourceFormat": "PNG",
+  "sourceMode": "RGBA",
+  "sourceHasAlpha": true,
+  "sourceIccProfilePresent": false,
+  "sourceSize": {
+    "width": 23324,
+    "height": 6402
+  },
+  "sourceOrientation": null,
+  "sourceMetadataKeys": [
+    "dpi",
+    "gamma",
+    "srgb"
+  ],
+  "orientedSize": {
+    "width": 23324,
+    "height": 6402
+  },
+  "crop": null,
+  "preResizeSize": {
+    "width": 23324,
+    "height": 6402
+  },
+  "output": "prototype/assets/landometer-logo-horizontal-v12-889.png",
+  "outputFormat": "PNG",
+  "outputMode": "RGBA",
+  "outputHasAlpha": true,
+  "outputIccProfilePresent": false,
+  "outputExifPresent": false,
+  "outputXmpPresent": false,
+  "outputSize": {
+    "width": 889,
+    "height": 244
+  },
+  "encoding": {
+    "compressLevel": 9,
+    "optimize": false
+  },
+  "alphaBackground": null,
+  "resampling": "LANCZOS",
+  "colorHandling": "assumed_srgb",
+  "metadataState": "stripped",
+  "bytes": 31691,
+  "sha256": "989f58583bc54e4b9a743d0f04308df92fb7cf0bb2ae3ba9398ec9c03c481554",
+  "pillowVersion": "12.3.0"
+}

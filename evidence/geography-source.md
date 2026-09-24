@@ -1,0 +1,7 @@
+# Thailand province overview geometry
+
+The public preview contains **77 real province outline shapes** as a display layer and **synthetic** demand/supply values. An outline is not an official cadastral or current administrative boundary for parcel selection. The geography year represented by the source is **2017**. The 77 province labels are display names, not a validated crosswalk to Bangkok khwaeng or upcountry LAO analytical units. Production must obtain and version the appropriate current primary-unit boundaries and crosswalks.
+
+Source: [geoBoundaries THA ADM1 at pinned commit](https://github.com/wmgeolab/geoBoundaries/blob/9469f09/releaseData/gbOpen/THA/ADM1/geoBoundaries-THA-ADM1_simplified.geojson), based on OpenStreetMap / Wambacher. The layer metadata states **Open Data Commons Open Database License 1.0 (ODbL)**. Show **Boundaries © OpenStreetMap contributors · via geoBoundaries · ODbL** in the map. See [OpenStreetMap copyright](https://www.openstreetmap.org/copyright) and the [ODbL licence](https://opendatacommons.org/licenses/odbl/1-0/).
+
+The web shape uses an aspect-preserving Mercator fit within SVG `viewBox="0 0 640 900"`. The preview has no primary-unit polygons and its demo area IDs are fictional. Province colour summarises the highest selected-signal percentile among the **synthetic demo** areas passing the current criteria inside a province; it does not characterize every location or predict sales.

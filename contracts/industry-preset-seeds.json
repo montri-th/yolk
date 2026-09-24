@@ -1,0 +1,93 @@
+{
+  "schema_version": "citymeter.preset-seeds/0.1",
+  "status": "hypotheses_for_pilot_not_validated_recommendations",
+  "default_benchmark": "national_approved_nonoverlapping_universe",
+  "group_compilation": "multiply_path_weights_to_leaves_no_second_percentile",
+  "missing_policy": "bounded_interval_no_renormalization",
+  "minimum_evidence_weight": 1.0,
+  "profiles": [
+    {
+      "key": "nonbank.access.v0.1",
+      "group_weights": {
+        "residents": 0.6,
+        "industrial_jobs": 0.4
+      },
+      "demand": {
+        "type": "weighted_score_threshold",
+        "gte": 75
+      },
+      "supply": {
+        "own_many_gte": 3,
+        "competitor_many_gte": 3,
+        "unknown_brand": "unknown_not_zero"
+      }
+    },
+    {
+      "key": "convenience.neighborhood.v0.1",
+      "group_weights": {
+        "residents": 0.5,
+        "built_space": 0.25,
+        "activity_destinations": 0.25
+      },
+      "demand": {
+        "type": "weighted_score_threshold",
+        "gte": 75
+      },
+      "supply": {
+        "own_many_gte": 3,
+        "competitor_many_gte": 3,
+        "unknown_brand": "unknown_not_zero"
+      }
+    },
+    {
+      "key": "laundry.residential.v0.1",
+      "group_weights": {
+        "rental_context": 0.6,
+        "residents": 0.4
+      },
+      "demand": {
+        "type": "weighted_score_threshold",
+        "gte": 75
+      },
+      "supply": {
+        "own_many_gte": 3,
+        "competitor_many_gte": 3,
+        "unknown_brand": "unknown_not_zero"
+      }
+    },
+    {
+      "key": "coffee.everyday.v0.1",
+      "group_weights": {
+        "residents": 0.3,
+        "industrial_jobs": 0.4,
+        "visitor_lodging": 0.3
+      },
+      "demand": {
+        "type": "weighted_score_threshold",
+        "gte": 75
+      },
+      "supply": {
+        "own_many_gte": 3,
+        "competitor_many_gte": 3,
+        "unknown_brand": "unknown_not_zero"
+      }
+    },
+    {
+      "key": "restaurant.everyday.v0.1",
+      "group_weights": {
+        "residents": 0.4,
+        "industrial_jobs": 0.3,
+        "visitor_lodging": 0.3
+      },
+      "demand": {
+        "type": "weighted_score_threshold",
+        "gte": 75
+      },
+      "supply": {
+        "own_many_gte": 3,
+        "competitor_many_gte": 3,
+        "unknown_brand": "unknown_not_zero"
+      }
+    }
+  ]
+}

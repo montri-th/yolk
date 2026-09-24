@@ -1,0 +1,128 @@
+{
+  "schema_version": "yolk.bangchak-criteria/1.0",
+  "product_version": "1.2",
+  "status": "implementation_contract_for_current_prototype_rules",
+  "ui_defaults": {
+    "geographyProfile": "bkk_khwaeng_upcountry_lao",
+    "profile": "bangchak",
+    "buildingP1": 99,
+    "buildingP2": 95,
+    "activityP": 95,
+    "activityT1": 5,
+    "activityT2": 3,
+    "activityT3": 1,
+    "buildingEnabled": true,
+    "activityEnabled": true,
+    "extraMetrics": [],
+    "extraP": 95,
+    "demandMode": "high",
+    "ownMany": 3,
+    "competitorMany": 3,
+    "patterns": [
+      "Pioneer",
+      "FOMO",
+      "Our Farm"
+    ]
+  },
+  "core_metrics": {
+    "building": [
+      "gfa",
+      "gfa_per_person",
+      "gfa_per_km2"
+    ],
+    "activity": [
+      "factory_count",
+      "factory_count_per_km2",
+      "factory_workers",
+      "factory_workers_per_km2",
+      "hotel_rooms",
+      "hotel_rooms_per_km2"
+    ]
+  },
+  "benchmark": {
+    "scope": "national_pinned_geography_profile",
+    "cutoff_method": "PERCENTILE.INC",
+    "known_only_per_metric": true,
+    "province_filter_changes_cutoff": false,
+    "missing_as_zero": false
+  },
+  "demand": {
+    "building_tiers": [
+      "all_three_ge_P99",
+      "all_three_ge_P95",
+      "any_one_ge_P95"
+    ],
+    "activity_tier_hit_counts": [
+      5,
+      3,
+      1
+    ],
+    "combine": "building_high_OR_activity_high_OR_any_enabled_extra_pass",
+    "extra_default_off": true,
+    "extra_availability_required": true,
+    "unknown_policy": "three_valued_logic_and_tier_bounds"
+  },
+  "supply": {
+    "source": "pinned_area_aggregate",
+    "unknown_policy": "enumerate_integer_allocations_to_own_and_competitor",
+    "ratio_C_over_B_plus_alpha_enabled": false,
+    "poi_overlay_auto_updates_baseline": false
+  },
+  "ranking_order": [
+    "eligible_desc",
+    "demand_high_then_unknown_then_low",
+    "fuel_pattern_stars_desc",
+    "best_nonzero_confirmed_tier_asc",
+    "enabled_metric_threshold_hits_desc",
+    "competitor_count_desc",
+    "own_count_asc",
+    "source_rank_asc"
+  ],
+  "map_score": {
+    "area": "max_known_enabled_metric_national_percentile_rank",
+    "province": "max_area_map_score_among_eligible_primary_units",
+    "missing_observations": "shown_via_coverage_not_zero",
+    "same_as_overall_ranking": false,
+    "sales_prediction": false,
+    "legend": {
+      "scale": "LDS heat/light/5",
+      "labels": [
+        "<95",
+        "95–97",
+        "97–98",
+        "98–99",
+        "99–100"
+      ],
+      "breaks": [
+        0,
+        95,
+        97,
+        98,
+        99,
+        100
+      ],
+      "intervals": "lower_inclusive_upper_exclusive_except_final_includes_100",
+      "outside_scale_states": [
+        "no_eligible_location",
+        "insufficient_evidence"
+      ]
+    }
+  },
+  "ranking_signal_counts": {
+    "passingSignalCount": {
+      "role": "enabled_metric_threshold_hits_desc",
+      "include": "enabled_core_groups_and_enabled_extra_metrics_only",
+      "cutoffs": {
+        "building": "building_tier_2_percentile_cutoff",
+        "activity": "activity_percentile_cutoff",
+        "extra": "per_extra_metric_percentile_cutoff"
+      },
+      "disabled_signals_affect_rank": false
+    },
+    "passes9": {
+      "role": "historical_all_core_threshold_hit_count_for_baseline_audit",
+      "used_for_ranking": false
+    },
+    "default_enabled_core_metric_count": 9
+  }
+}

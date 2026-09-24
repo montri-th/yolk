@@ -1,0 +1,23 @@
+{
+  "contract_version": "yolk.activity-summary/1.0",
+  "status": "production_policy_with_prototype_subset",
+  "workspace_scope": "authorized_members_only",
+  "metric": "count_distinct_committed_human_operations",
+  "default_period_days": 30,
+  "prototype_periods": [7, 30, "all"],
+  "production_periods": "explicit_from_inclusive_to_exclusive",
+  "timezone": "workspace_timezone",
+  "canonical_time": "UTC",
+  "prototype_categories": ["branches", "verification", "locations", "criteria"],
+  "additional_production_categories": ["human_import", "workspace_management"],
+  "idempotency": "one_operation_id_one_count",
+  "multi_field_write": "one_count",
+  "bulk_commit": {"action_count": 1, "affected_records": "separate_measure"},
+  "unique_entities": "distinct(entity_type,entity_id)",
+  "exclude": ["page_views", "clicks", "searches", "display_filters", "private_drafts", "login", "notification_reads", "failed_writes", "no_op_writes", "idempotent_retries", "automatic_system_jobs", "sample_seed_events"],
+  "drill_down": "same_actor_category_period_event_filter",
+  "ties": "same_count_then_stable_actor_id_for_display",
+  "former_members": "retain_attributed_history_under_workspace_access_policy",
+  "employee_performance_score": false,
+  "quality_or_sales_success_inferred_from_count": false
+}

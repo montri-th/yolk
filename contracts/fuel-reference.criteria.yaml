@@ -1,0 +1,63 @@
+schema_version: "citymeter.criteria/1.0"
+scenario_key: "fuel-expansion-reference"
+scenario_version: 1
+benchmark:
+  scope: national
+  universe_ref: "$workspace.approved_area_universe"
+  refresh: explicit_new_run
+  quantile_method: percentile_inc
+  valid_values: observed_only
+  missing_as_zero: false
+
+signals:
+  building:
+    type: threshold_count
+    metrics: [gfa_m2, gfa_m2_per_person, gfa_m2_per_km2]
+    tiers:
+      - {tier: 1, quantile: 0.99, at_least: 3}
+      - {tier: 2, quantile: 0.95, at_least: 3}
+      - {tier: 3, quantile: 0.95, at_least: 1}
+  activity:
+    type: threshold_count
+    metrics:
+      - factory_count
+      - factory_count_per_km2
+      - factory_workers
+      - factory_workers_per_km2
+      - hotel_rooms
+      - hotel_rooms_per_km2
+    tiers:
+      - {tier: 1, quantile: 0.95, at_least: 5}
+      - {tier: 2, quantile: 0.95, at_least: 3}
+      - {tier: 3, quantile: 0.95, at_least: 1}
+
+demand:
+  type: any_signal_tier
+  signals: [building, activity]
+  accepted_tiers: [1, 2, 3]
+
+supply:
+  own_many: {metric: own_branch_count, gte: 3}
+  competitor_many: {metric: competitor_branch_count, gte: 3}
+  unknown_brand_policy: enumerate_possible_allocations
+  classification: "market-patterns-8/v1"
+
+gates:
+  op: and
+  args:
+    - {field: demand_high, eq: true}
+    - {field: market_pattern, in: [Pioneer, FOMO, Our_Farm]}
+
+ranking:
+  method: weighted_percentile_interval
+  minimum_evidence_weight: 1.0
+  weights:
+    - {metric: gfa_m2, weight: 0.40, direction: higher}
+    - {metric: factory_workers, weight: 0.40, direction: higher}
+    - {metric: hotel_rooms, weight: 0.20, direction: higher}
+  missing_policy: bounded_interval
+  sort:
+    - {field: eligibility, order: [pass, review, fail]}
+    - {field: score_lower, direction: desc}
+    - {field: evidence_weight_coverage, direction: desc}
+    - {field: place_id, direction: asc}
