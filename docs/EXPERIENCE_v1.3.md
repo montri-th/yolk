@@ -6,6 +6,9 @@ scope: "Public synthetic preview and production implementation contract"
 machine_contract: "../contracts/experience.v1.3.json"
 ---
 
+> Experience baseline v1.3 remains applicable for themes, maps and branch photos. For the current mobile navigation, Yolk meaning, pattern icons and percentile display, use [Product v1.5](../CityMETER_Yolk_Product_Statement_v1.5.md) and [Implementation plan v1.5](../IMPLEMENTATION_PLAN_v1.5.md).
+
+
 # Yolk v1.3 — อ่านง่าย เห็นพื้นที่ เก็บภาพสาขา
 
 รอบนี้ทำให้ทีมอ่านข้อมูลได้นานขึ้น เข้าใจบริเวณรอบทำเล และเห็นภาพสาขาก่อนลงพื้นที่ หลัก Demand/Supply, percentile, รูปแบบตลาดทั้งแปด และสิทธิ์ทีมยังใช้สัญญาเดิม

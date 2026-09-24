@@ -1,22 +1,22 @@
 ---
 document_id: yolk.handoff
-product_version: "1.4"
-handoff_patch: "1.4.0"
+product_version: "1.5"
+handoff_patch: "1.5.0"
 status: ready_with_open_manual_gate
 start: START_HERE.md
-asset_manifest: contracts/assets.v1.4.json
-release_manifest: contracts/release.v1.4.0.json
+asset_manifest: contracts/assets.v1.5.json
+release_manifest: contracts/release.v1.5.0.json
 ---
 
-# CityMETER: Yolk — Developer handoff1.4.0
+# CityMETER: Yolk — Developer handoff1.5.0
 
-[ดาวน์โหลด handoff ZIP 1.4.0](https://github.com/montri-th/yolk/releases/download/v1.4.0/CityMETER-Yolk-v1.4.0-handoff.zip) · [SHA-256](https://github.com/montri-th/yolk/releases/download/v1.4.0/CityMETER-Yolk-v1.4.0-handoff.zip.sha256)
+[ดาวน์โหลด handoff ZIP 1.5.0](https://github.com/montri-th/yolk/releases/download/v1.5.0/CityMETER-Yolk-v1.5.0-handoff.zip) · [SHA-256](https://github.com/montri-th/yolk/releases/download/v1.5.0/CityMETER-Yolk-v1.5.0-handoff.zip.sha256)
 
 ## สิ่งที่ส่งมอบ
 
-ชุดนี้มี web preview แบบหลายไฟล์, assets และ licences ที่ต้องใช้, Product statement, แผนพัฒนา15งาน และ machine contracts สำหรับ dev/coding agent **Product version เป็น 1.4** และ handoff เป็น 1.4.0 รุ่นนี้เพิ่ม Tier ที่ใช้คัดจริง แยก Preferred location types ออกจาก Supply และคืนการปรับน้ำหนักสำหรับจัดอันดับ อธิบายทั้ง 8 รูปแบบด้วย D/C/B ตามเกณฑ์ที่ใช้อยู่ ปุ่มดูรายละเอียดมี icon และขอบชัด รวมทั้งโลโก้จริง favicon และภาพแชร์
+ชุดนี้มี web preview แบบหลายไฟล์, assets และ licences ที่ต้องใช้, Product statement, แผนพัฒนา15งาน และ machine contracts สำหรับ dev/coding agent **Product version เป็น 1.5** และ handoff เป็น 1.5.0 รุ่นนี้ย่อ navigation มือถือและเปลี่ยน chrome ตามธีม เพิ่ม icon ประจำ 8 รูปแบบ แสดง percentile ด้วยกลุ่มบนประเทศและแถบ 0–100 พร้อมรายละเอียด และตั้งความหมาย Yolk/ไข่แดงให้ตรงกับ confirmed-high Demand ทั้ง UI/Map ใช้ชื่อ “ทำเลจำลอง” โดยไม่เปลี่ยน boundary type/IDs/joins สูตร Tier และน้ำหนักยังใช้ v1.4
 
-เริ่มจาก [START_HERE](START_HERE.md) → [Product statement](CityMETER_Yolk_Product_Statement_v1.4.md) → [Implementation plan](IMPLEMENTATION_PLAN_v1.4.md) → [task JSON](contracts/implementation-tasks.v1.4.json) Runtime commit/hash และสถานะเผยแพร่ให้ยึด [release manifest](contracts/release.v1.4.0.json) ไม่เดาจากชื่อ zip หรือข้อความรุ่นในหน้าเว็บ
+เริ่มจาก [START_HERE](START_HERE.md) → [Product statement](CityMETER_Yolk_Product_Statement_v1.5.md) → [Implementation plan](IMPLEMENTATION_PLAN_v1.5.md) → [task JSON](contracts/implementation-tasks.v1.5.json) Runtime commit/hash และสถานะเผยแพร่ให้ยึด [release manifest](contracts/release.v1.5.0.json) ไม่เดาจากชื่อ zip หรือข้อความรุ่นในหน้าเว็บ
 
 ## ทดลองอะไรได้
 
@@ -28,9 +28,9 @@ release_manifest: contracts/release.v1.4.0.json
 
 ## Asset และ source contract
 
-- [Asset index](ASSET_INDEX_v1.4.md), [runtime asset manifest](contracts/assets.v1.4.json), [DS manifest](contracts/ds-assets.v1.4.json) และ [DS integration](DS_ASSET_INTEGRATION.md) ระบุไฟล์ บทบาทและ hash ที่ต้องเชื่อมจริง
-- สี/ฟอนต์ canonical LDS0.9.4 คง bytes เดิม Product CSS/JS และ [icon extension](contracts/icons.v1.3.json) มี provenance แยก ไม่อ้างว่าแก้ canonical DS
-- Logo ใช้ภาพโปร่งใสเดิมในทุกธีม วางบน sidebar/header ทั้งแถบที่ใช้ DS beige ไม่มี card/frame/plate และไม่ recolour/crop ภาพ ดู [web identity](contracts/web-identity.v1.4.json) สำหรับ favicon และภาพแชร์ ไม่มี motif ที่ต้องนำกลับไปติดตั้ง
+- [Asset index](ASSET_INDEX_v1.5.md), [runtime asset manifest](contracts/assets.v1.5.json), [DS manifest](contracts/ds-assets.v1.5.json) และ [DS integration](DS_ASSET_INTEGRATION.md) ระบุไฟล์ บทบาทและ hash ที่ต้องเชื่อมจริง
+- สี/ฟอนต์ canonical LDS0.9.4 คง bytes เดิม Product CSS/JS และ [icon extension](contracts/icons.v1.5.json) มี provenance แยก ไม่อ้างว่าแก้ canonical DS
+- Logo ใช้ภาพโปร่งใสเดิมในทุกธีม วางตรงบน sidebar จอใหญ่และในเมนูมือถือ พื้น chrome ใช้สีตามธีม ไม่มี card/frame/plate หรือแถบ beige บังคับในธีมมืด ไม่ recolour/crop/invert ภาพ ดู [web identity](contracts/web-identity.v1.5.json) สำหรับ favicon และภาพแชร์ ไม่มี motif ที่ต้องนำกลับไปติดตั้ง
 - Full-resolution source logo ไม่รวมใน runtime; เก็บ lineage ใน [projection receipt](evidence/logo-web-projection-v12.json) และ DS receipt
 - Production ต้องใช้ private SourceRelease ที่อนุมัติแล้ว, geometry/crosswalk/coverage ตรวจแล้ว และ server-side permissions ขอบเขตต้องเป็น Polygon/MultiPolygon จริง; bbox จัดกล้องอย่างเดียว `source` ไม่เท่ากับ `verified`
 
@@ -44,12 +44,12 @@ release_manifest: contracts/release.v1.4.0.json
 
 **สถานะ `ready_with_open_manual_gate`** Source/VM/controller และไฟล์เผยแพร่ตรวจได้ด้วย scripts ใน [START_HERE](START_HERE.md) ส่วน browser visual/device QA ยังเปิดอยู่จาก automatic approval review ที่บล็อกขั้นตอนเดิมไว้ ผล hash หรือ Node VM ไม่ทดแทนการดูหน้าจอจริง
 
-ต้องตรวจต่อบน actual build: TH/EN, light/dark/system, 320/390/768/1440px, 200% text zoom, keyboard/touch, map network errors, photo orientation/storage recovery และ font/logo/icon rendering แนบหลักฐานก่อนเปลี่ยน gate เป็น passed ไม่สร้าง screenshot หรือผลตรวจขึ้นเอง
+ต้องตรวจต่อบน actual build: TH/EN, light/dark/system, 320/390/768/1440px, 200% text zoom, keyboard/touch, map network errors, photo orientation/storage recovery และ font/logo/icon rendering, mobile menu/safe-area, percentile disclosure และ map-scope semantics แนบหลักฐานก่อนเปลี่ยน gate เป็น passed ไม่สร้าง screenshot หรือผลตรวจขึ้นเอง
 
-GitHub Pages deploy `prototype/` จาก main ตาม workflow หลัง automated checks ผ่าน คง `noindex` สำหรับ illustrative preview ดู [release manifest](contracts/release.v1.4.0.json) สำหรับ identity ของ runtime และ [QA record](evidence/qa-v1.4.json) สำหรับขอบเขตหลักฐานเดิม
+GitHub Pages deploy `prototype/` จาก main ตาม workflow หลัง automated checks ผ่าน คง `noindex` สำหรับ illustrative preview ดู [release manifest](contracts/release.v1.5.0.json) สำหรับ identity ของ runtime และ [QA record](evidence/qa-v1.5.json) สำหรับขอบเขตหลักฐานเดิม
 
 ## เริ่มพัฒนาจริง
 
-Task00 สำรวจระบบเดิม CityMETER และสร้าง path/command mapping, contracts, CI และ permission foundation ก่อน จากนั้น task01–02 ทำ private data gate และ geography งานที่เป็นอิสระใน [DAG](contracts/implementation-tasks.v1.4.json) จึงค่อยทำขนาน ทุกงานต้องส่ง changed files, tests, acceptance evidence และสิ่งที่ยังเปิดอยู่
+Task00 สำรวจระบบเดิม CityMETER และสร้าง path/command mapping, contracts, CI และ permission foundation ก่อน จากนั้น task01–02 ทำ private data gate และ geography งานที่เป็นอิสระใน [DAG](contracts/implementation-tasks.v1.5.json) จึงค่อยทำขนาน ทุกงานต้องส่ง changed files, tests, acceptance evidence และสิ่งที่ยังเปิดอยู่
 
 Public CI ใช้ synthetic fixtures; backend commands ที่เสนอในแผนยังต้องสร้าง ไม่ publish ข้อมูลจริงเข้าชุดนี้ และไม่ตีความคะแนน/ดาวว่าเป็นยอดขายหรือความเป็นไปได้ของแปลงที่ดิน การคัดพื้นที่/corridor มาก่อนการศึกษารายแปลง ส่วน transaction/member calibration เป็น private track ภายหลัง

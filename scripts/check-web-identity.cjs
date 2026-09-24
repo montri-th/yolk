@@ -2,7 +2,7 @@
 'use strict';
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert');
 const root=path.resolve(__dirname,'..');
-const contract=JSON.parse(fs.readFileSync(path.join(root,'contracts/web-identity.v1.4.json')));
+const contract=JSON.parse(fs.readFileSync(path.join(root,'contracts/web-identity.v1.5.json')));
 const html=fs.readFileSync(path.join(root,'prototype/index.html'),'utf8');
 const hash=data=>crypto.createHash('sha256').update(data).digest('hex');
 let checks=0;

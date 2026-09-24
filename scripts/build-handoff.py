@@ -12,8 +12,8 @@ import re
 import zipfile
 from pathlib import Path, PurePosixPath
 
-VERSION = "1.4.0"
-ZIP_ROOT = "CityMETER-Yolk-v1.4.0"
+VERSION = "1.5.0"
+ZIP_ROOT = "CityMETER-Yolk-v1.5.0"
 SELF_FILES = {"handoff-manifest.json", "SHA256SUMS.txt"}
 SKIP_DIRS = {".git", ".cache", "__pycache__", "node_modules", ".venv", "venv", ".pytest_cache", ".mypy_cache", "coverage"}
 SKIP_NAMES = {".DS_Store", "Thumbs.db"}
@@ -97,7 +97,7 @@ def build_manifest(root, files):
     return {
         "schemaVersion":1,
         "version":VERSION,
-        "workObject":"CityMETER: Yolk v1.4.0 public synthetic web preview and developer handoff",
+        "workObject":"CityMETER: Yolk v1.5.0 public synthetic web preview and developer handoff",
         "source":{"kind":"directory", "identity":"Yolk public synthetic edition; private operational data is not distributed"},
         "artifacts":artifacts,
         "routes":["/", "/#market", "/#targets", "/#criteria", "/#supply", "/#feed", "/#inbox", "/#team", "/#place/demo-area-001", "/#poi/new"],
@@ -106,15 +106,15 @@ def build_manifest(root, files):
         "dependencies":["prototype/assets/", "prototype/data/", "prototype/vendor/leaflet-1.9.4/", "Landometer DS 0.9.4-r2 / v0.9.4-mp1"],
         "claims":[
             {"claim":"Artifact hashes and byte sizes are computed from the files in this package", "status":"verified", "evidence":"scripts/verify-handoff.py"},
-            {"claim":"Public preview has synthetic area/POI fixtures and is not an operational market assessment", "status":"supplied", "evidence":"CityMETER_Yolk_Product_Statement_v1.4.md"},
-            {"claim":"Production authentication, data services and shared collaboration are implementation work", "status":"proposed", "evidence":"IMPLEMENTATION_PLAN_v1.4.md"},
+            {"claim":"Public preview has synthetic area/POI fixtures and is not an operational market assessment", "status":"supplied", "evidence":"CityMETER_Yolk_Product_Statement_v1.5.md"},
+            {"claim":"Production authentication, data services and shared collaboration are implementation work", "status":"proposed", "evidence":"IMPLEMENTATION_PLAN_v1.5.md"},
             {"claim":"Rendered responsive TH/EN UI is visually verified", "status":"unresolved", "evidence":"HANDOFF.md"}
         ],
         "gates":[
             {"gate":"Package inventory and SHA-256 consistency", "status":"passed", "owner":"release operator", "evidence":"scripts/verify-handoff.py"},
             {"gate":"Browser responsive, bilingual, theme and interaction review", "status":"open", "owner":"Yolk frontend and QA", "evidence":"HANDOFF.md"},
-            {"gate":"Public release commit and external web verification", "status":"open", "owner":"release operator", "evidence":"contracts/release.v1.4.0.json"},
-            {"gate":"Approved production data, permissions and identity role review", "status":"open", "owner":"data and product owners", "evidence":"IMPLEMENTATION_PLAN_v1.4.md"}
+            {"gate":"Public release commit and external web verification", "status":"open", "owner":"release operator", "evidence":"contracts/release.v1.5.0.json"},
+            {"gate":"Approved production data, permissions and identity role review", "status":"open", "owner":"data and product owners", "evidence":"IMPLEMENTATION_PLAN_v1.5.md"}
         ],
         "distribution":{"zipRoot":ZIP_ROOT, "dataPolicy":"public_synthetic_only", "motifsEnabled":False, "manifestSelfHashExcluded":True, "checksumIndex":"SHA256SUMS.txt", "checksumIndexIncludesManifest":True},
         "delivery":{"status":"prepared", "recipient":"Yolk development team", "channel":"public GitHub repository montri-th/yolk", "evidence":"HANDOFF.md", "acknowledgmentEvidence":None}

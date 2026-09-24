@@ -1,19 +1,9 @@
-/* Yolk v1.4 identity placement. Native art, unchanged, directly on the
-   full existing navigation/header surfaces. No logo plate or motif. */
+/* Yolk v1.5 shell. Native logo bytes stay unchanged and unframed.
+   The navigation follows the selected theme; controls live in a normal menu. */
 #sidebar, #header {
-  --ink: var(--ldm-foundation-text-primary-light);
-  --muted: var(--ldm-foundation-text-secondary-light);
-  --paper: var(--ldm-foundation-surface-canvas-light);
-  --soft: var(--ldm-foundation-surface-soft-light);
-  --line: var(--ldm-foundation-border-default-light);
-  --accent: var(--ldm-foundation-interaction-accent-light);
-  --yl-meta: var(--ldm-foundation-text-metadata-light);
-  --yl-focus: var(--ldm-foundation-interaction-focus-ring-light);
-  --yl-brand-wordmark: var(--ldm-brand-blue);
-  --yl-on-accent: var(--ldm-foundation-text-primary-dark);
-  background: var(--ldm-brand-beige);
+  background: var(--canvas);
   color: var(--ink);
-  color-scheme: light;
+  color-scheme: inherit;
 }
 .landometer-identity-img,
 :root[data-theme="dark"] .landometer-identity-img {
@@ -25,13 +15,136 @@
 .landometer-identity-text,
 :root[data-theme="dark"] .landometer-identity-text { display: none; }
 .sidebar-identity { margin: 0 0 28px; }
-.header-identity { width: 156px; margin: 0; flex: 0 0 auto; }
-#header > .header-identity { width: 156px; }
-@media (max-width: 649px) {
-  #header > .header-identity { width: 142px; }
-  #header .compact-brand { display: block; padding-top: 0; font-size: 24px; }
+.header-identity { width: 164px; margin: 0 0 20px; }
+#header {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  min-height: 76px;
+  gap: 12px;
+  padding: 10px 16px;
+  z-index: 20;
 }
-@media (min-width: 1100px) {
-  #header > .header-identity,
-  :root[data-theme="dark"] #header > .header-identity { display: none; }
+#header .compact-brand {
+  display: block;
+  padding: 0;
+  min-width: 0;
+  font-size: 28px;
+  line-height: 1.15;
+  color: var(--yl-yolk-accent, var(--yl-brand-wordmark));
+}
+#header .compact-brand span {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+#header .header-tools {
+  display: flex;
+  flex: 0 0 auto;
+  flex-basis: auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-inline-start: auto;
+}
+#header .shell-action {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  min-width: 48px;
+  min-height: 48px;
+  margin: 0;
+  padding: 4px 7px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+#header .shell-action:hover, #header .header-settings[open] > summary { background: var(--soft); }
+#header .shell-action:focus-visible { outline: 2px solid var(--yl-focus); outline-offset: 3px; }
+#header .shell-action .yl-icon { margin: 0; font-size: 24px; }
+.shell-action-label { font: 600 12px/1.4 'Bai Jamjuree', sans-serif; white-space: nowrap; }
+#header .count-badge { position: absolute; top: -2px; right: -2px; margin: 0; font-size: 11px; min-width: 18px; height: 18px; }
+.header-settings { position: relative; }
+.header-settings > summary::-webkit-details-marker { display: none; }
+.header-menu-panel {
+  position: absolute;
+  inset: calc(100% + 14px) 0 auto auto;
+  width: min(328px, calc(100vw - 32px));
+  max-height: calc(100dvh - 176px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 12px 24px #00000026;
+  z-index: 30;
+}
+.header-menu-title { font-size: 20px; line-height: 1.4; }
+.header-menu-note { margin: -10px 0 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.header-menu-panel .theme-control {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+.header-menu-panel .theme-label {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  font-size: 16px;
+  color: var(--ink);
+}
+.header-menu-panel .theme-control select {
+  width: 132px;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 16px;
+}
+.header-menu-language { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.header-menu-language .language-toggle { min-height: 44px; font-size: 16px; padding: 8px 16px; border-radius: 8px; }
+.header-menu-panel .person-selector { display: grid; gap: 8px; width: 100%; margin: 0; text-align: start; font-size: 16px; }
+.header-menu-panel .person-selector select {
+  width: 100%;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+}
+.header-team-link { display: flex; align-items: center; min-height: 44px; gap: 8px; color: var(--accent); font-size: 16px; text-decoration: none; }
+#mobile-nav { min-height: 68px; padding-block: 6px max(6px,env(safe-area-inset-bottom)); }
+#mobile-nav a { min-height: 52px; border-radius: 10px; font-size: 12px; line-height: 1.4; white-space: nowrap; padding: 4px 2px; }
+#mobile-nav a.active { background: var(--soft); color: var(--yl-yolk-accent, var(--accent)); }
+@media(min-width: 650px) {
+  #header { padding-inline: 28px; }
+  #header .shell-action { flex-direction: row; gap: 7px; padding-inline: 12px; }
+  .shell-action-label { font-size: 15px; }
+}
+@media(min-width: 1100px) {
+  #header { min-height: 76px; padding-inline: 32px; }
+  #header .compact-brand { display: none; }
+  #header .crumb { min-width: 0; flex-wrap: wrap; gap: 4px 10px; }
 }

@@ -1,0 +1,93 @@
+{
+  "product_version": "1.5",
+  "handoff_revision": "1.5.0",
+  "checked_at": "2026-09-24T16:51:36.836056+00:00",
+  "scope": "Source, Node VM/controllers, data invariants and exact assets. No rendered browser claim.",
+  "checks": [
+    {
+      "command": "node scripts/check-public-runtime.cjs",
+      "status": "passed",
+      "output": "{\"renderRoutes\":36,\"passed\":36,\"model\":{\"areas\":308,\"eligible\":73,\"provinces\":51,\"patterns\":8}}",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-theme-runtime.cjs",
+      "status": "passed",
+      "output": "PASS default follows system light\nPASS default follows system dark\nPASS explicit light wins over OS dark\nPASS persist dark choice and color scheme\nPASS system listener follows OS changes\nPASS explicit choice ignores OS changes\nPASS storage changes sync tabs\nPASS corrupt setting falls back to system\nPASS blocked storage retains current-session control\nPASS TH and EN selector expose all three preferences\nPASS delegated selector works after each app render\nPASS system preference returns to current OS\n12 source/controller checks passed; no browser/render claims.",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-photo-runtime.cjs",
+      "status": "passed",
+      "output": "{\"passed\":28,\"scope\":\"Node state/permission/storage/file-header checks; browser image decode and visual QA not exercised\"}",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-map-runtime.cjs",
+      "status": "passed",
+      "output": "{\n  \"status\": \"passed\",\n  \"contractAssertions\": 2493,\n  \"syntheticAreas\": 308,\n  \"lifecycleAssertions\": 24,\n  \"appIntegrationAssertions\": 15,\n  \"browserVisualQA\": \"not performed\"\n}",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-photo-form.cjs",
+      "status": "passed",
+      "output": "{\"passed\":27,\"scope\":\"Actual async app submit + model + photo module in Node VM; local stores mocked; no browser or image decode\"}",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-brand-identity.cjs",
+      "status": "passed",
+      "output": "PASS rejected plate wrapper and CSS are absent\nPASS native transparent logo bytes remain unchanged\nPASS desktop and mobile use the native logo directly on the existing layout surface\nPASS native identity is prominent and governed-text fallback is removed\nPASS native image is not painted, framed, filtered or padded\nPASS identity layout regions do not recreate the white frame\nPASS navigation follows the selected theme without a beige dark-mode override\nPASS all motifs are excluded from app markup and shipped assets\nPASS supplemental icon source, font and licence hashes match their declared scope\nPASS requested icon glyphs, contract and runtime allowlist agree\nPASS navigation and header icons retain meaningful TH/EN text labels\nPASS icons keep their own font namespace and remain hidden until loaded\n12 brand/icon source checks passed; configured glyph coverage is not rendered shaping. Browser/device QA remains open.",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-icons.cjs",
+      "status": "passed",
+      "output": "Icon contract passed: 37 allowed icon names, WOFF2/receipt/license hashes, supported names, safe fallback and decoration idempotency. Visual gate remains open.",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-ranking-v1.4.cjs",
+      "status": "passed",
+      "output": "{\"suite\":\"ranking-v1.4\",\"checks\":37,\"passed\":37,\"prototype\":\"prototype\",\"evidence\":\"source/VM model, not rendered browser QA\"}",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-decisions-v1.4.cjs",
+      "status": "passed",
+      "output": "{\"suite\":\"decisions-v1.4\",\"checks\":55,\"passed\":55,\"evidence\":\"VM/source integration; browser visual and accessibility QA remain separate\"}",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-web-identity.cjs",
+      "status": "passed",
+      "output": "PASS asset bytes, PNG dimensions and provenance match the current role contract\nPASS all favicons and the app manifest resolve locally with content revisions\nPASS initial HTML delivers truthful product-level social preview metadata\nPASS share output binds full native art and exact DS font sources\n4 identity/metadata checks passed. Browser, install and share-crawler rendering remain unverified.",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-shell-v1.5.cjs",
+      "status": "passed",
+      "output": "PASS th shell keeps controls discoverable inside a native disclosure\nPASS en shell keeps controls discoverable inside a native disclosure\nPASS same-page user/criteria renders preserve the open settings disclosure\nPASS language rerender keeps its menu and restores focus to the replacement control\nPASS all five mobile destinations show their current state\nPASS header remains one row and menu bounds avoid horizontal overflow by construction\nPASS outside pointer closes the disclosure without stealing focus\nPASS inside pointer preserves controls in the open disclosure\nPASS Escape closes and returns focus to the native summary\nPASS other keys do not collapse the disclosure\nPASS navigation closes the disclosure\n11 shell source/controller checks passed; device layout and contrast inspection remain open.",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-patterns-v1.5.cjs",
+      "status": "passed",
+      "output": "{\"suite\":\"patterns-v1.5\",\"checks\":127,\"passed\":127,\"evidence\":\"VM/source semantics only; rendered font shaping and device layout remain open\"}",
+      "error": null
+    },
+    {
+      "command": "node scripts/check-yolk-v1.5.cjs",
+      "status": "passed",
+      "output": "PASS national map retains all 77 administrative outlines\nPASS default map scope includes confirmed high Demand that also passes team criteria\nPASS low Demand never receives Yolk fill even when it is eligible or scores 100\nPASS uncertainty is shown only when no visible Yolk is confirmed in that province\nPASS all scope adds excluded confirmed Yolks without admitting false or unresolved Demand\nPASS th province labels distinguish visible Yolks from team eligibility\nPASS en province labels distinguish visible Yolks from team eligibility\nPASS default map radio agrees with preferred scope semantics\nPASS changing map scope is view-only: no rank, membership, criteria, target or activity changes\nPASS invalid scope falls back to preferred and does not persist a workspace change\nPASS th Yolk badge requires literal true and keeps a readable label\nPASS th local map marks only confirmed high Demand and keeps plain-language context\nPASS th map legend explains gold, uncertainty and unchanged list scope\nPASS en Yolk badge requires literal true and keeps a readable label\nPASS en local map marks only confirmed high Demand and keeps plain-language context\nPASS en map legend explains gold, uncertainty and unchanged list scope\nPASS gold map ramp and badge styling have separate light/dark roles, not legacy heat fill\nPASS all 308 synthetic locations use the neutral TH/EN name without changing underlying data\n18 Yolk semantics/view/data checks passed. No visual, geometry, traffic or investment claims.",
+      "error": null
+    }
+  ],
+  "mechanical_ui_detector": {
+    "status": "passed",
+    "findings": []
+  },
+  "browser_visual_qa": "open; previous automatic approval review blocked browser QA, no alternate renderer used",
+  "real_device_qa": "open; updated native mobile layout not yet observed",
+  "share_crawler_qa": "open; product image unchanged from v1.4"
+}

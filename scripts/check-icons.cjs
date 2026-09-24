@@ -7,7 +7,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = p => fs.readFileSync(path.join(root, p));
 const hash = b => crypto.createHash('sha256').update(b).digest('hex');
-const manifest = JSON.parse(read('contracts/icons.v1.3.json'));
+const manifest = JSON.parse(read('contracts/icons.v1.5.json'));
 const source = read('prototype/icons.js').toString();
 const css = read('prototype/icons.css').toString();
 function context(fontResult) {
@@ -17,7 +17,7 @@ function context(fontResult) {
   return {api:sandbox.window.YolkIcons, classes};
 }
 (async () => {
-  assert.equal(manifest.glyphs.length,29);
+  assert.equal(manifest.glyphs.length,37);
   assert.deepEqual(manifest.axes,{FILL:0,wght:300,GRAD:0,opsz:24});
   for(const a of manifest.assets) {
     const b=read(a.path);assert.equal(b.length,a.bytes);assert.equal(hash(b),a.sha256);assert.equal(b.subarray(0,4).toString(),'wOF2');
@@ -27,7 +27,9 @@ function context(fontResult) {
   const ready=context(()=>Promise.resolve([{}]));
   assert.deepEqual(Array.from(ready.api.glyphs).sort(),manifest.glyphs.slice().sort());
   for(const n of manifest.glyphs) assert.match(ready.api.icon(n),new RegExp('aria-hidden="true".*>'+n+'</span>'));
-  for(const n of ['unknown','<img src=x>','constructor','__proto__','']) assert.equal(ready.api.icon(n),'');
+  for(const n of ['unknown','<img src=x>','constructor','__proto__','']) { assert.equal(ready.api.icon(n),'');assert.equal(ready.api.patternIcon(n),''); }
+  for(const [pattern,glyph] of Object.entries(manifest.pattern_mapping)) assert(ready.api.patternIcon(pattern).includes('data-yolk-glyph="'+glyph+'"'));
+  assert(ready.api.yolkIcon().includes('data-yolk-glyph="egg_alt"'));
   const el={inserted:0,getAttribute:()=> 'save',querySelector(){return this.inserted?{}:null},insertAdjacentHTML(pos,html){assert.equal(pos,'afterbegin');assert.match(html,/>save<\/span>/);this.inserted++}};
   const fakeRoot={querySelectorAll:()=>[el]};assert.equal(ready.api.decorate(fakeRoot),1);assert.equal(ready.api.decorate(fakeRoot),0);
   assert.equal(await ready.api.load(),true);assert(ready.classes.has('yolk-icons-ready'));
@@ -47,5 +49,5 @@ function context(fontResult) {
   assert(newPhotos.includes('data-yolk-glyph="add_photo_alternate"'));assert(newPhotos.includes('Add photo'));
   for(const n of ['photo','delete'])assert(samplePhotos.includes('data-yolk-glyph="'+n+'"'));
   assert(samplePhotos.includes('Set cover'));assert(samplePhotos.includes('Remove'));assert(!newPhotos.includes('＋'));
-  console.log('Icon contract passed: 29 allowed icon names, WOFF2/receipt/license hashes, supported names, safe fallback and decoration idempotency. Visual gate remains open.');
+  console.log('Icon contract passed: 37 allowed icon names, WOFF2/receipt/license hashes, supported names, safe fallback and decoration idempotency. Visual gate remains open.');
 })().catch(e=>{console.error(e);process.exitCode=1});

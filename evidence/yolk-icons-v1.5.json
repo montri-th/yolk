@@ -1,0 +1,102 @@
+{
+  "receipt_version": "yolk.icon-extension/1.0",
+  "artifact_version": "1.5",
+  "retrieved_at": "2026-09-24",
+  "purpose": "Memorable semantic icons for eight market patterns, Yolk demand cue and readable controls; visible labels remain. No motifs.",
+  "family": "Material Symbols Rounded",
+  "asset_role": "interface_icon",
+  "canonical_ds_package_mutated": false,
+  "selection_authority": {
+    "scope": "Yolk artifact-specific extension",
+    "basis": "Explicit user request to use meaningful DS-style icons and remove motifs; glyph selection by implementation",
+    "canonical_registry_amendment": false
+  },
+  "ds_rule": "Landometer 0.9.4 ICON-01",
+  "axes": {
+    "FILL": 0,
+    "wght": 300,
+    "GRAD": 0,
+    "opsz": 24
+  },
+  "glyphs": [
+    "ac_unit",
+    "add",
+    "add_photo_alternate",
+    "arrow_back",
+    "beach_access",
+    "bedtime",
+    "bookmark_add",
+    "bookmark_added",
+    "close",
+    "contrast",
+    "dark_mode",
+    "delete",
+    "edit",
+    "egg_alt",
+    "explore",
+    "fact_check",
+    "flag",
+    "groups",
+    "help",
+    "history",
+    "layers",
+    "light_mode",
+    "local_gas_station",
+    "location_on",
+    "map",
+    "menu",
+    "notifications",
+    "open_in_new",
+    "photo",
+    "potted_plant",
+    "satellite_alt",
+    "save",
+    "search",
+    "share",
+    "store",
+    "swords",
+    "tune"
+  ],
+  "sources": {
+    "documentation": "https://developers.google.com/fonts/docs/material_symbols",
+    "css_request": "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&icon_names=ac_unit,add,add_photo_alternate,arrow_back,beach_access,bedtime,bookmark_add,bookmark_added,close,contrast,dark_mode,delete,edit,egg_alt,explore,fact_check,flag,groups,help,history,layers,light_mode,local_gas_station,location_on,map,menu,notifications,open_in_new,photo,potted_plant,satellite_alt,save,search,share,store,swords,tune&display=block",
+    "font_response_url": "https://fonts.gstatic.com/l/font?kit=syl0-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjpZIvDmUSVOK7BDB_Qb9vUSzq3wzLK-P0J-V_Zs-QtQth3-jOcbTCVpeRL2w5rwZu2rNmlXxeRNMcDe81u7DANSS1DH1lE6hjYcjkbXcFSQKIX47en_KKJqPYql-f85REfMdSNLgo04_L3wviq3lAZi9L-ZVXgaHwveEUkvfnXeKK_ah2Lc5I2&skey=70ddea8fe54d532e&v=v375"
+  },
+  "asset": {
+    "path": "prototype/assets/material-symbols-rounded-yolk-300-v1.5.woff2",
+    "bytes": 6656,
+    "sha256": "c5b7e050e816964ebbbd3b0c43df6aefa4a3d4b181894620efd9385f84b1aedd",
+    "format": "woff2"
+  },
+  "licenseOrPermission": {
+    "spdx": "Apache-2.0",
+    "path": "prototype/assets/material-symbols-Apache-2.0.txt",
+    "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+  },
+  "fallback": "Keep visible text; hide decorative icon until font loads; unsupported icon names render no icon.",
+  "verification": {
+    "woff2_signature": true,
+    "requested_glyph_count": 37,
+    "source_axes": "static Google Fonts request",
+    "rendered_browser_gate": "open",
+    "all_requested_gsub_ligatures_present": true,
+    "font_family": "Material Symbols Rounded Light",
+    "font_weight": 300,
+    "provider_aliases_do_not_expand_allowlist": true
+  },
+  "pattern_mapping": {
+    "Crowded": "groups",
+    "FOMO": "flag",
+    "Our Farm": "potted_plant",
+    "Pioneer": "explore",
+    "Quiet": "bedtime",
+    "Their War": "swords",
+    "Our Island": "beach_access",
+    "Winter War": "ac_unit"
+  },
+  "yolk_glyph": "egg_alt",
+  "selection_notes": {
+    "Our Island": "beach_access is the supported beach/island association; an island glyph was absent in returned font and was rejected.",
+    "Yolk": "egg_alt is a semantic interface cue beside text, not a new logo, favicon, or brand motif. On analytical surfaces, highlight the area as Yolk only when demand===true."
+  }
+}

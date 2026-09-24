@@ -12,7 +12,7 @@ const app = read('app.js');
 const index = read('index.html').replace(/(\.(?:css|js))\?[^"]*(?=")/g,'$1');
 const iconContext = {};
 vm.runInNewContext(read('icons.js'), iconContext);
-const iconContract = JSON.parse(fs.readFileSync(path.join(root,'contracts/icons.v1.3.json'),'utf8'));
+const iconContract = JSON.parse(fs.readFileSync(path.join(root,'contracts/icons.v1.5.json'),'utf8'));
 const iconReceipt = JSON.parse(fs.readFileSync(path.join(root,iconContract.approvalReceiptRef),'utf8'));
 const cssFiles = ['base.css', 'yolk.css', 'experience.css', 'identity.css'];
 const css = cssFiles.map(file => ({file, text:read(file)}));
@@ -100,7 +100,7 @@ check('desktop and mobile use the native logo directly on the existing layout su
     assert.equal(image.attrs.height,'244');
     assert(!image.attrs.style,'native logo must not carry inline paint/filter styles');
     assert(hasClass(image, i < 2 ? 'sidebar-identity' : 'header-identity'), 'native image owns its placement class; do not add a frame wrapper');
-    assert.equal(image.parent.tag,'root','native logo must be a direct child of the existing sidebar/header surface');
+    assert(image.parent.tag==='root'||hasClass(image.parent,'header-menu-panel'),'native logo belongs directly to the sidebar or the normal settings menu; no logo-only carrier');
     assert(!ancestors(image).some(n=>hasClass(n,'brand-footer')||hasClass(n,'mobile-signature')), 'native logo must not be put inside a decorative blue panel');
   });
 });
@@ -138,15 +138,15 @@ check('identity layout regions do not recreate the white frame', () => {
     for(const prop of Object.keys(rule.declarations)) assert(!/^(?:background(?:-.+)?|border-radius|box-shadow|filter|backdrop-filter)$/.test(prop),`${rule.file}: ${rule.selector} adds a painted identity carrier`);
   }
 });
-check('both themes keep native logo on the full compatible navigation surfaces', () => {
+check('navigation follows the selected theme without a beige dark-mode override', () => {
   const dark=rules.filter(r=>/\[data-theme\s*=\s*["']?dark["']?\]/.test(r.selector));
   const latestImage=dark.filter(r=>/\.landometer-identity-img\b/.test(r.selector)).at(-1);
-  assert.equal(latestImage.declarations.display,'block','dark theme must show the unchanged native logo');
+  assert.equal(latestImage.declarations.display,'block','dark theme must keep native logo unchanged');
   for(const surface of ['#sidebar','#header']) {
-    const latest=rules.filter(r=>r.selector===surface).at(-1);
-    assert.equal(latest.declarations.background,'var(--ldm-brand-beige)');
-    assert.equal(latest.declarations['--ink'],'var(--ldm-foundation-text-primary-light)');
-    assert.equal(latest.declarations['color-scheme'],'light');
+    const declarations=Object.assign({},...rules.filter(r=>r.file==='identity.css'&&r.selector===surface).map(r=>r.declarations));
+    assert.equal(declarations.background,'var(--canvas)');
+    assert.equal(declarations['color-scheme'],'inherit');
+    assert(!declarations['--ink'],'navigation must inherit the active theme foreground');
   }
   assert(index.includes('href="identity.css"'));
   assert(index.indexOf('href="identity.css"')>index.indexOf('href="experience.css"'));
@@ -177,7 +177,7 @@ check('supplemental icon source, font and licence hashes match their declared sc
 });
 check('requested icon glyphs, contract and runtime allowlist agree', () => {
   const declared=[...iconContract.glyphs].sort();
-  assert.equal(new Set(declared).size,29);
+  assert.equal(new Set(declared).size,37);
   assert.deepEqual([...iconContext.YolkIcons.glyphs].sort(),declared);
   assert.deepEqual([...iconReceipt.glyphs].sort(),declared);
   assert.deepEqual(Object.fromEntries(Object.entries(iconContract.axes)),{FILL:0,wght:300,GRAD:0,opsz:24});
@@ -199,7 +199,7 @@ check('navigation and header icons retain meaningful TH/EN text labels', () => {
     for(const icon of nodes.filter(n=>hasClass(n,'yl-icon'))) {
       assert.equal(icon.attrs['aria-hidden'],'true');
       assert(iconContract.glyphs.includes(icon.attrs['data-yolk-glyph']));
-      const control=ancestors(icon).find(n=>['a','button','label'].includes(n.tag));
+      const control=ancestors(icon).find(n=>['a','button','label','summary'].includes(n.tag));
       assert(control,'header icon must belong to a labelled control');
       const raw=html.slice(control.start,control.end);
       const text=raw.replace(/<span\b[^>]*class="[^"]*yl-icon[^"]*"[^>]*>[\s\S]*?<\/span>/g,'').replace(/<[^>]*>/g,'').trim();
@@ -210,7 +210,7 @@ check('navigation and header icons retain meaningful TH/EN text labels', () => {
 check('icons keep their own font namespace and remain hidden until loaded', () => {
   const style=read('icons.css'),code=read('icons.js');
   assert(style.includes('font-family: "Yolk Material Symbols"'));
-  assert(style.includes('material-symbols-rounded-yolk-300-v1.3.woff2'));
+  assert(style.includes('material-symbols-rounded-yolk-300-v1.5.woff2'));
   assert(/\.yl-icon\s*\{[^}]*visibility:\s*hidden/s.test(style));
   assert(/\.yolk-icons-ready\s+\.yl-icon\s*\{\s*visibility:\s*visible/.test(style));
   assert(code.includes("doc.documentElement.classList.remove('yolk-icons-ready')"));

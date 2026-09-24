@@ -35,7 +35,7 @@ assert script_data.startswith("/* Synthetic public demo data")
 assert "window.YOLK_DEMO_DATA=" in script_data
 assert (ROOT / "prototype/index.html").read_text(encoding="utf-8").find('name="robots" content="noindex,nofollow"') >= 0
 
-manifest = json.loads((ROOT / "contracts/ds-assets.v1.4.json").read_text(encoding="utf-8"))
+manifest = json.loads((ROOT / "contracts/ds-assets.v1.5.json").read_text(encoding="utf-8"))
 runtime_assets = [a for a in manifest["assets"] if a["previewDistribution"] == "ship_with_preview"]
 for asset in runtime_assets:
     path = ROOT / asset["path"]

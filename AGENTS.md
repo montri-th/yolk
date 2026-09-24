@@ -1,14 +1,14 @@
 # Yolk developer instructions
 
-Scope: this repository only. These are development handoff rules for product v1.4 / handoff1.4.0, not permission to deploy, message customers, or import private data.
+Scope: this repository only. These are development handoff rules for product v1.5 / handoff1.5.0, not permission to deploy, message customers, or import private data.
 
 ## Read first
 
 1. `START_HERE.md`
-2. `CityMETER_Yolk_Product_Statement_v1.4.md` and `contracts/product.v1.4.json`
-3. `IMPLEMENTATION_PLAN_v1.4.md` and `contracts/implementation-tasks.v1.4.json`
+2. `CityMETER_Yolk_Product_Statement_v1.5.md` and `contracts/product.v1.5.json`
+3. `IMPLEMENTATION_PLAN_v1.5.md` and `contracts/implementation-tasks.v1.5.json`
 4. `contracts/criteria.v1.4.json`
-5. `ASSET_INDEX_v1.4.md`, `DS_ASSET_INTEGRATION.md`, `contracts/assets.v1.4.json`, `contracts/ds-assets.v1.4.json`, `contracts/icons.v1.3.json`
+5. `ASSET_INDEX_v1.5.md`, `DS_ASSET_INTEGRATION.md`, `contracts/assets.v1.5.json`, `contracts/ds-assets.v1.5.json`, `contracts/icons.v1.5.json`
 
 ## Work one bounded task at a time
 
@@ -31,11 +31,17 @@ Scope: this repository only. These are development handoff rules for product v1.
 - Missing weighted metrics retain weight as [0,100] contributions. U uses joint B/C allocations for score bounds. Stars and map score do not dictate weighted order. Zero metric weight changes ranking only, not Tier logic.
 - Preserve criteria drafts and saved values across locale/theme/reload; apply writes one event with mode/weights/Tier/pattern differences. Normalization of historical stored data creates no event.
 
+- Yolk means `demand === true`, not `eligible`. Gold and egg_alt identify confirmed high Demand only; they do not promise supply scarcity, traffic or sales.
+- Country map default preferred scope uses demand=true && eligible; all-Yolk scope uses demand=true. Province fill is the maximum known enabled signal percentile among those Yolk locations, never a percentile of the province. Scope is presentation-only and does not change ranking/criteria.
+- Synthetic display names are ทำเลจำลอง / Demo location. Preserve geographic metadata, IDs, and joins.
+- Use percentile band labels plus 0–100 meters and precise expandable details. Missing data is never a zero bar; no Top 0% at P100 and no rounded-value screening.
+
 ## UI and assets
 
 - Pin LDS0.9.4 and shipped hashes. Do not modify canonical asset bytes or invent logo variants.
-- No motifs in runtime or asset bundle. Use the unchanged native Landometer logo in every theme. The whole sidebar/header uses DS beige for contrast, not a logo frame/card/backing plate. Follow contracts/web-identity.v1.4.json for logo, favicon and public share metadata; no recolour/crop.
+- No motifs in runtime or asset bundle. Use the unchanged native Landometer logo in every theme. Chrome follows the active DS theme; dark mode must not have a large forced beige strip. Place the native logo directly on the desktop sidebar or mobile settings disclosure, never in a frame/card/backing plate. Do not invert or recolour it; raise a contrast issue if a verified reverse variant is needed. Follow contracts/web-identity.v1.5.json for logo, favicon and public share metadata; no recolour/crop.
 - Use the separately pinned Material Symbols Rounded product extension with meaningful text labels. Icons do not prove data verification; retain text fallback and accessible names.
+- Compact mobile header contains Yolk, inbox and a native accessible settings disclosure. Place theme/language/actor controls inside it; preserve bottom-navigation safe area and 44px targets.
 - Preserve TH/EN, mobile-first layout, light/dark/system, readable type and unsaved drafts. Keep synthetic/map-source/photo-mockup labels.
 - Map bbox is fit-only, never a substitute boundary. Preserve geometry status, POI coverage, basemap attribution and the satellite2021/10m note. No tile prefetch/offline bundle.
 - Branch photos: max5, staged drafts, private server media for production. Server validates and locks final count/revision; event payloads contain metadata IDs, not image bytes or signed URLs.
@@ -56,8 +62,11 @@ node scripts/check-icons.cjs
 node scripts/check-ranking-v1.4.cjs
 node scripts/check-decisions-v1.4.cjs
 node scripts/check-web-identity.cjs
+node scripts/check-shell-v1.5.cjs
+node scripts/check-patterns-v1.5.cjs
+node scripts/check-yolk-v1.5.cjs
 ```
 
 Local preview: `python3 -m http.server 8849 --bind 127.0.0.1`, then open `/prototype/`.
 
-These are source/VM/controller checks. Browser visual, real-device interaction, keyboard/touch and zoom QA remain open until observed on the actual build. Do not invent screenshots or mark a blocked/unperformed check passed. Use `contracts/release.v1.4.0.json` and handoff manifests to identify exact release evidence.
+These are source/VM/controller checks. Browser visual, real-device interaction, keyboard/touch and zoom QA remain open until observed on the actual build. Do not invent screenshots or mark a blocked/unperformed check passed. Use `contracts/release.v1.5.0.json` and handoff manifests to identify exact release evidence.

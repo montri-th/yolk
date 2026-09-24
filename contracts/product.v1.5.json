@@ -1,7 +1,7 @@
 {
-  "schema_version": "yolk.product/1.4",
-  "product_version": "1.4",
-  "handoff_revision": "1.4.0",
+  "schema_version": "yolk.product/1.5",
+  "product_version": "1.5",
+  "handoff_revision": "1.5.0",
   "name": "CityMETER: Yolk",
   "taglines": {
     "th": "หาไข่แดง ขยายตลาด",
@@ -12,10 +12,10 @@
   "which_competitor": "Existing spreadsheets, separate map layers and chat-based expansion workflow",
   "geography_contract": "contracts/geography-profile-default.json",
   "criteria_contract": "contracts/criteria.v1.4.json",
-  "tasks_contract": "contracts/implementation-tasks.v1.4.json",
+  "tasks_contract": "contracts/implementation-tasks.v1.5.json",
   "experience_contract": "contracts/experience.v1.3.json",
-  "assets_contract": "contracts/assets.v1.4.json",
-  "ds_contract": "contracts/ds-assets.v1.4.json",
+  "assets_contract": "contracts/assets.v1.5.json",
+  "ds_contract": "contracts/ds-assets.v1.5.json",
   "workspace_seats": {
     "admin": 1,
     "editor": 3,
@@ -33,166 +33,196 @@
   "default_theme": "system",
   "requirements": [
     {
+      "id": "REQ-YOLK-01",
+      "statement_markdown_th": "**REQ-YOLK-01 · ความหมายเดียวกันทั้งผลิตภัณฑ์:** **Yolk / ไข่แดง** คือทำเลที่สัญญาณ Demand ซึ่งเปิดใช้ยืนยันว่าอยู่ในระดับสูงตามเกณฑ์ปัจจุบัน (`demand === true`) ชื่อ Yolk ไม่ได้แปลว่ามี Supply ขาด หรือผ่าน shortlist เสมอไป ทำเล Crowded ก็เป็น Yolk ได้ แม้ทีมไม่เลือกรูปแบบนั้น และ Yolk Tier 3 ยังคงเป็น Yolk แม้ผู้ใช้เลือกศึกษาเฉพาะ Tier 1–2\n\nใช้คำ **“Yolk · ไข่แดง”** คู่คำอธิบาย **“ทำเลที่มี Demand สูง”** ใน overview, detail และคำอธิบายแผนที่ สีทองจาก DS และ icon `egg_alt` ช่วยจำความหมาย แต่ต้องมีข้อความกำกับเสมอ สีหรือ icon นี้ไม่สื่อว่าเป็นทำเลขายดีแน่นอน ไม่ใช่ข้อมูลรถผ่านที่วัดจริง และไม่ใช่คำแนะนำให้เปิดสาขาทันที\n\n```mermaid\nflowchart LR\n  A[สัญญาณอาคารและกิจกรรม] --> B{ยืนยัน Demand สูงได้หรือไม่}\n  B -->|ได้| C[Yolk / ไข่แดง]\n  B -->|ไม่ได้เพราะต่ำ| D[ยังไม่เข้าเกณฑ์ไข่แดง]\n  B -->|ข้อมูลไม่พอ| E[รอตรวจ Demand]\n  C --> F[คัด Tier และรูปแบบตลาดที่ทีมสนใจ]\n  F --> G[จัดอันดับด้วยน้ำหนัก]\n  G --> H[สำรวจ Supply ตำแหน่งและที่ดินต่อ]\n```",
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 102
+    },
+    {
       "id": "REQ-GEO-01",
       "statement_markdown_th": "**REQ-GEO-01 · หน่วยตั้งต้น:** กทม. ใช้ **แขวง** ต่างจังหวัดใช้ **อปท.ระดับพื้นที่ที่ตรวจขอบเขตแล้ว** เช่น เทศบาล/อบต./รูปแบบพิเศษที่เข้าเงื่อนไข ไม่ใช้ อบจ. มารวมกับหน่วยย่อยที่ทับซ้อน จังหวัดเป็นชั้นภาพรวมและใช้กรองรายการ\n\nฐาน percentile เป็น **กลุ่มหน่วยพื้นที่ทั่วประเทศเดียวกันในรอบข้อมูลนั้น** แต่ละ metric ใช้ค่าที่มีข้อมูลจริง ข้อมูลขาดไม่แทนด้วยศูนย์ อัตราต่อคน/ต่อพื้นที่ต้องมีตัวหารที่ถูกหน่วยและมากกว่าศูนย์ ทุกผลผูกกับขอบเขต ช่วงข้อมูล และวิธี crosswalk ที่ระบุเวอร์ชัน\n\nแนวคิดคัด อปท. จากรายได้/รายได้ต่อคน/รายได้ต่อพื้นที่เป็นสมมติฐานจากช่วงก่อนหน้า **เกณฑ์ตั้งต้นปัจจุบันใช้อาคารและกิจกรรมชุดเดียวกันทั่วประเทศ** ไม่ผสมรายได้ อปท. กลับเข้ามาโดยอัตโนมัติ",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 102
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 119
     },
     {
       "id": "REQ-GEO-02",
       "statement_markdown_th": "**REQ-GEO-02 · เปลี่ยนขอบเขต:** รองรับจังหวัด อำเภอ ตำบล อปท. custom polygon และช่วงถนนในลำดับพัฒนาถัดไป ต้อง aggregate ค่าดิบและสร้าง benchmark ใหม่ตามหน่วยนั้น ห้ามเฉลี่ย percentile เดิมเป็น percentile ของพื้นที่ใหม่ และห้ามเอา custom areas ที่ทับซ้อนกันแทรกในฐานประเทศโดยไม่มีกติกา\n\nLocale Insight ใช้เป็นบริบทเพื่อวางแผนและตั้งคำถามได้ หลังเชื่อม `locale_id` กับพื้นที่วิเคราะห์แล้ว ไม่ใช้แทนประชากรทางการ ขอบเขตทางการ หรือหลักฐานว่าคนเดินทางตามพฤติกรรมใดจริง ดู [geography contract](contracts/geography-profile-default.json)",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 108
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 125
+    },
+    {
+      "id": "REQ-DEMO-01",
+      "statement_markdown_th": "**REQ-DEMO-01 · ชื่อทำเลจำลอง:** ทุกชื่อพื้นที่สังเคราะห์ที่ผู้ใช้เห็นใช้ **“ทำเลจำลอง” / “Demo location”** ตามด้วยหมายเลขหรือรหัสที่อ่านได้ ไม่เรียกชื่อเป็น “แขวงจำลอง” หรือ “อปท.จำลอง” แต่ยังคง `boundary_type`, stable ID, จังหวัด และ geographic profile ไว้ในข้อมูลและช่อง metadata ชื่อที่อ่านง่ายไม่ใช่การเปลี่ยนชนิดขอบเขต ไม่รวมพื้นที่ใหม่ ไม่เปลี่ยน cohort และไม่ทำให้การเชื่อม branch/shortlist เสีย",
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 129
     },
     {
       "id": "REQ-DEM-01",
       "statement_markdown_th": "**REQ-DEM-01 · สัญญาณอาคาร 3 ค่า**\n\n| Metric ID | ค่า | หน่วย |\n|---|---|---|\n| `gfa` | พื้นที่อาคารรวม | ตร.ม. |\n| `gfa_per_person` | พื้นที่อาคารต่อประชากร | ตร.ม./คน |\n| `gfa_per_km2` | พื้นที่อาคารต่อพื้นที่ | ตร.ม./ตร.กม. |\n\n| Tier | เกณฑ์อาคาร |\n|---|---|\n| 1 | ทั้ง 3 ค่า ≥ P99 |\n| 2 | ทั้ง 3 ค่า ≥ P95 และไม่เข้า Tier 1 |\n| 3 | อย่างน้อย 1 ค่า ≥ P95 และไม่เข้า Tier 1–2 |",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 114
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 133
     },
     {
       "id": "REQ-DEM-02",
       "statement_markdown_th": "**REQ-DEM-02 · สัญญาณกิจกรรม 6 ค่า**\n\n| Metric ID | ค่า | หน่วย |\n|---|---|---|\n| `factory_count` | จำนวนโรงงาน | แห่ง |\n| `factory_count_per_km2` | โรงงานต่อพื้นที่ | แห่ง/ตร.กม. |\n| `factory_workers` | แรงงานโรงงาน | คน |\n| `factory_workers_per_km2` | แรงงานโรงงานต่อพื้นที่ | คน/ตร.กม. |\n| `hotel_rooms` | ห้องพักโรงแรม | ห้อง |\n| `hotel_rooms_per_km2` | ห้องพักโรงแรมต่อพื้นที่ | ห้อง/ตร.กม. |\n\n| Tier | จำนวนค่าที่ ≥ P95 |\n|---|---|\n| 1 | 5–6 ค่า |\n| 2 | 3–4 ค่า |\n| 3 | 1–2 ค่า |\n\n**Demand สูง** เมื่อสัญญาณอาคาร **หรือ** กิจกรรมเข้า Tier 1/2/3 อย่างน้อยหนึ่งกลุ่ม Tier เป็นระดับตามเกณฑ์สัญญาณ; ไม่ใช่ระดับความแน่นอนของหลักฐานหรือคำรับรองยอดขาย เมื่อมีหลายกลุ่มผ่าน ใช้ **Tier ที่ยืนยันได้ดีที่สุด** เช่น อาคาร Tier 2 + กิจกรรม Tier 3 = ทำเล Tier 2",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 128
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 147
     },
     {
       "id": "REQ-DEM-03",
       "statement_markdown_th": "**REQ-DEM-03 · ปัจจัยเพิ่มเติม:** ผู้ใช้เปิด–ปิดกลุ่มและปรับ percentile/จำนวนข้อได้ ปัจจัยเพิ่มเติมปิดไว้โดยค่าเริ่มต้น หากเปิดแล้วผ่านอย่างน้อยหนึ่งข้อ กลุ่มเพิ่มเติมนับเป็น Tier 3 จึงช่วยให้ผ่านตัวกรอง “Tier 1–3” ได้ แต่ไม่ยกทำเลเป็น Tier 1/2 เอง\n\nพรีวิวมีประชากรและความหนาแน่นประชากรให้ทดลอง ส่วนโรงเรียนขนาดใหญ่ โรงพยาบาลขนาดใหญ่ เตียงโรงพยาบาล ที่พักเช่า ศูนย์การค้า และปริมาณรถผ่านเป็น catalogue ที่แสดงสถานะความพร้อม ต้องตรวจ source/นิยามขนาด/crosswalk ก่อนเปิดใช้ การมีชื่อ dataset ในเมนูไม่เท่ากับมีข้อมูลพร้อมคำนวณ",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 147
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 166
     },
     {
       "id": "REQ-TIER-01",
       "statement_markdown_th": "**REQ-TIER-01 · ใช้ Tier คัดจริง:** ในหมวด “รูปแบบทำเลที่สนใจ” ให้เลือก **Tier 1 เท่านั้น / Tier 1–2 / Tier 1–3** ค่าเริ่มต้น Tier 1–3 (`maxDemandTier=3`) ตัวกรองนี้ใช้กับทำเล Demand สูงเท่านั้น ทำเล Demand ต่ำไม่มี Tier; หากเปิดดู Demand ทุกระดับและเลือกรูปแบบตลาด Demand ต่ำไว้ ยังดูทำเลเหล่านั้นได้ตามปกติ\n\nTier ของกลุ่มที่ยืนยันได้แล้วนำมาใช้คัดได้ แม้ข้อมูลบางค่าขาด แต่ต้องแสดงข้อมูลที่ขาดและ Tier ที่ยังเป็นไปได้ หากยังยืนยันไม่ได้ว่าอยู่ภายใน Tier ที่เลือก ให้แยก “รอตรวจเพิ่ม” ออกจากรายการผ่าน การเปลี่ยน Tier ที่ยอมรับไม่เปลี่ยนนิยาม D มาก/น้อยหรือชื่อรูปแบบตลาดของพื้นที่เดิม",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 151
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 170
     },
     {
       "id": "REQ-SUP-01",
       "statement_markdown_th": "**REQ-SUP-01:** แยก B = สาขาเรา, C = สาขาคู่แข่ง และ U = รายการที่ยังระบุแบรนด์ไม่ได้ ค่าเริ่มต้น **B ≥ 3 เป็นมาก; C ≥ 3 เป็นมาก** ทีมปรับสองค่านี้แยกกันได้ ดัชนี `C/(B+α)` ยังไม่เปิดเป็นกติกาตั้งต้นในรุ่นนี้\n\nU อาจทำให้การจัดกลุ่ม B/C เปลี่ยน ระบบจึงตรวจผลที่เป็นไปได้และแสดง “รอตรวจเพิ่ม” ถ้ายังสรุปเป็นรูปแบบเดียวไม่ได้ ในระบบจริง **unknown brand** กับ **unbranded ที่ตรวจยืนยันแล้ว** ต้องเป็นคนละสถานะ; unbranded ที่ยืนยันแล้วเป็นกลุ่มสำหรับศึกษาการ acquire ได้โดยไม่ต้องเดาว่าเป็นสาขาใคร",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 157
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 176
     },
     {
       "id": "REQ-SUP-02",
       "statement_markdown_th": "**REQ-SUP-02:** เพิ่ม แก้ไข ตรวจยืนยัน เก็บเข้าคลัง และคืนรายการได้ พร้อมแบรนด์ ประเภทสาขา ทำเล พิกัด หลักฐาน และ custom fields ระบบเก็บ source เดิมแยกจากสิ่งที่ทีมแก้ การแก้ POI ไม่เปลี่ยนยอดรวม Supply ทันที ต้องตรวจสมาชิกพื้นที่ รายการซ้ำ ช่วงข้อมูล และกระทบยอดก่อนเผยแพร่ผลรอบใหม่",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 161
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 180
     },
     {
       "id": "REQ-PAT-01",
       "statement_markdown_th": "**REQ-PAT-01 · คัดแต่ละแบบอย่างไร:** D = Demand, C = คู่แข่ง, B = สาขาเรา ใช้เงื่อนไขด้านล่างตรงกันทุกหน้า ตัวเลขบนคำอธิบายต้องมาจากเกณฑ์ที่กำลังดู ไม่ hardcode ค่า 3 หลังผู้ใช้แก้ threshold\n\n| รูปแบบ | Demand (D) | คู่แข่ง (C) | สาขาเรา (B) | ความหมายสำหรับทีม | ดาวตั้งต้น |\n|---|---|---|---|---|---|\n| **Crowded** | มาก | มาก | มาก | ความต้องการเด่น และทั้งเรา/คู่แข่งมีสาขามาก | — |\n| **FOMO** | มาก | มาก | น้อย | ความต้องการเด่น คู่แข่งเข้าไปมาก แต่เรายังมีน้อย | ★★ |\n| **Our Farm** | มาก | น้อย | มาก | ความต้องการเด่น เรามีฐานสาขา ส่วนคู่แข่งยังน้อย | ★ |\n| **Pioneer** | มาก | น้อย | น้อย | ความต้องการเด่น แต่ทั้งเราและคู่แข่งยังมีสาขาน้อย | ★★★ |\n| **Quiet** | น้อย | น้อย | น้อย | ยังไม่พบสัญญาณ Demand สูง และสาขายังน้อยทั้งสองฝั่ง | — |\n| **Their War** | น้อย | มาก | น้อย | Demand ที่วัดยังไม่สูง คู่แข่งมีสาขามาก แต่เราน้อย | — |\n| **Our Island** | น้อย | น้อย | มาก | Demand ที่วัดยังไม่สูง เรามีสาขามาก แต่คู่แข่งน้อย | — |\n| **Winter War** | น้อย | มาก | มาก | Demand ที่วัดยังไม่สูง ขณะที่มีสาขามากทั้งสองฝั่ง | — |\n\n- **D มาก:** อย่างน้อยหนึ่งกลุ่ม Demand ที่เปิดใช้ผ่าน Tier 1/2/3; **D น้อย:** มีหลักฐานพอยืนยันว่าไม่มีสัญญาณที่เปิดใช้ผ่าน; ข้อมูลไม่พอคือ unknown\n- **C มาก / B มาก:** จำนวน ≥ threshold ของฝั่งนั้น; **น้อย:** จำนวน < threshold ค่าเริ่มต้นทั้งสองฝั่งคือ 3\n- เมื่อ D/C/B ยังไม่ชัด ให้แสดง “รอตรวจเพิ่ม” พร้อมรูปแบบที่เป็นไปได้ ไม่มีชื่อที่เก้า และไม่เดาให้เป็นหนึ่งในแปด",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 167
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 186
     },
     {
       "id": "REQ-PAT-02",
       "statement_markdown_th": "**REQ-PAT-02 · เลือกให้เข้าใจง่าย:** ใช้ checkbox จริง 8 ใบ แต่ละใบมีชื่อ คำอธิบาย และ D/C/B มาก–น้อยที่อ่านได้โดยไม่อาศัยสีอย่างเดียว เลือกค่าเริ่มต้น **Pioneer / FOMO / Our Farm** และ Demand สูง ตัวเลือก Demand ทุกระดับต้องอธิบายว่าช่วยดู 5 รูปแบบที่เหลือได้ ปรับชุดที่เลือกแล้วแสดงจำนวนทำเลผ่านและผลต่างก่อนกดใช้กับทีม\n\nดาวใช้สื่อสมมติฐานเดิมของธุรกิจน้ำมัน ไม่ใช่คำรับรองความน่าลงทุน ในโหมดจัดอันดับด้วยน้ำหนัก ดาว **ไม่บังคับลำดับ** Pioneer 3 ดาวจึงไม่จำเป็นต้องมาก่อน FOMO 2 ดาว หากคะแนนตามน้ำหนักของทีมต่ำกว่า",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 184
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 203
+    },
+    {
+      "id": "REQ-PAT-03",
+      "statement_markdown_th": "**REQ-PAT-03 · Icon ประจำรูปแบบ:** ใช้ icon จากชุด Material Symbols Rounded ที่พินตาม DS หนึ่งตัวต่อชื่อ ใช้ตัวเดียวกันใน selector, badge และตารางหน้าทำเล Icon เป็นเครื่องช่วยจำ; D/C/B มาก–น้อยและคำอธิบายเป็นข้อมูลที่ใช้ตัดสินใจจริง\n\n| รูปแบบ | Icon ID | สิ่งที่ช่วยจำ |\n|---|---|---|\n| Crowded | `groups` | ตลาดที่มีผู้เล่นหนาแน่น |\n| FOMO | `flag` | ตลาดที่ควรจับตา เพราะคู่แข่งเข้าไปมากแล้ว |\n| Our Farm | `potted_plant` | ฐานตลาดที่เรามีสาขามาก |\n| Pioneer | `explore` | สำรวจโอกาสที่สาขายังน้อย |\n| Quiet | `bedtime` | สัญญาณ Demand และสาขายังน้อย |\n| Their War | `swords` | คู่แข่งมีสาขามากในตลาด Demand ต่ำ |\n| Our Island | `beach_access` | เรามีสาขามาก ส่วนคู่แข่งน้อย |\n| Winter War | `ac_unit` | Demand ต่ำแต่สาขาหนาแน่นทั้งสองฝั่ง |\n\nGlyph ไม่เปลี่ยนชื่อรูปแบบหรือสูตรจำแนก ไม่ใช้ icon แทน label และไม่ทำให้สถานะยังไม่ทราบดูเหมือนยืนยันแล้ว",
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 207
     },
     {
       "id": "REQ-RANK-01",
       "statement_markdown_th": "**REQ-RANK-01 · คัดก่อน เรียงทีหลัง:** หน้าเกณฑ์มี 4 หมวดตามลำดับ **Demand → Supply → รูปแบบทำเลที่สนใจ → น้ำหนักจัดอันดับ** ส่วนแรกกำหนดข้อมูลและจุดตัด ส่วนรูปแบบทำเล/Tier กำหนดว่าจะเก็บทำเลใด ส่วน “น้ำหนักจัดอันดับ” กำหนดว่าทำเลที่ผ่านแล้วควรศึกษาที่ไหนก่อน เปลี่ยนน้ำหนักอย่างเดียวไม่ทำให้จำนวนทำเลผ่านเปลี่ยน\n\n```mermaid\nflowchart TD\n  A[ข้อมูลในฐานประเทศเดียวกัน] --> B[Demand: คำนวณ Tier และค่ารายสัญญาณ]\n  A --> C[Supply: แยก B / C / U]\n  B --> D[คัด: ระดับ Demand + Tier ที่รับ + รูปแบบทำเลที่เลือก]\n  C --> D\n  D --> E[รายการที่ผ่านเกณฑ์]\n  E --> F[เรียง: น้ำหนัก Demand + ช่องว่างสาขาเรา + ช่องว่างคู่แข่ง]\n  F --> G[อันดับพร้อมเหตุผลและข้อมูลที่ยังขาด]\n```\n\nค่าเริ่มต้นสำหรับ workspace ใหม่:\n\n| องค์ประกอบจัดอันดับ | น้ำหนัก | คะแนนสูงเมื่อ |\n|---|---:|---|\n| **Demand** | 70 | ตัวชี้วัดที่เปิดใช้มี percentile สูงในฐานประเทศ |\n| **ช่องว่างสาขาเรา** | 20 | จำนวนสาขาเราน้อย |\n| **ช่องว่างคู่แข่ง** | 10 | จำนวนสาขาคู่แข่งน้อย |\n\nภายใน Demand ให้น้ำหนักกลุ่มอาคาร 50 / กิจกรรม 50 ปัจจัยเพิ่มเติมเตรียมน้ำหนัก 50 แต่ไม่ร่วมคำนวณจนเปิดกลุ่มนั้น แต่ละตัวชี้วัดเริ่มน้ำหนัก 1 น้ำหนัก 0 จะตัดเฉพาะคะแนนของตัววัดนั้นออก โดยยังใช้เกณฑ์ Tier เดิม น้ำหนักเป็น **สัดส่วน** เช่น 70:20:10 กับ 7:2:1 ให้ผลเหมือนกัน สัญญาณที่ปิดไม่เข้าคะแนน ทั้งนี้กลุ่มกิจกรรมหลายตัวสัมพันธ์กัน จึงควรตรวจผลจริงก่อนอ้างว่าการให้น้ำหนักนี้เหมาะที่สุดกับธุรกิจ\n\nคะแนน Demand ใช้ percentile แบบ midrank ของ metric ที่เปิดอยู่ในกลุ่มนั้น ช่องว่าง Supply ใช้ `100 / (1 + จำนวนสาขา / threshold_มาก)` เป็น heuristic ที่อ่านง่ายและปรับน้ำหนักได้ ไม่ใช่อัตรากำลังรองรับของสถานีจริง ตัวเลขคะแนนเป็นตัวช่วยเปรียบเทียบในรอบวิเคราะห์เดียวกัน ไม่ใช่เปอร์เซ็นต์โอกาสขายดี",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 190
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 224
     },
     {
       "id": "REQ-RANK-02",
       "statement_markdown_th": "**REQ-RANK-02 · ไม่เพิ่มคะแนนเพราะข้อมูลขาด:** ตัววัดที่เปิดใช้แต่ข้อมูลขาดยังคงน้ำหนักไว้ ให้คะแนนเป็นช่วง 0–100 ตามน้ำหนักของตัวนั้น ไม่ตัดน้ำหนักทิ้งแล้วเฉลี่ยเฉพาะค่าที่เหลือ U ใช้การกระจายสาขาไป B/C ร่วมกันทุกกรณี เพื่อหาคะแนนต่ำสุด–สูงสุด เรียงรายการที่ผ่านด้วย **ขอบล่างคะแนนรวมมากก่อน → Tier ที่ยืนยันได้ดีที่สุด → ลำดับต้นทาง/ID ที่คงที่** พร้อมแสดงช่วงคะแนนเมื่อยังไม่แน่",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 215
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 249
     },
     {
       "id": "REQ-RANK-03",
       "statement_markdown_th": "**REQ-RANK-03 · รักษางานเดิม:** เกณฑ์ที่เคยบันทึกก่อน v1.4 คง `legacy` ordering จนทีมเลือกใช้ weighted ranking และกดใช้กับทีมอย่างชัดเจน หน้าจออธิบายโหมดที่ใช้อยู่; ห้ามสลับสูตรหรือแก้ shortlist เก่าเงียบ ๆ การเปลี่ยนโหมด น้ำหนัก Tier หรือรูปแบบที่รับ ต้องอยู่ใน diff, criteria version และ feed เช่นเดียวกับการเปลี่ยน threshold\n\n### Tier กับน้ำหนักทำหน้าที่ต่างกันอย่างไร\n\nตัวอย่างสมมติด้านล่างมีข้อมูลครบ U=0 ทั้งสองทำเลเป็น Pioneer และใช้ threshold สาขาเรา/คู่แข่งเท่ากับ 3 คะแนน Demand เป็นค่าหลังรวมสัญญาณแล้ว\n\n| ทำเลตัวอย่าง | Tier ที่ยืนยันได้ | Demand | B / C | ช่องว่างเรา / คู่แข่ง | คะแนน 70:20:10 | คะแนน 40:50:10 |\n|---|---:|---:|---|---|---:|---:|\n| A | 2 | 90 | 2 / 0 | 60 / 100 | **85.0** | 76.0 |\n| B | 3 | 80 | 0 / 1 | 100 / 75 | 83.5 | **89.5** |\n\n- เลือก **Tier 1–3** ทั้ง A/B ผ่าน; เปลี่ยนน้ำหนักจาก 70:20:10 เป็น 40:50:10 จะสลับอันดับ เพราะทีมให้ความสำคัญกับพื้นที่ที่เรายังไม่มีสาขามากขึ้น จำนวนทำเลผ่านยังเท่าเดิม\n- เลือก **Tier 1–2** เหลือ A; นี่คือการคัดให้เข้มขึ้น น้ำหนักไม่สามารถดึง B กลับเข้ารายการผ่าน\n\nจึง **คง Tier ไว้** และทำให้มีผลต่อการคัดจริง ผู้ใช้เลือกได้ว่าจะเริ่มค้นกว้างแค่ไหน แล้วใช้น้ำหนักเรียงลำดับภายในรายการนั้น",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 217
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 251
     },
     {
       "id": "REQ-MAP-01",
-      "statement_markdown_th": "**REQ-MAP-01:** สีทำเลใช้ percentile สูงสุดของสัญญาณ Demand ที่เปิดใช้และมีค่า ส่วนสีจังหวัดสรุปค่าสูงสุดในทำเลที่ผ่านเกณฑ์ของจังหวัดนั้น สีจึงบอก “มีสัญญาณเด่นแค่ไหน” และไม่ได้แทนอันดับรวม ต้องแยกไม่มีทำเลผ่าน/หลักฐานไม่พอ/ค่าศูนย์/นอกขอบเขต พร้อมรายการที่อ่านแทนแผนที่ได้",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 233
+      "statement_markdown_th": "**REQ-MAP-01 · แผนที่ไข่แดง:** ระบายสีทองเฉพาะทำเลที่ยืนยัน Demand สูงได้ ใช้ 3 ระดับตาม percentile สูงสุดของสัญญาณ Demand ที่เปิดและมีข้อมูล: **ตั้งแต่ 99 / ตั้งแต่ 95 แต่น้อยกว่า 99 / ต่ำกว่า 95** กลุ่มต่ำกว่า 95 ยังเป็น Yolk ได้หากทีมปรับจุดตัด Demand ลง ค่า map นี้เป็นความเด่นของสัญญาณ ไม่ใช่คะแนนจัดอันดับ\n\nแผนที่จังหวัดสรุป **ค่าสูงสุดของสัญญาณจาก Yolk ที่อยู่ในขอบเขตการดู** และแสดงจำนวน Yolk ประกอบ ไม่เรียกทั้งจังหวัดว่าเป็น Yolk และไม่เฉลี่ย percentile ของทำเล\n\n| ขอบเขตการดู | เงื่อนไขทำเลที่เข้าค่าสี |\n|---|---|\n| ค่าเริ่มต้น: ไข่แดงที่ผ่านเกณฑ์ทีม | `demand === true && eligible === true` |\n| ไข่แดงทั้งหมด | `demand === true` โดยไม่บังคับ Tier cap/รูปแบบที่ทีมเลือก |\n\nตัวเลือกนี้เปลี่ยนแผนที่เท่านั้น ไม่เปลี่ยนเกณฑ์ที่บันทึก ฐานประเทศ อันดับ หรือ shortlist จังหวัดที่มี Yolk แต่ไม่มีแห่งใดผ่านตัวกรองต้องบอกว่า **ไม่มีไข่แดงที่ผ่านเกณฑ์ทีม** แยกจากยังไม่พบ Yolk และจาก Demand ที่ยังสรุปไม่ได้เพราะข้อมูลไม่พอ ใช้สีพื้น/ลาย/ข้อความต่างกัน พร้อมจำนวนและรายการที่อ่านแทนแผนที่ได้ ค่าต่ำหรือศูนย์ที่วัดได้ไม่ถือเป็น missing",
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 267
     },
     {
       "id": "REQ-DETAIL-01",
       "statement_markdown_th": "**REQ-DETAIL-01:** ปุ่มจากรายการไปหน้าทำเลใช้ **“ดูรายละเอียด / View details”** เป็นปุ่มขอบชัดพร้อม icon และ focus state ไม่ใช้ข้อความ “Evidence & work” ลอย ๆ หน้าทำเลรวม Market landscape ที่ตอบได้ว่าผลมาจากอะไร: ค่าดิบ หน่วย percentile จุดตัด tier, B/C/U, คะแนนแยกองค์ประกอบและช่วงความไม่แน่นอน, ส่วนแบ่งจำนวนรายการตามแบรนด์เมื่อมีข้อมูลพอ, ตาราง 8 รูปแบบ และข้อจำกัดความครบถ้วน จำนวนรายการสาขาไม่ใช่ส่วนแบ่งยอดขาย และ POI ตัวอย่างไม่ใช่รายชื่อครบทุกสาขา",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 235
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 278
+    },
+    {
+      "id": "REQ-PERCENTILE-01",
+      "statement_markdown_th": "**REQ-PERCENTILE-01 · อ่านความเด่นได้ก่อนรายละเอียด:** แสดงชื่อ metric, ค่าดิบและหน่วย, ป้ายกลุ่มบนของประเทศ และแถบตำแหน่ง 0–100 คู่กัน เช่น **“กลุ่มบน 1%” / “Top 1%”** ช่วยแยกความหมายจากค่าตัวชี้วัดและคะแนนจัดอันดับ ไม่วาง `P99.7 P100.0 P99.7 P97.4` เรียงเป็นคำตอบหลักอีก\n\nกลุ่มบน 1% ใช้ percentile ≥99; กลุ่มบน 5% ใช้ ≥95 แต่ <99; กลุ่มบน 10% ใช้ ≥90 แต่ <95 ค่า ≥50 แต่ <90 แสดง “ครึ่งบน” / “Upper half”; ค่า <50 แสดง “ต่ำกว่ากึ่งกลาง” / “Below midpoint” ค่า percentile เท่ากับ 100 ยังอยู่กลุ่มบน 1% ไม่ใช้คำ “Top 0%” เปิดดูค่า percentile รายตัว (พรีวิวแสดงทศนิยม 1 ตำแหน่ง) จุดตัด และนิยามได้ โดยยังรักษาค่าคำนวณจริง ไม่ใช้ค่าที่ปัดเศษเพื่อคัด Tier ไม่กล่าวว่า P99.7 หมายถึงชนะพื้นที่ 99.7% อย่างเคร่งครัด เพราะใช้ tie-midrank\n\nแถบและป้ายต้องมี text equivalent, accessible name และ missing state ไม่มีข้อมูลให้บอก **“ยังไม่มีข้อมูล”** ไม่แสดงแถบศูนย์ ทุกตัวเลขอยู่ในฐานประเทศเดียวกันกับ analysis run; การกรองจังหวัดไม่คำนวณ percentile ใหม่",
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 280
     },
     {
       "id": "REQ-DETAIL-02",
       "statement_markdown_th": "**REQ-DETAIL-02:** แสดงขอบเขตทำเลและ POI สำคัญตามข้อมูลที่มี เช่น สาขา โรงงาน โรงแรม โรงพยาบาล โรงเรียน เปิด–ปิดกลุ่มและเลือกจุดจากรายการได้ เลือกพื้นหลัง **เรียบง่าย / ดาวเทียม / รายละเอียด** กรอบพิกัดสำหรับซูมไม่ใช่เส้นเขต เมื่อไม่มี geometry ให้แสดงสถานะและรายการต่อได้\n\nแผนที่พรีวิวใช้ขอบเขต/จุดจำลองที่แยกจากข้อมูลคำนวณ พื้นหลังเป็นภูมิศาสตร์จริงจาก OSM และภาพดาวเทียม Sentinel-2 ปี 2021 ความละเอียด 10 ม. ผ่าน ESA WorldCover/Terrascope พร้อม attribution ภาพนี้ใช้ดูบริบท ไม่อ้างว่าเป็นภาพปัจจุบันหรือหลักฐานระดับแปลง",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 237
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 286
     },
     {
       "id": "REQ-WORK-01",
       "statement_markdown_th": "**REQ-WORK-01:** ทำเลมีเจ้าของงาน สถานะ บันทึก และ custom fields ตาม workflow ธุรกิจ สถานะตั้งต้นคือ “รอลงพื้นที่ / กำลังศึกษา / ติดตาม / ไม่ไปต่อ” การนำออกจาก shortlist คงประวัติไว้ ระบบจริงต้องจัดการนิยาม custom fields ประเภทค่า ขอบเขตใช้ และเวอร์ชัน; พรีวิวยังไม่ได้เป็นตัวสร้างฟิลด์เต็มรูปแบบ",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 243
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 292
     },
     {
       "id": "REQ-PHOTO-01",
       "statement_markdown_th": "**REQ-PHOTO-01:** สาขาเก็บได้สูงสุด **5 รูป** เพิ่ม ลบ เลือกรูปปก และคืนร่างรูปเป็นค่าที่บันทึกไว้ได้ ปุ่มบันทึกสาขา commit รูปและข้อมูลสาขาร่วมกัน พรีวิวใช้ภาพ AI ที่มีป้าย “ภาพจำลอง”; รูปที่ผู้ใช้เลือกเก็บใน IndexedDB ไม่มี network upload\n\nระบบจริงเก็บรูปส่วนตัวใน workspace ตรวจสิทธิ์และไฟล์ฝั่ง server จำกัดจำนวนหลังรวม concurrent changes เก็บ metadata และ event ในธุรกรรมเดียวกันกับ revision ของสาขา ลบ EXIF/GPS ออกจากภาพเผยแพร่ และไม่ใส่ bytes/URL ที่หมดอายุใน event การเพิ่มรูปไม่เปลี่ยนยอด Supply",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 245
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 294
     },
     {
       "id": "REQ-TEAM-01",
       "statement_markdown_th": "**REQ-TEAM-01:** shared write ที่สำเร็จหนึ่งครั้งสร้าง event เดียว ระบุคน เวลา record ค่าเดิม/ใหม่ และเหตุผล Feed แสดงตามบริบท: เกณฑ์อยู่หน้าเกณฑ์ งานทำเลอยู่ในทำเล และงานสาขาอยู่ในสาขา สมาชิกอื่นที่มีสิทธิ์ได้รับ notification พร้อมลิงก์กลับมาทำงาน",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 249
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 298
     },
     {
       "id": "REQ-TEAM-02",
       "statement_markdown_th": "**REQ-TEAM-02:** เมื่อมีข้อมูลใหม่หรือทีมบันทึกงาน ระบบแจ้งเฉพาะสิ่งที่เกี่ยวข้อง ให้เห็นว่าคำตอบเปลี่ยนเพราะอะไร ผู้ใช้ตั้งการติดตามและความถี่ได้ Email/LINE ใช้ลิงก์ที่ตรวจสิทธิ์ผู้รับเสมอ ห้ามส่งข้อมูลใน workspace ไปยังปลายทางที่ไม่ได้รับสิทธิ์โดยอัตโนมัติ",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 251
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 300
     },
     {
       "id": "REQ-ACT-01",
       "statement_markdown_th": "**REQ-ACT-01:** leaderboard แสดงผู้ทำ action จำนวน action ประเภทงาน และจำนวน record ไม่ซ้ำ ในช่วงเวลาเลือกได้ ค่าเริ่มต้น 30 วัน บันทึกหลายฟิลด์ในครั้งเดียวคิดหนึ่ง action; ไม่นับ draft, เปิดดู, คลิก, no-op, failed write, retry หรือ system job ดู [activity policy](contracts/activity-summary.policy.json)",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 253
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 302
     },
     {
       "id": "REQ-UX-01",
       "statement_markdown_th": "**REQ-UX-01:** ออกแบบจากมือถือก่อน มีแผนที่/รายการที่สลับใช้ได้ ฟอร์มและหน้าทำเลเต็มความกว้าง จอใหญ่จึงวางข้อมูลคู่กัน ปุ่มเป้าหมายอย่างน้อย 44×44 CSS px ตรวจที่ 320/390/768/1440 px, keyboard/touch และ text zoom 200%",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 257
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 306
     },
     {
       "id": "REQ-UX-02",
       "statement_markdown_th": "**REQ-UX-02:** รองรับไทย/อังกฤษทั้ง UI หน่วย คำอธิบาย feed ข้อผิดพลาด และ accessible names เปลี่ยนภาษาแล้วทำเลที่ดู ร่างแบบฟอร์ม และรูปที่ยังไม่บันทึกต้องอยู่ครบ ไม่แปลบันทึกผู้ใช้หรือชื่อจาก source อัตโนมัติ",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 259
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 308
     },
     {
       "id": "REQ-DS-01",
-      "statement_markdown_th": "**REQ-DS-01:** ใช้ **Landometer DS 0.9.4** ตาม [วิธีเชื่อม asset](DS_ASSET_INTEGRATION.md) และ [manifest ระบุไฟล์/บทบาท/hash](contracts/ds-assets.v1.4.json) ไม่สร้างโลโก้หรือสี canonical ขึ้นใหม่ ตัวอักษรหลัก 17 px มือถือ / 18 px จอใหญ่, controls 16 px, metadata เป้าหมาย 14 px ตาม adapter ของผลิตภัณฑ์\n\nผู้ใช้เลือก **สว่าง / มืด / ตามเครื่อง** ค่าเริ่มต้นตามเครื่องและบันทึกเป็นความชอบส่วนตัว Light ใช้ canvas `surface-alt-light` และ card `surface-canvas-light` ของ DS ให้พื้นที่ทำงานนุ่มตา ส่วน Dark ใช้คู่ token ที่กำหนดไว้ **ไม่แสดง motif ทุกชนิดใน UI รุ่นนี้** ตามการปรับล่าสุดของผู้ใช้",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 261
+      "statement_markdown_th": "**REQ-DS-01:** ใช้ **Landometer DS 0.9.4** ตาม [วิธีเชื่อม asset](DS_ASSET_INTEGRATION.md) และ [manifest ระบุไฟล์/บทบาท/hash](contracts/ds-assets.v1.5.json) ไม่สร้างโลโก้หรือสี canonical ขึ้นใหม่ ตัวอักษรหลัก 17 px มือถือ / 18 px จอใหญ่, controls 16 px, metadata เป้าหมาย 14 px ตาม adapter ของผลิตภัณฑ์\n\nผู้ใช้เลือก **สว่าง / มืด / ตามเครื่อง** ค่าเริ่มต้นตามเครื่องและบันทึกเป็นความชอบส่วนตัว Light ใช้ canvas `surface-alt-light` และ card `surface-canvas-light` ของ DS ให้พื้นที่ทำงานนุ่มตา ส่วน Dark ใช้คู่ token ที่กำหนดไว้ **ไม่แสดง motif ทุกชนิดใน UI รุ่นนี้** ตามการปรับล่าสุดของผู้ใช้",
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 310
     },
     {
       "id": "REQ-DS-02",
-      "statement_markdown_th": "**REQ-DS-02 · Logo และตัวตนตอนแชร์:** แสดง **โลโก้ Landometer จาก asset ที่อนุมัติจริง** ใน shell บนจอใหญ่และมือถือ รวมทั้งธีมมืด ไม่แทนด้วยชื่อผลิตภัณฑ์เพียงอย่างเดียวและไม่ใส่กรอบ การ์ด badge หรือพื้นรองที่สร้างขึ้นครอบโลโก้ คงสัดส่วนครบ ห้าม crop หรือเปลี่ยนสี asset เพื่อชดเชยการเลือกพื้นหลังผิด\n\nหน้าเว็บต้องมี favicon ที่ผูกกับ asset อนุมัติ และ **ภาพปกสำหรับแชร์ (social share image)** ที่บอก CityMETER: Yolk พร้อม tagline และ logo อ่านได้ ใช้ URL แบบ absolute HTTPS พร้อม Open Graph/Twitter metadata ทั้งหมดตาม [identity contract](contracts/web-identity.v1.4.json) ภาพแชร์เป็น product asset มี provenance แยกจาก DS canonical; ไม่ฝังข้อมูล workspace หรือทำเลของลูกค้าในภาพสาธารณะ รูปบนแอปแชตอาจติด cache จึงต้องตรวจ metadata และไฟล์ปลายทางแยกจากการแสดงผลจริงในแอปนั้น",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 265
+      "statement_markdown_th": "**REQ-DS-02 · Logo และตัวตนตอนแชร์:** แสดง **โลโก้ Landometer จาก asset ที่อนุมัติจริง** ใน shell บนจอใหญ่และมือถือ รวมทั้งธีมมืด ไม่แทนด้วยชื่อผลิตภัณฑ์เพียงอย่างเดียวและไม่ใส่กรอบ การ์ด badge หรือพื้นรองที่สร้างขึ้นครอบโลโก้ คงสัดส่วนครบ ห้าม crop หรือเปลี่ยนสี asset เพื่อชดเชยการเลือกพื้นหลังผิด\n\nหน้าเว็บต้องมี favicon ที่ผูกกับ asset อนุมัติ และ **ภาพปกสำหรับแชร์ (social share image)** ที่บอก CityMETER: Yolk พร้อม tagline และ logo อ่านได้ ใช้ URL แบบ absolute HTTPS พร้อม Open Graph/Twitter metadata ทั้งหมดตาม [identity contract](contracts/web-identity.v1.5.json) ภาพแชร์เป็น product asset มี provenance แยกจาก DS canonical; ไม่ฝังข้อมูล workspace หรือทำเลของลูกค้าในภาพสาธารณะ รูปบนแอปแชตอาจติด cache จึงต้องตรวจ metadata และไฟล์ปลายทางแยกจากการแสดงผลจริงในแอปนั้น",
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 314
     },
     {
       "id": "REQ-DS-03",
-      "statement_markdown_th": "**REQ-DS-03 · Icons:** ใช้ Material Symbols Rounded แบบ outline `FILL 0 / wght 300 / GRAD 0 / opsz 24` ประกอบข้อความที่บอกการกระทำ โดยเฉพาะจุดตัดสินใจ เช่น เล็งทำเล ปรับเกณฑ์ ตรวจสาขา เพิ่มรูป และบันทึก ไม่เปลี่ยน fill/weight ใน selected state ไม่ใช้ emoji แทน และไม่ใช้เครื่องหมายสำเร็จทำให้ข้อมูลที่ยังรอตรวจดูเหมือนยืนยันแล้ว [ชุด glyph ของ Yolk](contracts/icons.v1.3.json) เป็น product extension ที่มี source/license/hash แยกจากไฟล์ DS canonical; ถ้า font โหลดไม่ได้หรือชื่อ glyph ไม่รองรับ ต้องยังอ่านและใช้ label ได้",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 269
+      "statement_markdown_th": "**REQ-DS-03 · Icons:** ใช้ Material Symbols Rounded แบบ outline `FILL 0 / wght 300 / GRAD 0 / opsz 24` ประกอบข้อความที่บอกการกระทำ โดยเฉพาะจุดตัดสินใจ เช่น เล็งทำเล ปรับเกณฑ์ ตรวจสาขา เพิ่มรูป และบันทึก ไม่เปลี่ยน fill/weight ใน selected state ไม่ใช้ emoji แทน และไม่ใช้เครื่องหมายสำเร็จทำให้ข้อมูลที่ยังรอตรวจดูเหมือนยืนยันแล้ว [ชุด glyph ของ Yolk](contracts/icons.v1.5.json) เป็น product extension ที่มี source/license/hash แยกจากไฟล์ DS canonical; ถ้า font โหลดไม่ได้หรือชื่อ glyph ไม่รองรับ ต้องยังอ่านและใช้ label ได้",
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 318
+    },
+    {
+      "id": "REQ-NAV-01",
+      "statement_markdown_th": "**REQ-NAV-01 · Navigation มือถือและธีมมืด:** แถบมือถือมี Yolk, การแจ้งเตือน และปุ่มเปิด **เมนู/การตั้งค่า** เท่านั้นในสถานะปิด ภาษา ธีม สมาชิก และโลโก้ Landometer อยู่ในแผงเปิด–ปิดได้ ใช้ native disclosure หรือ component ที่ให้ keyboard/focus และ accessible name เทียบเท่า จอใหญ่ใช้ sidebar และ header แบบกระชับ ไม่ปล่อย controls wrap เป็นแนวตั้งกินพื้นที่เนื้อหา\n\nสี chrome เปลี่ยนตามธีมจริง: ธีมมืดใช้พื้น dark ของ DS ไม่บังคับแถบสี beige ขนาดใหญ่ แสดง native Landometer asset ที่อนุมัติแบบเดิมบนพื้นนั้นโดยตรง ไม่มีกรอบหรือแผ่นรองและไม่ invert/recolour เพื่อแก้ contrast เอง หากการตรวจภาพจริงพบว่า logo อ่านไม่ชัด ต้องขอ variant ที่อนุมัติ ไม่วาดขึ้นใหม่ มือถือต้องเปิดเมนูแล้วพบ logo ได้; Yolk ยังคงเห็นใน header เมื่อเมนูปิด\n\nแถบล่างใช้ label สั้นคู่ icon, touch target อย่างน้อย 44×44 CSS px, เคารพ safe-area และเว้นเนื้อหาไม่ให้ถูกบัง ต้องตรวจที่ 320/390/768/1440 CSS px และ 200% text zoom ทั้ง TH/EN เปลี่ยนภาษา/ธีมไม่ล้างร่างหรือสร้าง team event",
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 320
     },
     {
       "id": "REQ-P4-01",
       "statement_markdown_th": "**REQ-P4-01:** ก่อนใช้ยอดขาย/สมาชิก กำหนด data contract, สิทธิ์ วัตถุประสงค์ retention และการเชื่อม branch ID ใหม่ ใช้ยอดขายทดสอบว่าตัวชี้วัดสัมพันธ์กับผลจริงเพียงใด และวัดผลนอกชุดฝึกก่อนอ้างว่าแม่นขึ้น รายละเอียด daypart, พฤติกรรม, ฝั่งถนน และ cannibalisation ค่อยออกแบบใน P4\n\nCRUD หลักยังเป็นสาขาและทำเล เพิ่มงานจัดการ source, mapping, คุณภาพข้อมูล, model version และสิทธิ์แทนการเปิด transaction/ที่อยู่สมาชิกให้ทุกคนแก้ในหน้าทำเล ใช้ผลรวมตามพื้นที่และเกณฑ์จำนวนขั้นต่ำเพื่อคุ้มครองข้อมูลบุคคล\n\nธุรกิจอื่นใช้ workspace/Supply/shortlist/feed ชุดเดิม เปลี่ยนชุด Demand แบรนด์คู่แข่ง และ default criteria ตามโจทย์ที่พิสูจน์ได้ [industry seeds](contracts/industry-preset-seeds.json) เป็นสมมติฐานสำหรับ pilot ไม่ใช่คำแนะนำที่ผ่านการยืนยันหรือสูตรที่เปิดใช้ใน demo",
-      "authority": "CityMETER_Yolk_Product_Statement_v1.4.md",
-      "source_line": 284
+      "authority": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "source_line": 339
     }
   ],
   "patterns": [
@@ -202,7 +232,8 @@
       "demand_high": true,
       "competitor_high": true,
       "own_high": true,
-      "fuel_hypothesis_stars": 0
+      "fuel_hypothesis_stars": 0,
+      "icon": "groups"
     },
     {
       "id": 2,
@@ -210,7 +241,8 @@
       "demand_high": true,
       "competitor_high": true,
       "own_high": false,
-      "fuel_hypothesis_stars": 2
+      "fuel_hypothesis_stars": 2,
+      "icon": "flag"
     },
     {
       "id": 3,
@@ -218,7 +250,8 @@
       "demand_high": true,
       "competitor_high": false,
       "own_high": true,
-      "fuel_hypothesis_stars": 1
+      "fuel_hypothesis_stars": 1,
+      "icon": "potted_plant"
     },
     {
       "id": 4,
@@ -226,7 +259,8 @@
       "demand_high": true,
       "competitor_high": false,
       "own_high": false,
-      "fuel_hypothesis_stars": 3
+      "fuel_hypothesis_stars": 3,
+      "icon": "explore"
     },
     {
       "id": 5,
@@ -234,7 +268,8 @@
       "demand_high": false,
       "competitor_high": false,
       "own_high": false,
-      "fuel_hypothesis_stars": 0
+      "fuel_hypothesis_stars": 0,
+      "icon": "bedtime"
     },
     {
       "id": 6,
@@ -242,7 +277,8 @@
       "demand_high": false,
       "competitor_high": true,
       "own_high": false,
-      "fuel_hypothesis_stars": 0
+      "fuel_hypothesis_stars": 0,
+      "icon": "swords"
     },
     {
       "id": 7,
@@ -250,7 +286,8 @@
       "demand_high": false,
       "competitor_high": false,
       "own_high": true,
-      "fuel_hypothesis_stars": 0
+      "fuel_hypothesis_stars": 0,
+      "icon": "beach_access"
     },
     {
       "id": 8,
@@ -258,7 +295,8 @@
       "demand_high": false,
       "competitor_high": true,
       "own_high": true,
-      "fuel_hypothesis_stars": 0
+      "fuel_hypothesis_stars": 0,
+      "icon": "ac_unit"
     }
   ],
   "preview": {
@@ -290,7 +328,7 @@
     "logo_frame_allowed": false,
     "logo_artificial_backing_allowed": false,
     "logo_recolour_crop_allowed": false,
-    "icons": "DS ICON-01 Material Symbols Rounded, FILL0, weight300; supplemental subset separately pinned; text labels remain visible",
+    "icons": "DS ICON-01 Material Symbols Rounded, FILL0, weight300; 37-glyph Yolk subset separately pinned; visible text remains authoritative",
     "native_logo_visible_all_themes": true,
     "approved_favicon_required": true,
     "public_product_share_image_required": true
@@ -302,8 +340,8 @@
     "parcel_feasibility_after_location_screening"
   ],
   "manual_qa": "browser_visual_and_real_device_checks_open",
-  "icons_contract": "contracts/icons.v1.3.json",
-  "identity_contract": "contracts/web-identity.v1.4.json",
+  "icons_contract": "contracts/icons.v1.5.json",
+  "identity_contract": "contracts/web-identity.v1.5.json",
   "criteria_ui_sections": [
     {
       "id": "demand",
@@ -399,6 +437,153 @@
     "treatment": "outlined button with meaningful icon and visible focus",
     "accessible_name_required": true
   },
-  "document_status": "historical_superseded",
-  "superseded_by": "contracts/product.v1.5.json"
+  "yolk_semantics": {
+    "label_th": "Yolk · ไข่แดง",
+    "label_en": "Yolk",
+    "meaning_th": "ทำเลที่ยืนยัน Demand สูงตามเกณฑ์ที่ทีมกำลังใช้",
+    "predicate": "demand === true",
+    "independent_of": [
+      "eligible",
+      "selected pattern set",
+      "maxDemandTier acceptance",
+      "supply scarcity",
+      "weighted rank"
+    ],
+    "not_evidence_of": [
+      "measured traffic",
+      "predicted sales",
+      "parcel feasibility",
+      "recommended opening"
+    ],
+    "icon": "egg_alt",
+    "colour_role": "DS gold analytical accent with text; not warning state",
+    "criteria_unchanged_from": "contracts/criteria.v1.4.json"
+  },
+  "percentile_presentation": {
+    "primary": [
+      "metric label",
+      "raw value and unit",
+      "national band label",
+      "0..100 meter"
+    ],
+    "band_cutoffs": [
+      {
+        "gte": 99,
+        "label_th": "กลุ่มบน 1%",
+        "label_en": "Top 1%"
+      },
+      {
+        "gte": 95,
+        "lt": 99,
+        "label_th": "กลุ่มบน 5%",
+        "label_en": "Top 5%"
+      },
+      {
+        "gte": 90,
+        "lt": 95,
+        "label_th": "กลุ่มบน 10%",
+        "label_en": "Top 10%"
+      },
+      {
+        "gte": 50,
+        "lt": 90,
+        "label_th": "ครึ่งบน",
+        "label_en": "Upper half"
+      },
+      {
+        "lt": 50,
+        "label_th": "ต่ำกว่ากึ่งกลาง",
+        "label_en": "Below midpoint"
+      }
+    ],
+    "detail": "per-metric tie-midrank percentile available in an accessible disclosure; preview formats to 1 decimal while calculations preserve unrounded values",
+    "missing": "text state, never a zero bar",
+    "p100": "Top 1%, never Top 0%",
+    "screening": "use unrounded source engine values, not formatted band or displayed rounded value",
+    "meaning": "relative position within the pinned national cohort; not a confidence or sales probability",
+    "display_decimal_places": 1
+  },
+  "map_yolk_summary": {
+    "scope_field": "mapScope",
+    "default_scope": "preferred",
+    "scope_predicates": {
+      "preferred": "demand === true && eligible === true",
+      "all": "demand === true"
+    },
+    "map_value": "maximum known enabled-signal national percentile among matching Yolk locations in province",
+    "include_counts": true,
+    "bins": [
+      {
+        "gte": 99
+      },
+      {
+        "gte": 95,
+        "lt": 99
+      },
+      {
+        "lt": 95
+      }
+    ],
+    "states": [
+      "yolk_in_scope",
+      "yolk_exists_but_none_in_scope",
+      "no_confirmed_yolk",
+      "unresolved_demand",
+      "no_locations"
+    ],
+    "presentation_only": true,
+    "mutates_criteria": false,
+    "mutates_ranked_list": false,
+    "rebuilds_national_cohort": false,
+    "province_is_not_yolk": true,
+    "map_value_is_not_rank_score": true,
+    "runtime_summary_fields": [
+      "yolks",
+      "visibleYolks",
+      "best",
+      "missing"
+    ]
+  },
+  "navigation": {
+    "mobile_closed": [
+      "Yolk identity",
+      "inbox",
+      "settings disclosure"
+    ],
+    "mobile_disclosure": [
+      "theme",
+      "language",
+      "actor",
+      "native Landometer logo"
+    ],
+    "desktop_logo": "sidebar",
+    "dark_chrome": "active DS dark tokens",
+    "forced_beige_shell": false,
+    "native_logo_bytes_unchanged": true,
+    "logo_plate": false,
+    "logo_recolour_filter": false,
+    "minimum_target_css_px": 44,
+    "bottom_nav_safe_area": true,
+    "accessible_disclosure": true,
+    "visual_gate": "open_until_observed_on_actual_build",
+    "full_ds_identity_conformance_claimed": false
+  },
+  "synthetic_names": {
+    "th": "ทำเลจำลอง",
+    "en": "Demo location",
+    "preserve": [
+      "id",
+      "boundary_type",
+      "province",
+      "national cohort",
+      "branch and target joins"
+    ],
+    "real_data_names_unchanged": true
+  },
+  "runtime_display_api": {
+    "pattern": "YolkIcons.patternIcon(name)",
+    "yolk": "YolkIcons.yolkIcon()",
+    "percentile_text": "YolkDecisions.percentileText(p)",
+    "percentile_view": "YolkDecisions.percentileView(p)"
+  }
 }

@@ -18,8 +18,8 @@
     html.dataset.themePreference = preference;
     html.style.colorScheme = theme;
     root.document.querySelectorAll('[data-yolk-theme]').forEach(select => { select.value = preference; });
-    // Browser chrome follows the persistent brand navigation surface.
-    root.document.querySelectorAll('meta[name="theme-color"]').forEach(meta => { meta.content = '#F2F1DF'; });
+    // Browser chrome follows the selected shell surface, including OS theme changes.
+    root.document.querySelectorAll('meta[name="theme-color"]').forEach(meta => { meta.content = theme === 'dark' ? '#11191D' : '#EEF1EE'; });
     if (typeof root.CustomEvent === 'function') root.document.dispatchEvent(new root.CustomEvent('yolk:themechange', { detail: { preference, theme } }));
     return theme;
   }
@@ -45,6 +45,22 @@
   root.addEventListener('storage', event => {
     if (event.key === STORAGE_KEY || event.key === null) { preference = readPreference(); apply(); }
   });
+  // A native disclosure keeps the small-screen shell compact. Escape returns
+  // focus to its summary; outside interaction and navigation close it.
+  function closeHeaderSettings(returnFocus) {
+    const menu = root.document.querySelector?.('[data-header-settings][open]');
+    if (!menu) return;
+    menu.open = false;
+    if (returnFocus) menu.querySelector?.('summary')?.focus?.();
+  }
+  root.document.addEventListener('pointerdown', event => {
+    const menu = root.document.querySelector?.('[data-header-settings][open]');
+    if (menu && menu.contains && !menu.contains(event.target)) closeHeaderSettings(false);
+  });
+  root.document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeHeaderSettings(true);
+  });
+  root.addEventListener('hashchange', () => closeHeaderSettings(false));
   root.YolkTheme = Object.freeze({ renderControl, setPreference, apply, getPreference: () => preference, getResolved: resolved });
   root.renderThemeControl = renderControl;
   apply();

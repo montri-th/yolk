@@ -1,24 +1,21 @@
 ---
 title: "CityMETER: Yolk — Product implementation plan"
-version: "1.4"
-handoff_patch: "1.4.0"
+version: "1.5"
+handoff_patch: "1.5.0"
 language: "th-first, en-machine-prompts"
 status: "production-plan-not-existing-backend"
 preview_status: "ready_with_open_manual_gate"
-product_statement: "CityMETER_Yolk_Product_Statement_v1.4.md"
-machine_contract: "contracts/implementation-tasks.v1.4.json"
+product_statement: "CityMETER_Yolk_Product_Statement_v1.5.md"
+machine_contract: "contracts/implementation-tasks.v1.5.json"
 criteria_contract: "contracts/criteria.v1.4.json"
 task_count: 15
 ---
 
-> Historical v1.4 reference. Current: [IMPLEMENTATION_PLAN_v1.5.md](IMPLEMENTATION_PLAN_v1.5.md). Criteria v1.4 remains the current calculation contract.
+# CityMETER: Yolk v1.5 — แผนเริ่มพัฒนา
 
+เอกสารนี้รวบ **12 งานหลัก + 3 งานประสบการณ์** เป็นลำดับเดียว ให้ dev หรือ coding agent รับทีละงานและตรวจผลได้ Handoff 1.5.0 ปรับ navigation มือถือ/ธีมมืด เพิ่ม icon ประจำรูปแบบตลาด อธิบาย percentile ให้อ่านง่าย และใช้ Yolk/ไข่แดงให้หมายถึง Demand สูงตรงกันทั้ง UI/Map สูตร Tier และน้ำหนักจัดอันดับยังคงตาม v1.4 โดยดู runtime commit/hash จาก [release manifest](contracts/release.v1.5.0.json) ไม่ hardcode revision ในแผน ส่วนที่เป็น production ด้านล่างยังต้องสร้าง พรีวิวที่มีอยู่เป็น HTML/CSS/JavaScript พร้อมข้อมูลจำลอง การสลับสมาชิก ประวัติ และการแจ้งเตือนในพรีวิวไม่ได้ทดแทน auth, tenant sync หรือ backend จริง
 
-# CityMETER: Yolk v1.4 — แผนเริ่มพัฒนา
-
-เอกสารนี้รวบ **12 งานหลัก + 3 งานประสบการณ์** เป็นลำดับเดียว ให้ dev หรือ coding agent รับทีละงานและตรวจผลได้ Handoff 1.4.0 เพิ่มการคัดด้วย Tier และการจัดอันดับตามน้ำหนัก อธิบายทั้ง 8 รูปแบบแยกจาก Supply และปรับ brand identity/link affordance โดยดู runtime commit/hash จาก [release manifest](contracts/release.v1.4.0.json) ไม่ hardcode revision ในแผน ส่วนที่เป็น production ด้านล่างยังต้องสร้าง พรีวิวที่มีอยู่เป็น HTML/CSS/JavaScript พร้อมข้อมูลจำลอง การสลับสมาชิก ประวัติ และการแจ้งเตือนในพรีวิวไม่ได้ทดแทน auth, tenant sync หรือ backend จริง
-
-อ่าน [Product statement](CityMETER_Yolk_Product_Statement_v1.4.md) เพื่อเข้าใจงานของผู้ใช้ แล้วใช้ [task manifest JSON](contracts/implementation-tasks.v1.4.json) เป็นตัวสั่งงาน ใช้ [criteria contract](contracts/criteria.v1.4.json) เป็นกติกาคำนวณ ไม่ถอดสูตรใหม่จากภาพหน้าจอ เอกสารนี้แทนแผน v1.3; ไฟล์ประสบการณ์ [EXPERIENCE_v1.3.md](docs/EXPERIENCE_v1.3.md) ยังเป็นรายละเอียดเสริมของ EXP-01/02/03
+อ่าน [Product statement](CityMETER_Yolk_Product_Statement_v1.5.md) เพื่อเข้าใจงานของผู้ใช้ แล้วใช้ [task manifest JSON](contracts/implementation-tasks.v1.5.json) เป็นตัวสั่งงาน ใช้ [criteria contract](contracts/criteria.v1.4.json) เป็นกติกาคำนวณ ไม่ถอดสูตรใหม่จากภาพหน้าจอ เอกสารนี้แทนแผน v1.4; ไฟล์ประสบการณ์ [EXPERIENCE_v1.3.md](docs/EXPERIENCE_v1.3.md) ยังเป็นรายละเอียดเสริมของ EXP-01/02/03
 
 ## 1. เริ่มจากของที่มีอยู่จริง
 
@@ -42,11 +39,14 @@ node scripts/check-icons.cjs
 node scripts/check-ranking-v1.4.cjs
 node scripts/check-decisions-v1.4.cjs
 node scripts/check-web-identity.cjs
+node scripts/check-shell-v1.5.cjs
+node scripts/check-patterns-v1.5.cjs
+node scripts/check-yolk-v1.5.cjs
 ```
 
 คำสั่งเหล่านี้ตรวจ source/contracts/controller ผ่าน Node VM และ mocked DOM/storage **ยังไม่ใช่การตรวจภาพใน browser** สถานะส่งมอบคือ `ready_with_open_manual_gate`; browser/อุปกรณ์จริงยังต้องตรวจหลังจาก approval-review block เดิมคลี่คลาย การ deploy สำเร็จไม่ปิด gate นี้
 
-| มีในพรีวิว v1.4 | สิ่งที่ production ต้องสร้าง |
+| มีในพรีวิว v1.5 | สิ่งที่ production ต้องสร้าง |
 |---|---|
 | TH/EN, light/dark/system, UI ที่อ่านง่ายขึ้น | บัญชีผู้ใช้ สิทธิ์ฝั่ง server การ sync และ device QA จริง |
 | จำลอง criteria, rank, 8 market patterns, local feed | approved private data release, immutable runs และ publication jobs |
@@ -81,7 +81,7 @@ Path ใน task manifest เป็น **ตำแหน่งที่จะส
 - Approved source, workspace overlay และ analytical aggregate แยกกัน การแก้สาขา/รูป/สถานะไม่เปลี่ยน B/C/U ทันที ต้องผ่าน reconciliation แล้ว publish run ใหม่
 - Data quality มี `missing`, `observed_zero`, `unverified`, `not_applicable` แยกกัน ระบุ coverage, unit, period และ lineage ตาม metric ไม่เติมศูนย์เพื่อให้กราฟดูครบ
 - ภาพ public preview และ fixtures เป็นข้อมูลจำลอง ข้อมูลจริงและ transaction/member data นำเข้าผ่าน private release ที่เจ้าของข้อมูลอนุมัติ ไม่มี source credentials หรือ customer records ใน public repository
-- DS ใช้ **0.9.4** ตาม [asset integration](DS_ASSET_INTEGRATION.md) และ [hash manifest](contracts/ds-assets.v1.4.json) ไฟล์ v1.4 ระบุ DS asset ที่ ship; provenance เดิมอยู่ใน receipt เดิม; รายการ runtime ทั้งหมดดู [asset index](ASSET_INDEX_v1.4.md) และ [machine asset list](contracts/assets.v1.4.json) ห้ามแก้ bytes ของ canonical logo/font/color CSS **ไม่ใช้ motif ในแอปหรือ asset bundle** ตามคำขอรอบนี้
+- DS ใช้ **0.9.4** ตาม [asset integration](DS_ASSET_INTEGRATION.md) และ [hash manifest](contracts/ds-assets.v1.5.json) ไฟล์ v1.5 ระบุ DS asset ที่ ship; provenance เดิมอยู่ใน receipt เดิม; รายการ runtime ทั้งหมดดู [asset index](ASSET_INDEX_v1.5.md) และ [machine asset list](contracts/assets.v1.5.json) ห้ามแก้ bytes ของ canonical logo/font/color CSS **ไม่ใช้ motif ในแอปหรือ asset bundle** ตามคำขอรอบนี้
 - วาง logo variant ที่อนุมัติแล้วบนพื้นเข้ากันได้โดยตรง **ไม่มีกรอบ card หรือแผ่นขาวรอง logo** ไม่เปลี่ยนสี/ครอป logo ใช้ icon ตาม DS ควบคู่ข้อความที่จุดตัดสินใจ เช่น เกณฑ์/เล็งทำเล/ตรวจยืนยัน/ชั้นแผนที่/บันทึก/รูปสาขา ไอคอนไม่สื่อว่าสถานะข้อมูล verified โดยไม่มีหลักฐาน
 - Locale Insight เป็น contextual prior สำหรับ planning/field validation เท่านั้น ต้องมี crosswalk ก่อน aggregate และไม่แทนประชากรทางการ ขอบเขตตามกฎหมาย สิทธิ์ หรือหลักฐานพฤติกรรมจริง
 - คัดพื้นที่หรือช่วงถนนก่อน แล้วจึงพิจารณา **แปลงที่ดิน ทางเข้าออก ฝั่งถนน และความเป็นไปได้จริง** ดาวเป็นแนวทางศึกษาต่อ ไม่ใช่การรับรองยอดขาย
@@ -135,11 +135,13 @@ rankScore = lower bound of normalized mean(Demand:70, ownGap:20, competitorGap:1
 
 ตัวอย่างตรวจ: A มี Demand 90 / B=2 / C=0 / Tier 2 และ B มี Demand 80 / B=0 / C=1 / Tier 3 (threshold 3, U=0, ทั้งคู่ Pioneer) ได้คะแนน 85.0/83.5 ที่น้ำหนัก 70:20:10 และ 76.0/89.5 ที่ 40:50:10 เปลี่ยนเฉพาะน้ำหนักแล้วจำนวนที่ผ่านต้องไม่เปลี่ยน แต่การเปลี่ยน maxDemandTier จาก 3 เป็น 2 จะตัด B ออก ดูภาพอธิบายใน Product statement
 
-สีทำเลยังใช้ **max known enabled-signal percentile rank** จังหวัดใช้ค่าสูงสุดของทำเลที่ผ่าน กราฟใช้ tie-midrank (n=1 แสดง 50) คนละนิยามกับ PERCENTILE.INC และคะแนนรวม ต้องระบุชื่อและหน่วยแยกใน DTO/legend
+**Yolk / ไข่แดง = `demand === true`** ไม่ใช่ `eligible` ตัวเลือกแผนที่ `preferred` (ค่าเริ่มต้น) ใช้ Yolk ที่ผ่านเกณฑ์ทีม ส่วน `all` ใช้ Yolk ทั้งหมด สีจังหวัดเป็น **max known enabled-signal percentile rank ของ Yolk ใน scope** พร้อมจำนวน ไม่ใช่ค่า percentile ของจังหวัดและไม่ใช่คะแนนรวมจัดอันดับ ใช้สีทอง3ระดับ ≥99 / ≥95แต่<99 / <95 แยกไม่มีไข่แดงผ่าน/ไม่มีไข่แดง/รอตรวจ Demand ออกจากกัน Scope เป็น personal presentation state ไม่สร้าง criteria version/team event
+
+Percentile ใช้ tie-midrank (n=1 แสดง50) แสดงกลุ่มบน1%/5%/10%และแถบ0–100ก่อน เปิดค่า exact ในรายละเอียด ไม่แสดง Top0% เมื่อ percentile100 ไม่ใช้ค่าปัดเศษเพื่อคัด Tier และไม่กล่าวว่าเป็นเปอร์เซ็นต์ความมั่นใจ คง PERCENTILE.INC เฉพาะการหาค่า cutoff
 
 ### ฟิลด์ที่เชื่อม UI กับเครื่องคำนวณ
 
-ตัวอย่างเป็นเฉพาะส่วนที่เพิ่ม/ปรับใน v1.4 รวมเข้ากับ defaults ฉบับเต็มจาก criteria contract ไม่สร้างค่าตั้งต้นอีกชุดใน component
+ตัวอย่างเป็นส่วนคัดและจัดอันดับจาก v1.4 ที่ยังคงใน v1.5 รวมเข้ากับ defaults ฉบับเต็มจาก criteria contract ไม่สร้างค่าตั้งต้นอีกชุดใน component
 
 ```json
 {
@@ -165,6 +167,20 @@ rankScore = lower bound of normalized mean(Demand:70, ownGap:20, competitorGap:1
 | `score` | ค่าสัญญาณ Demand สูงสุดสำหรับสีแผนที่เดิม ไม่ใช่คะแนนจัดอันดับรวม |
 
 ตัวเชื่อม `normalizeCriteria(raw,{existing:true|false})` เติมฟิลด์ที่ขาดให้เกณฑ์เก่าโดยคง legacy และไม่สร้าง event/เพิ่ม version การเปลี่ยนโดยผู้ใช้จริงผ่าน `diffCriteria` ต้องเก็บ diff น้ำหนักแต่ละช่องและชื่ออ่านง่าย
+
+### Adapter แสดงผลของ v1.5 — คง engine v1.4
+
+| จุดเชื่อมที่มีจริงในพรีวิว | ความหมายที่ต้องคง |
+|---|---|
+| `YolkIcons.patternIcon(name)` / `yolkIcon()` | Iconประจำรูปแบบ / ไข่แดง; caller ยังต้องมี label |
+| `YolkDecisions.percentileText(p)` / `percentileView(p)` | ป้ายกลุ่มบนและแถบ0–100 พร้อมค่า exact; ไม่เปลี่ยน cutoff |
+| `mapScope` | `preferred` หรือ `all`; state เฉพาะการดู ไม่สร้าง team event |
+| `mapStats` | `{yolks, visibleYolks, best, missing}` สำหรับสรุปจำนวน/สี/ข้อมูลไม่พอ |
+| `prototype/yolk-focus.css` | Product adapter สำหรับ Yolk/percentile/map ไม่แก้ canonical DS |
+
+พรีวิวแสดงค่า percentile ที่เปิดดูเป็นทศนิยม1ตำแหน่ง; คำว่า exact/details ใน API/test หมายถึงค่ารายตัวซึ่งแยกจาก band ไม่ใช่การเปลี่ยนความละเอียดของข้อมูลใน engine
+
+แผนที่ต้องใช้ `demand === true` ก่อนคำนวณสีทุกครั้ง มิฉะนั้นทำเล Demand ต่ำที่ได้ percentile สูงจากสัญญาณคนละชุดอาจกลายเป็น “ไข่แดง” ผิดความหมาย การเลือกกลุ่มตลาดและ Tier เข้มขึ้นลด visibleYolks ได้ แต่ไม่เปลี่ยนจำนวน Yolk ทั้งหมดในข้อมูลนั้น
 
 ## 3. ลำดับทำงานเดียวสำหรับคนและ agent
 
@@ -212,7 +228,7 @@ flowchart LR
 | 07 | Shortlist ประวัติ และการแจ้งเตือนเพื่อน | 04, 06 |
 | 08 | Activity และ leaderboard | 07 |
 | 09 | ขยายปัจจัย Demand ด้วยหลักฐานของ dataset | 01, 02, 05 |
-| EXP-01 | ธีมส่วนบุคคลและภาษาอ่านง่าย | 00 |
+| EXP-01 | Navigation กระชับ ธีม ภาษา และ icon ที่ช่วยตัดสินใจ | 00 |
 | EXP-02 | แผนที่ขอบเขตและ POI ในหน้าทำเล | 02, 03 |
 | EXP-03 | รูปสาขา 5 รูปและหลักฐานภาคสนาม | 04, 07 |
 | 10 | แชร์ ทดสอบบนอุปกรณ์ และส่งมอบ pilot | 04b, 08, 09, EXP-01, EXP-02, EXP-03 |
@@ -297,9 +313,11 @@ Implement task 02 with versioned primary units, crosswalks, metric-specific aggr
 **เริ่มเมื่อ:** 01, 02 ผ่าน acceptance แล้ว
 
 1. สร้าง read model และ API ของ published run โดยเริ่มจาก synthetic contract fixture; task 06 จะต่อ publication pointer จริงภายหลัง
-2. หน้า country ใช้จังหวัดเป็น summary/drill-down ไปหน่วยหลัก แสดง coverage/source period/run_id ทุกมุมมอง; สีสรุป max signal percentile ในทำเลที่ผ่านเกณฑ์ของจังหวัดนั้น
+2. หน้า country ใช้จังหวัดเป็น summary/drill-down ไปหน่วยหลัก แสดง coverage/source period/run_id ทุกมุมมอง; สีสรุป max signal percentile จาก Yolk ในขอบเขตการดูของจังหวัดนั้น ตามข้อกำหนด map scope
 3. หน้า detail แสดงค่าดิบ/หน่วย/cutoff/percentile, building/activity/qualifying tier, aggregate B/C/U, 8 market patterns พร้อมเหตุผล และคะแนนแยกองค์ประกอบ/ช่วงความไม่แน่; brand breakdown เฉพาะข้อมูลที่มี coverage
 4. ใช้ปุ่มขอบชัดพร้อม icon และข้อความ ดูรายละเอียด / View details จากรายการ; ทำ shortlist entry point, focus state, loading/empty/no eligible/insufficient evidence/error และรายการที่ใช้ keyboard ได้; แผนที่ทำเลส่งต่อ EXP-02
+5. เรียก Yolk / ไข่แดงเฉพาะ demand===true; แผนที่ province ใช้ค่าสูงสุดของ known enabled percentile จาก Yolk ใน scope พร้อมจำนวน ค่าเริ่มต้น preferred ต้อง eligible ด้วย ส่วน all-Yolk ไม่บังคับ Tier/รูปแบบที่เลือก แยกไม่มี Yolk ผ่านเกณฑ์/ยังไม่พบ Yolk/Demand ยังไม่ทราบ
+6. แสดง metric เป็นชื่อ+ค่าดิบ/หน่วย+กลุ่มบนประเทศ+แถบ0–100 เปิดดู percentile และจุดตัดละเอียดได้ ค่าขาดไม่เป็น0; เปลี่ยน synthetic display name เป็น ทำเลจำลอง / Demo location โดยคง boundary type/IDs/joins
 
 **รับงานเมื่อ**
 
@@ -307,13 +325,17 @@ Implement task 02 with versioned primary units, crosswalks, metric-specific aggr
 - ไม่ตีความจำนวนสาขาเป็น sales share และไม่ใช้ POI sample เป็นรายชื่อครบทุกสาขา
 - แยกสีภาพรวมจาก ranking tuple; unknown มีสถานะเฉพาะ ไม่กลืนเป็นศูนย์
 - ทั้ง 8 รูปแบบอธิบาย Demand / คู่แข่ง / สาขาเรา ตามเกณฑ์ที่ใช้อยู่ ปุ่มดูรายละเอียดมี icon ข้อความ ขอบ และ focus state; เปิดได้ด้วย keyboard
+- สีทองและ egg_alt สื่อ confirmed-high Demand เท่านั้น ไม่เปลี่ยนการจัดอันดับหรือรับรองการเปิดสาขา
+- Map scope เปลี่ยนเฉพาะผลสรุปบน map; golden province มาจาก Yolk ที่เข้า scope และ missing ไม่ปะปน measured low
+- ไม่มีชุด P99.7/P100.0 เป็นคำตอบหลัก; band ตรง exact percentile และมี accessible text/missing state
+- ชื่อ synthetic ทุกบริบทเป็น ทำเลจำลอง / Demo location แต่ source IDs/boundary type/cohort และ branch/target joins ไม่เปลี่ยน
 
-**ทดสอบหลัก:** `same_run_across_views`, `landscape_contract`, `coverage_partial_missing`, `map_score_vs_rank`, `count_not_sales_share`, `empty_error_states`, `bilingual_values_units`, `pattern_dynamic_threshold_descriptions`, `details_button_affordance`
+**ทดสอบหลัก:** `same_run_across_views`, `landscape_contract`, `coverage_partial_missing`, `map_score_vs_rank`, `count_not_sales_share`, `empty_error_states`, `bilingual_values_units`, `pattern_dynamic_threshold_descriptions`, `details_button_affordance`, `yolk_demand_truth_table`, `map_scope_preferred_vs_all`, `map_peak_from_yolk_only`, `map_no_pass_vs_unknown`, `percentile_band_boundaries`, `percentile_exact_details`, `synthetic_display_name_identity`
 
 **Prompt สำหรับ agent**
 
 ```text
-Implement task 03 as a read-only vertical slice against a typed immutable-run fixture. Show evidence and unknown states before any action recommendation. Preserve the distinction between aggregate Supply and incomplete POI examples. Do not invent sales shares, traffic counts or real coordinates.
+Implement task 03 as a read-only vertical slice against a typed immutable-run fixture. Show evidence and unknown states before any action recommendation. Preserve the distinction between aggregate Supply and incomplete POI examples. Do not invent sales shares, traffic counts or real coordinates. Implement the v1.5 Yolk/map/percentile presentation contract without changing the v1.4 criteria engine. Yolk is demand===true, not eligible. Keep the national distribution immutable and give missing data its own text/state.
 ```
 
 ### 04 · CRUD สาขาและคิวตรวจสอบ
@@ -483,7 +505,7 @@ Implement task 08 from the activity policy. Count distinct committed human opera
 Implement task 09 as evidence-gated metric adapters. Keep Bangchak as the current business context. Add only metrics with explicit source fields and aggregation semantics; do not infer facility capacity or actual traffic from POI type.
 ```
 
-### EXP-01 · ธีมส่วนบุคคลและภาษาอ่านง่าย
+### EXP-01 · Navigation กระชับ ธีม ภาษา และ icon ที่ช่วยตัดสินใจ
 
 **เริ่มเมื่อ:** 00 ผ่าน acceptance แล้ว
 
@@ -491,19 +513,26 @@ Implement task 09 as evidence-gated metric adapters. Keep Bangchak as the curren
 2. ใช้ exact DS token aliases: light canvas=surface-alt และ card=surface-canvas; dark ใช้ canvas/card ฝั่ง dark ห้ามแก้ canonical CSS เพื่อปรับหน้าจอเดียว
 3. ใช้ main body 17px mobile/18px large, controls 16px, metadata เป้าหมาย14px, line-height1.65 เป็น baseline ทดสอบข้อความไทยยาว/200% zoom ก่อนลดตัวอักษร
 4. ใช้คำไทยตรงการกระทำและ DS icon คู่ข้อความ ไม่ใช้ motif หรือ icon-only ที่ต้องเดา; TH/EN จำค่าภาษาและเปลี่ยนธีม/ภาษาไม่ล้าง draft หรือแจ้งทั้งทีม
+5. มือถือแสดง Yolk/แจ้งเตือน/เมนูในแถบปิด ย้ายธีม ภาษา สมาชิกและโลโก้จริงเข้า disclosure ที่ใช้ keyboard ได้; desktop ใช้ dark chrome ตามธีม ไม่มี forced beige strip และไม่มี frame/plate/invert/recolour logo
+6. คง label สั้นของ bottom navigation พร้อม44px targetsและsafe-area; TH/EN ยาวไม่ชนหรือ wrap controls เป็นแถบสูง และเปิดเมนูแล้วไม่บังการเข้าถึงเนื้อหา
+7. ใช้ pattern icon mapping จาก product contract ใน selector/badge/detail: groups,flag,potted_plant,explore,bedtime,swords,beach_access,ac_unit; ใช้ egg_alt+สีทองDS+คำ Yolk/ไข่แดงสำหรับ Demand สูง ไม่ใช้แทนคำอธิบาย D/C/B
 
 **รับงานเมื่อ**
 
 - Explicit theme ชนะ OS; system ตาม OS; storage พังยังใช้งานใน session ได้
 - ทุก component/read state/focus/error/map overlay รองรับ light/dark และภาษา
 - Personal preferences ไม่มี workspace event หรือ leaderboard count
+- Dark mode ใช้ chrome มืดตาม DS; สถานะปิดบนมือถือไม่แสดงธีม/ภาษา/สมาชิกเป็นแถบยาว
+- โลโก้ native อยู่ใน desktop sidebar และ mobile disclosure ไม่มี card/frame/filter/recolour; หากอ่านไม่ชัดต้องเปิด issue ขอ approved variant ไม่ทำ asset ขึ้นใหม่
+- ทั้ง8รูปแบบใช้ glyph ที่ตรวจว่ามีจริงอย่างสม่ำเสมอ มี label และfont-failure fallback อ่านได้
+- ขนาด320/390/768/1440และ200% zoom ตรวจจริงก่อนรับ renderedQA; automated/source checks ไม่ปิด gate นี้
 
-**ทดสอบหลัก:** `theme_prepaint`, `os_system_only`, `storage_sync_failure`, `draft_preservation`, `thai_english_copy`, `personal_setting_no_event`, `responsive_zoom_manual`, `icon_text_accessible_name`, `icon_not_verification_claim`
+**ทดสอบหลัก:** `theme_prepaint`, `os_system_only`, `storage_sync_failure`, `draft_preservation`, `thai_english_copy`, `personal_setting_no_event`, `responsive_zoom_manual`, `icon_text_accessible_name`, `icon_not_verification_claim`, `mobile_settings_disclosure_structure`, `mobile_menu_keyboard_manual`, `dark_chrome_tokens`, `logo_unmodified_no_plate`, `pattern_icon_mapping`, `yolk_icon_with_label`, `bottom_nav_safe_area_manual`
 
 **Prompt สำหรับ agent**
 
 ```text
-Implement EXP-01 using the pinned DS asset graph and existing theme controller as a reference. Keep preferences personal and preserve unsaved work across language/theme changes. Report browser typography and responsive checks separately from controller tests.
+Implement EXP-01 using the pinned DS asset graph and existing theme controller as a reference. Keep preferences personal and preserve unsaved work across language/theme changes. Report browser typography and responsive checks separately from controller tests. Keep mobile chrome compact with an accessible settings disclosure and dark chrome genuinely dark. Use verified semantic pattern icons and the Yolk egg icon with labels; never recolour the native logo or fake a visual-QA pass.
 ```
 
 ### EXP-02 · แผนที่ขอบเขตและ POI ในหน้าทำเล
@@ -562,6 +591,7 @@ Implement EXP-03 by adapting the preview draft UX to private object storage. Rev
 2. ตรวจ flow map→detail→criteria preview/apply→supply/photo save→context feed/inbox ทั้ง Admin/Editor/Viewer ใน TH/EN, light/dark/system และ 320/390/768/1440 CSS px
 3. ตรวจ keyboard/touch/200% text zoom/reduced motion/tile error/upload error/revision conflict บน actual build; browser visual gate เดิมยัง open จนมีผู้ตรวจจริงและแนบหลักฐาน
 4. ตรวจ asset hashes บนเว็บที่เผยแพร่ โลโก้จริงทุกธีมและมือถือ favicon, canonical/Open Graph/Twitter metadata ที่ใช้ URL แบบ absolute และภาพแชร์สาธารณะ ยืนยันไม่มี motif/กรอบโลโก้ ตรวจสิทธิ์ข้อมูล coverage การคำนวณซ้ำและ rollback พร้อมแยกผล source tests ออกจาก manual checks ที่ยังไม่ทำ
+5. ตรวจ regression v1.5: มือถือเมนูปิด/เปิดกับ safe-area, chrome มืด, native logo contrast,8icon, Yolk/ไข่แดง, percentile bands/details, ชื่อทำเลจำลองและ map scopes โดยยืนยันผล Tier/weighted ranking เท่ากับ v1.4 เมื่อ input เดิม
 
 **รับงานเมื่อ**
 
@@ -569,8 +599,9 @@ Implement EXP-03 by adapting the preview draft UX to private object storage. Rev
 - Pilot ใช้ approved real release ใน private environment และผ่าน source/geo/engine/RBAC/DS/device gates
 - ไม่ประกาศ production-ready ด้วย synthetic demo หรือ VM tests อย่างเดียว
 - Metadata และภาพแชร์ที่เผยแพร่ตรง identity contract ไม่อ้างว่าแอปแชร์แสดงถูกต้องหากตรวจเพียงไฟล์และ metadata ลำดับใช้งานอธิบายได้ว่า Tier ใช้คัด ส่วนน้ำหนักใช้เรียง
+- หลักฐาน QA แยก numerical regression, source/controller checks, live-byte verification และ actual-device visual checks; open gate ต้องยังเปิดเมื่อไม่ได้สังเกต build จริง
 
-**ทดสอบหลัก:** `share_grant_expiry_revocation`, `email_line_opt_in`, `access_scoped_export`, `end_to_end_roles`, `th_en_all_themes`, `mobile_zoom_keyboard_touch`, `live_asset_hash`, `release_rollback`, `manual_gate_evidence`, `published_favicon_social_card`, `tier_weight_user_flow`, `icon_details_action_accessible`
+**ทดสอบหลัก:** `share_grant_expiry_revocation`, `email_line_opt_in`, `access_scoped_export`, `end_to_end_roles`, `th_en_all_themes`, `mobile_zoom_keyboard_touch`, `live_asset_hash`, `release_rollback`, `manual_gate_evidence`, `published_favicon_social_card`, `tier_weight_user_flow`, `icon_details_action_accessible`, `v15_unchanged_engine_regression`, `v15_display_truthfulness`, `mobile_menu_dark_chrome_manual`, `yolk_map_and_percentile_manual`
 
 **Prompt สำหรับ agent**
 
@@ -623,8 +654,8 @@ Public CI ใช้ synthetic fixtures และ mock external providers ไม�
 4. ตรวจ acceptance + tests ที่ตรงงาน และรายงาน blockers/evidence ที่ยังไม่ครบก่อนมอบงานถัดไป
 
 ```text
-Implement task <ID> from contracts/implementation-tasks.v1.4.json.
-Read CityMETER_Yolk_Product_Statement_v1.4.md, contracts/product.v1.4.json,
+Implement task <ID> from contracts/implementation-tasks.v1.5.json.
+Read CityMETER_Yolk_Product_Statement_v1.5.md, contracts/product.v1.5.json,
 contracts/criteria.v1.4.json, and DS_ASSET_INTEGRATION.md first.
 Confirm dependencies and the agreed existing-stack path mapping.
 Change only this task's bounded slice and necessary shared contract adapters.
@@ -649,8 +680,8 @@ Do not mark manual browser/device QA passed without observing the actual build.
 ## 8. หลักฐานส่งมอบและสิ่งที่ยังเปิดอยู่
 
 - Runtime/UI reference: [prototype](prototype/index.html), [experience contract](contracts/experience.v1.3.json), [source/controller QA](evidence/experience-qa-v1.3.json)
-- Product/domain: [Product statement](CityMETER_Yolk_Product_Statement_v1.4.md), [product JSON](contracts/product.v1.4.json), [criteria JSON](contracts/criteria.v1.4.json)
-- Dispatch: [15 tasks JSON](contracts/implementation-tasks.v1.4.json) มี dependencies, input/output paths, acceptance, test IDs, prompts และ command status
-- Asset authority: [asset index](ASSET_INDEX_v1.4.md), [runtime assets](contracts/assets.v1.4.json), [DS guide](DS_ASSET_INTEGRATION.md), [DS hash/role manifest](contracts/ds-assets.v1.4.json), [release fingerprint](contracts/release.v1.4.0.json)
+- Product/domain: [Product statement](CityMETER_Yolk_Product_Statement_v1.5.md), [product JSON](contracts/product.v1.5.json), [criteria JSON](contracts/criteria.v1.4.json)
+- Dispatch: [15 tasks JSON](contracts/implementation-tasks.v1.5.json) มี dependencies, input/output paths, acceptance, test IDs, prompts และ command status
+- Asset authority: [asset index](ASSET_INDEX_v1.5.md), [runtime assets](contracts/assets.v1.5.json), [DS guide](DS_ASSET_INTEGRATION.md), [DS hash/role manifest](contracts/ds-assets.v1.5.json), [release fingerprint](contracts/release.v1.5.0.json)
 
 Browser visual/device QA ยัง **open** จาก automatic approval review ที่บล็อกขั้นตอนเดิมไว้ เอกสารนี้ไม่อ้างว่า source tests ปิดเรื่อง layout, tile interaction, Thai readability หรือ photo orientation บนอุปกรณ์จริงแล้ว Dev ต้องเก็บผลตรวจจริงเมื่อสามารถตรวจได้ และไม่เปลี่ยนสถานะเป็น passed จากการคาดเดา

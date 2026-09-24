@@ -1,0 +1,428 @@
+{
+  "schema_version": "yolk.release/1.5",
+  "product_version": "1.5",
+  "handoff_revision": "1.5.0",
+  "release_date": "2026-09-24",
+  "status": "ready_with_open_manual_gate",
+  "runtime_entrypoint": "prototype/index.html",
+  "public_preview": "https://montri-th.github.io/yolk/",
+  "source_repository": "https://github.com/montri-th/yolk",
+  "deployment_binding": "Release tag binds the exact commit; external Pages/live receipt identifies the deployed source",
+  "runtime_fingerprint": {
+    "algorithm": "sha256",
+    "serialization": "sorted records: sha256 + two spaces + package-relative path + LF",
+    "value": "412930388e58ee1b025d055a5f289d762ccca7fe012bcd908073fd942abfc85b",
+    "file_count": 77
+  },
+  "files": [
+    {
+      "path": "prototype/.nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "prototype/app.js",
+      "sha256": "21b2fcab45c39d9833bdae0f36562054b498dae3e0885c42fc52d0133db605ae",
+      "bytes": 60574
+    },
+    {
+      "path": "prototype/assets/arvo-OFL.txt",
+      "sha256": "f4f2cb57f7050c4e615863a39bf04811eada567d76d99b10b0f33d1e10e6cccd",
+      "bytes": 4508
+    },
+    {
+      "path": "prototype/assets/arvo-latin-700-normal.woff2",
+      "sha256": "3d908a2c04ec4c59d26d1454008b2d6744480654663a5f88e439f6483976bd37",
+      "bytes": 17348
+    },
+    {
+      "path": "prototype/assets/bai-jamjuree-OFL.txt",
+      "sha256": "74b7deafa632a5ed301dc322fcc2867ac200402e06b6d0b0b01faf09b8514e3e",
+      "bytes": 5487
+    },
+    {
+      "path": "prototype/assets/bai-jamjuree-latin-400-normal.woff2",
+      "sha256": "5200faf54f32adc1dc47b8522adbd1399e739f4ce5c9236866806c04d6397b19",
+      "bytes": 11596
+    },
+    {
+      "path": "prototype/assets/bai-jamjuree-latin-600-normal.woff2",
+      "sha256": "5ae338ac0db4222226ad96bf1b4b460030c3af1affabb475c67bf218b2eaa83f",
+      "bytes": 11844
+    },
+    {
+      "path": "prototype/assets/bai-jamjuree-thai-400-normal.woff2",
+      "sha256": "357f8fe9fd08973568a061a2fc266a07819cdc33e8c9bb2b39985cc4ec49bfa9",
+      "bytes": 9168
+    },
+    {
+      "path": "prototype/assets/bai-jamjuree-thai-600-normal.woff2",
+      "sha256": "547483c6fbedcc13f4c04489c4ec3f6be4c69877ae7cd4cfbf4a0d289889ba32",
+      "bytes": 9808
+    },
+    {
+      "path": "prototype/assets/color-srgb-07.production.css",
+      "sha256": "60fbdbf1df810980e3f233d4861c6e9f39790c4d63bdb29bf09c0d4c016d288b",
+      "bytes": 14096
+    },
+    {
+      "path": "prototype/assets/demo-photos/README.md",
+      "sha256": "389e5680abbd861299bc1a245fdd21efd1d18527a4415dde10ce83256129e4fc",
+      "bytes": 864
+    },
+    {
+      "path": "prototype/assets/demo-photos/entrance.jpg",
+      "sha256": "7db904b23f124764c839512d8d96af7af8e0fa2f6ad6dbbf60c5ee202b1c0596",
+      "bytes": 225787
+    },
+    {
+      "path": "prototype/assets/demo-photos/forecourt.jpg",
+      "sha256": "e3c25fb2016fca06c5d92ff6c86dcd9cc15879e2dc41de4404fc054317b5ab74",
+      "bytes": 247490
+    },
+    {
+      "path": "prototype/assets/demo-photos/frontage.jpg",
+      "sha256": "8266be1a9bc9ef7cf66b8674754f7ba4b4c9b60d0861bb10e4556be9ec46085a",
+      "bytes": 193451
+    },
+    {
+      "path": "prototype/assets/demo-photos/manifest.json",
+      "sha256": "1bcbad60228d229e72816339abbdf59880c4781e5b9260940e41142a5d638aac",
+      "bytes": 3055
+    },
+    {
+      "path": "prototype/assets/demo-photos/pumps.jpg",
+      "sha256": "f3f534a2c281a9d528f92de70e1d9f31650499d4eb34f5c4c9a6541f2aef0d14",
+      "bytes": 265887
+    },
+    {
+      "path": "prototype/assets/demo-photos/shop.jpg",
+      "sha256": "919df3371f10151a25fa2b4db37aafa8aa8cbbd2d60f805a4be922bec12c6446",
+      "bytes": 196793
+    },
+    {
+      "path": "prototype/assets/fonts.css",
+      "sha256": "868806b207db6064669db29452fd35ab634aafb344a537b5ddf1e05393ceb9e9",
+      "bytes": 2776
+    },
+    {
+      "path": "prototype/assets/ibm-plex-sans-thai-OFL.txt",
+      "sha256": "1b4f4d1f1463b63f1356e7b6034ad5a94311b35ffb53cc4bf83f2fbda24450e4",
+      "bytes": 4796
+    },
+    {
+      "path": "prototype/assets/ibm-plex-sans-thai-looped-OFL.txt",
+      "sha256": "e3ac4237aef600394644cdab2375d7011b0f80d2229ff05f47df2e61a109ab57",
+      "bytes": 4832
+    },
+    {
+      "path": "prototype/assets/ibm-plex-sans-thai-looped-latin-700-normal.woff2",
+      "sha256": "47eb0fe82a8b96cc5f1ac057e2edad4d2550d6b73d4aa030697bf1678047c526",
+      "bytes": 18012
+    },
+    {
+      "path": "prototype/assets/ibm-plex-sans-thai-looped-thai-700-normal.woff2",
+      "sha256": "fa03fc4dda6a69763997e79d50e0437795d06c02e1798bdacf3a2f5e685cea2c",
+      "bytes": 14176
+    },
+    {
+      "path": "prototype/assets/ibm-plex-sans-thai-thai-400-normal.woff2",
+      "sha256": "2d66381c26d32bf2a95bfe559d1a5ed5475fcdac3fa128e45a33301010d42056",
+      "bytes": 11804
+    },
+    {
+      "path": "prototype/assets/identity/icon-portfolio-16.png",
+      "sha256": "c100627d5e8fc9d21d168dbf15f9fdab7f5d6931b04df5164e58137df77feca8",
+      "bytes": 768
+    },
+    {
+      "path": "prototype/assets/identity/icon-portfolio-180.png",
+      "sha256": "41ac1e302345d29d791fcc26a5e7111aeb3a4e222dff63685743b43d0fdd6ef0",
+      "bytes": 8893
+    },
+    {
+      "path": "prototype/assets/identity/icon-portfolio-192.png",
+      "sha256": "1d8bbd3d8656a83f33c51364d333bba7ca328faf3ae713238fa9450f7810bf8e",
+      "bytes": 11929
+    },
+    {
+      "path": "prototype/assets/identity/icon-portfolio-32.png",
+      "sha256": "5cd19dee724f1a72b2bdcd41467a26e03f76a4bc2d7bd1fe12de6b8b5de665c9",
+      "bytes": 1773
+    },
+    {
+      "path": "prototype/assets/identity/icon-portfolio-48.png",
+      "sha256": "443857069292f6910b9e5cc0383cab6da4273acf1e18a47745864729fc46e08e",
+      "bytes": 2897
+    },
+    {
+      "path": "prototype/assets/identity/icon-portfolio-512.png",
+      "sha256": "d8939f6cc7891c47bbb3dce1ddb04d4c30ce4c7e78e29f6fb0061858dafc881f",
+      "bytes": 28124
+    },
+    {
+      "path": "prototype/assets/identity/site.webmanifest",
+      "sha256": "05775b625f3f8e1d7858c10605f68565f35731b291fae6bd6bb28115f2e0ad66",
+      "bytes": 536
+    },
+    {
+      "path": "prototype/assets/identity/source-icon-set.json",
+      "sha256": "aea8f5a7f9793c14a6b183706627e4c2390388b7d8c49129eceacdd9b0bce7a4",
+      "bytes": 3284
+    },
+    {
+      "path": "prototype/assets/identity/yolk-share-v1.4.png",
+      "sha256": "2946f96c90c30a783521c8f8f6381b682f59201ec984d53223601de541727fc1",
+      "bytes": 41677
+    },
+    {
+      "path": "prototype/assets/jetbrains-mono-OFL.txt",
+      "sha256": "403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b",
+      "bytes": 4524
+    },
+    {
+      "path": "prototype/assets/jetbrains-mono-latin-400-normal.woff2",
+      "sha256": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb",
+      "bytes": 21168
+    },
+    {
+      "path": "prototype/assets/landometer-logo-horizontal-v12-889.png",
+      "sha256": "989f58583bc54e4b9a743d0f04308df92fb7cf0bb2ae3ba9398ec9c03c481554",
+      "bytes": 31691
+    },
+    {
+      "path": "prototype/assets/material-symbols-Apache-2.0.txt",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "bytes": 11357
+    },
+    {
+      "path": "prototype/assets/material-symbols-rounded-nav-300.woff2",
+      "sha256": "d7e283106ed2898726b24504c4e0f5ad524292984a90a4d29553c7dcf53b9657",
+      "bytes": 2500
+    },
+    {
+      "path": "prototype/assets/material-symbols-rounded-open-in-new-300.woff2",
+      "sha256": "778b29f8befe5ba7a8f0f8188d4c12e3c53d00810dac10337609b04d8506d46e",
+      "bytes": 1124
+    },
+    {
+      "path": "prototype/assets/material-symbols-rounded-yolk-300-v1.3.woff2",
+      "sha256": "be2266db2bc725c1220edb27d7e8d28f1fe26d3635094bb168827bdf98b383f7",
+      "bytes": 5632
+    },
+    {
+      "path": "prototype/assets/material-symbols-rounded-yolk-300-v1.5.woff2",
+      "sha256": "c5b7e050e816964ebbbd3b0c43df6aefa4a3d4b181894620efd9385f84b1aedd",
+      "bytes": 6656
+    },
+    {
+      "path": "prototype/assets/yolk-analytical.css",
+      "sha256": "940f9689dca0f246ee5a03890f5852ab8ffb299b11fc6305ce0147058b93346d",
+      "bytes": 238
+    },
+    {
+      "path": "prototype/base.css",
+      "sha256": "20bfe74b621c273a417a460e4f7511e7560a93ced7eeda8c72280a956a1e262a",
+      "bytes": 19969
+    },
+    {
+      "path": "prototype/branch-photos.css",
+      "sha256": "c275b384a4460c5e2189f8bb15e5fc564d1b9abac904f035802086f0b0c9453b",
+      "bytes": 3743
+    },
+    {
+      "path": "prototype/branch-photos.js",
+      "sha256": "9273a715345c463d15d7a9ae3ead45ef2d977deb9619e053549b170677de09a3",
+      "bytes": 16673
+    },
+    {
+      "path": "prototype/data/demo-data.js",
+      "sha256": "f0b0222dd5a6a15b1d9f645c747dbe46639326c8aed40257f05a6fe99c092e75",
+      "bytes": 188231
+    },
+    {
+      "path": "prototype/data/demo-data.json",
+      "sha256": "01539bce9c913a764317ed63a1da79436a64cd7454da2aad6e55896d3b2e7dd8",
+      "bytes": 188116
+    },
+    {
+      "path": "prototype/data/demo-map-context.js",
+      "sha256": "880a19a6ad2805d24b7767348ac06237ed5bb802401bd0bacb6ac70cde321213",
+      "bytes": 2798
+    },
+    {
+      "path": "prototype/data/thailand-provinces.js",
+      "sha256": "053f780e80ef7d6c64cc12cc5cf3c79adebb36b7be32f0cba6a76869a8ca876e",
+      "bytes": 495902
+    },
+    {
+      "path": "prototype/data/thailand-provinces.json",
+      "sha256": "8dbcdc3678938690dec57cfe7d208b85368bf1dd66ba7094e31710be834f427c",
+      "bytes": 495684
+    },
+    {
+      "path": "prototype/decision-ui.css",
+      "sha256": "48a01d16416dce290ad15370c2a9048bd7e36ae8be58e2832aeda77721241e08",
+      "bytes": 4688
+    },
+    {
+      "path": "prototype/decision-ui.js",
+      "sha256": "5a1e9361a8f7bf537945e577f28fd7ce44f6b98d291f0457ed4db06f671dcce7",
+      "bytes": 16383
+    },
+    {
+      "path": "prototype/experience.css",
+      "sha256": "30dafb2b4393ea4aa079efb6c291c4fd3fd318fb41634e4a3548b425fd19ca9c",
+      "bytes": 17012
+    },
+    {
+      "path": "prototype/icons.css",
+      "sha256": "d4ee2209da06f499ec2f3ceea50e317fdad173e8e929501d70c35229e17c133e",
+      "bytes": 3151
+    },
+    {
+      "path": "prototype/icons.js",
+      "sha256": "4ab9ef6db9ccbbf584a1bcb05633296f9871521b59b1ee89eae33bc5424bbf5b",
+      "bytes": 2547
+    },
+    {
+      "path": "prototype/identity.css",
+      "sha256": "0edf17cce07fcca9aa2462e747e29b283bb7a49673b4ec4ebc4289b5c7d93f92",
+      "bytes": 4685
+    },
+    {
+      "path": "prototype/index.html",
+      "sha256": "1251b2193bacddfbcf7effffb2d2df5b4bca305e1c2b1141459d2ac6b62a9d6d",
+      "bytes": 5036
+    },
+    {
+      "path": "prototype/landscape.css",
+      "sha256": "f3a6ccfc5c0c85d97dfbf675eec4d549168a96191a22a49690db5ce394b9b533",
+      "bytes": 8391
+    },
+    {
+      "path": "prototype/landscape.js",
+      "sha256": "0acf0e5cd3d652c301dc17bb7d667280134f89e9989fa8c308972d3054fe9fe0",
+      "bytes": 19966
+    },
+    {
+      "path": "prototype/leaderboard.js",
+      "sha256": "39d20e0e1758b76668625fff8a61b0843b71ac44791ec0b43d78dab97d945718",
+      "bytes": 2974
+    },
+    {
+      "path": "prototype/location-map.css",
+      "sha256": "fabdc09ac176331496c21af105a9c13cc0cd6c3e203edfc33cdb3bed709d5817",
+      "bytes": 9137
+    },
+    {
+      "path": "prototype/location-map.js",
+      "sha256": "3d28f27bc55831b1f00d8a44d76254200bd67817f0417c67e725b968703ba337",
+      "bytes": 22163
+    },
+    {
+      "path": "prototype/metrics.js",
+      "sha256": "fc9cec4e52bfac3e9fc1ebe7e5e5d4ff266e0c84ec01745fd1d57c15cabf3e3b",
+      "bytes": 4907
+    },
+    {
+      "path": "prototype/model.js",
+      "sha256": "0148ef20568dabf619082b060899468052e30e59fbcf0b060c277e695a27b489",
+      "bytes": 22830
+    },
+    {
+      "path": "prototype/supply-ui.js",
+      "sha256": "d889805fde2fbc7c7b3039a61d69d4edae4ffd8b350c5e38d12b3fa917446820",
+      "bytes": 17251
+    },
+    {
+      "path": "prototype/theme.js",
+      "sha256": "1ec9d5207ac15d7385f4894a67164bf8a6da5670db8991c6c8671f2683d7bc74",
+      "bytes": 3826
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/LICENSE",
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
+      "bytes": 1395
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/layers-2x.png",
+      "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "bytes": 1259
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/layers.png",
+      "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "bytes": 696
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/marker-icon-2x.png",
+      "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "bytes": 2464
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/marker-icon.png",
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "bytes": 1466
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/marker-shadow.png",
+      "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "bytes": 618
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.css",
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "bytes": 14806
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.js",
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "bytes": 147552
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.js.map",
+      "sha256": "600a10dc5cd110de0699510d322afcbe01c7ca90b4c5f48adc20314c70aac753",
+      "bytes": 225544
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/vendor-manifest.json",
+      "sha256": "e4df177af08ca050a7986533d8829660b63c5a17058594ced87f8233e741b5df",
+      "bytes": 1573
+    },
+    {
+      "path": "prototype/yolk-focus.css",
+      "sha256": "a5e953e680008ca0e96a5907febc6cca07efcad9406cdffbe33b2287a42aa8ef",
+      "bytes": 3229
+    },
+    {
+      "path": "prototype/yolk.css",
+      "sha256": "ac1fd3fbfe92313de886c73a412e30f7cc03f8b6850ee1520d86556e0b87e5da",
+      "bytes": 21625
+    }
+  ],
+  "asset_contract": "contracts/assets.v1.5.json",
+  "identity_contract": "contracts/web-identity.v1.5.json",
+  "criteria_contract": "contracts/criteria.v1.4.json",
+  "data_scope": {
+    "type": "synthetic_public_demo",
+    "area_count": 308,
+    "poi_count": 16,
+    "contains_private_sources": false
+  },
+  "changes": [
+    "Compact mobile menu, theme-adaptive navigation and native logo with no light backing",
+    "Distinct meaningful Material Symbols for eight patterns and Yolk",
+    "National percentile bands, bars and exact expandable values",
+    "Synthetic names standardized to Demo location / ทำเลจำลอง; geography types and all analytical values preserved",
+    "Yolk means confirmed high Demand; gold map with preferred/all-Yolk views, separate from ranking and Supply",
+    "Updated bilingual human-readable brief and step-by-step machine task contracts, DS assets and handoff"
+  ],
+  "verification": {
+    "automated": "passed",
+    "receipt": "evidence/qa-v1.5.json",
+    "browser_visual_qa": "open; not performed",
+    "real_device_and_share_crawler_qa": "open; not performed"
+  },
+  "production_backend": "planned; not included in static preview"
+}

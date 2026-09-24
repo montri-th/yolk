@@ -1,20 +1,17 @@
 ---
 document_id: yolk.asset_index
-product_version: "1.4"
-handoff_patch: "1.4.0"
-runtime_assets: contracts/assets.v1.4.json
-ds_assets: contracts/ds-assets.v1.4.json
-icon_extension: contracts/icons.v1.3.json
-release: contracts/release.v1.4.0.json
+product_version: "1.5"
+handoff_patch: "1.5.0"
+runtime_assets: contracts/assets.v1.5.json
+ds_assets: contracts/ds-assets.v1.5.json
+icon_extension: contracts/icons.v1.5.json
+release: contracts/release.v1.5.0.json
 motifs_enabled: false
 ---
 
-> Historical v1.4 reference. Current: [ASSET_INDEX_v1.5.md](ASSET_INDEX_v1.5.md). Criteria v1.4 remains the current calculation contract.
+# Asset index — Yolk v1.5 / handoff 1.5.0
 
-
-# Asset index — Yolk v1.4 / handoff 1.4.0
-
-ใช้ [runtime asset manifest](contracts/assets.v1.4.json) เพื่อตรวจไฟล์ทั้งหมด และ [DS manifest](contracts/ds-assets.v1.4.json) เพื่อรู้ว่าไฟล์ใดมาจาก **Landometer DS 0.9.4** ไฟล์ canonical ต้องคง bytes/hash เดิม ส่วน product adapters และ icon subset มี provenance แยก ห้ามถือว่าทุกไฟล์ใน `prototype/assets/` เป็น canonical DS
+ใช้ [runtime asset manifest](contracts/assets.v1.5.json) เพื่อตรวจไฟล์ทั้งหมด และ [DS manifest](contracts/ds-assets.v1.5.json) เพื่อรู้ว่าไฟล์ใดมาจาก **Landometer DS 0.9.4** ไฟล์ canonical ต้องคง bytes/hash เดิม ส่วน product adapters และ icon subset มี provenance แยก ห้ามถือว่าทุกไฟล์ใน `prototype/assets/` เป็น canonical DS
 
 ## แผนที่ไฟล์สำหรับ dev
 
@@ -23,12 +20,13 @@ motifs_enabled: false
 | Runtime entry | [prototype/index.html](prototype/index.html) | จุดอ้างอิง load order และ relative URLs |
 | สี canonical DS | [color-srgb-07.production.css](prototype/assets/color-srgb-07.production.css) | โหลดก่อน product styles; ใช้ semantic tokens |
 | ฟอนต์ | [fonts.css](prototype/assets/fonts.css) และ WOFF2 ที่ระบุใน DS manifest | Loader เป็น Yolk adapter; font bytes และ licence ต้องไปด้วยกัน |
-| Analytical scales | [yolk-analytical.css](prototype/assets/yolk-analytical.css) | Product adapter ที่อ้าง DS 5-class heat; app เป็นผู้กำหนด thresholds |
-| Logo ทุกธีม | [landometer-logo-horizontal-v12-889.png](prototype/assets/landometer-logo-horizontal-v12-889.png) | ภาพโปร่งใสตาม receipt วางตรงบน sidebar/header ทั้งแถบที่ใช้ DS beige ในทุกธีม |
-| Web identity | [identity.css](prototype/identity.css), [identity contract](contracts/web-identity.v1.4.json) | Logo จริงทุกธีม ไม่มีกรอบหรือแผ่นรอง; shell ใช้พื้น DS beige |
+| Analytical scales | [yolk-analytical.css](prototype/assets/yolk-analytical.css) | Product adapter ใช้สีทอง DS สำหรับ Yolk ที่ยืนยัน Demand สูง; 3 ระดับ map percentile แยกจาก priority score |
+| Logo ทุกธีม | [landometer-logo-horizontal-v12-889.png](prototype/assets/landometer-logo-horizontal-v12-889.png) | ภาพโปร่งใสตาม receipt วางตรงบน desktop sidebar / mobile menu; คง bytes และสัดส่วนทุกธีม |
+| Web identity | [identity.css](prototype/identity.css), [identity contract](contracts/web-identity.v1.5.json) | Logo จริงทุกธีม ไม่มีกรอบหรือแผ่นรอง; shell ใช้ token ตามธีม ไม่บังคับพื้น beige ขนาดใหญ่ใน dark mode |
 | Favicon / app icons | [identity assets](prototype/assets/identity/site.webmanifest) | ไฟล์ portfolio icon ของ LDS 0.9.4 คง bytes เดิม ดู hash และขนาดใน identity contract |
-| ภาพปกแชร์ | [yolk-share-v1.4.png](prototype/assets/identity/yolk-share-v1.4.png) | Product image 1200×630 พร้อม logo/tagline; public metadata ไม่รวมข้อมูล workspace |
-| Decision icons | [icons.js](prototype/icons.js), [icons.css](prototype/icons.css), [icon contract](contracts/icons.v1.3.json) | Material Symbols Rounded subset เพิ่มเฉพาะผลิตภัณฑ์; text labels ยังต้องอยู่ |
+| ภาพปกแชร์ | [yolk-share-v1.4.png](prototype/assets/identity/yolk-share-v1.4.png) | Product image 1200×630 พร้อม logo/tagline; ใช้ไฟล์เดิม v1.4 เพราะตัวตนผลิตภัณฑ์เดิม ไม่ใช่ภาพ runtime เก่า; public metadata ไม่รวมข้อมูล workspace |
+| Decision icons | [icons.js](prototype/icons.js), [icons.css](prototype/icons.css), [icon contract](contracts/icons.v1.5.json) | Material Symbols Rounded subset เพิ่มเฉพาะผลิตภัณฑ์; text labels ยังต้องอยู่ |
+| Yolk / percentile / map display | [yolk-focus.css](prototype/yolk-focus.css), [decision-ui.js](prototype/decision-ui.js) | สีทองและ label ไข่แดง, แถบ percentile พร้อมรายละเอียด; เป็น product adapters ไม่แก้สูตรเกณฑ์ |
 | Theme/readability | [theme.js](prototype/theme.js), [experience.css](prototype/experience.css) | Controller ก่อน body paint; experience.css เป็น product theme adapter ท้ายชุด styles |
 | Country overview | [province geometry](prototype/data/thailand-provinces.json), [source/licence](evidence/geography-source.md) | จังหวัดเป็น display/drill-down layer ไม่ใช่ขอบเขต อปท. ปัจจุบัน |
 | Location map | [location-map.js](prototype/location-map.js), [location-map.css](prototype/location-map.css), [demo context](prototype/data/demo-map-context.js) | Public boundary/POI เป็นฉากจำลอง; geometry จริงต้องผ่าน adapter/coverage gate |
@@ -39,11 +37,11 @@ motifs_enabled: false
 
 ### Logo และ icon ที่ต้องรักษา
 
-- ทุกธีม: ใช้ภาพ logo เดิมโดยตรงบน sidebar/header ทั้งแถบที่ใช้ DS beige **ไม่มีกรอบ card badge หรือแผ่นขาวรองเฉพาะโลโก้** ไม่ crop/recolour/filter ภาพ Main content ยังสลับ light/dark ได้
-- Favicon ใช้ portfolio icon ที่อนุมัติใน LDS 0.9.4 แบบไม่แก้ bytes ภาพแชร์เป็น Yolk product asset ที่มี receipt ของตัวเอง ไม่อ้างว่าเป็น canonical corporate social mark ใหม่ ดู [web identity contract](contracts/web-identity.v1.4.json)
+- ทุกธีม: ใช้ภาพ logo เดิมโดยตรงบน sidebar จอใหญ่หรือในเมนูมือถือ **ไม่มีกรอบ card badge หรือแผ่นรองเฉพาะโลโก้** ไม่ crop/recolour/filter ภาพ พื้น shell และเนื้อหาเปลี่ยนตามธีม ตรวจ contrast ด้วยภาพจริง; ถ้าต้องใช้ reverse variant ต้องได้ asset อนุมัติก่อน
+- Favicon ใช้ portfolio icon ที่อนุมัติใน LDS 0.9.4 แบบไม่แก้ bytes ภาพแชร์เป็น Yolk product asset ที่มี receipt ของตัวเอง ไม่อ้างว่าเป็น canonical corporate social mark ใหม่ ดู [web identity contract](contracts/web-identity.v1.5.json)
 - **ไม่มี motif ในแอปหรือชุด runtime assets ของรุ่นนี้** Receipt เก่าอาจกล่าวถึง motif เพื่อเก็บประวัติ แต่ไม่ใช่รายการที่ต้องนำกลับมา ship
-- Icon ส่วนขยายใช้ Material Symbols Rounded: FILL0 / wght300 / GRAD0 / opsz24 พินไฟล์/font/licence/hash แยกใน [icons.v1.3.json](contracts/icons.v1.3.json) เป็น Yolk extension ไม่ใช่การแก้ canonical DS package
-- ใช้ icon คู่ข้อความกับเกณฑ์ เล็งทำเล ตรวจข้อมูล ชั้นแผนที่ บันทึก และรูปสาขา Glyph เป็น `aria-hidden`; text/accessible name อธิบาย action ได้แม้ font โหลดไม่ได้ ไอคอนไม่รับรองว่า data verified
+- Icon ส่วนขยายใช้ Material Symbols Rounded: FILL0 / wght300 / GRAD0 / opsz24 พินไฟล์/font/licence/hash แยกใน [icons.v1.5.json](contracts/icons.v1.5.json) เป็น Yolk extension ไม่ใช่การแก้ canonical DS package
+- ใช้ icon คู่ข้อความกับเกณฑ์ เล็งทำเล ตรวจข้อมูล ชั้นแผนที่ บันทึก และรูปสาขา เพิ่ม mapping คงที่สำหรับ8รูปแบบและ `egg_alt` สำหรับ Yolk; Glyph เป็น `aria-hidden`; text/accessible name อธิบาย action ได้แม้ font โหลดไม่ได้ ไอคอนไม่รับรองว่า data verified
 
 ## แผนที่และรูปไม่ใช่ DS assets
 
@@ -53,10 +51,10 @@ Simplified และ Detailed ใช้ OpenStreetMap ชุดเดียว�
 
 ## วิธีต่อ assets ในระบบจริง
 
-1. อ่าน [DS integration](DS_ASSET_INTEGRATION.md), [asset JSON](contracts/assets.v1.4.json) และ [DS JSON](contracts/ds-assets.v1.4.json) ก่อนเลือกไฟล์
+1. อ่าน [DS integration](DS_ASSET_INTEGRATION.md), [asset JSON](contracts/assets.v1.5.json) และ [DS JSON](contracts/ds-assets.v1.5.json) ก่อนเลือกไฟล์
 2. คง relative layout หรือ remap URL ทั้ง graph ร่วมกัน อย่า copy HTML อย่างเดียวหรืออ้างไฟล์จากเครื่อง dev
 3. ตรวจ SHA-256/licences และบทบาท asset ก่อน build/หลัง build แยก canonical DS, product adapters, vendor, demo media และ fixture data
-4. อ่าน [release manifest](contracts/release.v1.4.0.json) เพื่อจับคู่ runtime version กับ handoff ไม่อ้าง `latest` ที่เปลี่ยนได้
+4. อ่าน [release manifest](contracts/release.v1.5.0.json) เพื่อจับคู่ runtime version กับ handoff ไม่อ้าง `latest` ที่เปลี่ยนได้
 5. ตรวจ font loading, logo surface, icon fallback, TH/EN และ responsive ใน browser จริง Gate นี้ยัง open; hash ผ่านไม่รับรองการแสดงผล
 
 ```sh

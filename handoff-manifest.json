@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "1.4.0",
-  "workObject": "CityMETER: Yolk v1.4.0 public synthetic web preview and developer handoff",
+  "version": "1.5.0",
+  "workObject": "CityMETER: Yolk v1.5.0 public synthetic web preview and developer handoff",
   "source": {
     "kind": "directory",
     "identity": "Yolk public synthetic edition; private operational data is not distributed"
@@ -17,8 +17,8 @@
     {
       "path": ".github/workflows/pages.yml",
       "role": "release-check",
-      "sha256": "3ff869349312599b9df0fb619205a967d8abe026cdc06e0b139833d5999ed19d",
-      "bytes": 1347,
+      "sha256": "92a9604428bb174f428ead4ff7f4b8608d60d1e7b4042330a08c0cb999414ec6",
+      "bytes": 1481,
       "mime": "application/yaml"
     },
     {
@@ -38,8 +38,8 @@
     {
       "path": "AGENTS.md",
       "role": "handoff-document",
-      "sha256": "1f00557b61c9e5100c16dbed5f5af92e50532bf094dee38b0ad745a90935ba4b",
-      "bytes": 5531,
+      "sha256": "d4a9a918e40cb1feca52f0601b908edfa4fe907216e20ecda87a586cdf193ac8",
+      "bytes": 6776,
       "mime": "text/markdown"
     },
     {
@@ -52,14 +52,21 @@
     {
       "path": "ASSET_INDEX_v1.4.md",
       "role": "handoff-document",
-      "sha256": "688ae92f5a47abe57d4246ff44aca0ce7732a9654f1c6fcb3f5c31a48677b233",
-      "bytes": 9036,
+      "sha256": "0ff67fbcdaa60810a05114726813f8f697f40f4ccf57f794bf858966be6780d6",
+      "bytes": 9176,
+      "mime": "text/markdown"
+    },
+    {
+      "path": "ASSET_INDEX_v1.5.md",
+      "role": "handoff-document",
+      "sha256": "58b85c655c37f77bd321fc633ac39f86fa953e0c9a3806df179afdddc93b4394",
+      "bytes": 10008,
       "mime": "text/markdown"
     },
     {
       "path": "CityMETER_Yolk_Product_Brief_v1.2.md",
       "role": "handoff-document",
-      "sha256": "abff8e09c2bc83de8880d2ccca3b32a74dd7f52385454dd720d78d96557a3bc7",
+      "sha256": "70ace7e247c3ff8f21b3399c25e04352fc45f3553e9c623d248f6664484694ab",
       "bytes": 844,
       "mime": "text/markdown"
     },
@@ -73,35 +80,42 @@
     {
       "path": "CityMETER_Yolk_Product_Statement_v1.4.md",
       "role": "handoff-document",
-      "sha256": "1835727fe44b813744f38ead802e0ccd4a41ab2024dd5e5a4b95a3f91b8242d6",
-      "bytes": 53337,
+      "sha256": "d2fcd8455c67b77ad8dbcacb478f2ada5fa2ae0bc1a1aae0b17c0a371692057f",
+      "bytes": 53519,
+      "mime": "text/markdown"
+    },
+    {
+      "path": "CityMETER_Yolk_Product_Statement_v1.5.md",
+      "role": "handoff-document",
+      "sha256": "c7710f0d66a086d7bc2b564240e466562d5ec7efad42a06dcd04f55186734f2c",
+      "bytes": 64425,
       "mime": "text/markdown"
     },
     {
       "path": "DESIGN.md",
       "role": "handoff-document",
-      "sha256": "8aaa64cf61a43351da89d257bee858c5dae9ad29c7e95694b7c7d4fbeba3b73c",
-      "bytes": 6764,
+      "sha256": "af5ba732119a7b01e16e7f80ff13eb4e0f545a2e2389f61869542449c35b2be5",
+      "bytes": 8317,
       "mime": "text/markdown"
     },
     {
       "path": "DS_ASSET_INTEGRATION.md",
       "role": "handoff-document",
-      "sha256": "1817bfe7ecdf9391f30c599c50a884b77567d922fc4cee89e1b55ab7c492cc4e",
-      "bytes": 9346,
+      "sha256": "34364c6c37d82e20bcbd008a7774b90bb59103a0f3f9725cd530c0e287ca92b0",
+      "bytes": 10199,
       "mime": "text/markdown"
     },
     {
       "path": "HANDOFF.md",
       "role": "handoff-document",
-      "sha256": "f68f7d6c0d84e8b37c2f383795512f7345461640c0900a80477074dcffee450d",
-      "bytes": 8884,
+      "sha256": "1db6d7f7e32ef617ca160419852dd10234a4142e7cb3388c2236036fb77bf359",
+      "bytes": 9204,
       "mime": "text/markdown"
     },
     {
       "path": "IMPLEMENTATION_PLAN_v1.2.md",
       "role": "handoff-document",
-      "sha256": "41ac60f5816db80f3274bb48762b5c90a777b3c54716fdd16c1fbd6fb9d52c20",
+      "sha256": "8a33e9d020866195962a237a22e0b54b939a5f40a04857c1b6c0837798db0a21",
       "bytes": 1005,
       "mime": "text/markdown"
     },
@@ -115,22 +129,29 @@
     {
       "path": "IMPLEMENTATION_PLAN_v1.4.md",
       "role": "handoff-document",
-      "sha256": "b610aa5864fa192b08645a4830a5809d23ca494ae049b554630a60028510e7e0",
-      "bytes": 77849,
+      "sha256": "a5f6411f77d24c989fff318e1cccde2ab9044d38edd18436a7384e0bbd03c17f",
+      "bytes": 78005,
+      "mime": "text/markdown"
+    },
+    {
+      "path": "IMPLEMENTATION_PLAN_v1.5.md",
+      "role": "handoff-document",
+      "sha256": "c46f76604e065de3fbc2bee4cde6a0446c297a67743af2a75bfe564651d866c9",
+      "bytes": 86406,
       "mime": "text/markdown"
     },
     {
       "path": "README.md",
       "role": "handoff-document",
-      "sha256": "483feb54b3bd29c46c50bf33bd10c3cdb4f42983caf9facc52350090167f68d4",
-      "bytes": 4839,
+      "sha256": "cbdad68d4b8efa1a15a31d57d35898ba195069bb33d2d54eaaf24e2cb22caca3",
+      "bytes": 5297,
       "mime": "text/markdown"
     },
     {
       "path": "START_HERE.md",
       "role": "handoff-document",
-      "sha256": "4a8f1f672d08b6b81ada9dd6952c11bf7c19dc9061b05ef9f37462b578d3f76d",
-      "bytes": 6656,
+      "sha256": "3bd099d346ddb63570e77c332262940391e612e09ae4c7ff175d4cfd69d837b0",
+      "bytes": 7002,
       "mime": "text/markdown"
     },
     {
@@ -152,6 +173,13 @@
       "role": "developer-contract",
       "sha256": "a57d40f2ba31827b244c2712899f4580ad20849b89792357f6d18dae1738e99e",
       "bytes": 15698,
+      "mime": "application/json"
+    },
+    {
+      "path": "contracts/assets.v1.5.json",
+      "role": "developer-contract",
+      "sha256": "08a12b5ec92ac3262c2a177a91753a57f8e096cfc75dd522bdafe4b2c31e7177",
+      "bytes": 16005,
       "mime": "application/json"
     },
     {
@@ -197,6 +225,13 @@
       "mime": "application/json"
     },
     {
+      "path": "contracts/ds-assets.v1.5.json",
+      "role": "developer-contract",
+      "sha256": "2ace72137df748fe6bd3b1c0da5478e52c72ee5f5232a16d19f777bba04ad4e6",
+      "bytes": 16936,
+      "mime": "application/json"
+    },
+    {
       "path": "contracts/experience.v1.3.json",
       "role": "developer-contract",
       "sha256": "ac6cef4dfae501aa4ffc99a17512d2e207ab4b49f2c7c99c956ceceefb5671af",
@@ -225,6 +260,13 @@
       "mime": "application/json"
     },
     {
+      "path": "contracts/icons.v1.5.json",
+      "role": "developer-contract",
+      "sha256": "1720b0121f26a73d3e32eb2621117c8c0ef190cb29e9fdb49931b35c77d2f400",
+      "bytes": 2795,
+      "mime": "application/json"
+    },
+    {
       "path": "contracts/implementation-tasks.v1.2.json",
       "role": "developer-contract",
       "sha256": "5b522d2b38915e675f8d8bdda806d771bcefa7a02f0b99f515ae8b67e87d2a4f",
@@ -241,8 +283,15 @@
     {
       "path": "contracts/implementation-tasks.v1.4.json",
       "role": "developer-contract",
-      "sha256": "fcaf1ab0e97b383ffe6c736561764f51027418aded5c5f9f2cda0de901da2ef7",
-      "bytes": 68792,
+      "sha256": "5b9c55402a761dbb2e0cddfe6605afe27658d9ce114e5ec7a8bfe296d381ede5",
+      "bytes": 68901,
+      "mime": "application/json"
+    },
+    {
+      "path": "contracts/implementation-tasks.v1.5.json",
+      "role": "developer-contract",
+      "sha256": "aac8da88b6570e4b66beb63cd7523ec3203bf778d32bd1e6f82e6f055fa489c8",
+      "bytes": 77232,
       "mime": "application/json"
     },
     {
@@ -269,8 +318,15 @@
     {
       "path": "contracts/product.v1.4.json",
       "role": "developer-contract",
-      "sha256": "75eaab1c5dff8f0db5bb0424b47ea35361468d9428fc8a306af6d5cfb61199d4",
-      "bytes": 47673,
+      "sha256": "26116cd11c590739fa56cf9e88dac49b970efe28fca7b9b655dd281fa5a8e225",
+      "bytes": 47769,
+      "mime": "application/json"
+    },
+    {
+      "path": "contracts/product.v1.5.json",
+      "role": "developer-contract",
+      "sha256": "dbf6c1439c587d4af6b3e81d8ba6cf6517949c65af9e03576d31133a40cec78a",
+      "bytes": 63723,
       "mime": "application/json"
     },
     {
@@ -288,6 +344,13 @@
       "mime": "application/json"
     },
     {
+      "path": "contracts/release.v1.5.0.json",
+      "role": "developer-contract",
+      "sha256": "d30d8a4bde87a22aa955a911adce28b23e10b31d47b172f9660ebd1ab3f8a36a",
+      "bytes": 15324,
+      "mime": "application/json"
+    },
+    {
       "path": "contracts/web-identity.v1.4.json",
       "role": "developer-contract",
       "sha256": "6269a2b18a8383efb66fb161f778a0be3eb283b2cb12091b87955014af94d815",
@@ -295,10 +358,17 @@
       "mime": "application/json"
     },
     {
+      "path": "contracts/web-identity.v1.5.json",
+      "role": "developer-contract",
+      "sha256": "5452e744726991b04826e6351440cd41a52685ae6b4c14c2ea94fc5dc57089f3",
+      "bytes": 9524,
+      "mime": "application/json"
+    },
+    {
       "path": "docs/EXPERIENCE_v1.3.md",
       "role": "handoff-document",
-      "sha256": "9ac7f81f43eeb582dededbe13b5d4c0c0ca6426eee73762de41ce0c7a5acea98",
-      "bytes": 20870,
+      "sha256": "4265715635bc1ed9f53d7ba85700ac511dd6bbc2b3b17913c8ab215104258d79",
+      "bytes": 21169,
       "mime": "text/markdown"
     },
     {
@@ -365,6 +435,13 @@
       "mime": "application/json"
     },
     {
+      "path": "evidence/qa-v1.5.json",
+      "role": "verification-evidence",
+      "sha256": "e1bd2dedada82eca8c0a0f66eedcc095410a5460f6bb65c6fc72a23759eba527",
+      "bytes": 7746,
+      "mime": "application/json"
+    },
+    {
       "path": "evidence/share-image-v1.4.json",
       "role": "verification-evidence",
       "sha256": "1cf6db210cab2e6f26380f8339ee5725fa325a20bd903f3d4087d30884eecb83",
@@ -379,6 +456,13 @@
       "mime": "application/json"
     },
     {
+      "path": "evidence/yolk-icons-v1.5.json",
+      "role": "verification-evidence",
+      "sha256": "a1dbd6c9a3956a51132a5c6a97e0d585da75de5c06c6b0d274a3a38a47ef88c3",
+      "bytes": 3745,
+      "mime": "application/json"
+    },
+    {
       "path": "prototype/.nojekyll",
       "role": "web-preview",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -388,8 +472,8 @@
     {
       "path": "prototype/app.js",
       "role": "web-preview",
-      "sha256": "cbdc5ffd504d323cea6bb21e1ae768eed6db6efc8d5d8b0adcabfff32df4cd94",
-      "bytes": 56182,
+      "sha256": "21b2fcab45c39d9833bdae0f36562054b498dae3e0885c42fc52d0133db605ae",
+      "bytes": 60574,
       "mime": "text/javascript"
     },
     {
@@ -652,6 +736,13 @@
       "mime": "font/woff2"
     },
     {
+      "path": "prototype/assets/material-symbols-rounded-yolk-300-v1.5.woff2",
+      "role": "runtime-asset",
+      "sha256": "c5b7e050e816964ebbbd3b0c43df6aefa4a3d4b181894620efd9385f84b1aedd",
+      "bytes": 6656,
+      "mime": "font/woff2"
+    },
+    {
       "path": "prototype/assets/yolk-analytical.css",
       "role": "runtime-asset",
       "sha256": "940f9689dca0f246ee5a03890f5852ab8ffb299b11fc6305ce0147058b93346d",
@@ -682,15 +773,15 @@
     {
       "path": "prototype/data/demo-data.js",
       "role": "web-preview",
-      "sha256": "b728ae437a3be235580724c87c89d6dc0f43ab2f7501dea4bcdf03007546870c",
-      "bytes": 200987,
+      "sha256": "f0b0222dd5a6a15b1d9f645c747dbe46639326c8aed40257f05a6fe99c092e75",
+      "bytes": 188231,
       "mime": "text/javascript"
     },
     {
       "path": "prototype/data/demo-data.json",
       "role": "web-preview",
-      "sha256": "1e9dc273dd4da0edb9488b9f5540032a8b2decc4f8efe15eca3b707e03d94fb9",
-      "bytes": 200872,
+      "sha256": "01539bce9c913a764317ed63a1da79436a64cd7454da2aad6e55896d3b2e7dd8",
+      "bytes": 188116,
       "mime": "application/json"
     },
     {
@@ -724,8 +815,8 @@
     {
       "path": "prototype/decision-ui.js",
       "role": "web-preview",
-      "sha256": "e802bc1ff57336dbf0bb955ec6add78bc3a25164bab56b54d60d827de70eb0b6",
-      "bytes": 14715,
+      "sha256": "5a1e9361a8f7bf537945e577f28fd7ce44f6b98d291f0457ed4db06f671dcce7",
+      "bytes": 16383,
       "mime": "text/javascript"
     },
     {
@@ -738,43 +829,43 @@
     {
       "path": "prototype/icons.css",
       "role": "web-preview",
-      "sha256": "ce06c492dc11dffeb0e5925fee95183b1a4e3386d7bd47b6ab36e5973fc1f8ed",
-      "bytes": 1236,
+      "sha256": "d4ee2209da06f499ec2f3ceea50e317fdad173e8e929501d70c35229e17c133e",
+      "bytes": 3151,
       "mime": "text/css"
     },
     {
       "path": "prototype/icons.js",
       "role": "web-preview",
-      "sha256": "32e1bd8a3c167da8b5f3f28190d140c4be2760bf3e3286a6eaec2af8806b2156",
-      "bytes": 1957,
+      "sha256": "4ab9ef6db9ccbbf584a1bcb05633296f9871521b59b1ee89eae33bc5424bbf5b",
+      "bytes": 2547,
       "mime": "text/javascript"
     },
     {
       "path": "prototype/identity.css",
       "role": "web-preview",
-      "sha256": "97514c18332e46bf3deb22ab2a32dfe36b6202f656d0b5a677882837f3a5f727",
-      "bytes": 1484,
+      "sha256": "0edf17cce07fcca9aa2462e747e29b283bb7a49673b4ec4ebc4289b5c7d93f92",
+      "bytes": 4685,
       "mime": "text/css"
     },
     {
       "path": "prototype/index.html",
       "role": "web-preview",
-      "sha256": "c2098a3c5205c5ad7459809514da966bb779de78a8d826f222a29bf7b7e76ee5",
-      "bytes": 4957,
+      "sha256": "1251b2193bacddfbcf7effffb2d2df5b4bca305e1c2b1141459d2ac6b62a9d6d",
+      "bytes": 5036,
       "mime": "text/html"
     },
     {
       "path": "prototype/landscape.css",
       "role": "web-preview",
-      "sha256": "e76ba604eedbe36a03e528d00889fc892e3364277f6c61c4d442165cbce7907d",
-      "bytes": 6981,
+      "sha256": "f3a6ccfc5c0c85d97dfbf675eec4d549168a96191a22a49690db5ce394b9b533",
+      "bytes": 8391,
       "mime": "text/css"
     },
     {
       "path": "prototype/landscape.js",
       "role": "web-preview",
-      "sha256": "07b7b40857bcc833263a0c46a5f226870898538d9382c406fad2a06a4ea9debf",
-      "bytes": 19503,
+      "sha256": "0acf0e5cd3d652c301dc17bb7d667280134f89e9989fa8c308972d3054fe9fe0",
+      "bytes": 19966,
       "mime": "text/javascript"
     },
     {
@@ -794,8 +885,8 @@
     {
       "path": "prototype/location-map.js",
       "role": "web-preview",
-      "sha256": "bbf2424b2a27feb50f99e7ccd600fbdd5d75d789f58f9213daf00197be26e85f",
-      "bytes": 21953,
+      "sha256": "3d28f27bc55831b1f00d8a44d76254200bd67817f0417c67e725b968703ba337",
+      "bytes": 22163,
       "mime": "text/javascript"
     },
     {
@@ -822,8 +913,8 @@
     {
       "path": "prototype/theme.js",
       "role": "web-preview",
-      "sha256": "71ee935f0c3e7a8994925b7daf1a3bd28210047d3b86cdd83399db6df3d8976a",
-      "bytes": 2960,
+      "sha256": "1ec9d5207ac15d7385f4894a67164bf8a6da5670db8991c6c8671f2683d7bc74",
+      "bytes": 3826,
       "mime": "text/javascript"
     },
     {
@@ -897,6 +988,13 @@
       "mime": "application/json"
     },
     {
+      "path": "prototype/yolk-focus.css",
+      "role": "web-preview",
+      "sha256": "a5e953e680008ca0e96a5907febc6cca07efcad9406cdffbe33b2287a42aa8ef",
+      "bytes": 3229,
+      "mime": "text/css"
+    },
+    {
       "path": "prototype/yolk.css",
       "role": "web-preview",
       "sha256": "ac1fd3fbfe92313de886c73a412e30f7cc03f8b6850ee1520d86556e0b87e5da",
@@ -906,7 +1004,7 @@
     {
       "path": "scripts/build-handoff.py",
       "role": "release-check",
-      "sha256": "b506da13d4c6a927f56bd0d11c21c5c68828989a57996db49c51847094695c4a",
+      "sha256": "39a7d69ab972ee30b8d13f3edadfef2fb5e1e178cf9d459a46ba7ddd487619bf",
       "bytes": 9106,
       "mime": "text/x-python"
     },
@@ -920,8 +1018,8 @@
     {
       "path": "scripts/check-brand-identity.cjs",
       "role": "release-check",
-      "sha256": "ae2250a9020f96998fa4e83845627fe848b643e370e2baf01eb8246d015eb8c3",
-      "bytes": 13744,
+      "sha256": "e278e36ab10b30a6080b156307661135f6bb1d9862962df2ac0b1cb124e5affd",
+      "bytes": 13857,
       "mime": "text/javascript"
     },
     {
@@ -934,8 +1032,8 @@
     {
       "path": "scripts/check-icons.cjs",
       "role": "release-check",
-      "sha256": "e4a32afb622b4b0b4d2bb4dab59927bd0d2dc3d116eb71f25c82c7820ccf77cf",
-      "bytes": 4178,
+      "sha256": "1b0a0605b1267f3d5d80dc8aecb76b7fa63587af77280296c6abd5cd8612f350",
+      "bytes": 4447,
       "mime": "text/javascript"
     },
     {
@@ -943,6 +1041,13 @@
       "role": "release-check",
       "sha256": "0b41653d8870b86be94c8ab67d197ebd89b850b872c2378129fd650402a6b5f9",
       "bytes": 12159,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "scripts/check-patterns-v1.5.cjs",
+      "role": "release-check",
+      "sha256": "9f250514a8a3d8cffce70b91ea8ab9a6c682246ffc1780f926d73793236dcb59",
+      "bytes": 5265,
       "mime": "text/javascript"
     },
     {
@@ -974,30 +1079,44 @@
       "mime": "text/javascript"
     },
     {
+      "path": "scripts/check-shell-v1.5.cjs",
+      "role": "release-check",
+      "sha256": "7a377bd75d483af58bbd23ea90dff03ca3504fc0d67a79e398be9bb99fc5ccd4",
+      "bytes": 5588,
+      "mime": "text/javascript"
+    },
+    {
       "path": "scripts/check-theme-runtime.cjs",
       "role": "release-check",
-      "sha256": "7dfc2bbca40c828dae4c6e17ca3091f3a6b80b360c41ebf8aeee0ca1d4aa25c5",
-      "bytes": 3459,
+      "sha256": "2134a8375dcffbc8ab62e4205308a3a345a8b0d4186d5983512a4f01f5d0a85c",
+      "bytes": 3498,
       "mime": "text/javascript"
     },
     {
       "path": "scripts/check-web-identity.cjs",
       "role": "release-check",
-      "sha256": "b3fcb25e6e51381608ef725dee92109e19310cec10b7c6b8a95e45eda652ea66",
+      "sha256": "fe26dd656a69a12545a2b340d45ccfcd5bcfc3b9af84894304016c664dee052b",
       "bytes": 4499,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "scripts/check-yolk-v1.5.cjs",
+      "role": "release-check",
+      "sha256": "e37be5166cab44038156418d0f611371bf4674b67ca782696beeef973f46ec84",
+      "bytes": 10419,
       "mime": "text/javascript"
     },
     {
       "path": "scripts/verify-handoff.py",
       "role": "release-check",
-      "sha256": "60df04e35fa4443934d4b5a1dd8bc182bd0dc42ae61c25c10278a6e3a7cf185e",
+      "sha256": "f9929c1e4b177fa5c7085d87a6c1138b06b21a04bf2df2592e552db9ea1dc2e5",
       "bytes": 8231,
       "mime": "text/x-python"
     },
     {
       "path": "scripts/verify-public-release.py",
       "role": "release-check",
-      "sha256": "646dd921945671fedc9889e06db0a1db268d36205c7003b9e94b3ce31539aeea",
+      "sha256": "62f979f1f87d3555376b746f19d96d4b36e35e604a5962fbec8a7c07c625c82d",
       "bytes": 3004,
       "mime": "text/x-python"
     }
@@ -1039,12 +1158,12 @@
     {
       "claim": "Public preview has synthetic area/POI fixtures and is not an operational market assessment",
       "status": "supplied",
-      "evidence": "CityMETER_Yolk_Product_Statement_v1.4.md"
+      "evidence": "CityMETER_Yolk_Product_Statement_v1.5.md"
     },
     {
       "claim": "Production authentication, data services and shared collaboration are implementation work",
       "status": "proposed",
-      "evidence": "IMPLEMENTATION_PLAN_v1.4.md"
+      "evidence": "IMPLEMENTATION_PLAN_v1.5.md"
     },
     {
       "claim": "Rendered responsive TH/EN UI is visually verified",
@@ -1069,17 +1188,17 @@
       "gate": "Public release commit and external web verification",
       "status": "open",
       "owner": "release operator",
-      "evidence": "contracts/release.v1.4.0.json"
+      "evidence": "contracts/release.v1.5.0.json"
     },
     {
       "gate": "Approved production data, permissions and identity role review",
       "status": "open",
       "owner": "data and product owners",
-      "evidence": "IMPLEMENTATION_PLAN_v1.4.md"
+      "evidence": "IMPLEMENTATION_PLAN_v1.5.md"
     }
   ],
   "distribution": {
-    "zipRoot": "CityMETER-Yolk-v1.4.0",
+    "zipRoot": "CityMETER-Yolk-v1.5.0",
     "dataPolicy": "public_synthetic_only",
     "motifsEnabled": false,
     "manifestSelfHashExcluded": true,

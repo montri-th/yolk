@@ -1,0 +1,49 @@
+/* Product semantic mapping, LDS 0.9.4 bytes unchanged.
+   Gold means confirmed high Demand, never approval to acquire or open. */
+:root {
+  --yl-yolk-fill: var(--ldm-series-03-fill-light);
+  --yl-yolk-ink: var(--ldm-series-03-ink-light);
+  --yl-yolk-accent: var(--ldm-semantic-warning-light-foreground);
+  --yl-yolk-soft: var(--ldm-foundation-surface-beige-tint-light);
+  /* Exact first three published five-class DS heat colours; custom 3-bin product classification. */
+  --yl-yolk-map-1: #FBF1C6;
+  --yl-yolk-map-2: #F0CA90;
+  --yl-yolk-map-3: #E3A257;
+}
+:root[data-theme="dark"] {
+  --yl-yolk-fill: var(--ldm-series-03-fill-dark);
+  --yl-yolk-ink: var(--ldm-foundation-text-primary-light);
+  --yl-yolk-accent: var(--ldm-energy-yellow);
+  --yl-yolk-soft: var(--ldm-foundation-surface-beige-tint-dark);
+  --yl-yolk-map-1: #393129;
+  --yl-yolk-map-2: #7A5933;
+  --yl-yolk-map-3: #C28336;
+}
+.yolk-title { display: block; color: var(--yl-yolk-accent); }
+.yolk-title .yl-icon { font-size: .95em; vertical-align: -.1em; }
+.yolk-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--yl-yolk-fill); color: var(--yl-yolk-ink); padding: 4px 10px; border-radius: 8px; font-size: 14px; font-weight: 600; line-height: 1.6; }
+.yolk-badge .yl-icon { color: inherit; font-size: 22px; }
+.demand-status { color: var(--muted); font-size: 14px; }
+.row-tags .tag { display: inline-flex; gap: 5px; align-items: center; }
+.row-tags .tag .yl-icon { font-size: 22px; }
+.location-verdict { flex-wrap: wrap; }
+.location-verdict > strong { display: inline-flex; align-items: center; gap: 8px; }
+#map-heading .yl-icon { color: var(--yl-yolk-accent); vertical-align: -.1em; margin-inline-end: 6px; }
+.map-scope { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 16px 20px 0; padding: 0; border: 0; }
+.map-scope legend { font-size: 14px; color: var(--muted); margin-bottom: 2px; }
+.map-scope label { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; cursor: pointer; min-height: 44px; }
+.map-scope input { margin: 0; width: 18px; height: 18px; accent-color: var(--yl-yolk-accent); }
+.map-view-note { padding: 0 20px; margin: 4px 0 0; font-size: 14px !important; color: var(--muted); }
+.map-explainer { position: static; width: auto; max-width: none; padding: 12px 8px 18px; }
+.map-explainer strong { color: var(--yl-yolk-accent); }
+.map-explainer .yl-icon { margin-right: 5px; vertical-align: -.15em; }
+.national-map-body { display: block; }
+#thai-map { width: 100%; }
+.yolk-map-legend { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+.yolk-map-legend > span { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.yolk-map-legend i { display: block; height: 14px; border: 1px solid var(--yl-border-strong); border-radius: 3px; }
+.yolk-map-legend strong { font-size: 14px; line-height: 1.5; }
+.yolk-map-legend small { font: 12px/1.5 'JetBrains Mono',monospace; color: var(--muted); }
+.yl-location-map.is-yolk { --yl-map-boundary: var(--yl-yolk-accent); }
+.yl-location-map.is-yolk .yl-map-heading h2 .yl-icon { color: var(--yl-yolk-accent); margin-right: 8px; }
+@media(min-width:650px) { .map-scope { margin-inline: 24px; } .map-view-note { padding-inline: 24px; } }
