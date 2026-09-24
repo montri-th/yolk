@@ -1,9 +1,9 @@
 {
-  "schema_version": "yolk.implementation-plan/1.3",
-  "product_version": "1.3",
-  "document": "IMPLEMENTATION_PLAN_v1.3.md",
-  "product_contract": "contracts/product.v1.3.json",
-  "criteria_contract": "contracts/criteria.v1.3.json",
+  "schema_version": "yolk.implementation-plan/1.4",
+  "product_version": "1.4",
+  "document": "IMPLEMENTATION_PLAN_v1.4.md",
+  "product_contract": "contracts/product.v1.4.json",
+  "criteria_contract": "contracts/criteria.v1.4.json",
   "status": "production_plan_not_existing_backend",
   "preview_release_status": "ready_with_open_manual_gate",
   "task_count": 15,
@@ -42,7 +42,7 @@
     "10"
   ],
   "path_policy": {
-    "input_paths": "existing handoff references unless explicitly named as new canonical v1.3 documents",
+    "input_paths": "existing handoff references, including canonical v1.4 documents and unchanged experience/icon baselines",
     "output_paths_proposed": "logical target paths; reuse existing CityMETER equivalents and commit path mapping before dispatch",
     "external_production_inputs": [
       "approved private SourceRelease",
@@ -50,7 +50,7 @@
       "workspace deployment credentials supplied outside repository"
     ],
     "preserve": [
-      "prototype deployed feature v1.3 criteria behavior, with owner-authorized logo/icon/no-motif patch recorded by runtime release manifest",
+      "v1.4 tier screening and weighted ranking for new workspaces; existing saved criteria keep legacy ordering until explicitly migrated",
       "source snapshots",
       "canonical DS asset bytes",
       "existing published analysis runs"
@@ -82,7 +82,11 @@
     "Pinned DS 0.9.4 asset bytes and roles are authoritative; additions are wrappers/aliases.",
     "Browser visual/responsive QA remains open until observed on the actual build.",
     "Parcel/site feasibility comes after area/corridor screening.",
-    "No motifs in application or asset bundle. Logo must use approved native variant directly on a compatible surface, with no card/frame/white plate and no recolor/crop. Decision controls use meaningful DS icons with text/accessible names, not unverified-data implications."
+    "No motifs in application or asset bundle. Logo must use approved native variant directly on a compatible surface, with no card/frame/white plate and no recolor/crop. Decision controls use meaningful DS icons with text/accessible names, not unverified-data implications.",
+    "Separate criteria into Demand, Supply, Preferred location types, Ranking weights. Screening is independent from ranking weights.",
+    "maxDemandTier=3 by default. Tier restriction applies only to high-Demand locations; low-Demand patterns remain selectable with demandMode all; unknown states never silently qualify.",
+    "New workspaces use weighted ranking. Saved pre-v1.4 criteria preserve legacy ordering until an explicit applied change.",
+    "Native approved Landometer logo remains visible in all themes; approved favicon and public product social-share image must have provenance and valid absolute metadata URLs."
   ],
   "command_registry": {
     "preview-serve": {
@@ -189,10 +193,35 @@
       "status": "proposed_create_in_task_00",
       "command": "pnpm check:release",
       "scope": "suggested production workspace; adapt to existing CityMETER package manager and record mapping"
+    },
+    "preview-identity": {
+      "status": "available_now",
+      "command": "node scripts/check-brand-identity.cjs",
+      "scope": "source checks for native logo, no frame and no motifs"
+    },
+    "preview-icons": {
+      "status": "available_now",
+      "command": "node scripts/check-icons.cjs",
+      "scope": "glyph/font provenance and accessible label source checks"
+    },
+    "preview-ranking": {
+      "status": "available_now",
+      "command": "node scripts/check-ranking-v1.4.cjs",
+      "scope": "pure engine regression: tier cap, weighted ranking, missing bounds, legacy migration"
+    },
+    "preview-decisions": {
+      "status": "available_now",
+      "command": "node scripts/check-decisions-v1.4.cjs",
+      "scope": "source/VM decision controls and criteria integration"
+    },
+    "preview-web-identity": {
+      "status": "available_now",
+      "command": "node scripts/check-web-identity.cjs",
+      "scope": "metadata, asset hashes and native identity source checks"
     }
   },
   "calculation_requirements": {
-    "reference": "contracts/criteria.v1.3.json",
+    "reference": "contracts/criteria.v1.4.json",
     "percentile_cutoff": "PERCENTILE.INC known observations for each metric in one pinned national geography universe",
     "empty_distribution": "cutoff null; outcome unknown",
     "single_value_distribution": "cutoff equals only value; display rank 50 follows preview",
@@ -218,7 +247,67 @@
     "U_allocation": "for each integer k in [0,U], classify using B+k and C+U-k; exact pattern only if all allocations agree",
     "U_precondition": "U consists of countable in-scope operating sites with unresolved own/competitor brand; uncertain operation/identity/membership needs reconciliation or unknown status",
     "rank_display": "tie midrank in preview, separate from PERCENTILE.INC cutoff and ranking tuple",
-    "poi_overlay_changes_aggregate_automatically": false
+    "poi_overlay_changes_aggregate_automatically": false,
+    "max_demand_tier_default": 3,
+    "tier_filter": "applies only to confirmed high-demand locations; demandMode=all keeps confirmed low-demand selected patterns without applying the tier gate; unknown demand remains excluded",
+    "qualifying_tier": "minimum confirmed tier among enabled building/activity groups; an enabled extra group hit is tier 3",
+    "ranking": {
+      "new_workspace_mode": "weighted",
+      "saved_pre_v1_4_mode": "legacy_until_explicit_apply",
+      "component_weights": {
+        "demand": 70,
+        "ownGap": 20,
+        "competitorGap": 10
+      },
+      "demand_group_weights": {
+        "building": 50,
+        "activity": 50,
+        "extra": 50
+      },
+      "extra_enabled_default": false,
+      "metric_weight_default": 1,
+      "normalization": "positive configured relative weights; disabled metrics/groups excluded; missing enabled metrics retain their configured weight",
+      "metric_score": "national tie midrank percentile 0..100, not PERCENTILE.INC cutoff",
+      "gap_score": "100/(1+count/high_threshold)",
+      "missing_score_bounds": [
+        0,
+        100
+      ],
+      "supply_uncertainty": "joint integer allocations k=0..U; evaluate B+k and C+U-k together for total score bounds",
+      "sort_eligible": "score_lower DESC, qualifyingTier ASC with null last, sourceRank ASC, placeId ASC",
+      "stars_force_order": false,
+      "weights_change_eligibility": false,
+      "runtime_input_fields": [
+        "rankingMode",
+        "rankingWeights",
+        "demandGroupWeights",
+        "metricWeights",
+        "maxDemandTier",
+        "demandMode",
+        "patterns"
+      ],
+      "runtime_result_fields": {
+        "rankScore": "conservative weighted lower bound on 0..100 scale",
+        "rankUpper": "weighted upper bound, shown as uncertainty",
+        "rankCoverage": "0..1 weighted share from known demand observations and fully resolved supply (U=0); it is evidence coverage, not confidence probability",
+        "demandWeightedScore": "lower bound before combining supply",
+        "demandWeightedUpper": "upper bound before combining supply",
+        "demandWeightedCoverage": "known weighted demand share,0..1",
+        "qualifyingTier": "best confirmed enabled-group tier, or null",
+        "tierEligible": "confirmed tier fits maxDemandTier; false for low demand where tier is not applicable",
+        "rankingComponents": "demand{lower,upper,coverage},ownGap{lower,upper},competitorGap{lower,upper}"
+      },
+      "zero_metric_weight": "excludes ranking contribution only; threshold hits and tier screening still use the enabled metric",
+      "validation": {
+        "type": "finite_number",
+        "minimum": 0,
+        "maximum": 100,
+        "relative_not_required_to_sum_100": true,
+        "rankingWeights_sum_must_be_positive": true,
+        "positive_demand_weight_requires_at_least_one_positive_enabled_group_weight": true,
+        "every_positive_enabled_group_requires_positive_active_metric_weight_sum": true
+      }
+    }
   },
   "manual_gate": {
     "status": "open",
@@ -259,14 +348,16 @@
       "depends_on": [],
       "implementation_status": "planned_production_work",
       "input_paths": [
-        "CityMETER_Yolk_Product_Statement_v1.3.md",
-        "contracts/product.v1.3.json",
+        "CityMETER_Yolk_Product_Statement_v1.4.md",
+        "contracts/product.v1.4.json",
         "DS_ASSET_INTEGRATION.md",
-        "contracts/ds-assets.v1.3.json",
+        "contracts/ds-assets.v1.4.json",
         "prototype/index.html",
-        "ASSET_INDEX_v1.3.md",
-        "contracts/assets.v1.3.json",
-        "contracts/release.v1.3.1.json"
+        "ASSET_INDEX_v1.4.md",
+        "contracts/assets.v1.4.json",
+        "contracts/release.v1.4.0.json",
+        "contracts/web-identity.v1.4.json",
+        "contracts/icons.v1.3.json"
       ],
       "output_paths_proposed": [
         "apps/web/",
@@ -283,13 +374,14 @@
         "สำรวจ CityMETER เดิมก่อน เลือกใช้ auth, DB, queue, object storage และ DS loader ที่มีอยู่ แล้วเขียน architecture decision และ path mapping; ไม่ตั้ง service ซ้ำโดยไม่มีเหตุผล",
         "สร้าง dev environment, CI, migration/seed runner และ schema/type generation ให้เริ่มด้วย synthetic workspace ได้ สร้างคำสั่ง production ที่ระบุใน command registry ก่อนให้ task ถัดไปเรียก",
         "สร้าง workspace/membership และ guard ฝั่ง server: 1 Admin + 3 Editors + 6 Viewers พร้อมเปลี่ยน Admin อย่างปลอดภัย ทุก tenant-owned query ตรวจสมาชิก ไม่เชื่อ workspace_id จาก client",
-        "Pin DS 0.9.4 และ hash/role ของ assets; โหลดสี ฟอนต์ logo และ icon ตาม DS_ASSET_INTEGRATION.md ไม่ใช้ motif; logo ไม่มีกรอบ/แผ่นขาว ไม่ recolor/crop; แยก TH/EN dictionary และ accessible shell"
+        "Pin DS 0.9.4 และ hash/role ของ assets; โหลดสี ฟอนต์ logo และ icon ตาม DS_ASSET_INTEGRATION.md ไม่ใช้ motif; แสดง native logo ทุกธีมโดยไม่มีกรอบ/พื้นรอง ไม่ recolor/crop; ใส่ favicon และ public share image ตาม identity contract; แยก TH/EN dictionary และ accessible shell"
       ],
       "acceptance_th": [
         "Clone ใหม่แล้วเปิด synthetic web/API ได้ตาม README ที่ทีมเขียนจริง",
         "CI ตรวจ schema drift, asset hashes, tenant boundaries และไม่รวมข้อมูลส่วนตัว/secret",
         "Viewer ไม่มี write scope; cross-tenant read/write ถูกปฏิเสธ; seat limit/last Admin มีการทดสอบ",
-        "Runtime/bundle ไม่มี motif; logo วางบนพื้นเข้ากันได้โดยตรง ไม่มี card/frame/plate; decision controls มี DS icon คู่ข้อความหรือ accessible name"
+        "Runtime/bundle ไม่มี motif; logo วางบนพื้นเข้ากันได้โดยตรง ไม่มี card/frame/plate; decision controls มี DS icon คู่ข้อความหรือ accessible name",
+        "Native Landometer logo มองเห็นได้ในทุกธีมและสอง layout; favicon และ Open Graph/Twitter image ใช้ approved assets/absolute HTTPS URL ตาม identity contract"
       ],
       "test_cases": [
         "contracts_generation",
@@ -301,7 +393,10 @@
         "synthetic_seed_repeatability",
         "no_motif_runtime_or_bundle",
         "logo_native_no_plate",
-        "decision_icon_semantics"
+        "decision_icon_semantics",
+        "native_logo_all_themes",
+        "favicon_and_social_metadata",
+        "share_image_public_no_customer_data"
       ],
       "production_check_ids": [
         "install",
@@ -321,8 +416,8 @@
       ],
       "implementation_status": "planned_production_work",
       "input_paths": [
-        "contracts/product.v1.3.json",
-        "contracts/criteria.v1.3.json",
+        "contracts/product.v1.4.json",
+        "contracts/criteria.v1.4.json",
         "prototype/data/demo-data.json",
         "prototype/metrics.js"
       ],
@@ -371,7 +466,7 @@
       "implementation_status": "planned_production_work",
       "input_paths": [
         "contracts/geography-profile-default.json",
-        "contracts/criteria.v1.3.json",
+        "contracts/criteria.v1.4.json",
         "contracts/experience.v1.3.json"
       ],
       "output_paths_proposed": [
@@ -417,7 +512,7 @@
       "implementation_status": "planned_production_work",
       "input_paths": [
         "contracts/market-landscape.contract.json",
-        "contracts/criteria.v1.3.json",
+        "contracts/criteria.v1.4.json",
         "prototype/landscape.js",
         "prototype/app.js",
         "prototype/data/demo-data.json"
@@ -433,13 +528,14 @@
       "steps_th": [
         "สร้าง read model และ API ของ published run โดยเริ่มจาก synthetic contract fixture; task 06 จะต่อ publication pointer จริงภายหลัง",
         "หน้า country ใช้จังหวัดเป็น summary/drill-down ไปหน่วยหลัก แสดง coverage/source period/run_id ทุกมุมมอง; สีสรุป max signal percentile ในทำเลที่ผ่านเกณฑ์ของจังหวัดนั้น",
-        "หน้า detail แสดงค่าดิบ/หน่วย/cutoff/percentile, building/activity tier, aggregate B/C/U, 8 market patterns และเหตุผล; brand breakdown เฉพาะข้อมูลรายสาขาที่มี coverage",
-        "ทำ shortlist entry point, state loading/empty/no eligible/insufficient evidence/error และรายการที่ใช้ keyboard ได้ แผนที่ทำเลแบบ interactive ส่งต่อ EXP-02"
+        "หน้า detail แสดงค่าดิบ/หน่วย/cutoff/percentile, building/activity/qualifying tier, aggregate B/C/U, 8 market patterns พร้อมเหตุผล และคะแนนแยกองค์ประกอบ/ช่วงความไม่แน่; brand breakdown เฉพาะข้อมูลที่มี coverage",
+        "ใช้ปุ่มขอบชัดพร้อม icon และข้อความ ดูรายละเอียด / View details จากรายการ; ทำ shortlist entry point, focus state, loading/empty/no eligible/insufficient evidence/error และรายการที่ใช้ keyboard ได้; แผนที่ทำเลส่งต่อ EXP-02"
       ],
       "acceptance_th": [
         "Map/list/detail ใช้ run_id และ place identity เดียวกัน",
         "ไม่ตีความจำนวนสาขาเป็น sales share และไม่ใช้ POI sample เป็นรายชื่อครบทุกสาขา",
-        "แยกสีภาพรวมจาก ranking tuple; unknown มีสถานะเฉพาะ ไม่กลืนเป็นศูนย์"
+        "แยกสีภาพรวมจาก ranking tuple; unknown มีสถานะเฉพาะ ไม่กลืนเป็นศูนย์",
+        "ทั้ง 8 รูปแบบอธิบาย Demand / คู่แข่ง / สาขาเรา ตามเกณฑ์ที่ใช้อยู่ ปุ่มดูรายละเอียดมี icon ข้อความ ขอบ และ focus state; เปิดได้ด้วย keyboard"
       ],
       "test_cases": [
         "same_run_across_views",
@@ -448,7 +544,9 @@
         "map_score_vs_rank",
         "count_not_sales_share",
         "empty_error_states",
-        "bilingual_values_units"
+        "bilingual_values_units",
+        "pattern_dynamic_threshold_descriptions",
+        "details_button_affordance"
       ],
       "production_check_ids": [
         "test-contracts",
@@ -467,7 +565,7 @@
       ],
       "implementation_status": "planned_production_work",
       "input_paths": [
-        "contracts/product.v1.3.json",
+        "contracts/product.v1.4.json",
         "prototype/supply-ui.js",
         "prototype/model.js",
         "contracts/experience.v1.3.json"
@@ -515,7 +613,7 @@
       ],
       "implementation_status": "planned_production_work",
       "input_paths": [
-        "contracts/criteria.v1.3.json",
+        "contracts/criteria.v1.4.json",
         "prototype/model.js",
         "prototype/metrics.js",
         "contracts/geography-profile-default.json"
@@ -528,15 +626,19 @@
         "tests/engine/"
       ],
       "steps_th": [
-        "ทำ pure functions ตามรายละเอียดการคำนวณด้านล่าง ใช้ PERCENTILE.INC ของ known values ต่อ metric ใน pinned national universe; snapshots จุดตัดต้องตรวจย้อนจาก source ได้",
-        "สร้าง building/activity tier และ tri-state demand พร้อม strongest proven/best possible tier; controls แยก Demand / Supply และ disable metric ที่ใช้ไม่ได้",
-        "Supply ใช้ B>=3, C>=3 เริ่มต้น; กระจาย U ทุก integer allocation เพื่อดู pattern ที่เป็นไปได้ จะแสดง pattern แน่นอนเมื่อเหลือแบบเดียว",
-        "สร้าง ranking tuple แบบ deterministic แยก map score; private preview ไม่สร้าง shared event และไม่แก้ published run"
+        "ทำ pure functions จาก criteria.v1.4.json แยก PERCENTILE.INC สำหรับจุดตัดออกจาก midrank สำหรับคะแนน ทั้งสองใช้ national universe ที่ตรึงไว้ ไม่เปลี่ยนตามตัวกรองจังหวัด",
+        "คำนวณ Tier อาคารและกิจกรรมตาม 99-all / 95-all / 95-any และกิจกรรม 5/3/1 รวมทั้งขอบเขตเมื่อข้อมูลขาด qualifyingTier ใช้ Tier ที่ยืนยันได้ดีที่สุด ปัจจัยเพิ่มเติมที่เปิดและผ่านเป็น Tier 3; maxDemandTier เริ่ม 3 และใช้กับ Demand สูงเท่านั้น",
+        "จัด Supply และทั้ง 8 รูปแบบจาก B/C/U ตั้งต้น ownMany=3 และ competitorMany=3 ตรวจการกระจาย U ไป B/C ทุกกรณีแล้วคืน possiblePatterns; ความไม่แน่นอนไม่กลายเป็นผลที่ผ่านเกณฑ์",
+        "แยกการคัดออกจากการเรียง: demandMode, maxDemandTier และ patterns กำหนด eligible ส่วน weights กำหนดอันดับ โดยไม่เปลี่ยนชุดที่ผ่าน",
+        "คำนวณคะแนนตามสัดส่วนน้ำหนักองค์ประกอบ 70/20/10 กลุ่ม Demand 50/50/50 (กลุ่ม extra ต้องเปิดก่อน) และตัววัดละ 1 ข้อมูลขาดคงน้ำหนักไว้เป็นช่วง 0–100 ช่องว่างสาขาใช้ 100/(1+count/threshold) และตรวจ B/C จากการกระจาย U ชุดเดียวกัน",
+        "คง legacy ordering ของเกณฑ์เก่าจนผู้ใช้เลือก weighted แล้วกดใช้กับทีม ดาวไม่บังคับลำดับใน weighted mode คืนคะแนนรายองค์ประกอบ ช่วงคะแนน และโหมด แยกจาก score ที่ใช้ระบายสีแผนที่"
       ],
       "acceptance_th": [
-        "Building 99-all / 95-all / 95-any และ activity hits 5/3/1 ใช้ precedence ถูกต้อง",
-        "Null ไม่เป็นศูนย์; disabled signals ไม่เพิ่ม hit/miss/อันดับ; ปิดทุกกลุ่มแล้ว apply ไม่ได้",
-        "ทั้ง 8 pattern และ unknown cases ตรง contract; ratio C/(B+α) ไม่ถูกเปิดเอง; observed-zero/cutoff-zero มี fixture"
+        "Tier อาคาร/กิจกรรมและ qualifyingTier ใช้ฐานประเทศเดียวกันและตรง contract; missing ไม่เป็น 0 ส่วน observed zero ผ่าน cutoff zero ตามกฎเดิม",
+        "ตัวเลือก Tier 1 / Tier 1–2 / Tier 1–3 คัดได้จริง ทำเล Demand ต่ำที่เลือกไว้ยังผ่านได้เมื่อ demandMode=all ส่วน unknown ถูกแยกไว้ เปลี่ยนเฉพาะน้ำหนักแล้วจำนวนที่ผ่านไม่เปลี่ยน",
+        "ทั้ง 8 รูปแบบใช้ D/C/B ถูกต้องและอธิบายตาม threshold ปัจจุบัน ปิดทุกกลุ่ม Demand หรือให้น้ำหนักที่จำเป็นรวมเป็น 0 แล้วกดใช้กับทีมไม่ได้",
+        "คะแนนอยู่ในช่วง 0–100 และคำนวณจากสัดส่วนน้ำหนักที่ถูกต้อง missing ไม่ทำให้เฉลี่ยน้ำหนักใหม่เฉพาะค่าที่มี U ใช้ joint bounds ไม่รวมค่าต่ำสุดจากคนละกรณี",
+        "ตัวอย่าง A/B ได้ 85/83.5 และ 76/89.5 ตาม Product statement ลำดับเมื่อคะแนนเท่ากันคงที่ เกณฑ์ legacy ยังได้ลำดับเดิมก่อนผู้ใช้ยอมรับการเปลี่ยนสูตร"
       ],
       "test_cases": [
         "percentile_inc_interpolation",
@@ -547,14 +649,25 @@
         "activity_5_3_1",
         "all_eight_patterns",
         "unverified_allocation",
-        "stable_ranking_tuple",
-        "chart_midrank_not_cutoff"
+        "chart_midrank_not_cutoff",
+        "tier_cap_1_2_3",
+        "tier_cap_only_high_demand",
+        "unknown_not_eligible",
+        "weights_do_not_change_eligibility",
+        "weight_relative_normalization",
+        "weight_zero_validation",
+        "missing_weight_not_renormalized",
+        "supply_gap_formula",
+        "joint_supply_score_bounds",
+        "weighted_example_order_flip",
+        "weighted_stable_ties",
+        "legacy_criteria_migration"
       ],
       "production_check_ids": [
         "test-engine",
         "test-contracts"
       ],
-      "coding_prompt": "Implement task 05 from contracts/criteria.v1.3.json, preserving current thresholds and ranking. Do not silently substitute a weighted score or ratio. Prove PERCENTILE.INC cutoffs separately from display midranks. Return explicit uncertainty when missing data or U permits multiple classifications."
+      "coding_prompt": "Implement task 05 from contracts/criteria.v1.4.json as pure functions. Separate screening from weighted ranking and return explainable score bounds. Preserve national cutoff versus midrank semantics, missing values and joint U allocations. Keep saved legacy criteria ordering until explicit migration. Prove the documented A/B ranking example and that changing only weights never changes eligibility. Do not treat stars, map colour or proxy scores as actual sales."
     },
     {
       "id": "06",
@@ -566,8 +679,8 @@
       ],
       "implementation_status": "planned_production_work",
       "input_paths": [
-        "contracts/criteria.v1.3.json",
-        "contracts/product.v1.3.json",
+        "contracts/criteria.v1.4.json",
+        "contracts/product.v1.4.json",
         "prototype/model.js"
       ],
       "output_paths_proposed": [
@@ -578,15 +691,17 @@
         "tests/publication/"
       ],
       "steps_th": [
-        "ทำ validate → private preview → apply(base_revision) → queued/running analysis job → publication pointer; Admin/Editor apply ได้ Viewer ทดลองส่วนตัวได้",
-        "Version criteria, source release, geography universe, metric catalog, engine code, output hash และ run ID; เกณฑ์ที่ส่งแล้วแก้ในที่เดิมไม่ได้",
-        "Publish pointer แบบ atomic เมื่อ QA pass เท่านั้น Map/list/detail เปลี่ยนพร้อมกัน; pending/failed แสดงชัดและคง latest-good run",
-        "Apply commit สร้าง event กับ outbox ผ่าน service งาน04; rollback เป็น revision ใหม่ ไม่แก้ประวัติ"
+        "ทำหน้าเกณฑ์ 4 หมวด: Demand, Supply, รูปแบบทำเลที่สนใจ และน้ำหนักจัดอันดับ การ์ดรูปแบบทั้ง 8 ใช้ checkbox จริงพร้อมคำอธิบาย D/C/B วาง demandMode และ maxDemandTier ในหมวดรูปแบบทำเล",
+        "ทำ validate → private preview → apply(base_revision) → analysis job → publication pointer ให้ preview แสดงจำนวนทำเลเข้า/ออกและอันดับที่เปลี่ยนก่อน apply; Admin/Editor ใช้กับทีมได้ Viewer ทดลองส่วนตัวได้",
+        "บันทึก rankingMode, maxDemandTier, patterns, rankingWeights, demandGroupWeights, metricWeights และ thresholds ใน CriteriaVersion ที่แก้ย้อนหลังไม่ได้ เกณฑ์เก่าคง legacy; เตรียมร่างให้เลือกเปลี่ยนโดยไม่แก้ข้อมูลเดิมเงียบ ๆ",
+        "ระบุเวอร์ชัน criteria, source, geography, catalog, engine, output hash และ run ID เปลี่ยน publication pointer พร้อมกันเมื่อ QA ผ่านเท่านั้น pending/failed ยังคงผลที่ผ่านการตรวจครั้งล่าสุด",
+        "เมื่อ apply แล้วค่าเปลี่ยนจริง สร้าง event/outbox หนึ่งรายการพร้อม actor/time/before-after รวมถึงน้ำหนัก Tier และรูปแบบที่เลือก draft/no-op ไม่สร้าง event ส่วน rollback สร้าง revision ใหม่"
       ],
       "acceptance_th": [
-        "Concurrent apply แจ้ง conflict; failed job ไม่ทำหน้ารายงานว่างหรือเปลี่ยนผลครึ่งเดียว",
-        "Run เดิม reproduce ได้ด้วย source/criteria/code versions",
-        "Draft preview กับ personal settings ไม่แจ้งเพื่อน; apply ที่เปลี่ยนจริงมี actor/time/before/after"
+        "ทั้ง 4 หมวดแยกชัด checkbox ทั้ง 8 อ่านและกดด้วย keyboard ได้ คำอธิบายมาก/น้อยเปลี่ยนตาม threshold ไม่ค้างค่าเริ่มต้น",
+        "โหลดหน้าใหม่หรือสลับภาษาแล้วเกณฑ์ที่ apply ยังอยู่ ร่างเป็นไปตาม draft contract shared apply หนึ่งครั้งสร้าง event เดียวพร้อมความเปลี่ยนแปลงของ weights/Tier/patterns",
+        "Concurrent apply แจ้ง conflict; failed job คงผลที่ผ่านการตรวจครั้งล่าสุด map/list/detail อ้าง run เดียวกัน และ run เดิมคำนวณซ้ำได้",
+        "เกณฑ์ legacy มีขั้นเลือกใช้ weighted พร้อม preview อย่างชัดเจน private preview และการตั้งค่าส่วนตัวไม่แจ้งเพื่อนหรือเพิ่ม leaderboard"
       ],
       "test_cases": [
         "concurrent_apply",
@@ -594,14 +709,21 @@
         "atomic_publication_pointer",
         "failed_job_last_good",
         "rollback_new_revision",
-        "private_preview_no_event"
+        "private_preview_no_event",
+        "four_section_criteria",
+        "accessible_pattern_checkboxes",
+        "dynamic_pattern_copy",
+        "criteria_weight_filter_persistence",
+        "weight_tier_pattern_diff_event",
+        "legacy_explicit_opt_in",
+        "preview_count_vs_order_diff"
       ],
       "production_check_ids": [
         "test-api",
         "test-engine",
         "test-contracts"
       ],
-      "coding_prompt": "Implement task 06 after read-model, event transaction and pure engine contracts exist. Apply shared criteria with revision checks and publish one immutable run pointer only after validation. Preserve the last good run on failure and make asynchronous status visible."
+      "coding_prompt": "Implement task 06 using four criteria sections and the task 05 engine. Use native accessible checkboxes for Preferred location types, dynamic D/C/B descriptions, a tier cap and separate ranking weights. Persist all criteria fields, preview count/order changes, preserve legacy mode until explicit opt-in and emit one shared event only on a committed change. Keep atomic immutable run publication and conflict handling."
     },
     {
       "id": "04b",
@@ -612,9 +734,9 @@
       ],
       "implementation_status": "planned_production_work",
       "input_paths": [
-        "contracts/criteria.v1.3.json",
+        "contracts/criteria.v1.4.json",
         "contracts/geography-profile-default.json",
-        "contracts/product.v1.3.json"
+        "contracts/product.v1.4.json"
       ],
       "output_paths_proposed": [
         "packages/domain/poi-reconciliation/",
@@ -658,7 +780,7 @@
       ],
       "implementation_status": "planned_production_work",
       "input_paths": [
-        "contracts/product.v1.3.json",
+        "contracts/product.v1.4.json",
         "contracts/activity-summary.policy.json",
         "prototype/model.js",
         "prototype/leaderboard.js"
@@ -754,7 +876,7 @@
       "input_paths": [
         "prototype/metrics.js",
         "contracts/industry-preset-seeds.json",
-        "contracts/criteria.v1.3.json"
+        "contracts/criteria.v1.4.json"
       ],
       "output_paths_proposed": [
         "packages/domain/metric-catalog/",
@@ -958,13 +1080,13 @@
       ],
       "implementation_status": "planned_production_work",
       "input_paths": [
-        "contracts/product.v1.3.json",
-        "contracts/implementation-tasks.v1.3.json",
+        "contracts/product.v1.4.json",
+        "contracts/implementation-tasks.v1.4.json",
         "DS_ASSET_INTEGRATION.md",
         "evidence/experience-qa-v1.3.json",
-        "ASSET_INDEX_v1.3.md",
-        "contracts/assets.v1.3.json",
-        "contracts/release.v1.3.1.json"
+        "ASSET_INDEX_v1.4.md",
+        "contracts/assets.v1.4.json",
+        "contracts/release.v1.4.0.json"
       ],
       "output_paths_proposed": [
         "apps/api/shares/",
@@ -978,12 +1100,13 @@
         "สร้าง share grant อายุ/สิทธิ์/เพิกถอนและ snapshot/run reference; manual link copy/native share ได้ Email/LINE delivery adapters เปิดเมื่อ workspace ตั้งค่าและอนุญาต ไม่ส่งจาก static preview",
         "ตรวจ flow map→detail→criteria preview/apply→supply/photo save→context feed/inbox ทั้ง Admin/Editor/Viewer ใน TH/EN, light/dark/system และ 320/390/768/1440 CSS px",
         "ตรวจ keyboard/touch/200% text zoom/reduced motion/tile error/upload error/revision conflict บน actual build; browser visual gate เดิมยัง open จนมีผู้ตรวจจริงและแนบหลักฐาน",
-        "ตรวจ deployed asset requests/hash/logo/icon และยืนยัน no-motif/no-logo-plate, source permissions, tenant security, geography, coverage, reproducible run และ rollout/rollback; handoff manifest แยก source tests/manual checks/สิ่งที่ยังไม่ทำ"
+        "ตรวจ asset hashes บนเว็บที่เผยแพร่ โลโก้จริงทุกธีมและมือถือ favicon, canonical/Open Graph/Twitter metadata ที่ใช้ URL แบบ absolute และภาพแชร์สาธารณะ ยืนยันไม่มี motif/กรอบโลโก้ ตรวจสิทธิ์ข้อมูล coverage การคำนวณซ้ำและ rollback พร้อมแยกผล source tests ออกจาก manual checks ที่ยังไม่ทำ"
       ],
       "acceptance_th": [
         "Expired/revoked share links และ membership removal ปิดการเข้าถึงจริง; export คุมสิทธิ์แหล่งข้อมูลด้วย",
         "Pilot ใช้ approved real release ใน private environment และผ่าน source/geo/engine/RBAC/DS/device gates",
-        "ไม่ประกาศ production-ready ด้วย synthetic demo หรือ VM tests อย่างเดียว"
+        "ไม่ประกาศ production-ready ด้วย synthetic demo หรือ VM tests อย่างเดียว",
+        "Metadata และภาพแชร์ที่เผยแพร่ตรง identity contract ไม่อ้างว่าแอปแชร์แสดงถูกต้องหากตรวจเพียงไฟล์และ metadata ลำดับใช้งานอธิบายได้ว่า Tier ใช้คัด ส่วนน้ำหนักใช้เรียง"
       ],
       "test_cases": [
         "share_grant_expiry_revocation",
@@ -994,7 +1117,10 @@
         "mobile_zoom_keyboard_touch",
         "live_asset_hash",
         "release_rollback",
-        "manual_gate_evidence"
+        "manual_gate_evidence",
+        "published_favicon_social_card",
+        "tier_weight_user_flow",
+        "icon_details_action_accessible"
       ],
       "production_check_ids": [
         "test-browser",
@@ -1004,12 +1130,12 @@
       "coding_prompt": "Implement task 10 only after its dependencies pass. Complete authorized sharing and observe the actual deployed build for mobile, accessibility and theme QA. Record any blocked or unperformed check as open. A public synthetic preview is not proof that production data, auth or tenant sync is ready."
     }
   ],
-  "handoff_patch": "1.3.1",
-  "runtime_version_source": "contracts/release.v1.3.1.json",
+  "handoff_patch": "1.4.0",
+  "runtime_version_source": "contracts/release.v1.4.0.json",
   "asset_contracts": [
-    "contracts/assets.v1.3.json",
-    "contracts/ds-assets.v1.3.json"
-  ],
-  "version_status": "historical_not_current_authority",
-  "superseded_by": "contracts/implementation-tasks.v1.4.json"
+    "contracts/assets.v1.4.json",
+    "contracts/ds-assets.v1.4.json",
+    "contracts/web-identity.v1.4.json",
+    "contracts/icons.v1.3.json"
+  ]
 }

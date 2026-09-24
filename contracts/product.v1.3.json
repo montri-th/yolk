@@ -269,5 +269,7 @@
     "parcel_feasibility_after_location_screening"
   ],
   "manual_qa": "browser_visual_and_real_device_checks_open",
-  "icons_contract": "contracts/icons.v1.3.json"
+  "icons_contract": "contracts/icons.v1.3.json",
+  "version_status": "historical_not_current_authority",
+  "superseded_by": "contracts/product.v1.4.json"
 }

@@ -92,24 +92,24 @@ def verify(root, zip_path=None):
     require(set(checksum_entries) == expected | {"handoff-manifest.json"}, "Checksum inventory differs from manifest")
     for name, digest in checksum_entries.items():
         require(build.sha((root / name).read_bytes()) == digest, "Checksum mismatch: " + name)
-    contracts = ["contracts/assets.v1.3.json", "contracts/ds-assets.v1.3.json", "contracts/icons.v1.3.json"]
+    contracts = ["contracts/assets.v1.4.json", "contracts/ds-assets.v1.4.json", "contracts/icons.v1.3.json", "contracts/web-identity.v1.4.json"]
     assets = set()
     for name in contracts:
         require((root / name).is_file(), "Required release asset contract missing: " + name)
         assets.update(verify_declared_assets(root, name))
-    release_path = root / "contracts/release.v1.3.1.json"
+    release_path = root / "contracts/release.v1.4.0.json"
     require(release_path.is_file(), "Release contract is missing")
     release = read_json(release_path)
     require(isinstance(release, dict) and release, "Release contract must be an object")
     require(release.get("handoff_revision", release.get("version")) == build.VERSION, "Release version mismatch")
-    runtime_paths = verify_declared_assets(root, "contracts/release.v1.3.1.json")
+    runtime_paths = verify_declared_assets(root, "contracts/release.v1.4.0.json")
     require(runtime_paths == {n for n in expected if n.startswith("prototype/")}, "Release runtime inventory differs from package")
     fingerprint = release.get("runtime_fingerprint", {})
     require(fingerprint.get("algorithm") == "sha256", "Unsupported runtime fingerprint")
     fingerprint_text = "".join(build.sha((root / name).read_bytes()) + "  " + name + "\n" for name in sorted(runtime_paths))
     require(fingerprint.get("value") == build.sha(fingerprint_text.encode("utf-8")), "Runtime fingerprint mismatch")
     require(fingerprint.get("file_count") == len(runtime_paths), "Runtime fingerprint count mismatch")
-    asset_contract = read_json(root / "contracts/assets.v1.3.json")
+    asset_contract = read_json(root / "contracts/assets.v1.4.json")
     declared_asset_names = [a["path"] for a in asset_contract.get("assets", [])]
     require(len(declared_asset_names) == len(set(declared_asset_names)), "Duplicate product asset entries")
     require(asset_contract.get("shipped_asset_count") == len(declared_asset_names), "Shipped asset count mismatch")

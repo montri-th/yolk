@@ -35,7 +35,7 @@ assert script_data.startswith("/* Synthetic public demo data")
 assert "window.YOLK_DEMO_DATA=" in script_data
 assert (ROOT / "prototype/index.html").read_text(encoding="utf-8").find('name="robots" content="noindex,nofollow"') >= 0
 
-manifest = json.loads((ROOT / "contracts/ds-assets.v1.3.json").read_text(encoding="utf-8"))
+manifest = json.loads((ROOT / "contracts/ds-assets.v1.4.json").read_text(encoding="utf-8"))
 runtime_assets = [a for a in manifest["assets"] if a["previewDistribution"] == "ship_with_preview"]
 for asset in runtime_assets:
     path = ROOT / asset["path"]
@@ -62,7 +62,7 @@ for path in ROOT.rglob("*"):
 
 for path in ROOT.rglob("*.md"):
     for raw in re.findall(r"(?<!!)\[[^]]+\]\(([^)]+)\)", path.read_text(encoding="utf-8")):
-        rel = raw.split("#", 1)[0]
+        rel = raw.split("#", 1)[0].split("?", 1)[0]
         if not rel or urlparse(rel).scheme:
             continue
         assert (path.parent / rel).resolve().is_file(), f"broken local link in {path.relative_to(ROOT)}: {raw}"

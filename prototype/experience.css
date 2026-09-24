@@ -164,18 +164,6 @@ button:disabled { opacity: 1; color: var(--yl-meta); background: var(--soft); bo
 dialog { border: 1px solid var(--line); max-width: 600px; }
 dialog::backdrop { background: color-mix(in srgb, var(--ldm-foundation-surface-canvas-dark) 70%, transparent); }
 .yolk-brand, .compact-brand { color: var(--yl-brand-wordmark); }
-/* Identity is placed directly on the page, never inside a card or backing plate.
-   The pinned DS has no inverse raster logo. Dark uses its approved governed text
-   binding, not a recoloured image or a reconstructed wordmark. */
-.landometer-identity-img { display: block; width: 200px; max-width: calc(100% - 48px); height: auto; }
-.landometer-identity-text { display: none; font: 700 18px/1.2 Arvo, serif; letter-spacing: 0; color: var(--ink); }
-.sidebar-identity { margin: auto 8px 24px; }
-.mobile-identity { margin: 32px 40px 24px; }
-:root[data-theme="dark"] .landometer-identity-img { display: none; }
-:root[data-theme="dark"] .landometer-identity-text { display: block; }
-@media(min-width:1100px) {
-  .mobile-identity, :root[data-theme="dark"] .mobile-identity { display: none; }
-}
 
 .province { stroke: var(--yl-border-strong); }
 .province:hover { stroke: var(--yl-map-hover); }

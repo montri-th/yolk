@@ -1,24 +1,21 @@
 ---
 title: "CityMETER: Yolk — Product implementation plan"
-version: "1.3"
-handoff_patch: "1.3.1"
+version: "1.4"
+handoff_patch: "1.4.0"
 language: "th-first, en-machine-prompts"
 status: "production-plan-not-existing-backend"
 preview_status: "ready_with_open_manual_gate"
-product_statement: "CityMETER_Yolk_Product_Statement_v1.3.md"
-machine_contract: "contracts/implementation-tasks.v1.3.json"
-criteria_contract: "contracts/criteria.v1.3.json"
+product_statement: "CityMETER_Yolk_Product_Statement_v1.4.md"
+machine_contract: "contracts/implementation-tasks.v1.4.json"
+criteria_contract: "contracts/criteria.v1.4.json"
 task_count: 15
 ---
 
-> **เอกสารประวัติ v1.3 — ไม่ใช่ข้อกำหนดปัจจุบัน** ใช้ [IMPLEMENTATION_PLAN_v1.4.md](IMPLEMENTATION_PLAN_v1.4.md) สำหรับรุ่น 1.4 สูตรจัดอันดับและแนวทาง identity ในเอกสารนี้อาจต่างจากรุ่นปัจจุบัน
+# CityMETER: Yolk v1.4 — แผนเริ่มพัฒนา
 
+เอกสารนี้รวบ **12 งานหลัก + 3 งานประสบการณ์** เป็นลำดับเดียว ให้ dev หรือ coding agent รับทีละงานและตรวจผลได้ Handoff 1.4.0 เพิ่มการคัดด้วย Tier และการจัดอันดับตามน้ำหนัก อธิบายทั้ง 8 รูปแบบแยกจาก Supply และปรับ brand identity/link affordance โดยดู runtime commit/hash จาก [release manifest](contracts/release.v1.4.0.json) ไม่ hardcode revision ในแผน ส่วนที่เป็น production ด้านล่างยังต้องสร้าง พรีวิวที่มีอยู่เป็น HTML/CSS/JavaScript พร้อมข้อมูลจำลอง การสลับสมาชิก ประวัติ และการแจ้งเตือนในพรีวิวไม่ได้ทดแทน auth, tenant sync หรือ backend จริง
 
-# CityMETER: Yolk v1.3 — แผนเริ่มพัฒนา
-
-เอกสารนี้รวบ **12 งานหลัก + 3 งานประสบการณ์ v1.3** เป็นลำดับเดียว ให้ dev หรือ coding agent รับทีละงานและตรวจผลได้ Handoff patch 1.3.1 ใช้ feature contract v1.3 เดิมและรับการปรับ logo/icons ล่าสุด โดยดู runtime commit/hash จาก [release manifest](contracts/release.v1.3.1.json) ไม่ hardcode revision ในแผน ส่วนที่เป็น production ด้านล่างยังต้องสร้าง พรีวิวที่มีอยู่เป็น HTML/CSS/JavaScript พร้อมข้อมูลจำลอง การสลับสมาชิก ประวัติ และการแจ้งเตือนในพรีวิวไม่ได้ทดแทน auth, tenant sync หรือ backend จริง
-
-อ่าน [Product statement](CityMETER_Yolk_Product_Statement_v1.3.md) เพื่อเข้าใจงานของผู้ใช้ แล้วใช้ [task manifest JSON](contracts/implementation-tasks.v1.3.json) เป็นตัวสั่งงาน ใช้ [criteria contract](contracts/criteria.v1.3.json) เป็นกติกาคำนวณ ไม่ถอดสูตรใหม่จากภาพหน้าจอ เอกสารนี้แทนแผน v1.2; ไฟล์ประสบการณ์ [EXPERIENCE_v1.3.md](docs/EXPERIENCE_v1.3.md) ยังเป็นรายละเอียดเสริมของ EXP-01/02/03
+อ่าน [Product statement](CityMETER_Yolk_Product_Statement_v1.4.md) เพื่อเข้าใจงานของผู้ใช้ แล้วใช้ [task manifest JSON](contracts/implementation-tasks.v1.4.json) เป็นตัวสั่งงาน ใช้ [criteria contract](contracts/criteria.v1.4.json) เป็นกติกาคำนวณ ไม่ถอดสูตรใหม่จากภาพหน้าจอ เอกสารนี้แทนแผน v1.3; ไฟล์ประสบการณ์ [EXPERIENCE_v1.3.md](docs/EXPERIENCE_v1.3.md) ยังเป็นรายละเอียดเสริมของ EXP-01/02/03
 
 ## 1. เริ่มจากของที่มีอยู่จริง
 
@@ -37,11 +34,16 @@ node scripts/check-theme-runtime.cjs
 node scripts/check-map-runtime.cjs
 node scripts/check-photo-runtime.cjs
 node scripts/check-photo-form.cjs
+node scripts/check-brand-identity.cjs
+node scripts/check-icons.cjs
+node scripts/check-ranking-v1.4.cjs
+node scripts/check-decisions-v1.4.cjs
+node scripts/check-web-identity.cjs
 ```
 
 คำสั่งเหล่านี้ตรวจ source/contracts/controller ผ่าน Node VM และ mocked DOM/storage **ยังไม่ใช่การตรวจภาพใน browser** สถานะส่งมอบคือ `ready_with_open_manual_gate`; browser/อุปกรณ์จริงยังต้องตรวจหลังจาก approval-review block เดิมคลี่คลาย การ deploy สำเร็จไม่ปิด gate นี้
 
-| มีในพรีวิว v1.3 | สิ่งที่ production ต้องสร้าง |
+| มีในพรีวิว v1.4 | สิ่งที่ production ต้องสร้าง |
 |---|---|
 | TH/EN, light/dark/system, UI ที่อ่านง่ายขึ้น | บัญชีผู้ใช้ สิทธิ์ฝั่ง server การ sync และ device QA จริง |
 | จำลอง criteria, rank, 8 market patterns, local feed | approved private data release, immutable runs และ publication jobs |
@@ -76,7 +78,7 @@ Path ใน task manifest เป็น **ตำแหน่งที่จะส
 - Approved source, workspace overlay และ analytical aggregate แยกกัน การแก้สาขา/รูป/สถานะไม่เปลี่ยน B/C/U ทันที ต้องผ่าน reconciliation แล้ว publish run ใหม่
 - Data quality มี `missing`, `observed_zero`, `unverified`, `not_applicable` แยกกัน ระบุ coverage, unit, period และ lineage ตาม metric ไม่เติมศูนย์เพื่อให้กราฟดูครบ
 - ภาพ public preview และ fixtures เป็นข้อมูลจำลอง ข้อมูลจริงและ transaction/member data นำเข้าผ่าน private release ที่เจ้าของข้อมูลอนุมัติ ไม่มี source credentials หรือ customer records ใน public repository
-- DS ใช้ **0.9.4** ตาม [asset integration](DS_ASSET_INTEGRATION.md) และ [hash manifest](contracts/ds-assets.v1.3.json) ไฟล์ v1.3 ระบุ DS asset ที่ ship; provenance เดิมอยู่ใน receipt เดิม; รายการ runtime ทั้งหมดดู [asset index](ASSET_INDEX_v1.3.md) และ [machine asset list](contracts/assets.v1.3.json) ห้ามแก้ bytes ของ canonical logo/font/color CSS **ไม่ใช้ motif ในแอปหรือ asset bundle** ตามคำขอรอบนี้
+- DS ใช้ **0.9.4** ตาม [asset integration](DS_ASSET_INTEGRATION.md) และ [hash manifest](contracts/ds-assets.v1.4.json) ไฟล์ v1.4 ระบุ DS asset ที่ ship; provenance เดิมอยู่ใน receipt เดิม; รายการ runtime ทั้งหมดดู [asset index](ASSET_INDEX_v1.4.md) และ [machine asset list](contracts/assets.v1.4.json) ห้ามแก้ bytes ของ canonical logo/font/color CSS **ไม่ใช้ motif ในแอปหรือ asset bundle** ตามคำขอรอบนี้
 - วาง logo variant ที่อนุมัติแล้วบนพื้นเข้ากันได้โดยตรง **ไม่มีกรอบ card หรือแผ่นขาวรอง logo** ไม่เปลี่ยนสี/ครอป logo ใช้ icon ตาม DS ควบคู่ข้อความที่จุดตัดสินใจ เช่น เกณฑ์/เล็งทำเล/ตรวจยืนยัน/ชั้นแผนที่/บันทึก/รูปสาขา ไอคอนไม่สื่อว่าสถานะข้อมูล verified โดยไม่มีหลักฐาน
 - Locale Insight เป็น contextual prior สำหรับ planning/field validation เท่านั้น ต้องมี crosswalk ก่อน aggregate และไม่แทนประชากรทางการ ขอบเขตตามกฎหมาย สิทธิ์ หรือหลักฐานพฤติกรรมจริง
 - คัดพื้นที่หรือช่วงถนนก่อน แล้วจึงพิจารณา **แปลงที่ดิน ทางเข้าออก ฝั่งถนน และความเป็นไปได้จริง** ดาวเป็นแนวทางศึกษาต่อ ไม่ใช่การรับรองยอดขาย
@@ -109,7 +111,57 @@ Path ใน task manifest เป็น **ตำแหน่งที่จะส
 | น้อย | น้อย | มาก | Our Island | 0 |
 | น้อย | มาก | มาก | Winter War | 0 |
 
-**Ranking:** เรียง eligible ก่อน → Demand high/unknown/low → ดาวมากก่อน → strongest proven tier ที่ดีที่สุด → จำนวน enabled signals ที่ผ่านมากก่อน → C มากก่อน → B น้อยก่อน → stable source rank ผูกกับ release ไม่ใช่ weighted score ส่วนสีทำเลใช้ **max known enabled-signal percentile rank** จังหวัดใช้ max ของทำเลที่ eligible; percentile ที่แสดงในกราฟใช้ tie midrank ของพรีวิว (n=1 แสดง50) คนละนิยามกับ PERCENTILE.INC cutoff และคนละตัวกับอันดับรวม รักษาทั้งสามให้แยกใน DTO/คำอธิบาย
+**Tier ใช้คัด:** `qualifyingTier` เป็น Tier ที่ยืนยันได้ดีที่สุดของกลุ่มที่เปิด ปัจจัยเพิ่มเติมที่ผ่านเกณฑ์นับเป็น Tier 3 ค่า `maxDemandTier=3` รับ Tier 1/2/3; เลือก 2 รับ 1/2; เลือก 1 รับเฉพาะ 1 ตัวกรองนี้ใช้กับ Demand สูง เมื่อเปิด Demand ทุกระดับ รูปแบบ Demand ต่ำที่เลือกไว้ไม่มี Tier และไม่ถูกตัดด้วย Tier cap ส่วน unknown แยกเป็นรายการรอตรวจ
+
+**Ranking ใช้เรียง:** workspace ใหม่ใช้ `weighted` แต่เกณฑ์ที่บันทึกก่อน v1.4 คง `legacy` จนทีมเปลี่ยนอย่างชัดเจน โหมด weighted เรียงรายการผ่านด้วย `rankScore` มากก่อน → `qualifyingTier` น้อยก่อน (null ท้าย) → `sourceRank` → `id` ดาวไม่บังคับลำดับในโหมดนี้
+
+```text
+metric_percentile = national_midrank(metric_value)                  # 0..100
+missing_metric_bounds = [0,100]                                    # retain configured weight
+group_score = normalized weighted mean(enabled metrics; default each=1)
+Demand = normalized weighted mean(enabled building/activity/extra groups)
+group_weights = building:50, activity:50, extra:50-if-enabled
+ownGap = 100 / (1 + B / ownMany)
+competitorGap = 100 / (1 + C / competitorMany)
+rankScore = lower bound of normalized mean(Demand:70, ownGap:20, competitorGap:10)
+```
+
+น้ำหนักเป็นสัดส่วน 0–100 และไม่ต้องรวมเป็น 100 น้ำหนัก 0 ตัดเฉพาะการร่วมคะแนน ไม่ได้ปิดตัววัดในเกณฑ์ Tier เมื่อน้ำหนัก Demand มากกว่า 0 ต้องมีกลุ่มที่เปิดพร้อมน้ำหนักบวก และแต่ละกลุ่มที่ร่วมคะแนนต้องมีตัววัดน้ำหนักบวกอย่างน้อยหนึ่งตัว ดู validation เต็มใน criteria contract
+
+ข้อมูลขาดยังคงน้ำหนักของตัววัดไว้ จึงเกิดช่วงคะแนน `rankScore` ถึง `rankUpper` ไม่เฉลี่ยใหม่โดยทิ้งตัววัดนั้น สำหรับ U ให้คำนวณจาก `(B+k,C+U-k)` ร่วมกันทุก `k=0..U` แล้วหาคะแนนต่ำสุด/สูงสุด ห้ามนำช่องว่างต่ำสุดของเราและคู่แข่งจากคนละกรณีมาบวกกัน
+
+ตัวอย่างตรวจ: A มี Demand 90 / B=2 / C=0 / Tier 2 และ B มี Demand 80 / B=0 / C=1 / Tier 3 (threshold 3, U=0, ทั้งคู่ Pioneer) ได้คะแนน 85.0/83.5 ที่น้ำหนัก 70:20:10 และ 76.0/89.5 ที่ 40:50:10 เปลี่ยนเฉพาะน้ำหนักแล้วจำนวนที่ผ่านต้องไม่เปลี่ยน แต่การเปลี่ยน maxDemandTier จาก 3 เป็น 2 จะตัด B ออก ดูภาพอธิบายใน Product statement
+
+สีทำเลยังใช้ **max known enabled-signal percentile rank** จังหวัดใช้ค่าสูงสุดของทำเลที่ผ่าน กราฟใช้ tie-midrank (n=1 แสดง 50) คนละนิยามกับ PERCENTILE.INC และคะแนนรวม ต้องระบุชื่อและหน่วยแยกใน DTO/legend
+
+### ฟิลด์ที่เชื่อม UI กับเครื่องคำนวณ
+
+ตัวอย่างเป็นเฉพาะส่วนที่เพิ่ม/ปรับใน v1.4 รวมเข้ากับ defaults ฉบับเต็มจาก criteria contract ไม่สร้างค่าตั้งต้นอีกชุดใน component
+
+```json
+{
+  "demandMode": "high",
+  "maxDemandTier": 3,
+  "patterns": ["Pioneer", "FOMO", "Our Farm"],
+  "rankingMode": "weighted",
+  "rankingWeights": {"demand": 70, "ownGap": 20, "competitorGap": 10},
+  "demandGroupWeights": {"building": 50, "activity": 50, "extra": 50}
+}
+```
+
+`metricWeights` เก็บทุก ready metric ID โดยค่าเริ่มต้น 1 และ `extraMetrics=[]` ทำให้กลุ่ม extra ยังไม่ร่วมคะแนน อ่านผลผ่านฟิลด์จริงดังนี้:
+
+| ฟิลด์ผล | หน้าที่ใน UI |
+|---|---|
+| `eligible` | ผ่านการคัดหรือไม่ ไม่เปลี่ยนเพราะแก้เฉพาะน้ำหนัก |
+| `qualifyingTier`, `tierEligible` | Tier ที่ยืนยันได้และผ่านเพดาน Tier หรือไม่; Demand ต่ำแสดง n/a |
+| `rankScore`, `rankUpper` | คะแนนรวมขอบล่าง/ขอบบน ใช้ขอบล่างเรียงใน weighted mode |
+| `rankCoverage` | สัดส่วนน้ำหนักที่มีข้อมูลแน่ชัด 0–1 ไม่ใช่ความน่าจะเป็นว่าคำตอบถูก |
+| `demandWeightedScore`, `demandWeightedUpper`, `demandWeightedCoverage` | คะแนนและความครบของข้อมูล Demand ก่อนรวม Supply |
+| `rankingComponents` | `demand`, `ownGap`, `competitorGap` แต่ละตัวมี lower/upper เพื่ออธิบายคะแนน |
+| `score` | ค่าสัญญาณ Demand สูงสุดสำหรับสีแผนที่เดิม ไม่ใช่คะแนนจัดอันดับรวม |
+
+ตัวเชื่อม `normalizeCriteria(raw,{existing:true|false})` เติมฟิลด์ที่ขาดให้เกณฑ์เก่าโดยคง legacy และไม่สร้าง event/เพิ่ม version การเปลี่ยนโดยผู้ใช้จริงผ่าน `diffCriteria` ต้องเก็บ diff น้ำหนักแต่ละช่องและชื่ออ่านง่าย
 
 ## 3. ลำดับทำงานเดียวสำหรับคนและ agent
 
@@ -164,30 +216,31 @@ flowchart LR
 
 ## 4. งานทีละขั้น
 
-แต่ละงานทำเป็น vertical slice: migration/DTO/API/UI เท่าที่เกี่ยวข้อง พร้อม test และหลักฐานรับงาน `input_paths`/`output_paths_proposed`/test IDs อยู่ใน JSON ที่ใช้ชื่อ task เดียวกัน
+แต่ละงานทำเป็น vertical slice: migration/DTO/API/UI เท่าที่เกี่ยวข้อง พร้อม test และหลักฐานรับงาน `input_paths`/`output_paths_proposed` อยู่ใน JSON ขั้นตอน เกณฑ์รับงาน และ prompts ต่อไปนี้ใช้ชุดเดียวกับ machine manifest
 
 ### 00 · ตั้งฐานระบบและสัญญาข้อมูล
 
-**เริ่มเมื่อ:** เริ่มได้ ผ่าน acceptance แล้ว
+**เริ่มเมื่อ:** เริ่มได้จาก repository และระบบ CityMETER เดิม
 
 1. สำรวจ CityMETER เดิมก่อน เลือกใช้ auth, DB, queue, object storage และ DS loader ที่มีอยู่ แล้วเขียน architecture decision และ path mapping; ไม่ตั้ง service ซ้ำโดยไม่มีเหตุผล
 2. สร้าง dev environment, CI, migration/seed runner และ schema/type generation ให้เริ่มด้วย synthetic workspace ได้ สร้างคำสั่ง production ที่ระบุใน command registry ก่อนให้ task ถัดไปเรียก
 3. สร้าง workspace/membership และ guard ฝั่ง server: 1 Admin + 3 Editors + 6 Viewers พร้อมเปลี่ยน Admin อย่างปลอดภัย ทุก tenant-owned query ตรวจสมาชิก ไม่เชื่อ workspace_id จาก client
-4. Pin DS 0.9.4 และ hash/role ของ assets; โหลดสี ฟอนต์ logo และ icon ตาม DS_ASSET_INTEGRATION.md ไม่ใช้ motif; logo วางบนพื้นเข้ากันได้โดยตรง ไม่มีกรอบ/แผ่นขาว ไม่ recolor/crop; แยก TH/EN dictionary และ accessible shell
+4. Pin DS 0.9.4 และ hash/role ของ assets; โหลดสี ฟอนต์ logo และ icon ตาม DS_ASSET_INTEGRATION.md ไม่ใช้ motif; แสดง native logo ทุกธีมโดยไม่มีกรอบ/พื้นรอง ไม่ recolor/crop; ใส่ favicon และ public share image ตาม identity contract; แยก TH/EN dictionary และ accessible shell
 
 **รับงานเมื่อ**
 
 - Clone ใหม่แล้วเปิด synthetic web/API ได้ตาม README ที่ทีมเขียนจริง
 - CI ตรวจ schema drift, asset hashes, tenant boundaries และไม่รวมข้อมูลส่วนตัว/secret
-- Runtime/bundle ไม่มี motif; logo ไม่มี card/frame/plate และใช้ variant ตรง asset; decision controls มี DS icon พร้อมข้อความ/accessible name
 - Viewer ไม่มี write scope; cross-tenant read/write ถูกปฏิเสธ; seat limit/last Admin มีการทดสอบ
+- Runtime/bundle ไม่มี motif; logo วางบนพื้นเข้ากันได้โดยตรง ไม่มี card/frame/plate; decision controls มี DS icon คู่ข้อความหรือ accessible name
+- Native Landometer logo มองเห็นได้ในทุกธีมและสอง layout; favicon และ Open Graph/Twitter image ใช้ approved assets/absolute HTTPS URL ตาม identity contract
 
-**ทดสอบหลัก:** `contracts_generation`, `rbac_role_matrix`, `cross_tenant_access`, `seat_limits_1_3_6`, `last_admin_handoff`, `ds_asset_sha256`, `synthetic_seed_repeatability`
+**ทดสอบหลัก:** `contracts_generation`, `rbac_role_matrix`, `cross_tenant_access`, `seat_limits_1_3_6`, `last_admin_handoff`, `ds_asset_sha256`, `synthetic_seed_repeatability`, `no_motif_runtime_or_bundle`, `logo_native_no_plate`, `decision_icon_semantics`, `native_logo_all_themes`, `favicon_and_social_metadata`, `share_image_public_no_customer_data`
 
 **Prompt สำหรับ agent**
 
 ```text
-Implement only task 00. Reuse the existing CityMETER stack first and record any adapter/path mapping. Scaffold server-enforced workspace roles, synthetic boot, shared contracts, pinned DS assets and the documented check commands. Do not imply the current static preview already has an authenticated backend.
+Implement only task 00. Reuse the existing CityMETER stack first and record any adapter/path mapping. Scaffold server-enforced workspace roles, synthetic boot, shared contracts, pinned DS assets and the documented check commands. Do not imply the current static preview already has an authenticated backend. Apply the current owner direction: no motifs, no logo plate/frame/recolor/crop, and meaningful DS icons with accessible labels at decision controls.
 ```
 
 ### 01 · ทะเบียนแหล่งข้อมูลและนำเข้าแบบตรวจสอบได้
@@ -242,16 +295,17 @@ Implement task 02 with versioned primary units, crosswalks, metric-specific aggr
 
 1. สร้าง read model และ API ของ published run โดยเริ่มจาก synthetic contract fixture; task 06 จะต่อ publication pointer จริงภายหลัง
 2. หน้า country ใช้จังหวัดเป็น summary/drill-down ไปหน่วยหลัก แสดง coverage/source period/run_id ทุกมุมมอง; สีสรุป max signal percentile ในทำเลที่ผ่านเกณฑ์ของจังหวัดนั้น
-3. หน้า detail แสดงค่าดิบ/หน่วย/cutoff/percentile, building/activity tier, aggregate B/C/U, 8 market patterns และเหตุผล; brand breakdown เฉพาะข้อมูลรายสาขาที่มี coverage
-4. ทำ shortlist entry point, state loading/empty/no eligible/insufficient evidence/error และรายการที่ใช้ keyboard ได้ แผนที่ทำเลแบบ interactive ส่งต่อ EXP-02
+3. หน้า detail แสดงค่าดิบ/หน่วย/cutoff/percentile, building/activity/qualifying tier, aggregate B/C/U, 8 market patterns พร้อมเหตุผล และคะแนนแยกองค์ประกอบ/ช่วงความไม่แน่; brand breakdown เฉพาะข้อมูลที่มี coverage
+4. ใช้ปุ่มขอบชัดพร้อม icon และข้อความ ดูรายละเอียด / View details จากรายการ; ทำ shortlist entry point, focus state, loading/empty/no eligible/insufficient evidence/error และรายการที่ใช้ keyboard ได้; แผนที่ทำเลส่งต่อ EXP-02
 
 **รับงานเมื่อ**
 
 - Map/list/detail ใช้ run_id และ place identity เดียวกัน
 - ไม่ตีความจำนวนสาขาเป็น sales share และไม่ใช้ POI sample เป็นรายชื่อครบทุกสาขา
 - แยกสีภาพรวมจาก ranking tuple; unknown มีสถานะเฉพาะ ไม่กลืนเป็นศูนย์
+- ทั้ง 8 รูปแบบอธิบาย Demand / คู่แข่ง / สาขาเรา ตามเกณฑ์ที่ใช้อยู่ ปุ่มดูรายละเอียดมี icon ข้อความ ขอบ และ focus state; เปิดได้ด้วย keyboard
 
-**ทดสอบหลัก:** `same_run_across_views`, `landscape_contract`, `coverage_partial_missing`, `map_score_vs_rank`, `count_not_sales_share`, `empty_error_states`, `bilingual_values_units`
+**ทดสอบหลัก:** `same_run_across_views`, `landscape_contract`, `coverage_partial_missing`, `map_score_vs_rank`, `count_not_sales_share`, `empty_error_states`, `bilingual_values_units`, `pattern_dynamic_threshold_descriptions`, `details_button_affordance`
 
 **Prompt สำหรับ agent**
 
@@ -286,46 +340,52 @@ Implement task 04 only. Use a shared mutation service with server-side tenant gu
 
 **เริ่มเมื่อ:** 01, 02 ผ่าน acceptance แล้ว
 
-1. ทำ pure functions ตามรายละเอียดการคำนวณด้านล่าง ใช้ PERCENTILE.INC ของ known values ต่อ metric ใน pinned national universe; snapshots จุดตัดต้องตรวจย้อนจาก source ได้
-2. สร้าง building/activity tier และ tri-state demand พร้อม strongest proven/best possible tier; controls แยก Demand / Supply และ disable metric ที่ใช้ไม่ได้
-3. Supply ใช้ B>=3, C>=3 เริ่มต้น; กระจาย U ทุก integer allocation เพื่อดู pattern ที่เป็นไปได้ จะแสดง pattern แน่นอนเมื่อเหลือแบบเดียว
-4. สร้าง ranking tuple แบบ deterministic แยก map score; private preview ไม่สร้าง shared event และไม่แก้ published run
+1. ทำ pure functions จาก criteria.v1.4.json แยก PERCENTILE.INC สำหรับจุดตัดออกจาก midrank สำหรับคะแนน ทั้งสองใช้ national universe ที่ตรึงไว้ ไม่เปลี่ยนตามตัวกรองจังหวัด
+2. คำนวณ Tier อาคารและกิจกรรมตาม 99-all / 95-all / 95-any และกิจกรรม 5/3/1 รวมทั้งขอบเขตเมื่อข้อมูลขาด qualifyingTier ใช้ Tier ที่ยืนยันได้ดีที่สุด ปัจจัยเพิ่มเติมที่เปิดและผ่านเป็น Tier 3; maxDemandTier เริ่ม 3 และใช้กับ Demand สูงเท่านั้น
+3. จัด Supply และทั้ง 8 รูปแบบจาก B/C/U ตั้งต้น ownMany=3 และ competitorMany=3 ตรวจการกระจาย U ไป B/C ทุกกรณีแล้วคืน possiblePatterns; ความไม่แน่นอนไม่กลายเป็นผลที่ผ่านเกณฑ์
+4. แยกการคัดออกจากการเรียง: demandMode, maxDemandTier และ patterns กำหนด eligible ส่วน weights กำหนดอันดับ โดยไม่เปลี่ยนชุดที่ผ่าน
+5. คำนวณคะแนนตามสัดส่วนน้ำหนักองค์ประกอบ 70/20/10 กลุ่ม Demand 50/50/50 (กลุ่ม extra ต้องเปิดก่อน) และตัววัดละ 1 ข้อมูลขาดคงน้ำหนักไว้เป็นช่วง 0–100 ช่องว่างสาขาใช้ 100/(1+count/threshold) และตรวจ B/C จากการกระจาย U ชุดเดียวกัน
+6. คง legacy ordering ของเกณฑ์เก่าจนผู้ใช้เลือก weighted แล้วกดใช้กับทีม ดาวไม่บังคับลำดับใน weighted mode คืนคะแนนรายองค์ประกอบ ช่วงคะแนน และโหมด แยกจาก score ที่ใช้ระบายสีแผนที่
 
 **รับงานเมื่อ**
 
-- Building 99-all / 95-all / 95-any และ activity hits 5/3/1 ใช้ precedence ถูกต้อง
-- Null ไม่เป็นศูนย์; disabled signals ไม่เพิ่ม hit/miss/อันดับ; ปิดทุกกลุ่มแล้ว apply ไม่ได้
-- ทั้ง 8 pattern และ unknown cases ตรง contract; ratio C/(B+α) ไม่ถูกเปิดเอง; observed-zero/cutoff-zero มี fixture
+- Tier อาคาร/กิจกรรมและ qualifyingTier ใช้ฐานประเทศเดียวกันและตรง contract; missing ไม่เป็น 0 ส่วน observed zero ผ่าน cutoff zero ตามกฎเดิม
+- ตัวเลือก Tier 1 / Tier 1–2 / Tier 1–3 คัดได้จริง ทำเล Demand ต่ำที่เลือกไว้ยังผ่านได้เมื่อ demandMode=all ส่วน unknown ถูกแยกไว้ เปลี่ยนเฉพาะน้ำหนักแล้วจำนวนที่ผ่านไม่เปลี่ยน
+- ทั้ง 8 รูปแบบใช้ D/C/B ถูกต้องและอธิบายตาม threshold ปัจจุบัน ปิดทุกกลุ่ม Demand หรือให้น้ำหนักที่จำเป็นรวมเป็น 0 แล้วกดใช้กับทีมไม่ได้
+- คะแนนอยู่ในช่วง 0–100 และคำนวณจากสัดส่วนน้ำหนักที่ถูกต้อง missing ไม่ทำให้เฉลี่ยน้ำหนักใหม่เฉพาะค่าที่มี U ใช้ joint bounds ไม่รวมค่าต่ำสุดจากคนละกรณี
+- ตัวอย่าง A/B ได้ 85/83.5 และ 76/89.5 ตาม Product statement ลำดับเมื่อคะแนนเท่ากันคงที่ เกณฑ์ legacy ยังได้ลำดับเดิมก่อนผู้ใช้ยอมรับการเปลี่ยนสูตร
 
-**ทดสอบหลัก:** `percentile_inc_interpolation`, `ties_zero_cutoff`, `missing_tier_bounds`, `disabled_metrics`, `all_groups_disabled`, `activity_5_3_1`, `all_eight_patterns`, `unverified_allocation`, `stable_ranking_tuple`, `chart_midrank_not_cutoff`
+**ทดสอบหลัก:** `percentile_inc_interpolation`, `ties_zero_cutoff`, `missing_tier_bounds`, `disabled_metrics`, `all_groups_disabled`, `activity_5_3_1`, `all_eight_patterns`, `unverified_allocation`, `chart_midrank_not_cutoff`, `tier_cap_1_2_3`, `tier_cap_only_high_demand`, `unknown_not_eligible`, `weights_do_not_change_eligibility`, `weight_relative_normalization`, `weight_zero_validation`, `missing_weight_not_renormalized`, `supply_gap_formula`, `joint_supply_score_bounds`, `weighted_example_order_flip`, `weighted_stable_ties`, `legacy_criteria_migration`
 
 **Prompt สำหรับ agent**
 
 ```text
-Implement task 05 from contracts/criteria.v1.3.json, preserving current thresholds and ranking. Do not silently substitute a weighted score or ratio. Prove PERCENTILE.INC cutoffs separately from display midranks. Return explicit uncertainty when missing data or U permits multiple classifications.
+Implement task 05 from contracts/criteria.v1.4.json as pure functions. Separate screening from weighted ranking and return explainable score bounds. Preserve national cutoff versus midrank semantics, missing values and joint U allocations. Keep saved legacy criteria ordering until explicit migration. Prove the documented A/B ranking example and that changing only weights never changes eligibility. Do not treat stars, map colour or proxy scores as actual sales.
 ```
 
 ### 06 · เกณฑ์ร่วมทีมและผลวิเคราะห์ที่ย้อนตรวจได้
 
 **เริ่มเมื่อ:** 03, 04, 05 ผ่าน acceptance แล้ว
 
-1. ทำ validate → private preview → apply(base_revision) → queued/running analysis job → publication pointer; Admin/Editor apply ได้ Viewer ทดลองส่วนตัวได้
-2. Version criteria, source release, geography universe, metric catalog, engine code, output hash และ run ID; เกณฑ์ที่ส่งแล้วแก้ในที่เดิมไม่ได้
-3. Publish pointer แบบ atomic เมื่อ QA pass เท่านั้น Map/list/detail เปลี่ยนพร้อมกัน; pending/failed แสดงชัดและคง latest-good run
-4. Apply commit สร้าง event กับ outbox ผ่าน service งาน04; rollback เป็น revision ใหม่ ไม่แก้ประวัติ
+1. ทำหน้าเกณฑ์ 4 หมวด: Demand, Supply, รูปแบบทำเลที่สนใจ และน้ำหนักจัดอันดับ การ์ดรูปแบบทั้ง 8 ใช้ checkbox จริงพร้อมคำอธิบาย D/C/B วาง demandMode และ maxDemandTier ในหมวดรูปแบบทำเล
+2. ทำ validate → private preview → apply(base_revision) → analysis job → publication pointer ให้ preview แสดงจำนวนทำเลเข้า/ออกและอันดับที่เปลี่ยนก่อน apply; Admin/Editor ใช้กับทีมได้ Viewer ทดลองส่วนตัวได้
+3. บันทึก rankingMode, maxDemandTier, patterns, rankingWeights, demandGroupWeights, metricWeights และ thresholds ใน CriteriaVersion ที่แก้ย้อนหลังไม่ได้ เกณฑ์เก่าคง legacy; เตรียมร่างให้เลือกเปลี่ยนโดยไม่แก้ข้อมูลเดิมเงียบ ๆ
+4. ระบุเวอร์ชัน criteria, source, geography, catalog, engine, output hash และ run ID เปลี่ยน publication pointer พร้อมกันเมื่อ QA ผ่านเท่านั้น pending/failed ยังคงผลที่ผ่านการตรวจครั้งล่าสุด
+5. เมื่อ apply แล้วค่าเปลี่ยนจริง สร้าง event/outbox หนึ่งรายการพร้อม actor/time/before-after รวมถึงน้ำหนัก Tier และรูปแบบที่เลือก draft/no-op ไม่สร้าง event ส่วน rollback สร้าง revision ใหม่
 
 **รับงานเมื่อ**
 
-- Concurrent apply แจ้ง conflict; failed job ไม่ทำหน้ารายงานว่างหรือเปลี่ยนผลครึ่งเดียว
-- Run เดิม reproduce ได้ด้วย source/criteria/code versions
-- Draft preview กับ personal settings ไม่แจ้งเพื่อน; apply ที่เปลี่ยนจริงมี actor/time/before/after
+- ทั้ง 4 หมวดแยกชัด checkbox ทั้ง 8 อ่านและกดด้วย keyboard ได้ คำอธิบายมาก/น้อยเปลี่ยนตาม threshold ไม่ค้างค่าเริ่มต้น
+- โหลดหน้าใหม่หรือสลับภาษาแล้วเกณฑ์ที่ apply ยังอยู่ ร่างเป็นไปตาม draft contract shared apply หนึ่งครั้งสร้าง event เดียวพร้อมความเปลี่ยนแปลงของ weights/Tier/patterns
+- Concurrent apply แจ้ง conflict; failed job คงผลที่ผ่านการตรวจครั้งล่าสุด map/list/detail อ้าง run เดียวกัน และ run เดิมคำนวณซ้ำได้
+- เกณฑ์ legacy มีขั้นเลือกใช้ weighted พร้อม preview อย่างชัดเจน private preview และการตั้งค่าส่วนตัวไม่แจ้งเพื่อนหรือเพิ่ม leaderboard
 
-**ทดสอบหลัก:** `concurrent_apply`, `immutable_run_reproduction`, `atomic_publication_pointer`, `failed_job_last_good`, `rollback_new_revision`, `private_preview_no_event`
+**ทดสอบหลัก:** `concurrent_apply`, `immutable_run_reproduction`, `atomic_publication_pointer`, `failed_job_last_good`, `rollback_new_revision`, `private_preview_no_event`, `four_section_criteria`, `accessible_pattern_checkboxes`, `dynamic_pattern_copy`, `criteria_weight_filter_persistence`, `weight_tier_pattern_diff_event`, `legacy_explicit_opt_in`, `preview_count_vs_order_diff`
 
 **Prompt สำหรับ agent**
 
 ```text
-Implement task 06 after read-model, event transaction and pure engine contracts exist. Apply shared criteria with revision checks and publish one immutable run pointer only after validation. Preserve the last good run on failure and make asynchronous status visible.
+Implement task 06 using four criteria sections and the task 05 engine. Use native accessible checkboxes for Preferred location types, dynamic D/C/B descriptions, a tier cap and separate ranking weights. Persist all criteria fields, preview count/order changes, preserve legacy mode until explicit opt-in and emit one shared event only on a committed change. Keep atomic immutable run publication and conflict handling.
 ```
 
 ### 04b · กระทบยอด POI ก่อนปรับ Supply
@@ -427,7 +487,7 @@ Implement task 09 as evidence-gated metric adapters. Keep Bangchak as the curren
 1. ย้าย theme controller โดยคง light/dark/system, default system, prepaint resolution, storage/OS change behavior และ data-theme; sync ข้ามอุปกรณ์ผ่าน user preference เป็น optional
 2. ใช้ exact DS token aliases: light canvas=surface-alt และ card=surface-canvas; dark ใช้ canvas/card ฝั่ง dark ห้ามแก้ canonical CSS เพื่อปรับหน้าจอเดียว
 3. ใช้ main body 17px mobile/18px large, controls 16px, metadata เป้าหมาย14px, line-height1.65 เป็น baseline ทดสอบข้อความไทยยาว/200% zoom ก่อนลดตัวอักษร
-4. ใช้คำไทยที่บอกการกระทำตรงๆ, dictionary TH/EN ครบและจำภาษา; ใช้ DS icon ที่มีความหมายคู่ข้อความโดยเฉพาะปุ่มตัดสินใจ ไม่พึ่ง icon อย่างเดียวและไม่ตกแต่งด้วย motif; เปลี่ยนธีม/ภาษาไม่ล้างร่าง form/photo/map selection และไม่แจ้งทั้งทีม
+4. ใช้คำไทยตรงการกระทำและ DS icon คู่ข้อความ ไม่ใช้ motif หรือ icon-only ที่ต้องเดา; TH/EN จำค่าภาษาและเปลี่ยนธีม/ภาษาไม่ล้าง draft หรือแจ้งทั้งทีม
 
 **รับงานเมื่อ**
 
@@ -435,7 +495,7 @@ Implement task 09 as evidence-gated metric adapters. Keep Bangchak as the curren
 - ทุก component/read state/focus/error/map overlay รองรับ light/dark และภาษา
 - Personal preferences ไม่มี workspace event หรือ leaderboard count
 
-**ทดสอบหลัก:** `theme_prepaint`, `os_system_only`, `storage_sync_failure`, `draft_preservation`, `thai_english_copy`, `personal_setting_no_event`, `responsive_zoom_manual`
+**ทดสอบหลัก:** `theme_prepaint`, `os_system_only`, `storage_sync_failure`, `draft_preservation`, `thai_english_copy`, `personal_setting_no_event`, `responsive_zoom_manual`, `icon_text_accessible_name`, `icon_not_verification_claim`
 
 **Prompt สำหรับ agent**
 
@@ -498,15 +558,16 @@ Implement EXP-03 by adapting the preview draft UX to private object storage. Rev
 1. สร้าง share grant อายุ/สิทธิ์/เพิกถอนและ snapshot/run reference; manual link copy/native share ได้ Email/LINE delivery adapters เปิดเมื่อ workspace ตั้งค่าและอนุญาต ไม่ส่งจาก static preview
 2. ตรวจ flow map→detail→criteria preview/apply→supply/photo save→context feed/inbox ทั้ง Admin/Editor/Viewer ใน TH/EN, light/dark/system และ 320/390/768/1440 CSS px
 3. ตรวจ keyboard/touch/200% text zoom/reduced motion/tile error/upload error/revision conflict บน actual build; browser visual gate เดิมยัง open จนมีผู้ตรวจจริงและแนบหลักฐาน
-4. ตรวจ deployed asset requests/hash/logo/icon และยืนยัน no-motif/no-logo-plate ตาม user direction, source permissions, tenant security, geography, coverage, reproducible run และ rollout/rollback; handoff manifest แยก source tests/manual checks/สิ่งที่ยังไม่ทำ
+4. ตรวจ asset hashes บนเว็บที่เผยแพร่ โลโก้จริงทุกธีมและมือถือ favicon, canonical/Open Graph/Twitter metadata ที่ใช้ URL แบบ absolute และภาพแชร์สาธารณะ ยืนยันไม่มี motif/กรอบโลโก้ ตรวจสิทธิ์ข้อมูล coverage การคำนวณซ้ำและ rollback พร้อมแยกผล source tests ออกจาก manual checks ที่ยังไม่ทำ
 
 **รับงานเมื่อ**
 
 - Expired/revoked share links และ membership removal ปิดการเข้าถึงจริง; export คุมสิทธิ์แหล่งข้อมูลด้วย
 - Pilot ใช้ approved real release ใน private environment และผ่าน source/geo/engine/RBAC/DS/device gates
 - ไม่ประกาศ production-ready ด้วย synthetic demo หรือ VM tests อย่างเดียว
+- Metadata และภาพแชร์ที่เผยแพร่ตรง identity contract ไม่อ้างว่าแอปแชร์แสดงถูกต้องหากตรวจเพียงไฟล์และ metadata ลำดับใช้งานอธิบายได้ว่า Tier ใช้คัด ส่วนน้ำหนักใช้เรียง
 
-**ทดสอบหลัก:** `share_grant_expiry_revocation`, `email_line_opt_in`, `access_scoped_export`, `end_to_end_roles`, `th_en_all_themes`, `mobile_zoom_keyboard_touch`, `live_asset_hash`, `release_rollback`, `manual_gate_evidence`
+**ทดสอบหลัก:** `share_grant_expiry_revocation`, `email_line_opt_in`, `access_scoped_export`, `end_to_end_roles`, `th_en_all_themes`, `mobile_zoom_keyboard_touch`, `live_asset_hash`, `release_rollback`, `manual_gate_evidence`, `published_favicon_social_card`, `tier_weight_user_flow`, `icon_details_action_accessible`
 
 **Prompt สำหรับ agent**
 
@@ -523,7 +584,7 @@ API ทุกตัวอยู่ใต้ workspace scope ที่ server ต
 | `POST /imports/preview`, `/imports/{id}/commit` | Admin, approval/checksum, preview ไม่ publish |
 | `GET /results`, `/results/{place_id}`, `/map/summary` | run_id, coverage, source period, shared DTO |
 | `GET /places/{id}/market-landscape`, `/places/{id}/map-context` | geometry/source/run/version/access scope ตรงกัน |
-| `POST /criteria/validate`, `/preview`, `/apply` | private draft, shared revision, immutable run |
+| `POST /criteria/validate`, `/preview`, `/apply` | private draft; rankingMode/maxDemandTier/patterns/weights; schema migration; shared revision; immutable run |
 | `GET/POST/PATCH /supplies`, `/supplies/{id}/{verify|archive|restore}` | source/overlay, If-Match, one event/outbox |
 | `POST /supplies/{id}/photo-upload-intents` และ branch PATCH | staged media, server validation, max5, branch revision |
 | `POST /supply-reconciliations/preview`, `/{id}/publish` | site/period/coverage QA ก่อนเปลี่ยน counts |
@@ -533,7 +594,7 @@ API ทุกตัวอยู่ใต้ workspace scope ที่ server ต
 
 Migration namespace ที่เสนอ: `001_workspace_identity`, `002_source_releases`, `003_metric_registry`, `004_geography`, `005_supply_targets`, `006_criteria_runs`, `007_events_outbox`, `008_tasks_notifications`, `009_activity_projection`, `010_branch_photos`, `011_personal_preferences` ให้ทีมเลือก timestamp migration ID จริงตามระบบเดิมเมื่อเริ่มงาน การเรียงเลขในแผนไม่แทน DAG: 007 ต้องพร้อมก่อน supply mutation task04; task00 วาง migration runner และจุด integrate ให้ชัด
 
-Core record ทุกตัวควรมี stable ID, workspace/source ownership ที่ชัด, revision, created/updated attribution และ quality/provenance ตามชนิดข้อมูล `AnalysisRun` เป็น immutable; `PublicationPointer` เป็นจุดเดียวที่ย้าย version; `ActivityEvent` เป็น append-only; notification เป็น projection แยก read state
+Core record ทุกตัวควรมี stable ID, workspace/source ownership ที่ชัด, revision, created/updated attribution และ quality/provenance ตามชนิดข้อมูล `CriteriaVersion` เก็บ screening และ ranking แยกกันพร้อม schema_version/rankingMode/weights; `AnalysisRun` เป็น immutable; `PublicationPointer` เป็นจุดเดียวที่ย้าย version; `ActivityEvent` เป็น append-only; notification เป็น projection แยก read state
 
 ## 6. คำสั่ง production ที่ task00 ต้องสร้างก่อน
 
@@ -559,9 +620,9 @@ Public CI ใช้ synthetic fixtures และ mock external providers ไม�
 4. ตรวจ acceptance + tests ที่ตรงงาน และรายงาน blockers/evidence ที่ยังไม่ครบก่อนมอบงานถัดไป
 
 ```text
-Implement task <ID> from contracts/implementation-tasks.v1.3.json.
-Read CityMETER_Yolk_Product_Statement_v1.3.md, contracts/product.v1.3.json,
-contracts/criteria.v1.3.json, and DS_ASSET_INTEGRATION.md first.
+Implement task <ID> from contracts/implementation-tasks.v1.4.json.
+Read CityMETER_Yolk_Product_Statement_v1.4.md, contracts/product.v1.4.json,
+contracts/criteria.v1.4.json, and DS_ASSET_INTEGRATION.md first.
 Confirm dependencies and the agreed existing-stack path mapping.
 Change only this task's bounded slice and necessary shared contract adapters.
 Use synthetic fixtures in public code; real inputs require private approved releases.
@@ -585,8 +646,8 @@ Do not mark manual browser/device QA passed without observing the actual build.
 ## 8. หลักฐานส่งมอบและสิ่งที่ยังเปิดอยู่
 
 - Runtime/UI reference: [prototype](prototype/index.html), [experience contract](contracts/experience.v1.3.json), [source/controller QA](evidence/experience-qa-v1.3.json)
-- Product/domain: [Product statement](CityMETER_Yolk_Product_Statement_v1.3.md), [product JSON](contracts/product.v1.3.json), [criteria JSON](contracts/criteria.v1.3.json)
-- Dispatch: [15 tasks JSON](contracts/implementation-tasks.v1.3.json) มี dependencies, input/output paths, acceptance, test IDs, prompts และ command status
-- Asset authority: [asset index](ASSET_INDEX_v1.3.md), [runtime assets](contracts/assets.v1.3.json), [DS guide](DS_ASSET_INTEGRATION.md), [DS hash/role manifest](contracts/ds-assets.v1.3.json), [release fingerprint](contracts/release.v1.3.1.json)
+- Product/domain: [Product statement](CityMETER_Yolk_Product_Statement_v1.4.md), [product JSON](contracts/product.v1.4.json), [criteria JSON](contracts/criteria.v1.4.json)
+- Dispatch: [15 tasks JSON](contracts/implementation-tasks.v1.4.json) มี dependencies, input/output paths, acceptance, test IDs, prompts และ command status
+- Asset authority: [asset index](ASSET_INDEX_v1.4.md), [runtime assets](contracts/assets.v1.4.json), [DS guide](DS_ASSET_INTEGRATION.md), [DS hash/role manifest](contracts/ds-assets.v1.4.json), [release fingerprint](contracts/release.v1.4.0.json)
 
 Browser visual/device QA ยัง **open** จาก automatic approval review ที่บล็อกขั้นตอนเดิมไว้ เอกสารนี้ไม่อ้างว่า source tests ปิดเรื่อง layout, tile interaction, Thai readability หรือ photo orientation บนอุปกรณ์จริงแล้ว Dev ต้องเก็บผลตรวจจริงเมื่อสามารถตรวจได้ และไม่เปลี่ยนสถานะเป็น passed จากการคาดเดา

@@ -1,7 +1,7 @@
 {
   "schema_version": "yolk.bangchak-criteria/1.0",
   "product_version": "1.3",
-  "status": "active_preview_behavior_and_production_baseline",
+  "status": "historical_preview_behavior_superseded",
   "ui_defaults": {
     "geographyProfile": "bkk_khwaeng_upcountry_lao",
     "profile": "bangchak",
@@ -136,5 +136,6 @@
   "historical_not_active": [
     "contracts/fuel-reference.criteria.yaml",
     "contracts/industry-preset-seeds.json"
-  ]
+  ],
+  "superseded_by": "criteria.v1.4.json"
 }

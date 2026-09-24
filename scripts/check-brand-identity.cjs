@@ -9,12 +9,12 @@ const root = path.resolve(__dirname, '..');
 const prototype = path.join(root, 'prototype');
 const read = p => fs.readFileSync(path.join(prototype, p), 'utf8');
 const app = read('app.js');
-const index = read('index.html');
+const index = read('index.html').replace(/(\.(?:css|js))\?[^"]*(?=")/g,'$1');
 const iconContext = {};
 vm.runInNewContext(read('icons.js'), iconContext);
 const iconContract = JSON.parse(fs.readFileSync(path.join(root,'contracts/icons.v1.3.json'),'utf8'));
 const iconReceipt = JSON.parse(fs.readFileSync(path.join(root,iconContract.approvalReceiptRef),'utf8'));
-const cssFiles = ['base.css', 'yolk.css', 'experience.css'];
+const cssFiles = ['base.css', 'yolk.css', 'experience.css', 'identity.css'];
 const css = cssFiles.map(file => ({file, text:read(file)}));
 let checks = 0;
 function check(name, action) { action(); checks++; console.log('PASS', name); }
@@ -74,7 +74,8 @@ function flat(node) { return [node, ...node.children.flatMap(flat)]; }
 function hasClass(node, cls) { return (node.attrs.class || '').split(/\s+/).includes(cls); }
 function ancestors(node) { const out=[]; for(let p=node.parent;p;p=p.parent) out.push(p); return out; }
 function identityNodes(html) { return flat(parseHTML(html)).filter(n => hasClass(n,'landometer-identity-img')); }
-const fragments = [sidebarFor('th'), sidebarFor('en'), index];
+const sidebarFragments = [sidebarFor('th'), sidebarFor('en')];
+const fragments = [...sidebarFragments, ...renderedHeaderPieces.filter(html=>html.includes('header-identity'))];
 
 check('rejected plate wrapper and CSS are absent', () => {
   for (const [name, source] of [['app.js',app],['index.html',index],...css.map(x=>[x.file,x.text])]) {
@@ -98,21 +99,18 @@ check('desktop and mobile use the native logo directly on the existing layout su
     assert.equal(image.attrs.width,'889');
     assert.equal(image.attrs.height,'244');
     assert(!image.attrs.style,'native logo must not carry inline paint/filter styles');
-    assert(hasClass(image, i < 2 ? 'sidebar-identity' : 'mobile-identity'), 'native image owns its placement class; do not add a frame wrapper');
-    assert(i < 2 ? image.parent.tag==='root' : hasClass(image.parent,'yolk-shell'), 'native logo must be a direct child of the existing sidebar/page surface');
+    assert(hasClass(image, i < 2 ? 'sidebar-identity' : 'header-identity'), 'native image owns its placement class; do not add a frame wrapper');
+    assert.equal(image.parent.tag,'root','native logo must be a direct child of the existing sidebar/header surface');
     assert(!ancestors(image).some(n=>hasClass(n,'brand-footer')||hasClass(n,'mobile-signature')), 'native logo must not be put inside a decorative blue panel');
   });
 });
-check('dark identity is canonical live text, never a reconstructed logo', () => {
-  fragments.forEach(html => {
-    const nodes = flat(parseHTML(html)).filter(n=>hasClass(n,'landometer-identity-text'));
-    assert.equal(nodes.length,1);
-    const n=nodes[0];
-    const tail=n.html.slice(n.start), close=tail.indexOf(`</${n.tag}>`);
-    assert(close>=0);
-    assert.equal(tail.slice(0,close).replace(/<[^>]*>/g,'').trim(),'Landometer');
-    assert(!n.children.some(child=>child.tag==='svg'||child.tag==='img'));
+check('native identity is prominent and governed-text fallback is removed', () => {
+  assert.equal(fragments.length,4,'TH/EN sidebar and header must all carry the native logo');
+  fragments.forEach((html,i) => {
+    assert(!html.includes('landometer-identity-text'),'do not replace the requested logo with a text fallback');
+    if(i<2)assert(html.indexOf('sidebar-identity')<html.indexOf('yolk-brand'),'sidebar logo must precede Yolk branding');
   });
+  assert(!index.includes('mobile-identity'),'no duplicate logo at the bottom of the page');
 });
 
 const rules=[];
@@ -140,20 +138,18 @@ check('identity layout regions do not recreate the white frame', () => {
     for(const prop of Object.keys(rule.declarations)) assert(!/^(?:background(?:-.+)?|border-radius|box-shadow|filter|backdrop-filter)$/.test(prop),`${rule.file}: ${rule.selector} adds a painted identity carrier`);
   }
 });
-check('governed text uses the exact Arvo browser app binding', () => {
-  const declarations=Object.assign({},...rules.filter(r=>r.selector==='.landometer-identity-text').map(r=>r.declarations));
-  const shorthand=(declarations.font||'').replace(/\s+/g,' ');
-  const splitBinding=declarations['font-family']?.includes('Arvo')&&declarations['font-weight']==='700'&&declarations['font-size']==='18px'&&declarations['line-height']==='1.2';
-  assert(/700 18px\s*\/\s*1\.2 (?:'Arvo'|"Arvo"|Arvo)(?:,|$)/.test(shorthand)||splitBinding,'canonical text must use Arvo 700 18px / 1.2');
-  assert.equal(declarations['letter-spacing'],'0');
-  const font=fs.readFileSync(path.join(prototype,'assets/arvo-latin-700-normal.woff2'));
-  assert.equal(crypto.createHash('sha256').update(font).digest('hex'),'3d908a2c04ec4c59d26d1454008b2d6744480654663a5f88e439f6483976bd37');
-});
-check('dark theme selects live text and hides the unmodified full-colour image', () => {
+check('both themes keep native logo on the full compatible navigation surfaces', () => {
   const dark=rules.filter(r=>/\[data-theme\s*=\s*["']?dark["']?\]/.test(r.selector));
-  assert(dark.some(r=>/\.landometer-identity-img\b/.test(r.selector)&&r.declarations.display==='none'),'dark theme hides full-colour logo');
-  assert(dark.some(r=>/\.landometer-identity-text\b/.test(r.selector)&&['block','inline','inline-block'].includes(r.declarations.display)),'dark theme shows canonical live text');
-  assert(rules.some(r=>r.selector==='.landometer-identity-text'&&r.declarations.display==='none'),'light theme has no duplicate text identity');
+  const latestImage=dark.filter(r=>/\.landometer-identity-img\b/.test(r.selector)).at(-1);
+  assert.equal(latestImage.declarations.display,'block','dark theme must show the unchanged native logo');
+  for(const surface of ['#sidebar','#header']) {
+    const latest=rules.filter(r=>r.selector===surface).at(-1);
+    assert.equal(latest.declarations.background,'var(--ldm-brand-beige)');
+    assert.equal(latest.declarations['--ink'],'var(--ldm-foundation-text-primary-light)');
+    assert.equal(latest.declarations['color-scheme'],'light');
+  }
+  assert(index.includes('href="identity.css"'));
+  assert(index.indexOf('href="identity.css"')>index.indexOf('href="experience.css"'));
 });
 check('all motifs are excluded from app markup and shipped assets', () => {
   const motifFiles=fs.readdirSync(path.join(prototype,'assets')).filter(name=>/^(?:dial|rings|layers|slice|cultivate|logo)-(?:quiet|full)\.svg$/.test(name));

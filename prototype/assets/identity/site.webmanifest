@@ -1,0 +1,24 @@
+{
+  "name": "CityMETER: Yolk — Landometer preview",
+  "short_name": "Yolk",
+  "id": "/yolk/",
+  "start_url": "/yolk/",
+  "scope": "/yolk/",
+  "display": "browser",
+  "background_color": "#F2F1DF",
+  "theme_color": "#F2F1DF",
+  "icons": [
+    {
+      "src": "icon-portfolio-192.png?v=1d8bbd3d8656",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-portfolio-512.png?v=d8939f6cc789",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

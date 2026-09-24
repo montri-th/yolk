@@ -18,8 +18,8 @@
     html.dataset.themePreference = preference;
     html.style.colorScheme = theme;
     root.document.querySelectorAll('[data-yolk-theme]').forEach(select => { select.value = preference; });
-    const themeMeta = root.document.querySelector('meta[name="theme-color"]');
-    if (themeMeta) themeMeta.content = theme === 'dark' ? '#11191D' : '#EEF1EE';
+    // Browser chrome follows the persistent brand navigation surface.
+    root.document.querySelectorAll('meta[name="theme-color"]').forEach(meta => { meta.content = '#F2F1DF'; });
     if (typeof root.CustomEvent === 'function') root.document.dispatchEvent(new root.CustomEvent('yolk:themechange', { detail: { preference, theme } }));
     return theme;
   }

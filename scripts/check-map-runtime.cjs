@@ -67,7 +67,7 @@ totals.lifecycleAssertions=checks;
 const elements=new Map(),events={},calls=[];
 const el=key=>{if(!elements.has(key))elements.set(key,{innerHTML:'',textContent:'',value:'',dataset:{},classList:{add(){},remove(){}},setAttribute(){},showModal(){},close(){},focus(){this.focused=true},scrollIntoView(){}});return elements.get(key)};
 const ctx=vm.createContext({document:{documentElement:{lang:'th'},title:'',querySelector:s=>['#poi-form','#target-form'].includes(s)?null:el(s),querySelectorAll:()=>[],addEventListener:(k,v)=>events[k]=v},location:{hash:'#market'},localStorage:{getItem(){return null},setItem(){}},structuredClone,crypto:require('crypto').webcrypto,clearTimeout(){},setTimeout(){return 0},addEventListener(){},scrollTo(){},console,YolkTheme:{renderControl:()=>''},renderThemeControl:()=>'',YolkBranchPhotos:{bind(){},render(){return ''}},FormData:class{},MouseEvent:class{}});ctx.window=ctx;
-for(const f of ['data/thailand-provinces.js','data/demo-data.js','metrics.js','model.js','landscape.js','leaderboard.js','supply-ui.js','data/demo-map-context.js','location-map.js'])vm.runInContext(fs.readFileSync(path.join(prototypeRoot,f),'utf8'),ctx,{filename:f});
+for(const f of ['data/thailand-provinces.js','data/demo-data.js','metrics.js','model.js','landscape.js','leaderboard.js','supply-ui.js','data/demo-map-context.js','location-map.js','decision-ui.js'])vm.runInContext(fs.readFileSync(path.join(prototypeRoot,f),'utf8'),ctx,{filename:f});
 const genuineRender=ctx.YolkLocationMap.render;ctx.YolkLocationMap={render:(a,p,l)=>{calls.push({action:'render',id:a.id,lang:l});return genuineRender(a,p,l)},mount:(a,p,l)=>calls.push({action:'mount',id:a.id,lang:l}),destroy:()=>calls.push({action:'destroy'})};
 vm.runInContext(fs.readFileSync(path.join(prototypeRoot,'app.js'),'utf8'),ctx,{filename:'app.js'});
 let checks=0;const check=(v,m)=>{assert(v,m);checks++};const run=s=>vm.runInContext(s,ctx);
@@ -77,7 +77,7 @@ check(run('Y.lang')==='en','language event changes language');check(calls.at(-1)
 events.change({target:{id:'actor-select',value:'v0',dataset:{}}});check(run('canEdit()')===false,'viewer permissions');check(calls.at(-1).action==='mount','viewer retains read-only map');check(/data-action="target"[^>]*disabled/.test(el('#content').innerHTML),'viewer cannot change shortlist');
 events.change({target:{id:'actor-select',value:'p',dataset:{}}});check(run('canEdit()')===true,'editor permissions');check(calls.at(-1).action==='mount','editor map remount');
 ctx.location.hash='#team';run('render()');check(calls.at(-1).action==='destroy','leaving detail destroys map');
-const html=fs.readFileSync(path.join(prototypeRoot,'index.html'),'utf8');const scripts=[...html.matchAll(/<script[^>]*src="([^"]+)"/g)].map(m=>m[1]);
+const html=fs.readFileSync(path.join(prototypeRoot,'index.html'),'utf8');const scripts=[...html.matchAll(/<script[^>]*src="([^"]+)"/g)].map(m=>m[1].split('?')[0]);
 check(scripts.indexOf('vendor/leaflet-1.9.4/leaflet.js')<scripts.indexOf('location-map.js'),'Leaflet loaded before map');check(scripts.indexOf('data/demo-map-context.js')<scripts.indexOf('location-map.js'),'demo adapter before map');check(scripts.indexOf('location-map.js')<scripts.indexOf('app.js'),'map loaded before app');check(html.indexOf('vendor/leaflet-1.9.4/leaflet.css')<html.indexOf('location-map.css'),'map styles override vendor styles');
 totals.appIntegrationAssertions=checks;
 

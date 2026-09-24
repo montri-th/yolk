@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "yolk.social-composition/1.0",
+  "version": "1.4",
+  "output": "prototype/assets/identity/yolk-share-v1.4.png",
+  "mediaType": "image/png",
+  "width": 1200,
+  "height": 630,
+  "bytes": 41677,
+  "sha256": "2946f96c90c30a783521c8f8f6381b682f59201ec984d53223601de541727fc1",
+  "sourceVersion": "LDS0.9.4 / authoring0.9.4-r2 / machinev0.9.4-mp1",
+  "sourceHashes": {
+    "prototype/assets/landometer-logo-horizontal-v12-889.png": "989f58583bc54e4b9a743d0f04308df92fb7cf0bb2ae3ba9398ec9c03c481554",
+    "prototype/assets/arvo-latin-700-normal.woff2": "3d908a2c04ec4c59d26d1454008b2d6744480654663a5f88e439f6483976bd37",
+    "prototype/assets/bai-jamjuree-latin-400-normal.woff2": "5200faf54f32adc1dc47b8522adbd1399e739f4ce5c9236866806c04d6397b19",
+    "prototype/assets/bai-jamjuree-latin-600-normal.woff2": "5ae338ac0db4222226ad96bf1b4b460030c3af1affabb475c67bf218b2eaa83f",
+    "prototype/assets/color-srgb-07.production.css": "60fbdbf1df810980e3f233d4861c6e9f39790c4d63bdb29bf09c0d4c016d288b"
+  },
+  "recipe": {
+    "script": "scripts/build-share-image.py",
+    "canvas": "brand.beige",
+    "leftPanel": "brand.blue",
+    "decorativeRules": false,
+    "logo": {
+      "source": "prototype/assets/landometer-logo-horizontal-v12-889.png",
+      "fullImage": true,
+      "crop": null,
+      "recolour": false,
+      "renderSize": [
+        220,
+        60
+      ],
+      "position": [
+        325,
+        51
+      ],
+      "backingPlate": false,
+      "resampling": "LANCZOS"
+    },
+    "fontSource": "exact shipped WOFF2 loaded through FreeType; no substitute",
+    "textLocale": "en",
+    "pillow": "12.3.0",
+    "freeType": "2.14.3",
+    "format": "RGB PNG",
+    "compressLevel": 9,
+    "optimize": false,
+    "metadata": "stripped",
+    "colorHandling": "assumed_srgb"
+  },
+  "layout": {
+    "titleAndIdentitySafeArea": [
+      285,
+      0,
+      630,
+      630
+    ],
+    "textSafeArea": [
+      100,
+      35,
+      1000,
+      560
+    ],
+    "text": [
+      {
+        "text": "CityMETER:",
+        "bounds": [
+          325,
+          141,
+          484,
+          168
+        ]
+      },
+      {
+        "text": "Yolk",
+        "bounds": [
+          322,
+          182,
+          533,
+          249
+        ]
+      },
+      {
+        "text": "Find the yolk.",
+        "bounds": [
+          325,
+          287,
+          604,
+          326
+        ]
+      },
+      {
+        "text": "Grow your market.",
+        "bounds": [
+          325,
+          339,
+          720,
+          378
+        ]
+      },
+      {
+        "text": "Find demand.",
+        "bounds": [
+          325,
+          405,
+          497,
+          425
+        ]
+      },
+      {
+        "text": "Spot supply gaps.",
+        "bounds": [
+          325,
+          439,
+          556,
+          465
+        ]
+      },
+      {
+        "text": "Plan your next location.",
+        "bounds": [
+          325,
+          473,
+          632,
+          499
+        ]
+      },
+      {
+        "text": "LOCATION",
+        "bounds": [
+          100,
+          464,
+          210,
+          479
+        ]
+      },
+      {
+        "text": "INTELLIGENCE",
+        "bounds": [
+          100,
+          496,
+          252,
+          511
+        ]
+      },
+      {
+        "text": "Interactive preview · v1.4",
+        "bounds": [
+          325,
+          532,
+          569,
+          551
+        ]
+      },
+      {
+        "text": "montri-th.github.io/yolk",
+        "bounds": [
+          325,
+          565,
+          571,
+          584
+        ]
+      }
+    ]
+  },
+  "contentBoundary": "Product name, owner-approved tagline, capability summary and preview version only. No geographic claims, private records, rankings or screenshots.",
+  "approvalBasis": "Owner requested Landometer identity, share hero, and republish for this Yolk preview on2026-09-24; applies to this asset/role, not a canonical DS amendment.",
+  "verification": {
+    "sourceHashes": true,
+    "dimensions": true,
+    "textBounds": true,
+    "localImageInspection": "completed: revised PNG viewed directly; logo and all copy legible, text inside safe bounds, decorative stripe and measure removed. Asset review only, not browser/device/share-crawler QA.",
+    "browserOrSocialCrawlerInspection": "not performed"
+  },
+  "alt": "CityMETER: Yolk by Landometer. Find the yolk. Grow your market. Find demand. Spot supply gaps. Plan your next location. Interactive preview v1.4."
+}

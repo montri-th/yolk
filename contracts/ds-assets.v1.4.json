@@ -1,6 +1,6 @@
 {
   "schemaVersion": "yolk.ds-assets/1.0",
-  "artifact": "CityMETER: Yolk v1.3.1",
+  "artifact": "CityMETER: Yolk v1.4.0",
   "release": {
     "designSystem": "Landometer Design System",
     "dsVersion": "0.9.4",
@@ -28,7 +28,9 @@
       "prototype/location-map.css",
       "prototype/branch-photos.css",
       "prototype/icons.css",
-      "prototype/experience.css"
+      "prototype/experience.css",
+      "prototype/decision-ui.css",
+      "prototype/identity.css"
     ],
     "logo": "prototype/assets/landometer-logo-horizontal-v12-889.png",
     "staticMotif": null,
@@ -38,11 +40,13 @@
       "logoFrameAllowed": false,
       "artificialBackingAllowed": false,
       "cropOrRecolourAllowed": false,
-      "light": "Unchanged transparent logo directly on existing page surface",
-      "dark": "Governed text identity: Landometer; identity-typography.app-header.browser.01",
-      "motifsEnabled": false
+      "light": "Native transparent logo directly on the whole existing sidebar/header surface",
+      "dark": "Same unchanged native logo on whole DS beige sidebar/header; main content keeps dark theme",
+      "motifsEnabled": false,
+      "textFallbackUsed": false
     },
-    "iconsContract": "contracts/icons.v1.3.json"
+    "iconsContract": "contracts/icons.v1.3.json",
+    "webIdentityContract": "contracts/web-identity.v1.4.json"
   },
   "publicationScope": {
     "requestedDestination": "montri-th/yolk GitHub web preview and dev asset handoff",
@@ -385,6 +389,5 @@
     "staticAudit": "evidence/ds-static-audit.json",
     "visualStatus": "evidence/verification-status.md"
   },
-  "status": "historical_inventory_not_active",
-  "superseded_by": "ds-assets.v1.4.json"
+  "status": "active_runtime_inventory"
 }

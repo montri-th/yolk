@@ -1,0 +1,37 @@
+/* Yolk v1.4 identity placement. Native art, unchanged, directly on the
+   full existing navigation/header surfaces. No logo plate or motif. */
+#sidebar, #header {
+  --ink: var(--ldm-foundation-text-primary-light);
+  --muted: var(--ldm-foundation-text-secondary-light);
+  --paper: var(--ldm-foundation-surface-canvas-light);
+  --soft: var(--ldm-foundation-surface-soft-light);
+  --line: var(--ldm-foundation-border-default-light);
+  --accent: var(--ldm-foundation-interaction-accent-light);
+  --yl-meta: var(--ldm-foundation-text-metadata-light);
+  --yl-focus: var(--ldm-foundation-interaction-focus-ring-light);
+  --yl-brand-wordmark: var(--ldm-brand-blue);
+  --yl-on-accent: var(--ldm-foundation-text-primary-dark);
+  background: var(--ldm-brand-beige);
+  color: var(--ink);
+  color-scheme: light;
+}
+.landometer-identity-img,
+:root[data-theme="dark"] .landometer-identity-img {
+  display: block;
+  width: 184px;
+  max-width: 100%;
+  height: auto;
+}
+.landometer-identity-text,
+:root[data-theme="dark"] .landometer-identity-text { display: none; }
+.sidebar-identity { margin: 0 0 28px; }
+.header-identity { width: 156px; margin: 0; flex: 0 0 auto; }
+#header > .header-identity { width: 156px; }
+@media (max-width: 649px) {
+  #header > .header-identity { width: 142px; }
+  #header .compact-brand { display: block; padding-top: 0; font-size: 24px; }
+}
+@media (min-width: 1100px) {
+  #header > .header-identity,
+  :root[data-theme="dark"] #header > .header-identity { display: none; }
+}

@@ -1,0 +1,334 @@
+{
+  "schema_version": "yolk.bangchak-criteria/1.1",
+  "product_version": "1.4",
+  "status": "active_preview_behavior_and_production_baseline",
+  "ui_defaults": {
+    "geographyProfile": "bkk_khwaeng_upcountry_lao",
+    "profile": "bangchak",
+    "buildingP1": 99,
+    "buildingP2": 95,
+    "activityP": 95,
+    "activityT1": 5,
+    "activityT2": 3,
+    "activityT3": 1,
+    "buildingEnabled": true,
+    "activityEnabled": true,
+    "extraMetrics": [],
+    "extraP": 95,
+    "demandMode": "high",
+    "ownMany": 3,
+    "competitorMany": 3,
+    "patterns": [
+      "Pioneer",
+      "FOMO",
+      "Our Farm"
+    ],
+    "maxDemandTier": 3,
+    "rankingMode": "weighted",
+    "rankingWeights": {
+      "demand": 70,
+      "ownGap": 20,
+      "competitorGap": 10
+    },
+    "demandGroupWeights": {
+      "building": 50,
+      "activity": 50,
+      "extra": 50
+    },
+    "metricWeights": {
+      "gfa": 1,
+      "gfa_per_person": 1,
+      "gfa_per_km2": 1,
+      "factory_count": 1,
+      "factory_count_per_km2": 1,
+      "factory_workers": 1,
+      "factory_workers_per_km2": 1,
+      "hotel_rooms": 1,
+      "hotel_rooms_per_km2": 1,
+      "population": 1,
+      "population_per_km2": 1
+    }
+  },
+  "core_metrics": {
+    "building": [
+      "gfa",
+      "gfa_per_person",
+      "gfa_per_km2"
+    ],
+    "activity": [
+      "factory_count",
+      "factory_count_per_km2",
+      "factory_workers",
+      "factory_workers_per_km2",
+      "hotel_rooms",
+      "hotel_rooms_per_km2"
+    ]
+  },
+  "benchmark": {
+    "scope": "national_pinned_geography_profile",
+    "cutoff_method": "PERCENTILE.INC",
+    "known_only_per_metric": true,
+    "province_filter_changes_cutoff": false,
+    "missing_as_zero": false,
+    "zero_cutoff_policy": "literal_gte: an observed zero passes when percentile cutoff equals zero; do not silently add a positive-only gate",
+    "chart_percentile_method": "midrank; for sorted n>1 use 100*(lower_bound + 0.5*(tie_count-1))/(n-1); singleton=50",
+    "thresholds": "pinned P95/P99 from release when supplied; other thresholds PERCENTILE.INC over valid values; validate pinned thresholds against release cohort"
+  },
+  "demand": {
+    "building_tiers": [
+      "all_three_ge_P99",
+      "all_three_ge_P95",
+      "any_one_ge_P95"
+    ],
+    "activity_tier_hit_counts": [
+      5,
+      3,
+      1
+    ],
+    "combine": "building_high_OR_activity_high_OR_any_enabled_extra_pass",
+    "extra_default_off": true,
+    "extra_availability_required": true,
+    "unknown_policy": "three_valued_logic_and_tier_bounds",
+    "tier_screen": {
+      "field": "maxDemandTier",
+      "allowed": [
+        1,
+        2,
+        3
+      ],
+      "default": 3,
+      "qualifyingTier": "minimum_positive_confirmed_building_or_activity_tier; enabled extra metric with confirmed pass qualifies at Tier 3",
+      "unknown_cannot_promote": true,
+      "tierEligible": "qualifyingTier is not null AND qualifyingTier <= maxDemandTier",
+      "application": "applies only to confirmed high-demand locations; demandMode=all keeps confirmed low-demand selected patterns without applying the tier gate; unknown demand remains excluded",
+      "classification_unchanged": "DemandHigh and 8 patterns still follow original high/low thresholds, independently from the maxTier gate and weights"
+    }
+  },
+  "supply": {
+    "source": "pinned_area_aggregate",
+    "unknown_policy": "enumerate_integer_allocations_to_own_and_competitor",
+    "ratio_C_over_B_plus_alpha_enabled": false,
+    "poi_overlay_auto_updates_baseline": false,
+    "unknown_assumption": "U covers countable, in-boundary operating sites whose only uncertainty is own vs competitor brand; enumerate B+k and C+U-k for integer k in [0,U]. Other uncertainties require production review.",
+    "verified_unbranded_is_unknown_brand": false
+  },
+  "map_score": {
+    "area": "max_known_enabled_metric_national_percentile_rank",
+    "province": "max_area_map_score_among_eligible_primary_units",
+    "missing_observations": "shown_via_coverage_not_zero",
+    "same_as_overall_ranking": false,
+    "sales_prediction": false,
+    "legend": {
+      "scale": "LDS heat/light/5",
+      "labels": [
+        "<95",
+        "95–97",
+        "97–98",
+        "98–99",
+        "99–100"
+      ],
+      "breaks": [
+        0,
+        95,
+        97,
+        98,
+        99,
+        100
+      ],
+      "intervals": "lower_inclusive_upper_exclusive_except_final_includes_100",
+      "outside_scale_states": [
+        "no_eligible_location",
+        "insufficient_evidence"
+      ]
+    },
+    "note": "Existing max-percentile map score is retained and must be labelled Demand signal. Weighted rankScore is a separate field; do not relabel the existing heat scale as rankScore."
+  },
+  "ranking_signal_counts": {
+    "passingSignalCount": {
+      "role": "legacy_order_only; weighted mode does not use this as a tie-breaker",
+      "include": "enabled_core_groups_and_enabled_extra_metrics_only",
+      "cutoffs": {
+        "building": "building_tier_2_percentile_cutoff",
+        "activity": "activity_percentile_cutoff",
+        "extra": "per_extra_metric_percentile_cutoff"
+      },
+      "disabled_signals_affect_rank": false
+    },
+    "passes9": {
+      "role": "historical_all_core_threshold_hit_count_for_baseline_audit",
+      "used_for_ranking": false
+    },
+    "default_enabled_core_metric_count": 9
+  },
+  "handoff_revision": "1.4.0",
+  "runtime_reference": "prototype/model.js",
+  "ranking_method": "user_selected_weighted_or_legacy",
+  "historical_not_active": [
+    "contracts/fuel-reference.criteria.yaml",
+    "contracts/industry-preset-seeds.json"
+  ],
+  "supersedes": "contracts/criteria.v1.3.json",
+  "preferred_location_types": {
+    "criteria_field": "patterns",
+    "section_th": "รูปแบบทำเลที่สนใจ",
+    "section_en": "Preferred location types",
+    "separate_from_supply": true,
+    "empty_selection_is_invalid": true,
+    "rows": [
+      {
+        "name": "Crowded",
+        "demand_high": true,
+        "competitor_high": true,
+        "own_high": true,
+        "stars": 0
+      },
+      {
+        "name": "FOMO",
+        "demand_high": true,
+        "competitor_high": true,
+        "own_high": false,
+        "stars": 2
+      },
+      {
+        "name": "Our Farm",
+        "demand_high": true,
+        "competitor_high": false,
+        "own_high": true,
+        "stars": 1
+      },
+      {
+        "name": "Pioneer",
+        "demand_high": true,
+        "competitor_high": false,
+        "own_high": false,
+        "stars": 3
+      },
+      {
+        "name": "Quiet",
+        "demand_high": false,
+        "competitor_high": false,
+        "own_high": false,
+        "stars": 0
+      },
+      {
+        "name": "Their War",
+        "demand_high": false,
+        "competitor_high": true,
+        "own_high": false,
+        "stars": 0
+      },
+      {
+        "name": "Our Island",
+        "demand_high": false,
+        "competitor_high": false,
+        "own_high": true,
+        "stars": 0
+      },
+      {
+        "name": "Winter War",
+        "demand_high": false,
+        "competitor_high": true,
+        "own_high": true,
+        "stars": 0
+      }
+    ]
+  },
+  "legacy_ranking_order": [
+    "eligible_desc",
+    "demand_high_then_unknown_then_low",
+    "fuel_pattern_stars_desc",
+    "best_nonzero_confirmed_tier_asc",
+    "enabled_metric_threshold_hits_desc",
+    "competitor_count_desc",
+    "own_count_asc",
+    "source_rank_asc; production additionally place_id_asc for deterministic ties"
+  ],
+  "weighted_ranking": {
+    "fresh_workspace_default": true,
+    "formula": "(wDemand * demandScore + wOwnGap * ownGap + wCompetitorGap * competitorGap) / sum(rankingWeights)",
+    "metric_value": "national fixed-cohort midrank percentile, 0..100",
+    "demand_group_score": "sum(metricWeight * metricPercentile) / sum(active positive metricWeights) within each enabled group",
+    "demand_score": "sum(groupWeight * groupScore) / sum(positive demandGroupWeights over enabled groups)",
+    "disabled_group_weights": "ignored; extra default50 takes effect only when extraMetrics is nonempty",
+    "zero_metric_weight": "excludes metric from ranking only; threshold hits and tier screening still use enabled metric",
+    "gaps": {
+      "ownGap": "100 / (1 + B / ownMany)",
+      "competitorGap": "100 / (1 + C / competitorMany)",
+      "meaning": "fewer observed branches gives a higher gap score; not a sales forecast or proof of feasibility"
+    },
+    "missing": "retain full configured weight; missing metric percentile contributes lower=0, upper=100. Never renormalize weights over observed values only.",
+    "unknown_supply": "if B/C/U is not a non-negative integer, both gap components use [0,100]; otherwise enumerate every integer k=0..U with B+k and C+U-k, and calculate weighted combined supply minimum/maximum across these same allocations",
+    "bounds": "rankScore combines demand lower with joint supply lower; rankUpper combines demand upper with joint supply upper; never combine independent marginal supply extrema",
+    "order": [
+      "eligible_desc",
+      "rankScore_lower_bound_desc",
+      "qualifyingTier_asc_null_last",
+      "sourceRank_asc",
+      "place_id_asc"
+    ],
+    "stars": "explanatory pattern labels only; not a primary weighted ranking term",
+    "weights_change_membership": false,
+    "weight_limits": {
+      "type": "finite_number",
+      "minimum": 0,
+      "maximum": 100,
+      "relative_not_required_to_sum_100": true,
+      "rankingWeights_sum_must_be_positive": true,
+      "positive_demand_weight_requires_at_least_one_positive_enabled_group_weight": true,
+      "every_positive_enabled_group_requires_positive_active_metric_weight_sum": true
+    },
+    "weight_field_keys": {
+      "rankingWeights": [
+        "demand",
+        "ownGap",
+        "competitorGap"
+      ],
+      "demandGroupWeights": [
+        "building",
+        "activity",
+        "extra"
+      ],
+      "metricWeights": "all ready IDs from METRICS; future connected metrics require versioned update"
+    },
+    "return_fields": {
+      "rankScore": "conservative weighted lower bound on 0..100 scale",
+      "rankUpper": "weighted upper bound, shown as uncertainty",
+      "rankCoverage": "0..1 weighted share from known demand observations and fully resolved supply (U=0); it is evidence coverage, not confidence probability",
+      "demandWeightedScore": "lower bound before combining supply",
+      "demandWeightedUpper": "upper bound before combining supply",
+      "demandWeightedCoverage": "known weighted demand share,0..1",
+      "qualifyingTier": "best confirmed enabled-group tier, or null",
+      "tierEligible": "confirmed tier fits maxDemandTier; false for low demand where tier is not applicable",
+      "rankingComponents": "demand{lower,upper,coverage},ownGap{lower,upper},competitorGap{lower,upper}"
+    }
+  },
+  "migration": {
+    "normalizer": "normalizeCriteria(raw,{existing:true|false})",
+    "saved_criteria_without_rankingMode": "legacy",
+    "fresh_workspace": "weighted",
+    "missing_fields": "fill defaults; preserve saved values, criteria version, events, POIs and shortlisted locations",
+    "maxDemandTier_for_old_workspace": 3,
+    "automatic_migration_emits_event": false,
+    "automatic_migration_increments_version": false,
+    "storage_cross_tab": "normalize incoming criteria the same way; ignore malformed JSON",
+    "human_changes": "diffCriteria records each nested ranking/group/metric weight independently with readable fieldNames"
+  },
+  "validation": {
+    "runtime": "criteriaErrors(c)",
+    "error_keys": [
+      "signal",
+      "percentile",
+      "tier",
+      "maxDemandTier",
+      "supply",
+      "unavailable",
+      "demandMode",
+      "patterns",
+      "rankingMode",
+      "rankingWeights",
+      "demandGroupWeights",
+      "metricWeights"
+    ],
+    "regression_command": "node scripts/check-ranking-v1.4.cjs"
+  }
+}

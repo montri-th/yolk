@@ -1,0 +1,61 @@
+{
+  "product_version": "1.4",
+  "handoff_revision": "1.4.0",
+  "checked_at": "2026-09-24T15:33:29.781822+00:00",
+  "scope": "Source, model, Node VM/mock controller and asset metadata; not a browser renderer",
+  "checks": [
+    {
+      "command": "node scripts/check-public-runtime.cjs",
+      "status": "passed",
+      "output": "{\"renderRoutes\":36,\"passed\":36,\"model\":{\"areas\":308,\"eligible\":73,\"provinces\":51,\"patterns\":8}}"
+    },
+    {
+      "command": "node scripts/check-ranking-v1.4.cjs",
+      "status": "passed",
+      "output": "{\"suite\":\"ranking-v1.4\",\"checks\":37,\"passed\":37,\"prototype\":\"prototype\",\"evidence\":\"source/VM model, not rendered browser QA\"}"
+    },
+    {
+      "command": "node scripts/check-decisions-v1.4.cjs",
+      "status": "passed",
+      "output": "{\"suite\":\"decisions-v1.4\",\"checks\":55,\"passed\":55,\"evidence\":\"VM/source integration; browser visual and accessibility QA remain separate\"}"
+    },
+    {
+      "command": "node scripts/check-theme-runtime.cjs",
+      "status": "passed",
+      "output": "PASS default follows system light\nPASS default follows system dark\nPASS explicit light wins over OS dark\nPASS persist dark choice and color scheme\nPASS system listener follows OS changes\nPASS explicit choice ignores OS changes\nPASS storage changes sync tabs\nPASS corrupt setting falls back to system\nPASS blocked storage retains current-session control\nPASS TH and EN selector expose all three preferences\nPASS delegated selector works after each app render\nPASS system preference returns to current OS\n12 source/controller checks passed; no browser/render claims."
+    },
+    {
+      "command": "node scripts/check-photo-runtime.cjs",
+      "status": "passed",
+      "output": "{\"passed\":28,\"scope\":\"Node state/permission/storage/file-header checks; browser image decode and visual QA not exercised\"}"
+    },
+    {
+      "command": "node scripts/check-photo-form.cjs",
+      "status": "passed",
+      "output": "{\"passed\":27,\"scope\":\"Actual async app submit + model + photo module in Node VM; local stores mocked; no browser or image decode\"}"
+    },
+    {
+      "command": "node scripts/check-map-runtime.cjs",
+      "status": "passed",
+      "output": "{\n  \"status\": \"passed\",\n  \"contractAssertions\": 2493,\n  \"syntheticAreas\": 308,\n  \"lifecycleAssertions\": 24,\n  \"appIntegrationAssertions\": 15,\n  \"browserVisualQA\": \"not performed\"\n}"
+    },
+    {
+      "command": "node scripts/check-brand-identity.cjs",
+      "status": "passed",
+      "output": "PASS rejected plate wrapper and CSS are absent\nPASS native transparent logo bytes remain unchanged\nPASS desktop and mobile use the native logo directly on the existing layout surface\nPASS native identity is prominent and governed-text fallback is removed\nPASS native image is not painted, framed, filtered or padded\nPASS identity layout regions do not recreate the white frame\nPASS both themes keep native logo on the full compatible navigation surfaces\nPASS all motifs are excluded from app markup and shipped assets\nPASS supplemental icon source, font and licence hashes match their declared scope\nPASS requested icon glyphs, contract and runtime allowlist agree\nPASS navigation and header icons retain meaningful TH/EN text labels\nPASS icons keep their own font namespace and remain hidden until loaded\n12 brand/icon source checks passed; configured glyph coverage is not rendered shaping. Browser/device QA remains open."
+    },
+    {
+      "command": "node scripts/check-web-identity.cjs",
+      "status": "passed",
+      "output": "PASS asset bytes, PNG dimensions and provenance match the current role contract\nPASS all favicons and the app manifest resolve locally with content revisions\nPASS initial HTML delivers truthful product-level social preview metadata\nPASS share output binds full native art and exact DS font sources\n4 identity/metadata checks passed. Browser, install and share-crawler rendering remain unverified."
+    },
+    {
+      "command": "node scripts/check-icons.cjs",
+      "status": "passed",
+      "output": "Icon contract passed: 29 allowed icon names, WOFF2/receipt/license hashes, supported names, safe fallback and decoration idempotency. Visual gate remains open."
+    }
+  ],
+  "image_asset_review": "Share PNG inspected locally; see share-image-v1.4.json",
+  "browser_visual_qa": "open; automatic approval review blocked the previous browser QA operation; no alternative renderer used",
+  "device_and_share_crawler_qa": "open; not performed"
+}

@@ -4,7 +4,7 @@ The product is a workspace for choosing what market to investigate next. The **p
 
 ## Design authority and identity
 
-- Use **Landometer Design System 0.9.4**, pinned authoring `0.9.4-r2`, ruleset `lds-rules-0.9.4`, machine package `v0.9.4-mp1`. [DS asset integration](DS_ASSET_INTEGRATION.md) explains usage; [the asset manifest](contracts/ds-assets.v1.3.json) gives exact paths, roles and SHA-256 hashes.
+- Use **Landometer Design System 0.9.4**, pinned authoring `0.9.4-r2`, ruleset `lds-rules-0.9.4`, machine package `v0.9.4-mp1`. [DS asset integration](DS_ASSET_INTEGRATION.md) explains usage; [the asset manifest](contracts/ds-assets.v1.4.json) gives exact paths, roles and SHA-256 hashes.
 - Use **CityMETER: Yolk** as ordinary product typography. The bundled Landometer runtime logo derivative is for this preview's portfolio identity. Its presence is not a general licence or an amendment to canonical DS role approval. Preserve proportions, place it on its permitted light carrier, and use an accessible name.
 - Do not render or ship decorative motifs in Yolk. Use DS-style Material Symbols Rounded icons beside labels at decisions such as shortlist, verify, apply criteria, save, basemap and photo selection. See `contracts/icons.v1.3.json`. Place the Landometer identity directly on the existing surface; never create a frame, card or backing plate around it.
 - Source colours, fonts, and glyph assets from the pinned DS bytes. Use DS semantic UI tokens for actions, surfaces, text and focus. Analytical map colours are a separate ordered scale with a stated metric and legend.
@@ -21,7 +21,7 @@ The illustrative Bangchak/fuel preset is fixed in the public demo; do not add an
 
 ## Demand, Supply and map honesty
 
-Keep Demand and Supply as distinct visual and conceptual groups. The baseline fuel criteria are the three building and six activity metrics specified in the [product statement](CityMETER_Yolk_Product_Statement_v1.3.md). A high-demand flag is an evidence-based **proxy**, not measured visits or sales. A branch count is not market share or capacity. An unverified POI stays unverified until reviewed.
+Keep Demand and Supply as distinct visual and conceptual groups. The baseline fuel criteria are the three building and six activity metrics specified in the [product statement](CityMETER_Yolk_Product_Statement_v1.4.md). A high-demand flag is an evidence-based **proxy**, not measured visits or sales. A branch count is not market share or capacity. An unverified POI stays unverified until reviewed.
 
 The default future production area is **Bangkok khwaeng / verified area-level LAO elsewhere**. A province map is an overview used to drill into those units. The public map is illustrative and must carry a prominent “synthetic demo” label. In production, the province fill formula, metric, denominator, thresholds, source period, and eligibility/coverage belong in the legend and detail. Province colour and location ranking may answer different questions; label them separately. Missing evidence, measured zero, no eligible result, suppressed, and out-of-scope must have distinct text and visual states. Provide a list/table equivalent to map data.
 
@@ -44,9 +44,11 @@ TH/EN parity includes labels, navigation, map legend, metric units, explanatory 
 
 Verify every shipped DS asset hash and licence, network request path at the deployed base URL, actual font loading, logo carrier/clearance, map/list equivalence, synthetic-demo disclosure, and the complete keyboard/touch flows. Screenshots must be captured from the actual build. A check that could not run remains **pending**; source/hash validation alone does not certify rendered layout.
 
-[Product statement](CityMETER_Yolk_Product_Statement_v1.3.md) · [Implementation plan](IMPLEMENTATION_PLAN_v1.3.md) · [DS assets](DS_ASSET_INTEGRATION.md)
+[Product statement](CityMETER_Yolk_Product_Statement_v1.4.md) · [Implementation plan](IMPLEMENTATION_PLAN_v1.4.md) · [DS assets](DS_ASSET_INTEGRATION.md)
 
 
 ## v1.3 experience extension
 
 The [experience contract](docs/EXPERIENCE_v1.3.md) and [machine specification](contracts/experience.v1.3.json) extend this design with readable type, personal light/dark/system preferences, location maps and five-photo branch editing. Product colour aliases live in `prototype/experience.css`, loaded after all component styles; canonical DS bytes remain untouched. Use `prototype/theme.js`, `location-map.js` and `branch-photos.js` as interaction references, with production permissions, data services and storage implemented under the plan. Browser visual review remains open.
+
+The current ranking/filter contract is `contracts/criteria.v1.4.json`. Tier filters screen high-demand locations; weights reorder the qualifying set. `contracts/web-identity.v1.4.json` owns native logos, favicons and sharing metadata.

@@ -1,38 +1,38 @@
 # CityMETER: Yolk
 
-[ดาวน์โหลด handoff ZIP 1.3.1](https://github.com/montri-th/yolk/releases/download/v1.3.1/CityMETER-Yolk-v1.3.1-handoff.zip) · [SHA-256](https://github.com/montri-th/yolk/releases/download/v1.3.1/CityMETER-Yolk-v1.3.1-handoff.zip.sha256)
-
 **Find the yolk. Grow your market. / หาไข่แดง ขยายตลาด**
 
-[Open web preview](https://montri-th.github.io/yolk/) · [เริ่มอ่านที่นี่ / Start here](START_HERE.md)
+[เปิด web preview](https://montri-th.github.io/yolk/?v=1.4.0) · [เริ่มอ่านที่นี่](START_HERE.md)
 
-**Product v1.3 · Developer handoff1.3.1** — พรีวิว HTML/CSS/JavaScript แบบ mobile-first รองรับไทย/อังกฤษและ light/dark/system สำหรับทีมขยายสาขาที่ต้องการเทียบ Demand กับ Supply แล้วเก็บทำเลที่สนใจและหลักฐานร่วมกัน
+[ดาวน์โหลด handoff ZIP 1.4.0](https://github.com/montri-th/yolk/releases/download/v1.4.0/CityMETER-Yolk-v1.4.0-handoff.zip) · [SHA-256](https://github.com/montri-th/yolk/releases/download/v1.4.0/CityMETER-Yolk-v1.4.0-handoff.zip.sha256)
+
+**Product v1.4 · Handoff 1.4.0** — พรีวิวสำหรับทีมขยายสาขา เปรียบเทียบ Demand กับ Supply คัดทำเลที่สนใจ แล้วเก็บเหตุผลและงานของทีมไว้ร่วมกัน รองรับไทย/อังกฤษ มือถือ และ light/dark/system
+
+รุ่นนี้แยก **คัดทำเล** กับ **จัดอันดับ** ให้ชัด: เลือก Tier และรูปแบบทำเลทั้ง 8 แบบเพื่อคัด แล้วปรับน้ำหนัก Demand / ช่องว่างสาขาเรา / ช่องว่างคู่แข่งเพื่อเรียงลำดับ พร้อมคำอธิบายแต่ละแบบ ปุ่มดูรายละเอียดที่เห็นว่ากดได้ โลโก้ Landometer ทุกธีม favicon และภาพปกแชร์
 
 | สำหรับ | เอกสารล่าสุด |
 |---|---|
-| Product / ทีมธุรกิจ | [Product statement v1.3](CityMETER_Yolk_Product_Statement_v1.3.md) |
-| Dev / coding agent | [Implementation plan — 15 tasks](IMPLEMENTATION_PLAN_v1.3.md) + [task JSON](contracts/implementation-tasks.v1.3.json) |
-| Design / frontend | [Asset index](ASSET_INDEX_v1.3.md) + [DS integration](DS_ASSET_INTEGRATION.md) |
-| ตรวจรุ่นและข้อจำกัด | [Handoff](HANDOFF.md) + [release manifest](contracts/release.v1.3.1.json) |
+| Product / ทีมธุรกิจ | [Product statement v1.4](CityMETER_Yolk_Product_Statement_v1.4.md) |
+| Dev / coding agent | [Implementation plan — 15 งาน](IMPLEMENTATION_PLAN_v1.4.md) + [task JSON](contracts/implementation-tasks.v1.4.json) |
+| Design / frontend | [Asset index](ASSET_INDEX_v1.4.md) + [DS integration](DS_ASSET_INTEGRATION.md) |
+| ตรวจรุ่นและข้อจำกัด | [Handoff](HANDOFF.md) + [release manifest](contracts/release.v1.4.0.json) |
 
-พรีวิวมี Market landscape, เกณฑ์ Demand/Supply, shortlist, Supply editor, feed/leaderboard, แผนที่ทำเล3แบบ และรูปสาขาสูงสุด5รูป รุ่น handoff1.3.1 เอา motif ออก ใช้ logo โดยไม่มีกรอบ/แผ่นรอง และเพิ่ม icons ที่ช่วยอธิบายปุ่มสำคัญตาม DS
+เกณฑ์เดิมที่บันทึกไว้คงการเรียงแบบเดิมจนทีมเลือกใช้ weighted ranking แล้วกดใช้กับทีม เกณฑ์ใหม่เริ่มที่น้ำหนัก 70:20:10 และรับ Tier 1–3 ทุกค่าเป็นข้อเสนอให้ปรับตามธุรกิจ คะแนนเป็นสัญญาณสำหรับศึกษาต่อ ไม่ใช่ยอดขายคาดการณ์
 
-**ข้อมูลบนเว็บสาธารณะเป็นข้อมูลจำลอง** การแก้ข้อมูล สิทธิ์สมาชิก และการแจ้งเตือนเป็นการจำลองใน browser ไม่มี production auth, shared database, การส่ง email/LINE หรือข้อมูลลูกค้าจริง รูปที่เพิ่มเก็บเฉพาะ IndexedDB ในเครื่อง Basemap ใช้บริการภายนอก; satellite เป็นภาพปี2021 ความละเอียด10m
+**ข้อมูลบนเว็บสาธารณะเป็นข้อมูลจำลอง** CRUD สมาชิก feed และการแจ้งเตือนจำลองใน browser ไม่มี production auth, shared database หรือการส่ง email/LINE จริง รูปเพิ่มเก็บเฉพาะ IndexedDB แผนที่ใช้บริการภายนอก ภาพ satellite เป็นปี 2021 ความละเอียด 10 ม.
 
-## Run locally
+## ทดลองในเครื่อง
 
-รันจาก repository root แล้วเปิด `http://127.0.0.1:8849/prototype/` (เปลี่ยน port ได้หากถูกใช้อยู่):
+รันจาก repository root แล้วเปิด `http://127.0.0.1:8849/prototype/` เปลี่ยน port ได้ถ้าถูกใช้อยู่
 
 ```sh
 python3 -m http.server 8849 --bind 127.0.0.1
 ```
 
-รายการคำสั่งตรวจที่รันได้จริงอยู่ใน [START_HERE.md](START_HERE.md) ส่วน backend paths/commands ใน implementation plan เป็นงานที่จะสร้างและควรต่อกับระบบเดิมของ CityMETER ก่อน
+คำสั่งตรวจที่มีจริงอยู่ใน [START_HERE](START_HERE.md) ส่วน backend paths/commands ในแผนเป็นงานที่จะสร้าง โดยเริ่มจากระบบเดิมของ CityMETER ก่อน
 
-## Contracts and release state
+## Machine contracts
 
-Machine entrypoints: [product](contracts/product.v1.3.json), [criteria](contracts/criteria.v1.3.json), [tasks](contracts/implementation-tasks.v1.3.json), [experience](contracts/experience.v1.3.json), [runtime assets](contracts/assets.v1.3.json), [DS assets](contracts/ds-assets.v1.3.json), [icons](contracts/icons.v1.3.json), [release](contracts/release.v1.3.1.json).
+[Product](contracts/product.v1.4.json) · [Criteria](contracts/criteria.v1.4.json) · [Tasks](contracts/implementation-tasks.v1.4.json) · [Assets](contracts/assets.v1.4.json) · [DS](contracts/ds-assets.v1.4.json) · [Web identity](contracts/web-identity.v1.4.json) · [Icons](contracts/icons.v1.3.json) · [Experience baseline](contracts/experience.v1.3.json) · [Release](contracts/release.v1.4.0.json)
 
-สถานะคือ **`ready_with_open_manual_gate`** Source/controller checks สนับสนุนการส่งมอบพรีวิว แต่ browser visual/responsive และอุปกรณ์จริงยังต้องตรวจ การเผยแพร่สำเร็จไม่ได้หมายความว่า production backend หรือคุณภาพข้อมูลจริงพร้อมแล้ว
-
-เอกสารชื่อ v1.2 เดิมเก็บเป็นทางเข้ามายัง v1.3 เพื่อไม่ให้ลิงก์เดิมเสีย Production ต้องผ่าน approved private SourceRelease, geography/crosswalk, tenant permissions และ QA ตามแผน ข้อมูลจริงไม่อยู่ใน public repo นี้
+สถานะ **`ready_with_open_manual_gate`** ตรวจ source/controller และไฟล์เผยแพร่ได้ แต่ browser visual/device QA ยังเปิดอยู่ การ deploy ไม่ยืนยันว่า backend ข้อมูลจริง หรือการแสดงภาพในแอปแชร์พร้อมใช้งานแล้ว เอกสาร v1.3 คงไว้เป็นประวัติ ให้ใช้ v1.4 เป็นข้อกำหนดปัจจุบัน
