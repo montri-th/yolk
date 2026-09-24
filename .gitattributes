@@ -1,0 +1,2 @@
+# Preserve official vendored bytes (including upstream CRLF) for SRI/hash verification.
+prototype/vendor/leaflet-1.9.4/** -text -whitespace

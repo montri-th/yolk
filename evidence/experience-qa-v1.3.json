@@ -1,0 +1,38 @@
+{
+  "version": "1.3",
+  "checked_at": "2026-09-24T11:04:11.363564+00:00",
+  "status": "ready_with_open_manual_gate",
+  "checks": {
+    "public_route_template_states": 36,
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "locales": [
+      "th",
+      "en"
+    ],
+    "theme_controller": 12,
+    "photo_state_controller": 28,
+    "photo_form_integration": 27,
+    "map_data_render": 2493,
+    "map_lifecycle": 24,
+    "map_app_integration": 15,
+    "js_syntax_files": 18,
+    "pinned_ds_assets": 25,
+    "impeccable_detect_findings": 0
+  },
+  "scope": "Source, Node VM, mocked DOM/storage and data contracts. These do not prove rendered layout or real device interaction.",
+  "manual_gate": {
+    "status": "open",
+    "reason": "Browser visual QA was blocked by automatic approval review in the prior work. Exact rejection detail is not available in this handoff.",
+    "requires": [
+      "TH and EN",
+      "light, dark and system",
+      "320, 390, 768 and 1440 CSS px",
+      "200% zoom",
+      "keyboard and touch",
+      "map and photo behaviour on device"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const source=fs.readFileSync(require('path').join(__dirname,'../prototype/theme.js'),'utf8');
+function fixture({stored=null,dark=false,brokenStorage=false}={}){const events={},winEvents={},mediaEvents={},selectors=[{value:''}],meta={content:''},html={dataset:{},style:{}};const records=[];let disk=stored;const document={documentElement:html,querySelectorAll:()=>selectors,querySelector:()=>meta,addEventListener:(k,v)=>events[k]=v,dispatchEvent:e=>records.push(e)};const media={matches:dark,addEventListener:(k,v)=>mediaEvents[k]=v};const window={document,localStorage:{getItem:()=>{if(brokenStorage)throw new Error('denied');return disk},setItem:(k,v)=>{if(brokenStorage)throw new Error('denied');disk=v}},matchMedia:()=>media,CustomEvent:function(type,data){this.type=type;this.detail=data.detail},addEventListener:(k,v)=>winEvents[k]=v};vm.runInNewContext(source,{window});return{window,html,meta,events,winEvents,mediaEvents,media,records,setDisk:v=>disk=v,getDisk:()=>disk};}
+let checks=0;function check(name,fn){fn();checks++;console.log('PASS',name)}
+check('default follows system light',()=>{const f=fixture();assert.equal(f.html.dataset.theme,'light');assert.equal(f.html.dataset.themePreference,'system')});
+check('default follows system dark',()=>{const f=fixture({dark:true});assert.equal(f.html.dataset.theme,'dark');assert.equal(f.meta.content,'#11191D')});
+check('explicit light wins over OS dark',()=>{const f=fixture({stored:'light',dark:true});assert.equal(f.html.dataset.theme,'light')});
+check('persist dark choice and color scheme',()=>{const f=fixture();f.window.YolkTheme.setPreference('dark');assert.equal(f.getDisk(),'dark');assert.equal(f.html.style.colorScheme,'dark')});
+check('system listener follows OS changes',()=>{const f=fixture();f.media.matches=true;f.mediaEvents.change();assert.equal(f.html.dataset.theme,'dark')});
+check('explicit choice ignores OS changes',()=>{const f=fixture({stored:'light'});f.media.matches=true;f.mediaEvents.change();assert.equal(f.html.dataset.theme,'light')});
+check('storage changes sync tabs',()=>{const f=fixture();f.setDisk('dark');f.winEvents.storage({key:'citymeter-yolk-theme-v1'});assert.equal(f.html.dataset.theme,'dark')});
+check('corrupt setting falls back to system',()=>{const f=fixture({stored:'purple',dark:true});assert.equal(f.window.YolkTheme.getPreference(),'system');assert.equal(f.html.dataset.theme,'dark')});
+check('blocked storage retains current-session control',()=>{const f=fixture({brokenStorage:true});f.window.YolkTheme.setPreference('dark');assert.equal(f.html.dataset.theme,'dark')});
+check('TH and EN selector expose all three preferences',()=>{const f=fixture();for(const lang of ['th','en']){const html=f.window.YolkTheme.renderControl(lang);assert.equal((html.match(/<option/g)||[]).length,3);assert(html.includes('data-yolk-theme'));assert(html.includes('value="system" selected'))}});
+check('delegated selector works after each app render',()=>{const f=fixture();f.events.change({target:{matches:()=>true,value:'dark'}});assert.equal(f.html.dataset.theme,'dark')});
+check('system preference returns to current OS',()=>{const f=fixture({dark:true});f.window.YolkTheme.setPreference('light');f.window.YolkTheme.setPreference('system');assert.equal(f.html.dataset.theme,'dark')});
+console.log(`${checks} source/controller checks passed; no browser/render claims.`);

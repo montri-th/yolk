@@ -45,3 +45,8 @@ TH/EN parity includes labels, navigation, map legend, metric units, explanatory 
 Verify every shipped DS asset hash and licence, network request path at the deployed base URL, actual font loading, logo carrier/clearance, map/list equivalence, synthetic-demo disclosure, and the complete keyboard/touch flows. Screenshots must be captured from the actual build. A check that could not run remains **pending**; source/hash validation alone does not certify rendered layout.
 
 [Product statement](CityMETER_Yolk_Product_Brief_v1.2.md) · [Implementation plan](IMPLEMENTATION_PLAN_v1.2.md) · [DS assets](DS_ASSET_INTEGRATION.md)
+
+
+## v1.3 experience extension
+
+The [experience contract](docs/EXPERIENCE_v1.3.md) and [machine specification](contracts/experience.v1.3.json) extend this design with readable type, personal light/dark/system preferences, location maps and five-photo branch editing. Product colour aliases live in `prototype/experience.css`, loaded after all component styles; canonical DS bytes remain untouched. Use `prototype/theme.js`, `location-map.js` and `branch-photos.js` as interaction references, with production permissions, data services and storage implemented under the plan. Browser visual review remains open.

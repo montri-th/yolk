@@ -1,12 +1,12 @@
 ---
 title: "CityMETER: Yolk — developer implementation plan"
-version: "public-preview-1.2"
+version: "public-preview-1.3"
 status: "proposed-production-contract"
 task_ids: ["00", "01", "02", "03", "04", "04b", "05", "06", "07", "08", "09", "10"]
 source_policy: "Public demo fixtures are synthetic; approved real data is imported privately"
 ---
 
-# CityMETER: Yolk · 12-task implementation plan
+# CityMETER: Yolk v1.3 · 12 core tasks + experience extension
 
 This plan turns the static, **synthetic** web preview into a tenant-safe production product. The public repository is an interaction/design reference; its place and POI examples are **not operational data**. Use an approved private CityMETER/customer data release only after the import gate below. The module names, commands, APIs, and migrations here are implementation contracts to create, not claims that a backend already exists.
 
@@ -14,10 +14,13 @@ This plan turns the static, **synthetic** web preview into a tenant-safe product
 
 ## Read this before coding
 
+Current preview release status is **`ready_with_open_manual_gate`**. Browser visual/responsive QA remains open; deployment or source tests do not close it. The v1.2 filename stays stable for existing links.
+
 1. Read the [product statement](CityMETER_Yolk_Product_Brief_v1.2.md) for user jobs and domain terms, [DS asset integration](DS_ASSET_INTEGRATION.md) for visual authority, and [the asset manifest](contracts/ds-assets.v1.2.json) for exact shipped bytes. Pin hashes; do not load assets from a developer's home directory or an unversioned `latest` URL.
 2. Use the public preview only as a **synthetic fixture**. Keep public code/tests free of private source rows, customer POI records, member records, secrets, or source-artifact links. Production snapshots belong in access-controlled storage and are referenced by release ID/checksum.
 3. Build each task as a vertical slice with migration, DTO/API, UI, tests, and traceability. Preserve the last published run on job failure. Treat `missing`, `observed_zero`, `unverified`, and `not_applicable` as different states.
 4. Use the existing CityMETER infrastructure if it already provides these guarantees. The suggested monorepo below is a mapping, not a requirement to duplicate services.
+5. Read [EXPERIENCE_v1.3.md](docs/EXPERIENCE_v1.3.md) and [experience.v1.3.json](contracts/experience.v1.3.json) for persisted themes, readable bilingual UI, explicit location geometry/POIs/basemaps and max-five branch photos. These extend tasks 00, 02/03 and 04/07 without changing the criteria engine or analytical counts.
 
 ### Scope and dependency graph
 
@@ -37,6 +40,16 @@ This plan turns the static, **synthetic** web preview into a tenant-safe product
 | 10 | Sharing, bilingual/mobile QA, release | 03–09 |
 
 The shortest useful sequence is **00 → 01 → 02 → 03**. Tasks 04 and 05 can then proceed in parallel; 06 joins them. Task 04b waits for the run-publishing path in 06. Task 09 can add adapters without delaying a pilot whose core source release passes gate 01.
+
+### v1.3 extensions, executed within the core tasks
+
+| ID | Add to | Deliverable and acceptance |
+|---|---|---|
+| EXP-01 | 00, 10 | Personal light/dark/system preference, prepaint resolution, OS/storage sync, readable Thai/English and complete component themes; preference changes never notify the workspace |
+| EXP-02 | 02, 03, 10 | Versioned GeoJSON boundary and coordinate-aware POIs, fit-only bbox, accessible list, Simplified/Detailed OSM and labelled 2021 10 m satellite basemap, resilient tile failures |
+| EXP-03 | 04, 07, 10 | Five-photo cap, local draft UX, production private object storage, server upload validation/RBAC, optimistic revision and one branch/event/outbox DB transaction |
+
+Follow the ordered steps in [the v1.3 extension](docs/EXPERIENCE_v1.3.md). Object storage and database writes are not one atomic transaction: stage uploads, validate, commit metadata/event, then promote or clean orphan objects idempotently.
 
 ## Suggested repository contracts
 
@@ -93,6 +106,8 @@ The import gate must fail closed for unlicensed data, missing coverage metadata,
 
 **Accept:** a new dev can clone → install → migrate → seed synthetic data → run web/API/tests; CI fails on contract drift, missing DS bytes, missing font licences, secrets, or private data fixtures. No real data is required to boot.
 
+**v1.3 extension:** implement EXP-01 here. Use exact DS token aliases, persist a personal theme with default `system`, and keep this setting out of shared activity/leaderboard. Run controller tests now and record browser/manual checks separately.
+
 ### 01 · Source catalog and approved import
 
 **Build:** `SourceRelease`, metric registry, read-only adapters, import preview/commit, checksum/idempotency, provenance and per-metric coverage. Normalize value, unit, period, and quality in one place. Keep raw input in restricted storage and normalized observations in the database.
@@ -111,11 +126,15 @@ The import gate must fail closed for unlicensed data, missing coverage metadata,
 
 **Accept:** map, list, and detail show the same `run_id` and place IDs; no area or branch in the production UI is taken from synthetic public fixtures; missing-data and no-eligible states are distinct; map has an equivalent accessible list; colour is not presented as a parcel or sales prediction.
 
+**v1.3 extension:** implement EXP-02 here after task 02. Draw only explicit Polygon/MultiPolygon geometry with source/version/status; bbox is fit-only. A `source` polygon is not automatically `verified`. The public map scene remains synthetic and cannot modify Supply.
+
 ### 04 · Supply CRUD and verification
 
 **Build:** source/overlay separation for our, competitor, unknown/unbranded POIs; brand catalogue; create/edit, duplicate review, verify, archive and restore; optimistic revision; custom fields and acquisition candidate flag. Every committed workspace edit records actor, time, before/after, and an outbox event in one transaction.
 
 **Accept:** Viewer writes are rejected at the API; tenant IDs cannot cross workspace boundaries; no-op/retry does not duplicate an event; unknown brand/operating status stays unknown; source records are never overwritten by an overlay. A POI edit is marked **pending aggregate reconciliation** and does not instantly change the published B/C/U counts.
+
+**v1.3 extension:** implement EXP-03 photo CRUD here, then connect events in 07. Enforce at most five active photos again under a branch revision lock; validate staged uploads server-side; persist branch metadata, photo changes, one event and outbox together. Keep signed URLs and image bytes out of event payloads.
 
 ### 04b · Reconcile physical sites and Supply counts
 
@@ -171,6 +190,8 @@ The import gate must fail closed for unlicensed data, missing coverage metadata,
 | `006_events_outbox` | activity_event, context, outbox, notification, delivery_attempt |
 | `007_tasks_shares` | task, note/attachment metadata, share_grant/snapshot |
 | `008_activity_projection` | action projection and watermark |
+| `009_branch_photos` | private upload intents, photo metadata/revisions, staged/ready/tombstoned lifecycle |
+| `010_personal_preferences` | optional cross-device language/theme preferences; no workspace events |
 
 | API family | Required behaviour |
 |---|---|
@@ -182,6 +203,9 @@ The import gate must fail closed for unlicensed data, missing coverage metadata,
 | `POST /supply-reconciliations/preview`, `/{id}/publish` | physical-site and period QA before aggregate change |
 | `GET/POST/PATCH /targets`, `GET /activity`, `/notifications`, `/activity/leaderboard` | contextual history, cursor, recipient filter |
 | `POST /shares`, `GET /shares/{token}`, `POST /shares/{id}/revoke` | server-side grant and expiry |
+| `GET /places/{id}/map-context?run_id=...` | approved geometry/version/status, source release, access-scoped POIs and coverage; bbox fit-only |
+| `POST /supplies/{id}/photo-upload-intents`, branch `PATCH` photo operations | private staging, server validation, max 5 under lock, If-Match, one event/outbox commit |
+| `GET/PATCH /me/preferences` (optional) | own personal theme/language; no workspace activity |
 
 Generate OpenAPI and typed clients from common contracts. Do not let the frontend infer that null means zero or decide which events count in the activity summary.
 
@@ -192,6 +216,7 @@ Use this bounded prompt for one task at a time:
 ```text
 Implement task <ID> from IMPLEMENTATION_PLAN_v1.2.md.
 Read CityMETER_Yolk_Product_Brief_v1.2.md and DS_ASSET_INTEGRATION.md first.
+For experience work also read docs/EXPERIENCE_v1.3.md and contracts/experience.v1.3.json.
 Build only this vertical slice and its declared dependencies; preserve old runs and source files.
 Use synthetic fixtures in the public repo. Real data needs a privately approved SourceRelease.
 Keep missing, observed zero, unverified and not applicable distinct.

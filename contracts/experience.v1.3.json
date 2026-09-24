@@ -1,0 +1,450 @@
+{
+  "contract_version": "yolk-experience-1.3",
+  "release_status": "ready_with_open_manual_gate",
+  "public_data_policy": "synthetic_area_and_poi_fixtures_only",
+  "preserve_contracts": [
+    "national_cohort_and_percentile",
+    "building_and_activity_tiers",
+    "supply_classification",
+    "eight_market_patterns",
+    "workspace_roles_1_admin_3_editors_6_viewers",
+    "immutable_analysis_runs"
+  ],
+  "theme": {
+    "default": "system",
+    "allowed": [
+      "light",
+      "dark",
+      "system"
+    ],
+    "storage_key": "citymeter-yolk-theme-v1",
+    "resolved_attribute": "data-theme",
+    "preference_attribute": "data-theme-preference",
+    "event": "yolk:themechange",
+    "scope": "personal_preference",
+    "creates_workspace_activity": false,
+    "os_change_applies_when": "system",
+    "storage_failure": "session_preference_remains_usable",
+    "ds_version": "0.9.4",
+    "color_set": "color-srgb-07",
+    "light_surface_roles": {
+      "canvas": "--ldm-foundation-surface-alt-light",
+      "card": "--ldm-foundation-surface-canvas-light"
+    },
+    "dark_surface_roles": {
+      "canvas": "--ldm-foundation-surface-canvas-dark",
+      "card": "--ldm-foundation-surface-card-dark"
+    }
+  },
+  "typography": {
+    "main_mobile_px": 17,
+    "main_large_px": 18,
+    "main_controls_px": 16,
+    "metadata_target_px": 14,
+    "body_line_height": 1.65,
+    "font_roles_source": "../DS_ASSET_INTEGRATION.md",
+    "browser_gate": "open"
+  },
+  "location_map": {
+    "preview_module": "prototype/location-map.js",
+    "library": "Leaflet 1.9.4",
+    "adapter_order": [
+      "area.mapContext",
+      "window.YOLK_MAP_CONTEXT[area.id]",
+      "synthetic_scene_only_for_area.synthetic_true",
+      "coordinate_records_without_boundary"
+    ],
+    "geometry_crs": "EPSG:4326",
+    "geometry_types": [
+      "Polygon",
+      "MultiPolygon"
+    ],
+    "boundary_statuses": [
+      "verified",
+      "source",
+      "draft",
+      "synthetic",
+      "missing"
+    ],
+    "extent3857_purpose": "viewport_fit_only_never_boundary",
+    "missing_coordinates": "omit_pin_and_show_count",
+    "excluded_poi_states": [
+      "archived",
+      "closed"
+    ],
+    "categories": [
+      "own",
+      "competitor",
+      "unverified",
+      "factory",
+      "hotel",
+      "hospital",
+      "school",
+      "other"
+    ],
+    "synthetic_map_pins_enter_supply_calculation": false,
+    "basemaps": [
+      {
+        "id": "simplified",
+        "provider": "OpenStreetMap",
+        "mode": "street_tiles_css_subdued",
+        "native_max_zoom": 19
+      },
+      {
+        "id": "detailed",
+        "provider": "OpenStreetMap",
+        "mode": "street_tiles_with_labels",
+        "native_max_zoom": 19
+      },
+      {
+        "id": "satellite",
+        "provider": "ESA WorldCover via Terrascope",
+        "dataset": "Sentinel-2 annual composite",
+        "year": 2021,
+        "resolution_m": 10,
+        "native_max_zoom": 14,
+        "use": "area_context_not_current_or_parcel_imagery"
+      }
+    ],
+    "tile_storage": "not_bundled_no_prefetch_no_offline_download",
+    "tile_failure": "preserve_boundary_pois_list_with_retry_or_switch",
+    "production_api": "GET /places/{id}/map-context?run_id=...",
+    "production_cache_scope": [
+      "workspace_id",
+      "run_id",
+      "geometry_version",
+      "poi_source_release",
+      "access_scope"
+    ]
+  },
+  "branch_photos": {
+    "preview_module": "prototype/branch-photos.js",
+    "max_active_photos": 5,
+    "allowed_mime": [
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ],
+    "max_input_bytes": 10485760,
+    "min_width_px": 120,
+    "min_height_px": 120,
+    "max_pixels": 24000000,
+    "max_dimension_px": 16000,
+    "preview_derivative": {
+      "mime": "image/jpeg",
+      "max_long_edge_px": 1280,
+      "max_bytes_target": 430080
+    },
+    "preview_storage": {
+      "type": "IndexedDB",
+      "database": "citymeter-yolk-branch-photos-v1",
+      "store": "branches",
+      "network_upload": false,
+      "draft_until": "branch_save",
+      "operations": [
+        "add",
+        "remove",
+        "set_cover",
+        "reset_to_saved"
+      ]
+    },
+    "mockups": {
+      "label_required": true,
+      "label_th": "ภาพจำลอง",
+      "label_en": "Mockup",
+      "ai_generated": true,
+      "real_station_photographs": false
+    },
+    "production": {
+      "read_roles": [
+        "admin",
+        "editor",
+        "viewer"
+      ],
+      "write_roles": [
+        "admin",
+        "editor"
+      ],
+      "object_storage": "private_staging_and_ready_derivatives",
+      "commit_api": "PATCH /supplies/{id}",
+      "upload_intent_api": "POST /supplies/{id}/photo-upload-intents",
+      "concurrency": [
+        "If-Match",
+        "idempotency_key",
+        "locked_recheck_active_count"
+      ],
+      "transaction_fields": [
+        "branch_revision",
+        "photo_metadata",
+        "immutable_event",
+        "event_outbox"
+      ],
+      "event_type": "supply.updated",
+      "event_contains_image_bytes": false,
+      "event_contains_signed_urls": false,
+      "metadata_strip": [
+        "EXIF",
+        "GPS"
+      ],
+      "failure_strategy": "quarantine_staging_orphan_gc_and_last_saved_state",
+      "changes_supply_counts": false
+    }
+  },
+  "tasks": [
+    {
+      "id": "EXP-01",
+      "depends_on": [
+        "00"
+      ],
+      "deliverable": "personal_theme_readable_bilingual_ui"
+    },
+    {
+      "id": "EXP-02",
+      "depends_on": [
+        "02",
+        "03"
+      ],
+      "deliverable": "versioned_geometry_poi_context_basemap_and_accessible_list"
+    },
+    {
+      "id": "EXP-03",
+      "depends_on": [
+        "04",
+        "07"
+      ],
+      "deliverable": "max5_photo_crud_storage_revision_event_transaction"
+    }
+  ],
+  "schemas": {
+    "ThemePreference": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "required": [
+        "preference"
+      ],
+      "properties": {
+        "preference": {
+          "enum": [
+            "light",
+            "dark",
+            "system"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "MapContextEnvelope": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "required": [
+        "place_id",
+        "run_id",
+        "boundary_status",
+        "crs",
+        "source_release_id",
+        "pois"
+      ],
+      "properties": {
+        "place_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "boundary_status": {
+          "enum": [
+            "verified",
+            "source",
+            "draft",
+            "synthetic",
+            "missing"
+          ]
+        },
+        "crs": {
+          "const": "EPSG:4326"
+        },
+        "geometry_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_release_id": {
+          "type": "string"
+        },
+        "source_effective_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "boundary": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "viewport_extent3857": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "pois": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "lat",
+              "lng",
+              "category"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number",
+                "minimum": -85,
+                "maximum": 85
+              },
+              "lng": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              },
+              "category": {
+                "enum": [
+                  "own",
+                  "competitor",
+                  "unverified",
+                  "factory",
+                  "hotel",
+                  "hospital",
+                  "school",
+                  "other"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "$comment": "Validate GeoJSON closed rings, topology, area identity, permissions and membership in the geo service; this envelope schema is insufficient to certify them."
+    },
+    "BranchPhotoOperations": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "required": [
+        "base_revision",
+        "idempotency_key",
+        "operations"
+      ],
+      "properties": {
+        "base_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "required": [
+                  "operation",
+                  "upload_intent_id"
+                ],
+                "properties": {
+                  "operation": {
+                    "const": "add"
+                  },
+                  "upload_intent_id": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "operation",
+                  "photo_id"
+                ],
+                "properties": {
+                  "operation": {
+                    "enum": [
+                      "remove",
+                      "set_cover"
+                    ]
+                  },
+                  "photo_id": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "operation",
+                  "photo_id",
+                  "caption_th",
+                  "caption_en"
+                ],
+                "properties": {
+                  "operation": {
+                    "const": "caption"
+                  },
+                  "photo_id": {
+                    "type": "string"
+                  },
+                  "caption_th": {
+                    "type": "string",
+                    "maxLength": 200
+                  },
+                  "caption_en": {
+                    "type": "string",
+                    "maxLength": 200
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "$comment": "Server recomputes final active count <=5 and cover uniqueness under branch revision lock. Object lifecycle is not part of the DB atomic transaction."
+    }
+  },
+  "manual_release_gate": {
+    "status": "open",
+    "reason": "browser_visual_QA_previously_blocked_by_automatic_approval_review",
+    "must_observe": [
+      "TH_EN",
+      "light_dark_system",
+      "320_390_768_1440_css_px",
+      "200_percent_text_zoom",
+      "keyboard_and_touch",
+      "map_network_error",
+      "photo_orientation_and_storage_errors"
+    ],
+    "source_tests_do_not_close_gate": true
+  }
+}

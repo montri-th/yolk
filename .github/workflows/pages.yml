@@ -21,7 +21,12 @@ jobs:
       - name: Verify public fixture and DS assets
         run: python3 scripts/verify-public-release.py
       - name: Check public preview routes
-        run: node scripts/check-public-runtime.cjs
+        run: |
+          node scripts/check-public-runtime.cjs
+          node scripts/check-theme-runtime.cjs
+          node scripts/check-photo-runtime.cjs
+          node scripts/check-map-runtime.cjs
+          node scripts/check-photo-form.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static preview

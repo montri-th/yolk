@@ -1,16 +1,23 @@
 {
   "schemaVersion": 1,
-  "workObject": "CityMETER: Yolk v1.2 public synthetic web preview and developer handoff",
+  "workObject": "CityMETER: Yolk v1.3 public synthetic web preview and developer handoff",
   "source": {
     "kind": "directory",
-    "identity": "Yolk v1.2 synthetic public edition; all runtime area/POI records fictitious"
+    "identity": "Yolk v1.3 synthetic public edition; all runtime area/POI records fictitious"
   },
   "artifacts": [
     {
+      "path": ".gitattributes",
+      "role": "handoff-document",
+      "sha256": "4d20e9ecdf9ddbe26c28cff2660279f5ae80432846fcadb0282a63269262069e",
+      "bytes": 140,
+      "mime": "application/octet-stream"
+    },
+    {
       "path": ".github/workflows/pages.yml",
       "role": "release-check",
-      "sha256": "da2fbfb35896ef4df8b02c90f4deee1ec0749d6833da6b2c5e62232fcb2bba40",
-      "bytes": 881,
+      "sha256": "f3d520c79c777f36c70e1b108b19fd9db8c7919623d291125e73657fbc544618",
+      "bytes": 1076,
       "mime": "application/octet-stream"
     },
     {
@@ -30,43 +37,43 @@
     {
       "path": "CityMETER_Yolk_Product_Brief_v1.2.md",
       "role": "handoff-document",
-      "sha256": "a9c426d6ec718841a3c39d44a353a8fe35249fe8a6f914a2935b7f1fd6f39728",
-      "bytes": 10541,
+      "sha256": "9b4c743b481969aee5b09a91ab4986ac7eba414187dc80dbd569b074d16cdc18",
+      "bytes": 13358,
       "mime": "application/octet-stream"
     },
     {
       "path": "DESIGN.md",
       "role": "handoff-document",
-      "sha256": "8007103c2858b8cba09856f580b8c8a683366e6a6394fbc0fd8568f1bc93ff00",
-      "bytes": 5712,
+      "sha256": "8333e7a2fdd4bade33b98ce49daea00b439f5ed94905e25c92eab11d3aff59d7",
+      "bytes": 6323,
       "mime": "application/octet-stream"
     },
     {
       "path": "DS_ASSET_INTEGRATION.md",
       "role": "handoff-document",
-      "sha256": "c3aef96ddca76a711a1fc34b4e49893beedc1199a7d2dd57129e906eaf7f41a7",
-      "bytes": 5875,
+      "sha256": "04370e6041ceb61e5a08b181c04d963dfa0471e03e1d362bc296f0de54a256ff",
+      "bytes": 8032,
       "mime": "application/octet-stream"
     },
     {
       "path": "HANDOFF.md",
       "role": "handoff-document",
-      "sha256": "f21dac243ed6371bb79b638d248c13ed355c175f92e5d9d9d423f7ebd2192007",
-      "bytes": 2661,
+      "sha256": "a2e0f61912f5341e15b754ba3d2e5b33588e91ae9ad4cdb8775b6b33c63968c4",
+      "bytes": 3693,
       "mime": "application/octet-stream"
     },
     {
       "path": "IMPLEMENTATION_PLAN_v1.2.md",
       "role": "handoff-document",
-      "sha256": "6636270d446ede33ff6143cc1c7f745ebf8e5f4cf2730670f4949c82dc65d412",
-      "bytes": 20503,
+      "sha256": "463aee007d3f89aea213d886c9653575638ac931ea88788976f1af8f48e0924d",
+      "bytes": 23541,
       "mime": "application/octet-stream"
     },
     {
       "path": "README.md",
       "role": "handoff-document",
-      "sha256": "ba728117ff469b6e0ddd90029dc95f61d8f9ec0bbad97183b0ba0db8c9e70680",
-      "bytes": 2614,
+      "sha256": "dcbd324604405e50dd6a7e71d33acf81bab751d591885685db455d0c4766f527",
+      "bytes": 3504,
       "mime": "application/octet-stream"
     },
     {
@@ -88,6 +95,13 @@
       "role": "developer-contract",
       "sha256": "c4c6f4e43ab719b972df1b14cb3075495862f1df1e4e9fc34a65e40024f65fe0",
       "bytes": 15593,
+      "mime": "application/json"
+    },
+    {
+      "path": "contracts/experience.v1.3.json",
+      "role": "developer-contract",
+      "sha256": "f05ada7c57e0a8debd7ce2c078030956c3e17756a1c0de2211ecd541abce7ada",
+      "bytes": 11692,
       "mime": "application/json"
     },
     {
@@ -126,6 +140,13 @@
       "mime": "application/json"
     },
     {
+      "path": "docs/EXPERIENCE_v1.3.md",
+      "role": "handoff-document",
+      "sha256": "c9b26b493988df6a066ef1af7239b5428648e575c5991338a11ad0e05878757f",
+      "bytes": 19995,
+      "mime": "application/octet-stream"
+    },
+    {
       "path": "evidence/ds-resolution.md",
       "role": "source-attribution-and-ds-receipt",
       "sha256": "143fcf83167fdd6e2f28367f87adfff580fd31edb412fc4bcdcee0914e6eba9c",
@@ -137,6 +158,13 @@
       "role": "source-attribution-and-ds-receipt",
       "sha256": "9d9d8eb282a41fb6ce13a74c0134e4e51fd76709ec6511cd15a90f2693b7a46f",
       "bytes": 9252,
+      "mime": "application/json"
+    },
+    {
+      "path": "evidence/experience-qa-v1.3.json",
+      "role": "source-attribution-and-ds-receipt",
+      "sha256": "2a531b8543309166e3f4b2431811f492e7683d95963fa8ba9ee5c3bdf192877d",
+      "bytes": 1081,
       "mime": "application/json"
     },
     {
@@ -154,6 +182,13 @@
       "mime": "application/json"
     },
     {
+      "path": "evidence/map-preview-v1.3.md",
+      "role": "source-attribution-and-ds-receipt",
+      "sha256": "7b5842afcaa29924696db52ec9afd9a8b689cccb7233b4c8bf542b85786b403b",
+      "bytes": 7532,
+      "mime": "application/octet-stream"
+    },
+    {
       "path": "prototype/.nojekyll",
       "role": "web-runtime",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -163,8 +198,8 @@
     {
       "path": "prototype/app.js",
       "role": "web-runtime",
-      "sha256": "eef645152896e92865d4c6634ed2467c5ccb65f11b99ad4f71ce4598cb305f54",
-      "bytes": 51164,
+      "sha256": "04326d8a80adede83122659f7d7fd1dcf089e7a1870c72dc3f07847e89ed3ef0",
+      "bytes": 52740,
       "mime": "text/javascript"
     },
     {
@@ -222,6 +257,55 @@
       "sha256": "60fbdbf1df810980e3f233d4861c6e9f39790c4d63bdb29bf09c0d4c016d288b",
       "bytes": 14096,
       "mime": "text/css"
+    },
+    {
+      "path": "prototype/assets/demo-photos/README.md",
+      "role": "web-runtime",
+      "sha256": "389e5680abbd861299bc1a245fdd21efd1d18527a4415dde10ce83256129e4fc",
+      "bytes": 864,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "prototype/assets/demo-photos/entrance.jpg",
+      "role": "web-runtime",
+      "sha256": "7db904b23f124764c839512d8d96af7af8e0fa2f6ad6dbbf60c5ee202b1c0596",
+      "bytes": 225787,
+      "mime": "image/jpeg"
+    },
+    {
+      "path": "prototype/assets/demo-photos/forecourt.jpg",
+      "role": "web-runtime",
+      "sha256": "e3c25fb2016fca06c5d92ff6c86dcd9cc15879e2dc41de4404fc054317b5ab74",
+      "bytes": 247490,
+      "mime": "image/jpeg"
+    },
+    {
+      "path": "prototype/assets/demo-photos/frontage.jpg",
+      "role": "web-runtime",
+      "sha256": "8266be1a9bc9ef7cf66b8674754f7ba4b4c9b60d0861bb10e4556be9ec46085a",
+      "bytes": 193451,
+      "mime": "image/jpeg"
+    },
+    {
+      "path": "prototype/assets/demo-photos/manifest.json",
+      "role": "web-runtime",
+      "sha256": "1bcbad60228d229e72816339abbdf59880c4781e5b9260940e41142a5d638aac",
+      "bytes": 3055,
+      "mime": "application/json"
+    },
+    {
+      "path": "prototype/assets/demo-photos/pumps.jpg",
+      "role": "web-runtime",
+      "sha256": "f3f534a2c281a9d528f92de70e1d9f31650499d4eb34f5c4c9a6541f2aef0d14",
+      "bytes": 265887,
+      "mime": "image/jpeg"
+    },
+    {
+      "path": "prototype/assets/demo-photos/shop.jpg",
+      "role": "web-runtime",
+      "sha256": "919df3371f10151a25fa2b4db37aafa8aa8cbbd2d60f805a4be922bec12c6446",
+      "bytes": 196793,
+      "mime": "image/jpeg"
     },
     {
       "path": "prototype/assets/dial-full.svg",
@@ -350,6 +434,20 @@
       "mime": "text/css"
     },
     {
+      "path": "prototype/branch-photos.css",
+      "role": "web-runtime",
+      "sha256": "c275b384a4460c5e2189f8bb15e5fc564d1b9abac904f035802086f0b0c9453b",
+      "bytes": 3743,
+      "mime": "text/css"
+    },
+    {
+      "path": "prototype/branch-photos.js",
+      "role": "web-runtime",
+      "sha256": "6a799d2ef3f09298dd87dd80ec6ef436b9eadc10dab4446c630a95cd0186d191",
+      "bytes": 16505,
+      "mime": "text/javascript"
+    },
+    {
       "path": "prototype/data/demo-data.js",
       "role": "web-runtime",
       "sha256": "b728ae437a3be235580724c87c89d6dc0f43ab2f7501dea4bcdf03007546870c",
@@ -362,6 +460,13 @@
       "sha256": "1e9dc273dd4da0edb9488b9f5540032a8b2decc4f8efe15eca3b707e03d94fb9",
       "bytes": 200872,
       "mime": "application/json"
+    },
+    {
+      "path": "prototype/data/demo-map-context.js",
+      "role": "web-runtime",
+      "sha256": "880a19a6ad2805d24b7767348ac06237ed5bb802401bd0bacb6ac70cde321213",
+      "bytes": 2798,
+      "mime": "text/javascript"
     },
     {
       "path": "prototype/data/thailand-provinces.js",
@@ -378,10 +483,17 @@
       "mime": "application/json"
     },
     {
+      "path": "prototype/experience.css",
+      "role": "web-runtime",
+      "sha256": "7352dfdb724ebf301172a3655647d53c3e979fb0fe60d3eebf1b5df958170cad",
+      "bytes": 16763,
+      "mime": "text/css"
+    },
+    {
       "path": "prototype/index.html",
       "role": "web-runtime",
-      "sha256": "4f5b904c0fa7cd00d34706b272a1f3a3331199cbc43a3d22179ab0199a8cbc94",
-      "bytes": 1660,
+      "sha256": "5afb1594e928202c073a8f203b531f48927b128946bb06d3ec0b9e447288e9c8",
+      "bytes": 2086,
       "mime": "text/html"
     },
     {
@@ -394,15 +506,29 @@
     {
       "path": "prototype/landscape.js",
       "role": "web-runtime",
-      "sha256": "108c3aa60304aa108ed6d7c7937ff8ad1da074ef68f63e644455e3d9a6295768",
-      "bytes": 20018,
+      "sha256": "2a6dedac30f015d754a5c7aa0de5f1649bac8701d1f58e6baa120b8f5185192c",
+      "bytes": 19368,
       "mime": "text/javascript"
     },
     {
       "path": "prototype/leaderboard.js",
       "role": "web-runtime",
-      "sha256": "8b225209ba8ad428587b2c6a6f4496a96c65118f241695469ee4857f7fcc6dd0",
-      "bytes": 3089,
+      "sha256": "39d20e0e1758b76668625fff8a61b0843b71ac44791ec0b43d78dab97d945718",
+      "bytes": 2974,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "prototype/location-map.css",
+      "role": "web-runtime",
+      "sha256": "fabdc09ac176331496c21af105a9c13cc0cd6c3e203edfc33cdb3bed709d5817",
+      "bytes": 9137,
+      "mime": "text/css"
+    },
+    {
+      "path": "prototype/location-map.js",
+      "role": "web-runtime",
+      "sha256": "44852b391f4a718ad1448500cf7119083e1656a2865987efadcb62f6c9bfc869",
+      "bytes": 21849,
       "mime": "text/javascript"
     },
     {
@@ -415,16 +541,93 @@
     {
       "path": "prototype/model.js",
       "role": "web-runtime",
-      "sha256": "3ae397f47b92bf5afd6d71bc29d0b32dbc42571c4255e23585cc1d613a88c2cb",
-      "bytes": 14997,
+      "sha256": "cff4a6aee521c2fa781cbaf95f52fdad426dfa6fb2c7a90ce535dd466d477139",
+      "bytes": 15378,
       "mime": "text/javascript"
     },
     {
       "path": "prototype/supply-ui.js",
       "role": "web-runtime",
-      "sha256": "9cce3e58db70cc910c4acd77e9205ed7fb62f740cc1ead4737ca39e98e6d7ef8",
-      "bytes": 17884,
+      "sha256": "6ff519c3651759bac7dd21967c13b60e1f7008b30347e60b8fa1cd0f55268998",
+      "bytes": 17141,
       "mime": "text/javascript"
+    },
+    {
+      "path": "prototype/theme.js",
+      "role": "web-runtime",
+      "sha256": "131a929ad39b44ff1719397e1129e7a7c2fd5e0e25e27989cf862cdadd727e0b",
+      "bytes": 2895,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/LICENSE",
+      "role": "web-runtime",
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
+      "bytes": 1395,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/layers-2x.png",
+      "role": "web-runtime",
+      "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "bytes": 1259,
+      "mime": "image/png"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/layers.png",
+      "role": "web-runtime",
+      "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "bytes": 696,
+      "mime": "image/png"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/marker-icon-2x.png",
+      "role": "web-runtime",
+      "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "bytes": 2464,
+      "mime": "image/png"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/marker-icon.png",
+      "role": "web-runtime",
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "bytes": 1466,
+      "mime": "image/png"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/marker-shadow.png",
+      "role": "web-runtime",
+      "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "bytes": 618,
+      "mime": "image/png"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.css",
+      "role": "web-runtime",
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "bytes": 14806,
+      "mime": "text/css"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.js",
+      "role": "web-runtime",
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "bytes": 147552,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.js.map",
+      "role": "web-runtime",
+      "sha256": "600a10dc5cd110de0699510d322afcbe01c7ca90b4c5f48adc20314c70aac753",
+      "bytes": 225544,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/vendor-manifest.json",
+      "role": "web-runtime",
+      "sha256": "e4df177af08ca050a7986533d8829660b63c5a17058594ced87f8233e741b5df",
+      "bytes": 1573,
+      "mime": "application/json"
     },
     {
       "path": "prototype/yolk.css",
@@ -434,10 +637,38 @@
       "mime": "text/css"
     },
     {
+      "path": "scripts/check-map-runtime.cjs",
+      "role": "release-check",
+      "sha256": "6392e254cdd003637ea790d7e9663b7ffd56b07c9589f53be6458485bc7e8c45",
+      "bytes": 12128,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "scripts/check-photo-form.cjs",
+      "role": "release-check",
+      "sha256": "6a18a98c8276e8f00627f1cc0639c2ae58f422fa5997beff1a76f0b4d7217316",
+      "bytes": 10612,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "scripts/check-photo-runtime.cjs",
+      "role": "release-check",
+      "sha256": "66cdba46df1bcc4ad60351e522b8a3ea8dab90b2b913f9757c35689ab92b5c4c",
+      "bytes": 6218,
+      "mime": "application/octet-stream"
+    },
+    {
       "path": "scripts/check-public-runtime.cjs",
       "role": "release-check",
-      "sha256": "7ec9759ade726baf0ed03f924e1d988a06afaf30e66152d093aa07414724bcb4",
-      "bytes": 2074,
+      "sha256": "b151e9c367a902d95188db1ff2f97da03cd1b4f00749a5f74003c0ba29b18e31",
+      "bytes": 2284,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "scripts/check-theme-runtime.cjs",
+      "role": "release-check",
+      "sha256": "65a55d6b79b9bd5f9b9b8055a8bb84a59b187c7e855b04a6ff5e2840adc44ed5",
+      "bytes": 3433,
       "mime": "application/octet-stream"
     },
     {
@@ -463,7 +694,7 @@
   "runtime": {
     "mode": "http-static",
     "provider": "GitHub Pages",
-    "status": "live",
+    "status": "prepared",
     "url": "https://montri-th.github.io/yolk/"
   },
   "dependencies": [
@@ -478,7 +709,7 @@
       "evidence": "scripts/verify-public-release.py"
     },
     {
-      "claim": "18 TH/EN route render checks and all eight market patterns",
+      "claim": "36 TH/EN and light/dark route template checks and all eight market patterns",
       "status": "verified",
       "evidence": "scripts/check-public-runtime.cjs"
     },
@@ -496,9 +727,9 @@
   "gates": [
     {
       "gate": "Public GitHub repository commit and external web preview",
-      "status": "passed",
+      "status": "open",
       "owner": "release operator",
-      "evidence": "https://github.com/montri-th/yolk/actions/runs/35984708075"
+      "evidence": "https://github.com/montri-th/yolk/actions/workflows/pages.yml"
     },
     {
       "gate": "browser responsive and Thai/English visual review",
@@ -520,10 +751,10 @@
     }
   ],
   "delivery": {
-    "status": "delivered",
+    "status": "prepared",
     "recipient": "Yolk development team",
     "channel": "public GitHub repository montri-th/yolk",
-    "evidence": "https://github.com/montri-th/yolk",
+    "evidence": "HANDOFF.md",
     "acknowledgmentEvidence": null
   }
 }

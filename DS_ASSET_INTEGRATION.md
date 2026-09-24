@@ -1,4 +1,4 @@
-# CityMETER: Yolk v1.2 · DS asset integration
+# CityMETER: Yolk v1.3 · DS asset integration
 
 **For dev:** use this with [the machine manifest](contracts/ds-assets.v1.2.json), [the implementation plan](IMPLEMENTATION_PLAN_v1.2.md), and [the DS resolution](evidence/ds-resolution.md). All paths in the manifest are relative to this package root. The prototype is a multi-file static browser preview; its `prototype/index.html` loads assets by relative URL, so it can sit below a repository base path such as `/yolk/prototype/`.
 
@@ -18,6 +18,20 @@
 4. **Use the registered type and glyphs.** Latin display: Arvo 700; Thai display: IBM Plex Sans Thai Looped 700; body/UI: Bai Jamjuree 400/600; technical Latin: JetBrains Mono 400; technical Thai: IBM Plex Sans Thai 400. Thai headings need line height at least 1.25 until a size/script fixture proves otherwise. The nav symbol subset contains `open_in_new`, `menu`, `close`, `light_mode`, `dark_mode`, `contrast`, `groups`; the separate `open_in_new` file is for external-link use. Use readable text for any other action instead of a missing glyph.
 5. **Connect identity and motif by role.** The runtime logo belongs on a solid light plate; preserve the whole image, aspect ratio and accessible name `Landometer`. The preview uses `dial-quiet.svg` only as a decorative orientation motif on Brand Blue, with `alt=""` and `aria-hidden="true"`. It is not a logo, score, loading state or data mark. `dial-full.svg` and both `rings-*` variants are available as exact assets but are not loaded by the current screen; add them only for their registered opening/transition jobs and carriers.
 6. **Verify the shipped UI.** Confirm every asset request resolves at the deployed base path, all fonts load without silent fallback, English and Thai text wrap, focus and target sizes remain usable, and the map legend matches the values shown. Check 390, 768 and 1440 CSS px and keyboard/touch behavior before calling visual QA passed. The prior source/hash checks did **not** verify rendered browser layout; see [handoff verification](HANDOFF.md#verification).
+
+## v1.3 theme and type adapter
+
+Load component CSS, including map/photo styles, before `prototype/experience.css`, which is the final theme/readability adapter. Load `theme.js` in the head so the selected preference applies before body paint. The exact runtime load order remains visible in `prototype/index.html`.
+
+`experience.css` maps **product roles** to exact LDS 0.9.4 tokens; it does not redefine canonical `--ldm-*` values. Light uses `surface-alt-light` (#EEF1EE) for canvas and `surface-canvas-light` (#F6F7F3) for cards, reducing large bright surfaces. Dark uses canonical canvas/card/soft/text/border/action roles. This is a Yolk surface choice; the DS still includes brighter raised/card roles for their appropriate contexts.
+
+The dark analytical heat classes are the exact pinned five-class projection: `#393129`, `#7A5933`, `#C28336`, `#E0AA89`, `#FFD1D3`. Do not interpolate or substitute a decorative gradient. The app owns thresholds and meaning in both themes.
+
+Main text is 17 px on phones and 18 px on larger screens; main controls are 16 px and ordinary metadata is 14 px. Keep Thai body leading 1.65 and script-aware display families. These sizes are product implementation choices, not new DS normative tokens. The full-colour logo stays on a small light plate in both themes; the Brand Blue decorative motif host keeps its fixed foreground contract.
+
+`theme.js` provides light/dark/system with default `system`, local preference persistence, OS updates, cross-tab sync and `yolk:themechange`. Do not notify teammates when someone changes their personal theme. Map controls/popups and branch-photo controls use the same theme aliases; satellite pixels remain unchanged. Provider maps and AI-generated photo mockups are content, not canonical DS assets.
+
+See [the experience contract](contracts/experience.v1.3.json) and [ordered implementation steps](docs/EXPERIENCE_v1.3.md). The stable `ds-assets.v1.2.json` still pins the immutable DS asset set; new product adapter hashes belong in the release/handoff manifest. Release status is `ready_with_open_manual_gate`: source token/contrast checks are not rendered visual verification.
 
 ## Reproducible asset check
 

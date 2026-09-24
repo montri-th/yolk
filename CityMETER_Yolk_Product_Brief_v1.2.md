@@ -1,7 +1,7 @@
 ---
 title: "CityMETER: Yolk — product statement"
-version: "public-preview-1.2"
-status: "concept-and-synthetic-preview"
+version: "public-preview-1.3"
+status: "ready_with_open_manual_gate"
 languages: ["th-TH", "en-US"]
 design_system: "Landometer 0.9.4; see DS_ASSET_INTEGRATION.md"
 default_geography: "Bangkok khwaeng; upcountry non-overlapping area-level LAO"
@@ -78,6 +78,16 @@ The country view is a choropleth and ranked list driven by the **same published 
 
 Every committed shared change creates **one immutable event** linked to its record, relevant page feed, and notifications for authorised teammates. A criteria change appears on the criteria page; a location note appears with that location. Notification is a trigger back to work, with read state per recipient. Email/LINE sharing can be added through explicit server-checked grants and delivery adapters. The activity leaderboard shows committed actions, categories, period, and distinct records—not employee quality or time spent.
 
+### Read clearly, see the surroundings, collect field evidence
+
+ผู้ใช้เลือก **สว่าง / มืด / ตามเครื่อง** ได้ ระบบจำค่าเป็นความชอบส่วนตัว ไม่เปลี่ยนเกณฑ์ทีม Light theme ใช้พื้นผิวอ่อนจาก DS และตัวหนังสือใหญ่ขึ้น ใช้คำไทยสั้นที่บอกว่ากำลังดูอะไรหรือทำอะไรได้
+
+หน้าทำเลมีขอบเขตและจุดสำคัญ เช่น สาขาเรา คู่แข่ง โรงงาน โรงแรม โรงพยาบาล หรือโรงเรียนตามข้อมูลที่มี พร้อมรายการจุดสำหรับ keyboard พื้นหลังเลือก **เรียบง่าย / ดาวเทียม / รายละเอียด** ได้ ขอบเขตต้องมาจาก source adapter ที่ระบุที่มาและ version; กรอบพิกัดสำหรับซูมไม่ถือเป็นเส้นเขต พรีวิวสาธารณะใช้ฉากจำลอง และภาพดาวเทียมที่เลือกได้เป็น Sentinel-2 ปี 2021 ความละเอียด 10 ม. สำหรับดูบริบทพื้นที่
+
+หน้าแก้ไขสาขาเก็บภาพได้ **สูงสุด 5 รูป** เลือกปก ลบ เพิ่ม และย้อนร่างก่อนบันทึกได้ ภาพตัวอย่างมีป้ายกำกับชัดเจน พรีวิวเก็บรูปในเบราว์เซอร์ ส่วน production เก็บในพื้นที่ส่วนตัวของ workspace พร้อมสิทธิ์และประวัติการเปลี่ยนแปลง รูปไม่ทำให้ยอด Supply เปลี่ยนจนกว่าจะผ่านขั้นตอนตรวจข้อมูล
+
+รายละเอียดสำหรับ dev อยู่ใน [แผนเพิ่มประสบการณ์ v1.3](docs/EXPERIENCE_v1.3.md) และ [machine contract](contracts/experience.v1.3.json)
+
 ### 5. Make evidence grow safely
 
 The first production release works with approved CityMETER observations and verified Supply. Later, a customer may provide sales by branch and transaction and membership data under a separate permission, privacy, and retention contract. Those datasets can test and calibrate demand hypotheses, catch cannibalisation, and account for daypart or direction of travel. Personal addresses should not be exposed in ordinary location views; analysis should use purpose-limited aggregates and a clear minimum-cell policy. Do not claim improved accuracy until holdout tests against actual outcomes show it.
@@ -92,3 +102,5 @@ The first production release works with approved CityMETER observations and veri
 ## What this public repository enables
 
 The static preview demonstrates interaction and design with synthetic records. [The implementation plan](IMPLEMENTATION_PLAN_v1.2.md) defines the private-data import gate and twelve vertical tasks for turning it into a production service. The preview has no production authentication, live workspace sync, production notifications, or verified market assessment.
+
+Revision v1.3 adds three bounded experience tasks while preserving the original criteria/domain contracts. Its release state is `ready_with_open_manual_gate`: browser visual and device QA remain open. The document filename stays stable for existing links.

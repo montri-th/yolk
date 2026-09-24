@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "tool": "built-in image_gen",
+  "use": "Public CityMETER Yolk prototype branch editor; fictional photo examples only",
+  "common_prompt_constraints": [
+    "photorealistic natural architectural survey photo",
+    "landscape 4:3",
+    "unbranded fictional station in Thailand",
+    "no identifiable people, logos, wording, license plates or watermark",
+    "natural daylight and plausible architectural scale"
+  ],
+  "asset_processing": {
+    "method": "sips",
+    "max_edge_px": 1280,
+    "jpeg_quality": 75,
+    "composition_changed": false,
+    "originals": "Retained outside published bundle in imagegen output storage"
+  },
+  "assets": [
+    {
+      "path": "entrance.jpg",
+      "subject": "Wide entrance and exit of fictional suburban Thailand fuel station; concrete apron, white canopy and blank dark teal fascia, clear driveway, tropical trees.",
+      "sha256": "7db904b23f124764c839512d8d96af7af8e0fa2f6ad6dbbf60c5ee202b1c0596",
+      "bytes": 225787,
+      "width": 1280,
+      "height": 960,
+      "format": "image/jpeg",
+      "kind": "ai_generated_mockup",
+      "is_real_station_evidence": false
+    },
+    {
+      "path": "forecourt.jpg",
+      "subject": "Wide oblique view across fictional Thailand fuel station open forecourt; circulation space, white canopy with blank dark teal fascia, distant shop and tropical trees.",
+      "sha256": "e3c25fb2016fca06c5d92ff6c86dcd9cc15879e2dc41de4404fc054317b5ab74",
+      "bytes": 247490,
+      "width": 1280,
+      "height": 960,
+      "format": "image/jpeg",
+      "kind": "ai_generated_mockup",
+      "is_real_station_evidence": false
+    },
+    {
+      "path": "frontage.jpg",
+      "subject": "Fictional unbranded suburban Thailand fuel station, broad frontal view from across road; white canopy, blank dark teal fascia, four pump islands, low shop, tropical trees.",
+      "sha256": "8266be1a9bc9ef7cf66b8674754f7ba4b4c9b60d0861bb10e4556be9ec46085a",
+      "bytes": 193451,
+      "width": 1280,
+      "height": 960,
+      "format": "image/jpeg",
+      "kind": "ai_generated_mockup",
+      "is_real_station_evidence": false
+    },
+    {
+      "path": "pumps.jpg",
+      "subject": "Architectural view below a fictional Thailand fuel station canopy; two pump dispensers with plain teal and white panels, hoses, concrete islands.",
+      "sha256": "f3f534a2c281a9d528f92de70e1d9f31650499d4eb34f5c4c9a6541f2aef0d14",
+      "bytes": 265887,
+      "width": 1280,
+      "height": 960,
+      "format": "image/jpeg",
+      "kind": "ai_generated_mockup",
+      "is_real_station_evidence": false
+    },
+    {
+      "path": "shop.jpg",
+      "subject": "Front elevation of fictional Thailand fuel station convenience shop; glass facade, blank off-white sign fascia, shaded walkway and potted plants.",
+      "sha256": "919df3371f10151a25fa2b4db37aafa8aa8cbbd2d60f805a4be922bec12c6446",
+      "bytes": 196793,
+      "width": 1280,
+      "height": 960,
+      "format": "image/jpeg",
+      "kind": "ai_generated_mockup",
+      "is_real_station_evidence": false
+    }
+  ]
+}

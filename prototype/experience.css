@@ -1,0 +1,302 @@
+/* Yolk v1.3 experience adapter — pinned LDS 0.9.4 / color-srgb-07.
+   This file maps product roles to immutable DS tokens; it does not redefine DS tokens.
+   Light uses calm alt/canvas surfaces. Dark uses the canonical dark role pairs. */
+:root {
+  color-scheme: light;
+  --canvas: var(--ldm-foundation-surface-alt-light);
+  --paper: var(--ldm-foundation-surface-canvas-light);
+  --beige: var(--ldm-foundation-surface-beige-tint-light);
+  --soft: var(--ldm-foundation-surface-soft-light);
+  --ink: var(--ldm-foundation-text-primary-light);
+  --muted: var(--ldm-foundation-text-secondary-light);
+  --line: var(--ldm-foundation-border-default-light);
+  --accent: var(--ldm-foundation-interaction-accent-light);
+  --success: var(--ldm-semantic-success-light-foreground);
+  --success-bg: var(--ldm-semantic-success-light-background);
+  --warn: var(--ldm-semantic-warning-light-foreground);
+  --warn-bg: var(--ldm-semantic-warning-light-background);
+  --no-result: var(--ldm-foundation-surface-soft-light);
+  --yl-meta: var(--ldm-foundation-text-metadata-light);
+  --yl-border-strong: var(--ldm-foundation-border-emphasis-light);
+  --yl-focus: var(--ldm-foundation-interaction-focus-ring-light);
+  --yl-selected: var(--ldm-foundation-surface-blue-tint-light);
+  --yl-on-accent: var(--ldm-foundation-text-primary-dark);
+  --yl-no-data: var(--ldm-data-state-no-data-light);
+  --yl-map-active: var(--ldm-map-active-layer-light);
+  --yl-map-hover: var(--ldm-map-hover-stroke-light);
+  --yl-map-selected: var(--ldm-map-selected-stroke-light);
+  --yl-map-halo: var(--ldm-map-marker-halo-light);
+  --yl-map-stroke: var(--ldm-map-marker-stroke-light);
+  --yl-own: var(--ldm-series-08-fill-light);
+  --yl-own-ink: var(--ldm-series-08-ink-light);
+  --yl-rival: var(--ldm-series-01-fill-light);
+  --yl-rival-ink: var(--ldm-series-01-ink-light);
+  --yl-built: var(--ldm-scale-built-light-anchor-3);
+  --yl-activity: var(--ldm-scale-activity-light-anchor-3);
+  --yl-count: var(--ldm-scale-count-light-anchor-3);
+  --yl-brand-wordmark: var(--ldm-brand-blue);
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: var(--ldm-foundation-surface-canvas-dark);
+  --paper: var(--ldm-foundation-surface-card-dark);
+  --beige: var(--ldm-foundation-surface-beige-tint-dark);
+  --soft: var(--ldm-foundation-surface-soft-dark);
+  --ink: var(--ldm-foundation-text-primary-dark);
+  --muted: var(--ldm-foundation-text-secondary-dark);
+  --line: var(--ldm-foundation-border-default-dark);
+  --accent: var(--ldm-foundation-interaction-accent-dark);
+  --success: var(--ldm-semantic-success-dark-foreground);
+  --success-bg: var(--ldm-semantic-success-dark-background);
+  --warn: var(--ldm-semantic-warning-dark-foreground);
+  --warn-bg: var(--ldm-semantic-warning-dark-background);
+  --no-result: var(--ldm-foundation-surface-soft-dark);
+  --yl-meta: var(--ldm-foundation-text-metadata-dark);
+  --yl-border-strong: var(--ldm-foundation-border-emphasis-dark);
+  --yl-focus: var(--ldm-foundation-interaction-focus-ring-dark);
+  --yl-selected: var(--ldm-foundation-surface-blue-tint-dark);
+  --yl-on-accent: var(--ldm-foundation-text-primary-light);
+  --yl-no-data: var(--ldm-data-state-no-data-dark);
+  --yl-map-active: var(--ldm-map-active-layer-dark);
+  --yl-map-hover: var(--ldm-map-hover-stroke-dark);
+  --yl-map-selected: var(--ldm-map-selected-stroke-dark);
+  --yl-map-halo: var(--ldm-map-marker-halo-dark);
+  --yl-map-stroke: var(--ldm-map-marker-stroke-dark);
+  --yl-own: var(--ldm-series-08-fill-dark);
+  --yl-own-ink: var(--ldm-series-08-ink-dark);
+  --yl-rival: var(--ldm-series-01-fill-dark);
+  --yl-rival-ink: var(--ldm-series-01-ink-dark);
+  --yl-built: var(--ldm-scale-built-dark-anchor-3);
+  --yl-activity: var(--ldm-scale-activity-dark-anchor-3);
+  --yl-count: var(--ldm-scale-count-dark-anchor-3);
+  --yl-brand-wordmark: var(--ldm-foundation-text-primary-dark);
+  /* Exact pre-generated 5-class heat ramp from pinned scales, never interpolated. */
+  --yolk-heat-1: #393129;
+  --yolk-heat-2: #7A5933;
+  --yolk-heat-3: #C28336;
+  --yolk-heat-4: #E0AA89;
+  --yolk-heat-5: #FFD1D3;
+}
+
+/* Reading sizes are product decisions; the font families remain DS roles. */
+html { font-size: 16px; scroll-padding-top: 24px; }
+body { font-size: 17px; line-height: 1.65; font-synthesis: none; }
+h1, .page-head h1 { font-size: clamp(30px, 2.5vw, 44px); line-height: 1.35; }
+h2, .section h2, .map-heading h2, .yl-section-heading h2 { font-size: clamp(24px, 1.8vw, 30px); line-height: 1.4; }
+h3, .yl-group-heading h3 { font-size: 21px; line-height: 1.45; }
+html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3 { line-height: 1.35; }
+p, .page-head p, .section p, .section p.lead, .yl-section-heading p { font-size: 17px; line-height: 1.65; }
+small, .small, .eyebrow, .crumb, .market-status, .notice, .footline,
+.geography-summary p, .geography-summary small, .geography-summary summary,
+.map-heading p, .map-explainer, .map-explainer strong, .source-credit,
+.secondary-legend, .ranking-head p, .location-main small, .row-tags .small,
+.row-desc, .row-footer, .list-head, .list-note, .preview-flag, .brand-line,
+.workspace small, .workspace strong, .target-meta, .place-score > span,
+.supply-totals span, .pagination, .status-text, .version-tag,
+.criterion-title small, .mini-row small, .impact-total small, .impact-delta,
+.feed-byline, .feed-byline time, .feed-context, .feed-receipt, .feed-empty,
+.change-line > span, .inbox-summary small, .location-sources,
+.location-verdict a, .leader-rank, .leader-person small, .leader-breakdown div,
+.metric-list small, .metric-cutoff, .catalog-row small,
+.yl-note, .yl-source, .yl-supply-stat small, .yl-supply-stat dt,
+.yl-reconciliation dt, .yl-tier, .yl-metric-caption,
+.yl-brand-label small, .yl-pattern-cell dl > div, .yl-current-label {
+  font-size: 14px; line-height: 1.6;
+}
+.tag, .nav-count, .unread-label, .count-badge { font-size: 13px; line-height: 1.5; }
+.rule-caption, .scope-note, .feed-context { font-size: 14px !important; }
+.btn, .small-button, .btn.small-button, .quiet-link, .language-toggle,
+.inbox-button, .select-wrap select, .select-wrap label, .search input,
+.field input, .field select, .field textarea, .field label,
+.person-selector select, .pattern-fieldset legend, .pattern-options label,
+.supply-tabs button, .metric-list li, .catalog-row, .change-line,
+.feed-receipt .quiet-link, .supply-table td .quiet-link,
+.yl-poi-detail summary, .yl-brand-label, .yl-metric-title,
+.yl-no-bar, .yl-empty, .yl-pattern-band > h3, .yl-pattern-cell > div > strong {
+  font-size: 16px; line-height: 1.55;
+}
+.field input, .field select, .field textarea, .select-wrap, .search { min-height: 48px; }
+.btn { min-height: 48px; padding: 10px 22px; }
+.btn, .quiet-link { white-space: normal; }
+.location-title { font-size: 21px; line-height: 1.5; }
+.score { font-size: 28px; padding-top: 8px; }
+.score small { font-size: 13px; line-height: 1.5; white-space: normal; }
+.place-row .rank { font-size: 14px; }
+.place-row { padding: 20px; }
+.heat-legend { font-size: 12px; }
+.heat-legend i { height: 12px; }
+.yl-axis { font-size: 12px; height: 32px; }
+.yl-metric-title > strong { font-size: 15px; line-height: 1.6; }
+.yl-poi-detail summary > span { font-size: 14px; }
+.yl-supply-stat dd { font-size: 32px; }
+.yl-metrics { gap: 24px; }
+.yl-metric-track, .yl-brand-track { height: 10px; }
+.yl-pattern-cell { padding: 16px; }
+.yl-pattern-current { padding: 15px; }
+.leader-person strong { font-size: 18px; }
+.leader-breakdown { gap: 12px; }
+.leader-row { padding: 20px; }
+.supply-table { font-size: 16px; }
+.supply-table th, .supply-table small { font-size: 14px; line-height: 1.6; }
+.supply-table td { padding-block: 16px; }
+.supply-tabs button span { font-size: 13px; }
+.feed-avatar { width: 36px; height: 36px; font-size: 16px; }
+.feed-item { grid-template-columns: 36px minmax(0,1fr); }
+.change-line { margin-block: 16px; }
+.geography-summary strong { font-size: 17px; }
+.signal-toggle { font-size: 18px; }
+.team-strip { font-size: 16px; }
+.criterion-title label { font-size: 17px; }
+.yl-pattern-cell dl { gap: 8px; }
+
+/* Every nested surface has a theme-aware foreground and interactive state. */
+.skip { background: var(--paper); color: var(--ink); }
+#header, #mobile-nav, dialog, .theme-control select, select option { background: var(--paper); color: var(--ink); }
+input, textarea, select, button { accent-color: var(--accent); }
+input::placeholder, textarea::placeholder { color: var(--yl-meta); opacity: 1; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, summary:focus-visible, .search input:focus-visible { outline: 3px solid var(--yl-focus); outline-offset: 3px; }
+.btn.primary, .supply-tabs button.active, .count-badge { background: var(--accent); border-color: var(--accent); color: var(--yl-on-accent); }
+.btn:not(.primary):not(.saved):hover, .quiet-link:hover, .language-toggle:hover,
+.inbox-button:hover, #sidebar nav a:hover, #mobile-nav a:hover { background: var(--soft); }
+button:disabled { opacity: 1; color: var(--yl-meta); background: var(--soft); border-color: var(--line); }
+#toast { background: var(--ink); color: var(--canvas); font-size: 16px; }
+dialog { border: 1px solid var(--line); max-width: 600px; }
+dialog::backdrop { background: color-mix(in srgb, var(--ldm-foundation-surface-canvas-dark) 70%, transparent); }
+.yolk-brand, .compact-brand { color: var(--yl-brand-wordmark); }
+.brand-footer, .mobile-signature { background: var(--ldm-brand-blue); color: var(--ldm-foundation-text-primary-dark); }
+.brand-footer p, .mobile-signature p { font-size: 15px; }
+/* Keep the exact full-colour logo untouched, on a bounded quiet light plate. */
+.logo-plate { background: var(--ldm-foundation-surface-canvas-light); }
+.province { stroke: var(--yl-border-strong); }
+.province:hover { stroke: var(--yl-map-hover); }
+.province.selected, .province:focus-visible { stroke: var(--yl-map-selected); }
+.secondary-legend i { border-color: var(--yl-border-strong); }
+.missing-swatch { background: repeating-linear-gradient(135deg, var(--yl-no-data) 0, var(--yl-no-data) 3px, var(--yl-border-strong) 3px, var(--yl-border-strong) 4px); }
+.yl-panel, .yl-pattern-cell { background: var(--paper); border-color: var(--line); }
+.yl-section-heading p { color: var(--muted); }
+.yl-note, .yl-source, .yl-supply-stat small, .yl-no-bar, .yl-empty,
+.yl-reconciliation dt, .yl-axis, .yl-tier, .yl-metric-caption, .yl-pattern-cell dt { color: var(--yl-meta); }
+.yl-key, .yl-supply-bar, .yl-p95-marker { border-color: var(--yl-border-strong); }
+.yl-own .yl-key, .yl-supply-bar .yl-own { background: var(--yl-own); }
+.yl-rival .yl-key, .yl-supply-bar .yl-rival { background: var(--yl-rival); }
+.yl-unknown .yl-key, .yl-supply-bar .yl-unknown, .yl-missing-track { background: var(--yl-no-data); }
+.yl-supply-bar, .yl-no-bar, .yl-empty, .yl-brand-track, .yl-metric-track { background: var(--soft); }
+.yl-poi-detail, .yl-reconciliation, .yl-demand-group + .yl-demand-group { border-color: var(--line); }
+.yl-brand-track span, .yl-extra .yl-metric-track > span { background: var(--yl-count); }
+.yl-building .yl-metric-track > span { background: var(--yl-built); }
+.yl-activity .yl-metric-track > span { background: var(--yl-activity); }
+.yl-axis strong, .yl-metric-title > strong, .yl-passes { color: var(--ink); }
+.yl-pattern-current { background: var(--yl-selected); border-color: var(--yl-map-selected); }
+.yl-current-label { color: var(--accent); }
+.yl-missing-track { background: var(--yl-no-data); }
+
+/* Compact native control remains keyboard and touch friendly in TH and EN. */
+.theme-control { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding-inline: 12px 6px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.theme-label { font-size: 14px; }
+.theme-control select { max-width: 118px; min-height: 42px; border: 0; border-radius: 999px; padding: 4px; font-size: 16px; color: var(--accent); cursor: pointer; }
+.header-tools { gap: 8px; }
+.person-selector select { max-width: 230px; }
+
+@media(min-width: 650px) {
+  body { font-size: 18px; }
+  p, .page-head p, .section p, .section p.lead, .yl-section-heading p { font-size: 18px; }
+  main { padding: 32px 28px 104px; }
+  .section, .yl-panel, .criteria-form .section { padding: 28px; }
+  .location-title { font-size: 22px; }
+}
+@media(min-width: 1100px) {
+  #sidebar { width: 256px; padding: 28px 20px 0; }
+  .yolk-shell { margin-left: 256px; }
+  #sidebar nav a { font-size: 17px; padding: 12px; min-height: 52px; }
+  .yolk-brand span { font-size: 17px; }
+  .yolk-brand strong { font-size: 62px; }
+  .brand-line { font-size: 16px; }
+  .workspace strong { font-size: 16px; }
+  .workspace small { font-size: 14px; }
+  .workspace { gap: 10px; }
+  #header { flex-wrap: wrap; padding: 16px 32px; }
+  .header-tools { flex-wrap: wrap; }
+  main { padding: 32px 32px 56px; max-width: 1820px; }
+  .national-layout { grid-template-columns: minmax(0,1.2fr) minmax(360px,1fr); }
+  .national-map { position: static; }
+  #thai-map { height: 540px; }
+  .map-explainer { position: static; width: auto; max-width: none; padding: 16px 8px 20px; font-size: 14px; }
+  .map-explainer strong { font-size: 15px; }
+  .map-explainer .tag { font-size: 13px; }
+  .ranking-list { max-height: none; overflow: visible; padding: 0; }
+  .criteria-grid { grid-template-columns: minmax(0,1.25fr) minmax(330px,.8fr); }
+  .yl-landscape { grid-template-columns: minmax(0,1fr) minmax(0,1.15fr); }
+  .brand-footer { margin-inline: -20px; }
+}
+@media(min-width: 1500px) {
+  #sidebar { width: 272px; padding-inline: 24px; }
+  .yolk-shell { margin-left: 272px; }
+  .brand-footer { margin-inline: -24px; }
+  .header-tools { flex-wrap: nowrap; }
+  main { padding-inline: 40px; }
+  #thai-map { height: 620px; }
+  .national-layout { grid-template-columns: minmax(0,1.15fr) minmax(440px,1fr); }
+}
+@media(max-width: 1099px) {
+  .preview-flag { display: none; }
+  #header { flex-wrap: wrap; }
+  .header-tools { flex: 1; }
+}
+@media(max-width: 649px) {
+  #header { align-items: flex-start; padding: 12px 16px; }
+  .compact-brand { padding-top: 10px; font-size: 28px; }
+  .compact-brand span { font-size: 12px; }
+  .header-tools { gap: 6px; }
+  .person-selector { margin: 0; }
+  .person-selector select { font-size: 14px; }
+  .theme-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .theme-control { padding-inline: 6px; }
+  .theme-control select { max-width: 104px; font-size: 14px; }
+  .language-toggle, .inbox-button { font-size: 14px; padding: 6px 10px; }
+  main { padding: 24px 16px 112px; }
+  .page-head { gap: 16px; }
+  .page-head h1 { font-size: 30px; }
+  .section, .yl-panel { padding: 20px; }
+  .map-heading { padding-inline: 20px; }
+  .location-title { font-size: 20px; }
+  .row-top { flex-wrap: wrap; }
+  .score { font-size: 26px; }
+  .score small { max-width: 75px; }
+  .place-row-footer { flex-wrap: wrap; gap: 10px; }
+  .place-row-footer .quiet-link, .place-row-footer .btn { font-size: 16px; }
+  .supply-table td { font-size: 16px; }
+  .supply-table td::before { font-size: 13px; }
+  .supply-table td:first-child > strong { font-size: 18px; }
+  #mobile-nav { padding-block: 8px max(8px, env(safe-area-inset-bottom)); }
+  #mobile-nav a { font-size: 13px; white-space: normal; line-height: 1.35; padding: 6px 3px; text-align: center; }
+  .mobile-impact span { font-size: 13px; }
+  .mobile-impact .btn { font-size: 14px; }
+  .tier-inputs { grid-template-columns: 1fr; }
+  .pattern-options { grid-template-columns: 1fr; }
+  .yl-pattern-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .yl-pattern-cell, .yl-pattern-current { padding: 12px; }
+  .yl-pattern-cell > div > strong { font-size: 15px; }
+  .yl-supply-stats { gap: 12px; }
+  .yl-supply-stat dd { font-size: 28px; }
+  .leader-breakdown { grid-template-columns: 1fr; }
+  .metric-list li { flex-direction: column; gap: 6px; }
+  .metric-cutoff { text-align: left; max-width: none; font-size: 14px; }
+  .geography-summary { gap: 16px; }
+}
+@media(max-width: 380px) {
+  .header-tools { flex-basis: 100%; justify-content: flex-start; }
+  .person-selector { width: auto; margin-left: auto; }
+  .person-selector select { max-width: 154px; }
+  .inbox-button { flex: 1; }
+  .compact-brand { padding-top: 0; }
+  .page-head h1 { font-size: 28px; }
+  .yl-supply-stats { grid-template-columns: 1fr; }
+  .yl-supply-stat { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+  .yl-supply-stat dd { margin: 0; }
+  .yl-pattern-grid { grid-template-columns: 1fr; }
+  .yl-pattern-cell dl { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .yl-pattern-cell dl > div { flex-direction: column; }
+  .leader-row { padding: 16px; }
+}
+@media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
