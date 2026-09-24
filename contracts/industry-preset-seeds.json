@@ -89,5 +89,8 @@
         "unknown_brand": "unknown_not_zero"
       }
     }
-  ]
+  ],
+  "applies_to_current_preview": false,
+  "current_preview_criteria": "criteria.v1.3.json",
+  "scope_note": "Historical cross-industry hypotheses only. Do not implement these weighted models as current Yolk or Bangchak defaults."
 }

@@ -1,3 +1,6 @@
+status: historical_proposal_not_active
+superseded_by: criteria.v1.3.json
+warning: "Do not implement the weighted model below for v1.3; retained only as historical proposal."
 schema_version: "citymeter.criteria/1.0"
 scenario_key: "fuel-expansion-reference"
 scenario_version: 1

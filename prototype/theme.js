@@ -32,7 +32,7 @@
     const th = lang !== 'en';
     const label = th ? 'ธีม' : 'Theme';
     const names = th ? ['สว่าง', 'มืด', 'ตามเครื่อง'] : ['Light', 'Dark', 'System'];
-    return '<label class="theme-control"><span class="theme-label">' + label + '</span><select data-yolk-theme aria-label="' + label + '">' + choices.map((choice, index) => '<option value="' + choice + '"' + (choice === preference ? ' selected' : '') + '>' + names[index] + '</option>').join('') + '</select></label>';
+    return '<label class="theme-control"><span class="theme-label">' + (root.YolkIcons?.icon('contrast') || '') + label + '</span><select data-yolk-theme aria-label="' + label + '">' + choices.map((choice, index) => '<option value="' + choice + '"' + (choice === preference ? ' selected' : '') + '>' + names[index] + '</option>').join('') + '</select></label>';
   }
   root.document.addEventListener('change', event => {
     if (event.target && event.target.matches && event.target.matches('[data-yolk-theme]')) setPreference(event.target.value);

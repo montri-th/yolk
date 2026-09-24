@@ -27,6 +27,9 @@ jobs:
           node scripts/check-photo-runtime.cjs
           node scripts/check-map-runtime.cjs
           node scripts/check-photo-form.cjs
+          node scripts/check-brand-identity.cjs
+          node scripts/check-icons.cjs
+          python3 scripts/verify-handoff.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static preview

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "yolk.ds-assets/1.0",
-  "artifact": "CityMETER: Yolk v1.2",
+  "artifact": "CityMETER: Yolk v1.3.1",
   "release": {
     "designSystem": "Landometer Design System",
     "dsVersion": "0.9.4",
@@ -23,11 +23,26 @@
       "prototype/assets/yolk-analytical.css",
       "prototype/base.css",
       "prototype/yolk.css",
-      "prototype/landscape.css"
+      "prototype/landscape.css",
+      "prototype/vendor/leaflet-1.9.4/leaflet.css",
+      "prototype/location-map.css",
+      "prototype/branch-photos.css",
+      "prototype/icons.css",
+      "prototype/experience.css"
     ],
     "logo": "prototype/assets/landometer-logo-horizontal-v12-889.png",
-    "staticMotif": "prototype/assets/dial-quiet.svg",
-    "fontLicensesBundled": true
+    "staticMotif": null,
+    "fontLicensesBundled": true,
+    "motifsEnabled": false,
+    "identityPolicy": {
+      "logoFrameAllowed": false,
+      "artificialBackingAllowed": false,
+      "cropOrRecolourAllowed": false,
+      "light": "Unchanged transparent logo directly on existing page surface",
+      "dark": "Governed text identity: Landometer; identity-typography.app-header.browser.01",
+      "motifsEnabled": false
+    },
+    "iconsContract": "contracts/icons.v1.3.json"
   },
   "publicationScope": {
     "requestedDestination": "montri-th/yolk GitHub web preview and dev asset handoff",
@@ -155,7 +170,8 @@
       "upstreamAuthority": "LDS 0.9.4 motif overlay build kit",
       "upstreamPath": "build-kit/motif/svg/dial-full.svg",
       "runtimeLinked": false,
-      "previewDistribution": "ship_with_preview"
+      "previewDistribution": "reference_only",
+      "exclusionReason": "Owner explicitly removed all motifs from Yolk on 2026-09-24."
     },
     {
       "path": "prototype/assets/dial-quiet.svg",
@@ -166,8 +182,9 @@
       "registryId": "landometer.dial.quiet",
       "upstreamAuthority": "LDS 0.9.4 motif overlay build kit",
       "upstreamPath": "build-kit/motif/svg/dial-quiet.svg",
-      "runtimeLinked": true,
-      "previewDistribution": "ship_with_preview"
+      "runtimeLinked": false,
+      "previewDistribution": "reference_only",
+      "exclusionReason": "Owner explicitly removed all motifs from Yolk on 2026-09-24."
     },
     {
       "path": "prototype/assets/fonts.css",
@@ -323,7 +340,8 @@
       "upstreamAuthority": "LDS 0.9.4 motif overlay build kit",
       "upstreamPath": "build-kit/motif/svg/rings-full.svg",
       "runtimeLinked": false,
-      "previewDistribution": "ship_with_preview"
+      "previewDistribution": "reference_only",
+      "exclusionReason": "Owner explicitly removed all motifs from Yolk on 2026-09-24."
     },
     {
       "path": "prototype/assets/rings-quiet.svg",
@@ -335,7 +353,8 @@
       "upstreamAuthority": "LDS 0.9.4 motif overlay build kit",
       "upstreamPath": "build-kit/motif/svg/rings-quiet.svg",
       "runtimeLinked": false,
-      "previewDistribution": "ship_with_preview"
+      "previewDistribution": "reference_only",
+      "exclusionReason": "Owner explicitly removed all motifs from Yolk on 2026-09-24."
     },
     {
       "path": "prototype/assets/yolk-analytical.css",
@@ -366,6 +385,5 @@
     "staticAudit": "evidence/ds-static-audit.json",
     "visualStatus": "evidence/verification-status.md"
   },
-  "status": "historical_inventory_not_active",
-  "superseded_by": "contracts/ds-assets.v1.3.json"
+  "status": "active_runtime_ds_inventory"
 }

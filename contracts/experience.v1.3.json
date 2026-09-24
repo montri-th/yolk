@@ -446,5 +446,14 @@
       "photo_orientation_and_storage_errors"
     ],
     "source_tests_do_not_close_gate": true
+  },
+  "handoff_revision": "1.3.1",
+  "identityAndIcons": {
+    "motifsEnabled": false,
+    "logoFrameAllowed": false,
+    "artificialBackingAllowed": false,
+    "iconsContract": "contracts/icons.v1.3.json",
+    "visibleTextRequired": true,
+    "iconOnlyDecisionsAllowed": false
   }
 }

@@ -1,0 +1,75 @@
+{
+  "receipt_version": "yolk.icon-extension/1.0",
+  "artifact_version": "1.3",
+  "retrieved_at": "2026-09-24",
+  "purpose": "Meaningful interface icons beside visible action/navigation labels; no motifs.",
+  "family": "Material Symbols Rounded",
+  "asset_role": "interface_icon",
+  "canonical_ds_package_mutated": false,
+  "selection_authority": {
+    "scope": "Yolk artifact-specific extension",
+    "basis": "Explicit user request to use meaningful DS-style icons and remove motifs; glyph selection by implementation",
+    "canonical_registry_amendment": false
+  },
+  "ds_rule": "Landometer 0.9.4 ICON-01",
+  "axes": {
+    "FILL": 0,
+    "wght": 300,
+    "GRAD": 0,
+    "opsz": 24
+  },
+  "glyphs": [
+    "add",
+    "add_photo_alternate",
+    "arrow_back",
+    "bookmark_add",
+    "bookmark_added",
+    "close",
+    "contrast",
+    "dark_mode",
+    "delete",
+    "edit",
+    "fact_check",
+    "groups",
+    "help",
+    "history",
+    "layers",
+    "light_mode",
+    "local_gas_station",
+    "location_on",
+    "map",
+    "menu",
+    "notifications",
+    "open_in_new",
+    "photo",
+    "satellite_alt",
+    "save",
+    "search",
+    "share",
+    "store",
+    "tune"
+  ],
+  "sources": {
+    "documentation": "https://developers.google.com/fonts/docs/material_symbols",
+    "css_request": "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded%3Aopsz%2Cwght%2CFILL%2CGRAD%4024%2C300%2C0%2C0&icon_names=add%2Cadd_photo_alternate%2Carrow_back%2Cbookmark_add%2Cbookmark_added%2Cclose%2Ccontrast%2Cdark_mode%2Cdelete%2Cedit%2Cfact_check%2Cgroups%2Chelp%2Chistory%2Clayers%2Clight_mode%2Clocal_gas_station%2Clocation_on%2Cmap%2Cmenu%2Cnotifications%2Copen_in_new%2Cphoto%2Csatellite_alt%2Csave%2Csearch%2Cshare%2Cstore%2Ctune&display=block",
+    "font_response_url": "https://fonts.gstatic.com/l/font?kit=syl0-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjpZIvDmUSVOK7BDB_Qb9vUSzq3wzLK-P0J-V_Zs-QtQth3-jOcbTCVpeRL2w5rwZu2rNmlXxeJKJBiCa84ngkLQydMFlJN7QHBbSAARMZYSrxUtAiBLQO9SPkeQe78fhmpQ7Y2N5OdOVfClz0uuLAiUTXE4GWAXt8Z2NW2e8sRG8LfrA&skey=70ddea8fe54d532e&v=v375"
+  },
+  "asset": {
+    "path": "prototype/assets/material-symbols-rounded-yolk-300-v1.3.woff2",
+    "bytes": 5632,
+    "sha256": "be2266db2bc725c1220edb27d7e8d28f1fe26d3635094bb168827bdf98b383f7",
+    "format": "woff2"
+  },
+  "licenseOrPermission": {
+    "spdx": "Apache-2.0",
+    "path": "prototype/assets/material-symbols-Apache-2.0.txt",
+    "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+  },
+  "fallback": "Keep visible text; hide decorative icon until font loads; unsupported icon names render no icon.",
+  "verification": {
+    "woff2_signature": true,
+    "requested_glyph_count": 29,
+    "source_axes": "static Google Fonts request",
+    "rendered_browser_gate": "open"
+  }
+}

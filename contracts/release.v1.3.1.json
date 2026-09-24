@@ -1,0 +1,396 @@
+{
+  "schema_version": "yolk.release/1.3",
+  "product_version": "1.3",
+  "handoff_revision": "1.3.1",
+  "release_date": "2026-09-24",
+  "status": "ready_with_open_manual_gate",
+  "runtime_entrypoint": "prototype/index.html",
+  "public_preview": "https://montri-th.github.io/yolk/",
+  "source_repository": "https://github.com/montri-th/yolk",
+  "deployment_binding": "GitHub Pages workflow at the release tag commit; external deployment receipt records commit and run URL",
+  "runtime_fingerprint": {
+    "algorithm": "sha256",
+    "serialization": "sorted records: sha256 + two spaces + package-relative path + LF; no self-reference",
+    "value": "324606a083e9addad03b9d0b2646096006a526ffd1db5a9097c068cc9aaae60f",
+    "file_count": 63
+  },
+  "files": [
+    {
+      "path": "prototype/.nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "prototype/app.js",
+      "sha256": "2c3e53b8405f624579b2d006c90a111cdf8f1613fa60195d9103dd53d112ea96",
+      "bytes": 53272
+    },
+    {
+      "path": "prototype/assets/arvo-OFL.txt",
+      "sha256": "f4f2cb57f7050c4e615863a39bf04811eada567d76d99b10b0f33d1e10e6cccd",
+      "bytes": 4508
+    },
+    {
+      "path": "prototype/assets/arvo-latin-700-normal.woff2",
+      "sha256": "3d908a2c04ec4c59d26d1454008b2d6744480654663a5f88e439f6483976bd37",
+      "bytes": 17348
+    },
+    {
+      "path": "prototype/assets/bai-jamjuree-OFL.txt",
+      "sha256": "74b7deafa632a5ed301dc322fcc2867ac200402e06b6d0b0b01faf09b8514e3e",
+      "bytes": 5487
+    },
+    {
+      "path": "prototype/assets/bai-jamjuree-latin-400-normal.woff2",
+      "sha256": "5200faf54f32adc1dc47b8522adbd1399e739f4ce5c9236866806c04d6397b19",
+      "bytes": 11596
+    },
+    {
+      "path": "prototype/assets/bai-jamjuree-latin-600-normal.woff2",
+      "sha256": "5ae338ac0db4222226ad96bf1b4b460030c3af1affabb475c67bf218b2eaa83f",
+      "bytes": 11844
+    },
+    {
+      "path": "prototype/assets/bai-jamjuree-thai-400-normal.woff2",
+      "sha256": "357f8fe9fd08973568a061a2fc266a07819cdc33e8c9bb2b39985cc4ec49bfa9",
+      "bytes": 9168
+    },
+    {
+      "path": "prototype/assets/bai-jamjuree-thai-600-normal.woff2",
+      "sha256": "547483c6fbedcc13f4c04489c4ec3f6be4c69877ae7cd4cfbf4a0d289889ba32",
+      "bytes": 9808
+    },
+    {
+      "path": "prototype/assets/color-srgb-07.production.css",
+      "sha256": "60fbdbf1df810980e3f233d4861c6e9f39790c4d63bdb29bf09c0d4c016d288b",
+      "bytes": 14096
+    },
+    {
+      "path": "prototype/assets/demo-photos/README.md",
+      "sha256": "389e5680abbd861299bc1a245fdd21efd1d18527a4415dde10ce83256129e4fc",
+      "bytes": 864
+    },
+    {
+      "path": "prototype/assets/demo-photos/entrance.jpg",
+      "sha256": "7db904b23f124764c839512d8d96af7af8e0fa2f6ad6dbbf60c5ee202b1c0596",
+      "bytes": 225787
+    },
+    {
+      "path": "prototype/assets/demo-photos/forecourt.jpg",
+      "sha256": "e3c25fb2016fca06c5d92ff6c86dcd9cc15879e2dc41de4404fc054317b5ab74",
+      "bytes": 247490
+    },
+    {
+      "path": "prototype/assets/demo-photos/frontage.jpg",
+      "sha256": "8266be1a9bc9ef7cf66b8674754f7ba4b4c9b60d0861bb10e4556be9ec46085a",
+      "bytes": 193451
+    },
+    {
+      "path": "prototype/assets/demo-photos/manifest.json",
+      "sha256": "1bcbad60228d229e72816339abbdf59880c4781e5b9260940e41142a5d638aac",
+      "bytes": 3055
+    },
+    {
+      "path": "prototype/assets/demo-photos/pumps.jpg",
+      "sha256": "f3f534a2c281a9d528f92de70e1d9f31650499d4eb34f5c4c9a6541f2aef0d14",
+      "bytes": 265887
+    },
+    {
+      "path": "prototype/assets/demo-photos/shop.jpg",
+      "sha256": "919df3371f10151a25fa2b4db37aafa8aa8cbbd2d60f805a4be922bec12c6446",
+      "bytes": 196793
+    },
+    {
+      "path": "prototype/assets/fonts.css",
+      "sha256": "868806b207db6064669db29452fd35ab634aafb344a537b5ddf1e05393ceb9e9",
+      "bytes": 2776
+    },
+    {
+      "path": "prototype/assets/ibm-plex-sans-thai-OFL.txt",
+      "sha256": "1b4f4d1f1463b63f1356e7b6034ad5a94311b35ffb53cc4bf83f2fbda24450e4",
+      "bytes": 4796
+    },
+    {
+      "path": "prototype/assets/ibm-plex-sans-thai-looped-OFL.txt",
+      "sha256": "e3ac4237aef600394644cdab2375d7011b0f80d2229ff05f47df2e61a109ab57",
+      "bytes": 4832
+    },
+    {
+      "path": "prototype/assets/ibm-plex-sans-thai-looped-latin-700-normal.woff2",
+      "sha256": "47eb0fe82a8b96cc5f1ac057e2edad4d2550d6b73d4aa030697bf1678047c526",
+      "bytes": 18012
+    },
+    {
+      "path": "prototype/assets/ibm-plex-sans-thai-looped-thai-700-normal.woff2",
+      "sha256": "fa03fc4dda6a69763997e79d50e0437795d06c02e1798bdacf3a2f5e685cea2c",
+      "bytes": 14176
+    },
+    {
+      "path": "prototype/assets/ibm-plex-sans-thai-thai-400-normal.woff2",
+      "sha256": "2d66381c26d32bf2a95bfe559d1a5ed5475fcdac3fa128e45a33301010d42056",
+      "bytes": 11804
+    },
+    {
+      "path": "prototype/assets/jetbrains-mono-OFL.txt",
+      "sha256": "403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b",
+      "bytes": 4524
+    },
+    {
+      "path": "prototype/assets/jetbrains-mono-latin-400-normal.woff2",
+      "sha256": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb",
+      "bytes": 21168
+    },
+    {
+      "path": "prototype/assets/landometer-logo-horizontal-v12-889.png",
+      "sha256": "989f58583bc54e4b9a743d0f04308df92fb7cf0bb2ae3ba9398ec9c03c481554",
+      "bytes": 31691
+    },
+    {
+      "path": "prototype/assets/material-symbols-Apache-2.0.txt",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "bytes": 11357
+    },
+    {
+      "path": "prototype/assets/material-symbols-rounded-nav-300.woff2",
+      "sha256": "d7e283106ed2898726b24504c4e0f5ad524292984a90a4d29553c7dcf53b9657",
+      "bytes": 2500
+    },
+    {
+      "path": "prototype/assets/material-symbols-rounded-open-in-new-300.woff2",
+      "sha256": "778b29f8befe5ba7a8f0f8188d4c12e3c53d00810dac10337609b04d8506d46e",
+      "bytes": 1124
+    },
+    {
+      "path": "prototype/assets/material-symbols-rounded-yolk-300-v1.3.woff2",
+      "sha256": "be2266db2bc725c1220edb27d7e8d28f1fe26d3635094bb168827bdf98b383f7",
+      "bytes": 5632
+    },
+    {
+      "path": "prototype/assets/yolk-analytical.css",
+      "sha256": "940f9689dca0f246ee5a03890f5852ab8ffb299b11fc6305ce0147058b93346d",
+      "bytes": 238
+    },
+    {
+      "path": "prototype/base.css",
+      "sha256": "20bfe74b621c273a417a460e4f7511e7560a93ced7eeda8c72280a956a1e262a",
+      "bytes": 19969
+    },
+    {
+      "path": "prototype/branch-photos.css",
+      "sha256": "c275b384a4460c5e2189f8bb15e5fc564d1b9abac904f035802086f0b0c9453b",
+      "bytes": 3743
+    },
+    {
+      "path": "prototype/branch-photos.js",
+      "sha256": "9273a715345c463d15d7a9ae3ead45ef2d977deb9619e053549b170677de09a3",
+      "bytes": 16673
+    },
+    {
+      "path": "prototype/data/demo-data.js",
+      "sha256": "b728ae437a3be235580724c87c89d6dc0f43ab2f7501dea4bcdf03007546870c",
+      "bytes": 200987
+    },
+    {
+      "path": "prototype/data/demo-data.json",
+      "sha256": "1e9dc273dd4da0edb9488b9f5540032a8b2decc4f8efe15eca3b707e03d94fb9",
+      "bytes": 200872
+    },
+    {
+      "path": "prototype/data/demo-map-context.js",
+      "sha256": "880a19a6ad2805d24b7767348ac06237ed5bb802401bd0bacb6ac70cde321213",
+      "bytes": 2798
+    },
+    {
+      "path": "prototype/data/thailand-provinces.js",
+      "sha256": "053f780e80ef7d6c64cc12cc5cf3c79adebb36b7be32f0cba6a76869a8ca876e",
+      "bytes": 495902
+    },
+    {
+      "path": "prototype/data/thailand-provinces.json",
+      "sha256": "8dbcdc3678938690dec57cfe7d208b85368bf1dd66ba7094e31710be834f427c",
+      "bytes": 495684
+    },
+    {
+      "path": "prototype/experience.css",
+      "sha256": "666985b6cf86513c8ea545bab39a3f79b26a19fad54a25e146e05a1f1acb4fc0",
+      "bytes": 17801
+    },
+    {
+      "path": "prototype/icons.css",
+      "sha256": "ce06c492dc11dffeb0e5925fee95183b1a4e3386d7bd47b6ab36e5973fc1f8ed",
+      "bytes": 1236
+    },
+    {
+      "path": "prototype/icons.js",
+      "sha256": "32e1bd8a3c167da8b5f3f28190d140c4be2760bf3e3286a6eaec2af8806b2156",
+      "bytes": 1957
+    },
+    {
+      "path": "prototype/index.html",
+      "sha256": "6d88f32c91466b6ec2b2b76a4ab6a72f106b23fb9672679413993cf58a276b6f",
+      "bytes": 2158
+    },
+    {
+      "path": "prototype/landscape.css",
+      "sha256": "e76ba604eedbe36a03e528d00889fc892e3364277f6c61c4d442165cbce7907d",
+      "bytes": 6981
+    },
+    {
+      "path": "prototype/landscape.js",
+      "sha256": "2a6dedac30f015d754a5c7aa0de5f1649bac8701d1f58e6baa120b8f5185192c",
+      "bytes": 19368
+    },
+    {
+      "path": "prototype/leaderboard.js",
+      "sha256": "39d20e0e1758b76668625fff8a61b0843b71ac44791ec0b43d78dab97d945718",
+      "bytes": 2974
+    },
+    {
+      "path": "prototype/location-map.css",
+      "sha256": "fabdc09ac176331496c21af105a9c13cc0cd6c3e203edfc33cdb3bed709d5817",
+      "bytes": 9137
+    },
+    {
+      "path": "prototype/location-map.js",
+      "sha256": "bbf2424b2a27feb50f99e7ccd600fbdd5d75d789f58f9213daf00197be26e85f",
+      "bytes": 21953
+    },
+    {
+      "path": "prototype/metrics.js",
+      "sha256": "fc9cec4e52bfac3e9fc1ebe7e5e5d4ff266e0c84ec01745fd1d57c15cabf3e3b",
+      "bytes": 4907
+    },
+    {
+      "path": "prototype/model.js",
+      "sha256": "cff4a6aee521c2fa781cbaf95f52fdad426dfa6fb2c7a90ce535dd466d477139",
+      "bytes": 15378
+    },
+    {
+      "path": "prototype/supply-ui.js",
+      "sha256": "d889805fde2fbc7c7b3039a61d69d4edae4ffd8b350c5e38d12b3fa917446820",
+      "bytes": 17251
+    },
+    {
+      "path": "prototype/theme.js",
+      "sha256": "232a0bb5f1c85473d5572c6f76fff430685300f6c731f6cd0773b9e082c2d568",
+      "bytes": 2938
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/LICENSE",
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
+      "bytes": 1395
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/layers-2x.png",
+      "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "bytes": 1259
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/layers.png",
+      "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "bytes": 696
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/marker-icon-2x.png",
+      "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "bytes": 2464
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/marker-icon.png",
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "bytes": 1466
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/images/marker-shadow.png",
+      "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "bytes": 618
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.css",
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "bytes": 14806
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.js",
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "bytes": 147552
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.js.map",
+      "sha256": "600a10dc5cd110de0699510d322afcbe01c7ca90b4c5f48adc20314c70aac753",
+      "bytes": 225544
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/vendor-manifest.json",
+      "sha256": "e4df177af08ca050a7986533d8829660b63c5a17058594ced87f8233e741b5df",
+      "bytes": 1573
+    },
+    {
+      "path": "prototype/yolk.css",
+      "sha256": "ac1fd3fbfe92313de886c73a412e30f7cc03f8b6850ee1520d86556e0b87e5da",
+      "bytes": 21625
+    }
+  ],
+  "asset_contract": "contracts/assets.v1.3.json",
+  "icons_contract": "contracts/icons.v1.3.json",
+  "changes": [
+    "Remove all decorative motifs and their runtime assets",
+    "Remove logo frame and decorative footer; preserve native light image and governed dark text identity",
+    "Add labelled DS-style icons at navigation and decisions",
+    "Supply updated product statement, task DAG, asset index and self-verifying handoff"
+  ],
+  "unchanged_analytical_defaults": "contracts/criteria.v1.3.json",
+  "data_scope": {
+    "type": "synthetic_public_demo",
+    "area_count": 308,
+    "poi_count": 16,
+    "contains_private_sources": false,
+    "photos": "5 AI mockup photos; no user-uploaded photos in package"
+  },
+  "verification": {
+    "mode": "source_and_node_vm_mock_dom",
+    "run_date": "2026-09-24",
+    "checks": [
+      {
+        "command": "node scripts/check-public-runtime.cjs",
+        "result": "passed",
+        "routes": 36
+      },
+      {
+        "command": "node scripts/check-theme-runtime.cjs",
+        "result": "passed",
+        "assertions": 12
+      },
+      {
+        "command": "node scripts/check-photo-runtime.cjs",
+        "result": "passed",
+        "assertions": 28
+      },
+      {
+        "command": "node scripts/check-map-runtime.cjs",
+        "result": "passed",
+        "data_assertions": 2493,
+        "lifecycle_assertions": 24,
+        "integration_assertions": 15
+      },
+      {
+        "command": "node scripts/check-photo-form.cjs",
+        "result": "passed",
+        "assertions": 27
+      },
+      {
+        "command": "node scripts/check-brand-identity.cjs",
+        "result": "passed",
+        "assertions": 13
+      },
+      {
+        "command": "node scripts/check-icons.cjs",
+        "result": "passed",
+        "glyph_allowlist": 29
+      }
+    ],
+    "browser_visual_qa": "open; not performed",
+    "real_device_qa": "open; not performed"
+  },
+  "production_backend": "planned, not included in static preview"
+}

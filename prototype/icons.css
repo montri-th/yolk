@@ -1,0 +1,38 @@
+/* Product-specific 29-glyph extension: Material Symbols Rounded / FILL 0 / 300 / GRAD 0 / opsz 24. */
+@font-face {
+  font-family: "Yolk Material Symbols";
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url("assets/material-symbols-rounded-yolk-300-v1.3.woff2") format("woff2");
+}
+.yl-icon {
+  font-family: "Yolk Material Symbols";
+  font-weight: 300;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  letter-spacing: normal;
+  overflow-wrap: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 1em;
+  vertical-align: -0.24em;
+  margin-inline-end: 0.38em;
+  color: currentColor;
+  pointer-events: none;
+  visibility: hidden;
+}
+.yolk-icons-ready .yl-icon { visibility: visible; }
+.yl-icon:last-child { margin-inline-end: 0; }
+/* In flex action rows keep one intentional gap, without changing controls or their labels. */
+.nav-link > .yl-icon, .btn > .yl-icon, .button > .yl-icon { margin-inline-end: 0.25em; }

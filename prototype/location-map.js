@@ -18,6 +18,7 @@
   };
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const txt=(lang,th,en)=>lang==='en'?en:th;
+  const uiIcon=name=>global.YolkIcons?.icon(name)||'';
   const numeric=v=>typeof v==='number'&&Number.isFinite(v);
   const safePoint=p=>numeric(p?.lat)&&numeric(p?.lng)&&Math.abs(p.lat)<=85&&Math.abs(p.lng)<=180;
   const label=(key,lang)=>categories[key]?.[lang==='en'?'en':'th']||categories.other[lang==='en'?'en':'th'];
@@ -54,10 +55,10 @@
     return `<section class="yl-location-map" aria-labelledby="yl-map-title" data-location-map>
       <div class="yl-map-heading"><div><p class="yl-map-eyebrow">${txt(lang,'มองทำเลให้รอบด้าน','Explore the surroundings')}</p><h2 id="yl-map-title">${txt(lang,'ขอบเขตทำเลและจุดสำคัญ','Location boundary & key places')}</h2><p>${txt(lang,'ดูสาขาและจุดที่มีข้อมูลในทำเล','Explore available branches and places in this location')}</p></div><span class="yl-map-badge">${synthetic?txt(lang,'ฉากสาธิต','Demo scene'):txt(lang,'แผนที่ทำเล','Location map')}</span></div>
       <div class="yl-map-controls"><div class="yl-basemaps" role="group" aria-label="${txt(lang,'แผนที่พื้นหลัง','Basemap')}">
-        <button type="button" class="yl-basemap active" data-map-style="simplified" aria-pressed="true">${txt(lang,'เรียบง่าย','Simplified')}</button>
-        <button type="button" class="yl-basemap" data-map-style="satellite" aria-pressed="false">${txt(lang,'ดาวเทียม','Satellite')}</button>
-        <button type="button" class="yl-basemap" data-map-style="detailed" aria-pressed="false">${txt(lang,'รายละเอียด','Detailed')}</button>
-      </div><button type="button" class="yl-map-fit" data-map-fit><span aria-hidden="true">⌖</span> ${txt(lang,'ดูทั้งทำเล','Fit location')}</button></div>
+        <button type="button" class="yl-basemap active" data-map-style="simplified" aria-pressed="true">${uiIcon('map')}${txt(lang,'เรียบง่าย','Simplified')}</button>
+        <button type="button" class="yl-basemap" data-map-style="satellite" aria-pressed="false">${uiIcon('satellite_alt')}${txt(lang,'ดาวเทียม','Satellite')}</button>
+        <button type="button" class="yl-basemap" data-map-style="detailed" aria-pressed="false">${uiIcon('layers')}${txt(lang,'รายละเอียด','Detailed')}</button>
+      </div><button type="button" class="yl-map-fit" data-map-fit>${uiIcon('location_on')}${txt(lang,'ดูทั้งทำเล','Fit location')}</button></div>
       <div class="yl-map-surface" data-basemap="simplified"><div class="yl-map-canvas" id="yl-location-map" role="region" aria-label="${txt(lang,'แผนที่โต้ตอบ เลื่อนและซูมได้','Interactive map: pan and zoom')}"></div><div class="yl-map-loading" data-map-loading>${txt(lang,'กำลังเตรียมแผนที่…','Preparing map…')}</div></div>
       <div class="yl-map-network" role="status" aria-live="polite" data-map-network hidden><span></span><button type="button" data-map-retry>${txt(lang,'ลองอีกครั้ง','Retry')}</button></div>
       <div class="yl-map-underlay"><div class="yl-map-layers" role="group" aria-label="${txt(lang,'ชั้นข้อมูล','Map layers')}">${c.boundary?`<label><input type="checkbox" data-map-layer="boundary" checked><span class="yl-boundary-key" aria-hidden="true"></span>${txt(lang,'ขอบเขต','Boundary')}</label>`:''}${available.map(k=>`<label><input type="checkbox" data-map-layer="${k}" checked><span class="yl-map-key yl-key-${k}" aria-hidden="true">${esc(categories[k].symbol)}</span>${esc(label(k,lang))} <b>${c.pois.filter(p=>p.category===k).length}</b></label>`).join('')}</div>

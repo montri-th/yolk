@@ -164,10 +164,19 @@ button:disabled { opacity: 1; color: var(--yl-meta); background: var(--soft); bo
 dialog { border: 1px solid var(--line); max-width: 600px; }
 dialog::backdrop { background: color-mix(in srgb, var(--ldm-foundation-surface-canvas-dark) 70%, transparent); }
 .yolk-brand, .compact-brand { color: var(--yl-brand-wordmark); }
-.brand-footer, .mobile-signature { background: var(--ldm-brand-blue); color: var(--ldm-foundation-text-primary-dark); }
-.brand-footer p, .mobile-signature p { font-size: 15px; }
-/* Keep the exact full-colour logo untouched, on a bounded quiet light plate. */
-.logo-plate { background: var(--ldm-foundation-surface-canvas-light); }
+/* Identity is placed directly on the page, never inside a card or backing plate.
+   The pinned DS has no inverse raster logo. Dark uses its approved governed text
+   binding, not a recoloured image or a reconstructed wordmark. */
+.landometer-identity-img { display: block; width: 200px; max-width: calc(100% - 48px); height: auto; }
+.landometer-identity-text { display: none; font: 700 18px/1.2 Arvo, serif; letter-spacing: 0; color: var(--ink); }
+.sidebar-identity { margin: auto 8px 24px; }
+.mobile-identity { margin: 32px 40px 24px; }
+:root[data-theme="dark"] .landometer-identity-img { display: none; }
+:root[data-theme="dark"] .landometer-identity-text { display: block; }
+@media(min-width:1100px) {
+  .mobile-identity, :root[data-theme="dark"] .mobile-identity { display: none; }
+}
+
 .province { stroke: var(--yl-border-strong); }
 .province:hover { stroke: var(--yl-map-hover); }
 .province.selected, .province:focus-visible { stroke: var(--yl-map-selected); }
@@ -227,12 +236,10 @@ dialog::backdrop { background: color-mix(in srgb, var(--ldm-foundation-surface-c
   .ranking-list { max-height: none; overflow: visible; padding: 0; }
   .criteria-grid { grid-template-columns: minmax(0,1.25fr) minmax(330px,.8fr); }
   .yl-landscape { grid-template-columns: minmax(0,1fr) minmax(0,1.15fr); }
-  .brand-footer { margin-inline: -20px; }
 }
 @media(min-width: 1500px) {
   #sidebar { width: 272px; padding-inline: 24px; }
   .yolk-shell { margin-left: 272px; }
-  .brand-footer { margin-inline: -24px; }
   .header-tools { flex-wrap: nowrap; }
   main { padding-inline: 40px; }
   #thai-map { height: 620px; }
@@ -300,3 +307,15 @@ dialog::backdrop { background: color-mix(in srgb, var(--ldm-foundation-surface-c
   .leader-row { padding: 16px; }
 }
 @media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Decision icons use the pinned DS-style product subset, always beside a label. */
+#sidebar nav a { display:flex; align-items:center; gap:8px; }
+#sidebar nav a > .nav-label { flex:1; }
+#sidebar nav a > .yl-icon, .workspace-mark .yl-icon { margin-inline-end:0; }
+.workspace-mark { display:grid; place-items:center; }
+#mobile-nav a { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; }
+#mobile-nav .yl-icon { margin:0; font-size:22px; }
+#mobile-nav { min-height:72px; }
+.theme-label { display:inline-flex; align-items:center; }
+.theme-control .yl-icon { font-size:20px; }
+.btn, .inbox-button, .back { align-items:center; }

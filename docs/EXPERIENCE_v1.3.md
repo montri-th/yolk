@@ -10,6 +10,10 @@ machine_contract: "../contracts/experience.v1.3.json"
 
 รอบนี้ทำให้ทีมอ่านข้อมูลได้นานขึ้น เข้าใจบริเวณรอบทำเล และเห็นภาพสาขาก่อนลงพื้นที่ หลัก Demand/Supply, percentile, รูปแบบตลาดทั้งแปด และสิทธิ์ทีมยังใช้สัญญาเดิม
 
+## ปรับเพิ่มเติมใน v1.3.1
+
+ถอด motif และแผงตกแต่งออกทั้งหมด วางโลโก้บนพื้นหน้าเดิมโดยไม่มีกรอบ ใช้ไอคอน Material Symbols Rounded ตามรูปแบบ DS คู่กับข้อความตรงจุดตัดสินใจ เช่น เล็งทำเล ใช้เกณฑ์กับทีม ตรวจสาขา เลือกแผนที่ เพิ่มรูป และบันทึก ข้อความยังอ่านได้เมื่อฟอนต์ไอคอนไม่โหลด ดู [สัญญาไอคอน](../contracts/icons.v1.3.json) และ [แนวทาง asset](../ASSET_INDEX_v1.3.md)
+
 ## สิ่งที่ลองได้ในพรีวิว
 
 | ส่วน | สิ่งที่ทำได้ | ขอบเขตของพรีวิว |
@@ -117,4 +121,4 @@ Build one vertical slice, run acceptance tests, and report what is unverified.
 Do not mark the browser/visual gate passed without observing the actual build.
 ```
 
-เชื่อม workflow ใหม่กับ [แผนหลัก 12 งาน](../IMPLEMENTATION_PLAN_v1.2.md); ไม่สร้างระบบ auth, storage หรือ event ชุดที่สองหาก platform เดิมมีสัญญาที่ใช้ร่วมกันได้แล้ว
+เชื่อม workflow ใหม่กับ [แผนพัฒนาเรียงขั้นตอน](../IMPLEMENTATION_PLAN_v1.3.md); ไม่สร้างระบบ auth, storage หรือ event ชุดที่สองหาก platform เดิมมีสัญญาที่ใช้ร่วมกันได้แล้ว
