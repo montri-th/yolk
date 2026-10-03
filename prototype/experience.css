@@ -1,4 +1,4 @@
-/* Yolk v1.3 experience adapter — pinned LDS 0.9.4 / color-srgb-07.
+/* Original Yolk UI layout, authorized migration to LDS 0.9.7 / color-srgb-10.
    This file maps product roles to immutable DS tokens; it does not redefine DS tokens.
    Light uses calm alt/canvas surfaces. Dark uses the canonical dark role pairs. */
 :root {
@@ -70,12 +70,6 @@
   --yl-activity: var(--ldm-scale-activity-dark-anchor-3);
   --yl-count: var(--ldm-scale-count-dark-anchor-3);
   --yl-brand-wordmark: var(--ldm-foundation-text-primary-dark);
-  /* Exact pre-generated 5-class heat ramp from pinned scales, never interpolated. */
-  --yolk-heat-1: #393129;
-  --yolk-heat-2: #7A5933;
-  --yolk-heat-3: #C28336;
-  --yolk-heat-4: #E0AA89;
-  --yolk-heat-5: #FFD1D3;
 }
 
 /* Reading sizes are product decisions; the font families remain DS roles. */

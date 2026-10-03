@@ -1,0 +1,86 @@
+{
+  "executed_pass_count": 20,
+  "executed_checks": [
+    {
+      "id": "fuel_same_current_proxy_high_universe",
+      "pass": true
+    },
+    {
+      "id": "fuel_strategy_statuses_partition_proxy_high",
+      "pass": true
+    },
+    {
+      "id": "fuel_zeroU_known_pattern_exact",
+      "pass": true
+    },
+    {
+      "id": "fuel_unknown_source_features_have_nonempty_possible_patterns",
+      "pass": true
+    },
+    {
+      "id": "fuel_confirmed_strategy_all_possibilities_selected",
+      "pass": true
+    },
+    {
+      "id": "fuel_review_strategy_some_selected_and_some_unselected",
+      "pass": true
+    },
+    {
+      "id": "grocery_same_current_proxy_high_universe",
+      "pass": true
+    },
+    {
+      "id": "grocery_strategy_statuses_partition_proxy_high",
+      "pass": true
+    },
+    {
+      "id": "grocery_assigned_pattern_is_possible",
+      "pass": true
+    },
+    {
+      "id": "grocery_confirmed_strategy_all_possibilities_selected",
+      "pass": true
+    },
+    {
+      "id": "grocery_review_strategy_some_selected_and_some_unselected",
+      "pass": true
+    },
+    {
+      "id": "grocery_nonnegative_ordered_inventory_bounds",
+      "pass": true
+    },
+    {
+      "id": "nonbank_same_current_proxy_high_universe",
+      "pass": true
+    },
+    {
+      "id": "nonbank_strategy_statuses_partition_proxy_high",
+      "pass": true
+    },
+    {
+      "id": "nonbank_assigned_pattern_is_possible",
+      "pass": true
+    },
+    {
+      "id": "nonbank_confirmed_strategy_all_possibilities_selected",
+      "pass": true
+    },
+    {
+      "id": "nonbank_review_strategy_some_selected_and_some_unselected",
+      "pass": true
+    },
+    {
+      "id": "nonbank_nonnegative_ordered_inventory_bounds",
+      "pass": true
+    },
+    {
+      "id": "MTC_source_active_license_family_included",
+      "pass": true
+    },
+    {
+      "id": "nonbank_location_unknown_never_fuel_brand_U",
+      "pass": true
+    }
+  ],
+  "claims": "Source inventory and study hypotheses only; does not verify operating offices, point-products, physical market or business outcomes."
+}

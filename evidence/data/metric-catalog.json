@@ -1,0 +1,1449 @@
+[
+  {
+    "metric_id": "population_count",
+    "dataset_id": "population",
+    "raw_source_field": "sum(ms)+sum(fs)",
+    "unit": "persons",
+    "meaning": "CityMETER reported administrative-area population; upcountry official generation not independently verified",
+    "measurement": "reported_context",
+    "source_period": "2026-08",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "population_count",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7830,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 63580147,
+        "states": {
+          "reported_value": 7828,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      },
+      {
+        "metric": "population_count",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 5261807,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "population_count",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7650,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 58318340,
+        "states": {
+          "reported_value": 7648,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "population_per_km2",
+    "dataset_id": "population",
+    "raw_source_field": "sum(ms)+sum(fs)",
+    "unit": "persons/km2",
+    "meaning": "Population / geographic land area; not daytime visitors",
+    "measurement": "derived_context",
+    "source_period": "2026-08",
+    "denominator": "land_area_km2",
+    "land_area_definition": "base.areaSqm / 1000000",
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "population_per_km2",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7830,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 3583173.0282644895,
+        "states": {
+          "reported_value": 7828,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      },
+      {
+        "metric": "population_per_km2",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 1100247.057003111,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "population_per_km2",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7650,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 2482925.971261369,
+        "states": {
+          "reported_value": 7648,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "working_age_15_64",
+    "dataset_id": "population",
+    "raw_source_field": "sum(ms[15:65])+sum(fs[15:65])",
+    "unit": "persons",
+    "meaning": "Age indices15–64; registered-age context, not employed persons",
+    "measurement": "derived_context",
+    "source_period": "2026-08",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "working_age_15_64",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7830,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 44948878,
+        "states": {
+          "reported_value": 7828,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      },
+      {
+        "metric": "working_age_15_64",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 3713907,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "working_age_15_64",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7650,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 41234971,
+        "states": {
+          "reported_value": 7648,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "working_age_15_64_per_km2",
+    "dataset_id": "population",
+    "raw_source_field": "sum(ms[15:65])+sum(fs[15:65])",
+    "unit": "persons/km2",
+    "meaning": "Age15–64 reported population divided by land area; not employment or commuters",
+    "measurement": "derived_context",
+    "source_period": "2026-08",
+    "denominator": "land_area_km2",
+    "land_area_definition": "base.areaSqm / 1000000",
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "working_age_15_64_per_km2",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7830,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 2482539.927442624,
+        "states": {
+          "reported_value": 7828,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      },
+      {
+        "metric": "working_age_15_64_per_km2",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 742378.3260403788,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "working_age_15_64_per_km2",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7650,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 1740161.6014022313,
+        "states": {
+          "reported_value": 7648,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "adult_population_20_64",
+    "dataset_id": "population",
+    "raw_source_field": "sum(ms[20:65])+sum(fs[20:65])",
+    "unit": "persons",
+    "meaning": "Age indices20–64 reported population context; not borrowers, employment or legal eligibility",
+    "measurement": "derived_context",
+    "source_period": "2026-08",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "adult_population_20_64",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7830,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 41122403,
+        "states": {
+          "reported_value": 7828,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      },
+      {
+        "metric": "adult_population_20_64",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 3440783,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "adult_population_20_64",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7650,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 37681620,
+        "states": {
+          "reported_value": 7648,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "adult_population_20_64_per_km2",
+    "dataset_id": "population",
+    "raw_source_field": "sum(ms[20:65])+sum(fs[20:65])",
+    "unit": "persons/km2",
+    "meaning": "Same adult20–64 cohort / geographic land area; not observed borrowing demand",
+    "measurement": "derived_context",
+    "source_period": "2026-08",
+    "denominator": "land_area_km2",
+    "land_area_definition": "base.areaSqm / 1000000",
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "adult_population_20_64_per_km2",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7830,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 2285083.8262364552,
+        "states": {
+          "reported_value": 7828,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      },
+      {
+        "metric": "adult_population_20_64_per_km2",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 691052.1160629379,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "adult_population_20_64_per_km2",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7650,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 1594031.710173513,
+        "states": {
+          "reported_value": 7648,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "children_0_14",
+    "dataset_id": "population",
+    "raw_source_field": "sum(ms[0:15])+sum(fs[0:15])",
+    "unit": "persons",
+    "meaning": "Age indices0–14; not households or customers",
+    "measurement": "derived_context",
+    "source_period": "2026-08",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "children_0_14",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7830,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 8775485,
+        "states": {
+          "reported_value": 7828,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      },
+      {
+        "metric": "children_0_14",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 592260,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "children_0_14",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7650,
+        "n_missing": 124,
+        "explicit_zero_n": 2,
+        "sum_valid": 8183225,
+        "states": {
+          "reported_value": 7648,
+          "source_row_missing": 124,
+          "observed_zero": 2
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "population_65_plus",
+    "dataset_id": "population",
+    "raw_source_field": "sum(ms[65:])+sum(fs[65:])",
+    "unit": "persons",
+    "meaning": "Age65+ plus terminal source age bucket; not borrowing need",
+    "measurement": "derived_context",
+    "source_period": "2026-08",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "population_65_plus",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7830,
+        "n_missing": 124,
+        "explicit_zero_n": 4,
+        "sum_valid": 9855784,
+        "states": {
+          "reported_value": 7826,
+          "source_row_missing": 124,
+          "observed_zero": 4
+        }
+      },
+      {
+        "metric": "population_65_plus",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 955640,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "population_65_plus",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7650,
+        "n_missing": 124,
+        "explicit_zero_n": 4,
+        "sum_valid": 8900144,
+        "states": {
+          "reported_value": 7646,
+          "source_row_missing": 124,
+          "observed_zero": 4
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "building_gfa_m2",
+    "dataset_id": "building",
+    "raw_source_field": "area",
+    "unit": "estimated m2 GFA",
+    "meaning": "Modeled gross floor area, not land/footprint/residential occupied area",
+    "measurement": "model_estimate",
+    "source_period": "V4 / published UI label 2024-12",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "building_gfa_m2",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7939,
+        "n_missing": 15,
+        "explicit_zero_n": 0,
+        "sum_valid": 11699165373.800179,
+        "states": {
+          "reported_value": 7939,
+          "source_row_missing": 15
+        }
+      },
+      {
+        "metric": "building_gfa_m2",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 1873725210.6911998,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "building_gfa_m2",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7759,
+        "n_missing": 15,
+        "explicit_zero_n": 0,
+        "sum_valid": 9825440163.108976,
+        "states": {
+          "reported_value": 7759,
+          "source_row_missing": 15
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "building_count",
+    "dataset_id": "building",
+    "raw_source_field": "count",
+    "unit": "modeled building records",
+    "meaning": "Open Buildings based source inventory, not occupied premises",
+    "measurement": "model_estimate",
+    "source_period": "V4 / published UI label 2024-12",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "building_count",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7939,
+        "n_missing": 15,
+        "explicit_zero_n": 0,
+        "sum_valid": 29433284,
+        "states": {
+          "reported_value": 7939,
+          "source_row_missing": 15
+        }
+      },
+      {
+        "metric": "building_count",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 1101243,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "building_count",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7759,
+        "n_missing": 15,
+        "explicit_zero_n": 0,
+        "sum_valid": 28332041,
+        "states": {
+          "reported_value": 7759,
+          "source_row_missing": 15
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "gfa_per_km2",
+    "dataset_id": "building",
+    "raw_source_field": "area",
+    "unit": "estimated m2 GFA/km2",
+    "meaning": "Estimated GFA / geographic land area",
+    "measurement": "derived_model_estimate",
+    "source_period": "V4 / published UI label 2024-12",
+    "denominator": "land_area_km2",
+    "land_area_definition": "base.areaSqm / 1000000",
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "gfa_per_km2",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7939,
+        "n_missing": 15,
+        "explicit_zero_n": 0,
+        "sum_valid": 971726645.1485059,
+        "states": {
+          "reported_value": 7939,
+          "source_row_missing": 15
+        }
+      },
+      {
+        "metric": "gfa_per_km2",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 461424969.94409496,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "gfa_per_km2",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7759,
+        "n_missing": 15,
+        "explicit_zero_n": 0,
+        "sum_valid": 510301675.20440865,
+        "states": {
+          "reported_value": 7759,
+          "source_row_missing": 15
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "gfa_per_person",
+    "dataset_id": "building",
+    "raw_source_field": "area / population sum(ms)+sum(fs)",
+    "unit": "estimated m2 GFA/person",
+    "meaning": "Mixed-vintage GFA / direct population; only denominator>0",
+    "measurement": "derived_model_estimate",
+    "source_period": "V4 / published UI label 2024-12",
+    "denominator": "direct_population_count",
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "gfa_per_person",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7828,
+        "n_missing": 126,
+        "explicit_zero_n": 0,
+        "sum_valid": 1153484.56550864,
+        "states": {
+          "reported_value": 7828,
+          "missing_or_nonpositive_population_denominator": 126
+        }
+      },
+      {
+        "metric": "gfa_per_person",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 180,
+        "n_missing": 0,
+        "explicit_zero_n": 0,
+        "sum_valid": 78705.5683584604,
+        "states": {
+          "reported_value": 180
+        }
+      },
+      {
+        "metric": "gfa_per_person",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7648,
+        "n_missing": 126,
+        "explicit_zero_n": 0,
+        "sum_valid": 1074778.9971501792,
+        "states": {
+          "reported_value": 7648,
+          "missing_or_nonpositive_population_denominator": 126
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "factory_count",
+    "dataset_id": "factory",
+    "raw_source_field": "totalFactory",
+    "unit": "registered factory records",
+    "meaning": "ACTIVE registry category at source period, not confirmed live operation",
+    "measurement": "reported_context",
+    "source_period": "2025-04 ACTIVE",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "factory_count",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 5822,
+        "n_missing": 2132,
+        "explicit_zero_n": 0,
+        "sum_valid": 71704,
+        "states": {
+          "source_row_missing": 2101,
+          "reported_value": 5822,
+          "selected_period_missing": 31
+        }
+      },
+      {
+        "metric": "factory_count",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 174,
+        "n_missing": 6,
+        "explicit_zero_n": 0,
+        "sum_valid": 6493,
+        "states": {
+          "source_row_missing": 6,
+          "reported_value": 174
+        }
+      },
+      {
+        "metric": "factory_count",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 5648,
+        "n_missing": 2126,
+        "explicit_zero_n": 0,
+        "sum_valid": 65211,
+        "states": {
+          "reported_value": 5648,
+          "source_row_missing": 2095,
+          "selected_period_missing": 31
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "factory_count_per_km2",
+    "dataset_id": "factory",
+    "raw_source_field": "totalFactory",
+    "unit": "factory records/km2",
+    "meaning": "Registered factory records / geographic land area",
+    "measurement": "derived_context",
+    "source_period": "2025-04 ACTIVE",
+    "denominator": "land_area_km2",
+    "land_area_definition": "base.areaSqm / 1000000",
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "factory_count_per_km2",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 5822,
+        "n_missing": 2132,
+        "explicit_zero_n": 0,
+        "sum_valid": 4322.348151730609,
+        "states": {
+          "source_row_missing": 2101,
+          "reported_value": 5822,
+          "selected_period_missing": 31
+        }
+      },
+      {
+        "metric": "factory_count_per_km2",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 174,
+        "n_missing": 6,
+        "explicit_zero_n": 0,
+        "sum_valid": 1069.6123374915658,
+        "states": {
+          "source_row_missing": 6,
+          "reported_value": 174
+        }
+      },
+      {
+        "metric": "factory_count_per_km2",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 5648,
+        "n_missing": 2126,
+        "explicit_zero_n": 0,
+        "sum_valid": 3252.735814239048,
+        "states": {
+          "reported_value": 5648,
+          "source_row_missing": 2095,
+          "selected_period_missing": 31
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "factory_workers",
+    "dataset_id": "factory",
+    "raw_source_field": "totalWorker",
+    "unit": "reported workers",
+    "meaning": "Registered workers, not measured attendance/commuters/customers",
+    "measurement": "reported_context",
+    "source_period": "2025-04 ACTIVE",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "factory_workers",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 5822,
+        "n_missing": 2132,
+        "explicit_zero_n": 13,
+        "sum_valid": 3923994,
+        "states": {
+          "source_row_missing": 2101,
+          "reported_value": 5809,
+          "observed_zero": 13,
+          "selected_period_missing": 31
+        }
+      },
+      {
+        "metric": "factory_workers",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 174,
+        "n_missing": 6,
+        "explicit_zero_n": 0,
+        "sum_valid": 380592,
+        "states": {
+          "source_row_missing": 6,
+          "reported_value": 174
+        }
+      },
+      {
+        "metric": "factory_workers",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 5648,
+        "n_missing": 2126,
+        "explicit_zero_n": 13,
+        "sum_valid": 3543402,
+        "states": {
+          "reported_value": 5635,
+          "source_row_missing": 2095,
+          "observed_zero": 13,
+          "selected_period_missing": 31
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "factory_workers_per_km2",
+    "dataset_id": "factory",
+    "raw_source_field": "totalWorker",
+    "unit": "reported workers/km2",
+    "meaning": "Registered worker count / geographic land area",
+    "measurement": "derived_context",
+    "source_period": "2025-04 ACTIVE",
+    "denominator": "land_area_km2",
+    "land_area_definition": "base.areaSqm / 1000000",
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "factory_workers_per_km2",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 5822,
+        "n_missing": 2132,
+        "explicit_zero_n": 13,
+        "sum_valid": 229643.84783588265,
+        "states": {
+          "source_row_missing": 2101,
+          "reported_value": 5809,
+          "observed_zero": 13,
+          "selected_period_missing": 31
+        }
+      },
+      {
+        "metric": "factory_workers_per_km2",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 174,
+        "n_missing": 6,
+        "explicit_zero_n": 0,
+        "sum_valid": 51829.58163204104,
+        "states": {
+          "source_row_missing": 6,
+          "reported_value": 174
+        }
+      },
+      {
+        "metric": "factory_workers_per_km2",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 5648,
+        "n_missing": 2126,
+        "explicit_zero_n": 13,
+        "sum_valid": 177814.26620384248,
+        "states": {
+          "reported_value": 5635,
+          "source_row_missing": 2095,
+          "observed_zero": 13,
+          "selected_period_missing": 31
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "hotel_count",
+    "dataset_id": "hotel",
+    "raw_source_field": "hotelCount",
+    "unit": "catalog hotel records",
+    "meaning": "Catalog count, not verified live/occupied rooms",
+    "measurement": "reported_context",
+    "source_period": null,
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "hotel_count",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7506,
+        "n_missing": 448,
+        "explicit_zero_n": 3494,
+        "sum_valid": 28260,
+        "states": {
+          "reported_value": 4012,
+          "source_row_missing": 448,
+          "observed_zero": 3494
+        }
+      },
+      {
+        "metric": "hotel_count",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 131,
+        "n_missing": 49,
+        "explicit_zero_n": 0,
+        "sum_valid": 1312,
+        "states": {
+          "reported_value": 131,
+          "source_row_missing": 49
+        }
+      },
+      {
+        "metric": "hotel_count",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7375,
+        "n_missing": 399,
+        "explicit_zero_n": 3494,
+        "sum_valid": 26948,
+        "states": {
+          "reported_value": 3881,
+          "observed_zero": 3494,
+          "source_row_missing": 399
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "hotel_rooms",
+    "dataset_id": "hotel",
+    "raw_source_field": "roomCount",
+    "unit": "catalog rooms",
+    "meaning": "Catalog room inventory, not tourist arrivals/occupancy",
+    "measurement": "reported_context",
+    "source_period": null,
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "hotel_rooms",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7506,
+        "n_missing": 448,
+        "explicit_zero_n": 3494,
+        "sum_valid": 837054,
+        "states": {
+          "reported_value": 4012,
+          "source_row_missing": 448,
+          "observed_zero": 3494
+        }
+      },
+      {
+        "metric": "hotel_rooms",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 131,
+        "n_missing": 49,
+        "explicit_zero_n": 0,
+        "sum_valid": 85014,
+        "states": {
+          "reported_value": 131,
+          "source_row_missing": 49
+        }
+      },
+      {
+        "metric": "hotel_rooms",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7375,
+        "n_missing": 399,
+        "explicit_zero_n": 3494,
+        "sum_valid": 752040,
+        "states": {
+          "reported_value": 3881,
+          "observed_zero": 3494,
+          "source_row_missing": 399
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "hotel_rooms_per_km2",
+    "dataset_id": "hotel",
+    "raw_source_field": "roomCount",
+    "unit": "catalog rooms/km2",
+    "meaning": "Catalog rooms / geographic land area",
+    "measurement": "derived_context",
+    "source_period": null,
+    "denominator": "land_area_km2",
+    "land_area_definition": "base.areaSqm / 1000000",
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "hotel_rooms_per_km2",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7506,
+        "n_missing": 448,
+        "explicit_zero_n": 3494,
+        "sum_valid": 92337.21563313904,
+        "states": {
+          "reported_value": 4012,
+          "source_row_missing": 448,
+          "observed_zero": 3494
+        }
+      },
+      {
+        "metric": "hotel_rooms_per_km2",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 131,
+        "n_missing": 49,
+        "explicit_zero_n": 0,
+        "sum_valid": 55156.538441665856,
+        "states": {
+          "reported_value": 131,
+          "source_row_missing": 49
+        }
+      },
+      {
+        "metric": "hotel_rooms_per_km2",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7375,
+        "n_missing": 399,
+        "explicit_zero_n": 3494,
+        "sum_valid": 37180.677191473435,
+        "states": {
+          "reported_value": 3881,
+          "observed_zero": 3494,
+          "source_row_missing": 399
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "office_count",
+    "dataset_id": "office",
+    "raw_source_field": "officeCount",
+    "unit": "catalog office buildings",
+    "meaning": "Published office catalog; absent summary remains missing, not zero activity",
+    "measurement": "reported_context",
+    "source_period": "V3 / published UI label 2025-05",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "office_count",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 45,
+        "n_missing": 7909,
+        "explicit_zero_n": 0,
+        "sum_valid": 329,
+        "states": {
+          "source_row_missing": 7909,
+          "reported_value": 45
+        }
+      },
+      {
+        "metric": "office_count",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 45,
+        "n_missing": 135,
+        "explicit_zero_n": 0,
+        "sum_valid": 329,
+        "states": {
+          "source_row_missing": 135,
+          "reported_value": 45
+        }
+      },
+      {
+        "metric": "office_count",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 0,
+        "n_missing": 7774,
+        "explicit_zero_n": 0,
+        "sum_valid": 0,
+        "states": {
+          "source_row_missing": 7774
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "office_count_per_km2",
+    "dataset_id": "office",
+    "raw_source_field": "officeCount",
+    "unit": "catalog buildings/km2",
+    "meaning": "Published office catalog / geographic land area",
+    "measurement": "derived_context",
+    "source_period": "V3 / published UI label 2025-05",
+    "denominator": "land_area_km2",
+    "land_area_definition": "base.areaSqm / 1000000",
+    "supported_geographic_grains": [
+      "SUBDISTRICT_BKK",
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "office_count_per_km2",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 45,
+        "n_missing": 7909,
+        "explicit_zero_n": 0,
+        "sum_valid": 141.2759033825109,
+        "states": {
+          "source_row_missing": 7909,
+          "reported_value": 45
+        }
+      },
+      {
+        "metric": "office_count_per_km2",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 45,
+        "n_missing": 135,
+        "explicit_zero_n": 0,
+        "sum_valid": 141.2759033825109,
+        "states": {
+          "source_row_missing": 135,
+          "reported_value": 45
+        }
+      },
+      {
+        "metric": "office_count_per_km2",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 0,
+        "n_missing": 7774,
+        "explicit_zero_n": 0,
+        "sum_valid": 0,
+        "states": {
+          "source_row_missing": 7774
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "fiscal_total_thb",
+    "dataset_id": "fiscal",
+    "raw_source_field": "total * 1000000",
+    "unit": "THB/year",
+    "meaning": "Local fiscal receipts including grants; not household income",
+    "measurement": "reported_context",
+    "source_period": "2024",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "fiscal_total_thb",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7751,
+        "n_missing": 203,
+        "explicit_zero_n": 0,
+        "sum_valid": 554442650620.9698,
+        "states": {
+          "not_applicable": 180,
+          "reported_value": 7751,
+          "selected_period_missing": 18,
+          "source_row_missing": 5
+        }
+      },
+      {
+        "metric": "fiscal_total_thb",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 0,
+        "n_missing": 180,
+        "explicit_zero_n": 0,
+        "sum_valid": 0,
+        "states": {
+          "not_applicable": 180
+        }
+      },
+      {
+        "metric": "fiscal_total_thb",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7751,
+        "n_missing": 23,
+        "explicit_zero_n": 0,
+        "sum_valid": 554442650620.9698,
+        "states": {
+          "reported_value": 7751,
+          "selected_period_missing": 18,
+          "source_row_missing": 5
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "fiscal_ex_grants_thb",
+    "dataset_id": "fiscal",
+    "raw_source_field": "(selfCollected+stateAllocated)*1000000",
+    "unit": "THB/year",
+    "meaning": "Public fiscal activity excluding stateFunded grants; not purchasing power",
+    "measurement": "derived_context",
+    "source_period": "2024",
+    "denominator": null,
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "fiscal_ex_grants_thb",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7751,
+        "n_missing": 203,
+        "explicit_zero_n": 0,
+        "sum_valid": 303022908144.8909,
+        "states": {
+          "not_applicable": 180,
+          "reported_value": 7751,
+          "selected_period_missing": 18,
+          "source_row_missing": 5
+        }
+      },
+      {
+        "metric": "fiscal_ex_grants_thb",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 0,
+        "n_missing": 180,
+        "explicit_zero_n": 0,
+        "sum_valid": 0,
+        "states": {
+          "not_applicable": 180
+        }
+      },
+      {
+        "metric": "fiscal_ex_grants_thb",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7751,
+        "n_missing": 23,
+        "explicit_zero_n": 0,
+        "sum_valid": 303022908144.8909,
+        "states": {
+          "reported_value": 7751,
+          "selected_period_missing": 18,
+          "source_row_missing": 5
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "fiscal_ex_grants_per_km2",
+    "dataset_id": "fiscal",
+    "raw_source_field": "(selfCollected+stateAllocated)*1000000",
+    "unit": "THB/km2/year",
+    "meaning": "Fiscal proxy divided by geographic land area",
+    "measurement": "derived_context",
+    "source_period": "2024",
+    "denominator": "land_area_km2",
+    "land_area_definition": "base.areaSqm / 1000000",
+    "supported_geographic_grains": [
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "fiscal_ex_grants_per_km2",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7751,
+        "n_missing": 203,
+        "explicit_zero_n": 0,
+        "sum_valid": 17913668891.74336,
+        "states": {
+          "not_applicable": 180,
+          "reported_value": 7751,
+          "selected_period_missing": 18,
+          "source_row_missing": 5
+        }
+      },
+      {
+        "metric": "fiscal_ex_grants_per_km2",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 0,
+        "n_missing": 180,
+        "explicit_zero_n": 0,
+        "sum_valid": 0,
+        "states": {
+          "not_applicable": 180
+        }
+      },
+      {
+        "metric": "fiscal_ex_grants_per_km2",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7751,
+        "n_missing": 23,
+        "explicit_zero_n": 0,
+        "sum_valid": 17913668891.74336,
+        "states": {
+          "reported_value": 7751,
+          "selected_period_missing": 18,
+          "source_row_missing": 5
+        }
+      }
+    ]
+  },
+  {
+    "metric_id": "fiscal_ex_grants_per_person",
+    "dataset_id": "fiscal",
+    "raw_source_field": "(selfCollected+stateAllocated)*1000000 / fiscal.population",
+    "unit": "THB/person/year",
+    "meaning": "Fiscal API population denominator has unspecified reference year",
+    "measurement": "derived_context",
+    "source_period": "2024",
+    "denominator": "fiscal.population",
+    "land_area_definition": null,
+    "supported_geographic_grains": [
+      "MUNICIPALITY_NON_BKK"
+    ],
+    "missing_policy": "null; absent is not zero; use exactly selected source period",
+    "coverage": [
+      {
+        "metric": "fiscal_ex_grants_per_person",
+        "cohort": "national_7954",
+        "n_total": 7954,
+        "n_valid": 7717,
+        "n_missing": 237,
+        "explicit_zero_n": 0,
+        "sum_valid": 52588175.15733051,
+        "states": {
+          "not_applicable": 180,
+          "reported_value": 7717,
+          "missing_or_nonpositive_fiscal_population_denominator": 57
+        }
+      },
+      {
+        "metric": "fiscal_ex_grants_per_person",
+        "cohort": "bkk_khwaeng_180",
+        "n_total": 180,
+        "n_valid": 0,
+        "n_missing": 180,
+        "explicit_zero_n": 0,
+        "sum_valid": 0,
+        "states": {
+          "not_applicable": 180
+        }
+      },
+      {
+        "metric": "fiscal_ex_grants_per_person",
+        "cohort": "upcountry_lao_7774",
+        "n_total": 7774,
+        "n_valid": 7717,
+        "n_missing": 57,
+        "explicit_zero_n": 0,
+        "sum_valid": 52588175.15733051,
+        "states": {
+          "reported_value": 7717,
+          "missing_or_nonpositive_fiscal_population_denominator": 57
+        }
+      }
+    ]
+  }
+]

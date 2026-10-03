@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "yolk.public_release/1.6",
+  "version": "1.6.0",
+  "approvedSourcePreview": "1.6-preview.1",
+  "date": "2026-10-03",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "dataSemanticsUnchanged": true,
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "ownerAuthorization": "Owner explicitly requested publishing the approved demo to the existing Yolk URL on2026-10-03.",
+  "publicationDelta": [
+    "Page-local contract URLs",
+    "Private workbook references replaced by public CityMETER links",
+    "Canonical/social/manifest identity for public deployment",
+    "New share artwork using existing approved composition and LDS0.9.7 assets"
+  ],
+  "providerEvidence": "GitHub Actions run for the containing commit; terminal success and remote-byte attestation must be checked after deployment.",
+  "nativeDeviceGate": "Not assessed; prior viewport emulation is not physical-device verification."
+}

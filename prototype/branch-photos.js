@@ -2,7 +2,7 @@
 (function (global) {
   'use strict';
   const VERSION = 1, MAX = 5, MAX_BYTES = 10 * 1024 * 1024, MAX_OUTPUT = 420 * 1024;
-  const STORE = 'branches', DB_NAME = 'citymeter-yolk-branch-photos-v1';
+  const STORE = 'branches', DB_NAME = 'citymeter-yolk-three-industries-branch-photos-v1';
   const states = new Map(), loads = new Map(), pending = new Map(), commitSnapshots = new Map();
   let database;
   const labels = {

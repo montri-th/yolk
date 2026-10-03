@@ -1,55 +1,86 @@
 ---
-document_id: yolk.handoff
-product_version: "1.5"
-handoff_patch: "1.5.0"
-status: ready_with_open_manual_gate
+document_id: yolk.handoff.three_industries
+version: 1.6.0
+date: 2026-10-03
+status: approved_public_static_preview
 start: START_HERE.md
-asset_manifest: contracts/assets.v1.5.json
-release_manifest: contracts/release.v1.5.0.json
+asset_manifest: contracts/assets.v1.6.json
+release_manifest: contracts/release.v1.6.0.json
 ---
 
-# CityMETER: Yolk — Developer handoff1.5.0
+# ส่งต่อ dev — Yolk · 3 ธุรกิจ · LDS 0.9.7
 
-[ดาวน์โหลด handoff ZIP 1.5.0](https://github.com/montri-th/yolk/releases/download/v1.5.0/CityMETER-Yolk-v1.5.0-handoff.zip) · [SHA-256](https://github.com/montri-th/yolk/releases/download/v1.5.0/CityMETER-Yolk-v1.5.0-handoff.zip.sha256)
+**ใช้ UI เดิม เพิ่มเกณฑ์ที่เลือก dataset/metric ได้ และเก็บค่ารายแบรนด์แยกกัน** รุ่นนี้รองรับ Fuel, Grocery และ Non-bank เท่านั้น ใช้ snapshot จริงจาก CityMETER คัดพื้นที่ทั่วประเทศ 7,954 หน่วย Sheets ต้นทางคงเดิม; รุ่นนี้เผยแพร่เป็น public static preview ตามคำขอเจ้าของ
 
-## สิ่งที่ส่งมอบ
+เริ่มจาก [START_HERE](START_HERE.md) → [Product statement](CityMETER_Yolk_Product_Statement_v1.6.md) → [Criteria guide](docs/CRITERIA_GUIDE.md) → [Implementation plan](IMPLEMENTATION_PLAN_v1.6.md) แต่ละงานมี dependencies, acceptance และ prompt ใน [machine tasks](contracts/implementation-tasks.v1.6.json)
 
-ชุดนี้มี web preview แบบหลายไฟล์, assets และ licences ที่ต้องใช้, Product statement, แผนพัฒนา15งาน และ machine contracts สำหรับ dev/coding agent **Product version เป็น 1.5** และ handoff เป็น 1.5.0 รุ่นนี้ย่อ navigation มือถือและเปลี่ยน chrome ตามธีม เพิ่ม icon ประจำ 8 รูปแบบ แสดง percentile ด้วยกลุ่มบนประเทศและแถบ 0–100 พร้อมรายละเอียด และตั้งความหมาย Yolk/ไข่แดงให้ตรงกับ confirmed-high Demand ทั้ง UI/Map ใช้ชื่อ “ทำเลจำลอง” โดยไม่เปลี่ยน boundary type/IDs/joins สูตร Tier และน้ำหนักยังใช้ v1.4
+## ทดลองได้แล้ว
 
-เริ่มจาก [START_HERE](START_HERE.md) → [Product statement](CityMETER_Yolk_Product_Statement_v1.5.md) → [Implementation plan](IMPLEMENTATION_PLAN_v1.5.md) → [task JSON](contracts/implementation-tasks.v1.5.json) Runtime commit/hash และสถานะเผยแพร่ให้ยึด [release manifest](contracts/release.v1.5.0.json) ไม่เดาจากชื่อ zip หรือข้อความรุ่นในหน้าเว็บ
+รัน `python3 -m http.server 8854 --bind 127.0.0.1` ที่ root ของชุดนี้ แล้วเปิด `http://127.0.0.1:8854/prototype/` ต้องเปิดผ่าน HTTP เพื่อโหลด JSON และฟอนต์
 
-## ทดลองอะไรได้
+- เลือกธุรกิจ แบรนด์ และกลุ่ม Supply แล้วดูผลคัดพื้นที่จริง
+- ในหน้าเกณฑ์ เลือก dataset → metric/สูตรที่รองรับ → ปรับ percentile หรือจำนวนข้อที่ต้องผ่าน ดูผลเปลี่ยนแปลงก่อนกดใช้กับทีม
+- สลับแบรนด์แล้วกลับมา เกณฑ์และ draft ของแต่ละบริบทไม่ปะปนกัน
+- ดูแผนที่ประเทศ ทำเลที่เล็งไว้ landscape รายทำเล Supply editor รูปสูงสุด 5 รูป feed/leaderboard และบทบาททีม 10 คน
+- ใช้ TH/EN และ light/dark/system บน UI เดิม ส่วนเลือกบริบทบนมือถือย่อไว้ใน disclosure
 
-เปิด [web preview](https://montri-th.github.io/yolk/) หรือรัน `python3 -m http.server 8849 --bind 127.0.0.1` ที่ root แล้วเปิด `/prototype/` ลอง TH/EN, light/dark/system, country→location detail, criteria preview/apply (Tier, รูปแบบทำเล และน้ำหนัก), Supply editor/photo drafts, shortlist และ feed/leaderboard
+โครง AND/OR ของ preset ยังเป็นโครงตั้งต้น การสร้างสูตรใหม่หรือเปลี่ยนทุก operator ผ่าน generic rule builder เป็นงานพัฒนาต่อ ไม่ใช่ความสามารถที่เสร็จแล้วใน preview นี้ การแก้ไขทั้งหมดเป็น browser-local simulation ยังไม่มี shared backend, production RBAC, notification/email/LINE delivery หรือ live Sheets sync
 
-พรีวิวใช้ข้อมูลทำเล/POI จำลองทั้งหมด การแก้ไขและสมาชิกเป็น local simulation ไม่มี server authentication, multiuser database, production notification delivery หรือ source import จริง ภาพสาขาตัวอย่างเป็น AI mockup และภาพที่เลือกเพิ่มเก็บเฉพาะ browser origin ผ่าน IndexedDB
+## หลักของการคำนวณ
 
-แผนที่แสดงฉาก boundary/POI จำลองบน basemap จริง จุดฉากไม่เข้าคำนวณ Supply Simplified/Detailed ใช้ OpenStreetMap; Satellite ใช้ ESA WorldCover Sentinel-2 ปี2021 ความละเอียด10m ผ่าน Terrascope ต้องคง attribution และ vintage note ข้อมูลจังหวัดใช้เป็น display layer ตาม [source/licence](evidence/geography-source.md) ไม่ใช่การรับรองขอบเขต อปท. ปัจจุบัน
+ฐานเทียบคงที่ทั้งประเทศ: 180 แขวงใน กทม. และ 7,774 อปท. ต่างจังหวัด ใช้ valid values ของแต่ละ metric ใน UUID ชุดเดียวกัน ค่าขาดไม่ใช่ศูนย์ การกรองจังหวัดหรือแบรนด์ไม่สร้าง percentile ฐานใหม่
 
-## Asset และ source contract
+| Preset ตั้งต้น | ไข่แดงจาก Demand | ตรงเกณฑ์ทีม | รอตรวจเพิ่มเติม |
+|---|---:|---:|---:|
+| Fuel · บางจาก · all fuel | 1,067 | 915 | 79 |
+| Grocery · 7-Eleven · C_STORE | 2,859 | 1,455 | 14 |
+| Non-bank · เมืองไทย แคปปิตอล · active retail-license union | 2,298 | 37 | 1,378 |
 
-- [Asset index](ASSET_INDEX_v1.5.md), [runtime asset manifest](contracts/assets.v1.5.json), [DS manifest](contracts/ds-assets.v1.5.json) และ [DS integration](DS_ASSET_INTEGRATION.md) ระบุไฟล์ บทบาทและ hash ที่ต้องเชื่อมจริง
-- สี/ฟอนต์ canonical LDS0.9.4 คง bytes เดิม Product CSS/JS และ [icon extension](contracts/icons.v1.5.json) มี provenance แยก ไม่อ้างว่าแก้ canonical DS
-- Logo ใช้ภาพโปร่งใสเดิมในทุกธีม วางตรงบน sidebar จอใหญ่และในเมนูมือถือ พื้น chrome ใช้สีตามธีม ไม่มี card/frame/plate หรือแถบ beige บังคับในธีมมืด ไม่ recolour/crop/invert ภาพ ดู [web identity](contracts/web-identity.v1.5.json) สำหรับ favicon และภาพแชร์ ไม่มี motif ที่ต้องนำกลับไปติดตั้ง
-- Full-resolution source logo ไม่รวมใน runtime; เก็บ lineage ใน [projection receipt](evidence/logo-web-projection-v12.json) และ DS receipt
-- Production ต้องใช้ private SourceRelease ที่อนุมัติแล้ว, geometry/crosswalk/coverage ตรวจแล้ว และ server-side permissions ขอบเขตต้องเป็น Polygon/MultiPolygon จริง; bbox จัดกล้องอย่างเดียว `source` ไม่เท่ากับ `verified`
+ตัวเลขนี้เป็นผล snapshot/default ที่ตรวจได้ ไม่ใช่ยอดลูกค้าหรือคำแนะนำเปิดสาขา จำนวน “ตรงเกณฑ์ทีม” รวมผล Demand, Tier และ preferred patterns; “รอตรวจ” เป็นผลที่ข้อมูลยังยืนยัน membership ไม่ได้ แยกจากผลยืนยันเสมอ
 
-## เกณฑ์และการอัปเกรด
+Fuel คงสูตรอาคาร/กิจกรรมและน้ำหนัก 70/20/10 เดิม Grocery เริ่มจากประชากร/ความหนาแน่น หรือบริบทคนงานโรงงาน Non-bank เริ่มจากประชากรอายุ 20–64/ความหนาแน่น ซึ่งเป็นบริบทตลาดบริการ ไม่ใช่ความต้องการกู้ ความสามารถชำระหนี้ หรือ eligibility
 
-เกณฑ์ตั้งต้นอาคาร/กิจกรรมและ Supply เดิมยังอยู่ `maxDemandTier=3` รับ Tier 1–3 ผู้ใช้เลือกให้เข้มขึ้นได้ รายการที่ผ่านจึงเรียงด้วยน้ำหนัก 70:20:10 สำหรับ Demand / ช่องว่างสาขาเรา / ช่องว่างคู่แข่ง น้ำหนักไม่เปลี่ยนจำนวนผ่าน ดาวไม่บังคับ weighted order ข้อมูลขาดคงน้ำหนักเป็นช่วงคะแนนและไม่ถูกนับเป็นศูนย์ที่ยืนยันแล้ว
+Supply ใช้ direct UUID aggregates แยกจาก POI overlays Non-bank ยังมี 5,534 จาก 23,524 สำนักงานที่ไม่ผูกพื้นที่ละเอียด จึงคงช่วงความเป็นไปได้รายจังหวัด/บริษัท Grocery มี category-assignment discrepancy บางส่วนที่เก็บเป็นช่วงด้วย ไม่แทน residual ด้วยศูนย์หรือกระจายเป็นยอดจริงซ้ำทุกพื้นที่
 
-เกณฑ์เก่าที่ไม่ระบุ rankingMode จะใช้ legacy ต่อไป การเลือก weighted แล้วกดใช้กับทีมจึงสร้างการเปลี่ยนสูตรที่มองเห็นในประวัติ shortlist และข้อมูลที่ทีมบันทึกไม่ถูกลบ ดูสูตรและชื่อฟิลด์จริงใน [criteria contract](contracts/criteria.v1.4.json)
+## แผนที่และภาพ
 
-## Verification
+แผนที่ประเทศใช้ province geometry เดิมที่มี source/licence ขอบเขตรายทำเลมี **18 source polygons** ที่ตรวจที่มาได้ พื้นที่อื่นมี fit extent เท่านั้น ระบบต้องบอกว่ายังไม่มี polygon ไม่วาด bbox ให้ดูเป็น boundary จริง Point coordinates ไม่ถูกเดาว่าอยู่ใน อปท. จากตำบลหรือชื่อพื้นที่
 
-**สถานะ `ready_with_open_manual_gate`** Source/VM/controller และไฟล์เผยแพร่ตรวจได้ด้วย scripts ใน [START_HERE](START_HERE.md) ส่วน browser visual/device QA ยังเปิดอยู่จาก automatic approval review ที่บล็อกขั้นตอนเดิมไว้ ผล hash หรือ Node VM ไม่ทดแทนการดูหน้าจอจริง
+Simplified/Detailed ใช้ OpenStreetMap; Satellite ใช้ ESA WorldCover Sentinel-2 ปี 2021 ผ่าน Terrascope ต้องคง attribution/vintage และต้องมีเครือข่ายสำหรับ basemap ภาพสาขา 5 ภาพที่มากับชุดนี้เป็น AI mockup ของสถานีสมมติ ไม่ใช่รูปบางจากหรือรูปกิจการจริงของ Grocery/Non-bank ภาพที่เลือกเพิ่มเก็บเป็น local draft
 
-ต้องตรวจต่อบน actual build: TH/EN, light/dark/system, 320/390/768/1440px, 200% text zoom, keyboard/touch, map network errors, photo orientation/storage recovery และ font/logo/icon rendering, mobile menu/safe-area, percentile disclosure และ map-scope semantics แนบหลักฐานก่อนเปลี่ยน gate เป็น passed ไม่สร้าง screenshot หรือผลตรวจขึ้นเอง
+ดู [ภาพและบันทึก UI](docs/EXPERIENCE_v1.6.md) กับ [browser receipt](evidence/QA.md) สำหรับสิ่งที่ตรวจบนหน้าจอจริง ห้ามอ้างว่า viewport emulation เป็นการทดสอบเครื่อง iPhone/Safari จริง
 
-GitHub Pages deploy `prototype/` จาก main ตาม workflow หลัง automated checks ผ่าน คง `noindex` สำหรับ illustrative preview ดู [release manifest](contracts/release.v1.5.0.json) สำหรับ identity ของ runtime และ [QA record](evidence/qa-v1.5.json) สำหรับขอบเขตหลักฐานเดิม
+## DS และ assets
 
-## เริ่มพัฒนาจริง
+ต่อไฟล์ตาม [Asset index](ASSET_INDEX_v1.6.md), [DS integration](DS_ASSET_INTEGRATION.md) และ [asset manifest](contracts/assets.v1.6.json) ฐานเต็ม LDS 0.9.7 + Location Intelligence Profile รวมไว้ครบ โลโก้/ตำแหน่งและ Material Rounded product extension ของ Yolk เดิมมี provenance แยก ไม่มี motif, logo frame, decorative bracket หรือ selected coloured left rail
 
-Task00 สำรวจระบบเดิม CityMETER และสร้าง path/command mapping, contracts, CI และ permission foundation ก่อน จากนั้น task01–02 ทำ private data gate และ geography งานที่เป็นอิสระใน [DAG](contracts/implementation-tasks.v1.5.json) จึงค่อยทำขนาน ทุกงานต้องส่ง changed files, tests, acceptance evidence และสิ่งที่ยังเปิดอยู่
+ในธีมมืด wordmark ใช้ alpha ของภาพเดิมเติมสี foundation text-primary ตาม LOGO-01 โดยคงสัญลักษณ์สีและสัดส่วน ไม่ invert หรือใส่แผ่นรอง Heat 3-class บนแผนที่ใช้ `#FFF6CF / #F5B323 / #C72D10` เหมือนกันสองธีม และแยกจาก metric-chart 5-class
 
-Public CI ใช้ synthetic fixtures; backend commands ที่เสนอในแผนยังต้องสร้าง ไม่ publish ข้อมูลจริงเข้าชุดนี้ และไม่ตีความคะแนน/ดาวว่าเป็นยอดขายหรือความเป็นไปได้ของแปลงที่ดิน การคัดพื้นที่/corridor มาก่อนการศึกษารายแปลง ส่วน transaction/member calibration เป็น private track ภายหลัง
+## หลักฐานตรวจและข้อจำกัด
+
+| การตรวจ | ผลและขอบเขต |
+|---|---|
+| Source/runtime integration | 26 checks ผ่าน; 2.44 ล้าน comparisons ครอบคลุม 7,954×25 metric values/states, Supply scopes/bounds, geometry และ percentile decisions |
+| Core runtime | 30 checks ผ่าน รวม preset, draft isolation, late-fetch/cold-point races, unknown Supply, weighted intervals และสูตร/coverage 25 metric สองภาษา |
+| Branch photos | 28 checks ผ่าน ครอบคลุม local photo state, permissions, storage และ file headers |
+| Independent model | Criteria 21 checks และ Supply 20 checks ผ่าน; future integration protocols ใน receipt ยังเป็นแผนทดสอบ |
+| DS package | 9,768/9,768 ผ่าน เป็น package/schema/colour/source checks; คำเตือนต้นทางอยู่ใน receipt ไม่ใช่ full-artifact certification |
+| Browser/UI | ดู viewport, route, language/theme, screenshots และข้อจำกัดที่ตรวจจริงใน browser receipt |
+| Package integrity | hash/relative-link/runtime-dependency checks จาก public source verifier; full local ZIP ตรวจแยกแล้วก่อน publication |
+
+Production ยังต้องเชื่อม SourceRelease ที่อนุมัติ, datastore/API ของ CityMETER, server RBAC, revision locking, media, outbox/notification และ calibration จาก business outcomes การเก็บข้อมูลทีมเพิ่มต้องทำเป็น overlay ก่อน reconcile ไม่แก้ source totals โดยตรง
+
+## ตรวจ public source และ Pages artifact
+
+```sh
+python3 scripts/verify-pages-v1.6.py
+node scripts/check-three-industry.cjs
+node scripts/check-photo-runtime.cjs
+python3 -m http.server 8854 --bind 127.0.0.1
+```
+
+เปิด [เว็บเผยแพร่](https://montri-th.github.io/yolk/) หรือ /prototype/ เมื่อรันในเครื่อง ตัว Pages artifact อยู่ที่ prototype/ และมี runtime contracts สองไฟล์ใน contracts/ ใต้ artifact ให้รักษาสำเนาตรงกับ root contracts ทุกครั้งที่ release
+
+Public source รวม runtime projections, assets/licences, product/implementation contracts และหลักฐานสรุป ไม่รวม raw HTTP gzip archive, full normalized source inputs หรือ browser logs ของเครื่องทำงาน Full local handoff 1.6-preview.1 เป็น snapshot ก่อนเผยแพร่; source นี้มี deployment paths, public reference links และ metadata รุ่น 1.6.0 ที่ปรับสำหรับ Pages ดู [public manifest](contracts/pages-public-manifest.v1.6.0.json) สำหรับ exact published file hashes
+
+ห้ามเรียกการเปิด public preview ว่า shared production backend หรือการทดสอบเครื่องมือถือจริง การแก้ไขจากผู้ใช้แต่ละคนยังอยู่ใน browser ของคนนั้น

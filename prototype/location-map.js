@@ -42,7 +42,6 @@
       const records=(Array.isArray(supplied.pois)?supplied.pois:pois||[]).filter(p=>!p.archived&&p.status!=='closed'&&(p.area==null||String(p.area)===String(area.id)));
       return {...supplied,boundary,boundaryStatus:boundary?status:'missing',pois:records.filter(safePoint).map(p=>({...p,category:categories[p.category]?p.category:p.relation==='own'?'own':p.relation==='competitor'?'competitor':'unverified'})),missingCoordinateCount:records.filter(p=>!safePoint(p)).length,fitBounds:extentBounds(area.extent3857)};
     }
-    if(area?.synthetic===true&&global.YolkDemoMapContext)return global.YolkDemoMapContext.scene(area,pois,lang);
     const records=(pois||[]).filter(p=>String(p.area)===String(area?.id)&&!p.archived&&p.status!=='closed');
     return {boundary:null,boundaryStatus:'missing',pois:records.filter(safePoint).map(p=>({...p,category:categories[p.category]?p.category:p.relation==='own'?'own':p.relation==='competitor'?'competitor':'unverified'})),missingCoordinateCount:records.filter(p=>!safePoint(p)).length,fitBounds:extentBounds(area?.extent3857),sourceLabel:txt(lang,'พิกัดจากรายการใน workspace','Coordinates from workspace records')};
   }
@@ -50,7 +49,7 @@
     const c=context(area,pois,lang), synthetic=c.synthetic||c.boundaryStatus==='synthetic';
     const available=Object.keys(categories).filter(k=>c.pois.some(p=>p.category===k));
     const note=synthetic?txt(lang,'ขอบเขตและจุดทั้งหมดเป็นภาพจำลอง แผนที่พื้นหลังเป็นข้อมูลจริง','The boundary and all pins are illustrative. The basemap shows real geography.'):
-      c.boundaryStatus==='missing'?txt(lang,'ยังไม่มีขอบเขตที่ตรวจสอบแล้ว แสดงเฉพาะจุดที่มีพิกัด','No verified boundary yet. Only records with coordinates are shown.'):
+      c.boundaryStatus==='missing'?txt(lang,'กรอบต้นทางใช้จัดมุมมองเท่านั้น ยังไม่มี polygon ที่ดึงมาและไม่ยืนยันเขตกฎหมาย แสดงเฉพาะพิกัดที่มี source membership พื้นที่','Source extent is for map fitting only; no retrieved polygon or verified legal boundary. Only source-coordinate records with direct area membership are shown.'):
       c.boundaryStatus==='draft'?txt(lang,'ขอบเขตฉบับร่าง · รอทีมตรวจสอบ','Draft boundary · pending team review'):c.boundaryStatus==='source'?txt(lang,'ขอบเขตจาก CityMETER · ใช้วิเคราะห์ทำเล ไม่ใช่เอกสารรับรองเขตทางกฎหมาย','CityMETER boundary for location analysis; not a certified statutory boundary.'):txt(lang,'ขอบเขตที่ผ่านการตรวจสอบ · ดูแหล่งข้อมูลด้านล่าง','Verified boundary · source shown below');
     return `<section class="yl-location-map ${area.demand===true?'is-yolk':''}" aria-labelledby="yl-map-title" data-location-map>
       <div class="yl-map-heading"><div><h2 id="yl-map-title">${area.demand===true?(global.YolkIcons?.yolkIcon()||''):''}${txt(lang,'ขอบเขตทำเลและจุดสำคัญ','Location boundary & key places')}</h2><p>${area.demand===true?txt(lang,'Yolk · ไข่แดงที่ Demand สูง ดูสาขาและจุดสำคัญในพื้นที่','Yolk · High demand. Explore branches and key places within the boundary.'):txt(lang,'ดูสาขาและจุดที่มีข้อมูลในทำเล','Explore available branches and places in this location')}</p></div><span class="yl-map-badge">${synthetic?txt(lang,'ฉากสาธิต','Demo scene'):txt(lang,'แผนที่ทำเล','Location map')}</span></div>

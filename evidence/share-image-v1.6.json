@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "1.0",
+  "assetVersion": "1.6",
+  "designSystem": "LDS 0.9.7 / color-srgb-10",
+  "role": "Social share hero for the three-industry Yolk web preview",
+  "renderMethod": "Approved HTML rendered in Chrome via CUA browser JPEG screenshot; PNG encoding-only transcode, no image editing, compositing, resizing or artwork generation",
+  "viewport": {
+    "width": 1200,
+    "height": 630
+  },
+  "screenshotFormat": "image/png",
+  "browserScreenshotFormatNote": "CUA browser screenshot documentation specifies JPEG; original screenshot bytes retained",
+  "observations": {
+    "documentBounds": {
+      "width": 1200,
+      "height": 630
+    },
+    "fontsStatus": "loaded",
+    "fontChecks": {
+      "Arvo 700 88px": true,
+      "Bai Jamjuree 600 23px": true
+    },
+    "logoNaturalSize": {
+      "width": 889,
+      "height": 244
+    },
+    "computedFonts": {
+      "name": "Arvo, serif / 700",
+      "tagline": "Arvo, serif / 700",
+      "description": "Bai Jamjuree, sans-serif / 400",
+      "panel": "Bai Jamjuree, sans-serif / 400"
+    },
+    "computedColors": {
+      "brandBlue": "rgb(29, 68, 151)",
+      "primaryLight": "rgb(24, 35, 39)",
+      "secondaryLight": "rgb(95, 99, 90)",
+      "primaryDark": "rgb(241, 244, 239)"
+    },
+    "consoleErrorOrWarningCount": 0
+  },
+  "visualReview": {
+    "status": "pass",
+    "reviewedActualScreenshot": true,
+    "allCopyVisible": true,
+    "noClippingOrOverlap": true,
+    "logoTransparentUnframed": true,
+    "noMotifs": true,
+    "notes": "Actual 1200 × 630 screenshot reviewed: legible title and two-line tagline; three industries and version present; original composition and logo shape preserved."
+  },
+  "browserCleanup": {
+    "temporaryViewportReset": true,
+    "temporaryTabClosed": true
+  },
+  "files": {
+    "sourceHtml": {
+      "path": "design/share-v1.6.html",
+      "bytes": 1937,
+      "sha256": "a21be7c434f02c49cdec677fe173fbaa3e0b9a6ed1723d11c5d3335fe59f2494"
+    },
+    "browserScreenshot": {
+      "path": "design/yolk-share-v1.6-browser.jpg",
+      "bytes": 39889,
+      "sha256": "36289fc2cb9f00a12f986a358eb789951c6cd97cb312a4ba504dcb8471c2a0b1"
+    },
+    "logo": {
+      "path": "prototype/assets/landometer-logo-horizontal-v12-889.png",
+      "bytes": 31691,
+      "sha256": "989f58583bc54e4b9a743d0f04308df92fb7cf0bb2ae3ba9398ec9c03c481554"
+    },
+    "fontCss": {
+      "path": "prototype/vendor/lds-0.9.7/fonts.css",
+      "bytes": 1786,
+      "sha256": "a2564ee20060ac90db6b6ef2b2e18d54671005e4b6736823d2ebb2c0ddb3fbd6"
+    },
+    "arvo700": {
+      "path": "prototype/vendor/lds-0.9.7/assets/arvo-latin-700-normal.woff2",
+      "bytes": 17348,
+      "sha256": "3d908a2c04ec4c59d26d1454008b2d6744480654663a5f88e439f6483976bd37"
+    },
+    "bai400": {
+      "path": "prototype/vendor/lds-0.9.7/assets/bai-jamjuree-latin-400-normal.woff2",
+      "bytes": 11596,
+      "sha256": "5200faf54f32adc1dc47b8522adbd1399e739f4ce5c9236866806c04d6397b19"
+    },
+    "bai600": {
+      "path": "prototype/vendor/lds-0.9.7/assets/bai-jamjuree-latin-600-normal.woff2",
+      "bytes": 11844,
+      "sha256": "5ae338ac0db4222226ad96bf1b4b460030c3af1affabb475c67bf218b2eaa83f"
+    },
+    "tokens": {
+      "path": "prototype/vendor/lds-0.9.7/color-srgb-10.production.css",
+      "bytes": 133444,
+      "sha256": "3d34924a249804c4573da5b136303141b67c47f24a3f00dd5d7b86b521d9dfc8"
+    },
+    "socialShareAsset": {
+      "path": "prototype/assets/identity/yolk-share-v1.6.png",
+      "bytes": 180012,
+      "sha256": "bba7c0de5f957966c0498df5fba64b562af99d0e18b9f412d4bb0a9dc33d7274"
+    }
+  },
+  "browserScreenshotFormat": "image/jpeg",
+  "formatConversion": {
+    "action": "PIL open(browser JPEG).save(PNG, icc_profile=existing profile)",
+    "encodingOnly": true,
+    "noResize": true,
+    "noCrop": true,
+    "noPixelOperations": true,
+    "dimensions": {
+      "width": 1200,
+      "height": 630
+    },
+    "iccProfilePreserved": true,
+    "referenceDecoder": "Bundled Pillow / libjpeg JPEG decoder",
+    "decodedRgbPixelsIdentical": true,
+    "referenceDecodedRgbSha256": "6b8de6be50bb7494b0b3c833ea68fda98dff7389d4828a6eda818da01f5fde84",
+    "discardedIntermediate": "sips format conversion was overwritten after comparison showed JPEG decoder edge-pixel differences; final PNG uses identical Pillow-reference-decoded RGB pixels"
+  }
+}

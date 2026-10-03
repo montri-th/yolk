@@ -1,0 +1,333 @@
+{
+  "schemaVersion": "yolk.tasks/1.6",
+  "productionPathsAreProposed": true,
+  "integrationOwnerRequired": true,
+  "tasks": [
+    {
+      "id": "00",
+      "title": "Map the actual CityMETER stack",
+      "dependsOn": [],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "START_HERE.md",
+        "AGENTS.md"
+      ],
+      "proposedOutputs": [
+        "docs/PRODUCTION_STACK.md"
+      ],
+      "acceptance": [
+        "actual reusable module paths and runnable build/test commands",
+        "no parallel stack assumed"
+      ],
+      "testIds": [
+        "stack.mapping"
+      ],
+      "codingPrompt": "Implement task 00: Map the actual CityMETER stack. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "01",
+      "title": "Tenant schema and scoped criteria",
+      "dependsOn": [
+        "00"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "contracts/product.v1.6.json"
+      ],
+      "proposedOutputs": [
+        "tenant schema",
+        "criteria revisions and draft storage"
+      ],
+      "acceptance": [
+        "brand/profile scope isolation",
+        "explicit migration, no silent overwrite"
+      ],
+      "testIds": [
+        "tenant.isolation",
+        "criteria.brand-isolation"
+      ],
+      "codingPrompt": "Implement task 01: Tenant schema and scoped criteria. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "02",
+      "title": "Versioned source adapters and UUID joins",
+      "dependsOn": [
+        "00",
+        "01"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "prototype/data/real",
+        "evidence/data/metric-coverage.json"
+      ],
+      "proposedOutputs": [
+        "source adapter service",
+        "SourceRelease/Area/Observation stores"
+      ],
+      "acceptance": [
+        "7954 stable reporting IDs",
+        "unknown distinct from zero",
+        "no guessed locale-to-LAO assignment"
+      ],
+      "testIds": [
+        "source.reconcile",
+        "source.zero-missing",
+        "source.uuid-grain"
+      ],
+      "codingPrompt": "Implement task 02: Versioned source adapters and UUID joins. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "03",
+      "title": "Safe metric and formula registry",
+      "dependsOn": [
+        "02"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "contracts/criteria-proposal.v1.6.json"
+      ],
+      "proposedOutputs": [
+        "metric evaluator module",
+        "formula picker binding"
+      ],
+      "acceptance": [
+        "whitelisted AST/templates",
+        "units and positive denominators",
+        "correct age-band indices"
+      ],
+      "testIds": [
+        "formula.units",
+        "formula.division",
+        "formula.age-band",
+        "formula.no-eval"
+      ],
+      "codingPrompt": "Implement task 03: Safe metric and formula registry. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "04",
+      "title": "Pinned nationwide benchmark",
+      "dependsOn": [
+        "03"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "contracts/criteria-proposal.v1.6.json"
+      ],
+      "proposedOutputs": [
+        "benchmark cohort release",
+        "cutoff service"
+      ],
+      "acceptance": [
+        "PERCENTILE.INC known-only raw values",
+        "national invariance under brand/province filters"
+      ],
+      "testIds": [
+        "benchmark.ties",
+        "benchmark.invariance",
+        "benchmark.zero-cutoff"
+      ],
+      "codingPrompt": "Implement task 04: Pinned nationwide benchmark. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "05",
+      "title": "Demand presets and three-valued tiers",
+      "dependsOn": [
+        "04"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "contracts/runtime-parameter-presets.json"
+      ],
+      "proposedOutputs": [
+        "pure Demand evaluator",
+        "profile clone service"
+      ],
+      "acceptance": [
+        "Fuel1067 Grocery2859 Nonbank2298 high on baseline",
+        "missing never promotes tier",
+        "disabled paths ignored"
+      ],
+      "testIds": [
+        "demand.defaults",
+        "demand.missing",
+        "demand.disabled",
+        "demand.boundary"
+      ],
+      "codingPrompt": "Implement task 05: Demand presets and three-valued tiers. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "06",
+      "title": "Supply scopes and bounds",
+      "dependsOn": [
+        "02",
+        "01"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "contracts/criteria-proposal.v1.6.json",
+        "evidence/data/nonbank-assignment-uncertainty.json"
+      ],
+      "proposedOutputs": [
+        "Supply evaluator",
+        "entity/format/license crosswalk"
+      ],
+      "acceptance": [
+        "scope union without double counting",
+        "nonbank residual uncertainty separate",
+        "CRUD overlays do not overwrite source"
+      ],
+      "testIds": [
+        "supply.scope",
+        "supply.union",
+        "supply.residual",
+        "supply.overlay"
+      ],
+      "codingPrompt": "Implement task 06: Supply scopes and bounds. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "07",
+      "title": "Patterns, eligibility and ranking",
+      "dependsOn": [
+        "05",
+        "06"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "contracts/product.v1.6.json",
+        "contracts/criteria-proposal.v1.6.json"
+      ],
+      "proposedOutputs": [
+        "classification/filter/ranking services"
+      ],
+      "acceptance": [
+        "weights leave membership unchanged",
+        "all-possible-pattern inclusion distinct from partial review",
+        "deterministic ties and conservative bounds"
+      ],
+      "testIds": [
+        "ranking.weights",
+        "patterns.possibilities",
+        "ranking.bounds",
+        "ranking.ties"
+      ],
+      "codingPrompt": "Implement task 07: Patterns, eligibility and ranking. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "08",
+      "title": "Criteria draft and Apply workflow",
+      "dependsOn": [
+        "07",
+        "01"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "prototype/decision-ui.js",
+        "prototype/industry-workspace.js"
+      ],
+      "proposedOutputs": [
+        "production criteria UI",
+        "revision conflict handling"
+      ],
+      "acceptance": [
+        "dataset/metric/formula/parameter controls",
+        "preview diff then one commit",
+        "brand and language/theme preserve drafts"
+      ],
+      "testIds": [
+        "ui.formula",
+        "ui.draft",
+        "ui.apply",
+        "criteria.conflict"
+      ],
+      "codingPrompt": "Implement task 08: Criteria draft and Apply workflow. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "09",
+      "title": "Maps, details and Supply CRUD",
+      "dependsOn": [
+        "02",
+        "07"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "prototype/location-map.js",
+        "prototype/landscape.js",
+        "prototype/supply-ui.js",
+        "prototype/branch-photos.js"
+      ],
+      "proposedOutputs": [
+        "production map/detail/CRUD/media integration"
+      ],
+      "acceptance": [
+        "no bbox masquerading as boundary",
+        "POI provenance/coverage",
+        "five photo limit validated server-side",
+        "actual TH/EN mobile and desktop light/dark render inspection"
+      ],
+      "testIds": [
+        "map.boundary",
+        "map.coverage",
+        "photo.limit",
+        "visual.responsive",
+        "assets.identity"
+      ],
+      "codingPrompt": "Implement task 09: Maps, details and Supply CRUD. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "10",
+      "title": "Shared team, events and notifications",
+      "dependsOn": [
+        "01",
+        "08",
+        "09"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "contracts/product.v1.6.json"
+      ],
+      "proposedOutputs": [
+        "RBAC APIs",
+        "event/outbox delivery",
+        "activity/feed/leaderboard"
+      ],
+      "acceptance": [
+        "10 role seats enforced",
+        "one event per successful mutation",
+        "permissioned share and deduped notifications"
+      ],
+      "testIds": [
+        "rbac.server",
+        "events.once",
+        "notifications.dedupe",
+        "share.permissions"
+      ],
+      "codingPrompt": "Implement task 10: Shared team, events and notifications. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    },
+    {
+      "id": "11",
+      "title": "Calibration and evidence-backed release",
+      "dependsOn": [
+        "10"
+      ],
+      "implementationState": "production_not_implemented_or_not_verified_by_static_preview",
+      "inputs": [
+        "contracts/criteria-proposal.v1.6.json"
+      ],
+      "proposedOutputs": [
+        "calibration protocol",
+        "held-out evaluation",
+        "release evidence"
+      ],
+      "acceptance": [
+        "source/criteria/run versions preserved",
+        "outcome validation on independent time/areas",
+        "no proxy presented as measured sales or borrowing"
+      ],
+      "testIds": [
+        "calibration.holdout",
+        "release.truth"
+      ],
+      "codingPrompt": "Implement task 11: Calibration and evidence-backed release. Read AGENTS.md, product.v1.6.json, the supplied inputs and current criteria/presets. Reuse CityMETER stack mapped by Task00 and the original Yolk UI. Implement only this bounded task. Preserve source provenance, nationwide benchmark, zero/unknown meaning, brand scope and LDS0.9.7. Run meaningful acceptance tests. Report exact files, migrations, commands/results, source/criteria versions and remaining gates. Do not claim production capabilities from a static preview or publish externally unless explicitly authorized."
+    }
+  ]
+}

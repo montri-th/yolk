@@ -1,0 +1,63 @@
+{
+  "reviewed_on": "2026-10-03",
+  "references": [
+    {
+      "id": "CPALL_2025_MDNA",
+      "title": "CP ALL 2025 MD&A, filed 25 February 2026",
+      "url": "https://market.sec.or.th/public/idisc/Download?FILEID=dat/news/202602/0737NWS250220261736173740E.pdf",
+      "accessed": "2026-10-03",
+      "supports": "Convenience business and online/offline channels; expansion is not proof of visits at a candidate location.",
+      "does_not_supply": "P50/P75/P90 thresholds, catchment radius or Yolk weights"
+    },
+    {
+      "id": "CPAXTRA_FORMATS",
+      "title": "CP AXTRA store formats",
+      "url": "https://www.cpaxtra.com/en/about-us/store-model",
+      "accessed": "2026-10-03",
+      "supports": "Mini-supermarket, supermarket, hypermarket and operator-serving wholesale differ in mission and location context.",
+      "does_not_supply": "Format-specific validated public-data cutoffs"
+    },
+    {
+      "id": "CPAXTRA_2026_STRATEGY",
+      "title": "CP AXTRA investor overview, strategy dated 21 April 2026",
+      "url": "https://www.cpaxtra.com/en/investor-relations/overview",
+      "accessed": "2026-10-03",
+      "supports": "Right formats in high-potential locations and B2B/B2C channels.",
+      "does_not_supply": "Yolk threshold calibration"
+    },
+    {
+      "id": "MTC_2025_BRANCH_ANALYSIS",
+      "title": "Muangthai Capital 2025 risk management, Cost-Effectiveness of Branch Expansion",
+      "url": "https://sustainability.muangthaicap.com/en/risk.html",
+      "accessed": "2026-10-03",
+      "supports": "Area potential, population density, target customer groups, nearby branch performance and payback/ROI belong in branch planning.",
+      "does_not_supply": "Population percentile cutoffs; public proxies cannot recreate their internal borrower or ROI models"
+    },
+    {
+      "id": "TIDLOR_2025_RESULT",
+      "title": "Tidlor 2025 results, operator investor disclosure",
+      "url": "https://www.tidlorinvestor.com/en/updates/press-releases/347/tidlor-posts-record-2025-net-profit-of-4963-million-baht-up-174-yoy-delivers-quality-growth-in-insurance-brokerage-and-lending-with-npl-at-15",
+      "accessed": "2026-10-03",
+      "supports": "Vehicle-title lending with branches and digital withdrawal/service channels.",
+      "does_not_supply": "Current services of every CityMETER office; financing propensity from area traits"
+    },
+    {
+      "id": "BANGCHAK_2025_RESULT",
+      "title": "Bangchak 2025 results, operator disclosure",
+      "url": "https://www.bangchak.co.th/en/newsroom/bangchak-news/1832/bangchak-group-reports-2025-financial-performance-continued-synergy-realization-expanding-global-reach-strengthening-long-term-growth",
+      "accessed": "2026-10-03",
+      "supports": "Retail station network, industrial fuel channels and non-oil services are distinct business scopes.",
+      "does_not_supply": "GFA/factory/hotel cutoffs or a highway traffic conversion"
+    },
+    {
+      "id": "BOT_PRODUCT_SCOPE",
+      "title": "Bank of Thailand supervised financial businesses",
+      "url": "https://www.bot.or.th/th/our-roles/financial-institutions/Thailand-financial-institutions-and-financial-service-providers/financial-business-under-the-BOT-supervision.html",
+      "accessed": "2026-10-03",
+      "supports": "Product/authorization types must remain distinct; company authorization is not office-product evidence.",
+      "does_not_supply": "Demand or office capacity"
+    }
+  ],
+  "numeric_cutoffs_are_operator_validated": false,
+  "scope": "Primary disclosure supports business rationale; not calibration of Yolk percentile or weights."
+}

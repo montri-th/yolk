@@ -1,7 +1,7 @@
 /* Yolk preference controller. Product settings; LDS atomic tokens stay immutable. */
 (function (root) {
   'use strict';
-  const STORAGE_KEY = 'citymeter-yolk-theme-v1';
+  const STORAGE_KEY = 'citymeter-yolk-three-industries-theme-v1';
   const choices = ['light', 'dark', 'system'];
   const media = typeof root.matchMedia === 'function' ? root.matchMedia('(prefers-color-scheme: dark)') : null;
   let preference = readPreference();

@@ -1,0 +1,361 @@
+{
+  "generated_at": "2026-10-03T09:54:03.403Z",
+  "overall_status": "PASS",
+  "method": "Execute shipped metrics.js/model.js/industry-workspace.js unchanged in memory-only VM; compare to independent canonical JSON derivations",
+  "checks": [
+    {
+      "name": "Shipped model.js retains all 198850 metric values",
+      "status": "PASS",
+      "comparisons": 198850,
+      "discrepancy_count": 0,
+      "examples": []
+    },
+    {
+      "name": "Shipped PERCENTILE.INC agrees within binary precision, with every cutoff decision identical",
+      "status": "PASS",
+      "comparisons": 855880,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "fixed_universe": 7954,
+        "known_values_per_metric_only": true,
+        "zeros_included": true,
+        "province_filter_recomputes_default": false,
+        "precision_differences": [
+          {
+            "metric": "population",
+            "percentile": 95,
+            "actual": 18483.65,
+            "expected": 18483.649999999998,
+            "absolute_difference": 3.637978807091713e-12
+          },
+          {
+            "metric": "population_per_km2",
+            "percentile": 95,
+            "actual": 1791.1159212849964,
+            "expected": 1791.1159212849905,
+            "absolute_difference": 5.9117155615240335e-12
+          },
+          {
+            "metric": "working_age_15_64",
+            "percentile": 95,
+            "actual": 13062.75,
+            "expected": 13062.749999999996,
+            "absolute_difference": 3.637978807091713e-12
+          },
+          {
+            "metric": "working_age_15_64_per_km2",
+            "percentile": 95,
+            "actual": 1253.4642726131449,
+            "expected": 1253.4642726131428,
+            "absolute_difference": 2.0463630789890885e-12
+          },
+          {
+            "metric": "adult_population_20_64",
+            "percentile": 95,
+            "actual": 11822.050000000003,
+            "expected": 11822.049999999992,
+            "absolute_difference": 1.0913936421275139e-11
+          },
+          {
+            "metric": "adult_population_20_64_per_km2",
+            "percentile": 95,
+            "actual": 1147.471487856661,
+            "expected": 1147.4714878566579,
+            "absolute_difference": 3.183231456205249e-12
+          },
+          {
+            "metric": "children_0_14",
+            "percentile": 95,
+            "actual": 2740.55,
+            "expected": 2740.5499999999993,
+            "absolute_difference": 9.094947017729282e-13
+          },
+          {
+            "metric": "population_65_plus",
+            "percentile": 95,
+            "actual": 2771.2000000000007,
+            "expected": 2771.199999999997,
+            "absolute_difference": 3.637978807091713e-12
+          },
+          {
+            "metric": "gfa",
+            "percentile": 95,
+            "actual": 4852071.909010004,
+            "expected": 4852071.909009993,
+            "absolute_difference": 1.1175870895385742e-8
+          },
+          {
+            "metric": "building_count",
+            "percentile": 95,
+            "actual": 8634.2,
+            "expected": 8634.199999999999,
+            "absolute_difference": 1.8189894035458565e-12
+          },
+          {
+            "metric": "gfa_per_km2",
+            "percentile": 95,
+            "actual": 484768.0974711418,
+            "expected": 484768.09747113986,
+            "absolute_difference": 1.9208528101444244e-9
+          },
+          {
+            "metric": "factory_workers",
+            "percentile": 90,
+            "actual": 1023.7999999999993,
+            "expected": 1023.8000000000011,
+            "absolute_difference": 1.8189894035458565e-12
+          },
+          {
+            "metric": "factory_workers_per_km2",
+            "percentile": 90,
+            "actual": 65.16528005382781,
+            "expected": 65.1652800538279,
+            "absolute_difference": 8.526512829121202e-14
+          },
+          {
+            "metric": "fiscal_ex_grants_per_person",
+            "percentile": 90,
+            "actual": 9232.457797672057,
+            "expected": 9232.457797672061,
+            "absolute_difference": 3.637978807091713e-12
+          }
+        ],
+        "valid_cutoff_decisions_compared": 855755,
+        "tolerance": "32 machine epsilons relative; also require zero changed source-row cutoff decisions"
+      }
+    },
+    {
+      "name": "Shipped license scope filter retains true/false/unknown company membership",
+      "status": "PASS",
+      "comparisons": 9009,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "company_scope_only": true,
+        "branch_operational_claim": false
+      }
+    },
+    {
+      "name": "Shipped Nonbank all-area bounds match canonical province/company residuals in all7 scopes for3 networks",
+      "status": "PASS",
+      "comparisons": 167034,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "networks": [
+          "MTC",
+          "Srisawad",
+          "Saksiam"
+        ],
+        "scopeSummaries": [
+          {
+            "own": "0107557000195",
+            "scope": "office_context",
+            "assigned_peer_lower_sum": 11528,
+            "unknown_license_assigned_count": 0
+          },
+          {
+            "own": "0107557000195",
+            "scope": "potential_retail_branch_service",
+            "assigned_peer_lower_sum": 7279,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0107557000195",
+            "scope": "vehicle_title",
+            "assigned_peer_lower_sum": 5547,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0107557000195",
+            "scope": "personal",
+            "assigned_peer_lower_sum": 4101,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0107557000195",
+            "scope": "nano",
+            "assigned_peer_lower_sum": 5466,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0107557000195",
+            "scope": "pico",
+            "assigned_peer_lower_sum": 1152,
+            "unknown_license_assigned_count": 0
+          },
+          {
+            "own": "0107557000195",
+            "scope": "pico_plus",
+            "assigned_peer_lower_sum": 468,
+            "unknown_license_assigned_count": 0
+          },
+          {
+            "own": "0105559126747",
+            "scope": "office_context",
+            "assigned_peer_lower_sum": 13790,
+            "unknown_license_assigned_count": 0
+          },
+          {
+            "own": "0105559126747",
+            "scope": "potential_retail_branch_service",
+            "assigned_peer_lower_sum": 13741,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0105559126747",
+            "scope": "vehicle_title",
+            "assigned_peer_lower_sum": 12009,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0105559126747",
+            "scope": "personal",
+            "assigned_peer_lower_sum": 10563,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0105559126747",
+            "scope": "nano",
+            "assigned_peer_lower_sum": 11928,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0105559126747",
+            "scope": "pico",
+            "assigned_peer_lower_sum": 1152,
+            "unknown_license_assigned_count": 0
+          },
+          {
+            "own": "0105559126747",
+            "scope": "pico_plus",
+            "assigned_peer_lower_sum": 468,
+            "unknown_license_assigned_count": 0
+          },
+          {
+            "own": "0105564161598",
+            "scope": "office_context",
+            "assigned_peer_lower_sum": 16433,
+            "unknown_license_assigned_count": 0
+          },
+          {
+            "own": "0105564161598",
+            "scope": "potential_retail_branch_service",
+            "assigned_peer_lower_sum": 12184,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0105564161598",
+            "scope": "vehicle_title",
+            "assigned_peer_lower_sum": 10452,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0105564161598",
+            "scope": "personal",
+            "assigned_peer_lower_sum": 10563,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0105564161598",
+            "scope": "nano",
+            "assigned_peer_lower_sum": 10371,
+            "unknown_license_assigned_count": 24
+          },
+          {
+            "own": "0105564161598",
+            "scope": "pico",
+            "assigned_peer_lower_sum": 1152,
+            "unknown_license_assigned_count": 0
+          },
+          {
+            "own": "0105564161598",
+            "scope": "pico_plus",
+            "assigned_peer_lower_sum": 468,
+            "unknown_license_assigned_count": 0
+          }
+        ],
+        "residuals_are_uncertainty_not_allocated_offices": true
+      }
+    },
+    {
+      "name": "Shipped Grocery exact-format peers and NMA/SNI source-reconciliation bounds match",
+      "status": "PASS",
+      "comparisons": 95448,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "formats_compared": 4,
+        "selected_own_brands": 3,
+        "pharmacy_in_peer_scope": false
+      }
+    },
+    {
+      "name": "Shipped Fuel direct merged-count own/other/unknown split exact",
+      "status": "PASS",
+      "comparisons": 23862,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "unknown_is_unknown_brand": true,
+        "unknown_is_not_unbranded": true
+      }
+    },
+    {
+      "name": "Shipped ensureSourcePoints uses exact BKK membership only and leaves all ambiguous/upcountry records unassigned",
+      "status": "PASS",
+      "comparisons": 55344,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": [
+        {
+          "industry": "fuel",
+          "points": 4363,
+          "exact_area_members": 0,
+          "upcountry_members_without_crosswalk": 0,
+          "ambiguous_false_joins": 0
+        },
+        {
+          "industry": "grocery",
+          "points": 27457,
+          "exact_area_members": 5269,
+          "upcountry_members_without_crosswalk": 0,
+          "ambiguous_false_joins": 0
+        },
+        {
+          "industry": "nonbank",
+          "points": 23524,
+          "exact_area_members": 1596,
+          "upcountry_members_without_crosswalk": 0,
+          "ambiguous_false_joins": 0
+        }
+      ]
+    },
+    {
+      "name": "Shipped geometry loader assigns exactly18 unchanged actual polygons, other7936 remain fit-only",
+      "status": "PASS",
+      "comparisons": 7954,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "source_polygon_count": 18
+      }
+    }
+  ],
+  "executed_script_hashes": [
+    {
+      "file": "metrics.js",
+      "sha256": "5dbaa295b0f5f01ff8756c7724c9977cf19dc3ce63c09d88f1a800a28466feed"
+    },
+    {
+      "file": "model.js",
+      "sha256": "ddba38878386e025211039350708431edec07dc74943315708d58c622faaa584"
+    },
+    {
+      "file": "industry-workspace.js",
+      "sha256": "6e833819263928a5c6efc0b1c096b8c2f3b3ed22c3048c0aa86d3561f5cdb927"
+    }
+  ],
+  "persistent_write": "QA report only; localStorage is memory stub, no prototype/native/source mutation"
+}

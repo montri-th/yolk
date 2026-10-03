@@ -1,23 +1,23 @@
-/* Product semantic mapping, LDS 0.9.4 bytes unchanged.
+/* Product semantic mapping, LDS 0.9.7.
    Gold means confirmed high Demand, never approval to acquire or open. */
 :root {
   --yl-yolk-fill: var(--ldm-series-03-fill-light);
   --yl-yolk-ink: var(--ldm-series-03-ink-light);
   --yl-yolk-accent: var(--ldm-semantic-warning-light-foreground);
   --yl-yolk-soft: var(--ldm-foundation-surface-beige-tint-light);
-  /* Exact first three published five-class DS heat colours; custom 3-bin product classification. */
-  --yl-yolk-map-1: #FBF1C6;
-  --yl-yolk-map-2: #F0CA90;
-  --yl-yolk-map-3: #E3A257;
+  /* Exact published LDS three-class heat scale, unchanged in both themes. */
+  --yl-yolk-map-1: var(--ldm-scale-heat-light-class-3-1);
+  --yl-yolk-map-2: var(--ldm-scale-heat-light-class-3-2);
+  --yl-yolk-map-3: var(--ldm-scale-heat-light-class-3-3);
 }
 :root[data-theme="dark"] {
   --yl-yolk-fill: var(--ldm-series-03-fill-dark);
   --yl-yolk-ink: var(--ldm-foundation-text-primary-light);
   --yl-yolk-accent: var(--ldm-energy-yellow);
   --yl-yolk-soft: var(--ldm-foundation-surface-beige-tint-dark);
-  --yl-yolk-map-1: #393129;
-  --yl-yolk-map-2: #7A5933;
-  --yl-yolk-map-3: #C28336;
+  --yl-yolk-map-1: var(--ldm-scale-heat-light-class-3-1);
+  --yl-yolk-map-2: var(--ldm-scale-heat-light-class-3-2);
+  --yl-yolk-map-3: var(--ldm-scale-heat-light-class-3-3);
 }
 .yolk-title { display: block; color: var(--yl-yolk-accent); }
 .yolk-title .yl-icon { font-size: .95em; vertical-align: -.1em; }

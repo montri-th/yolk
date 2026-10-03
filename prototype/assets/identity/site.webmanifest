@@ -5,8 +5,8 @@
   "start_url": "/yolk/",
   "scope": "/yolk/",
   "display": "browser",
-  "background_color": "#F2F1DF",
-  "theme_color": "#F2F1DF",
+  "background_color": "#EEF1EE",
+  "theme_color": "#EEF1EE",
   "icons": [
     {
       "src": "icon-portfolio-192.png?v=1d8bbd3d8656",

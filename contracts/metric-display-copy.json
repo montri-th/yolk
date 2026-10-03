@@ -1,0 +1,2974 @@
+{
+  "schema_version": "yolk.metric-display-copy/1.0",
+  "created_on": "2026-10-03",
+  "status": "source_bound_bilingual_display_copy",
+  "sourceCatalogue": {
+    "path": "../data-evidence/metric-catalog.json",
+    "sha256": "e8341a29a73ad3b6d7bde914e70b95f70caa6ff3ed97d0e45fc27d400c098285"
+  },
+  "formulaSource": {
+    "path": "criteria-proposal.json",
+    "field": "runtimeMetricCatalogue",
+    "sha256": "5501edc34b0095f41d2b54d5538a9e4a5697582f8f8a83dc8a055c888b1ceffd"
+  },
+  "geography": {
+    "cohortId": "national_7954",
+    "nTotal": 7954,
+    "bangkokKhwaeng": 180,
+    "outsideBangkokLocalAuthorities": 7774
+  },
+  "common": {
+    "landAreaTH": "พื้นที่เขตตามต้นทาง (ตร.กม.) = base.areaSqm ÷ 1,000,000; ไม่ใช่พื้นที่อาคารรวมหรือพื้นที่ที่คำนวณจากกรอบ extent",
+    "landAreaEN": "Source geographic area (km²) = base.areaSqm ÷ 1,000,000; separate from gross floor area and not calculated from the extent bounding box",
+    "denominatorGuardTH": "ตัวหารต้องมากกว่า 0; ถ้าข้อมูลขาดหรือคำนวณไม่ได้ ให้เป็นไม่ทราบ ไม่แทนด้วย 0",
+    "denominatorGuardEN": "The denominator must be positive; missing or invalid calculations remain unknown, not zero",
+    "sourcePeriodVsRetrievedTH": "ช่วงข้อมูลต้นทางอาจเก่ากว่าวันที่ดึงข้อมูล; snapshot นี้ดึง 3 ต.ค. 2026 ไม่ใช่การยืนยันว่าทุก metric เป็นข้อมูลเดือน ต.ค. 2026",
+    "sourcePeriodVsRetrievedEN": "Source vintage can precede retrieval; this snapshot was retrieved on 3 October 2026, which does not make every metric October 2026 data",
+    "coverageTH": "Coverage นับพื้นที่ที่คำนวณได้ในชุด UUID เดียวกันทั้งประเทศ รวมค่าศูนย์ที่ต้นทางระบุ; ไม่ใช่ระดับความมั่นใจหรือความครบถ้วนของตลาดจริง",
+    "coverageEN": "Coverage counts usable areas in the same national UUID universe, including source-explicit zeros; it is not confidence or completeness of the real market",
+    "proxyTH": "metric เหล่านี้เป็นบริบทหรือค่าประมาณเพื่อคัดกรองทำเล ไม่ใช่ความต้องการซื้อ ยอดขาย หรือความต้องการกู้ที่วัดจริง",
+    "proxyEN": "These metrics are screening context or estimates, not measured purchasing demand, sales or borrowing demand",
+    "periodLabelTH": "เดือนข้อมูลของชุดอาคารและสำนักงานเป็นช่วงที่ UI ต้นทางแสดง ไม่ยืนยันวันสำรวจจริง",
+    "periodLabelEN": "Building and office month labels come from the source UI; they do not establish the actual survey date",
+    "rawPathConventionTH": "sourceQualifiedFields ใช้ namespace ต้นทาง; fiscal คือชุด municipality/income และ raw path ใช้ rows ของ UUID พื้นที่ที่เลือกช่วงข้อมูลแล้ว",
+    "rawPathConventionEN": "sourceQualifiedFields use source namespaces; fiscal is municipality/income, and row paths refer to the selected-period row for the area UUID"
+  },
+  "metrics": {
+    "population_count": {
+      "metricId": "population_count",
+      "datasetId": "population",
+      "sourceNamespace": "population",
+      "datasetTH": "ประชากรตามพื้นที่ที่ CityMETER รายงาน",
+      "datasetEN": "CityMETER area population",
+      "labelTH": "ประชากรรวม",
+      "labelEN": "Total population",
+      "formulaTH": "รวมประชากรชายทุกช่วงอายุ + หญิงทุกช่วงอายุ",
+      "formulaEN": "Sum male population at all ages + female population at all ages",
+      "sourceField": "sum(ms)+sum(fs)",
+      "sourceQualifiedField": "(sum(population.ms) + sum(population.fs))",
+      "sourceQualifiedFields": [
+        "population.ms",
+        "population.fs"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "population.ms",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].ms",
+            "value.municipalityDatas[area_uuid].rows[].ms"
+          ]
+        },
+        {
+          "qualifiedField": "population.fs",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].fs",
+            "value.municipalityDatas[area_uuid].rows[].fs"
+          ]
+        }
+      ],
+      "sourceFormula": "sum(ms)+sum(fs)",
+      "formulaAST": {
+        "op": "add",
+        "args": [
+          {
+            "op": "sum",
+            "field": "ms"
+          },
+          {
+            "op": "sum",
+            "field": "fs"
+          }
+        ]
+      },
+      "unit": "persons",
+      "unitTH": "คน",
+      "unitEN": "persons",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "reported_context",
+      "evidenceTH": "บริบทที่ต้นทางรายงาน",
+      "evidenceEN": "Source-reported context",
+      "sourcePeriod": "2026-08",
+      "periodTH": "ส.ค. 2026",
+      "periodEN": "August 2026",
+      "meaningTH": "จำนวนประชากรตามพื้นที่ที่ต้นทางรายงาน ไม่ใช่ผู้มาเยือนหรือจำนวนลูกค้า; ข้อมูลนอก กทม. ยังไม่ได้ตรวจยืนยันกับทะเบียนทางการอย่างอิสระ",
+      "meaningEN": "Source-reported area population, not visitors or customers; outside Bangkok it has not been independently verified against official records.",
+      "coverageTH": "ใช้คำนวณได้ 7,830/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 124; ค่าศูนย์ที่ต้นทางระบุ 2",
+      "coverageEN": "Usable in 7,830/7,954 national areas; no usable value in 124; source-explicit zeros 2",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7830,
+        "nUnknown": 124,
+        "nNotApplicable": 0,
+        "nExplicitZero": 2
+      },
+      "coverageByCohort": [
+        {
+          "metric": "population_count",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 63580147,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "population_count",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 5261807,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "population_count",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 58318340,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "population_per_km2": {
+      "metricId": "population_per_km2",
+      "datasetId": "population",
+      "sourceNamespace": "population",
+      "datasetTH": "ประชากรตามพื้นที่ที่ CityMETER รายงาน",
+      "datasetEN": "CityMETER area population",
+      "labelTH": "ความหนาแน่นประชากร",
+      "labelEN": "Population density",
+      "formulaTH": "ประชากรรวม ÷ พื้นที่เขต (ตร.กม.)",
+      "formulaEN": "Total population ÷ source area (km²)",
+      "sourceField": "sum(ms)+sum(fs)",
+      "sourceQualifiedField": "((sum(population.ms) + sum(population.fs)) / (base.areaSqm / 1000000))",
+      "sourceQualifiedFields": [
+        "population.ms",
+        "population.fs",
+        "base.areaSqm"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "population.ms",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].ms",
+            "value.municipalityDatas[area_uuid].rows[].ms"
+          ]
+        },
+        {
+          "qualifiedField": "population.fs",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].fs",
+            "value.municipalityDatas[area_uuid].rows[].fs"
+          ]
+        },
+        {
+          "qualifiedField": "base.areaSqm",
+          "paths": [
+            "value.subdistrictInfos[id=area_uuid].areaSqm",
+            "value.municipalityInfos[id=area_uuid].areaSqm"
+          ]
+        }
+      ],
+      "sourceFormula": "sum(ms)+sum(fs)",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "population_count"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "persons/km2",
+      "unitTH": "คน/ตร.กม.",
+      "unitEN": "persons/km²",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2026-08",
+      "periodTH": "ส.ค. 2026",
+      "periodEN": "August 2026",
+      "meaningTH": "การกระจุกตัวของประชากรที่รายงานต่อพื้นที่เขต ไม่ใช่คนสัญจรหรือประชากรกลางวัน",
+      "meaningEN": "Concentration of reported population per source area, not passing traffic or daytime population.",
+      "coverageTH": "ใช้คำนวณได้ 7,830/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 124; ค่าศูนย์ที่ต้นทางระบุ 2",
+      "coverageEN": "Usable in 7,830/7,954 national areas; no usable value in 124; source-explicit zeros 2",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7830,
+        "nUnknown": 124,
+        "nNotApplicable": 0,
+        "nExplicitZero": 2
+      },
+      "coverageByCohort": [
+        {
+          "metric": "population_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 3583173.0282644895,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "population_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 1100247.057003111,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "population_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 2482925.971261369,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "working_age_15_64": {
+      "metricId": "working_age_15_64",
+      "datasetId": "population",
+      "sourceNamespace": "population",
+      "datasetTH": "ประชากรตามพื้นที่ที่ CityMETER รายงาน",
+      "datasetEN": "CityMETER area population",
+      "labelTH": "ประชากรอายุ 15–64 ปี",
+      "labelEN": "Population aged 15–64",
+      "formulaTH": "รวมชายอายุ 15–64 ปี + หญิงอายุ 15–64 ปี",
+      "formulaEN": "Sum males aged 15–64 + females aged 15–64",
+      "sourceField": "sum(ms[15:65])+sum(fs[15:65])",
+      "sourceQualifiedField": "(sum(population.ms[15:65]) + sum(population.fs[15:65]))",
+      "sourceQualifiedFields": [
+        "population.ms",
+        "population.fs"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "population.ms",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].ms",
+            "value.municipalityDatas[area_uuid].rows[].ms"
+          ]
+        },
+        {
+          "qualifiedField": "population.fs",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].fs",
+            "value.municipalityDatas[area_uuid].rows[].fs"
+          ]
+        }
+      ],
+      "sourceFormula": "sum(ms[15:65])+sum(fs[15:65])",
+      "formulaAST": {
+        "op": "add",
+        "args": [
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "ms",
+              "start": 15,
+              "endExclusive": 65
+            }
+          },
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "fs",
+              "start": 15,
+              "endExclusive": 65
+            }
+          }
+        ]
+      },
+      "unit": "persons",
+      "unitTH": "คน",
+      "unitEN": "persons",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2026-08",
+      "periodTH": "ส.ค. 2026",
+      "periodEN": "August 2026",
+      "meaningTH": "กลุ่มอายุตามข้อมูลประชากร ไม่ยืนยันว่าเป็นผู้มีงานทำ แรงงาน ผู้เดินทาง หรือลูกค้า",
+      "meaningEN": "An age group in the population source; it does not establish employment, workforce, commuting or customer status.",
+      "coverageTH": "ใช้คำนวณได้ 7,830/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 124; ค่าศูนย์ที่ต้นทางระบุ 2",
+      "coverageEN": "Usable in 7,830/7,954 national areas; no usable value in 124; source-explicit zeros 2",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7830,
+        "nUnknown": 124,
+        "nNotApplicable": 0,
+        "nExplicitZero": 2
+      },
+      "coverageByCohort": [
+        {
+          "metric": "working_age_15_64",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 44948878,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "working_age_15_64",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 3713907,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "working_age_15_64",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 41234971,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "working_age_15_64_per_km2": {
+      "metricId": "working_age_15_64_per_km2",
+      "datasetId": "population",
+      "sourceNamespace": "population",
+      "datasetTH": "ประชากรตามพื้นที่ที่ CityMETER รายงาน",
+      "datasetEN": "CityMETER area population",
+      "labelTH": "ความหนาแน่นประชากรอายุ 15–64 ปี",
+      "labelEN": "Density of population aged 15–64",
+      "formulaTH": "ประชากรอายุ 15–64 ปี ÷ พื้นที่เขต (ตร.กม.)",
+      "formulaEN": "Population aged 15–64 ÷ source area (km²)",
+      "sourceField": "sum(ms[15:65])+sum(fs[15:65])",
+      "sourceQualifiedField": "((sum(population.ms[15:65]) + sum(population.fs[15:65])) / (base.areaSqm / 1000000))",
+      "sourceQualifiedFields": [
+        "population.ms",
+        "population.fs",
+        "base.areaSqm"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "population.ms",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].ms",
+            "value.municipalityDatas[area_uuid].rows[].ms"
+          ]
+        },
+        {
+          "qualifiedField": "population.fs",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].fs",
+            "value.municipalityDatas[area_uuid].rows[].fs"
+          ]
+        },
+        {
+          "qualifiedField": "base.areaSqm",
+          "paths": [
+            "value.subdistrictInfos[id=area_uuid].areaSqm",
+            "value.municipalityInfos[id=area_uuid].areaSqm"
+          ]
+        }
+      ],
+      "sourceFormula": "sum(ms[15:65])+sum(fs[15:65])",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "working_age_15_64"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "persons/km2",
+      "unitTH": "คน/ตร.กม.",
+      "unitEN": "persons/km²",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2026-08",
+      "periodTH": "ส.ค. 2026",
+      "periodEN": "August 2026",
+      "meaningTH": "การกระจุกตัวของกลุ่มอายุ 15–64 ปี ไม่ใช่ความหนาแน่นผู้มีงานทำหรือผู้เดินทาง",
+      "meaningEN": "Concentration of the 15–64 age group, not density of employed people or commuters.",
+      "coverageTH": "ใช้คำนวณได้ 7,830/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 124; ค่าศูนย์ที่ต้นทางระบุ 2",
+      "coverageEN": "Usable in 7,830/7,954 national areas; no usable value in 124; source-explicit zeros 2",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7830,
+        "nUnknown": 124,
+        "nNotApplicable": 0,
+        "nExplicitZero": 2
+      },
+      "coverageByCohort": [
+        {
+          "metric": "working_age_15_64_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 2482539.927442624,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "working_age_15_64_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 742378.3260403788,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "working_age_15_64_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 1740161.6014022313,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "adult_population_20_64": {
+      "metricId": "adult_population_20_64",
+      "datasetId": "population",
+      "sourceNamespace": "population",
+      "datasetTH": "ประชากรตามพื้นที่ที่ CityMETER รายงาน",
+      "datasetEN": "CityMETER area population",
+      "labelTH": "ประชากรอายุ 20–64 ปี",
+      "labelEN": "Population aged 20–64",
+      "formulaTH": "รวมชายอายุ 20–64 ปี + หญิงอายุ 20–64 ปี",
+      "formulaEN": "Sum males aged 20–64 + females aged 20–64",
+      "sourceField": "sum(ms[20:65])+sum(fs[20:65])",
+      "sourceQualifiedField": "(sum(population.ms[20:65]) + sum(population.fs[20:65]))",
+      "sourceQualifiedFields": [
+        "population.ms",
+        "population.fs"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "population.ms",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].ms",
+            "value.municipalityDatas[area_uuid].rows[].ms"
+          ]
+        },
+        {
+          "qualifiedField": "population.fs",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].fs",
+            "value.municipalityDatas[area_uuid].rows[].fs"
+          ]
+        }
+      ],
+      "sourceFormula": "sum(ms[20:65])+sum(fs[20:65])",
+      "formulaAST": {
+        "op": "add",
+        "args": [
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "ms",
+              "start": 20,
+              "endExclusive": 65
+            }
+          },
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "fs",
+              "start": 20,
+              "endExclusive": 65
+            }
+          }
+        ]
+      },
+      "unit": "persons",
+      "unitTH": "คน",
+      "unitEN": "persons",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2026-08",
+      "periodTH": "ส.ค. 2026",
+      "periodEN": "August 2026",
+      "meaningTH": "ขนาดกลุ่มอายุสำหรับศึกษาบริบทตลาดบริการ ไม่ใช่ผู้กู้ ความต้องการกู้ การจ้างงาน หรือคุณสมบัติสินเชื่อ",
+      "meaningEN": "Age-group volume for service-market context; it is not borrowers, borrowing demand, employment or credit eligibility.",
+      "coverageTH": "ใช้คำนวณได้ 7,830/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 124; ค่าศูนย์ที่ต้นทางระบุ 2",
+      "coverageEN": "Usable in 7,830/7,954 national areas; no usable value in 124; source-explicit zeros 2",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7830,
+        "nUnknown": 124,
+        "nNotApplicable": 0,
+        "nExplicitZero": 2
+      },
+      "coverageByCohort": [
+        {
+          "metric": "adult_population_20_64",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 41122403,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "adult_population_20_64",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 3440783,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "adult_population_20_64",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 37681620,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "adult_population_20_64_per_km2": {
+      "metricId": "adult_population_20_64_per_km2",
+      "datasetId": "population",
+      "sourceNamespace": "population",
+      "datasetTH": "ประชากรตามพื้นที่ที่ CityMETER รายงาน",
+      "datasetEN": "CityMETER area population",
+      "labelTH": "ความหนาแน่นประชากรอายุ 20–64 ปี",
+      "labelEN": "Density of population aged 20–64",
+      "formulaTH": "ประชากรอายุ 20–64 ปี ÷ พื้นที่เขต (ตร.กม.)",
+      "formulaEN": "Population aged 20–64 ÷ source area (km²)",
+      "sourceField": "sum(ms[20:65])+sum(fs[20:65])",
+      "sourceQualifiedField": "((sum(population.ms[20:65]) + sum(population.fs[20:65])) / (base.areaSqm / 1000000))",
+      "sourceQualifiedFields": [
+        "population.ms",
+        "population.fs",
+        "base.areaSqm"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "population.ms",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].ms",
+            "value.municipalityDatas[area_uuid].rows[].ms"
+          ]
+        },
+        {
+          "qualifiedField": "population.fs",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].fs",
+            "value.municipalityDatas[area_uuid].rows[].fs"
+          ]
+        },
+        {
+          "qualifiedField": "base.areaSqm",
+          "paths": [
+            "value.subdistrictInfos[id=area_uuid].areaSqm",
+            "value.municipalityInfos[id=area_uuid].areaSqm"
+          ]
+        }
+      ],
+      "sourceFormula": "sum(ms[20:65])+sum(fs[20:65])",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "adult_population_20_64"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "persons/km2",
+      "unitTH": "คน/ตร.กม.",
+      "unitEN": "persons/km²",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2026-08",
+      "periodTH": "ส.ค. 2026",
+      "periodEN": "August 2026",
+      "meaningTH": "การกระจุกตัวของกลุ่มอายุสำหรับบริบทบริการ ไม่ยืนยันพฤติกรรมกู้ ความเสี่ยง หรือคุณสมบัติสินเชื่อ",
+      "meaningEN": "Age-group concentration for service context; it does not establish borrowing behavior, risk or credit eligibility.",
+      "coverageTH": "ใช้คำนวณได้ 7,830/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 124; ค่าศูนย์ที่ต้นทางระบุ 2",
+      "coverageEN": "Usable in 7,830/7,954 national areas; no usable value in 124; source-explicit zeros 2",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7830,
+        "nUnknown": 124,
+        "nNotApplicable": 0,
+        "nExplicitZero": 2
+      },
+      "coverageByCohort": [
+        {
+          "metric": "adult_population_20_64_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 2285083.8262364552,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "adult_population_20_64_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 691052.1160629379,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "adult_population_20_64_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 1594031.710173513,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "children_0_14": {
+      "metricId": "children_0_14",
+      "datasetId": "population",
+      "sourceNamespace": "population",
+      "datasetTH": "ประชากรตามพื้นที่ที่ CityMETER รายงาน",
+      "datasetEN": "CityMETER area population",
+      "labelTH": "ประชากรอายุ 0–14 ปี",
+      "labelEN": "Population aged 0–14",
+      "formulaTH": "รวมชายอายุ 0–14 ปี + หญิงอายุ 0–14 ปี",
+      "formulaEN": "Sum males aged 0–14 + females aged 0–14",
+      "sourceField": "sum(ms[0:15])+sum(fs[0:15])",
+      "sourceQualifiedField": "(sum(population.ms[0:15]) + sum(population.fs[0:15]))",
+      "sourceQualifiedFields": [
+        "population.ms",
+        "population.fs"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "population.ms",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].ms",
+            "value.municipalityDatas[area_uuid].rows[].ms"
+          ]
+        },
+        {
+          "qualifiedField": "population.fs",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].fs",
+            "value.municipalityDatas[area_uuid].rows[].fs"
+          ]
+        }
+      ],
+      "sourceFormula": "sum(ms[0:15])+sum(fs[0:15])",
+      "formulaAST": {
+        "op": "add",
+        "args": [
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "ms",
+              "start": 0,
+              "endExclusive": 15
+            }
+          },
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "fs",
+              "start": 0,
+              "endExclusive": 15
+            }
+          }
+        ]
+      },
+      "unit": "persons",
+      "unitTH": "คน",
+      "unitEN": "persons",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2026-08",
+      "periodTH": "ส.ค. 2026",
+      "periodEN": "August 2026",
+      "meaningTH": "กลุ่มอายุตามต้นทาง ไม่ใช่จำนวนครัวเรือน ลูกค้า หรือหลักฐานคุณสมบัติรับบริการ",
+      "meaningEN": "A source age group, not household count, customers or evidence of service eligibility.",
+      "coverageTH": "ใช้คำนวณได้ 7,830/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 124; ค่าศูนย์ที่ต้นทางระบุ 2",
+      "coverageEN": "Usable in 7,830/7,954 national areas; no usable value in 124; source-explicit zeros 2",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7830,
+        "nUnknown": 124,
+        "nNotApplicable": 0,
+        "nExplicitZero": 2
+      },
+      "coverageByCohort": [
+        {
+          "metric": "children_0_14",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 8775485,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "children_0_14",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 592260,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "children_0_14",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 8183225,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "population_65_plus": {
+      "metricId": "population_65_plus",
+      "datasetId": "population",
+      "sourceNamespace": "population",
+      "datasetTH": "ประชากรตามพื้นที่ที่ CityMETER รายงาน",
+      "datasetEN": "CityMETER area population",
+      "labelTH": "ประชากรอายุ 65 ปีขึ้นไป",
+      "labelEN": "Population aged 65 and over",
+      "formulaTH": "รวมชายอายุ 65 ปีขึ้นไป + หญิงอายุ 65 ปีขึ้นไป",
+      "formulaEN": "Sum males aged 65 and over + females aged 65 and over",
+      "sourceField": "sum(ms[65:])+sum(fs[65:])",
+      "sourceQualifiedField": "(sum(population.ms[65:]) + sum(population.fs[65:]))",
+      "sourceQualifiedFields": [
+        "population.ms",
+        "population.fs"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "population.ms",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].ms",
+            "value.municipalityDatas[area_uuid].rows[].ms"
+          ]
+        },
+        {
+          "qualifiedField": "population.fs",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].fs",
+            "value.municipalityDatas[area_uuid].rows[].fs"
+          ]
+        }
+      ],
+      "sourceFormula": "sum(ms[65:])+sum(fs[65:])",
+      "formulaAST": {
+        "op": "add",
+        "args": [
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "ms",
+              "start": 65
+            }
+          },
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "fs",
+              "start": 65
+            }
+          }
+        ]
+      },
+      "unit": "persons",
+      "unitTH": "คน",
+      "unitEN": "persons",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2026-08",
+      "periodTH": "ส.ค. 2026",
+      "periodEN": "August 2026",
+      "meaningTH": "รวมทุกช่องอายุตั้งแต่ 65 ถึงช่องสุดท้ายของต้นทาง ไม่ยืนยันความต้องการกู้หรือพฤติกรรมการใช้บริการ",
+      "meaningEN": "Includes all source age slots from 65 through the terminal slot; it does not establish borrowing need or service behavior.",
+      "coverageTH": "ใช้คำนวณได้ 7,830/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 124; ค่าศูนย์ที่ต้นทางระบุ 4",
+      "coverageEN": "Usable in 7,830/7,954 national areas; no usable value in 124; source-explicit zeros 4",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7830,
+        "nUnknown": 124,
+        "nNotApplicable": 0,
+        "nExplicitZero": 4
+      },
+      "coverageByCohort": [
+        {
+          "metric": "population_65_plus",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 4,
+          "sum_valid": 9855784,
+          "states": {
+            "reported_value": 7826,
+            "source_row_missing": 124,
+            "observed_zero": 4
+          }
+        },
+        {
+          "metric": "population_65_plus",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 955640,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "population_65_plus",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 4,
+          "sum_valid": 8900144,
+          "states": {
+            "reported_value": 7646,
+            "source_row_missing": 124,
+            "observed_zero": 4
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "building_gfa_m2": {
+      "metricId": "building_gfa_m2",
+      "datasetId": "building",
+      "sourceNamespace": "building",
+      "datasetTH": "อาคารและพื้นที่อาคารรวมจากแบบจำลอง",
+      "datasetEN": "Modeled buildings and gross floor area",
+      "labelTH": "พื้นที่อาคารรวมประมาณ (GFA)",
+      "labelEN": "Estimated gross floor area (GFA)",
+      "formulaTH": "ใช้ค่าประมาณพื้นที่อาคารรวมที่ต้นทางรายงาน",
+      "formulaEN": "Use the source's estimated gross floor area",
+      "sourceField": "area",
+      "sourceQualifiedField": "building.area",
+      "sourceQualifiedFields": [
+        "building.area"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "building.area",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].area",
+            "value.municipalityDatas[area_uuid].rows[].area"
+          ]
+        }
+      ],
+      "sourceFormula": "area",
+      "formulaAST": {
+        "field": "area",
+        "selector": {
+          "v": "V4"
+        }
+      },
+      "unit": "estimated m2 GFA",
+      "unitTH": "ตร.ม. GFA ประมาณ",
+      "unitEN": "estimated m² GFA",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "model_estimate",
+      "evidenceTH": "ค่าประมาณจากแบบจำลอง",
+      "evidenceEN": "Model estimate",
+      "sourcePeriod": "V4 / published UI label 2024-12",
+      "periodTH": "V4 · เดือนข้อมูลที่ UI ต้นทางแสดง: ธ.ค. 2024",
+      "periodEN": "V4 · published UI period label: December 2024",
+      "meaningTH": "พื้นที่อาคารรวมทุกชั้นจากแบบจำลอง ไม่ใช่พื้นที่ที่ดิน พื้นที่ฐานอาคาร หรือพื้นที่อยู่อาศัยที่มีคนใช้งานจริง",
+      "meaningEN": "Modeled floor area across building floors, not land area, footprint or occupied residential floor area.",
+      "coverageTH": "ใช้คำนวณได้ 7,939/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 15; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 7,939/7,954 national areas; no usable value in 15; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7939,
+        "nUnknown": 15,
+        "nNotApplicable": 0,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "building_gfa_m2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7939,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 11699165373.800179,
+          "states": {
+            "reported_value": 7939,
+            "source_row_missing": 15
+          }
+        },
+        {
+          "metric": "building_gfa_m2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 1873725210.6911998,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "building_gfa_m2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7759,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 9825440163.108976,
+          "states": {
+            "reported_value": 7759,
+            "source_row_missing": 15
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "building_count": {
+      "metricId": "building_count",
+      "datasetId": "building",
+      "sourceNamespace": "building",
+      "datasetTH": "อาคารและพื้นที่อาคารรวมจากแบบจำลอง",
+      "datasetEN": "Modeled buildings and gross floor area",
+      "labelTH": "จำนวนรายการอาคารจากแบบจำลอง",
+      "labelEN": "Modeled building record count",
+      "formulaTH": "ใช้จำนวนรายการอาคารจากแบบจำลองต้นทาง",
+      "formulaEN": "Use the source's modeled building record count",
+      "sourceField": "count",
+      "sourceQualifiedField": "building.count",
+      "sourceQualifiedFields": [
+        "building.count"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "building.count",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].count",
+            "value.municipalityDatas[area_uuid].rows[].count"
+          ]
+        }
+      ],
+      "sourceFormula": "count",
+      "formulaAST": {
+        "field": "count",
+        "selector": {
+          "v": "V4"
+        }
+      },
+      "unit": "modeled building records",
+      "unitTH": "รายการอาคารจากแบบจำลอง",
+      "unitEN": "modeled building records",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "model_estimate",
+      "evidenceTH": "ค่าประมาณจากแบบจำลอง",
+      "evidenceEN": "Model estimate",
+      "sourcePeriod": "V4 / published UI label 2024-12",
+      "periodTH": "V4 · เดือนข้อมูลที่ UI ต้นทางแสดง: ธ.ค. 2024",
+      "periodEN": "V4 · published UI period label: December 2024",
+      "meaningTH": "จำนวนรายการอาคารในชุดแบบจำลอง ไม่ยืนยันการใช้งาน ผู้พักอาศัย หรือสถานประกอบการที่เปิดอยู่",
+      "meaningEN": "Building records in the modeled inventory; they do not establish occupancy, residents or operating premises.",
+      "coverageTH": "ใช้คำนวณได้ 7,939/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 15; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 7,939/7,954 national areas; no usable value in 15; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7939,
+        "nUnknown": 15,
+        "nNotApplicable": 0,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "building_count",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7939,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 29433284,
+          "states": {
+            "reported_value": 7939,
+            "source_row_missing": 15
+          }
+        },
+        {
+          "metric": "building_count",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 1101243,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "building_count",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7759,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 28332041,
+          "states": {
+            "reported_value": 7759,
+            "source_row_missing": 15
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "gfa_per_km2": {
+      "metricId": "gfa_per_km2",
+      "datasetId": "building",
+      "sourceNamespace": "building",
+      "datasetTH": "อาคารและพื้นที่อาคารรวมจากแบบจำลอง",
+      "datasetEN": "Modeled buildings and gross floor area",
+      "labelTH": "ความหนาแน่นพื้นที่อาคารรวมประมาณ",
+      "labelEN": "Estimated GFA density",
+      "formulaTH": "พื้นที่อาคารรวมประมาณ ÷ พื้นที่เขต (ตร.กม.)",
+      "formulaEN": "Estimated GFA ÷ source area (km²)",
+      "sourceField": "area",
+      "sourceQualifiedField": "(building.area / (base.areaSqm / 1000000))",
+      "sourceQualifiedFields": [
+        "building.area",
+        "base.areaSqm"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "building.area",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].area",
+            "value.municipalityDatas[area_uuid].rows[].area"
+          ]
+        },
+        {
+          "qualifiedField": "base.areaSqm",
+          "paths": [
+            "value.subdistrictInfos[id=area_uuid].areaSqm",
+            "value.municipalityInfos[id=area_uuid].areaSqm"
+          ]
+        }
+      ],
+      "sourceFormula": "area",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "building_gfa_m2"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "estimated m2 GFA/km2",
+      "unitTH": "ตร.ม. GFA ประมาณ/ตร.กม.",
+      "unitEN": "estimated m² GFA/km²",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_model_estimate",
+      "evidenceTH": "คำนวณจากค่าประมาณของแบบจำลอง",
+      "evidenceEN": "Derived model estimate",
+      "sourcePeriod": "V4 / published UI label 2024-12",
+      "periodTH": "V4 · เดือนข้อมูลที่ UI ต้นทางแสดง: ธ.ค. 2024",
+      "periodEN": "V4 · published UI period label: December 2024",
+      "meaningTH": "การกระจุกตัวของพื้นที่อาคารจากแบบจำลอง ไม่ใช่คนสัญจร การอยู่อาศัยจริง หรือจำนวนลูกค้า",
+      "meaningEN": "Concentration of modeled floor area, not traffic, occupied housing or customer count.",
+      "coverageTH": "ใช้คำนวณได้ 7,939/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 15; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 7,939/7,954 national areas; no usable value in 15; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7939,
+        "nUnknown": 15,
+        "nNotApplicable": 0,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "gfa_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7939,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 971726645.1485059,
+          "states": {
+            "reported_value": 7939,
+            "source_row_missing": 15
+          }
+        },
+        {
+          "metric": "gfa_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 461424969.94409496,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "gfa_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7759,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 510301675.20440865,
+          "states": {
+            "reported_value": 7759,
+            "source_row_missing": 15
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "gfa_per_person": {
+      "metricId": "gfa_per_person",
+      "datasetId": "building",
+      "sourceNamespace": "building",
+      "datasetTH": "อาคารและพื้นที่อาคารรวมจากแบบจำลอง",
+      "datasetEN": "Modeled buildings and gross floor area",
+      "labelTH": "พื้นที่อาคารรวมประมาณต่อประชากร",
+      "labelEN": "Estimated GFA per person",
+      "formulaTH": "พื้นที่อาคารรวมประมาณ ÷ ประชากรรวมที่รายงาน",
+      "formulaEN": "Estimated GFA ÷ reported total population",
+      "sourceField": "area / population sum(ms)+sum(fs)",
+      "sourceQualifiedField": "(building.area / (sum(population.ms) + sum(population.fs)))",
+      "sourceQualifiedFields": [
+        "building.area",
+        "population.ms",
+        "population.fs"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "building.area",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].area",
+            "value.municipalityDatas[area_uuid].rows[].area"
+          ]
+        },
+        {
+          "qualifiedField": "population.ms",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].ms",
+            "value.municipalityDatas[area_uuid].rows[].ms"
+          ]
+        },
+        {
+          "qualifiedField": "population.fs",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].fs",
+            "value.municipalityDatas[area_uuid].rows[].fs"
+          ]
+        }
+      ],
+      "sourceFormula": "area / population sum(ms)+sum(fs)",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "building_gfa_m2"
+          },
+          {
+            "metric": "population_count"
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "estimated m2 GFA/person",
+      "unitTH": "ตร.ม. GFA ประมาณ/คน",
+      "unitEN": "estimated m² GFA/person",
+      "denominator": "direct_population_count",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_model_estimate",
+      "evidenceTH": "คำนวณจากค่าประมาณของแบบจำลอง",
+      "evidenceEN": "Derived model estimate",
+      "sourcePeriod": "V4 / published UI label 2024-12",
+      "periodTH": "อาคาร V4: เดือนข้อมูลใน UI ธ.ค. 2024; ประชากร ส.ค. 2026",
+      "periodEN": "Buildings V4: UI label December 2024; population August 2026",
+      "meaningTH": "ผสมชุดอาคารกับประชากรคนละช่วงข้อมูล; ไม่ใช่พื้นที่อยู่อาศัยต่อคน และคำนวณเมื่อประชากรมากกว่า 0 เท่านั้น",
+      "meaningEN": "Combines building and population data of different vintages; it is not residential space per person and requires population above zero.",
+      "coverageTH": "ใช้คำนวณได้ 7,828/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 126; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 7,828/7,954 national areas; no usable value in 126; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7828,
+        "nUnknown": 126,
+        "nNotApplicable": 0,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "gfa_per_person",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7828,
+          "n_missing": 126,
+          "explicit_zero_n": 0,
+          "sum_valid": 1153484.56550864,
+          "states": {
+            "reported_value": 7828,
+            "missing_or_nonpositive_population_denominator": 126
+          }
+        },
+        {
+          "metric": "gfa_per_person",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 78705.5683584604,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "gfa_per_person",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7648,
+          "n_missing": 126,
+          "explicit_zero_n": 0,
+          "sum_valid": 1074778.9971501792,
+          "states": {
+            "reported_value": 7648,
+            "missing_or_nonpositive_population_denominator": 126
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "factory_count": {
+      "metricId": "factory_count",
+      "datasetId": "factory",
+      "sourceNamespace": "factory.active",
+      "datasetTH": "ทะเบียนโรงงานกลุ่ม ACTIVE",
+      "datasetEN": "ACTIVE factory registry",
+      "labelTH": "จำนวนโรงงานในทะเบียน ACTIVE",
+      "labelEN": "ACTIVE registry factory count",
+      "formulaTH": "ใช้จำนวนโรงงานในกลุ่ม ACTIVE ที่ต้นทางรายงาน",
+      "formulaEN": "Use the source's ACTIVE factory count",
+      "sourceField": "totalFactory",
+      "sourceQualifiedField": "factory.active.totalFactory",
+      "sourceQualifiedFields": [
+        "factory.active.totalFactory"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "factory.active.totalFactory",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].totalFactory",
+            "value.municipalityDatas[area_uuid].rows[].totalFactory"
+          ]
+        }
+      ],
+      "sourceFormula": "totalFactory",
+      "formulaAST": {
+        "field": "totalFactory",
+        "selector": {
+          "y": 2025,
+          "m": 4,
+          "factory_status": "ACTIVE"
+        }
+      },
+      "unit": "registered factory records",
+      "unitTH": "รายการโรงงาน",
+      "unitEN": "factory records",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "reported_context",
+      "evidenceTH": "บริบทที่ต้นทางรายงาน",
+      "evidenceEN": "Source-reported context",
+      "sourcePeriod": "2025-04 ACTIVE",
+      "periodTH": "เม.ย. 2025 · กลุ่ม ACTIVE ตามต้นทาง",
+      "periodEN": "April 2025 · source ACTIVE classification",
+      "meaningTH": "จำนวนโรงงานที่ต้นทางจัดอยู่ในกลุ่ม ACTIVE ณ ช่วงข้อมูล ไม่ยืนยันว่าแต่ละแห่งกำลังผลิตอยู่ในปัจจุบัน",
+      "meaningEN": "Factories classified ACTIVE by the source for its data period; this does not confirm current production at each site.",
+      "coverageTH": "ใช้คำนวณได้ 5,822/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 2,132; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 5,822/7,954 national areas; no usable value in 2,132; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 5822,
+        "nUnknown": 2132,
+        "nNotApplicable": 0,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "factory_count",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 5822,
+          "n_missing": 2132,
+          "explicit_zero_n": 0,
+          "sum_valid": 71704,
+          "states": {
+            "source_row_missing": 2101,
+            "reported_value": 5822,
+            "selected_period_missing": 31
+          }
+        },
+        {
+          "metric": "factory_count",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 174,
+          "n_missing": 6,
+          "explicit_zero_n": 0,
+          "sum_valid": 6493,
+          "states": {
+            "source_row_missing": 6,
+            "reported_value": 174
+          }
+        },
+        {
+          "metric": "factory_count",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 5648,
+          "n_missing": 2126,
+          "explicit_zero_n": 0,
+          "sum_valid": 65211,
+          "states": {
+            "reported_value": 5648,
+            "source_row_missing": 2095,
+            "selected_period_missing": 31
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "factory_count_per_km2": {
+      "metricId": "factory_count_per_km2",
+      "datasetId": "factory",
+      "sourceNamespace": "factory.active",
+      "datasetTH": "ทะเบียนโรงงานกลุ่ม ACTIVE",
+      "datasetEN": "ACTIVE factory registry",
+      "labelTH": "ความหนาแน่นโรงงานในทะเบียน ACTIVE",
+      "labelEN": "ACTIVE registry factory density",
+      "formulaTH": "จำนวนโรงงานในทะเบียน ACTIVE ÷ พื้นที่เขต (ตร.กม.)",
+      "formulaEN": "ACTIVE registry factory count ÷ source area (km²)",
+      "sourceField": "totalFactory",
+      "sourceQualifiedField": "(factory.active.totalFactory / (base.areaSqm / 1000000))",
+      "sourceQualifiedFields": [
+        "factory.active.totalFactory",
+        "base.areaSqm"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "factory.active.totalFactory",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].totalFactory",
+            "value.municipalityDatas[area_uuid].rows[].totalFactory"
+          ]
+        },
+        {
+          "qualifiedField": "base.areaSqm",
+          "paths": [
+            "value.subdistrictInfos[id=area_uuid].areaSqm",
+            "value.municipalityInfos[id=area_uuid].areaSqm"
+          ]
+        }
+      ],
+      "sourceFormula": "totalFactory",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "factory_count"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "factory records/km2",
+      "unitTH": "รายการโรงงาน/ตร.กม.",
+      "unitEN": "factory records/km²",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2025-04 ACTIVE",
+      "periodTH": "เม.ย. 2025 · กลุ่ม ACTIVE ตามต้นทาง",
+      "periodEN": "April 2025 · source ACTIVE classification",
+      "meaningTH": "การกระจุกตัวของรายการโรงงานในทะเบียน ไม่ใช่ความหนาแน่นการผลิตหรือการเดินทางจริง",
+      "meaningEN": "Concentration of registry factory records, not density of actual production or travel.",
+      "coverageTH": "ใช้คำนวณได้ 5,822/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 2,132; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 5,822/7,954 national areas; no usable value in 2,132; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 5822,
+        "nUnknown": 2132,
+        "nNotApplicable": 0,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "factory_count_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 5822,
+          "n_missing": 2132,
+          "explicit_zero_n": 0,
+          "sum_valid": 4322.348151730609,
+          "states": {
+            "source_row_missing": 2101,
+            "reported_value": 5822,
+            "selected_period_missing": 31
+          }
+        },
+        {
+          "metric": "factory_count_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 174,
+          "n_missing": 6,
+          "explicit_zero_n": 0,
+          "sum_valid": 1069.6123374915658,
+          "states": {
+            "source_row_missing": 6,
+            "reported_value": 174
+          }
+        },
+        {
+          "metric": "factory_count_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 5648,
+          "n_missing": 2126,
+          "explicit_zero_n": 0,
+          "sum_valid": 3252.735814239048,
+          "states": {
+            "reported_value": 5648,
+            "source_row_missing": 2095,
+            "selected_period_missing": 31
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "factory_workers": {
+      "metricId": "factory_workers",
+      "datasetId": "factory",
+      "sourceNamespace": "factory.active",
+      "datasetTH": "ทะเบียนโรงงานกลุ่ม ACTIVE",
+      "datasetEN": "ACTIVE factory registry",
+      "labelTH": "คนงานโรงงานที่ต้นทางรายงาน",
+      "labelEN": "Source-reported factory workers",
+      "formulaTH": "ใช้จำนวนคนงานโรงงานที่ต้นทางรายงาน",
+      "formulaEN": "Use the source's reported factory worker count",
+      "sourceField": "totalWorker",
+      "sourceQualifiedField": "factory.active.totalWorker",
+      "sourceQualifiedFields": [
+        "factory.active.totalWorker"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "factory.active.totalWorker",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].totalWorker",
+            "value.municipalityDatas[area_uuid].rows[].totalWorker"
+          ]
+        }
+      ],
+      "sourceFormula": "totalWorker",
+      "formulaAST": {
+        "field": "totalWorker",
+        "selector": {
+          "y": 2025,
+          "m": 4,
+          "factory_status": "ACTIVE"
+        }
+      },
+      "unit": "reported workers",
+      "unitTH": "คนงานที่รายงาน",
+      "unitEN": "reported workers",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "reported_context",
+      "evidenceTH": "บริบทที่ต้นทางรายงาน",
+      "evidenceEN": "Source-reported context",
+      "sourcePeriod": "2025-04 ACTIVE",
+      "periodTH": "เม.ย. 2025 · กลุ่ม ACTIVE ตามต้นทาง",
+      "periodEN": "April 2025 · source ACTIVE classification",
+      "meaningTH": "คนงานที่รายงานในข้อมูลโรงงาน ไม่ใช่ผู้เข้างานรายวัน ผู้เดินทาง หรือลูกค้าในพื้นที่",
+      "meaningEN": "Workers reported in the factory source, not daily attendance, commuters or area customers.",
+      "coverageTH": "ใช้คำนวณได้ 5,822/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 2,132; ค่าศูนย์ที่ต้นทางระบุ 13",
+      "coverageEN": "Usable in 5,822/7,954 national areas; no usable value in 2,132; source-explicit zeros 13",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 5822,
+        "nUnknown": 2132,
+        "nNotApplicable": 0,
+        "nExplicitZero": 13
+      },
+      "coverageByCohort": [
+        {
+          "metric": "factory_workers",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 5822,
+          "n_missing": 2132,
+          "explicit_zero_n": 13,
+          "sum_valid": 3923994,
+          "states": {
+            "source_row_missing": 2101,
+            "reported_value": 5809,
+            "observed_zero": 13,
+            "selected_period_missing": 31
+          }
+        },
+        {
+          "metric": "factory_workers",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 174,
+          "n_missing": 6,
+          "explicit_zero_n": 0,
+          "sum_valid": 380592,
+          "states": {
+            "source_row_missing": 6,
+            "reported_value": 174
+          }
+        },
+        {
+          "metric": "factory_workers",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 5648,
+          "n_missing": 2126,
+          "explicit_zero_n": 13,
+          "sum_valid": 3543402,
+          "states": {
+            "reported_value": 5635,
+            "source_row_missing": 2095,
+            "observed_zero": 13,
+            "selected_period_missing": 31
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "factory_workers_per_km2": {
+      "metricId": "factory_workers_per_km2",
+      "datasetId": "factory",
+      "sourceNamespace": "factory.active",
+      "datasetTH": "ทะเบียนโรงงานกลุ่ม ACTIVE",
+      "datasetEN": "ACTIVE factory registry",
+      "labelTH": "ความหนาแน่นคนงานโรงงานที่รายงาน",
+      "labelEN": "Density of reported factory workers",
+      "formulaTH": "คนงานโรงงานที่รายงาน ÷ พื้นที่เขต (ตร.กม.)",
+      "formulaEN": "Reported factory workers ÷ source area (km²)",
+      "sourceField": "totalWorker",
+      "sourceQualifiedField": "(factory.active.totalWorker / (base.areaSqm / 1000000))",
+      "sourceQualifiedFields": [
+        "factory.active.totalWorker",
+        "base.areaSqm"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "factory.active.totalWorker",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].totalWorker",
+            "value.municipalityDatas[area_uuid].rows[].totalWorker"
+          ]
+        },
+        {
+          "qualifiedField": "base.areaSqm",
+          "paths": [
+            "value.subdistrictInfos[id=area_uuid].areaSqm",
+            "value.municipalityInfos[id=area_uuid].areaSqm"
+          ]
+        }
+      ],
+      "sourceFormula": "totalWorker",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "factory_workers"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "reported workers/km2",
+      "unitTH": "คนงานที่รายงาน/ตร.กม.",
+      "unitEN": "reported workers/km²",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2025-04 ACTIVE",
+      "periodTH": "เม.ย. 2025 · กลุ่ม ACTIVE ตามต้นทาง",
+      "periodEN": "April 2025 · source ACTIVE classification",
+      "meaningTH": "บริบทการกระจุกตัวของคนงานที่รายงาน ไม่ยืนยันผู้เข้างาน การสัญจร หรือยอดซื้อจริง",
+      "meaningEN": "Concentration of reported workers; it does not establish attendance, passing traffic or purchases.",
+      "coverageTH": "ใช้คำนวณได้ 5,822/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 2,132; ค่าศูนย์ที่ต้นทางระบุ 13",
+      "coverageEN": "Usable in 5,822/7,954 national areas; no usable value in 2,132; source-explicit zeros 13",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 5822,
+        "nUnknown": 2132,
+        "nNotApplicable": 0,
+        "nExplicitZero": 13
+      },
+      "coverageByCohort": [
+        {
+          "metric": "factory_workers_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 5822,
+          "n_missing": 2132,
+          "explicit_zero_n": 13,
+          "sum_valid": 229643.84783588265,
+          "states": {
+            "source_row_missing": 2101,
+            "reported_value": 5809,
+            "observed_zero": 13,
+            "selected_period_missing": 31
+          }
+        },
+        {
+          "metric": "factory_workers_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 174,
+          "n_missing": 6,
+          "explicit_zero_n": 0,
+          "sum_valid": 51829.58163204104,
+          "states": {
+            "source_row_missing": 6,
+            "reported_value": 174
+          }
+        },
+        {
+          "metric": "factory_workers_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 5648,
+          "n_missing": 2126,
+          "explicit_zero_n": 13,
+          "sum_valid": 177814.26620384248,
+          "states": {
+            "reported_value": 5635,
+            "source_row_missing": 2095,
+            "observed_zero": 13,
+            "selected_period_missing": 31
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "hotel_count": {
+      "metricId": "hotel_count",
+      "datasetId": "hotel",
+      "sourceNamespace": "hotel",
+      "datasetTH": "รายการโรงแรมและห้องพัก",
+      "datasetEN": "Hotel and room catalogue",
+      "labelTH": "จำนวนรายการโรงแรม",
+      "labelEN": "Hotel catalogue count",
+      "formulaTH": "ใช้จำนวนโรงแรมในรายการต้นทาง",
+      "formulaEN": "Use the source's hotel catalogue count",
+      "sourceField": "hotelCount",
+      "sourceQualifiedField": "hotel.hotelCount",
+      "sourceQualifiedFields": [
+        "hotel.hotelCount"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "hotel.hotelCount",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].hotelCount",
+            "value.municipalityDatas[area_uuid].rows[].hotelCount"
+          ]
+        }
+      ],
+      "sourceFormula": "hotelCount",
+      "formulaAST": {
+        "field": "hotelCount"
+      },
+      "unit": "catalog hotel records",
+      "unitTH": "รายการโรงแรม",
+      "unitEN": "hotel records",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "reported_context",
+      "evidenceTH": "บริบทที่ต้นทางรายงาน",
+      "evidenceEN": "Source-reported context",
+      "sourcePeriod": null,
+      "periodTH": "ต้นทางใน snapshot ไม่ระบุวันที่มีผลของข้อมูล",
+      "periodEN": "Effective date not provided in the source snapshot",
+      "meaningTH": "จำนวนโรงแรมในรายการต้นทาง ไม่ยืนยันว่าเปิดอยู่หรือมีผู้เข้าพัก; ไม่พบวันที่มีผลของข้อมูล",
+      "meaningEN": "Hotels in the source catalogue; this does not confirm operating status or occupancy, and the snapshot provides no effective date.",
+      "coverageTH": "ใช้คำนวณได้ 7,506/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 448; ค่าศูนย์ที่ต้นทางระบุ 3,494",
+      "coverageEN": "Usable in 7,506/7,954 national areas; no usable value in 448; source-explicit zeros 3,494",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7506,
+        "nUnknown": 448,
+        "nNotApplicable": 0,
+        "nExplicitZero": 3494
+      },
+      "coverageByCohort": [
+        {
+          "metric": "hotel_count",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7506,
+          "n_missing": 448,
+          "explicit_zero_n": 3494,
+          "sum_valid": 28260,
+          "states": {
+            "reported_value": 4012,
+            "source_row_missing": 448,
+            "observed_zero": 3494
+          }
+        },
+        {
+          "metric": "hotel_count",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 131,
+          "n_missing": 49,
+          "explicit_zero_n": 0,
+          "sum_valid": 1312,
+          "states": {
+            "reported_value": 131,
+            "source_row_missing": 49
+          }
+        },
+        {
+          "metric": "hotel_count",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7375,
+          "n_missing": 399,
+          "explicit_zero_n": 3494,
+          "sum_valid": 26948,
+          "states": {
+            "reported_value": 3881,
+            "observed_zero": 3494,
+            "source_row_missing": 399
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "hotel_rooms": {
+      "metricId": "hotel_rooms",
+      "datasetId": "hotel",
+      "sourceNamespace": "hotel",
+      "datasetTH": "รายการโรงแรมและห้องพัก",
+      "datasetEN": "Hotel and room catalogue",
+      "labelTH": "จำนวนห้องพักในรายการโรงแรม",
+      "labelEN": "Rooms in hotel catalogue",
+      "formulaTH": "ใช้จำนวนห้องพักในรายการต้นทาง",
+      "formulaEN": "Use the source's catalogue room count",
+      "sourceField": "roomCount",
+      "sourceQualifiedField": "hotel.roomCount",
+      "sourceQualifiedFields": [
+        "hotel.roomCount"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "hotel.roomCount",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].roomCount",
+            "value.municipalityDatas[area_uuid].rows[].roomCount"
+          ]
+        }
+      ],
+      "sourceFormula": "roomCount",
+      "formulaAST": {
+        "field": "roomCount"
+      },
+      "unit": "catalog rooms",
+      "unitTH": "ห้องในรายการ",
+      "unitEN": "catalogue rooms",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "reported_context",
+      "evidenceTH": "บริบทที่ต้นทางรายงาน",
+      "evidenceEN": "Source-reported context",
+      "sourcePeriod": null,
+      "periodTH": "ต้นทางใน snapshot ไม่ระบุวันที่มีผลของข้อมูล",
+      "periodEN": "Effective date not provided in the source snapshot",
+      "meaningTH": "จำนวนห้องพักในรายการเป็นบริบทความจุ ไม่ใช่ผู้เข้าพัก นักท่องเที่ยว หรืออัตราเข้าพักจริง",
+      "meaningEN": "Catalogue rooms describe capacity context, not guests, tourist arrivals or actual occupancy.",
+      "coverageTH": "ใช้คำนวณได้ 7,506/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 448; ค่าศูนย์ที่ต้นทางระบุ 3,494",
+      "coverageEN": "Usable in 7,506/7,954 national areas; no usable value in 448; source-explicit zeros 3,494",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7506,
+        "nUnknown": 448,
+        "nNotApplicable": 0,
+        "nExplicitZero": 3494
+      },
+      "coverageByCohort": [
+        {
+          "metric": "hotel_rooms",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7506,
+          "n_missing": 448,
+          "explicit_zero_n": 3494,
+          "sum_valid": 837054,
+          "states": {
+            "reported_value": 4012,
+            "source_row_missing": 448,
+            "observed_zero": 3494
+          }
+        },
+        {
+          "metric": "hotel_rooms",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 131,
+          "n_missing": 49,
+          "explicit_zero_n": 0,
+          "sum_valid": 85014,
+          "states": {
+            "reported_value": 131,
+            "source_row_missing": 49
+          }
+        },
+        {
+          "metric": "hotel_rooms",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7375,
+          "n_missing": 399,
+          "explicit_zero_n": 3494,
+          "sum_valid": 752040,
+          "states": {
+            "reported_value": 3881,
+            "observed_zero": 3494,
+            "source_row_missing": 399
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "hotel_rooms_per_km2": {
+      "metricId": "hotel_rooms_per_km2",
+      "datasetId": "hotel",
+      "sourceNamespace": "hotel",
+      "datasetTH": "รายการโรงแรมและห้องพัก",
+      "datasetEN": "Hotel and room catalogue",
+      "labelTH": "ความหนาแน่นห้องพักในรายการ",
+      "labelEN": "Catalogue room density",
+      "formulaTH": "ห้องพักในรายการ ÷ พื้นที่เขต (ตร.กม.)",
+      "formulaEN": "Catalogue rooms ÷ source area (km²)",
+      "sourceField": "roomCount",
+      "sourceQualifiedField": "(hotel.roomCount / (base.areaSqm / 1000000))",
+      "sourceQualifiedFields": [
+        "hotel.roomCount",
+        "base.areaSqm"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "hotel.roomCount",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].roomCount",
+            "value.municipalityDatas[area_uuid].rows[].roomCount"
+          ]
+        },
+        {
+          "qualifiedField": "base.areaSqm",
+          "paths": [
+            "value.subdistrictInfos[id=area_uuid].areaSqm",
+            "value.municipalityInfos[id=area_uuid].areaSqm"
+          ]
+        }
+      ],
+      "sourceFormula": "roomCount",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "hotel_rooms"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "catalog rooms/km2",
+      "unitTH": "ห้องในรายการ/ตร.กม.",
+      "unitEN": "catalogue rooms/km²",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": null,
+      "periodTH": "ต้นทางใน snapshot ไม่ระบุวันที่มีผลของข้อมูล",
+      "periodEN": "Effective date not provided in the source snapshot",
+      "meaningTH": "การกระจุกตัวของห้องพักตามรายการ ไม่ใช่ความหนาแน่นนักท่องเที่ยวหรือจำนวนลูกค้าจริง",
+      "meaningEN": "Concentration of catalogue rooms, not tourist density or actual customers.",
+      "coverageTH": "ใช้คำนวณได้ 7,506/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 448; ค่าศูนย์ที่ต้นทางระบุ 3,494",
+      "coverageEN": "Usable in 7,506/7,954 national areas; no usable value in 448; source-explicit zeros 3,494",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7506,
+        "nUnknown": 448,
+        "nNotApplicable": 0,
+        "nExplicitZero": 3494
+      },
+      "coverageByCohort": [
+        {
+          "metric": "hotel_rooms_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7506,
+          "n_missing": 448,
+          "explicit_zero_n": 3494,
+          "sum_valid": 92337.21563313904,
+          "states": {
+            "reported_value": 4012,
+            "source_row_missing": 448,
+            "observed_zero": 3494
+          }
+        },
+        {
+          "metric": "hotel_rooms_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 131,
+          "n_missing": 49,
+          "explicit_zero_n": 0,
+          "sum_valid": 55156.538441665856,
+          "states": {
+            "reported_value": 131,
+            "source_row_missing": 49
+          }
+        },
+        {
+          "metric": "hotel_rooms_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7375,
+          "n_missing": 399,
+          "explicit_zero_n": 3494,
+          "sum_valid": 37180.677191473435,
+          "states": {
+            "reported_value": 3881,
+            "observed_zero": 3494,
+            "source_row_missing": 399
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "office_count": {
+      "metricId": "office_count",
+      "datasetId": "office",
+      "sourceNamespace": "office",
+      "datasetTH": "รายการอาคารสำนักงาน",
+      "datasetEN": "Office building catalogue",
+      "labelTH": "จำนวนรายการอาคารสำนักงาน",
+      "labelEN": "Office building catalogue count",
+      "formulaTH": "ใช้จำนวนอาคารสำนักงานในรายการต้นทาง",
+      "formulaEN": "Use the source's office building catalogue count",
+      "sourceField": "officeCount",
+      "sourceQualifiedField": "office.officeCount",
+      "sourceQualifiedFields": [
+        "office.officeCount"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "office.officeCount",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].officeCount",
+            "value.municipalityDatas[area_uuid].rows[].officeCount"
+          ]
+        }
+      ],
+      "sourceFormula": "officeCount",
+      "formulaAST": {
+        "field": "officeCount",
+        "selector": {
+          "v": "V3"
+        }
+      },
+      "unit": "catalog office buildings",
+      "unitTH": "รายการอาคารสำนักงาน",
+      "unitEN": "office building records",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "reported_context",
+      "evidenceTH": "บริบทที่ต้นทางรายงาน",
+      "evidenceEN": "Source-reported context",
+      "sourcePeriod": "V3 / published UI label 2025-05",
+      "periodTH": "V3 · เดือนข้อมูลที่ UI ต้นทางแสดง: พ.ค. 2025",
+      "periodEN": "V3 · published UI period label: May 2025",
+      "meaningTH": "รายการอาคารสำนักงานที่มีข้อมูลตรงกับพื้นที่เพียงบางส่วนใน กทม.; ไม่ใช่บริษัท พนักงาน หรือหลักฐานว่าไม่มีสำนักงานเมื่อข้อมูลขาด",
+      "meaningEN": "Office building records with direct area data for only part of Bangkok; not companies, employees or proof of no offices where data is missing.",
+      "coverageTH": "ใช้คำนวณได้ 45/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 7,909; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 45/7,954 national areas; no usable value in 7,909; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 45,
+        "nUnknown": 7909,
+        "nNotApplicable": 0,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "office_count",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 45,
+          "n_missing": 7909,
+          "explicit_zero_n": 0,
+          "sum_valid": 329,
+          "states": {
+            "source_row_missing": 7909,
+            "reported_value": 45
+          }
+        },
+        {
+          "metric": "office_count",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 45,
+          "n_missing": 135,
+          "explicit_zero_n": 0,
+          "sum_valid": 329,
+          "states": {
+            "source_row_missing": 135,
+            "reported_value": 45
+          }
+        },
+        {
+          "metric": "office_count",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 0,
+          "n_missing": 7774,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "source_row_missing": 7774
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "office_count_per_km2": {
+      "metricId": "office_count_per_km2",
+      "datasetId": "office",
+      "sourceNamespace": "office",
+      "datasetTH": "รายการอาคารสำนักงาน",
+      "datasetEN": "Office building catalogue",
+      "labelTH": "ความหนาแน่นรายการอาคารสำนักงาน",
+      "labelEN": "Office catalogue density",
+      "formulaTH": "รายการอาคารสำนักงาน ÷ พื้นที่เขต (ตร.กม.)",
+      "formulaEN": "Office building records ÷ source area (km²)",
+      "sourceField": "officeCount",
+      "sourceQualifiedField": "(office.officeCount / (base.areaSqm / 1000000))",
+      "sourceQualifiedFields": [
+        "office.officeCount",
+        "base.areaSqm"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "office.officeCount",
+          "paths": [
+            "value.subdistrictDatas[area_uuid].rows[].officeCount",
+            "value.municipalityDatas[area_uuid].rows[].officeCount"
+          ]
+        },
+        {
+          "qualifiedField": "base.areaSqm",
+          "paths": [
+            "value.subdistrictInfos[id=area_uuid].areaSqm",
+            "value.municipalityInfos[id=area_uuid].areaSqm"
+          ]
+        }
+      ],
+      "sourceFormula": "officeCount",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "office_count"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "catalog buildings/km2",
+      "unitTH": "รายการอาคารสำนักงาน/ตร.กม.",
+      "unitEN": "office building records/km²",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "V3 / published UI label 2025-05",
+      "periodTH": "V3 · เดือนข้อมูลที่ UI ต้นทางแสดง: พ.ค. 2025",
+      "periodEN": "V3 · published UI period label: May 2025",
+      "meaningTH": "ความหนาแน่นรายการที่มีข้อมูลตรงกับพื้นที่ ไม่ใช่พนักงานหรือกิจกรรมกลางวัน; พื้นที่ที่ไม่มีข้อมูลไม่ถูกแทนด้วย 0",
+      "meaningEN": "Density of records with direct area data, not employees or daytime activity; areas without data are not assigned zero.",
+      "coverageTH": "ใช้คำนวณได้ 45/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 7,909; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 45/7,954 national areas; no usable value in 7,909; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 45,
+        "nUnknown": 7909,
+        "nNotApplicable": 0,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "office_count_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 45,
+          "n_missing": 7909,
+          "explicit_zero_n": 0,
+          "sum_valid": 141.2759033825109,
+          "states": {
+            "source_row_missing": 7909,
+            "reported_value": 45
+          }
+        },
+        {
+          "metric": "office_count_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 45,
+          "n_missing": 135,
+          "explicit_zero_n": 0,
+          "sum_valid": 141.2759033825109,
+          "states": {
+            "source_row_missing": 135,
+            "reported_value": 45
+          }
+        },
+        {
+          "metric": "office_count_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 0,
+          "n_missing": 7774,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "source_row_missing": 7774
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "fiscal_total_thb": {
+      "metricId": "fiscal_total_thb",
+      "datasetId": "fiscal",
+      "sourceNamespace": "municipality.income",
+      "datasetTH": "รายได้ของ อปท. ที่ต้นทางรายงาน",
+      "datasetEN": "Source-reported local authority revenue",
+      "labelTH": "รายได้รวมของ อปท. ที่รายงาน",
+      "labelEN": "Reported total local authority revenue",
+      "formulaTH": "รายได้รวมต้นทาง (ล้านบาท) × 1,000,000",
+      "formulaEN": "Source total revenue (million THB) × 1,000,000",
+      "sourceField": "total * 1000000",
+      "sourceQualifiedField": "(municipality.income.total * 1000000)",
+      "sourceQualifiedFields": [
+        "municipality.income.total"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "municipality.income.total",
+          "paths": [
+            "value.municipalityDatas[area_uuid].rows[].total"
+          ]
+        }
+      ],
+      "sourceFormula": "total * 1000000",
+      "formulaAST": {
+        "op": "multiply",
+        "args": [
+          {
+            "field": "total"
+          },
+          {
+            "const": 1000000
+          }
+        ]
+      },
+      "unit": "THB/year",
+      "unitTH": "บาท/ปีข้อมูล",
+      "unitEN": "THB/source year",
+      "denominator": null,
+      "grain": [
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "reported_context",
+      "evidenceTH": "บริบทที่ต้นทางรายงาน",
+      "evidenceEN": "Source-reported context",
+      "sourcePeriod": "2024",
+      "periodTH": "ปีข้อมูลที่ต้นทางระบุ: 2024",
+      "periodEN": "Source-reported data year: 2024",
+      "meaningTH": "รายได้ภาครัฐท้องถิ่นรวมเงินอุดหนุน ไม่ใช่รายได้ครัวเรือน กำลังซื้อ หรือความต้องการสินเชื่อ; ไม่ใช้กับแขวง กทม.",
+      "meaningEN": "Local public revenue including grants, not household income, purchasing power or borrowing demand; not applicable to Bangkok khwaeng.",
+      "coverageTH": "ใช้คำนวณได้ 7,751/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 23; ไม่ใช้กับแขวง กทม. 180; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 7,751/7,954 national areas; no usable value in 23; not applicable to 180 Bangkok khwaeng; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7751,
+        "nUnknown": 23,
+        "nNotApplicable": 180,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "fiscal_total_thb",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7751,
+          "n_missing": 203,
+          "explicit_zero_n": 0,
+          "sum_valid": 554442650620.9698,
+          "states": {
+            "not_applicable": 180,
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        },
+        {
+          "metric": "fiscal_total_thb",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 0,
+          "n_missing": 180,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "not_applicable": 180
+          }
+        },
+        {
+          "metric": "fiscal_total_thb",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7751,
+          "n_missing": 23,
+          "explicit_zero_n": 0,
+          "sum_valid": 554442650620.9698,
+          "states": {
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "fiscal_ex_grants_thb": {
+      "metricId": "fiscal_ex_grants_thb",
+      "datasetId": "fiscal",
+      "sourceNamespace": "municipality.income",
+      "datasetTH": "รายได้ของ อปท. ที่ต้นทางรายงาน",
+      "datasetEN": "Source-reported local authority revenue",
+      "labelTH": "รายได้ อปท. ไม่รวมเงินอุดหนุน",
+      "labelEN": "Local authority revenue excluding grants",
+      "formulaTH": "(รายได้จัดเก็บเอง + รัฐจัดสรร) × 1,000,000",
+      "formulaEN": "(Self-collected revenue + state-allocated revenue) × 1,000,000",
+      "sourceField": "(selfCollected+stateAllocated)*1000000",
+      "sourceQualifiedField": "((municipality.income.selfCollected + municipality.income.stateAllocated) * 1000000)",
+      "sourceQualifiedFields": [
+        "municipality.income.selfCollected",
+        "municipality.income.stateAllocated"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "municipality.income.selfCollected",
+          "paths": [
+            "value.municipalityDatas[area_uuid].rows[].selfCollected"
+          ]
+        },
+        {
+          "qualifiedField": "municipality.income.stateAllocated",
+          "paths": [
+            "value.municipalityDatas[area_uuid].rows[].stateAllocated"
+          ]
+        }
+      ],
+      "sourceFormula": "(selfCollected+stateAllocated)*1000000",
+      "formulaAST": {
+        "op": "multiply",
+        "args": [
+          {
+            "op": "add",
+            "args": [
+              {
+                "field": "selfCollected"
+              },
+              {
+                "field": "stateAllocated"
+              }
+            ]
+          },
+          {
+            "const": 1000000
+          }
+        ]
+      },
+      "unit": "THB/year",
+      "unitTH": "บาท/ปีข้อมูล",
+      "unitEN": "THB/source year",
+      "denominator": null,
+      "grain": [
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2024",
+      "periodTH": "ปีข้อมูลที่ต้นทางระบุ: 2024",
+      "periodEN": "Source-reported data year: 2024",
+      "meaningTH": "คำนวณจากรายได้จัดเก็บเองและรัฐจัดสรร ไม่รวม stateFunded; เป็นบริบทภาครัฐ ไม่ใช่รายได้ประชาชน",
+      "meaningEN": "Derived from self-collected and state-allocated revenue, excluding stateFunded; public-sector context, not residents' income.",
+      "coverageTH": "ใช้คำนวณได้ 7,751/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 23; ไม่ใช้กับแขวง กทม. 180; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 7,751/7,954 national areas; no usable value in 23; not applicable to 180 Bangkok khwaeng; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7751,
+        "nUnknown": 23,
+        "nNotApplicable": 180,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "fiscal_ex_grants_thb",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7751,
+          "n_missing": 203,
+          "explicit_zero_n": 0,
+          "sum_valid": 303022908144.8909,
+          "states": {
+            "not_applicable": 180,
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_thb",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 0,
+          "n_missing": 180,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "not_applicable": 180
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_thb",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7751,
+          "n_missing": 23,
+          "explicit_zero_n": 0,
+          "sum_valid": 303022908144.8909,
+          "states": {
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "fiscal_ex_grants_per_km2": {
+      "metricId": "fiscal_ex_grants_per_km2",
+      "datasetId": "fiscal",
+      "sourceNamespace": "municipality.income",
+      "datasetTH": "รายได้ของ อปท. ที่ต้นทางรายงาน",
+      "datasetEN": "Source-reported local authority revenue",
+      "labelTH": "รายได้ อปท. ไม่รวมเงินอุดหนุนต่อพื้นที่",
+      "labelEN": "Local revenue excluding grants per area",
+      "formulaTH": "รายได้ อปท. ไม่รวมเงินอุดหนุน (บาท) ÷ พื้นที่เขต (ตร.กม.)",
+      "formulaEN": "Local revenue excluding grants (THB) ÷ source area (km²)",
+      "sourceField": "(selfCollected+stateAllocated)*1000000",
+      "sourceQualifiedField": "(((municipality.income.selfCollected + municipality.income.stateAllocated) * 1000000) / (base.areaSqm / 1000000))",
+      "sourceQualifiedFields": [
+        "municipality.income.selfCollected",
+        "municipality.income.stateAllocated",
+        "base.areaSqm"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "municipality.income.selfCollected",
+          "paths": [
+            "value.municipalityDatas[area_uuid].rows[].selfCollected"
+          ]
+        },
+        {
+          "qualifiedField": "municipality.income.stateAllocated",
+          "paths": [
+            "value.municipalityDatas[area_uuid].rows[].stateAllocated"
+          ]
+        },
+        {
+          "qualifiedField": "base.areaSqm",
+          "paths": [
+            "value.subdistrictInfos[id=area_uuid].areaSqm",
+            "value.municipalityInfos[id=area_uuid].areaSqm"
+          ]
+        }
+      ],
+      "sourceFormula": "(selfCollected+stateAllocated)*1000000",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "fiscal_ex_grants_thb"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "THB/km2/year",
+      "unitTH": "บาท/ตร.กม./ปีข้อมูล",
+      "unitEN": "THB/km²/source year",
+      "denominator": "land_area_km2",
+      "grain": [
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2024",
+      "periodTH": "ปีข้อมูลที่ต้นทางระบุ: 2024",
+      "periodEN": "Source-reported data year: 2024",
+      "meaningTH": "ความเข้มข้นรายได้ภาครัฐท้องถิ่นต่อพื้นที่ ไม่ใช่กำลังซื้อหรือยอดขายธุรกิจ",
+      "meaningEN": "Local public revenue concentration per area, not purchasing power or business sales.",
+      "coverageTH": "ใช้คำนวณได้ 7,751/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 23; ไม่ใช้กับแขวง กทม. 180; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 7,751/7,954 national areas; no usable value in 23; not applicable to 180 Bangkok khwaeng; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7751,
+        "nUnknown": 23,
+        "nNotApplicable": 180,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "fiscal_ex_grants_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7751,
+          "n_missing": 203,
+          "explicit_zero_n": 0,
+          "sum_valid": 17913668891.74336,
+          "states": {
+            "not_applicable": 180,
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 0,
+          "n_missing": 180,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "not_applicable": 180
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7751,
+          "n_missing": 23,
+          "explicit_zero_n": 0,
+          "sum_valid": 17913668891.74336,
+          "states": {
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    },
+    "fiscal_ex_grants_per_person": {
+      "metricId": "fiscal_ex_grants_per_person",
+      "datasetId": "fiscal",
+      "sourceNamespace": "municipality.income",
+      "datasetTH": "รายได้ของ อปท. ที่ต้นทางรายงาน",
+      "datasetEN": "Source-reported local authority revenue",
+      "labelTH": "รายได้ อปท. ไม่รวมเงินอุดหนุนต่อประชากรอ้างอิง",
+      "labelEN": "Local revenue excluding grants per reference person",
+      "formulaTH": "รายได้ อปท. ไม่รวมเงินอุดหนุน (บาท) ÷ ประชากรในชุดรายได้ อปท.",
+      "formulaEN": "Local revenue excluding grants (THB) ÷ population in the fiscal source",
+      "sourceField": "(selfCollected+stateAllocated)*1000000 / fiscal.population",
+      "sourceQualifiedField": "(((municipality.income.selfCollected + municipality.income.stateAllocated) * 1000000) / municipality.income.population)",
+      "sourceQualifiedFields": [
+        "municipality.income.selfCollected",
+        "municipality.income.stateAllocated",
+        "municipality.income.population"
+      ],
+      "sourceRowPaths": [
+        {
+          "qualifiedField": "municipality.income.selfCollected",
+          "paths": [
+            "value.municipalityDatas[area_uuid].rows[].selfCollected"
+          ]
+        },
+        {
+          "qualifiedField": "municipality.income.stateAllocated",
+          "paths": [
+            "value.municipalityDatas[area_uuid].rows[].stateAllocated"
+          ]
+        },
+        {
+          "qualifiedField": "municipality.income.population",
+          "paths": [
+            "value.municipalityDatas[area_uuid].rows[].population"
+          ]
+        }
+      ],
+      "sourceFormula": "(selfCollected+stateAllocated)*1000000 / fiscal.population",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "fiscal_ex_grants_thb"
+          },
+          {
+            "field": "fiscal.population"
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "THB/person/year",
+      "unitTH": "บาท/ประชากรอ้างอิง/ปีข้อมูล",
+      "unitEN": "THB/reference person/source year",
+      "denominator": "fiscal.population",
+      "grain": [
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "evidenceKind": "derived_context",
+      "evidenceTH": "คำนวณจากบริบทต้นทาง",
+      "evidenceEN": "Derived source context",
+      "sourcePeriod": "2024",
+      "periodTH": "รายได้ปี 2024 · ปีประชากรตัวหารไม่ระบุ",
+      "periodEN": "Revenue year 2024 · denominator population year unspecified",
+      "meaningTH": "ตัวหารเป็นประชากรในชุดรายได้ อปท. ซึ่งไม่ระบุปีอ้างอิง ไม่ใช่ประชากร ส.ค. 2026; ไม่ใช่รายได้ต่อคนของประชาชน",
+      "meaningEN": "Uses the fiscal source's population with unspecified reference year, not August 2026 population; not residents' income per person.",
+      "coverageTH": "ใช้คำนวณได้ 7,717/7,954 พื้นที่ทั่วประเทศ; ไม่มีค่าที่ใช้ได้ 57; ไม่ใช้กับแขวง กทม. 180; ค่าศูนย์ที่ต้นทางระบุ 0",
+      "coverageEN": "Usable in 7,717/7,954 national areas; no usable value in 57; not applicable to 180 Bangkok khwaeng; source-explicit zeros 0",
+      "nationalCoverage": {
+        "cohortId": "national_7954",
+        "nTotal": 7954,
+        "nValid": 7717,
+        "nUnknown": 57,
+        "nNotApplicable": 180,
+        "nExplicitZero": 0
+      },
+      "coverageByCohort": [
+        {
+          "metric": "fiscal_ex_grants_per_person",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7717,
+          "n_missing": 237,
+          "explicit_zero_n": 0,
+          "sum_valid": 52588175.15733051,
+          "states": {
+            "not_applicable": 180,
+            "reported_value": 7717,
+            "missing_or_nonpositive_fiscal_population_denominator": 57
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_per_person",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 0,
+          "n_missing": 180,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "not_applicable": 180
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_per_person",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7717,
+          "n_missing": 57,
+          "explicit_zero_n": 0,
+          "sum_valid": 52588175.15733051,
+          "states": {
+            "reported_value": 7717,
+            "missing_or_nonpositive_fiscal_population_denominator": 57
+          }
+        }
+      ],
+      "missingPolicy": "null; absent is not zero; use exactly selected source period"
+    }
+  }
+}

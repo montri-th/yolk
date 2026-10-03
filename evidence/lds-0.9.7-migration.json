@@ -1,0 +1,134 @@
+{
+  "version": "0.9.7",
+  "release": {
+    "schemaVersion": "lds-owner-distribution-1",
+    "release": {
+      "dsVersion": "0.9.7",
+      "releaseRef": "v0.9.7-owner.1",
+      "machinePackage": "v0.9.7-owner.1",
+      "authoringRevision": "0.9.7-owner.1",
+      "colorSetId": "color-srgb-10",
+      "status": "owner-approved",
+      "effectiveFor": "work explicitly adopting this owner distribution",
+      "signatureStatus": "unsigned",
+      "signedRelease": false,
+      "ownerApproval": {
+        "authority": "Montri",
+        "date": "2026-10-01",
+        "reference": "owner-message:2026-10-01:release-0.9.7-original-light-hex-on-both-themes",
+        "decision": "Adopt Story r4 and Location r2 LIGHT colors. Use each exact light anchor/LUT/class and role HEX unchanged on dark, with the same data direction; no derived dark formulas. Existing categorical palettes and decorative gradients retain their own contracts."
+      }
+    },
+    "inherits": {
+      "dsVersion": "0.9.4",
+      "machinePackage": "v0.9.4-mp1",
+      "path": "../../../references/inherited/lds-0.9.4",
+      "releaseSha256": "6231ccfa6c67dea65abd9bb9597f14448ddc9f285be949e4efa026978e1d4419",
+      "sumSha256": "9a261eb4df7bf3be5cf1e23f7fb2bd7079c67ca481fc55dccc7049ac52d325cc",
+      "trustPath": "../../../references/owner-trust/v0.9.4",
+      "signedBaseDoesNotSignThisDistribution": true
+    },
+    "approvalSource": {
+      "path": "../../../references/approved-0.9.7.json",
+      "sha256": "a1f8d12b7efb4f782f04c19057cd95d424143b12c86c5c5991bd91b01e37ccb0",
+      "visualBuildId": "lds097-story-location-theme-invariant-r1",
+      "inputs": {
+        "approved-story-r4.json": "be696bc8f41520f85167678634407838ac5ed5c9bb9a802585146b0b2f36415f",
+        "approved-location-r2.json": "0906c14107ef20a2a42a5d1c830ffa56c0a88caca34d54096dc58b346faba279",
+        "approved-location-metrics.json": "44ad44d254262932812b61a5ca9e7a4b27c6ec89c7bfdc7da9eb0bb081a387e7"
+      },
+      "ownerThemeOverride": {
+        "authority": "Montri",
+        "date": "2026-10-01",
+        "reference": "owner-message:2026-10-01:release-0.9.7-original-light-hex-on-both-themes",
+        "decision": "Adopt Story r4 and Location r2 LIGHT colors. Use each exact light anchor/LUT/class and role HEX unchanged on dark, with the same data direction; no derived dark formulas. Existing categorical palettes and decorative gradients retain their own contracts."
+      }
+    },
+    "entrypoints": {
+      "human": "../normative/Landometer-Design-System-v0.9.7.md",
+      "brand": "../brand/BRAND.md",
+      "policy": "policy.json",
+      "tokens": "tokens.v0.9.7.json",
+      "colorRegistry": "color-srgb-10.tokens.json",
+      "scales": "color-srgb-10.scales.json",
+      "css": "color-srgb-10.production.css",
+      "webBuildKit": "../build-kit/lds-0.9.7.css",
+      "designTokens": "lds-0.9.7.tokens.dtcg.json",
+      "locationProfile": "location-intelligence-0.9.7.json",
+      "locationCSS": "location-intelligence-0.9.7.css"
+    },
+    "counts": {
+      "families": 20,
+      "themes": 2,
+      "lutColors": 1640,
+      "categoricalSlots": 10,
+      "atmosphereRecipes": 7,
+      "supportingPalette": 17
+    },
+    "verification": {
+      "command": "node scripts/verify.mjs",
+      "scope": "immutable base, approved snapshot parity, typed policy, complete assets, analytical math and CSS projection; not artifact conformance"
+    },
+    "limitations": [
+      "Package parity and analytical math are automated.",
+      "Rendering, actual surface contrast, native Thai copy, source truth, threshold semantics, CVD/grayscale usability and each output format require artifact review.",
+      "No claim of signed 0.9.7 release, complete conformance, universal platform enforcement or team installation.",
+      "Inherited open governance/product-icon/motif/signing follow-ups remain open unless specifically resolved here.",
+      "Dark numerical colors intentionally equal light values; actual-surface contrast and CVD usability are artifact checks, not universal package guarantees."
+    ],
+    "predecessor": {
+      "dsVersion": "0.9.6",
+      "releaseRef": "v0.9.6-owner.1",
+      "releaseSha256": "669e38a2004ed0c1487e5a46828b88eae6e4a7cd8c63f717fe0fcd1c5e4c1227",
+      "changedScope": "Story 20 analytical families; same light values and direction in both themes; generic 17-value supporting palette; separate optional Location profile. Existing categorical, atmosphere, identity and motion preserved."
+    }
+  },
+  "normative_sha256": "d3085cbc0a50195f1cbf0c77b1d77c0d19b84364daf2948eb367348d65432d96",
+  "location_profile_sha256": "5d4856041709735d3a04d4a510a88b551df86c211fdcab8a0707e8fe7c9efc3b",
+  "runtime_files": {
+    "vendor/lds-0.9.7/color-srgb-10.production.css": "3d34924a249804c4573da5b136303141b67c47f24a3f00dd5d7b86b521d9dfc8",
+    "vendor/lds-0.9.7/location-intelligence-0.9.7.css": "8d80360f8fef805e8b69aff67eb9b73df2babda379f19ccbec0beeb293a0999d",
+    "vendor/lds-0.9.7/lds-0.9.7.css": "5512425b092f9197412ffb0f1b5b0e7a2060172ebf5d83174c6b0e94ef266fee",
+    "vendor/lds-0.9.7/lds-0.9.7-ext.css": "11c764df4e3b6d2cd42daecbe8481a2e9ff0913136d987ce3039453ed482221f",
+    "vendor/lds-0.9.7/fonts.css": "a2564ee20060ac90db6b6ef2b2e18d54671005e4b6736823d2ebb2c0ddb3fbd6",
+    "vendor/lds-0.9.7/assets/ibm-plex-sans-thai-looped-thai-700-normal.woff2": "fa03fc4dda6a69763997e79d50e0437795d06c02e1798bdacf3a2f5e685cea2c",
+    "vendor/lds-0.9.7/assets/Landometer-Logo-TransparentBG.png": "8d706f8021bc4b4fdc0e89117244b54868687b74045be54002321de7aaa7ef92",
+    "vendor/lds-0.9.7/assets/ibm-plex-sans-thai-thai-400-normal.woff2": "2d66381c26d32bf2a95bfe559d1a5ed5475fcdac3fa128e45a33301010d42056",
+    "vendor/lds-0.9.7/assets/ibm-plex-sans-thai-looped-OFL.txt": "e3ac4237aef600394644cdab2375d7011b0f80d2229ff05f47df2e61a109ab57",
+    "vendor/lds-0.9.7/assets/material-symbols-rounded-open-in-new-300.woff2": "778b29f8befe5ba7a8f0f8188d4c12e3c53d00810dac10337609b04d8506d46e",
+    "vendor/lds-0.9.7/assets/arvo-latin-700-normal.woff2": "3d908a2c04ec4c59d26d1454008b2d6744480654663a5f88e439f6483976bd37",
+    "vendor/lds-0.9.7/assets/jetbrains-mono-latin-400-normal.woff2": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb",
+    "vendor/lds-0.9.7/assets/bai-jamjuree-thai-600-normal.woff2": "547483c6fbedcc13f4c04489c4ec3f6be4c69877ae7cd4cfbf4a0d289889ba32",
+    "vendor/lds-0.9.7/assets/bai-jamjuree-latin-600-normal.woff2": "5ae338ac0db4222226ad96bf1b4b460030c3af1affabb475c67bf218b2eaa83f",
+    "vendor/lds-0.9.7/assets/bai-jamjuree-OFL.txt": "74b7deafa632a5ed301dc322fcc2867ac200402e06b6d0b0b01faf09b8514e3e",
+    "vendor/lds-0.9.7/assets/jetbrains-mono-OFL.txt": "403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b",
+    "vendor/lds-0.9.7/assets/material-symbols-Apache-2.0.txt": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+    "vendor/lds-0.9.7/assets/bai-jamjuree-latin-400-normal.woff2": "5200faf54f32adc1dc47b8522adbd1399e739f4ce5c9236866806c04d6397b19",
+    "vendor/lds-0.9.7/assets/arvo-OFL.txt": "f4f2cb57f7050c4e615863a39bf04811eada567d76d99b10b0f33d1e10e6cccd",
+    "vendor/lds-0.9.7/assets/bai-jamjuree-thai-400-normal.woff2": "357f8fe9fd08973568a061a2fc266a07819cdc33e8c9bb2b39985cc4ec49bfa9",
+    "vendor/lds-0.9.7/assets/ibm-plex-sans-thai-OFL.txt": "1b4f4d1f1463b63f1356e7b6034ad5a94311b35ffb53cc4bf83f2fbda24450e4",
+    "vendor/lds-0.9.7/assets/material-symbols-rounded-nav-300.woff2": "d7e283106ed2898726b24504c4e0f5ad524292984a90a4d29553c7dcf53b9657",
+    "vendor/lds-0.9.7/assets/ibm-plex-sans-thai-looped-latin-700-normal.woff2": "47eb0fe82a8b96cc5f1ac057e2edad4d2550d6b73d4aa030697bf1678047c526"
+  },
+  "analytical_classes": {
+    "national_map": "Exact heat3 classes #FFF6CF/#F5B323/#C72D10 on light and dark, same data direction. Legend declares3 actual classes.",
+    "chart_scale_family": "Exact shipped five-class chart family remains separate; not represented as the actual map legend."
+  },
+  "logo_and_product_icons": {
+    "native_logo": "Original approved v1.5 PNG geometry889×244, dimensions/positions preserved",
+    "native_logo_sha256": "989f58583bc54e4b9a743d0f04308df92fb7cf0bb2ae3ba9398ec9c03c481554",
+    "dark_wordmark": "Same PNG alpha mask, clipped left24%, filled var(--ink)=#F1F4EF only on dark. Native symbol unchanged and unfiltered. No frame. Authorized wordmark recoloring under LDS LOGO-01.",
+    "product_icon_subset": "Original approved v1.5 37-glyph Material Symbols Rounded product asset; unchanged hash c5b7e050e816964ebbbd3b0c43df6aefa4a3d4b181894620efd9385f84b1aedd; preserved product extension, not relabeled as a normative0.9.7 font",
+    "rendered_icon_axes": "FILL0,wght300,GRAD0,opsz24; labels retained",
+    "semantic_adaptation": "Fuel gas icon; Grocery and Nonbank original verified store icon. Eight original pattern glyphs/positions preserved."
+  },
+  "rendered_checks": {
+    "receipt": "browser-three-industry/browser-qa-receipt.json",
+    "matrix": "72 Grocery route/display combinations:9 original views×desktop/mobile×Thai/English×light/dark",
+    "targeted": "Fuel market and formula picker; Nonbank market/adult formulas/scoped actual map; Grocery format/brand switch; cross-context event links; narrow320 title; mobile dark menu/native wordmark",
+    "fonts": "Computed THheading IBM Plex Sans Thai Looped; ENheading Arvo; bodyBai Jamjuree; iconsYolk Material Symbols. Exact current font assets remain bundled.",
+    "palette": "Exact three data colors read from rendered light/dark CSS; foundation UI changes by theme as specified",
+    "visual_preference": "Reviewed representative actual screenshots and viewport contact sheets: no motif, logo frame, decorative bracket or colored selected left rail. Keyboard focus retained.",
+    "coverage_limit": "Asset/hash/package checks and the reported browser review do not certify every LDS rule, physical device, color-vision case or surface contrast."
+  }
+}

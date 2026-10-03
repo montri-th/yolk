@@ -18,24 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify public fixture and DS assets
-        run: python3 scripts/verify-public-release.py
-      - name: Check public preview routes
+      - name: Verify public 1.6 artifact and DS assets
+        run: python3 scripts/verify-pages-v1.6.py
+      - name: Check three-industry models and local photo workflow
         run: |
-          node scripts/check-public-runtime.cjs
-          node scripts/check-theme-runtime.cjs
+          node scripts/check-three-industry.cjs
           node scripts/check-photo-runtime.cjs
-          node scripts/check-map-runtime.cjs
-          node scripts/check-photo-form.cjs
-          node scripts/check-brand-identity.cjs
-          node scripts/check-icons.cjs
-          node scripts/check-ranking-v1.4.cjs
-          node scripts/check-decisions-v1.4.cjs
-          node scripts/check-web-identity.cjs
-          node scripts/check-shell-v1.5.cjs
-          node scripts/check-patterns-v1.5.cjs
-          node scripts/check-yolk-v1.5.cjs
-          python3 scripts/verify-handoff.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static preview

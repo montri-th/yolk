@@ -1,0 +1,274 @@
+{
+  "generated_at": "2026-10-03T09:49:49.857787+00:00",
+  "method": "Independent full JSON comparisons; no source, native workbook or prototype mutation",
+  "overall_status": "PASS",
+  "alias_map": {
+    "population_count": "population",
+    "building_gfa_m2": "gfa"
+  },
+  "checks": [
+    {
+      "name": "area UUID universe and duplicate IDs",
+      "status": "PASS",
+      "comparisons": 7954,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "runtime_rows": 7954,
+        "canonical_rows": 7954
+      }
+    },
+    {
+      "name": "context metadata exact",
+      "status": "PASS",
+      "comparisons": 1,
+      "discrepancy_count": 0,
+      "examples": []
+    },
+    {
+      "name": "25 metric definitions, periods, measurement roles, coverage, denominators and explicit aliases",
+      "status": "PASS",
+      "comparisons": 325,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "metric_count": 25,
+        "aliases": {
+          "population_count": "population",
+          "building_gfa_m2": "gfa"
+        }
+      }
+    },
+    {
+      "name": "all 198,850 metric values exact, including null and measured zero",
+      "status": "PASS",
+      "comparisons": 198850,
+      "discrepancy_count": 0,
+      "examples": []
+    },
+    {
+      "name": "all 198,850 metric states exact",
+      "status": "PASS",
+      "comparisons": 198850,
+      "discrepancy_count": 0,
+      "examples": []
+    },
+    {
+      "name": "all geography fields exact; source extent is not a boundary",
+      "status": "PASS",
+      "comparisons": 63632,
+      "discrepancy_count": 0,
+      "examples": []
+    },
+    {
+      "name": "per-metric denominator labels agree with every canonical ratio row",
+      "status": "PASS",
+      "comparisons": 87494,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "land_area_numerator": "base.areaSqm / 1000000",
+        "gfa_per_person": "population_count",
+        "fiscal_per_person": "fiscal.population",
+        "estimated_GFA_used_as_land_area": false
+      }
+    },
+    {
+      "name": "fuel supply all UUIDs, exact dimension dictionaries, totals, states and source keys",
+      "status": "PASS",
+      "comparisons": 14064,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "area_rows": 7954,
+        "dimension_count_cells": 6110,
+        "assigned_total": 8736,
+        "canonical_assigned_total": 8736
+      }
+    },
+    {
+      "name": "grocery supply all UUIDs, exact dimension dictionaries, totals, states and source keys",
+      "status": "PASS",
+      "comparisons": 18947,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "area_rows": 7954,
+        "dimension_count_cells": 10993,
+        "assigned_total": 27608,
+        "canonical_assigned_total": 27608
+      }
+    },
+    {
+      "name": "nonbank supply all UUIDs, exact dimension dictionaries, totals, states and source keys",
+      "status": "PASS",
+      "comparisons": 19305,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "area_rows": 7954,
+        "dimension_count_cells": 11351,
+        "assigned_total": 17990,
+        "canonical_assigned_total": 17990
+      }
+    },
+    {
+      "name": "Nonbank 77 province/company residual dictionaries exact",
+      "status": "PASS",
+      "comparisons": 650,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "provinces": 77,
+        "positive_residual_company_province_cells": 650,
+        "residual_total": 5534,
+        "canonical_unassigned_total": 5534,
+        "mtc_residual_total": 2276,
+        "residuals_are_not_allocated_to_each_area": true
+      }
+    },
+    {
+      "name": "all company license scope states exact and distinct from branch operational status",
+      "status": "PASS",
+      "comparisons": 1287,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "companies": 1287
+      }
+    },
+    {
+      "name": "18 real source polygons exact, source URLs and UUIDs preserved; no invented extent polygons",
+      "status": "PASS",
+      "comparisons": 18,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "polygon_count": 18,
+        "other_geometry_state": "source_extent_only",
+        "legal_independent_verification": false
+      }
+    },
+    {
+      "name": "Nonbank BKK exact counted source membership adapter and all 31 ambiguous IDs kept unassigned",
+      "status": "PASS",
+      "comparisons": 1627,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "exact_counted_dictionary_entries": 1596,
+        "ambiguous_null_area_entries": 31,
+        "bot_hq_references_excluded": 31
+      }
+    },
+    {
+      "name": "grocery POI IDs, names, coordinates, brand/company, source/admin references and runtime joins exact",
+      "status": "PASS",
+      "comparisons": 219656,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "raw_records": 27457,
+        "mapped_records": 27457,
+        "exact_area_members": 5269,
+        "area_membership_unknown": 22188,
+        "pharmacy_excluded_in_runtime": 150
+      }
+    },
+    {
+      "name": "nonbank POI IDs, names, coordinates, brand/company, source/admin references and runtime joins exact",
+      "status": "PASS",
+      "comparisons": 188192,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "raw_records": 23524,
+        "mapped_records": 17752,
+        "exact_area_members": 1596,
+        "area_membership_unknown": 21928,
+        "pharmacy_excluded_in_runtime": null
+      }
+    },
+    {
+      "name": "Fuel archived source point adapter retained exactly; no unsupported area join",
+      "status": "PASS",
+      "comparisons": 4363,
+      "discrepancy_count": 0,
+      "examples": [],
+      "details": {
+        "source_point_rows": 4363,
+        "exact_area_members": 0,
+        "coordinate_accuracy": "unverified",
+        "supply_counts_are_separate": true
+      }
+    },
+    {
+      "name": "portable bundled canonical evidence matches acquisition output exactly",
+      "status": "PASS",
+      "comparisons": 7,
+      "discrepancy_count": 0,
+      "examples": []
+    }
+  ],
+  "supply_summary": {
+    "fuel": {
+      "area_rows": 7954,
+      "dimension_count_cells": 6110,
+      "assigned_total": 8736,
+      "canonical_assigned_total": 8736
+    },
+    "grocery": {
+      "area_rows": 7954,
+      "dimension_count_cells": 10993,
+      "assigned_total": 27608,
+      "canonical_assigned_total": 27608
+    },
+    "nonbank": {
+      "area_rows": 7954,
+      "dimension_count_cells": 11351,
+      "assigned_total": 17990,
+      "canonical_assigned_total": 17990
+    }
+  },
+  "poi_summary": {
+    "grocery": {
+      "raw_records": 27457,
+      "mapped_records": 27457,
+      "exact_area_members": 5269,
+      "area_membership_unknown": 22188,
+      "pharmacy_excluded_in_runtime": 150
+    },
+    "nonbank": {
+      "raw_records": 23524,
+      "mapped_records": 17752,
+      "exact_area_members": 1596,
+      "area_membership_unknown": 21928,
+      "pharmacy_excluded_in_runtime": null
+    }
+  },
+  "observations": [
+    "Compact context preserves ratio values, denominator names and formulas. Per-area fiscal.population denominator_value and unknown denominator_vintage remain only in canonical/bundled evidence, not in compact rows. This QA does not claim live recomputation from those omitted raw fields.",
+    "Grocery transport explicitly excludes 150 PHARMACY rows, preserving all 27,457 grocery detail IDs. Reporting counts and point inventory remain separate; one Ko Tao point is absent and NMA/SNI category reconciliation is handled by review bounds.",
+    "Nonbank source points exclude 54 BOT_HQ references. The membership adapter contains 1596 exact counted IDs plus 31 ambiguous IDs with null areas; 31 BKK BOT_HQ reference memberships are excluded. Company licenses establish potential scope only, not office products or current operations.",
+    "7954 source extents are fit-only. Only the 18 unchanged source MultiPolygons are marked boundaries; independent legal geometry and topology validation remain unavailable."
+  ],
+  "artifact_hashes": {
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/grocery-supply.json": "1ba2b27cf247cbfb11214a3e3a007393b863e3a37aab0809f0a5e1ef813865ff",
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/area-context.json": "c0386d1314efd06cd3d67970d08c7cf182ac9e40be0875a7bd177cc91edb6528",
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/fuel-points.json": "9f60071c696b10f100d403cf1d19cb31dd9a74ad8ec0588e1c2b2b44661528fb",
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/nonbank-company-scopes.json": "e37d82157f8ec5e24dc6771f3c6d901fa6d1d15e1384f9b0dcd1837b3d912a7d",
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/nonbank-assignment-bounds.json": "8f66548ef51ed3791d36d84755c7ea94e4e95264dc780c332c7b25b2f6705905",
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/nonbank-supply.json": "6474915e47611b97b931454ee33ff5a9126e9b45b458ee943036e5611d9c4c0b",
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/grocery-points.json": "093d00e10fcc320f79f85ddf1ff76c387634879cf8682aa42344bcfff0373cac",
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/source-geometries.json": "90cba6ec487162be2938a0a9237c4f45643e13bedd5f9bb853cedafd105677c2",
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/nonbank-bkk-membership.json": "286445a2f3791551311eb2c70455967e534867845af6368fc4e1a3b32b551e07",
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/fuel-supply.json": "1cbe85c16bfe81f5ae577b9d3021e83bfd9efadda5d53064f0b5ce58f6574a4c",
+    "deliverables/yolk-three-industry-demo-2026-10-03/prototype/data/real/nonbank-points.json": "a18e6ce7619ee9becfbe3e8ca018212811ac9f12bdf7a5f66c54bd3d4d785909"
+  },
+  "runtime_bounds_check": {
+    "status": "PASS",
+    "report": "integration-runtime-qa.json",
+    "checks": 8,
+    "comparisons": 1413381
+  }
+}

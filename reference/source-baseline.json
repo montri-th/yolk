@@ -1,0 +1,8 @@
+{
+  "origin": "https://github.com/montri-th/yolk.git",
+  "head": "917ce72ced45e5e91cf4e8c25ad3f96f516cea84",
+  "product": "1.5",
+  "handoff": "1.5.0",
+  "historicalLds": "0.9.4",
+  "migrationAuthorized": "New original-UI three-industry demo adopts LDS 0.9.7; original source and prior experimental preview remain untouched."
+}

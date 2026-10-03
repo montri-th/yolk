@@ -1,0 +1,2649 @@
+{
+  "schema_version": "yolk.runtime-parameter-presets/1.0",
+  "criteriaSource": "criteria-proposal.json",
+  "recommended_not_shipped_by_model_agent": true,
+  "defaultCohortId": "national_7954",
+  "presets": [
+    {
+      "industryId": "fuel",
+      "presetVersion": "fuel-accepted-v1.4-with-evidence-notes.1",
+      "ownEntityId": "bangchak",
+      "defaultScope": "all_fuel",
+      "initialComparator": {
+        "source": "merged fuel brand counts",
+        "unknownBrand": "originalconditionalbrandallocations"
+      },
+      "formatId": "fuel_station",
+      "productId": null,
+      "datasetMetricGroups": [
+        {
+          "groupId": "building",
+          "enabled": true,
+          "operator": "threshold_count",
+          "metricIds": [
+            "gfa",
+            "gfa_per_person",
+            "gfa_per_km2"
+          ],
+          "tierRules": [
+            {
+              "tier": 1,
+              "percentile": 99,
+              "atLeast": 3
+            },
+            {
+              "tier": 2,
+              "percentile": 95,
+              "atLeast": 3
+            },
+            {
+              "tier": 3,
+              "percentile": 95,
+              "atLeast": 1
+            }
+          ],
+          "positiveGuard": false
+        },
+        {
+          "groupId": "activity",
+          "enabled": true,
+          "operator": "threshold_count",
+          "metricIds": [
+            "factory_count",
+            "factory_count_per_km2",
+            "factory_workers",
+            "factory_workers_per_km2",
+            "hotel_rooms",
+            "hotel_rooms_per_km2"
+          ],
+          "tierRules": [
+            {
+              "tier": 1,
+              "percentile": 95,
+              "atLeast": 5
+            },
+            {
+              "tier": 2,
+              "percentile": 95,
+              "atLeast": 3
+            },
+            {
+              "tier": 3,
+              "percentile": 95,
+              "atLeast": 1
+            }
+          ],
+          "positiveGuard": false
+        }
+      ],
+      "cohortId": "national_7954",
+      "demandOperator": "OR",
+      "extraMetricsEnabledByDefault": false,
+      "maxDemandTier": 3,
+      "ownMany": 3,
+      "competitorMany": 3,
+      "supplyThresholdStatus": "user_accepted",
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "optionalPreferredPatterns": [],
+      "recommendedRankingMode": "weighted_original_v1.4",
+      "initialWeightedParameters": {
+        "rankingWeights": {
+          "demand": 70,
+          "ownGap": 20,
+          "competitorGap": 10
+        },
+        "demandGroupWeights": {
+          "building": 50,
+          "activity": 50,
+          "extra": 50
+        },
+        "metricWeights": {
+          "gfa": 1,
+          "gfa_per_person": 1,
+          "gfa_per_km2": 1,
+          "factory_count": 1,
+          "factory_count_per_km2": 1,
+          "factory_workers": 1,
+          "factory_workers_per_km2": 1,
+          "hotel_rooms": 1,
+          "hotel_rooms_per_km2": 1
+        },
+        "status": "user_accepted_original"
+      },
+      "editableParameters": [
+        "selectedDatasets",
+        "selectedMetricIds",
+        "formulaTemplates",
+        "groupOperator",
+        "tierRulePercentiles",
+        "absolutePositiveGuards",
+        "absoluteMinimumValues",
+        "maxDemandTier",
+        "ownMany",
+        "competitorMany",
+        "preferredPatterns",
+        "rankingMode",
+        "rankingWeights",
+        "groupWeights",
+        "metricWeights"
+      ]
+    },
+    {
+      "industryId": "grocery",
+      "presetVersion": "grocery-convenience-context-hypothesis.1",
+      "ownEntityId": "grocery-brand:SEVEN_ELEVEN",
+      "defaultScope": "C_STORE",
+      "initialComparator": {
+        "formatSourceScope": "C_STORE",
+        "comparisonMeaning": "potential convenience/mini-format providers"
+      },
+      "formatId": "convenience",
+      "productId": null,
+      "datasetMetricGroups": [
+        {
+          "groupId": "population",
+          "enabled": true,
+          "operator": "versioned_path_AST",
+          "tierRules": [
+            {
+              "id": "population_concentrated_t1",
+              "tier": 1,
+              "all": [
+                {
+                  "metric": "population_count",
+                  "op": "gte_percentile",
+                  "percentile": 75,
+                  "positive_presence": true
+                },
+                {
+                  "metric": "population_per_km2",
+                  "op": "gte_percentile",
+                  "percentile": 90,
+                  "positive_presence": true
+                }
+              ],
+              "label_th": "ประชากรทะเบียนมากและเข้มข้นมาก"
+            },
+            {
+              "id": "population_concentrated_t2",
+              "tier": 2,
+              "all": [
+                {
+                  "metric": "population_count",
+                  "op": "gte_percentile",
+                  "percentile": 50,
+                  "positive_presence": true
+                },
+                {
+                  "metric": "population_per_km2",
+                  "op": "gte_percentile",
+                  "percentile": 75,
+                  "positive_presence": true
+                }
+              ],
+              "label_th": "ประชากรทะเบียนมีปริมาณและความเข้มข้น"
+            },
+            {
+              "id": "population_volume_t3",
+              "tier": 3,
+              "all": [
+                {
+                  "metric": "population_count",
+                  "op": "gte_percentile",
+                  "percentile": 75,
+                  "positive_presence": true
+                }
+              ],
+              "label_th": "ประชากรทะเบียนมาก: ตรวจว่ารวมตัวอยู่บริเวณใด"
+            }
+          ]
+        },
+        {
+          "groupId": "reported_workplace",
+          "enabled": true,
+          "operator": "versioned_path_AST",
+          "tierRules": [
+            {
+              "id": "workplace_t1",
+              "tier": 1,
+              "all": [
+                {
+                  "metric": "factory_workers",
+                  "op": "gte_percentile",
+                  "percentile": 90,
+                  "positive_presence": true
+                },
+                {
+                  "metric": "factory_workers_per_km2",
+                  "op": "gte_percentile",
+                  "percentile": 90,
+                  "positive_presence": true
+                }
+              ],
+              "label_th": "คนงานที่รายงานมีปริมาณและความเข้มข้นสูงมาก"
+            },
+            {
+              "id": "workplace_t2",
+              "tier": 2,
+              "all": [
+                {
+                  "metric": "factory_workers",
+                  "op": "gte_percentile",
+                  "percentile": 75,
+                  "positive_presence": true
+                },
+                {
+                  "metric": "factory_workers_per_km2",
+                  "op": "gte_percentile",
+                  "percentile": 75,
+                  "positive_presence": true
+                }
+              ],
+              "label_th": "คนงานที่รายงานมีปริมาณและความเข้มข้นสูง"
+            },
+            {
+              "id": "workplace_volume_t3",
+              "tier": 3,
+              "all": [
+                {
+                  "metric": "factory_workers",
+                  "op": "gte_percentile",
+                  "percentile": 75,
+                  "positive_presence": true
+                }
+              ],
+              "label_th": "คนงานที่รายงานมาก: ตรวจกะและทางเข้า"
+            }
+          ]
+        }
+      ],
+      "cohortId": "national_7954",
+      "demandOperator": "OR",
+      "extraMetricsEnabledByDefault": false,
+      "maxDemandTier": 3,
+      "ownMany": 2,
+      "competitorMany": 2,
+      "supplyThresholdStatus": "editable_repeated_network_count_hypothesis",
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "optionalPreferredPatterns": [
+        "Our Farm"
+      ],
+      "recommendedRankingMode": "lexicographic_context_strength",
+      "initialWeightedParameters": {
+        "rankingWeights": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        },
+        "demandGroupWeights": {
+          "population": 50,
+          "reported_workplace": 50
+        },
+        "metricWeights": {
+          "population_count": 1,
+          "population_per_km2": 1,
+          "factory_workers": 1,
+          "factory_workers_per_km2": 1
+        },
+        "status": "optional transparent context-only equal component weights; uncalibrated, not inherited Fuel70/20/10"
+      },
+      "editableParameters": [
+        "selectedDatasets",
+        "selectedMetricIds",
+        "formulaTemplates",
+        "groupOperator",
+        "tierRulePercentiles",
+        "absolutePositiveGuards",
+        "absoluteMinimumValues",
+        "maxDemandTier",
+        "ownMany",
+        "competitorMany",
+        "preferredPatterns",
+        "rankingMode",
+        "rankingWeights",
+        "groupWeights",
+        "metricWeights"
+      ]
+    },
+    {
+      "industryId": "nonbank",
+      "presetVersion": "nonbank-service-context-hypothesis.1",
+      "ownEntityId": "legal:0107557000195",
+      "defaultScope": "potential_retail_branch_service",
+      "initialComparator": {
+        "licenseFamilyUnion": [
+          "nano",
+          "ploan",
+          "ploan_car",
+          "pico",
+          "pico_plus"
+        ],
+        "status": "active",
+        "companyDirectory": "evidence/data/nonbank_companies.json",
+        "sourceCheckedAt": "2026-09-18/2026-09-23 by entry; snapshot retrieved2026-10-03",
+        "unknownNotFound": "Separate review/potential-upper-context, never silently called nonlenders or counted as confirmed active peers.",
+        "broadInventory": "Diagnostic alternative only; holding/fund/FX/pawn/HQ records are not automatically direct lending peers."
+      },
+      "formatId": null,
+      "productId": "potential_retail_branch_service",
+      "datasetMetricGroups": [
+        {
+          "groupId": "adult_population_context",
+          "enabled": true,
+          "operator": "versioned_path_AST",
+          "tierRules": [
+            {
+              "id": "population_concentrated_t1",
+              "tier": 1,
+              "all": [
+                {
+                  "metric": "adult_population_20_64",
+                  "op": "gte_percentile",
+                  "percentile": 75,
+                  "positive_presence": true
+                },
+                {
+                  "metric": "adult_population_20_64_per_km2",
+                  "op": "gte_percentile",
+                  "percentile": 90,
+                  "positive_presence": true
+                }
+              ],
+              "label_th": "ประชากรทะเบียนอายุ 20–64 ปีมากและเข้มข้นมาก"
+            },
+            {
+              "id": "population_concentrated_t2",
+              "tier": 2,
+              "all": [
+                {
+                  "metric": "adult_population_20_64",
+                  "op": "gte_percentile",
+                  "percentile": 50,
+                  "positive_presence": true
+                },
+                {
+                  "metric": "adult_population_20_64_per_km2",
+                  "op": "gte_percentile",
+                  "percentile": 75,
+                  "positive_presence": true
+                }
+              ],
+              "label_th": "ประชากรทะเบียนอายุ 20–64 ปีมีปริมาณและความเข้มข้น"
+            },
+            {
+              "id": "population_volume_t3",
+              "tier": 3,
+              "all": [
+                {
+                  "metric": "adult_population_20_64",
+                  "op": "gte_percentile",
+                  "percentile": 75,
+                  "positive_presence": true
+                }
+              ],
+              "label_th": "ประชากรทะเบียนอายุ 20–64 ปีมาก: ตรวจว่ารวมตัวอยู่บริเวณใด"
+            }
+          ]
+        }
+      ],
+      "cohortId": "national_7954",
+      "demandOperator": "OR",
+      "extraMetricsEnabledByDefault": false,
+      "maxDemandTier": 3,
+      "ownMany": 2,
+      "competitorMany": 2,
+      "supplyThresholdStatus": "editable_repeated_network_count_hypothesis",
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "optionalPreferredPatterns": [
+        "Our Farm"
+      ],
+      "recommendedRankingMode": "lexicographic_context_strength",
+      "initialWeightedParameters": {
+        "rankingWeights": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        },
+        "demandGroupWeights": {
+          "adult_population_context": 100
+        },
+        "metricWeights": {
+          "adult_population_20_64": 1,
+          "adult_population_20_64_per_km2": 1
+        },
+        "status": "optional transparent context-only equal component weights; uncalibrated, not inherited Fuel70/20/10"
+      },
+      "editableParameters": [
+        "selectedDatasets",
+        "selectedMetricIds",
+        "formulaTemplates",
+        "groupOperator",
+        "tierRulePercentiles",
+        "absolutePositiveGuards",
+        "absoluteMinimumValues",
+        "maxDemandTier",
+        "ownMany",
+        "competitorMany",
+        "preferredPatterns",
+        "rankingMode",
+        "rankingWeights",
+        "groupWeights",
+        "metricWeights"
+      ]
+    }
+  ],
+  "metricCatalogue": [
+    {
+      "metricId": "population_count",
+      "datasetId": "population",
+      "sourceField": "sum(ms)+sum(fs)",
+      "formulaAST": {
+        "op": "add",
+        "args": [
+          {
+            "op": "sum",
+            "field": "ms"
+          },
+          {
+            "op": "sum",
+            "field": "fs"
+          }
+        ]
+      },
+      "unit": "persons",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "reported_context",
+      "sourcePeriod": "2026-08",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "population_count",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 63580147,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "population_count",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 5261807,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "population_count",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 58318340,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "meaningLimit": "CityMETER reported administrative-area population; upcountry official generation not independently verified",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "grocery"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "population_per_km2",
+      "datasetId": "population",
+      "sourceField": "sum(ms)+sum(fs)",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "population_count"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "persons/km2",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2026-08",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "population_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 3583173.0282644895,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "population_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 1100247.057003111,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "population_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 2482925.971261369,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "meaningLimit": "Population / geographic land area; not daytime visitors",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "grocery"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "working_age_15_64",
+      "datasetId": "population",
+      "sourceField": "sum(ms[15:65])+sum(fs[15:65])",
+      "formulaAST": {
+        "op": "add",
+        "args": [
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "ms",
+              "start": 15,
+              "endExclusive": 65
+            }
+          },
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "fs",
+              "start": 15,
+              "endExclusive": 65
+            }
+          }
+        ]
+      },
+      "unit": "persons",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2026-08",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "working_age_15_64",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 44948878,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "working_age_15_64",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 3713907,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "working_age_15_64",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 41234971,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "meaningLimit": "Age indices15–64; registered-age context, not employed persons",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "working_age_15_64_per_km2",
+      "datasetId": "population",
+      "sourceField": "sum(ms[15:65])+sum(fs[15:65])",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "working_age_15_64"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "persons/km2",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2026-08",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "working_age_15_64_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 2482539.927442624,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "working_age_15_64_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 742378.3260403788,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "working_age_15_64_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 1740161.6014022313,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "meaningLimit": "Age15–64 reported population divided by land area; not employment or commuters",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "adult_population_20_64",
+      "datasetId": "population",
+      "sourceField": "sum(ms[20:65])+sum(fs[20:65])",
+      "formulaAST": {
+        "op": "add",
+        "args": [
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "ms",
+              "start": 20,
+              "endExclusive": 65
+            }
+          },
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "fs",
+              "start": 20,
+              "endExclusive": 65
+            }
+          }
+        ]
+      },
+      "unit": "persons",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2026-08",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "adult_population_20_64",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 41122403,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "adult_population_20_64",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 3440783,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "adult_population_20_64",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 37681620,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "meaningLimit": "Age indices20–64 reported population context; not borrowers, employment or legal eligibility",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "nonbank"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "adult_population_20_64_per_km2",
+      "datasetId": "population",
+      "sourceField": "sum(ms[20:65])+sum(fs[20:65])",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "adult_population_20_64"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "persons/km2",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2026-08",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "adult_population_20_64_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 2285083.8262364552,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "adult_population_20_64_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 691052.1160629379,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "adult_population_20_64_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 1594031.710173513,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "meaningLimit": "Same adult20–64 cohort / geographic land area; not observed borrowing demand",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "nonbank"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "children_0_14",
+      "datasetId": "population",
+      "sourceField": "sum(ms[0:15])+sum(fs[0:15])",
+      "formulaAST": {
+        "op": "add",
+        "args": [
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "ms",
+              "start": 0,
+              "endExclusive": 15
+            }
+          },
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "fs",
+              "start": 0,
+              "endExclusive": 15
+            }
+          }
+        ]
+      },
+      "unit": "persons",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2026-08",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "children_0_14",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 8775485,
+          "states": {
+            "reported_value": 7828,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        },
+        {
+          "metric": "children_0_14",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 592260,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "children_0_14",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 2,
+          "sum_valid": 8183225,
+          "states": {
+            "reported_value": 7648,
+            "source_row_missing": 124,
+            "observed_zero": 2
+          }
+        }
+      ],
+      "meaningLimit": "Age indices0–14; not households or customers",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "population_65_plus",
+      "datasetId": "population",
+      "sourceField": "sum(ms[65:])+sum(fs[65:])",
+      "formulaAST": {
+        "op": "add",
+        "args": [
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "ms",
+              "start": 65
+            }
+          },
+          {
+            "op": "sum",
+            "arg": {
+              "op": "slice",
+              "field": "fs",
+              "start": 65
+            }
+          }
+        ]
+      },
+      "unit": "persons",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2026-08",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "population_65_plus",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7830,
+          "n_missing": 124,
+          "explicit_zero_n": 4,
+          "sum_valid": 9855784,
+          "states": {
+            "reported_value": 7826,
+            "source_row_missing": 124,
+            "observed_zero": 4
+          }
+        },
+        {
+          "metric": "population_65_plus",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 955640,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "population_65_plus",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7650,
+          "n_missing": 124,
+          "explicit_zero_n": 4,
+          "sum_valid": 8900144,
+          "states": {
+            "reported_value": 7646,
+            "source_row_missing": 124,
+            "observed_zero": 4
+          }
+        }
+      ],
+      "meaningLimit": "Age65+ plus terminal source age bucket; not borrowing need",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "building_gfa_m2",
+      "datasetId": "building",
+      "sourceField": "area",
+      "formulaAST": {
+        "field": "area",
+        "selector": {
+          "v": "V4"
+        }
+      },
+      "unit": "estimated m2 GFA",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "model_estimate",
+      "sourcePeriod": "V4 / published UI label 2024-12",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "building_gfa_m2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7939,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 11699165373.800179,
+          "states": {
+            "reported_value": 7939,
+            "source_row_missing": 15
+          }
+        },
+        {
+          "metric": "building_gfa_m2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 1873725210.6911998,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "building_gfa_m2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7759,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 9825440163.108976,
+          "states": {
+            "reported_value": 7759,
+            "source_row_missing": 15
+          }
+        }
+      ],
+      "meaningLimit": "Modeled gross floor area, not land/footprint/residential occupied area",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "fuel"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "building_count",
+      "datasetId": "building",
+      "sourceField": "count",
+      "formulaAST": {
+        "field": "count",
+        "selector": {
+          "v": "V4"
+        }
+      },
+      "unit": "modeled building records",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "model_estimate",
+      "sourcePeriod": "V4 / published UI label 2024-12",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "building_count",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7939,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 29433284,
+          "states": {
+            "reported_value": 7939,
+            "source_row_missing": 15
+          }
+        },
+        {
+          "metric": "building_count",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 1101243,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "building_count",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7759,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 28332041,
+          "states": {
+            "reported_value": 7759,
+            "source_row_missing": 15
+          }
+        }
+      ],
+      "meaningLimit": "Open Buildings based source inventory, not occupied premises",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "gfa_per_km2",
+      "datasetId": "building",
+      "sourceField": "area",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "building_gfa_m2"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "estimated m2 GFA/km2",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_model_estimate",
+      "sourcePeriod": "V4 / published UI label 2024-12",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "gfa_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7939,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 971726645.1485059,
+          "states": {
+            "reported_value": 7939,
+            "source_row_missing": 15
+          }
+        },
+        {
+          "metric": "gfa_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 461424969.94409496,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "gfa_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7759,
+          "n_missing": 15,
+          "explicit_zero_n": 0,
+          "sum_valid": 510301675.20440865,
+          "states": {
+            "reported_value": 7759,
+            "source_row_missing": 15
+          }
+        }
+      ],
+      "meaningLimit": "Estimated GFA / geographic land area",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "fuel"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "gfa_per_person",
+      "datasetId": "building",
+      "sourceField": "area / population sum(ms)+sum(fs)",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "building_gfa_m2"
+          },
+          {
+            "metric": "population_count"
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "estimated m2 GFA/person",
+      "denominator": "direct_population_count",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_model_estimate",
+      "sourcePeriod": "V4 / published UI label 2024-12",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "gfa_per_person",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7828,
+          "n_missing": 126,
+          "explicit_zero_n": 0,
+          "sum_valid": 1153484.56550864,
+          "states": {
+            "reported_value": 7828,
+            "missing_or_nonpositive_population_denominator": 126
+          }
+        },
+        {
+          "metric": "gfa_per_person",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 180,
+          "n_missing": 0,
+          "explicit_zero_n": 0,
+          "sum_valid": 78705.5683584604,
+          "states": {
+            "reported_value": 180
+          }
+        },
+        {
+          "metric": "gfa_per_person",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7648,
+          "n_missing": 126,
+          "explicit_zero_n": 0,
+          "sum_valid": 1074778.9971501792,
+          "states": {
+            "reported_value": 7648,
+            "missing_or_nonpositive_population_denominator": 126
+          }
+        }
+      ],
+      "meaningLimit": "Mixed-vintage GFA / direct population; only denominator>0",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "fuel"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "factory_count",
+      "datasetId": "factory",
+      "sourceField": "totalFactory",
+      "formulaAST": {
+        "field": "totalFactory",
+        "selector": {
+          "y": 2025,
+          "m": 4,
+          "factory_status": "ACTIVE"
+        }
+      },
+      "unit": "registered factory records",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "reported_context",
+      "sourcePeriod": "2025-04 ACTIVE",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "factory_count",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 5822,
+          "n_missing": 2132,
+          "explicit_zero_n": 0,
+          "sum_valid": 71704,
+          "states": {
+            "source_row_missing": 2101,
+            "reported_value": 5822,
+            "selected_period_missing": 31
+          }
+        },
+        {
+          "metric": "factory_count",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 174,
+          "n_missing": 6,
+          "explicit_zero_n": 0,
+          "sum_valid": 6493,
+          "states": {
+            "source_row_missing": 6,
+            "reported_value": 174
+          }
+        },
+        {
+          "metric": "factory_count",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 5648,
+          "n_missing": 2126,
+          "explicit_zero_n": 0,
+          "sum_valid": 65211,
+          "states": {
+            "reported_value": 5648,
+            "source_row_missing": 2095,
+            "selected_period_missing": 31
+          }
+        }
+      ],
+      "meaningLimit": "ACTIVE registry category at source period, not confirmed live operation",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "fuel"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "factory_count_per_km2",
+      "datasetId": "factory",
+      "sourceField": "totalFactory",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "factory_count"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "factory records/km2",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2025-04 ACTIVE",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "factory_count_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 5822,
+          "n_missing": 2132,
+          "explicit_zero_n": 0,
+          "sum_valid": 4322.348151730609,
+          "states": {
+            "source_row_missing": 2101,
+            "reported_value": 5822,
+            "selected_period_missing": 31
+          }
+        },
+        {
+          "metric": "factory_count_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 174,
+          "n_missing": 6,
+          "explicit_zero_n": 0,
+          "sum_valid": 1069.6123374915658,
+          "states": {
+            "source_row_missing": 6,
+            "reported_value": 174
+          }
+        },
+        {
+          "metric": "factory_count_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 5648,
+          "n_missing": 2126,
+          "explicit_zero_n": 0,
+          "sum_valid": 3252.735814239048,
+          "states": {
+            "reported_value": 5648,
+            "source_row_missing": 2095,
+            "selected_period_missing": 31
+          }
+        }
+      ],
+      "meaningLimit": "Registered factory records / geographic land area",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "fuel"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "factory_workers",
+      "datasetId": "factory",
+      "sourceField": "totalWorker",
+      "formulaAST": {
+        "field": "totalWorker",
+        "selector": {
+          "y": 2025,
+          "m": 4,
+          "factory_status": "ACTIVE"
+        }
+      },
+      "unit": "reported workers",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "reported_context",
+      "sourcePeriod": "2025-04 ACTIVE",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "factory_workers",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 5822,
+          "n_missing": 2132,
+          "explicit_zero_n": 13,
+          "sum_valid": 3923994,
+          "states": {
+            "source_row_missing": 2101,
+            "reported_value": 5809,
+            "observed_zero": 13,
+            "selected_period_missing": 31
+          }
+        },
+        {
+          "metric": "factory_workers",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 174,
+          "n_missing": 6,
+          "explicit_zero_n": 0,
+          "sum_valid": 380592,
+          "states": {
+            "source_row_missing": 6,
+            "reported_value": 174
+          }
+        },
+        {
+          "metric": "factory_workers",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 5648,
+          "n_missing": 2126,
+          "explicit_zero_n": 13,
+          "sum_valid": 3543402,
+          "states": {
+            "reported_value": 5635,
+            "source_row_missing": 2095,
+            "observed_zero": 13,
+            "selected_period_missing": 31
+          }
+        }
+      ],
+      "meaningLimit": "Registered workers, not measured attendance/commuters/customers",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "fuel",
+        "grocery"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "factory_workers_per_km2",
+      "datasetId": "factory",
+      "sourceField": "totalWorker",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "factory_workers"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "reported workers/km2",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2025-04 ACTIVE",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "factory_workers_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 5822,
+          "n_missing": 2132,
+          "explicit_zero_n": 13,
+          "sum_valid": 229643.84783588265,
+          "states": {
+            "source_row_missing": 2101,
+            "reported_value": 5809,
+            "observed_zero": 13,
+            "selected_period_missing": 31
+          }
+        },
+        {
+          "metric": "factory_workers_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 174,
+          "n_missing": 6,
+          "explicit_zero_n": 0,
+          "sum_valid": 51829.58163204104,
+          "states": {
+            "source_row_missing": 6,
+            "reported_value": 174
+          }
+        },
+        {
+          "metric": "factory_workers_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 5648,
+          "n_missing": 2126,
+          "explicit_zero_n": 13,
+          "sum_valid": 177814.26620384248,
+          "states": {
+            "reported_value": 5635,
+            "source_row_missing": 2095,
+            "observed_zero": 13,
+            "selected_period_missing": 31
+          }
+        }
+      ],
+      "meaningLimit": "Registered worker count / geographic land area",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "fuel",
+        "grocery"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "hotel_count",
+      "datasetId": "hotel",
+      "sourceField": "hotelCount",
+      "formulaAST": {
+        "field": "hotelCount"
+      },
+      "unit": "catalog hotel records",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "reported_context",
+      "sourcePeriod": null,
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "hotel_count",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7506,
+          "n_missing": 448,
+          "explicit_zero_n": 3494,
+          "sum_valid": 28260,
+          "states": {
+            "reported_value": 4012,
+            "source_row_missing": 448,
+            "observed_zero": 3494
+          }
+        },
+        {
+          "metric": "hotel_count",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 131,
+          "n_missing": 49,
+          "explicit_zero_n": 0,
+          "sum_valid": 1312,
+          "states": {
+            "reported_value": 131,
+            "source_row_missing": 49
+          }
+        },
+        {
+          "metric": "hotel_count",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7375,
+          "n_missing": 399,
+          "explicit_zero_n": 3494,
+          "sum_valid": 26948,
+          "states": {
+            "reported_value": 3881,
+            "observed_zero": 3494,
+            "source_row_missing": 399
+          }
+        }
+      ],
+      "meaningLimit": "Catalog count, not verified live/occupied rooms",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "hotel_rooms",
+      "datasetId": "hotel",
+      "sourceField": "roomCount",
+      "formulaAST": {
+        "field": "roomCount"
+      },
+      "unit": "catalog rooms",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "reported_context",
+      "sourcePeriod": null,
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "hotel_rooms",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7506,
+          "n_missing": 448,
+          "explicit_zero_n": 3494,
+          "sum_valid": 837054,
+          "states": {
+            "reported_value": 4012,
+            "source_row_missing": 448,
+            "observed_zero": 3494
+          }
+        },
+        {
+          "metric": "hotel_rooms",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 131,
+          "n_missing": 49,
+          "explicit_zero_n": 0,
+          "sum_valid": 85014,
+          "states": {
+            "reported_value": 131,
+            "source_row_missing": 49
+          }
+        },
+        {
+          "metric": "hotel_rooms",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7375,
+          "n_missing": 399,
+          "explicit_zero_n": 3494,
+          "sum_valid": 752040,
+          "states": {
+            "reported_value": 3881,
+            "observed_zero": 3494,
+            "source_row_missing": 399
+          }
+        }
+      ],
+      "meaningLimit": "Catalog room inventory, not tourist arrivals/occupancy",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "fuel"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "hotel_rooms_per_km2",
+      "datasetId": "hotel",
+      "sourceField": "roomCount",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "hotel_rooms"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "catalog rooms/km2",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": null,
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "hotel_rooms_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7506,
+          "n_missing": 448,
+          "explicit_zero_n": 3494,
+          "sum_valid": 92337.21563313904,
+          "states": {
+            "reported_value": 4012,
+            "source_row_missing": 448,
+            "observed_zero": 3494
+          }
+        },
+        {
+          "metric": "hotel_rooms_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 131,
+          "n_missing": 49,
+          "explicit_zero_n": 0,
+          "sum_valid": 55156.538441665856,
+          "states": {
+            "reported_value": 131,
+            "source_row_missing": 49
+          }
+        },
+        {
+          "metric": "hotel_rooms_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7375,
+          "n_missing": 399,
+          "explicit_zero_n": 3494,
+          "sum_valid": 37180.677191473435,
+          "states": {
+            "reported_value": 3881,
+            "observed_zero": 3494,
+            "source_row_missing": 399
+          }
+        }
+      ],
+      "meaningLimit": "Catalog rooms / geographic land area",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [
+        "fuel"
+      ],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "office_count",
+      "datasetId": "office",
+      "sourceField": "officeCount",
+      "formulaAST": {
+        "field": "officeCount",
+        "selector": {
+          "v": "V3"
+        }
+      },
+      "unit": "catalog office buildings",
+      "denominator": null,
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "reported_context",
+      "sourcePeriod": "V3 / published UI label 2025-05",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "office_count",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 45,
+          "n_missing": 7909,
+          "explicit_zero_n": 0,
+          "sum_valid": 329,
+          "states": {
+            "source_row_missing": 7909,
+            "reported_value": 45
+          }
+        },
+        {
+          "metric": "office_count",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 45,
+          "n_missing": 135,
+          "explicit_zero_n": 0,
+          "sum_valid": 329,
+          "states": {
+            "source_row_missing": 135,
+            "reported_value": 45
+          }
+        },
+        {
+          "metric": "office_count",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 0,
+          "n_missing": 7774,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "source_row_missing": 7774
+          }
+        }
+      ],
+      "meaningLimit": "Published office catalog; absent summary remains missing, not zero activity",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "office_count_per_km2",
+      "datasetId": "office",
+      "sourceField": "officeCount",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "office_count"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "catalog buildings/km2",
+      "denominator": "land_area_km2",
+      "grain": [
+        "SUBDISTRICT_BKK",
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "V3 / published UI label 2025-05",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "office_count_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 45,
+          "n_missing": 7909,
+          "explicit_zero_n": 0,
+          "sum_valid": 141.2759033825109,
+          "states": {
+            "source_row_missing": 7909,
+            "reported_value": 45
+          }
+        },
+        {
+          "metric": "office_count_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 45,
+          "n_missing": 135,
+          "explicit_zero_n": 0,
+          "sum_valid": 141.2759033825109,
+          "states": {
+            "source_row_missing": 135,
+            "reported_value": 45
+          }
+        },
+        {
+          "metric": "office_count_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 0,
+          "n_missing": 7774,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "source_row_missing": 7774
+          }
+        }
+      ],
+      "meaningLimit": "Published office catalog / geographic land area",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel",
+        "grocery",
+        "nonbank"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "fiscal_total_thb",
+      "datasetId": "fiscal",
+      "sourceField": "total * 1000000",
+      "formulaAST": {
+        "op": "multiply",
+        "args": [
+          {
+            "field": "total"
+          },
+          {
+            "const": 1000000
+          }
+        ]
+      },
+      "unit": "THB/year",
+      "denominator": null,
+      "grain": [
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "reported_context",
+      "sourcePeriod": "2024",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "fiscal_total_thb",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7751,
+          "n_missing": 203,
+          "explicit_zero_n": 0,
+          "sum_valid": 554442650620.9698,
+          "states": {
+            "not_applicable": 180,
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        },
+        {
+          "metric": "fiscal_total_thb",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 0,
+          "n_missing": 180,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "not_applicable": 180
+          }
+        },
+        {
+          "metric": "fiscal_total_thb",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7751,
+          "n_missing": 23,
+          "explicit_zero_n": 0,
+          "sum_valid": 554442650620.9698,
+          "states": {
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        }
+      ],
+      "meaningLimit": "Local fiscal receipts including grants; not household income",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "fiscal_ex_grants_thb",
+      "datasetId": "fiscal",
+      "sourceField": "(selfCollected+stateAllocated)*1000000",
+      "formulaAST": {
+        "op": "multiply",
+        "args": [
+          {
+            "op": "add",
+            "args": [
+              {
+                "field": "selfCollected"
+              },
+              {
+                "field": "stateAllocated"
+              }
+            ]
+          },
+          {
+            "const": 1000000
+          }
+        ]
+      },
+      "unit": "THB/year",
+      "denominator": null,
+      "grain": [
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2024",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "fiscal_ex_grants_thb",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7751,
+          "n_missing": 203,
+          "explicit_zero_n": 0,
+          "sum_valid": 303022908144.8909,
+          "states": {
+            "not_applicable": 180,
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_thb",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 0,
+          "n_missing": 180,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "not_applicable": 180
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_thb",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7751,
+          "n_missing": 23,
+          "explicit_zero_n": 0,
+          "sum_valid": 303022908144.8909,
+          "states": {
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        }
+      ],
+      "meaningLimit": "Public fiscal activity excluding stateFunded grants; not purchasing power",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "fiscal_ex_grants_per_km2",
+      "datasetId": "fiscal",
+      "sourceField": "(selfCollected+stateAllocated)*1000000",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "fiscal_ex_grants_thb"
+          },
+          {
+            "op": "divide",
+            "args": [
+              {
+                "field": "base.areaSqm"
+              },
+              {
+                "const": 1000000
+              }
+            ]
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "THB/km2/year",
+      "denominator": "land_area_km2",
+      "grain": [
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2024",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "fiscal_ex_grants_per_km2",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7751,
+          "n_missing": 203,
+          "explicit_zero_n": 0,
+          "sum_valid": 17913668891.74336,
+          "states": {
+            "not_applicable": 180,
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_per_km2",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 0,
+          "n_missing": 180,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "not_applicable": 180
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_per_km2",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7751,
+          "n_missing": 23,
+          "explicit_zero_n": 0,
+          "sum_valid": 17913668891.74336,
+          "states": {
+            "reported_value": 7751,
+            "selected_period_missing": 18,
+            "source_row_missing": 5
+          }
+        }
+      ],
+      "meaningLimit": "Fiscal proxy divided by geographic land area",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    },
+    {
+      "metricId": "fiscal_ex_grants_per_person",
+      "datasetId": "fiscal",
+      "sourceField": "(selfCollected+stateAllocated)*1000000 / fiscal.population",
+      "formulaAST": {
+        "op": "divide",
+        "args": [
+          {
+            "metric": "fiscal_ex_grants_thb"
+          },
+          {
+            "field": "fiscal.population"
+          }
+        ],
+        "denominator_must_be_positive": true,
+        "invalid_result": "unknown"
+      },
+      "unit": "THB/person/year",
+      "denominator": "fiscal.population",
+      "grain": [
+        "MUNICIPALITY_NON_BKK"
+      ],
+      "cohortIds": [
+        "national_7954",
+        "bkk_khwaeng_180",
+        "upcountry_lao_7774"
+      ],
+      "evidenceKind": "derived_context",
+      "sourcePeriod": "2024",
+      "availability": "current_actual_source_fields_mixed_source_periods",
+      "coverageByCohort": [
+        {
+          "metric": "fiscal_ex_grants_per_person",
+          "cohort": "national_7954",
+          "n_total": 7954,
+          "n_valid": 7717,
+          "n_missing": 237,
+          "explicit_zero_n": 0,
+          "sum_valid": 52588175.15733051,
+          "states": {
+            "not_applicable": 180,
+            "reported_value": 7717,
+            "missing_or_nonpositive_fiscal_population_denominator": 57
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_per_person",
+          "cohort": "bkk_khwaeng_180",
+          "n_total": 180,
+          "n_valid": 0,
+          "n_missing": 180,
+          "explicit_zero_n": 0,
+          "sum_valid": 0,
+          "states": {
+            "not_applicable": 180
+          }
+        },
+        {
+          "metric": "fiscal_ex_grants_per_person",
+          "cohort": "upcountry_lao_7774",
+          "n_total": 7774,
+          "n_valid": 7717,
+          "n_missing": 57,
+          "explicit_zero_n": 0,
+          "sum_valid": 52588175.15733051,
+          "states": {
+            "reported_value": 7717,
+            "missing_or_nonpositive_fiscal_population_denominator": 57
+          }
+        }
+      ],
+      "meaningLimit": "Fiscal API population denominator has unspecified reference year",
+      "missingPolicy": "null; absent is not zero; use exactly selected source period",
+      "defaultEnabledIndustries": [],
+      "selectableForContextIndustries": [
+        "fuel"
+      ],
+      "selectionDoesNotValidateBusinessMeaning": true,
+      "financialBehaviorOrEligibilityInference": false
+    }
+  ],
+  "legacyMetricAliases": {
+    "population": "population_count",
+    "gfa": "building_gfa_m2"
+  },
+  "criteriaScope": {
+    "keyFields": [
+      "workspaceId",
+      "industryId",
+      "ownEntityId",
+      "formatId",
+      "productId",
+      "criteriaVersion"
+    ],
+    "ownEntity": "Fuel/Grocery selected trade brand; Nonbank selected legal company ID; brand aliases are explicit crosswalks",
+    "customization": "Clone initial preset for selected ownEntity scope. Persist each brands adjustments independently; switching brand restores that scoped criteria, never mutates another brands accepted preset.",
+    "apply": "Draft/edit preview then one explicit Apply event with diff, actor, timestamp and source/cohort/criteria revisions.",
+    "legacy": "Preserve saved Fuel criteria and ranking mode; no silent overwrite from new industry defaults."
+  },
+  "supplyUncertainty": {
+    "source": "data-evidence/nonbank-assignment-uncertainty.json",
+    "algorithm": "B_lower=assignedown; B_upper=assignedown+provinceunassignedown. C_lower=assignedactivefamilyotherunion; C_upper=assignedactivefamilyotherunion+provinceunassignedactivefamilyotherunion+assignedunknownlicenseinthisarea+provinceunassignedunknownlicense. Usecompanysubsetsnotallcompanyresidual. Buildpossiblepatternsfromthreshold-crossingranges; theseboundsareperarea possibilitiesnot simultaneous allocations.",
+    "ordinaryFuelU": false,
+    "eligibility": "allpossiblepatternsselected=confirmedstrategywithinexplicitinventoryscope; anyselectedbutnotall=reviewpossible; proxyYolkexistsindependently."
+  }
+}

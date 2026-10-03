@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "lds-owner-distribution-1",
+  "release": {
+    "dsVersion": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "machinePackage": "v0.9.7-owner.1",
+    "authoringRevision": "0.9.7-owner.1",
+    "colorSetId": "color-srgb-10",
+    "status": "owner-approved",
+    "effectiveFor": "work explicitly adopting this owner distribution",
+    "signatureStatus": "unsigned",
+    "signedRelease": false,
+    "ownerApproval": {
+      "authority": "Montri",
+      "date": "2026-10-01",
+      "reference": "owner-message:2026-10-01:release-0.9.7-original-light-hex-on-both-themes",
+      "decision": "Adopt Story r4 and Location r2 LIGHT colors. Use each exact light anchor/LUT/class and role HEX unchanged on dark, with the same data direction; no derived dark formulas. Existing categorical palettes and decorative gradients retain their own contracts."
+    }
+  },
+  "inherits": {
+    "dsVersion": "0.9.4",
+    "machinePackage": "v0.9.4-mp1",
+    "path": "../../../references/inherited/lds-0.9.4",
+    "releaseSha256": "6231ccfa6c67dea65abd9bb9597f14448ddc9f285be949e4efa026978e1d4419",
+    "sumSha256": "9a261eb4df7bf3be5cf1e23f7fb2bd7079c67ca481fc55dccc7049ac52d325cc",
+    "trustPath": "../../../references/owner-trust/v0.9.4",
+    "signedBaseDoesNotSignThisDistribution": true
+  },
+  "approvalSource": {
+    "path": "../../../references/approved-0.9.7.json",
+    "sha256": "a1f8d12b7efb4f782f04c19057cd95d424143b12c86c5c5991bd91b01e37ccb0",
+    "visualBuildId": "lds097-story-location-theme-invariant-r1",
+    "inputs": {
+      "approved-story-r4.json": "be696bc8f41520f85167678634407838ac5ed5c9bb9a802585146b0b2f36415f",
+      "approved-location-r2.json": "0906c14107ef20a2a42a5d1c830ffa56c0a88caca34d54096dc58b346faba279",
+      "approved-location-metrics.json": "44ad44d254262932812b61a5ca9e7a4b27c6ec89c7bfdc7da9eb0bb081a387e7"
+    },
+    "ownerThemeOverride": {
+      "authority": "Montri",
+      "date": "2026-10-01",
+      "reference": "owner-message:2026-10-01:release-0.9.7-original-light-hex-on-both-themes",
+      "decision": "Adopt Story r4 and Location r2 LIGHT colors. Use each exact light anchor/LUT/class and role HEX unchanged on dark, with the same data direction; no derived dark formulas. Existing categorical palettes and decorative gradients retain their own contracts."
+    }
+  },
+  "entrypoints": {
+    "human": "../normative/Landometer-Design-System-v0.9.7.md",
+    "brand": "../brand/BRAND.md",
+    "policy": "policy.json",
+    "tokens": "tokens.v0.9.7.json",
+    "colorRegistry": "color-srgb-10.tokens.json",
+    "scales": "color-srgb-10.scales.json",
+    "css": "color-srgb-10.production.css",
+    "webBuildKit": "../build-kit/lds-0.9.7.css",
+    "designTokens": "lds-0.9.7.tokens.dtcg.json",
+    "locationProfile": "location-intelligence-0.9.7.json",
+    "locationCSS": "location-intelligence-0.9.7.css"
+  },
+  "counts": {
+    "families": 20,
+    "themes": 2,
+    "lutColors": 1640,
+    "categoricalSlots": 10,
+    "atmosphereRecipes": 7,
+    "supportingPalette": 17
+  },
+  "verification": {
+    "command": "node scripts/verify.mjs",
+    "scope": "immutable base, approved snapshot parity, typed policy, complete assets, analytical math and CSS projection; not artifact conformance"
+  },
+  "limitations": [
+    "Package parity and analytical math are automated.",
+    "Rendering, actual surface contrast, native Thai copy, source truth, threshold semantics, CVD/grayscale usability and each output format require artifact review.",
+    "No claim of signed 0.9.7 release, complete conformance, universal platform enforcement or team installation.",
+    "Inherited open governance/product-icon/motif/signing follow-ups remain open unless specifically resolved here.",
+    "Dark numerical colors intentionally equal light values; actual-surface contrast and CVD usability are artifact checks, not universal package guarantees."
+  ],
+  "predecessor": {
+    "dsVersion": "0.9.6",
+    "releaseRef": "v0.9.6-owner.1",
+    "releaseSha256": "669e38a2004ed0c1487e5a46828b88eae6e4a7cd8c63f717fe0fcd1c5e4c1227",
+    "changedScope": "Story 20 analytical families; same light values and direction in both themes; generic 17-value supporting palette; separate optional Location profile. Existing categorical, atmosphere, identity and motion preserved."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "actualDefaults": {
+    "fuel": {
+      "high": 1067,
+      "confirmed": 915,
+      "review": 79
+    },
+    "grocery": {
+      "high": 2859,
+      "confirmed": 1455,
+      "review": 14
+    },
+    "nonbank": {
+      "high": 2298,
+      "confirmed": 37,
+      "review": 1378
+    }
+  },
+  "passed": 30,
+  "checks": [
+    "Exactly three profiles and 7,954 unique real reporting areas",
+    "25 actual metrics, aliases and positive known-only distributions",
+    "Every profile default own identity resolves in its expected industry",
+    "Fuel original numeric rules, weights and initial strategy preserved",
+    "Fuel merged-source brand counts sum to country aggregate 8,736",
+    "Fixed national cutoffs do not change with brand/province or profile",
+    "Grocery C_STORE own/other canonical dimensions and Pure exclusion",
+    "Grocery known proxy-high exactly 2,859 and ranking is separate from screen",
+    "New defaults use 2/2 and Pioneer/FOMO; no Fuel supply bonuses",
+    "Missing stays unknown and positive-presence blocks zero promotion",
+    "Nonbank uses adult20–64 proxy, active-license union, geographic residual bounds",
+    "Pattern certainty and guaranteed strategy membership are independent",
+    "Office context is diagnostic; missing license is never silently excluded",
+    "Brand/scope/profile-version contexts and drafts remain separate",
+    "Source POIs are excluded from browser persistence and CRUD does not change aggregates",
+    "Lazy source coordinates stay separate from unsupported municipality joins",
+    "Invalid metric values normalize to missing; valid distributions exclude negatives",
+    "Known-high Demand with absent Supply retains all four possible high patterns",
+    "Nonbank weighted gap scores use assignment intervals, not assigned zeros as exact",
+    "Unknown/not_found relevant licenses are review context, not nonpeers",
+    "Local overlays survive industry switches without entering aggregate Supply",
+    "Own identity outside the selected source scope is missing, not own-zero",
+    "Point layers follow Grocery format and Nonbank license scope without changing source cache",
+    "Canonical local-overlay relationship follows the newly selected own identity",
+    "Late industry downloads cannot override the final fuel identity/profile/counts",
+    "All 25 dataset/metric disclosures render bilingual equations and coverage",
+    "Cross-context events restore industry/brand/scope before navigation; criteria feed stays scoped",
+    "Supply-event navigation restores the source-point context before resolving the POI",
+    "Cold Supply event waits for the point load already started by the place render",
+    "Cold event continuation cannot navigate or relabel POIs after a newer context switch"
+  ],
+  "actualProxyHigh": {
+    "fuel": 1067,
+    "grocery": 2859,
+    "nonbank": 2298
+  },
+  "limits": "These are core runtime/data checks, not full browser/UI or design-system conformance."
+}

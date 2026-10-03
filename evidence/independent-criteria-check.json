@@ -1,0 +1,113 @@
+{
+  "executed_checks": [
+    {
+      "id": "exact_7954_unique_context_units",
+      "pass": true
+    },
+    {
+      "id": "cohorts_partition_source_units",
+      "pass": true
+    },
+    {
+      "id": "all_initial_presets_same_fixed_national_cohort",
+      "pass": true
+    },
+    {
+      "id": "canonical_only_three_industries",
+      "pass": true
+    },
+    {
+      "id": "accepted_fuel_numeric_defaults_preserved",
+      "pass": true
+    },
+    {
+      "id": "new_ranking_has_no_fuel_weights",
+      "pass": true
+    },
+    {
+      "id": "nonbank_proxy_and_borrowing_distinct",
+      "pass": true
+    },
+    {
+      "id": "missing_not_zero",
+      "pass": true
+    },
+    {
+      "id": "known_fail_and_unknown_is_fail",
+      "pass": true
+    },
+    {
+      "id": "known_pass_or_unknown_is_pass",
+      "pass": true
+    },
+    {
+      "id": "exact_cutoff_passes",
+      "pass": true
+    },
+    {
+      "id": "new_zero_presence_does_not_pass",
+      "pass": true
+    },
+    {
+      "id": "fuel_literal_zero_semantics_preserved",
+      "pass": true
+    },
+    {
+      "id": "new_profiles_not_sterile",
+      "pass": true
+    },
+    {
+      "id": "gfa_off_new_default_paths",
+      "pass": true
+    },
+    {
+      "id": "eight_pattern_mapping_unchanged",
+      "pass": true
+    },
+    {
+      "id": "nonbank_has_no_employment_or_credit_default",
+      "pass": true
+    },
+    {
+      "id": "all_new_preset_metrics_in_actual_catalog",
+      "pass": true
+    },
+    {
+      "id": "all_catalog_rows_have_formula_unit_evidence_and_period_field",
+      "pass": true
+    },
+    {
+      "id": "nonbank_own_default_MTC_legal_company",
+      "pass": true
+    },
+    {
+      "id": "new_MORE_LESS_not_presence_semantic",
+      "pass": true
+    }
+  ],
+  "executed_pass_count": 21,
+  "integration_protocol_pending": [
+    "weight_only_edits_do_not_change_membership",
+    "map_filter_keeps_fixed_thresholds",
+    "profile_switch_resets_incompatible_metric_brand_product_format_and_cohort",
+    "unknown_supply_product_scope_not_brand_allocation",
+    "unmapped_offices_never_declared_absent",
+    "multi_product_office_union_not_membership_sum",
+    "HQ_reference_not_operating_service_point",
+    "same_format_peer_review_and_pharmacy_exclusion",
+    "source_update_recomputes_thresholds_with_new_atomic_versions",
+    "highway_review_not_rejected_by_low_urban_GFA",
+    "GFA_small_population_denominator_outlier",
+    "different_geographic_grains_not_implicitly_compared",
+    "hotel_unknown_occupancy_and_vintage_visible",
+    "factory_registry_missing_not_zero",
+    "all_zero_or_constant_cohort_marked_uninformative",
+    "sub30_cohort_raw_review_not_high_or_low",
+    "missing_stronger_path_does_not_promote_confirmed_tier",
+    "different_suppressed_not_applicable_states_preserved",
+    "operator_source_never_used_as_numeric_cutoff_authority",
+    "real_data_fixture_not_called_synthetic_and_synthetic_not_called_observed"
+  ],
+  "business_outcome_calibration": "not_performed",
+  "browser_QA": "not_performed_by_model_agent"
+}

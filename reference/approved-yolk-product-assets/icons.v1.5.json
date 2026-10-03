@@ -1,0 +1,106 @@
+{
+  "contract_version": "yolk.icons/1.5",
+  "ds_version": "0.9.4",
+  "kind": "product_specific_subset_extension_not_canonical_ds_asset",
+  "runtime": {
+    "js": "prototype/icons.js",
+    "css": "prototype/icons.css",
+    "family_alias": "Yolk Material Symbols",
+    "api": [
+      "YolkIcons.icon(name)",
+      "YolkIcons.decorate(root)",
+      "YolkIcons.load()",
+      "YolkIcons.patternIcon(name)",
+      "YolkIcons.yolkIcon()",
+      "YolkIcons.patternGlyphs"
+    ],
+    "visible_text_required": true,
+    "aria_hidden": true
+  },
+  "glyphs": [
+    "ac_unit",
+    "add",
+    "add_photo_alternate",
+    "arrow_back",
+    "beach_access",
+    "bedtime",
+    "bookmark_add",
+    "bookmark_added",
+    "close",
+    "contrast",
+    "dark_mode",
+    "delete",
+    "edit",
+    "egg_alt",
+    "explore",
+    "fact_check",
+    "flag",
+    "groups",
+    "help",
+    "history",
+    "layers",
+    "light_mode",
+    "local_gas_station",
+    "location_on",
+    "map",
+    "menu",
+    "notifications",
+    "open_in_new",
+    "photo",
+    "potted_plant",
+    "satellite_alt",
+    "save",
+    "search",
+    "share",
+    "store",
+    "swords",
+    "tune"
+  ],
+  "axes": {
+    "FILL": 0,
+    "wght": 300,
+    "GRAD": 0,
+    "opsz": 24
+  },
+  "assets": [
+    {
+      "path": "prototype/assets/material-symbols-rounded-yolk-300-v1.5.woff2",
+      "bytes": 6656,
+      "sha256": "c5b7e050e816964ebbbd3b0c43df6aefa4a3d4b181894620efd9385f84b1aedd",
+      "format": "woff2"
+    }
+  ],
+  "licenseOrPermission": {
+    "spdx": "Apache-2.0",
+    "path": "prototype/assets/material-symbols-Apache-2.0.txt",
+    "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+  },
+  "approvalReceiptRef": "evidence/yolk-icons-v1.5.json",
+  "approvalReceiptSha256": "a1dbd6c9a3956a51132a5c6a97e0d585da75de5c06c6b0d274a3a38a47ef88c3",
+  "approval_scope": {
+    "scope": "Yolk artifact-specific extension",
+    "basis": "Explicit user request to use meaningful DS-style icons and remove motifs; glyph selection by implementation",
+    "canonical_registry_amendment": false
+  },
+  "fallback": "Keep visible text; hide decorative icon until font loads; unsupported icon names render no icon.",
+  "motifs_enabled": false,
+  "visual_gate": "open",
+  "pattern_mapping": {
+    "Crowded": "groups",
+    "FOMO": "flag",
+    "Our Farm": "potted_plant",
+    "Pioneer": "explore",
+    "Quiet": "bedtime",
+    "Their War": "swords",
+    "Our Island": "beach_access",
+    "Winter War": "ac_unit"
+  },
+  "yolk_glyph": "egg_alt",
+  "meaning_policy": {
+    "icons_are_mnemonics_not_thresholds": true,
+    "visible_pattern_name_and_D_C_B_explanation_required": true,
+    "all_eight_patterns_are_not_automatically_yolks": true,
+    "location_yolk_state": "demand===true",
+    "raw_percentile_is_not_a_Yolk_classifier": true
+  }
+}
