@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "yolk.public_release/1.7",
+  "version": "1.7.4",
+  "approvedSourcePreview": "1.7.4-white-boundary-hierarchy-yellow-hover",
+  "date": "2026-10-04",
+  "status": "local_QA_pass_release_pending",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "productAuthority": "contracts/product.v1.7.json",
+  "featureExtension": "contracts/map-boundary-appearance.v1.7.4.json",
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "nationalDemandCutoffsUnchanged": true,
+  "fineModelSemanticsUnchanged": true,
+  "nativeDistrictSourceAdded": 928,
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "publicationDelta": [
+    "White ordinary administrative/fine/selected/context outlines with confirmed parent-child width hierarchy",
+    "Yolk-yellow 2 px hover outline follows the actually clickable source boundary in both themes",
+    "Selected fine transparent interior with a white 0.8 px outline; chosen parent district only as unfilled, noninteractive context",
+    "Existing renderer draw order retains egg gradient definitions and transparent broader navigation targets",
+    "Neutral 0.35 px edge backing on fully opaque white unfilled outlines only; no filter on analytical fills or panes",
+    "Explain existing Supply High cutoffs: rightward movement raises the point that starts High; observed rate and Demand stay unchanged",
+    "Show current administrative-scope Demand Yolks before Tier, Supply and pattern gates separately from all-criteria matches",
+    "Retain formulas, preset initialization, uncertainty and possible-pattern eligibility; no inversion or threshold reseeding on slider movement",
+    "Supply rate slider ranges and steps use role calibration thresholds (fallback team criteria), preserving the scale across rerenders; exact-number input retains values outside the slider range with the existing warning",
+    "Cached broad navigation hit accessible labels refresh when the language changes; geometry and map instance stay unchanged"
+  ],
+  "shareImage": {
+    "asset": "prototype/assets/identity/yolk-share-v1.7.png",
+    "family": "1.7",
+    "changedInThisRelease": false,
+    "meaning": "Retained approved 1.7-family social image; unchanged in 1.7.4, not a new render claim"
+  },
+  "sourceEvidenceBoundary": "Compact public adapters and URL/date/hash summaries only; private acquisition archives/logs/provenance stay outside repository/public artifact.",
+  "localVerification": {
+    "status": "bounded_local_pass",
+    "automatedChecks": 266,
+    "receipt": "evidence/release-checks-v1.7.4.json",
+    "browserReview": "bounded_pass",
+    "nativeBrowserReceipt": "evidence/browser-v1.7.4/native-browser-review.json",
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "historicalBaseline": "1.7.3 receipts are retained history, not a current release pass"
+  },
+  "providerEvidence": null,
+  "liveByteEvidence": null,
+  "limits": [
+    "Source snapshots and proxy screening, not measured business outcomes",
+    "Native viewport review is not a physical-device pass",
+    "No shared backend/email/LINE delivery in static preview",
+    "External Google provider availability/results unverified",
+    "Full DS/vendor conformance not asserted"
+  ],
+  "mapAnalysisBaseline": "contracts/map-analysis.v1.7.2.json",
+  "finalCandidateEvidenceBoundary": "Current 1.7.4 automated/native receipts and final provider/live bytes must bind the current final source SHA; historical 1.7.3 proofs are not inherited.",
+  "retainedReviewExtension": "contracts/location-review.v1.7.3.json",
+  "releaseScope": [
+    "map_boundary_appearance",
+    "supply_cutoff_clarity",
+    "separate_demand_and_strategy_counts"
+  ],
+  "supplySemanticsEvidence": {
+    "receipt": "evidence/supply-cutoff-semantics-v1.7.4.json",
+    "contexts": 37,
+    "probes": 444,
+    "status": "passed",
+    "scope": "Current default strategies and tested cutoff multipliers; not a guarantee for arbitrary pattern selections, rendered browser review or final release QA"
+  }
+}

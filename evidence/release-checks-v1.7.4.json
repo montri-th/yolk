@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "version": "1.7.4",
+  "artifact": "release_check_summary",
+  "createdAt": "2026-10-04T16:29:15.200Z",
+  "passed": true,
+  "methodology": {
+    "basis": "Inspected the saved final local-run logs; did not rerun suites, commit, seal or publish",
+    "suiteCount": 17,
+    "checkCount": 266,
+    "countReconciliation": "PASS line counts, terminal regression counts, structured check arrays and numeric passed/check summaries reconciled per log; no failure signal or count mismatch found",
+    "nativeBrowserQaDistinct": true
+  },
+  "totals": {
+    "suites": 17,
+    "checks": 266,
+    "passedChecks": 266,
+    "failedChecks": 0,
+    "countMismatches": 0
+  },
+  "suites": [
+    {
+      "suite": "analysis-integration",
+      "script": "scripts/check-analysis-integration.cjs",
+      "checks": 10,
+      "passed": true,
+      "savedLog": {
+        "filename": "analysis-integration.log",
+        "sha256": "7a4777d51d905c5dd97c9ea0567e9ca6ca16216b053187faf23d304624bd104f",
+        "bytes": 1434,
+        "modifiedAt": "2026-10-04T15:51:54.506Z",
+        "summaryFormat": "final_line_json"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "brand-presets",
+      "script": "scripts/check-brand-presets.cjs",
+      "checks": 13,
+      "passed": true,
+      "savedLog": {
+        "filename": "brand-presets.log",
+        "sha256": "46c0913f63706e9b07395da080bf6f58b92375fcaa15be16a7c6fbe07e01261c",
+        "bytes": 1465,
+        "modifiedAt": "2026-10-04T15:51:57.281Z",
+        "summaryFormat": "final_line_json"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "cold-branch",
+      "script": "scripts/check-cold-branch.cjs",
+      "checks": 11,
+      "passed": true,
+      "savedLog": {
+        "filename": "cold-branch.log",
+        "sha256": "fae4af63a5f0d1366c727c8e2bdf5af7b8d2d9941d84d487a062ba9d5fc52753",
+        "bytes": 1155,
+        "modifiedAt": "2026-10-04T15:51:46.955Z",
+        "summaryFormat": "final_line_json"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "criteria-controls",
+      "script": "scripts/check-criteria-controls.cjs",
+      "checks": 13,
+      "passed": true,
+      "savedLog": {
+        "filename": "criteria-controls.log",
+        "sha256": "4decd7d3426dee7a6caa10507070dea4ee07186606f22f47bf1a56070169b9a3",
+        "bytes": 1332,
+        "modifiedAt": "2026-10-04T16:09:12.808Z",
+        "summaryFormat": "whole_log_json"
+      },
+      "runtimeScope": "DOM contract tests only. Native drag/touch, focus behavior under real rendering and theme/layout are covered separately by browser QA."
+    },
+    {
+      "suite": "location-review",
+      "script": "scripts/check-location-review.cjs",
+      "checks": 10,
+      "passed": true,
+      "savedLog": {
+        "filename": "location-review.log",
+        "sha256": "513a7714578f0a0f966cef58be387fa9f9af309fe3e7d8d75707b94b59ceabc3",
+        "bytes": 836,
+        "modifiedAt": "2026-10-04T15:51:49.795Z",
+        "summaryFormat": "terminal_regression_count"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "map-analysis",
+      "script": "scripts/check-map-analysis.cjs",
+      "checks": 14,
+      "passed": true,
+      "savedLog": {
+        "filename": "map-analysis.log",
+        "sha256": "4048e18def5ed6ee69079e1076fb0190b0391bca4237c09c45340ba71f1dbd4a",
+        "bytes": 1572,
+        "modifiedAt": "2026-10-04T15:51:48.010Z",
+        "summaryFormat": "final_line_json"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "map-hover",
+      "script": "scripts/check-map-hover.cjs",
+      "checks": 13,
+      "passed": true,
+      "savedLog": {
+        "filename": "map-hover.log",
+        "sha256": "14aa5d0f1f11e1c10c60a7ee6467ed62f1ee212cf736e8f6bff5f8395ee09427",
+        "bytes": 1180,
+        "modifiedAt": "2026-10-04T15:51:45.101Z",
+        "summaryFormat": "terminal_regression_count"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "map-lut41",
+      "script": "scripts/check-map-lut41.cjs",
+      "checks": 22,
+      "passed": true,
+      "savedLog": {
+        "filename": "map-lut41.log",
+        "sha256": "04f6e04490355cea4b3b7bb8c86d9f9ef43a1ed0571efaecaaaaefc6b7efd795",
+        "bytes": 1983,
+        "modifiedAt": "2026-10-04T15:51:50.293Z",
+        "summaryFormat": "final_line_json"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "map-responsiveness",
+      "script": "scripts/check-map-responsiveness.cjs",
+      "checks": 13,
+      "passed": true,
+      "savedLog": {
+        "filename": "map-responsiveness.log",
+        "sha256": "2853958a8c0030d28dc534a886f61dc69e5bed762e7d345672a58d7e8e557842",
+        "bytes": 1490,
+        "modifiedAt": "2026-10-04T16:14:27.706Z",
+        "summaryFormat": "final_line_json"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "pattern-counts",
+      "script": "scripts/check-pattern-counts.cjs",
+      "checks": 14,
+      "passed": true,
+      "savedLog": {
+        "filename": "pattern-counts.log",
+        "sha256": "73b9937b7925212ac4692bcad3f83f8401abf5ff3cde84091926f57916679dfe",
+        "bytes": 1339,
+        "modifiedAt": "2026-10-04T15:51:53.895Z",
+        "summaryFormat": "terminal_regression_count"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "photo-runtime",
+      "script": "scripts/check-photo-runtime.cjs",
+      "checks": 28,
+      "passed": true,
+      "savedLog": {
+        "filename": "photo-runtime.log",
+        "sha256": "87ec2072121f8809e7e249eb9b9f455cbd79c2f819e9e5dcedaae151c9d43fa4",
+        "bytes": 123,
+        "modifiedAt": "2026-10-04T15:51:45.037Z",
+        "summaryFormat": "whole_log_json"
+      },
+      "runtimeScope": "Node state/permission/storage/file-header checks; browser image decode and visual QA not exercised"
+    },
+    {
+      "suite": "poi-popup",
+      "script": "scripts/check-poi-popup.cjs",
+      "checks": 17,
+      "passed": true,
+      "savedLog": {
+        "filename": "poi-popup.log",
+        "sha256": "704200cc5ae319a6d44b0522676a7f4982cb83a6102c2150b382b90a75004f17",
+        "bytes": 1247,
+        "modifiedAt": "2026-10-04T15:51:44.931Z",
+        "summaryFormat": "terminal_regression_count"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "relative-supply",
+      "script": "scripts/check-relative-supply.cjs",
+      "checks": 14,
+      "passed": true,
+      "savedLog": {
+        "filename": "relative-supply.log",
+        "sha256": "867a9f4218d36412467710d4de19cb825f7a50de5495b16b734509337542a4e0",
+        "bytes": 2519,
+        "modifiedAt": "2026-10-04T15:52:15.803Z",
+        "summaryFormat": "whole_log_json"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "save-context",
+      "script": "scripts/check-save-context.cjs",
+      "checks": 9,
+      "passed": true,
+      "savedLog": {
+        "filename": "save-context.log",
+        "sha256": "a7fa9039b89eafcd4be313f331f1706129f65898b2f14e6a2608dcddd6a41b6c",
+        "bytes": 902,
+        "modifiedAt": "2026-10-04T15:51:53.744Z",
+        "summaryFormat": "final_line_json"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "three-industry",
+      "script": "scripts/check-three-industry.cjs",
+      "checks": 30,
+      "passed": true,
+      "savedLog": {
+        "filename": "three-industry.log",
+        "sha256": "cc748106bff54835882bf38e7645b3a490fe5c5ec1027fb2ae0a3a7a7c865634",
+        "bytes": 2953,
+        "modifiedAt": "2026-10-04T15:51:54.447Z",
+        "summaryFormat": "whole_log_json"
+      },
+      "runtimeScope": "These are core runtime/data checks, not full browser/UI or design-system conformance."
+    },
+    {
+      "suite": "workspace-map",
+      "script": "scripts/check-workspace-map.cjs",
+      "checks": 24,
+      "passed": true,
+      "savedLog": {
+        "filename": "workspace-map.log",
+        "sha256": "c1c038ffb4d245c78052fd261ac3f8ea3008febb6ab1782d9241f031355ef147",
+        "bytes": 2524,
+        "modifiedAt": "2026-10-04T16:14:25.468Z",
+        "summaryFormat": "final_line_json"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    },
+    {
+      "suite": "yolk-tier",
+      "script": "scripts/check-yolk-tier.cjs",
+      "checks": 11,
+      "passed": true,
+      "savedLog": {
+        "filename": "yolk-tier.log",
+        "sha256": "a458c0115237d50a830cdf2e67ae637d64f443e8ff0af7c202517fbf037fd1ac",
+        "bytes": 810,
+        "modifiedAt": "2026-10-04T15:51:44.910Z",
+        "summaryFormat": "final_line_json"
+      },
+      "runtimeScope": "Bounded local regression coverage; see the named script for its fixtures and assertions"
+    }
+  ],
+  "supplySemanticsProbe": {
+    "reference": "evidence/supply-cutoff-semantics-v1.7.4.json",
+    "sha256": "9bf8e652808330fe9b91e5454970cda924a4c73573f63464ca35fbe79d4c37a1",
+    "passed": true,
+    "contexts": 37,
+    "probes": 444,
+    "additionalCustomPatternCounterexample": true,
+    "demandMembershipUnchanged": true,
+    "nationalCutoffsUnchanged": true,
+    "sourceSnapshotHashesUnchanged": true,
+    "limitation": "Monotonic screened-location results apply to current preset-selected patterns and tested cutoffs, not arbitrary preferred-pattern selections"
+  },
+  "limitations": [
+    "This receipt summarizes saved local model, runtime, storage and DOM/Leaflet-adapter checks. It does not claim a new test execution.",
+    "Native browser visual, pointer, touch, viewport, typography and mobile-layout QA is a separate evidence track; this summary does not attest its pass/fail outcome.",
+    "Automated checks do not establish current field operation, legal boundaries, licensing facts, measured demand, branch capacity, future sales or complete design-system/accessibility conformance.",
+    "Test scripts retain intentionally different scope fixtures, including historical count mode and new relative mode. Baseline counts from different fixtures must not be merged.",
+    "No source rows, individual location or branch UUIDs, private identifiers, local absolute paths, commits or deployment approvals are included or created by this summary."
+  ]
+}

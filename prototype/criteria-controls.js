@@ -55,6 +55,17 @@
     return (text || input.getAttribute('aria-label') || input.id || copy('ค่าตัวเลข', 'Numeric value')) + ' · ' + copy('ลากปรับค่า', 'Drag to adjust');
   }
 
+  function supplyDirection(input) {
+    return /^(ownMany|competitorMany|ownRateHigh|competitorRateHigh)$/.test(input.dataset.criterion || '');
+  }
+
+  function describe(control, id) {
+    if (!id) return;
+    const ids = new Set((control.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
+    ids.add(id);
+    control.setAttribute('aria-describedby', Array.from(ids).join(' '));
+  }
+
   function syncOne(input, state) {
     const type = kind(input);
     const bounds = limits(input, type);
@@ -72,6 +83,13 @@
     state.start.textContent = type === 'percentile' ? 'P' + bounds.min : String(bounds.min);
     state.end.textContent = type === 'percentile' ? 'P' + bounds.max : String(bounds.max);
     state.exact.textContent = copy('กรอกค่า', 'Exact value');
+    state.direction.hidden = !supplyDirection(input);
+    state.directionLeft.textContent = copy('← เรียก “มาก” ง่ายขึ้น', '← Easier to be High');
+    state.directionRight.textContent = copy('ต้องมากขึ้น ถึงเรียก “มาก” →', 'Needs more to be High →');
+    if (!state.direction.hidden) {
+      describe(input, state.direction.id);
+      describe(state.range, state.direction.id);
+    }
     input.title = copy('กรอกค่าที่ต้องการได้โดยตรง', 'Enter an exact value');
     const outside = Number.isFinite(value) && (value < bounds.min || value > bounds.max);
     state.note.hidden = !outside;
@@ -111,14 +129,21 @@
     const note = document.createElement('small');
     note.className = 'criteria-range-note';
     note.hidden = true;
+    const direction = document.createElement('div');
+    direction.className = 'criteria-supply-direction';
+    direction.id = input.id ? input.id + '-direction' : '';
+    direction.hidden = true;
+    const directionLeft = document.createElement('span');
+    const directionRight = document.createElement('span');
+    direction.append(directionLeft, directionRight);
     input.insertAdjacentElement('beforebegin', wrapper);
     numberBox.append(exact, input);
     head.append(output, numberBox);
     ends.append(start, end);
-    wrapper.append(head, range, ends, note);
+    wrapper.append(head, range, ends, direction, note);
     input.classList.add('criteria-exact-input');
     input.setAttribute('inputmode', ['hits', 'supply'].includes(kind(input)) ? 'numeric' : 'decimal');
-    const state = { wrapper, range, output, exact, start, end, note };
+    const state = { wrapper, range, output, exact, start, end, note, direction, directionLeft, directionRight };
     instances.set(input, state);
     range.addEventListener('input', () => {
       input.value = range.value;

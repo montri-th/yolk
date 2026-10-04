@@ -66,4 +66,21 @@ html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .lea
  .workspace-map-panel .leaflet-bottom{bottom:32px}
 }
 
-.workspace-map-legend .workspace-selected-outline{background:transparent;border:2px solid var(--yl-map-active)}
+.workspace-map-legend .workspace-selected-outline{background:transparent;border:1px solid var(--yl-map-boundary)}
+
+/* Owner-selected appearance: white hierarchy, Yolk-yellow clickable hover, both themes. */
+.workspace-map-panel{--yl-map-boundary:var(--ldm-map-marker-halo-light);--yl-map-hover:var(--ldm-energy-yellow)}
+.workspace-map-legend .workspace-selected-outline{background:var(--ldm-foundation-border-emphasis-dark)}
+
+/* Neutral edge halo preserves the white stroke on a pale basemap; never applied to data fills. */
+.workspace-map-panel .leaflet-overlay-pane svg path[fill="none"][stroke="#FFFFFF"][stroke-opacity="1"]{filter:drop-shadow(0 0 .35px var(--yl-border-strong))}
+
+.workspace-map-stats .workspace-demand-count{display:inline-flex;gap:6px;align-items:baseline;white-space:nowrap}
+
+@media(max-width:999px){
+ .workspace-map-panel:has(.workspace-demand-count) .workspace-map-stats{flex-wrap:wrap;white-space:normal}
+ .workspace-map-panel .workspace-demand-count{flex-basis:100%;font-size:11px}
+ .yolk-map-workspace .criteria-workspace-head{display:grid;grid-template-columns:1fr;gap:8px}
+ .yolk-map-workspace .criteria-workspace-head .version-tag{justify-self:start}
+ .yolk-map-workspace .criteria-workspace-head h1{font-size:26px;line-height:1.4}
+}

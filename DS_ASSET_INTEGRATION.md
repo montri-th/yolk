@@ -28,3 +28,9 @@
 Raw choropleths use all 41 exact native DS LUT samples. Tier has a separate categorical screening recipe selected by the owner on 2026-10-04: Tier 1 reuses density.area LIGHT LUT samples 20–40; Tier 2 uses energy.yellow #FFBC1F; Tier 3 uses foundation.text.primary.dark #F1F4EF. The paints remain identical in both themes.
 
 This is not one of the seven atmosphere recipes. Gradient position within a polygon has no analytical magnitude. Use yolk-tier-style.js/.css with labels and meaningful outlines; keep selected fine-area interiors transparent. See contracts/location-review.v1.7.3.json for priority and scope.
+
+## Current boundary override - 1.7.4
+
+Owner-scoped white #FFFFFF outlines use province 1.2 px, country district 0.45, closer district 1.05, chosen parent district 1.1, ordinary fine 0.45 and selected fine 0.8 px. Clickable hover outlines use Yolk yellow #FFBC1F / 2 px. Both themes use the same stroke paints. Selected fine interiors remain unfilled; the chosen parent district is the only location-level context, noninteractive and excluded from counts.
+
+Keep draw order and gradient definitions in the existing renderer. Quantitative fills/LUT41 and egg-tier fills remain unchanged. See [appearance contract](contracts/map-boundary-appearance.v1.7.4.json) and [guide](docs/MAP_BOUNDARIES_v1.7.4.md). Current 1.7.4 QA/provider/live-byte evidence is pending; 1.7.3 QA statements above are historical.

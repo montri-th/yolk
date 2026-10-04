@@ -1,5 +1,5 @@
 /* Show the source boundary of the actual drill-down target, independent of fill grain.
- * const hover = YolkMapHover.create({map, L, token:()=>DS_ACTIVE_TOKEN});
+ * const hover = YolkMapHover.create({map, L, token:()=>YOLK_HOVER_TOKEN});
  * const unbind = hover.bind(layer, event=>({level:'province'|'district'|'location',
  *   id, feature:EXACT_SOURCE_FEATURE, label:'Click to explore …'}));
  * hover.show(target,event.latlng); hover.clear(); hover.destroy();
@@ -40,7 +40,7 @@
       if (!active || active.key !== key || active.feature !== target.feature) {
         clear();
         try {
-          outline = L.geoJSON(target.feature, {interactive:false, bubblingMouseEvents:false, ...(options.pane ? {pane:options.pane} : {}), style:{color, weight:3, opacity:1, fill:false, dashArray:null, interactive:false, lineCap:'round', lineJoin:'round'}}).addTo(map);
+          outline = L.geoJSON(target.feature, {interactive:false, bubblingMouseEvents:false, ...(options.pane ? {pane:options.pane} : {}), style:{color, weight:2, opacity:1, fill:false, dashArray:null, interactive:false, lineCap:'round', lineJoin:'round'}}).addTo(map);
           outline.bringToFront?.();
           active = {key, level:target.level, id:target.id, feature:target.feature, label, color};
         } catch (_) { clear(); return false; }

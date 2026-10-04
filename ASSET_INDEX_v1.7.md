@@ -1,6 +1,6 @@
-# Assets สำหรับ Yolk 1.7.3
+# Assets สำหรับ Yolk 1.7.4
 
-เริ่มจาก รายการ `contracts/assets.v1.7.3.json` จะสร้างหลัง final QA/seal และ [DS integration](DS_ASSET_INTEGRATION.md) ชุด 1.6 และ1.7.1 เป็นประวัติของรุ่นนั้น ไม่ใช่รายการปัจจุบัน
+เริ่มจาก รายการ `contracts/assets.v1.7.4.json` จะสร้างหลัง final QA/seal และ [DS integration](DS_ASSET_INTEGRATION.md) ชุด 1.6 และ1.7.1 เป็นประวัติของรุ่นนั้น ไม่ใช่รายการปัจจุบัน
 
 | ส่วน | ตำแหน่ง / วิธีใช้ |
 |---|---|
@@ -31,3 +31,9 @@ Reviewmodule location-review.js/.css, categoricaltierhelper yolk-tier-style.js/.
 Buttons, links and disclosure summaries containing icons underline only their caption on hover (the Yolk wordmark is excluded); the icon glyph is undecorated and keyboard focus remains visible. Map and tile minZoom is 3, overriding the retained 1.7.2 value 4 so explicit mobile country fit can show the full country. Mobile bottom fit padding uses max(50, ceil(actual rendered footer legend height) + 18) px; desktop uses 18 px. Menu changes, criteria previews and ordinary sync retain the camera; only explicit navigation/home/fit changes it.
 
 Current automated results: 17 suites / 260 checks passed. Independent snapshot consistency audit: 65 checks passed separately. Bounded native Chrome review passed selected Thai/dark and English/light flows at 1440x900 and390x844. See [native browser receipt](evidence/browser-v1.7.3/native-browser-review.json). This is not a full language/theme matrix or a physical-device/backend pass. Provider/live-byte evidence remains pending.
+
+## Current boundary override - 1.7.4
+
+Owner-scoped white #FFFFFF outlines use province 1.2 px, country district 0.45, closer district 1.05, chosen parent district 1.1, ordinary fine 0.45 and selected fine 0.8 px. Clickable hover outlines use Yolk yellow #FFBC1F / 2 px. Both themes use the same stroke paints. Selected fine interiors remain unfilled; the chosen parent district is the only location-level context, noninteractive and excluded from counts.
+
+Keep draw order and gradient definitions in the existing renderer. Quantitative fills/LUT41 and egg-tier fills remain unchanged. See [appearance contract](contracts/map-boundary-appearance.v1.7.4.json) and [guide](docs/MAP_BOUNDARIES_v1.7.4.md). Current 1.7.4 QA/provider/live-byte evidence is pending; 1.7.3 QA statements above are historical.

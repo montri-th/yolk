@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.0",
+  "version": "1.7.4",
+  "reviewedAt": "2026-10-04T16:31:14.352699+00:00",
+  "status": "bounded_pass",
+  "sourceState": "final working candidate, before final seal/commit",
+  "browser": "Native Chrome via authorized browser automation",
+  "views": [
+    {
+      "language": "th",
+      "theme": "dark",
+      "viewport": [
+        1710,
+        910
+      ],
+      "scope": "country Supply draft, both sliders and separate counters",
+      "screenshot": "desktop-th-dark.png"
+    },
+    {
+      "language": "en",
+      "theme": "light",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scope": "province fine colours, unfilled parent outlines and yellow clickable district hover",
+      "screenshot": "desktop-en-light-province.png"
+    },
+    {
+      "language": "th",
+      "theme": "dark",
+      "viewport": [
+        390,
+        844
+      ],
+      "scope": "fresh mobile boot, Supply direction labels and persistent map counters",
+      "screenshot": "mobile-th-dark-controls.png"
+    },
+    {
+      "language": "en",
+      "theme": "light",
+      "viewport": [
+        390,
+        844
+      ],
+      "scope": "mobile heading and separate counters, no horizontal overflow",
+      "screenshot": "mobile-en-light.png"
+    }
+  ],
+  "observations": {
+    "sourceCutoffsAndDemandUnchanged": true,
+    "countryExample": {
+      "baselineMatches": 987,
+      "draftMatches": 1054,
+      "rawDemandYolksBeforeAndAfter": 1067,
+      "draftSupplyCutoffs": {
+        "our": 1,
+        "competitor": 0.991
+      },
+      "teamCriteriaApplied": false
+    },
+    "stableRelativeSliderRanges": {
+      "our": [
+        0.001,
+        1
+      ],
+      "competitor": [
+        0.001,
+        1
+      ]
+    },
+    "countryStrokesPx": {
+      "province": 1.2,
+      "district": 0.45
+    },
+    "provinceStrokesPx": {
+      "province": 1.2,
+      "district": 1.05,
+      "fine": 0.45
+    },
+    "selectedFineStrokesPx": {
+      "parentDistrict": 1.1,
+      "selectedFine": 0.8
+    },
+    "hover": {
+      "stroke": "#FFBC1F",
+      "widthPx": 2,
+      "fill": false,
+      "actualClickableSourceGeometry": true
+    },
+    "ordinaryStroke": "#FFFFFF",
+    "selectedFineInteriorTransparent": true,
+    "parentOutlinesDrawnAboveFills": true,
+    "analyticalFillPathsFiltered": false,
+    "newCounterOverlapFixed": true,
+    "horizontalOverflowObserved": false,
+    "languageLabelsRefreshOnCachedHits": true
+  },
+  "runtimeFileHashes": {
+    "prototype/app.js": "b1cf92e0515032c34928423bd4abd8e2cc768b794b5188329146322aea2c5772",
+    "prototype/workspace-map.js": "cdd5e68f29c4d51ac318b4e2d3eb8b288cceb396790a20a248879b613489f7ac",
+    "prototype/workspace-map.css": "3197e2a5d29b5d0957f6f97afde7e1a5ba456106e52ea3f8345b60d1b3525d58",
+    "prototype/map-hover.js": "6f9bfc96498a67972ea7846b19fa3461921a4ce3560ed2dd44b42d34ead6a39e",
+    "prototype/criteria-controls.js": "60dcf8743fc96df21c22442ca3e41ae264704824a701b61b9c43ae110190d386",
+    "prototype/criteria-controls.css": "943b547753a2413a6ce84b803a30e38dbc7ab1ec2829ec1d49146a4224f47960"
+  },
+  "screenshots": {
+    "desktop-th-dark.png": {
+      "bytes": 162349,
+      "sha256": "fa5302451569da57a6756be32f7d5df526ded752332f97c71159139213c92877"
+    },
+    "mobile-en-light.png": {
+      "bytes": 50277,
+      "sha256": "27f340c21976534685f4994e33414035c36bab9e91bf38643c313d2c0419b12d"
+    },
+    "desktop-en-light-province.png": {
+      "bytes": 148058,
+      "sha256": "2beb4e12ae877477adc08f1e3d30f9639c208db7fbbda4ce6d5ae6d7b019b91d"
+    },
+    "mobile-th-dark-controls.png": {
+      "bytes": 44118,
+      "sha256": "8b4b23c9c2d5d64101a95f9204a3f1e1540a4fa909cdb7a87f3f8d0b8776d91d"
+    }
+  },
+  "limits": [
+    "Bounded native desktop/narrow viewport checks, not a physical phone/touch-device certification",
+    "TH dark and EN light reviewed; not all language/theme/brand/route combinations",
+    "Local final candidate; provider and live-byte evidence are separate post-release receipts",
+    "No backend or external Google provider result certification"
+  ]
+}

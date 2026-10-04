@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "yolk.map_boundary_appearance/1.0",
+  "documentId": "yolk.map_boundary_appearance.white_yellow",
+  "version": "1.7.4",
+  "date": "2026-10-04",
+  "status": "local_QA_pass_release_pending",
+  "humanGuide": "docs/MAP_BOUNDARIES_v1.7.4.md",
+  "authority": "owner-request:2026-10-04:white-location-outlines-yolk-yellow-hover",
+  "specificationStatus": "widths_confirmed_by_release_owner",
+  "extends": {
+    "product": "contracts/product.v1.7.json",
+    "workspaceMap": "contracts/workspace-map.v1.7.json",
+    "mapAnalysis": "contracts/map-analysis.v1.7.2.json",
+    "reviewAndTierAppearance": "contracts/location-review.v1.7.3.json"
+  },
+  "priority": "Overrides outline and hover appearance, including the previous blue selected fine stroke, and clarifies existing Supply cutoff and counter semantics. Source data, formulas, preset initialization, scopes, fills and eligibility remain unchanged.",
+  "sourceTokens": {
+    "ordinaryStroke": {
+      "hex": "#FFFFFF",
+      "dsRole": "foundation.surface.raised.light",
+      "themePolicy": "Identical in both themes by owner scope"
+    },
+    "hoverStroke": {
+      "hex": "#FFBC1F",
+      "dsRole": "energy.yellow",
+      "themePolicy": "Identical in both themes by owner scope"
+    },
+    "dsVersion": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "baseDocumentSha256": "d3085cbc0a50195f1cbf0c77b1d77c0d19b84364daf2948eb367348d65432d96"
+  },
+  "strokeSchedulePx": {
+    "province": 1.2,
+    "districtCountry": 0.45,
+    "districtCloser": 1.05,
+    "chosenParentDistrict": 1.1,
+    "fineOrdinary": 0.45,
+    "fineSelected": 0.8,
+    "hoverClickable": 2
+  },
+  "strokeSemantics": "Parent outlines are heavier than child outlines visible at the same time. Hover is an independent interactive cue, not administrative hierarchy or measured value.",
+  "selectedFine": {
+    "stroke": "#FFFFFF",
+    "strokeWidthPx": 0.8,
+    "fill": false,
+    "context": "Chosen parent district only; no neighboring fine polygons",
+    "nonColorCues": [
+      "selected location name",
+      "breadcrumb",
+      "tier/state label",
+      "keyboard focus"
+    ]
+  },
+  "parentContext": {
+    "grain": "Chosen parent district display geometry",
+    "stroke": "#FFFFFF",
+    "strokeWidthPx": 1.1,
+    "fill": false,
+    "interactive": false,
+    "includedInCounts": false,
+    "includedInRanking": false,
+    "meaning": "Display context only; no new source membership or statutory affiliation"
+  },
+  "hover": {
+    "stroke": "#FFBC1F",
+    "strokeWidthPx": 2,
+    "fill": false,
+    "geometry": "Verified/source geometry of the actually clickable target",
+    "countryTarget": "province despite district choropleth",
+    "provinceTarget": "district despite fine choropleth",
+    "districtTarget": "fine reporting area",
+    "mutatesCriteriaSourceOrEvents": false,
+    "cachedBroadHitAccessibleLabels": "Refresh labels after a language change without rebuilding source geometry or changing the map instance"
+  },
+  "renderer": {
+    "newPanes": false,
+    "newRenderers": false,
+    "gradientDefs": "retained unchanged",
+    "order": [
+      "fine fills",
+      "visible unfilled districts",
+      "provinces",
+      "selected fine",
+      "broader transparent navigation hits"
+    ],
+    "navigationHits": "Transparent interaction target only; no extra analytical fill"
+  },
+  "extentFallback": {
+    "stroke": "#FFFFFF",
+    "dash": "retained distinct dashed outline",
+    "fill": false,
+    "labelRequired": true,
+    "labelMeaning": "Source coordinate extent, not a boundary or choropleth"
+  },
+  "invariants": {
+    "industries": [
+      "fuel",
+      "grocery",
+      "nonbank"
+    ],
+    "reportingUUIDs": 7954,
+    "metrics": 25,
+    "nativeDistricts": 928,
+    "nationalDemandCutoffsUnchanged": true,
+    "sourceTotalsUnchanged": true,
+    "criteriaAndDraftScopesUnchanged": true,
+    "possiblePatternsAndBoundsUnchanged": true,
+    "fillsAndOpacityUnchanged": true,
+    "nativeQuantitativeLUT41Unchanged": true,
+    "ownerFriedEggTierAppearanceUnchanged": true,
+    "persistentMapInstance": true,
+    "ordinarySyncRefitsCamera": false,
+    "newSourceOrDecisionModel": false,
+    "supplyCutoffFormulaUnchanged": true,
+    "presetThresholdInitializationUnchanged": true,
+    "supplyOnlyChangeMutatesDemand": false,
+    "sliderMovementReseedsThresholds": false
+  },
+  "tasks": [
+    {
+      "id": "BOUNDARY-00",
+      "dependsOn": [],
+      "work": "Freeze the source/model baseline and confirm the stroke schedule"
+    },
+    {
+      "id": "BOUNDARY-01",
+      "dependsOn": [
+        "BOUNDARY-00"
+      ],
+      "work": "Apply white ordinary/selected/context strokes and yellow hover"
+    },
+    {
+      "id": "BOUNDARY-02",
+      "dependsOn": [
+        "BOUNDARY-01"
+      ],
+      "work": "Order layers in the existing renderer and limit location context to the chosen parent district"
+    },
+    {
+      "id": "CLARITY-00",
+      "dependsOn": [
+        "BOUNDARY-00"
+      ],
+      "work": "Explain the High cutoff direction, exact unit, equality and same-value numerical example; preserve formulas and preset initialization"
+    },
+    {
+      "id": "CLARITY-01",
+      "dependsOn": [
+        "CLARITY-00"
+      ],
+      "work": "Display current-scope Demand Yolks before Tier/pattern/Supply gates separately from all-criteria matches; preserve unknown states and viewport independence"
+    },
+    {
+      "id": "BOUNDARY-03",
+      "dependsOn": [
+        "BOUNDARY-01",
+        "BOUNDARY-02",
+        "CLARITY-01"
+      ],
+      "work": "Run current regressions and actual rendered light/dark desktop/narrow selected flows, including cutoff explanations and both counters"
+    },
+    {
+      "id": "BOUNDARY-04",
+      "dependsOn": [
+        "BOUNDARY-03"
+      ],
+      "work": "Freeze the final source and obtain authorized provider/live-byte attestation"
+    }
+  ],
+  "verification": {
+    "status": "bounded_local_pass",
+    "automatedChecks": 266,
+    "nativeBrowserStatus": "bounded_pass",
+    "expectedAutomatedReceipt": "evidence/release-checks-v1.7.4.json",
+    "expectedNativeReceipt": "evidence/browser-v1.7.4/native-browser-review.json",
+    "historicalEvidence": "1.7.3 checks/receipts remain historical; do not inherit their passes",
+    "physicalDevices": "unverified",
+    "sharedBackend": "Not implemented in the static preview",
+    "providerEvidence": null,
+    "liveByteEvidence": null,
+    "semanticReceipt": "evidence/supply-cutoff-semantics-v1.7.4.json",
+    "semanticReceiptScope": "37 default contexts / 444 probes passed; final automated and native release QA remain separate and pending"
+  },
+  "neutralEdgeBacking": {
+    "purpose": "Keep white unfilled outlines readable on a pale basemap; not data recoloring or a new metric",
+    "kind": "drop-shadow",
+    "offsetPx": [
+      0,
+      0
+    ],
+    "blurRadiusPx": 0.35,
+    "colorCssVariable": "--yl-border-strong",
+    "sourceRole": "foundation.border.emphasis",
+    "themePolicy": "Retain native theme border token",
+    "eligibleSvgPathAttributes": {
+      "fill": "none",
+      "stroke": "#FFFFFF",
+      "stroke-opacity": "1"
+    },
+    "filledAnalyticalPathsFiltered": false,
+    "entirePaneFiltered": false,
+    "LUTAndTierPaintsChanged": false
+  },
+  "scope": [
+    "map_boundary_appearance",
+    "supply_cutoff_clarity",
+    "separate_demand_and_strategy_counts"
+  ],
+  "additionalAuthority": "owner-request:2026-10-04:explain-supply-cutoff-direction-and-separate-Demand-Yolks",
+  "supplyCutoffClarity": {
+    "countMode": {
+      "observedValue": "N: source branch count for the chosen role",
+      "high": "N >= role cutoff",
+      "low": "N < role cutoff"
+    },
+    "relativeMode": {
+      "observedRate": "N / positive raw market denominator * displayed normalization unit",
+      "high": "observedRate >= role cutoff",
+      "low": "observedRate < role cutoff",
+      "missingOrNonpositiveDenominator": "Unresolved, not zero"
+    },
+    "intervalMode": {
+      "high": "lower observed bound >= role cutoff",
+      "low": "upper observed bound < role cutoff",
+      "otherwise": "Retain possiblePatterns and review; no bulk approval"
+    },
+    "roles": [
+      "our supply",
+      "competitor supply"
+    ],
+    "rightwardMovement": "Raises the threshold that starts High. The same observed rate may become Low. It does not increase actual branch density, source counts, the denominator or Demand.",
+    "equality": "An observed value equal to the cutoff is High",
+    "example": {
+      "observedRate": 0.5,
+      "unit": "same displayed branches per market unit",
+      "cases": [
+        {
+          "cutoff": 0.3,
+          "supplyState": "High"
+        },
+        {
+          "cutoff": 0.8,
+          "supplyState": "Low"
+        }
+      ]
+    },
+    "fuelDefaultPreferredPatterns": [
+      "Pioneer",
+      "FOMO",
+      "Our Farm"
+    ],
+    "examplePatternTransitions": [
+      {
+        "from": "Crowded",
+        "changedRole": "our supply High to Low",
+        "to": "FOMO"
+      },
+      {
+        "from": "Crowded",
+        "changedRole": "competitor supply High to Low",
+        "to": "Our Farm"
+      },
+      {
+        "from": "Crowded",
+        "changedRole": "both supply roles High to Low",
+        "to": "Pioneer"
+      }
+    ],
+    "eligibilityInterpretation": "A transition into a selected pattern can add an all-criteria match. Arbitrary preferred-pattern selections can increase, decrease or retain the match count; no general monotonic guarantee.",
+    "sliderDirectionInverted": false,
+    "thresholdsReseededOnMovement": false,
+    "sourceAndDemandChangedOnMovement": false,
+    "semanticReceipt": "evidence/supply-cutoff-semantics-v1.7.4.json",
+    "receiptScope": "37 current default contexts / 444 probes on fixed source snapshots; not an arbitrary-pattern guarantee or browser/touch pass",
+    "rangeControl": {
+      "rangeEndpointsAndStepBasis": "Role threshold in supplyCalibration; fallback to team criteria",
+      "usesCurrentDraftThumbAsRangeBasis": false,
+      "stableAcross": [
+        "rerender",
+        "language change",
+        "route change"
+      ],
+      "exactNumberInputAcceptsOutsideSliderRange": true,
+      "outOfRangeValueClipped": false,
+      "existingOutOfRangeWarningRetained": true,
+      "formulaCutoffDraftAndPresetChangedByRangeSetup": false
+    }
+  },
+  "separateCounters": {
+    "demandYolks": {
+      "thaiLabel": "ไข่แดงจาก Demand",
+      "englishLabel": "Demand Yolks",
+      "expression": "s.nextRows.filter(a => a.demand === true && areaMatchesNavigation(a)).length",
+      "context": "Current workspace industry / brand / format and criteria draft",
+      "scope": "Current selected administrative navigation scope, not viewport visibility or camera bounds",
+      "gatesExcluded": [
+        "maxDemandTier",
+        "preferred patterns",
+        "Supply gates"
+      ],
+      "demandUnknownIncluded": false,
+      "supplyOnlyChangeLeavesCountUnchanged": true,
+      "displayVariants": [
+        "Demand Yolks",
+        "Demand Yolks · Tier 1–3"
+      ]
+    },
+    "allCriteriaMatches": {
+      "thaiLabel": "ทำเลผ่านเกณฑ์ทั้งหมด",
+      "englishLabel": "All-criteria matches",
+      "basis": "Existing eligible count with Demand, selected maxDemandTier and strategy/pattern gates; uncertainty rules retained",
+      "shownSeparatelyFromDemandYolks": true,
+      "supplyChangeMayChangeCount": true,
+      "displayVariants": [
+        "All-criteria matches",
+        "locations match criteria",
+        "confirmed strategy matches"
+      ]
+    },
+    "display": "Criteria and map stats distinguish pure Demand from all-criteria results; no new ranking or eligibility formula"
+  }
+}

@@ -1,0 +1,1801 @@
+{
+  "schemaVersion": 1,
+  "version": "1.7.4",
+  "test": "supply_cutoff_semantics",
+  "startedAt": "2026-10-04T16:02:41.629Z",
+  "completedAt": "2026-10-04T16:03:49.519Z",
+  "passed": true,
+  "basis": {
+    "application": "CityMETER Yolk",
+    "gitBaseCommit": "649acdef70b8b50e302071a7babbf01dfa6cf3a5",
+    "workingTree": true,
+    "source": "Current production model, Relative Supply, industry-workspace and brand-preset code; not a copied model",
+    "sourceSnapshotHashes": {
+      "prototype/data/real/area-context.json": "c0386d1314efd06cd3d67970d08c7cf182ac9e40be0875a7bd177cc91edb6528",
+      "prototype/data/real/fuel-supply.json": "1cbe85c16bfe81f5ae577b9d3021e83bfd9efadda5d53064f0b5ce58f6574a4c",
+      "prototype/data/real/grocery-supply.json": "1ba2b27cf247cbfb11214a3e3a007393b863e3a37aab0809f0a5e1ef813865ff",
+      "prototype/data/real/nonbank-supply.json": "6474915e47611b97b931454ee33ff5a9126e9b45b458ee943036e5611d9c4c0b",
+      "prototype/data/real/nonbank-company-scopes.json": "e37d82157f8ec5e24dc6771f3c6d901fa6d1d15e1384f9b0dcd1837b3d912a7d",
+      "prototype/data/real/nonbank-assignment-bounds.json": "8f66548ef51ed3791d36d84755c7ea94e4e95264dc780c332c7b25b2f6705905",
+      "prototype/data/real/nonbank-bkk-membership.json": "286445a2f3791551311eb2c70455967e534867845af6368fc4e1a3b32b551e07"
+    },
+    "runtimeDefinitionHashes": {
+      "prototype/metrics.js": "5dbaa295b0f5f01ff8756c7724c9977cf19dc3ce63c09d88f1a800a28466feed",
+      "prototype/model.js": "a16e39d101566a6d59f40392176c3107cb91353c0c8852d28f29bcddc6d86aaf",
+      "prototype/relative-supply.js": "41b2ccd4201540099ca06f7bf169147a0e61262d38f22d8a5fc44050acc92be6",
+      "prototype/industry-workspace.js": "f193ebe4314611f416be1a2e0e517ef205ca25c507aefac74da412c63eeff0a2",
+      "prototype/brand-experience.js": "2e623be7a864fd07edf4589d480b32f502d021a4431e64cf6f83155c9aef6612",
+      "prototype/data/brand-presets.v1.7.json": "a20aeb4294a916d997b2105e3d6f69125743f66dfc920061f6e749a6617a896c",
+      "contracts/industry-profiles.json": "73934c2d0023e39935fe6a1120e516a1442b99489715bc979bd90a83c5e89f65"
+    },
+    "uiSourceHashes": {
+      "prototype/app.js": "2055dd38d495512db43f9cedc90cc61c66510e7626e63d421755e5dae8d44d02",
+      "prototype/criteria-controls.js": "60dcf8743fc96df21c22442ca3e41ae264704824a701b61b9c43ae110190d386",
+      "prototype/criteria-controls.css": "943b547753a2413a6ce84b803a30e38dbc7ab1ec2829ec1d49146a4224f47960"
+    }
+  },
+  "methodology": {
+    "nationalUniverse": 7954,
+    "contexts": 37,
+    "industries": 3,
+    "defaultScopesOnly": true,
+    "modes": [
+      "own",
+      "competitor",
+      "both"
+    ],
+    "multipliers": [
+      0.5,
+      1,
+      2,
+      4
+    ],
+    "probes": 444,
+    "cohort": "Fixed national metric distributions; current brand preset and source scope; Demand settings unchanged during each Supply probe",
+    "membershipComparison": "Exact sorted Demand and tier-gated candidate UUID sets compared by SHA-256; no raw UUIDs included in this public receipt",
+    "eligibility": "Guaranteed match: Demand/tier gate passes and every possible pattern is selected; uncertainty is not bulk-approved"
+  },
+  "assertions": {
+    "demandMembershipUnchanged": true,
+    "tierGatedDemandMembershipUnchanged": true,
+    "nationalPercentileCutoffsUnchanged": true,
+    "nationalCutoffDigest": "1e03c9ac513ca1a53a8bc8d2d1f070d83882646b07a94814fdf44048dc219083",
+    "sourceMetricsUnchanged": true,
+    "sourceMetricDigest": "ffcd47afdc62f394e5258c51fb1a8ad8c1251db3f7433610788e88088d48f7ec",
+    "sourceSnapshotFileHashesUnchanged": true,
+    "runtimeDefinitionHashesUnchanged": true,
+    "presetEligibleCountsNondecreasingWithHigherCutoffs": true,
+    "mathOrSliderDirectionModified": false
+  },
+  "interpretation": {
+    "formula": "Rate = branches / raw denominator * displayed unit; Supply is High if rate >= cutoff",
+    "rightwardMovement": "Raises the High cutoff. A rate may move from High to Low; observed rates and Demand do not increase.",
+    "fuelStrategy": "Pioneer + FOMO + Our Farm excludes Crowded. Either cutoff can move a location out of excluded Crowded.",
+    "groceryNonbankStrategy": "Pioneer + FOMO selects own Low with either competitor level. Raising own cutoff can add matches; raising competitor cutoff switches the type without changing this selected set.",
+    "knownUncertainty": "Lower/upper allocation bounds remain explicit. Reclassification is not new evidence or field verification.",
+    "rawDemandCounter": "Demand Yolks Tier 1-3 counts demand === true before maxDemandTier, Supply or preferred-pattern screening. It is independent from the screened-location count.",
+    "tierGatedDemand": "fieldStudyCandidate counts Demand-high locations after maxDemandTier, before Supply or preferred-pattern screening."
+  },
+  "limits": [
+    "The monotonic result is specific to the 37 current default strategies, fixed source snapshots and tested cutoff multipliers. It is not guaranteed for arbitrary preferred-pattern checkbox selections.",
+    "Relative Supply uses one explicit extensive context denominator; it does not measure customer demand, branch capacity, sales or borrowing.",
+    "These checks reproduce the production model in a VM. Browser layout, dragging/touch and visual clarity require separate rendered review."
+  ],
+  "arbitraryPatternCounterexample": {
+    "brand": "เซเว่น อีเลฟเว่น",
+    "preferredPatterns": [
+      "FOMO"
+    ],
+    "change": "Competitor High cutoff multiplied by 4, own cutoff unchanged",
+    "before": {
+      "demandHigh": 2859,
+      "eligible": 273
+    },
+    "after": {
+      "demandHigh": 2859,
+      "eligible": 1
+    }
+  },
+  "contexts": [
+    {
+      "industry": "fuel",
+      "brand": "PTT Station",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.09869883298479096,
+      "competitorRateHigh": 0.10980366630280025,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          937,
+          975,
+          1018,
+          1047
+        ],
+        "competitor": [
+          938,
+          975,
+          1020,
+          1044
+        ],
+        "both": [
+          846,
+          975,
+          1035,
+          1049
+        ]
+      }
+    },
+    {
+      "industry": "fuel",
+      "brand": "เชลล์",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.05133539534981102,
+      "competitorRateHigh": 0.12938728167302657,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          938,
+          959,
+          1004,
+          1036
+        ],
+        "competitor": [
+          903,
+          959,
+          1021,
+          1045
+        ],
+        "both": [
+          847,
+          959,
+          1030,
+          1049
+        ]
+      }
+    },
+    {
+      "industry": "fuel",
+      "brand": "บางจาก",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.09344044657285473,
+      "competitorRateHigh": 0.11755607557180173,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          947,
+          987,
+          1027,
+          1045
+        ],
+        "competitor": [
+          956,
+          987,
+          1028,
+          1047
+        ],
+        "both": [
+          873,
+          987,
+          1039,
+          1050
+        ]
+      }
+    },
+    {
+      "industry": "fuel",
+      "brand": "คาลเท็กซ์",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.07641802126978817,
+      "competitorRateHigh": 0.13255282741528168,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          951,
+          992,
+          1019,
+          1044
+        ],
+        "competitor": [
+          965,
+          992,
+          1026,
+          1045
+        ],
+        "both": [
+          892,
+          992,
+          1035,
+          1050
+        ]
+      }
+    },
+    {
+      "industry": "fuel",
+      "brand": "COSMO",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.11801864962235915,
+      "competitorRateHigh": 0.13770314023016525,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          995,
+          1016,
+          1040,
+          1050
+        ],
+        "competitor": [
+          1010,
+          1016,
+          1038,
+          1047
+        ],
+        "both": [
+          963,
+          1016,
+          1046,
+          1052
+        ]
+      }
+    },
+    {
+      "industry": "fuel",
+      "brand": "PT",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.06317481719526967,
+      "competitorRateHigh": 0.13562822137615826,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          958,
+          992,
+          1013,
+          1041
+        ],
+        "competitor": [
+          958,
+          992,
+          1026,
+          1046
+        ],
+        "both": [
+          900,
+          992,
+          1035,
+          1050
+        ]
+      }
+    },
+    {
+      "industry": "fuel",
+      "brand": "PURE",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.07849690694730266,
+      "competitorRateHigh": 0.13768484423886987,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          974,
+          1009,
+          1030,
+          1045
+        ],
+        "competitor": [
+          988,
+          1009,
+          1035,
+          1047
+        ],
+        "both": [
+          925,
+          1009,
+          1041,
+          1051
+        ]
+      }
+    },
+    {
+      "industry": "fuel",
+      "brand": "สยามแก๊ส",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.0169686150835191,
+      "competitorRateHigh": 0.13769399223451756,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          957,
+          957,
+          970,
+          1005
+        ],
+        "competitor": [
+          874,
+          957,
+          1024,
+          1045
+        ],
+        "both": [
+          861,
+          957,
+          1024,
+          1047
+        ]
+      }
+    },
+    {
+      "industry": "fuel",
+      "brand": "ซัสโก้",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.04796844943138995,
+      "competitorRateHigh": 0.13670920606064463,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          954,
+          979,
+          1015,
+          1036
+        ],
+        "competitor": [
+          939,
+          979,
+          1028,
+          1046
+        ],
+        "both": [
+          888,
+          979,
+          1038,
+          1049
+        ]
+      }
+    },
+    {
+      "industry": "fuel",
+      "brand": "ยูนิคแก๊ส",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.09919877097237044,
+      "competitorRateHigh": 0.13770314023016525,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          984,
+          1018,
+          1036,
+          1049
+        ],
+        "competitor": [
+          1006,
+          1018,
+          1039,
+          1047
+        ],
+        "both": [
+          943,
+          1018,
+          1045,
+          1052
+        ]
+      }
+    },
+    {
+      "industry": "fuel",
+      "brand": "เวิลด์แก๊ส",
+      "scope": "all_fuel",
+      "preset": "fuel-common",
+      "denominator": "gfa",
+      "ownRateHigh": 0.059638449078161834,
+      "competitorRateHigh": 0.13719913185205054,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "demandHigh": 1067,
+      "demandYolkAfterTierGate": 1067,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          965,
+          996,
+          1018,
+          1041
+        ],
+        "competitor": [
+          962,
+          996,
+          1031,
+          1046
+        ],
+        "both": [
+          903,
+          996,
+          1039,
+          1050
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "เซเว่น อีเลฟเว่น",
+      "scope": "C_STORE",
+      "preset": "grocery-convenience",
+      "denominator": "population",
+      "ownRateHigh": 2.737476047084588,
+      "competitorRateHigh": 2.127885945313331,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2859,
+      "demandYolkAfterTierGate": 2859,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1317,
+          1779,
+          2386,
+          2766
+        ],
+        "competitor": [
+          1779,
+          1779,
+          1779,
+          1779
+        ],
+        "both": [
+          1317,
+          1779,
+          2386,
+          2766
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "ถูกดี มีมาตรฐาน",
+      "scope": "C_STORE",
+      "preset": "grocery-community",
+      "denominator": "population",
+      "ownRateHigh": 1.7500875043752186,
+      "competitorRateHigh": 3.6341624477217698,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2288,
+      "demandYolkAfterTierGate": 2288,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1603,
+          2033,
+          2267,
+          2288
+        ],
+        "competitor": [
+          2033,
+          2033,
+          2033,
+          2033
+        ],
+        "both": [
+          1603,
+          2033,
+          2267,
+          2288
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "Lotus's",
+      "scope": "HYPERMARKET",
+      "preset": "grocery-hypermarket",
+      "denominator": "population",
+      "ownRateHigh": 0.5705175418196047,
+      "competitorRateHigh": 0.4428271811120731,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 1958,
+      "demandYolkAfterTierGate": 1958,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1854,
+          1903,
+          1958,
+          1958
+        ],
+        "competitor": [
+          1903,
+          1903,
+          1903,
+          1903
+        ],
+        "both": [
+          1854,
+          1903,
+          1958,
+          1958
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "ซีเจ มอร์",
+      "scope": "C_STORE",
+      "preset": "grocery-community",
+      "denominator": "population",
+      "ownRateHigh": 1.34652961975338,
+      "competitorRateHigh": 2.9099374363451185,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2288,
+      "demandYolkAfterTierGate": 2288,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1660,
+          2107,
+          2268,
+          2287
+        ],
+        "competitor": [
+          2107,
+          2107,
+          2107,
+          2107
+        ],
+        "both": [
+          1660,
+          2107,
+          2268,
+          2287
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "บิ๊กซี",
+      "scope": "HYPERMARKET",
+      "preset": "grocery-hypermarket",
+      "denominator": "population",
+      "ownRateHigh": 0.4428271811120731,
+      "competitorRateHigh": 0.5705175418196047,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 1958,
+      "demandYolkAfterTierGate": 1958,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1880,
+          1915,
+          1947,
+          1958
+        ],
+        "competitor": [
+          1915,
+          1915,
+          1915,
+          1915
+        ],
+        "both": [
+          1880,
+          1915,
+          1947,
+          1958
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "ท็อปส์",
+      "scope": "SUPERMARKET",
+      "preset": "grocery-visitor-context",
+      "denominator": "population",
+      "ownRateHigh": 0.3833194428026152,
+      "competitorRateHigh": 0.9811768083689298,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 1410,
+      "demandYolkAfterTierGate": 1410,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1268,
+          1311,
+          1337,
+          1355
+        ],
+        "competitor": [
+          1311,
+          1311,
+          1311,
+          1311
+        ],
+        "both": [
+          1268,
+          1311,
+          1337,
+          1355
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "แม็คโคร",
+      "scope": "WHOLESALE",
+      "preset": "grocery-wholesale",
+      "denominator": "population",
+      "ownRateHigh": 0.42479981481286927,
+      "competitorRateHigh": 0.4523178351663969,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2981,
+      "demandYolkAfterTierGate": 2981,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          2813,
+          2853,
+          2890,
+          2917
+        ],
+        "competitor": [
+          2853,
+          2853,
+          2853,
+          2853
+        ],
+        "both": [
+          2813,
+          2853,
+          2890,
+          2917
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "ลอว์สัน 108",
+      "scope": "C_STORE",
+      "preset": "grocery-convenience",
+      "denominator": "population",
+      "ownRateHigh": 0.3476205374213509,
+      "competitorRateHigh": 3.119151590767311,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2859,
+      "demandYolkAfterTierGate": 2859,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          2791,
+          2811,
+          2829,
+          2837
+        ],
+        "competitor": [
+          2811,
+          2811,
+          2811,
+          2811
+        ],
+        "both": [
+          2791,
+          2811,
+          2829,
+          2837
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "วิลล่า มาร์เก็ต",
+      "scope": "SUPERMARKET",
+      "preset": "grocery-supermarket",
+      "denominator": "population",
+      "ownRateHigh": 0.3562938634556462,
+      "competitorRateHigh": 0.9511128019783147,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 1052,
+      "demandYolkAfterTierGate": 1052,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1029,
+          1041,
+          1049,
+          1052
+        ],
+        "competitor": [
+          1041,
+          1041,
+          1041,
+          1041
+        ],
+        "both": [
+          1029,
+          1041,
+          1049,
+          1052
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "แม็กซ์แวลู",
+      "scope": "SUPERMARKET",
+      "preset": "grocery-supermarket",
+      "denominator": "population",
+      "ownRateHigh": 0.26242586469322415,
+      "competitorRateHigh": 0.9511128019783147,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 1052,
+      "demandYolkAfterTierGate": 1052,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1039,
+          1043,
+          1051,
+          1052
+        ],
+        "competitor": [
+          1043,
+          1043,
+          1043,
+          1043
+        ],
+        "both": [
+          1039,
+          1043,
+          1051,
+          1052
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "ฟู้ดแลนด์",
+      "scope": "SUPERMARKET",
+      "preset": "grocery-supermarket",
+      "denominator": "population",
+      "ownRateHigh": 0.31038372486835497,
+      "competitorRateHigh": 0.9602271547490898,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 1052,
+      "demandYolkAfterTierGate": 1052,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1033,
+          1042,
+          1050,
+          1052
+        ],
+        "competitor": [
+          1042,
+          1042,
+          1042,
+          1042
+        ],
+        "both": [
+          1033,
+          1042,
+          1050,
+          1052
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "กูร์เมต์ มาร์เก็ต",
+      "scope": "SUPERMARKET",
+      "preset": "grocery-supermarket",
+      "denominator": "population",
+      "ownRateHigh": 0.22394634233956434,
+      "competitorRateHigh": 0.9622786759045419,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 1052,
+      "demandYolkAfterTierGate": 1052,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1040,
+          1046,
+          1049,
+          1050
+        ],
+        "competitor": [
+          1046,
+          1046,
+          1046,
+          1046
+        ],
+        "both": [
+          1040,
+          1046,
+          1049,
+          1050
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "โก โฮลเซลล์",
+      "scope": "WHOLESALE",
+      "preset": "grocery-wholesale",
+      "denominator": "population",
+      "ownRateHigh": 0.11937162775151602,
+      "competitorRateHigh": 0.43305290481050507,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2981,
+      "demandYolkAfterTierGate": 2981,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          2908,
+          2914,
+          2917,
+          2919
+        ],
+        "competitor": [
+          2914,
+          2914,
+          2914,
+          2914
+        ],
+        "both": [
+          2908,
+          2914,
+          2917,
+          2919
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "ดอง ดอง ดองกิ",
+      "scope": "SUPERMARKET",
+      "preset": "grocery-supermarket",
+      "denominator": "population",
+      "ownRateHigh": 0.26436872462357613,
+      "competitorRateHigh": 0.953197979220284,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 1052,
+      "demandYolkAfterTierGate": 1052,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1047,
+          1050,
+          1051,
+          1052
+        ],
+        "competitor": [
+          1050,
+          1050,
+          1050,
+          1050
+        ],
+        "both": [
+          1047,
+          1050,
+          1051,
+          1052
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "ริมปิง",
+      "scope": "SUPERMARKET",
+      "preset": "grocery-supermarket",
+      "denominator": "population",
+      "ownRateHigh": 0.8965393580778196,
+      "competitorRateHigh": 0.953197979220284,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 1052,
+      "demandYolkAfterTierGate": 1052,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1049,
+          1051,
+          1052,
+          1052
+        ],
+        "competitor": [
+          1051,
+          1051,
+          1051,
+          1051
+        ],
+        "both": [
+          1049,
+          1051,
+          1052,
+          1052
+        ]
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "ยูเอฟเอ็ม ฟูจิ ซูเปอร์",
+      "scope": "SUPERMARKET",
+      "preset": "grocery-supermarket",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 0.9538344143456696,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 1052,
+      "demandYolkAfterTierGate": 1052,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1050,
+          1050,
+          1052,
+          1052
+        ],
+        "competitor": [
+          1050,
+          1050,
+          1050,
+          1050
+        ],
+        "both": [
+          1050,
+          1050,
+          1052,
+          1052
+        ]
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "เมืองไทย แคปปิตอล",
+      "scope": "potential_retail_branch_service",
+      "preset": "nonbank-community",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 1,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2298,
+      "demandYolkAfterTierGate": 2298,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          4,
+          28,
+          66,
+          167
+        ],
+        "competitor": [
+          28,
+          28,
+          28,
+          28
+        ],
+        "both": [
+          4,
+          28,
+          66,
+          167
+        ]
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "ศรีสวัสดิ์ พาวเวอร์ 2014",
+      "scope": "office_context",
+      "preset": "nonbank-community",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 1,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2298,
+      "demandYolkAfterTierGate": 2298,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          12,
+          19,
+          51,
+          187
+        ],
+        "competitor": [
+          19,
+          19,
+          19,
+          19
+        ],
+        "both": [
+          12,
+          19,
+          51,
+          187
+        ]
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "เงินไชโย · AutoX",
+      "scope": "vehicle_title",
+      "preset": "nonbank-community",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 1,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2298,
+      "demandYolkAfterTierGate": 2298,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          60,
+          181,
+          431,
+          909
+        ],
+        "competitor": [
+          181,
+          181,
+          181,
+          181
+        ],
+        "both": [
+          60,
+          181,
+          431,
+          909
+        ]
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "เงินติดล้อ",
+      "scope": "vehicle_title",
+      "preset": "nonbank-concentrated",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 1,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2298,
+      "demandYolkAfterTierGate": 1086,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          65,
+          87,
+          243,
+          522
+        ],
+        "competitor": [
+          87,
+          87,
+          87,
+          87
+        ],
+        "both": [
+          65,
+          87,
+          243,
+          522
+        ]
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "ศักดิ์สยาม",
+      "scope": "vehicle_title",
+      "preset": "nonbank-community",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 1,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2298,
+      "demandYolkAfterTierGate": 2298,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1050,
+          1143,
+          1279,
+          1489
+        ],
+        "competitor": [
+          1143,
+          1143,
+          1143,
+          1143
+        ],
+        "both": [
+          1050,
+          1143,
+          1279,
+          1489
+        ]
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "เงินเทอร์โบ",
+      "scope": "vehicle_title",
+      "preset": "nonbank-community",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 1,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2298,
+      "demandYolkAfterTierGate": 2298,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          665,
+          837,
+          1235,
+          1775
+        ],
+        "competitor": [
+          837,
+          837,
+          837,
+          837
+        ],
+        "both": [
+          665,
+          837,
+          1235,
+          1775
+        ]
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "เฮงลิสซิ่ง",
+      "scope": "potential_retail_branch_service",
+      "preset": "nonbank-community",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 1,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2298,
+      "demandYolkAfterTierGate": 2298,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          1055,
+          1307,
+          1679,
+          2063
+        ],
+        "competitor": [
+          1307,
+          1307,
+          1307,
+          1307
+        ],
+        "both": [
+          1055,
+          1307,
+          1679,
+          2063
+        ]
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "นิ่มลีสซิ่ง",
+      "scope": "potential_retail_branch_service",
+      "preset": "nonbank-community",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 1,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2298,
+      "demandYolkAfterTierGate": 2298,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          2064,
+          2066,
+          2090,
+          2113
+        ],
+        "competitor": [
+          2066,
+          2066,
+          2066,
+          2066
+        ],
+        "both": [
+          2064,
+          2066,
+          2090,
+          2113
+        ]
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "กรุงศรี ออโต้ · อยุธยา แคปปิตอล ออโต้ ลีส",
+      "scope": "vehicle_title",
+      "preset": "nonbank-concentrated",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 1,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2298,
+      "demandYolkAfterTierGate": 1086,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          958,
+          1016,
+          1086,
+          1086
+        ],
+        "competitor": [
+          1016,
+          1016,
+          1016,
+          1016
+        ],
+        "both": [
+          958,
+          1016,
+          1086,
+          1086
+        ]
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "ยูโอบี แคปปิตอล เซอร์วิสเซส",
+      "scope": "personal",
+      "preset": "nonbank-concentrated",
+      "denominator": "population",
+      "ownRateHigh": 1,
+      "competitorRateHigh": 1,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "demandHigh": 2298,
+      "demandYolkAfterTierGate": 1086,
+      "matchingLocationsByCutoff": {
+        "multipliers": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "own": [
+          980,
+          1033,
+          1086,
+          1086
+        ],
+        "competitor": [
+          1033,
+          1033,
+          1033,
+          1033
+        ],
+        "both": [
+          980,
+          1033,
+          1086,
+          1086
+        ]
+      }
+    }
+  ],
+  "namedContextExamples": [
+    {
+      "industry": "fuel",
+      "brand": "บางจาก",
+      "scope": "all_fuel",
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "denominator": "gfa",
+      "thresholds": {
+        "own": 0.09344044657285473,
+        "competitor": 0.11755607557180173
+      },
+      "baseline": {
+        "demandHigh": 1067,
+        "demandYolkAfterTierGate": 1067,
+        "eligible": 987,
+        "reviewCandidate": 64,
+        "demandUnknown": 2308,
+        "exactPatterns": {
+          "Crowded": 16,
+          "FOMO": 71,
+          "Our Farm": 24,
+          "Pioneer": 814,
+          "Quiet": 2855,
+          "Their War": 432,
+          "Our Island": 167,
+          "Winter War": 134
+        },
+        "ambiguousOrUnknown": 3441
+      },
+      "afterBothCutoffsTimes4": {
+        "mode": "both",
+        "multiplier": 4,
+        "demandHigh": 1067,
+        "demandYolkAfterTierGate": 1067,
+        "eligible": 1050,
+        "reviewCandidate": 17,
+        "demandUnknown": 2308,
+        "exactPatterns": {
+          "Crowded": 0,
+          "FOMO": 6,
+          "Our Farm": 3,
+          "Pioneer": 1024,
+          "Quiet": 4332,
+          "Their War": 28,
+          "Our Island": 9,
+          "Winter War": 3
+        },
+        "ambiguousOrUnknown": 2549
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "เซเว่น อีเลฟเว่น",
+      "scope": "C_STORE",
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "denominator": "population",
+      "thresholds": {
+        "own": 2.737476047084588,
+        "competitor": 2.127885945313331
+      },
+      "baseline": {
+        "demandHigh": 2859,
+        "demandYolkAfterTierGate": 2859,
+        "eligible": 1779,
+        "reviewCandidate": 30,
+        "demandUnknown": 1930,
+        "exactPatterns": {
+          "Crowded": 507,
+          "FOMO": 273,
+          "Our Farm": 534,
+          "Pioneer": 1494,
+          "Quiet": 2155,
+          "Their War": 426,
+          "Our Island": 236,
+          "Winter War": 311
+        },
+        "ambiguousOrUnknown": 2018
+      },
+      "afterBothCutoffsTimes4": {
+        "mode": "both",
+        "multiplier": 4,
+        "demandHigh": 2859,
+        "demandYolkAfterTierGate": 2859,
+        "eligible": 2766,
+        "reviewCandidate": 17,
+        "demandUnknown": 1930,
+        "exactPatterns": {
+          "Crowded": 15,
+          "FOMO": 6,
+          "Our Farm": 61,
+          "Pioneer": 2760,
+          "Quiet": 3083,
+          "Their War": 30,
+          "Our Island": 37,
+          "Winter War": 12
+        },
+        "ambiguousOrUnknown": 1950
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "เมืองไทย แคปปิตอล",
+      "scope": "potential_retail_branch_service",
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "denominator": "population",
+      "thresholds": {
+        "own": 1,
+        "competitor": 1
+      },
+      "baseline": {
+        "demandHigh": 2298,
+        "demandYolkAfterTierGate": 2298,
+        "eligible": 28,
+        "reviewCandidate": 1194,
+        "demandUnknown": 124,
+        "exactPatterns": {
+          "Crowded": 656,
+          "FOMO": 0,
+          "Our Farm": 0,
+          "Pioneer": 1,
+          "Quiet": 0,
+          "Their War": 0,
+          "Our Island": 0,
+          "Winter War": 759
+        },
+        "ambiguousOrUnknown": 6538
+      },
+      "afterBothCutoffsTimes4": {
+        "mode": "both",
+        "multiplier": 4,
+        "demandHigh": 2298,
+        "demandYolkAfterTierGate": 2298,
+        "eligible": 167,
+        "reviewCandidate": 2040,
+        "demandUnknown": 124,
+        "exactPatterns": {
+          "Crowded": 65,
+          "FOMO": 0,
+          "Our Farm": 0,
+          "Pioneer": 67,
+          "Quiet": 26,
+          "Their War": 0,
+          "Our Island": 0,
+          "Winter War": 200
+        },
+        "ambiguousOrUnknown": 7596
+      }
+    }
+  ],
+  "postProbeUIRevision": {
+    "changes": [
+      "Stable slider min/max/step seeded from calibration rather than mutable draft",
+      "Separate raw Demand counter and thin white boundary styling"
+    ],
+    "formulaAndSourceHashesUnchanged": true,
+    "finalUIHashes": {
+      "prototype/app.js": "b1cf92e0515032c34928423bd4abd8e2cc768b794b5188329146322aea2c5772",
+      "prototype/criteria-controls.js": "60dcf8743fc96df21c22442ca3e41ae264704824a701b61b9c43ae110190d386",
+      "prototype/criteria-controls.css": "943b547753a2413a6ce84b803a30e38dbc7ab1ec2829ec1d49146a4224f47960"
+    },
+    "meaning": "Original UI hashes remain the probe-time record. Final UI geometry/labels are reviewed separately; classifications and Demand formulas are unchanged."
+  }
+}

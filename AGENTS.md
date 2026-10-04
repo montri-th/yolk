@@ -1,6 +1,6 @@
-# Development instructions — Yolk three-industry preview v1.7.3
+# Development instructions — Yolk three-industry preview v1.7.4
 
-Updated 2026-10-04. Read START_HERE.md, contracts/product.v1.7.json and IMPLEMENTATION_PLAN_v1.7.3.md and contracts/location-review.v1.7.3.json before changes. Use the original Yolk product UI. Support only Fuel, Grocery and Non-bank in the active demo.
+Updated 2026-10-04. Read START_HERE.md, contracts/product.v1.7.json and IMPLEMENTATION_PLAN_v1.7.4.md and contracts/location-review.v1.7.3.json before changes. Use the original Yolk product UI. Support only Fuel, Grocery and Non-bank in the active demo.
 
 ## Active authority
 
@@ -33,7 +33,7 @@ Updated 2026-10-04. Read START_HERE.md, contracts/product.v1.7.json and IMPLEMEN
 - Personal relation own/competitor/identified-total and count/km²/market-rate controls do not mutate criteria, source, assignments, events or leaderboard. Non-bank legal identity does not prove product/function scope; retain interval review. Colour only known exact values; missing/nonpositive denominator stays unresolved.
 - Continuous map bins in1.7.3 use all41exactnativeDScolors:40cuts P(i*100/41),i1..40, fixed national same-grain known exact comparable values includingzero. Explicitzero isclass0; ties may leaveempty/skippedbins. This replaces1.7.2 P25/50/75/95 of known exact comparable values for current industry/brand/format, distinct from unchanged fine Demand benchmark cutoffs. Use exact native count/density.area/density.capita/built41sampleLUTs with explicit units/reuse, full analytical opacity, zero and neutral-review cues.
 - Pattern cards count all7954unique national rows before preferred checkbox selection, retaining Demand mode/maxTier gates. One possible pattern is confirmed; multiple distinct possibilities increment overlapping review counts. UnknownDemand and invalid/loading inputs remain separate/dash; weights, view filters and checkbox selection cannot change pre-selection counts.
-- Run all179baseline regressions plus check-map-analysis.cjs, check-pattern-counts.cjs and check-analysis-integration.cjs. After final root QA only, seal with scripts/seal-pages-v1.7.3.py --after-final-qa, then verify-pages-v1.7.3.py. Preserve historical release manifests/receipts; retained social image is explicitly the unchanged1.7family asset. No publication claim before terminal provider/live-byte evidence.
+- Run all179baseline regressions plus check-map-analysis.cjs, check-pattern-counts.cjs and check-analysis-integration.cjs. After final root QA only, seal with scripts/seal-pages-v1.7.4.py --after-final-qa, then verify-pages-v1.7.4.py. Preserve historical release manifests/receipts; retained social image is explicitly the unchanged1.7family asset. No publication claim before terminal provider/live-byte evidence.
 
 ## Production work and checks
 
@@ -41,7 +41,7 @@ Updated 2026-10-04. Read START_HERE.md, contracts/product.v1.7.json and IMPLEMEN
 - Standard seats: 1 Admin / 3 Editors / 6 Viewers, enforced server-side in production. Successful mutations write one event/outbox transaction; dedupe notifications by event ID. Personal view/theme/language/draft changes do not count as team activity.
 - Maximum 5 private branch photos; add server validation/revision locks in production. Demo photos are mockups. Keep image bytes/signed URLs out of events and private customer data out of public artifacts. Shared links retain permissions.
 - Do one bounded task from the retained implementation-tasks.v1.6.json baseline or the six persistent-map steps in IMPLEMENTATION_PLAN_v1.7.md. Report files changed, source/criteria versions, actual commands/results, acceptance and open gates.
-- Run python3 scripts/verify-pages-v1.7.3.py, node scripts/check-three-industry.cjs, node scripts/check-brand-presets.cjs, node scripts/check-workspace-map.cjs, node scripts/check-criteria-controls.cjs and node scripts/check-photo-runtime.cjs as appropriate. The Pages artifact is prototype/; runtime contract copies must match root contracts and resolve within /yolk/.
+- Run python3 scripts/verify-pages-v1.7.4.py, node scripts/check-three-industry.cjs, node scripts/check-brand-presets.cjs, node scripts/check-workspace-map.cjs, node scripts/check-criteria-controls.cjs and node scripts/check-photo-runtime.cjs as appropriate. The Pages artifact is prototype/; runtime contract copies must match root contracts and resolve within /yolk/.
 - Review actual Thai/English content on narrow and desktop screens in both themes, including map persistence, popup/focus, long labels, active forms and provider failure. Hash/model/DOM-adapter checks do not prove browser or physical-device QA. Report deployment provider success and live-byte evidence separately.
 
 ## Active1.7.3 evidence/appearance extension
@@ -56,4 +56,22 @@ Run retained regressions plus check-location-review.cjs, check-yolk-tier.cjs and
 
 Buttons, links and disclosure summaries containing icons underline only their caption on hover (the Yolk wordmark is excluded); the icon glyph is undecorated and keyboard focus remains visible. Map and tile minZoom is 3, overriding the retained 1.7.2 value 4 so explicit mobile country fit can show the full country. Mobile bottom fit padding uses max(50, ceil(actual rendered footer legend height) + 18) px; desktop uses 18 px. Menu changes, criteria previews and ordinary sync retain the camera; only explicit navigation/home/fit changes it.
 
-Current automated results: 17 suites / 260 checks passed. Independent snapshot consistency audit: 65 checks passed separately. Bounded native Chrome review passed selected Thai/dark and English/light flows at 1440x900 and390x844. See [native browser receipt](evidence/browser-v1.7.3/native-browser-review.json). This is not a full language/theme matrix or a physical-device/backend pass. Provider/live-byte evidence remains pending.
+Historical1.7.3 automated results: 17 suites / 260 checks passed. Independent snapshot consistency audit: 65 checks passed separately. Bounded native Chrome review passed selected Thai/dark and English/light flows at 1440x900 and390x844. See [native browser receipt](evidence/browser-v1.7.3/native-browser-review.json). This is not a full language/theme matrix or a physical-device/backend pass. Those1.7.3 prepublication statements are retainedhistory;1.7.4 QA/provider/live-byte evidence is pending.
+
+## Active 1.7.4 appearance and Supply clarity - release pending
+
+Read [current appearance contract](contracts/map-boundary-appearance.v1.7.4.json), [boundary guide](docs/MAP_BOUNDARIES_v1.7.4.md) and [implementation plan](IMPLEMENTATION_PLAN_v1.7.4.md). All ordinary and selected fine-area outlines are white #FFFFFF; clickable hover outlines are Yolk yellow #FFBC1F / 2 px in both themes. Widths: province 1.2; country district 0.45; closer district 1.05; chosen parent district 1.1; ordinary fine 0.45; selected fine 0.8 px. Selected fine stays fill=false, replacing the previous blue selection stroke.
+
+At location level, show only the chosen parent district as unfilled, noninteractive context, excluded from counts and ranking. Existing renderer order: fine fills, visible unfilled districts, provinces, selected fine, then broader transparent navigation hits. No new panes. Retain gradient definitions, fills/LUT41, formulas/cohort and persistent camera. Missing source extents are white dashed unfilled outlines with distinct labels, never choropleths.
+
+Current 1.7.4 QA and publication are pending. The retained 1.7.3 product behavior/data and receipts are baseline/history, not current release passes. Use [release contract](contracts/release.v1.7.4.json). Current manifests, sealing, provider and live-byte evidence remain the release owner's work.
+
+## Supply cutoff clarity - 1.7.4
+
+A Supply slider sets the point that starts High: observed count/rate >= cutoff is High, and < cutoff is Low. Moving right raises that point; it does not increase actual branches, the denominator or Demand. The same rate 0.5 is High at cutoff 0.3 and Low at cutoff 0.8, in the same displayed unit. Preserve interval bounds and possible patterns; no inversion or preset-threshold reseeding while dragging.
+
+Show Demand Yolks separately from all-criteria matches. The raw Demand count uses the current context and draft: `s.nextRows.filter(a => a.demand === true && areaMatchesNavigation(a)).length`, before maxDemandTier, preferred patterns and Supply gates. Its scope is the selected administrative area, not viewport/camera visibility. Unknown Demand is not counted as High or zero. Supply-only changes retain this count and Demand/Tier membership. Final matches still use all existing gates; arbitrary pattern selections have no guaranteed monotonic result.
+
+The [Supply semantics receipt](evidence/supply-cutoff-semantics-v1.7.4.json) covers 37 current default contexts / 444 probes. It supports model semantics, not browser/touch usability, arbitrary strategies or final release verification. Current release QA/provider/live-byte gates remain pending.
+
+Supply rate slider endpoints and steps use the role calibration threshold (fallback team criteria), not the current draft thumb value. Keep the scale stable across rerenders, language and route changes. Exact-number inputs retain values outside the slider range with the existing warning. Refresh cached broad navigation hit accessible labels on language change; preserve geometry, map instance, formulas, draft and preset.

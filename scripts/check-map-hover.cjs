@@ -15,15 +15,18 @@ if (!provinces) {
   for (const candidate of candidates) { const content = readJSON('prototype/data/'+candidate); if (content.features?.length) { provinces = content.features; break; } }
 }
 assert(provinces?.length, 'actual province source fixture not found');
-const map = {layers:new Set(), fitBounds(){throw Error('Hover must not refit the map');}, setView(){throw Error('Hover must not alter viewport');}, removeLayer(layer){this.layers.delete(layer);}};
+const countScale = readJSON('reference/lds-0.9.7/color-srgb-10.scales.json').scales.find(s=>s.scaleId==='count'&&s.theme==='light');
+assert.equal(countScale.lut.length,41);
+const sourcePaints = [0,20,40].map((index,i)=>Object.freeze({feature:districts[i],style:Object.freeze({fill:true,fillColor:countScale.lut[index],fillOpacity:1,color:'#FFFFFF',weight:0.45}),nativeClass:index}));
+const map = {layers:new Set(),renderOrder:[...sourcePaints],fitBounds(){throw Error('Hover must not refit the map');},setView(){throw Error('Hover must not alter viewport');},removeLayer(layer){this.layers.delete(layer);this.renderOrder=this.renderOrder.filter(x=>x!==layer);}};
 const shapes = [], tips = [];
 const L = {
-  geoJSON(feature, options) { const layer = {feature, options, styles:[], addTo(m){m.layers.add(this);return this;},remove(){map.layers.delete(this);},setStyle(style){this.styles.push(style);},bringToFront(){this.front=true;}}; shapes.push(layer); return layer; },
+  geoJSON(feature, options) { const layer = {feature, options, styles:[], addTo(m){m.layers.add(this);if(!m.renderOrder.includes(this))m.renderOrder.push(this);return this;},remove(){map.removeLayer(this);},setStyle(style){this.styles.push(style);},bringToFront(){map.renderOrder=map.renderOrder.filter(x=>x!==this);map.renderOrder.push(this);}}; shapes.push(layer); return layer; },
   tooltip(options) { const tip = {options, setLatLng(v){this.latlng=v;return this;},setContent(v){this.content=v;return this;},addTo(m){m.layers.add(this);return this;},remove(){map.layers.delete(this);}};tips.push(tip);return tip; }
 };
 const sandbox = {};
 vm.runInNewContext(fs.readFileSync(path.join(root,'prototype/map-hover.js'),'utf8'),sandbox);
-let color = 'var(--yl-map-active)', count = 0;
+let color = 'var(--yl-map-hover)', count = 0;
 const helper = sandbox.YolkMapHover.create({map,L,token:()=>color});
 const target = (level,id,feature,label) => ({level,id,feature,label});
 const a = target('province','10',provinces[0],'Explore province');
@@ -45,8 +48,11 @@ check('same target mouse movement reuses outline and tooltip rather than re-rend
 check('replacement removes the old outline; stale mouseout cannot erase newer hover',()=>{
   helper.show(b,{lat:13,lng:100});assert.equal(map.layers.size,2);assert(!helper.clear(a));assert.equal(helper.getState().level,'district');assert(helper.clear(b));assert.equal(map.layers.size,0);
 });
-check('outline refreshes UI selection token without changing source geometry or analytical fill',()=>{
-  helper.show(c);const n=shapes.length;color='var(--yl-map-active-current-theme)';helper.show(c);assert.equal(shapes.length,n);assert.equal(shapes.at(-1).styles.at(-1).color,color);assert.equal(shapes.at(-1).options.style.fill,false);
+check('outline refreshes the caller hover token without changing source geometry or analytical fill',()=>{
+  helper.show(c);const n=shapes.length;color='#FFBC1F';helper.show(c);assert.equal(shapes.length,n);assert.equal(shapes.at(-1).styles.at(-1).color,color);assert.equal(shapes.at(-1).options.style.fill,false);
+});
+check('yellow hover stays above native LUT fills and removal restores the untouched source painter order',()=>{
+  const original=JSON.stringify(sourcePaints);helper.clear();assert.deepEqual(map.renderOrder,sourcePaints);helper.show(a,{lat:13,lng:100});const outline=shapes.at(-1);assert.equal(map.renderOrder.at(-1),outline);assert.equal(outline.options.style.color,'#FFBC1F');assert(outline.options.style.weight>Math.max(...sourcePaints.map(p=>p.style.weight)),'Hover must remain visible above thin white data boundaries');assert.equal(outline.options.style.fill,false);assert.equal(outline.options.interactive,false);helper.clear();assert.deepEqual(map.renderOrder,sourcePaints);assert.equal(JSON.stringify(sourcePaints),original);assert.equal(map.layers.size,0);
 });
 check('unsupported extents, missing geometry or missing target labels fail visibly closed',()=>{
   for (const bad of [{...a,feature:{type:'Feature',geometry:{type:'Point',coordinates:[100,13]}}},{...a,feature:null},{...a,label:''},{...a,level:'country'},{...a,feature:{type:'Feature',geometry:{type:'Polygon',coordinates:[]}}}]) {assert(!helper.show(bad));assert.equal(helper.getState().active,false);assert.equal(map.layers.size,0);}
@@ -59,10 +65,10 @@ function eventLayer() {
   return {handlers,dom,on(type,fn){handlers.set(type,fn);return this;},off(type,fn){if(handlers.get(type)===fn)handlers.delete(type);return this;},getElement(){return {addEventListener(type,fn){dom.set(type,fn);},removeEventListener(type,fn){if(dom.get(type)===fn)dom.delete(type);}};}};
 }
 check('native hover/move/out binding controls the actual target and preserves click owner',()=>{
-  helper.clear();const layer=eventLayer(),unbind=helper.bind(layer,()=>b);assert.equal(layer.handlers.has('click'),false);layer.handlers.get('mouseover')({latlng:{lat:13,lng:100}});assert.equal(helper.getState().level,'district');layer.handlers.get('mouseout')();assert.equal(helper.getState().active,false);unbind();assert.equal(layer.handlers.size,0);
+  helper.clear();const layer=eventLayer(),unbind=helper.bind(layer,()=>b);assert.equal(layer.handlers.has('click'),false);layer.handlers.get('mouseover')({latlng:{lat:13,lng:100}});assert.equal(helper.getState().level,'district');assert.equal(map.renderOrder.at(-1).feature,b.feature);assert.equal(map.renderOrder.at(-1).options.style.color,'#FFBC1F');layer.handlers.get('mouseout')();assert.equal(helper.getState().active,false);unbind();assert.equal(layer.handlers.size,0);
 });
 check('keyboard focus/blur uses the same exact target outline without synthetic click',()=>{
-  const layer=eventLayer(),unbind=helper.bind(layer,()=>c);layer.dom.get('focus')({});assert.equal(helper.getState().id,c.id);layer.dom.get('blur')({});assert.equal(helper.getState().active,false);unbind();assert.equal(layer.dom.size,0);
+  const layer=eventLayer(),unbind=helper.bind(layer,()=>c);layer.dom.get('focus')({});assert.equal(helper.getState().id,c.id);assert.equal(map.renderOrder.at(-1).feature,c.feature);assert.equal(map.renderOrder.at(-1).options.style.color,'#FFBC1F');layer.dom.get('blur')({});assert.equal(helper.getState().active,false);unbind();assert.equal(layer.dom.size,0);
 });
 check('binding cleanup and destruction remove active geometry and all handlers',()=>{
   const layer=eventLayer();helper.bind(layer,()=>a);layer.handlers.get('mouseover')({latlng:{lat:13,lng:100}});helper.destroy();assert.equal(map.layers.size,0);assert.equal(layer.handlers.size,0);assert.equal(layer.dom.size,0);assert(!helper.show(a));assert.equal(helper.getState().bindingCount,0);
