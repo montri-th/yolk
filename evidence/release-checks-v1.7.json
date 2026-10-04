@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "yolk.bounded_checks/1.7",
+  "checkedOn": "2026-10-04",
+  "passed": true,
+  "totalChecks": 126,
+  "reports": [
+    {
+      "suite": "brand",
+      "count": 13,
+      "passed": true,
+      "checks": [
+        {
+          "name": "Registry and selectors expose exactly 11 Fuel, 16 Grocery and the ordered first 10 Non-bank IDs",
+          "passed": true,
+          "elapsedMs": 1
+        },
+        {
+          "name": "Every family and every supported brand/scope seed is valid and references actual CityMETER metrics",
+          "passed": true,
+          "elapsedMs": 8
+        },
+        {
+          "name": "First selection applies each brand default/family without recording a team change event",
+          "passed": true,
+          "elapsedMs": 3947
+        },
+        {
+          "name": "Accepted Bangchak, Seven Eleven and MTC defaults remain unchanged apart from seed provenance",
+          "passed": true,
+          "elapsedMs": 0
+        },
+        {
+          "name": "Saved custom criteria, draft, versions, weights and targets survive brand visits and browser reload",
+          "passed": true,
+          "elapsedMs": 805
+        },
+        {
+          "name": "Explicit Grocery format is remembered per brand; a new brand uses its own default",
+          "passed": true,
+          "elapsedMs": 596
+        },
+        {
+          "name": "National cutoff distributions remain fixed across all brand seeds, formats and province filters",
+          "passed": true,
+          "elapsedMs": 12
+        },
+        {
+          "name": "Missing demand, unavailable own format and unresolved licenses stay unknown rather than zero",
+          "passed": true,
+          "elapsedMs": 221
+        },
+        {
+          "name": "Srisawad group logo and office context do not upgrade the selected legal company licenses",
+          "passed": true,
+          "elapsedMs": 227
+        },
+        {
+          "name": "Own selector restriction leaves the full 1,233-company comparator inventory intact",
+          "passed": true,
+          "elapsedMs": 119
+        },
+        {
+          "name": "Point loading uses a local response stub and canonical relation changes with selected own identity",
+          "passed": true,
+          "elapsedMs": 234
+        },
+        {
+          "name": "Actual map render uses O for Our stores and C for Competitors in both languages",
+          "passed": true,
+          "elapsedMs": 1
+        },
+        {
+          "name": "Optional local logo registry uses exact known IDs and its bundled bytes match recorded hashes",
+          "passed": true,
+          "elapsedMs": 6
+        }
+      ],
+      "reportSha256": "6cb26c86596b5d33758112d92a6ded88e1e7058948078ecace21e760cf600101"
+    },
+    {
+      "suite": "map",
+      "count": 20,
+      "passed": true,
+      "checks": [
+        {
+          "name": "All 77 actual province features retain unique exact reporting codes",
+          "passed": true
+        },
+        {
+          "name": "All native hierarchy sources cover 928 districts and every 7,954 metric UUID without bounding-box substitution",
+          "passed": true
+        },
+        {
+          "name": "One mounted Leaflet instance survives every workspace route and repeated renders",
+          "passed": true
+        },
+        {
+          "name": "Mobile map options are collapsed by default, keyboard labelled and independent of navigation/map state",
+          "passed": true
+        },
+        {
+          "name": "Summary classes use confirmed qualifying Tier, independently of numeric rank score",
+          "passed": true
+        },
+        {
+          "name": "District analytical fills are exact full-opacity classes while province polygons remain unfilled",
+          "passed": true
+        },
+        {
+          "name": "Criteria comparison matches real-model baseline/draft sets; invalid drafts pause last valid output",
+          "passed": true
+        },
+        {
+          "name": "Source extent focus is explicitly dashed and unfilled; route sync never fits automatically",
+          "passed": true
+        },
+        {
+          "name": "All 18 retrieved source polygons render as genuine source geometry rather than extent substitutes",
+          "passed": true
+        },
+        {
+          "name": "Supply marker cap, O/C/U labels and branch filters follow actual user choices",
+          "passed": true
+        },
+        {
+          "name": "Draft branch coordinates show a neutral D without saving, supply changes or automatic zoom",
+          "passed": true
+        },
+        {
+          "name": "Loading clears stale point labels and failed inventory is not described as zero",
+          "passed": true
+        },
+        {
+          "name": "A failed context switch clears previous-brand overlays instead of relabelling stale results",
+          "passed": true
+        },
+        {
+          "name": "Persistent controls and map accessible names update when language changes",
+          "passed": true
+        },
+        {
+          "name": "Country → province → district → fine location has exact source filters, breadcrumbs and back with no duplicate callbacks",
+          "passed": true
+        },
+        {
+          "name": "Fine-detail focus preserves the chosen parent for all multi-district source locations",
+          "passed": true
+        },
+        {
+          "name": "Coordinate-only records use an actual polygon for view matching without area or aggregate mutation",
+          "passed": true
+        },
+        {
+          "name": "Fine comparison preserves old tier colours for baseline and removed rows while selected interiors remain unfilled",
+          "passed": true
+        },
+        {
+          "name": "Late point focus cannot move the map after brand/context switch",
+          "passed": true
+        },
+        {
+          "name": "Basemap selection preserves map instance and viewport, with explicit 2021 satellite attribution",
+          "passed": true
+        }
+      ],
+      "reportSha256": "fbf9e8c8a5ef89de27dd8631e35b2f14dad884dcb6dd991b1c8fee8ae18cb899"
+    },
+    {
+      "suite": "saveContext",
+      "count": 9,
+      "passed": true,
+      "checks": [
+        {
+          "name": "Existing branch save aborts cleanly after brand changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "Existing branch save aborts cleanly after industry changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "New branch save aborts cleanly after brand changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "New branch save aborts cleanly after industry changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "Existing branch save aborts cleanly after actor changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "Existing branch save aborts cleanly after route changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "Existing branch save aborts cleanly after same-context-new-request changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "Existing branch save succeeds once when context remains stable",
+          "passed": true
+        },
+        {
+          "name": "New branch save succeeds once when context remains stable",
+          "passed": true
+        }
+      ],
+      "reportSha256": "8e47ef1ca6c4dfee97d67dac5e093bc207acd6241c1f5e0f46e6df6785bfecf2"
+    },
+    {
+      "suite": "relativeSupply",
+      "count": 14,
+      "passed": true,
+      "checks": [
+        {
+          "name": "Two branches / 20,000 people = 1 per 10,000; three / 100,000 = 0.3, with coherent pattern and gap ordering",
+          "passed": true,
+          "elapsedMs": 347
+        },
+        {
+          "name": "Source-explicit zero branch counts are usable; absent/zero/nonfinite/negative denominators remain unknown",
+          "passed": true,
+          "elapsedMs": 431
+        },
+        {
+          "name": "Equivalent denominator/rate unit conversion leaves count thresholds, classifications and rankings invariant",
+          "passed": true,
+          "elapsedMs": 443
+        },
+        {
+          "name": "Legacy count mode and absent-mode migration retain exact count thresholds and uncertainty behavior",
+          "passed": true,
+          "elapsedMs": 0
+        },
+        {
+          "name": "Fuel unknown-brand U stays jointly allocated: impossible Pioneer/Crowded states and independent ranking bounds are excluded",
+          "passed": true,
+          "elapsedMs": 209
+        },
+        {
+          "name": "Assignment/reconciliation lower–upper intervals survive normalization and remain uncertain in patterns/ranking",
+          "passed": true,
+          "elapsedMs": 144
+        },
+        {
+          "name": "Changing ranking weights cannot alter Supply high/low classification or the eligible UUID set",
+          "passed": true,
+          "elapsedMs": 292
+        },
+        {
+          "name": "Calibration is the unrounded median of positive exact national rates, never a quota or the filtered province",
+          "passed": true,
+          "elapsedMs": 227
+        },
+        {
+          "name": "Fewer than five positive exact observations use an explicit insufficient-sample hypothesis of one branch/unit",
+          "passed": true,
+          "elapsedMs": 5
+        },
+        {
+          "name": "The denominator whitelist excludes densities, percentiles, fiscal revenue and arbitrary/unknown IDs",
+          "passed": true,
+          "elapsedMs": 0
+        },
+        {
+          "name": "Denominator changes/reseeding are a private draft: committed criteria, events, source inventory and national cuts stay unchanged",
+          "passed": true,
+          "elapsedMs": 14
+        },
+        {
+          "name": "New contexts start in relative mode after their own inventory loads; saved count criteria/draft/version survive visits and reload",
+          "passed": true,
+          "elapsedMs": 1737
+        },
+        {
+          "name": "All 37 real brand/default-scope contexts produce valid seeds and finite or explicitly missing Supply thresholds across 7,954 UUIDs",
+          "passed": true,
+          "elapsedMs": 11104
+        },
+        {
+          "name": "Every supported alternate brand format/scope uses its own real inventory and family with valid relative thresholds",
+          "passed": true,
+          "elapsedMs": 8935
+        }
+      ],
+      "reportSha256": "cc6d9201ddb54e25dce944032ff285a3e825bf110d2cb1b5583e25bc5fa47e22"
+    },
+    {
+      "suite": "core",
+      "count": 30,
+      "passed": true,
+      "scope": "Actual model/source runtime count-baseline checks; preserves historical defaults"
+    },
+    {
+      "suite": "photos",
+      "count": 28,
+      "passed": true,
+      "scope": "Node permission/storage/header checks; separate browser decode checks"
+    },
+    {
+      "suite": "pairedControls",
+      "count": 12,
+      "passed": true,
+      "scope": "Native input node preservation, decimal/blank handling and rate units"
+    }
+  ],
+  "limits": "No physical-device, full-accessibility, shared-backend or sales-model certification"
+}

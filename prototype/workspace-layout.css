@@ -1,0 +1,56 @@
+/* One map, one viewport, across every workspace menu. */
+.yolk-map-workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(380px,440px);height:calc(100dvh - 72px);min-height:400px;gap:0;overflow:hidden}
+.workspace-map-panel{min-width:0;min-height:0;position:relative;background:var(--canvas);border-right:1px solid var(--line)}
+.yolk-map-workspace #content{min-width:0;overflow:auto;overscroll-behavior:contain;padding:20px 18px 100px;scrollbar-gutter:stable}
+.yolk-map-workspace .national-layout,.yolk-map-workspace .detail-grid{display:block}
+.yolk-map-workspace .decision-summary,.yolk-map-workspace .yl-landscape {grid-template-columns:1fr}
+.yolk-map-workspace .yl-supply,.yolk-map-workspace .yl-demand,.yolk-map-workspace .yl-patterns {grid-column:auto;grid-row:auto}
+.yolk-map-workspace .yl-pattern-grid {grid-template-columns:1fr}
+.yolk-map-workspace .yl-panel {padding:16px}
+.yolk-map-workspace .yl-reconciliation {grid-template-columns:1fr}
+.yolk-map-workspace .yl-section-heading h2 {font-size:24px;line-height:1.45}
+.yolk-map-workspace .yl-note {font-size:14px;line-height:1.65}
+.yolk-map-workspace .page-head{display:block;margin-bottom:18px}
+.yolk-map-workspace .page-head h1{font-size:28px;line-height:1.4;overflow-wrap:anywhere}
+.yolk-map-workspace .page-head>.btn{margin-top:12px}.yolk-map-workspace .market-status{font-size:13px;gap:7px;margin-bottom:16px}
+.yolk-map-workspace .shortlist-grid{display:block}.yolk-map-workspace .shortlist-grid>div{margin-bottom:14px}
+.yolk-map-workspace .workspace-context-disclosure{margin-bottom:16px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.yolk-map-workspace .workspace-context-disclosure>summary{display:flex!important;align-items:center;gap:10px;padding:12px;min-height:52px;font-size:15px;cursor:pointer;list-style:none}
+.yolk-map-workspace .context-summary-text{display:grid;gap:2px;flex:1;min-width:0}.yolk-map-workspace .context-summary-text small{font-size:12px;color:var(--muted)}
+.yolk-map-workspace .workspace-context{grid-template-columns:1fr;padding:14px;gap:12px;border:0;border-top:1px solid var(--line);border-radius:0}
+.yolk-map-workspace .workspace-context-disclosure:not([open])>.workspace-context{display:none}
+.yolk-map-workspace .criteria-live-workspace{display:block;height:auto!important;min-height:0}.yolk-map-workspace .criteria-control-panel{overflow:visible;display:block}.yolk-map-workspace .criteria-control-scroll{overflow:visible;padding:14px}.yolk-map-workspace .criteria-tabs{position:static;flex-wrap:wrap}.yolk-map-workspace .criteria-tabs button{min-height:44px;font-size:13px}.yolk-map-workspace .criteria-control-footer{flex-wrap:wrap}
+.yolk-map-workspace .criteria-workspace-head h1{font-size:27px}.yolk-map-workspace .criteria-workspace-actions{display:block}.yolk-map-workspace .criteria-workspace-actions>.btn{margin-top:10px;width:100%}
+.yolk-map-workspace .inline-fields,.yolk-map-workspace .tier-inputs,.yolk-map-workspace .landscape-grid{grid-template-columns:1fr}
+.yolk-map-workspace .metric-picker{grid-template-columns:1fr}.yolk-map-workspace .preferred-grid{grid-template-columns:1fr}.yolk-map-workspace .formula-note{grid-column:auto}
+.yolk-map-workspace .source-summary,.yolk-map-workspace .section{padding:16px}.yolk-map-workspace .context-note{display:block!important}.yolk-map-workspace .industry-preset-summary{grid-column:1/-1}
+.yolk-map-workspace .supply-table{display:block}.yolk-map-workspace .supply-table thead{display:none}.yolk-map-workspace .supply-table tbody,.yolk-map-workspace .supply-table tr{display:block}.yolk-map-workspace .supply-table td{display:block;border:0;padding:6px 12px}.yolk-map-workspace .supply-table tr{border-top:1px solid var(--line);padding:10px 0}.yolk-map-workspace .supply-table td::before{content:attr(data-label);display:block;font-size:12px;color:var(--muted)}
+.yolk-map-workspace .supply-tools{flex-wrap:wrap}.yolk-map-workspace .supply-tabs{flex-wrap:wrap}.yolk-map-workspace .supply-tabs button{font-size:13px}.yolk-map-workspace .supply-table-wrap{overflow:visible}
+.yolk-map-workspace .evidence-grid,.yolk-map-workspace .criteria-pair{grid-template-columns:1fr}.yolk-map-workspace .leaderboard-grid{grid-template-columns:1fr}
+@media(min-width:1100px){.yolk-shell{height:100dvh;overflow:hidden}#header{height:72px;min-height:72px!important}.yolk-map-workspace .criteria-control-scroll .metric-picker{grid-template-columns:1fr}}
+@media(max-width:1099px){.yolk-map-workspace{display:block;height:auto;min-height:0;overflow:visible}.workspace-map-panel{height:360px;position:sticky;top:0;z-index:6;border-right:0;border-bottom:1px solid var(--line)}.yolk-map-workspace #content{overflow:visible;padding:18px 16px 110px}.yolk-map-workspace .criteria-tabs{position:static}.yolk-map-workspace .page-head h1{font-size:26px}.yolk-map-workspace .national-layout{display:block}.yolk-map-workspace .workspace-context-disclosure>summary{font-size:14px}}
+@media(max-width:400px){.workspace-map-panel{height:320px}.yolk-map-workspace #content{padding-inline:12px}.yolk-map-workspace .criteria-control-scroll{padding:12px}}
+/* Grid items must occupy the action column rather than their intrinsic table width. */
+.yolk-map-workspace #content{width:100%;max-width:100%;margin:0}
+.yolk-map-workspace .notice{display:block}.yolk-map-workspace .notice>p{margin-top:8px}
+.yolk-map-workspace .filters,.yolk-map-workspace .form-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.yolk-map-workspace .filters>*{min-width:0;max-width:100%}.yolk-map-workspace .filters .search{width:100%}
+/* Supply rate mode keeps units beside the decision and exact values accessible. */
+.supply-mode { padding:0; border:0; margin:20px 0; display:grid; gap:8px; }
+.supply-mode legend { margin-bottom:8px; font-weight:600; }
+.supply-mode-option { display:flex; align-items:center; gap:10px; min-height:52px; padding:10px 12px; border:1px solid var(--line); border-radius:8px; cursor:pointer; }
+.supply-mode-option:has(input:checked) { background:var(--soft); }
+.supply-mode-option strong { flex:1; font-size:16px; }
+.supply-mode-option small { color:var(--muted); font-size:13px; }
+.supply-denominator { margin:20px 0; }
+.supply-denominator summary {cursor:pointer;display:flex;gap:8px;align-items:center;min-height:44px;font-weight:600}
+.supply-denominator label { display:block; margin-bottom:8px; font-weight:600; }
+.supply-denominator select { width:100%; min-height:48px; }
+.criteria-number-control[data-control-kind=rate] .criteria-number-head { align-items:flex-start; flex-wrap:wrap; }
+.criteria-number-control[data-control-kind=rate] .criteria-number-reading { flex:1 1 160px; font-size:20px; line-height:1.5; }
+.yl-rate-summary { margin:16px 0; padding:16px; background:var(--soft); border:1px solid var(--line); border-radius:8px; }
+.yl-rate-summary p { margin:0 0 8px; }
+.yl-rate-summary dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:12px 0 0; }
+.yl-rate-summary dd { margin:4px 0; font-weight:600; font-size:23px; }
+.yl-rate-summary small { display:block; color:var(--muted); font-size:14px; }
+@media(max-width:400px){.supply-mode-option {gap:8px;padding:10px 8px}.supply-mode-option strong{font-size:15px}.yl-rate-summary dl{grid-template-columns:1fr}}

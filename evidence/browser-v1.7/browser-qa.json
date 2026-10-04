@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "yolk.browser_qa/1.7",
+  "checkedOn": "2026-10-04",
+  "environment": "Chrome extension-controlled native browser; responsive viewport emulation",
+  "isolatedLocalOrigin": "127.0.0.1:8862",
+  "viewports": [
+    {
+      "width": 320,
+      "height": 740
+    },
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "languages": [
+    "th",
+    "en"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "observations": {
+    "mobileOverflowPx": 0,
+    "mobileBasemapHeightPx": 250,
+    "tabletBasemapHeightPx": 260,
+    "mobileOptions": {
+      "defaultCollapsed": true,
+      "accessibleSelectLabels": true,
+      "escapeReturnsFocus": true
+    },
+    "mapRouteProof": [
+      {
+        "hash": "#market",
+        "instances": 1,
+        "overflow": 0,
+        "selectedFill": "none",
+        "viewport": "translate3d(0px, 0px, 0px)"
+      },
+      {
+        "hash": "#targets",
+        "instances": 1,
+        "overflow": 0,
+        "selectedFill": "none",
+        "viewport": "translate3d(0px, 0px, 0px)"
+      },
+      {
+        "hash": "#supply",
+        "instances": 1,
+        "overflow": 0,
+        "selectedFill": "none",
+        "viewport": "translate3d(0px, 0px, 0px)"
+      },
+      {
+        "hash": "#criteria",
+        "instances": 1,
+        "overflow": 0,
+        "selectedFill": "none",
+        "viewport": "translate3d(0px, 0px, 0px)"
+      },
+      {
+        "hash": "#feed",
+        "instances": 1,
+        "overflow": 0,
+        "selectedFill": "none",
+        "viewport": "translate3d(0px, 0px, 0px)"
+      }
+    ],
+    "selectedArea": {
+      "uuid": "c79e273f-3afb-4b82-a872-e24240230de8",
+      "name": "Samae Dam",
+      "fill": "none",
+      "outline": "#65B6DB",
+      "widthPx": 3,
+      "sourcePointsShown": 19,
+      "basemapsChecked": [
+        "Simplified",
+        "Detailed",
+        "Satellite"
+      ],
+      "satellitePeriod": "2021"
+    },
+    "brandSelector": {
+      "fuel": 11,
+      "grocery": 16,
+      "nonbank": 10,
+      "nativeOriginalGraphicSizePx": 44,
+      "adjacentNames": true,
+      "noAddedFrame": true,
+      "lotusFirstFormat": "HYPERMARKET",
+      "nonbankDarkThemeFallback": "Saksiam"
+    },
+    "relativeSupply": {
+      "freshBangchakConfirmed": 987,
+      "populationDraftConfirmed": 873,
+      "newlyQualifying": 5,
+      "removed": 119,
+      "ranksChanged": 863,
+      "privateDraftOnly": true,
+      "blankPauses": true,
+      "preciseFieldAndNativeSlider": true
+    },
+    "typography": {
+      "desktopDetailSingleColumn": true,
+      "headingsNotSqueezed": true,
+      "actualThaiAndEnglishReviewed": true
+    }
+  },
+  "screenshots": [
+    "mobile-en-dark.png",
+    "mobile-th-light.png",
+    "brand-fuel-th-light.png",
+    "brand-grocery-th-light.png",
+    "brand-nonbank-th-light.png",
+    "brand-mobile-th-dark.png",
+    "selected-transparent-th-dark.png"
+  ],
+  "limits": [
+    "Not physical iPhone/Safari/Firefox certification",
+    "No native touch or200%zoom certification",
+    "No exhaustive accessibility/contrast certification",
+    "No shared enterprise backend or external delivery implemented",
+    "Final hosted bytes/browser checked separately"
+  ]
+}

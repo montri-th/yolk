@@ -1,12 +1,14 @@
 # เกณฑ์ตั้งต้น Yolk: Fuel, Grocery และ Non-bank
 
+> **สถานะฉบับนี้:** บันทึกเกณฑ์ Demand และผลตั้งต้นแบบนับสาขาของ 1.6 ใช้เป็น baseline ย้อนหลัง ใน 1.7 บริบทแบรนด์ที่เริ่มใหม่ใช้ **สาขาเทียบขนาดตลาด** เป็นหลัก: ปั๊มน้ำมันต่อ GFA 100,000 ตร.ม. และ Grocery/Non-bank ต่อประชากร 10,000 คน ส่วนเกณฑ์นับสาขาที่บันทึกไว้ยังคงเดิม ดู [คู่มือ Supply ปัจจุบัน](SUPPLY_RELATIVE_PROPOSAL.md), [brand presets](BRAND_PRESETS_v1.7.md) และ [implementation plan 1.7](../IMPLEMENTATION_PLAN_v1.7.md) ก่อนพัฒนาต่อ
+
 ฉบับ 3 ตุลาคม 2026 สำหรับเดโมและงานสำรวจทำเล ใช้ข้อมูล CityMETER ที่ดึงจริงวันที่ 3 ตุลาคม 2026 ครบจักรวาลพื้นที่รายงาน 7,954 UUID: แขวงกรุงเทพฯ 180 แห่ง และ อปท.นอกกรุงเทพฯ 7,774 แห่ง รวมพัทยา **ข้อมูลมีจริง แต่เกณฑ์ Grocery/Non-bank ยังเป็นสมมติฐานสำหรับคัดคิวสำรวจ ไม่ใช่เกณฑ์ที่ยืนยันยอดขายหรือผลสินเชื่อแล้ว** Fuel คงค่าที่ผู้ใช้รับไว้ใน criteria v1.4
 
 ไฟล์เครื่องหลักคือ [criteria-proposal.json](../contracts/criteria-proposal.v1.6.json) มี 25 metrics ที่เชื่อมข้อมูลจริง, `datasetId`, `sourceField`, `formulaAST`, หน่วย ตัวหาร grain/cohort ประเภทหลักฐาน และ source period; `runtimeParameterPresets` ให้ค่าเริ่มต้นรายอุตสาหกรรม ส่วน [context-diagnostics.json](../evidence/context-diagnostics.json) มี cutoff จริงจาก snapshot, จำนวนพื้นที่ผ่าน, sensitivity และตัวอย่างพื้นที่จากข้อมูลจริง ตัวอย่างเหล่านี้ไม่มีผลสำรวจหรือยอดธุรกิจที่แต่งขึ้น
 
 ## สิ่งที่ผลลัพธ์หมายถึง
 
-แยก 4 ค่าเสมอ: **Tier** คือความแรง/ความเข้มข้นของ proxy ตาม profile; **Supply pattern** คือมาก/น้อยตามจำนวนจุดและขอบเขตที่เลือก; **evidence coverage** คือข้อมูลที่มีและข้อจำกัด; **rank** คือการเรียงพื้นที่ที่ผ่านแล้ว Tier ไม่ใช่ความมั่นใจเป็นเปอร์เซ็นต์ และสัญญาณ count/density ที่สัมพันธ์กันไม่ใช่หลักฐานอิสระหลายชิ้น
+แยก 4 ค่าเสมอ: **Tier** คือความแรง/ความเข้มข้นของ proxy ตาม profile; **Supply pattern** คือมาก/น้อยตามโหมดที่เลือก—อัตราสาขาต่อขนาดตลาด หรือจำนวนสาขา; **evidence coverage** คือข้อมูลที่มีและข้อจำกัด; **rank** คือการเรียงพื้นที่ที่ผ่านแล้ว Tier ไม่ใช่ความมั่นใจเป็นเปอร์เซ็นต์ และสัญญาณ count/density ที่สัมพันธ์กันไม่ใช่หลักฐานอิสระหลายชิ้น
 
 Yolk ในชุดนี้หมายถึง “ผ่านเกณฑ์บริบท Demand proxy ที่ระบุไว้” ต้องแสดงชื่อแกนให้เห็น: Fuel = สิ่งปลูกสร้าง/กิจกรรม, Grocery = ประชากรทะเบียน/คนงานที่รายงาน, Non-bank = บริบทตลาดบริการจากประชากรทะเบียนอายุ 20–64 ปี **ความต้องการลูกค้าที่วัดจริงยังไม่ทราบทั้งสามอุตสาหกรรม** โดยเฉพาะ Non-bank ไม่ได้วัดความต้องการกู้ คุณสมบัติผู้กู้ ความเดือดร้อนด้านหนี้ หรือความสามารถชำระหนี้
 
@@ -69,7 +71,7 @@ Fuel คง weighted ranking v1.4 (70/20/10) พร้อม interval ของ 
 
 Demand-only diagnostics จาก snapshot ปัจจุบันและ **national cutoff เดียวกัน** (ยังไม่ใช้ Supply/pattern gate): Fuel 1,067 พื้นที่ proxy-high, 2,308 unknown; Grocery 2,859 proxy-high, 1,930 unknown; Non-bank 2,298 service-context proxy-high, 124 unknown จำนวนนี้ไม่ได้หมายถึงสาขาที่ควรเปิด ดู Tier 1/2 ก่อนและใช้ Tier 3 เป็นคิวค้นหาจุดรวมตัวในพื้นที่ใหญ่
 
-เมื่อใช้ strategy เริ่มต้นและความไม่แน่นอนของ source inventory: Fuel มี 915 confirmed strategy matches และ 79 review possibilities; Grocery 1,455 confirmed และ 14 review; Non-bank 37 confirmed และ 1,378 review การจัดพื้นที่ Non-bank ไม่ครบทำให้ชื่อ pattern จำนวนมากยังไม่แน่นอน แต่ยังมี proxy-high และคิวตรวจที่ใช้ได้ ค่า raw-assigned patterns ไม่ใช่ pattern ที่ยืนยันแล้ว ดู [supply-pattern-diagnostics.json](../evidence/supply-pattern-diagnostics.json) สำหรับ counts แยกและ bounds ที่ใช้
+ผล **baseline แบบนับสาขาของ 1.6** เมื่อใช้ strategy เริ่มต้นและความไม่แน่นอนของ source inventory: Fuel มี 915 confirmed strategy matches และ 79 review possibilities; Grocery 1,455 confirmed และ 14 review; Non-bank 37 confirmed และ 1,378 review ตัวเลขนี้ไม่ใช่ค่าเริ่มต้น relative Supply ของ 1.7 การจัดพื้นที่ Non-bank ไม่ครบทำให้ชื่อ pattern จำนวนมากยังไม่แน่นอน แต่ยังมี proxy-high และคิวตรวจที่ใช้ได้ ค่า raw-assigned patterns ไม่ใช่ pattern ที่ยืนยันแล้ว ดู [supply-pattern-diagnostics.json](../evidence/supply-pattern-diagnostics.json) สำหรับ baseline counts แยกและ bounds ที่ใช้
 
 ค่า cutoff จริงแยก grain อยู่ใน `context-diagnostics.json` เปลี่ยน cutoffs ±5 percentile points ทำให้สมาชิกเปลี่ยนอย่างมีนัยสำคัญ จึงต้องแสดงว่าเป็น hypothesis ตัวเลขที่แสดงอาจปัดเพื่ออ่าน แต่ filtering ใช้ค่าจริงไม่ปัด
 

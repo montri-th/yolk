@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "dataset": "CityMETER Yolk native display hierarchy",
+  "acquiredAt": "2026-10-04",
+  "crs": "EPSG:4326",
+  "sourceInventory": "https://landometer.com/api/v2/citymeter-v3/base/info/lv0",
+  "sourceProvinceInventoryTemplate": "https://landometer.com/api/v2/citymeter-v3/base/info/lv1/{provinceUUID}",
+  "sourceGeometryTemplate": "https://landometer.com/api/v2/citymeter-v3/grocery/info/geom/{nativeUUID}/{DISTRICT|SUBDISTRICT|MUNICIPALITY}",
+  "runtime": {
+    "index": "data/real/hierarchy-index.json",
+    "district": "data/real/district-boundaries.geojson",
+    "fine": "data/real/fine-boundaries/{twoDigitProvinceCode}.geojson"
+  },
+  "coverage": {
+    "districtCount": 928,
+    "fineCount": 7954,
+    "BKKKhwaengCount": 180,
+    "nonBKKMunicipalityCount": 7774,
+    "provinceCount": 77,
+    "crosswalkStatuses": {
+      "verified_source_polygon_overlap": 7909,
+      "verified_source_multi_district_overlap": 45
+    },
+    "bboxFallbackCount": 0,
+    "sourceErrors": 0
+  },
+  "projection": {
+    "sourceSnapshotsImmutable": true,
+    "rawSourceInvalidGeometryRepaired": {
+      "DISTRICT": 6,
+      "SUBDISTRICT": 47,
+      "MUNICIPALITY": 3770
+    },
+    "repairPolicy": "Shapely 2.1.2 make_valid on invalid source; retain polygonal components; exclude zero-area collapsed linework",
+    "districtDisplaySimplificationToleranceDegrees": 0.0006,
+    "fineDisplaySimplificationToleranceDegrees": 0.00015,
+    "preserveTopology": true,
+    "postSimplificationValidityGate": "If simplified geometry is invalid, retain valid unsimplified polygonal source projection",
+    "allPublishedDisplayGeometriesValid": true
+  },
+  "crosswalk": {
+    "districtCrosswalkMethod": "native_source_polygon_overlap",
+    "overlapAreaCalculation": "Planar EPSG:4326 polygon area ratio, used only for display hierarchy; not surveyed surface area.",
+    "districtLinkMinimumFineAreaShare": 0.005,
+    "districtLinkThresholdPurpose": "Display hierarchy; exclude sub-0.5% source-boundary slivers. Not statutory affiliation."
+  },
+  "semanticLimits": [
+    "Source polygons are display evidence, not independently checked legal boundaries or a survey.",
+    "Boundary vintage is unavailable; retrieval date is not boundary revision date.",
+    "A municipality can link to multiple districts. Do not duplicate its source metrics into summed totals.",
+    "Country district colour summarizes linked fine-location results; it is not a recalculated district demand percentile.",
+    "Fine metrics, denominators and the existing national 7954 UUID universe remain unchanged."
+  ],
+  "boundaryVintage": null,
+  "legalBoundaryIndependentlyVerified": false,
+  "nativeMVTAlternative": {
+    "urlTemplate": "https://landometer.com/api/v2/citymeter-v3/base/mvt/{D|S|ML}/{z}/{x}/{y}",
+    "layerNames": [
+      "base-D",
+      "base-ML"
+    ],
+    "properties": [
+      "id",
+      "code",
+      "nameTh",
+      "nameEn",
+      "tileType"
+    ],
+    "tileExtent": 4096,
+    "corsVerifiedOrigin": "https://montri-th.github.io",
+    "z0NotComplete": {
+      "districtFeatures": 896,
+      "MLFeatures": 4953
+    },
+    "runtimeUsed": false
+  },
+  "files": {
+    "districtBytes": 6701538,
+    "fineTotalBytes": 30382054,
+    "fineMaxFileBytes": 1175076,
+    "fineMaxFile": "30.geojson",
+    "indexBytes": 3775588,
+    "districtSha256": "ba2da7ebf176d7741814a0d36e39355ec28d58939cd1fb2de0b808f4d97cf79c",
+    "indexSha256": "be66500bea42d90d68da402ef2badae46df3a1962d583cd5944ea7152b37a2ef",
+    "sourceAcquisitionSha256": "9b5767c1748820b2187b4cc890d8c466dea9ad3633ed0d484f6fd499029ecb64"
+  },
+  "sourceRights": "Owner-requested CityMETER projection; independent open license not asserted",
+  "validationPassed": true
+}

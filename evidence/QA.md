@@ -1,4 +1,23 @@
-# Yolk 1.6.1 — public QA boundary
+# Yolk — public QA boundary
+
+## Current release: 1.7.0 · 4 October 2026
+
+The current preview retains the exact source snapshot values and national Demand cutoffs. New brand contexts start with relative Supply; saved count-mode criteria/drafts remain count mode until explicitly changed. Geometry coverage now includes928 districts and all7,954 reporting UUIDs. One persistent map supports all5 main routes; selected fine areas have **no interior fill**, so the basemap remains visible.
+
+| Current check | Actual scope |
+|---|---|
+| Runtime regressions | **126 checks passed**: core30, brand13, photos28, map20, paired controls12, asynchronous save context9, relative Supply14. Core30 intentionally checks the preserved count baseline; relative Supply14 separately checks37 default and66 alternate brand/scope contexts ×7,954 areas. See [bounded receipt](release-checks-v1.7.json). |
+| Compact brand identity | 34 of37 brands have verified official compact originals;34 usable in light and33 in dark. COSMO, PURE and Lawson108 use neutral icon/name; Saksiam also falls back in dark. Sources, hashes, native dimensions and theme variants are in the [runtime manifest](../prototype/data/brand-logos.v1.7.json). No crop, redraw, recolour or added frame. |
+| Native browser review | Chrome at320×740,390×844,768×1024 and1440×900; actual TH/EN light/dark layouts, accessible map options/Escape, source polygon drill-down, retained map across5 routes, selected transparent outline, and logos for3 industries. [Receipt and gallery](browser-v1.7/browser-qa.json). |
+| Source geometry | 928 districts +7,954 fine polygons are valid after disclosed repair/simplification;7909 UUIDs have one district parent and45 have multiple parents. This is a view crosswalk, not a statutory boundary decision. Source model metric areas remain unchanged. |
+| Design authority | LDS0.9.7 package/source integrity was verified at9,768 checks; static artifact colour checks and rendered review are separate, bounded checks. Package validation is not whole-product accessibility certification. The full dependency static scan retains inherited Leaflet/UI compositing findings; see [actual scope](ds-artifact-scope-v1.7.md). |
+| Publication | The manifest/source/privacy/dependency check is run after sealing. Exact provider commit success, live bytes and final live browser review are recorded separately after deployment. |
+
+For fresh default contexts, relative Supply gives confirmed/review results: Bangchak **987/64**, Seven-Eleven C_STORE **1779/30**, MTC **28/1194**. Demand proxy-high remains1067/2859/2298. These are reproducible screening outcomes, not purchases, traffic, lending propensity or sales. MTC uses an explicit1-per10,000-person exploratory fallback because there are no exact positive source-count rows meeting the calibration sample conditions; uncertain assignments remain intervals.
+
+Physical iPhone/Safari/Firefox, native touch,200% zoom, exhaustive accessibility/contrast and shared server workflows are still not certified. This public preview uses browser-local state, not shared enterprise authentication, real team delivery or live Sheets sync.
+
+## Historical evidence: 1.6.1
 
 UX1.6.1 adds a persistent criteria map, paired range/exact controls and UUID-based area/rank comparisons. All runtime real-data JSON, accepted industry profiles, criteria proposal, parameter presets and metric definitions remain byte-identical to published commit12d1d030. Fonts, logo, analytical colours and icons remain LDS0.9.7 assets.
 

@@ -1,0 +1,592 @@
+{
+  "schemaVersion": "yolk.workspace-map/1.0",
+  "documentId": "yolk.persistent_workspace_map",
+  "version": "1.7.0",
+  "createdOn": "2026-10-04",
+  "status": "implemented_static_preview; source_projection_frozen; browser_and_production_gates_separate",
+  "humanGuide": "docs/PERSISTENT_MAP_v1.7.md",
+  "authority": {
+    "controller": "prototype/workspace-map.js",
+    "integration": "prototype/app.js:render/queueImpact/updateImpact",
+    "shell": "prototype/index.html",
+    "mapStyles": "prototype/workspace-map.css",
+    "layoutStyles": "prototype/workspace-layout.css",
+    "criteriaModel": "prototype/model.js",
+    "sourceScope": "prototype/industry-workspace.js",
+    "brandContract": "contracts/brand-experience.v1.7.json",
+    "sourceData": {
+      "provinceContext": "prototype/data/real/province-boundaries.geojson",
+      "areaMetrics": "prototype/data/real/area-context.json",
+      "sourceGeometry": "prototype/data/real/source-geometries.json",
+      "points": "prototype/data/real/{industry}-points.json",
+      "hierarchyIndex": "prototype/data/real/hierarchy-index.json",
+      "districtGeometry": "prototype/data/real/district-boundaries.geojson",
+      "fineGeometry": "prototype/data/real/fine-boundaries/{provinceCode}.geojson",
+      "boundaryProvenance": "prototype/data/real/boundary-provenance.v1.7.json"
+    },
+    "DS": {
+      "version": "0.9.7",
+      "baseSHA256": "d3085cbc0a50195f1cbf0c77b1d77c0d19b84364daf2948eb367348d65432d96",
+      "locationProfileSHA256": "5d4856041709735d3a04d4a510a88b551df86c211fdcab8a0707e8fe7c9efc3b"
+    }
+  },
+  "architecture": {
+    "host": "#workspace-map",
+    "panel": "#workspace-map-panel",
+    "content": "#content",
+    "hostLifetime": "Map host/panel remain outside route-rendered #content. One Leaflet map instance per loaded page.",
+    "mount": "Reentrant mount uses existing instance; invalidate size and sync overlays instead of destroying/recreating map.",
+    "viewport": "Keep center and zoom across menu/criteria/language/theme changes. Explicit navigate/back/home/focus may fit or setView; ordinary sync never refits.",
+    "persistenceLimit": "Viewport and map-layer toggles are in-memory within this loaded page, not a saved cross-reload map session.",
+    "stateSeparation": "Viewport, focused feature, visual layers and basemap are personal view state. Applied criteria and POI data require their separate explicit commit action."
+  },
+  "responsive": {
+    "desktopMinWidth": 1100,
+    "desktop": {
+      "mainLayout": "grid map-left and content-right",
+      "contentColumn": "minmax(380px,440px)",
+      "height": "100dvh minus72px header",
+      "contentScroll": "independent overflow:auto",
+      "map": "fills remaining main workspace width and height"
+    },
+    "narrow": {
+      "maxWidth": 1099,
+      "mainLayout": "map above vertically scrolling content",
+      "mapPosition": "sticky top0",
+      "mapHeight": "360px at401-1099px;320px at<=400px. workspace-layout.css loads after the component stylesheet.",
+      "content": "document scroll with bottom-nav clearance",
+      "caveat": "Check computed box sizes in actual browser; CSS declarations alone are not a visual acceptance pass."
+    },
+    "interaction": [
+      "mouse pan/zoom",
+      "touch pan/zoom",
+      "keyboard province activation",
+      "keyboard focus outlines",
+      "range slider and exact numeric input in criteria",
+      "explicit hierarchy drill and back",
+      "translated breadcrumb/navigation labels"
+    ],
+    "renderReview": [
+      "Thai",
+      "English",
+      "light",
+      "dark",
+      "narrow phone",
+      "desktop",
+      "provider unavailable"
+    ]
+  },
+  "routeViews": [
+    {
+      "route": "market",
+      "criteria": "applied",
+      "areas": "Hierarchy choropleth for selected criteria strategy: country districts; province/district fine reporting areas.",
+      "points": "none by default",
+      "content": "national locations, province selection, search and ranking",
+      "hierarchy": "Current navigation persists across routes; opening a specific place/branch is an explicit fine-area focus action."
+    },
+    {
+      "route": "targets",
+      "criteria": "applied",
+      "areas": "nonarchived targets in current criteria context, whether or not currently eligible",
+      "points": "none by default",
+      "content": "shortlist ownership/status/notes",
+      "hierarchy": "Current navigation persists across routes; opening a specific place/branch is an explicit fine-area focus action."
+    },
+    {
+      "route": "supply",
+      "criteria": "applied",
+      "areas": "current selected map layer at detailed zoom",
+      "points": "Only at selected fine-area level: applicable valid source/local-overlay POIs with original coordinates and route filters. No coarse-level blanket pins.",
+      "content": "branch inventory and CRUD",
+      "hierarchy": "Current navigation persists across routes; opening a specific place/branch is an explicit fine-area focus action."
+    },
+    {
+      "route": "criteria",
+      "criteria": "draft if valid",
+      "areas": "six selectable before/after layers",
+      "points": "none by default",
+      "content": "criteria controls, draft impact and explicit Apply",
+      "hierarchy": "Current navigation persists across routes; opening a specific place/branch is an explicit fine-area focus action."
+    },
+    {
+      "route": "place",
+      "criteria": "applied",
+      "areas": "focused area polygon or explicitly dashed source extent; other current-layer areas at detailed zoom",
+      "points": "Only at selected fine-area level: applicable valid source/local-overlay POIs with original coordinates and route filters. No coarse-level blanket pins.",
+      "content": "demand/supply evidence and place work",
+      "hierarchy": "Current navigation persists across routes; opening a specific place/branch is an explicit fine-area focus action."
+    },
+    {
+      "route": "poi",
+      "criteria": "applied",
+      "areas": "current selected map layer at detailed zoom",
+      "points": "Only at selected fine-area level: applicable valid source/local-overlay POIs with original coordinates and route filters. No coarse-level blanket pins.",
+      "content": "branch editor and independent photo drafts",
+      "hierarchy": "Current navigation persists across routes; opening a specific place/branch is an explicit fine-area focus action."
+    },
+    {
+      "route": "feed",
+      "criteria": "applied",
+      "areas": "Referenced reporting areas constrained by current navigation and selected industry; unverified parent links remain disclosed.",
+      "points": "Only at selected fine-area level: applicable valid source/local-overlay POIs with original coordinates and route filters. No coarse-level blanket pins.",
+      "content": "workspace activity may include multiple brands; event open restores its context",
+      "hierarchy": "Current navigation persists across routes; opening a specific place/branch is an explicit fine-area focus action."
+    },
+    {
+      "route": "inbox",
+      "criteria": "applied",
+      "areas": "Referenced reporting areas constrained by current navigation and selected industry; unverified parent links remain disclosed.",
+      "points": "Only at selected fine-area level: applicable valid source/local-overlay POIs with original coordinates and route filters. No coarse-level blanket pins.",
+      "content": "recipient-specific local notifications",
+      "hierarchy": "Current navigation persists across routes; opening a specific place/branch is an explicit fine-area focus action."
+    },
+    {
+      "route": "team",
+      "criteria": "applied",
+      "areas": "current strategy context retained",
+      "points": "none by default",
+      "content": "team members and roles",
+      "hierarchy": "Current navigation persists across routes; opening a specific place/branch is an explicit fine-area focus action."
+    }
+  ],
+  "draftComparison": {
+    "before": "evaluate(Y.criteria), eligible IDs in current brand+scope context",
+    "after": "evaluate(draft) only on criteria route; otherwise same applied evaluator",
+    "layers": [
+      {
+        "id": "eligible",
+        "meaning": "eligible after rows"
+      },
+      {
+        "id": "baseline",
+        "meaning": "eligible applied/before rows"
+      },
+      {
+        "id": "added",
+        "meaning": "after eligible minus before eligible"
+      },
+      {
+        "id": "removed",
+        "meaning": "before eligible minus after eligible"
+      },
+      {
+        "id": "review",
+        "meaning": "reviewCandidate or Demand unknown"
+      },
+      {
+        "id": "rank",
+        "meaning": "after eligible also present before whose eligible rank changed"
+      }
+    ],
+    "displayedCounters": [
+      "after matches in current navigation",
+      "new matches in current navigation",
+      "removed matches in current navigation",
+      "changed eligible ranks in current navigation"
+    ],
+    "layerReset": "On leaving criteria or entering another noncriteria route, return to eligible; target/activity routes choose their contextual rows.",
+    "invalidDraft": "Retain last valid map result with explicit invalid-criteria status; never render empty evaluation as0 demand/0 matches.",
+    "eligibilityVsRanking": "Weight-only changes may reorder existing eligible IDs but must not change Demand/tier/pattern/eligible membership.",
+    "apply": "One valid explicit Apply commits a changed criteria revision and one event. Map gestures and preview do not call emitEvent.",
+    "navigationCounts": "Evaluate the fixed national context first, then filter/distinct fine UUIDs by current navigation for counts/layers. A smaller map view never rebases percentile cutoffs or creates an aggregate district Demand score."
+  },
+  "visualSemantics": {
+    "role": "li.demand",
+    "classCount": 3,
+    "tierToClass": {
+      "1": 3,
+      "2": 2,
+      "3": 1
+    },
+    "tokenBindings": {
+      "class1": "--ldm-location-scale-li-demand-light-class-3-1",
+      "class2": "--ldm-location-scale-li-demand-light-class-3-2",
+      "class3": "--ldm-location-scale-li-demand-light-class-3-3"
+    },
+    "theme": "Identical approved analytical HEX in light/dark. Meaning and direction unchanged; labels/neutral backplates/borders aid readability.",
+    "neutral": "No confirmed qualifying match in this view, not measured Demand0.",
+    "unresolved": "Separate status, dashed cues and counts at the current hierarchy grain. Counts summarize reporting areas and are not POI coordinates.",
+    "opacity": "Country/province/district analytical choropleth layers use fillOpacity1/opacity1 with exact native HEX. The selected location view is a selection outline, fill=false, not a transformed analytical fill. Basemap image treatment stays only on tile pane.",
+    "geometry": {
+      "polygon": "Only source/verified Polygon or MultiPolygon from available source geometry; not independent statutory boundary certification.",
+      "extent": "Finite ordered EPSG:3857 source extent converted to geographic view bounds; dashed and unfilled. It is not an area boundary or eligibility join.",
+      "detailedZoom": "Navigation level, not arbitrary zoom, controls choropleth grain: country districts; province/district source fine polygons; selected location adds O/C/U.",
+      "focus": "Explicit focus may use polygon bounds or source extent; unavailable geometry must retain an honest label.",
+      "POIJoin": "Source-assigned fine reporting UUID and original coordinates remain separate evidence. Unassigned valid coordinates may be shown when inside the selected source display polygon by a view predicate only. Keep original areaId unassigned; do not alter aggregate membership, official allocation or administrative evidence."
+    },
+    "markers": {
+      "own": {
+        "glyph": "O",
+        "meaning": "Our stores"
+      },
+      "competitor": {
+        "glyph": "C",
+        "meaning": "Competitors"
+      },
+      "unverified": {
+        "glyph": "U",
+        "meaning": "Unverified/to verify; not confirmed unbranded station or verified product/function"
+      },
+      "labels": "Keep text/title/accessible labels, not color alone."
+    },
+    "choroplethColor": "Best confirmed qualifying Yolk tier among displayed fine-area rows at the current hierarchy grain. Country renders district summaries; province and district render fine areas. It is not a percentile, weighted ranking, measured demand or investment score for the polygon.",
+    "metricId": "yolk.demand_proxy_tier",
+    "unit": "ordinal criteria tier",
+    "exactHEX": {
+      "Tier3": "#F1F5E5",
+      "Tier2": "#60C9AD",
+      "Tier1": "#25659A"
+    },
+    "selectedFineFill": false,
+    "selectedFineView": {
+      "interior": "Transparent: fill=false for selected fine-location view; retain basemap visibility.",
+      "cue": "Highlight verified boundary/label/tier status only; no muted data-fill opacity.",
+      "coarseChoropleth": "Country district and province/district fine-area choropleths retain native exact full-opacity analytical colours."
+    }
+  },
+  "basemaps": {
+    "default": "simplified",
+    "selection": [
+      "simplified",
+      "satellite",
+      "detailed"
+    ],
+    "instanceAndViewport": "Changing basemap replaces only the tile layer and preserves instance/center/zoom.",
+    "simplified": {
+      "provider": "OpenStreetMap",
+      "template": "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "presentation": "Muted/grayscale tile pane; separate light/dark visual treatment; analytical overlays unchanged."
+    },
+    "detailed": {
+      "provider": "OpenStreetMap",
+      "template": "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "presentation": "Detailed road/name tiles; dark visual treatment restricted to tile pane.",
+      "attribution": "https://www.openstreetmap.org/copyright"
+    },
+    "satellite": {
+      "provider": "ESA WorldCover / Copernicus Sentinel-2 2021 via Terrascope",
+      "year": 2021,
+      "resolutionMeters": 10,
+      "layer": "esa-worldcover-s2rgbnir-10m-2021-v2_tcc",
+      "nativeMaxZoom": 14,
+      "displayMaxZoom": 19,
+      "endpoint": "https://wmts.terrascope.be/wmts",
+      "attribution": "https://docs.terrascope.be/Developers/WebServices/OGC/WMTSv2.html",
+      "limitation": "Historical contextual imagery, not present-day parcel/entrance/operation evidence. Higher display zoom does not add source detail."
+    },
+    "provinceContextAttribution": "https://www.geoboundaries.org/",
+    "providerAvailability": "External network-dependent tiles; failure does not invalidate available evidence overlays and is not interpreted as absence."
+  },
+  "focusAndForms": {
+    "explicitFocusActions": [
+      "select_hierarchy_feature",
+      "open_place_detail",
+      "open_existing_branch_editor",
+      "fit_selection",
+      "show_nationwide",
+      "navigate_hierarchy",
+      "back_to_parent"
+    ],
+    "routeFocus": "New place/POI detail may explicitly navigate to its verified fine-area context and focus once. Repeated same detail render never repeatedly refits; unavailable parent links do not invent a hierarchy.",
+    "asyncFocus": "Capture focus ticket + criteriaContextKey + route before awaiting source points. Abort stale requests after any changed captured state.",
+    "cancellation": [
+      "new focus request",
+      "home",
+      "area focus",
+      "map drag"
+    ],
+    "formRetention": "Same route hash and criteria context rerender captures/restores text/select values, province selector, focused field and text selection.",
+    "formScopeLimit": "Do not carry a form draft into a different route/context/branch. Photo module holds its own local draft state; file input value is not reconstructed.",
+    "mutations": "Pan/zoom, layer toggle, basemap change and selecting/focusing a feature do not mutate applied criteria, source aggregates or POI records; no team event.",
+    "productionGate": "Server optimistic-lock protection and mutation authorization remain separate from visual form restoration.",
+    "asyncPOISave": "Capture contextKey, route, record ID and revision before awaiting photo processing; verify all again before mutation. On stale completion abort without old-context mutation, event, or replacing/rolling back current-context POIs."
+  },
+  "dataAndFailureStates": {
+    "fixedCohort": {
+      "id": "national_7954",
+      "count": 7954,
+      "BKKKhwaeng": 180,
+      "upcountryLAO": 7774
+    },
+    "mapFilterDoesNotRecomputeQuantiles": true,
+    "loading": "Retain viewpoint and hierarchy with explicit switching-data status; clear stale source labels/results while context changes.",
+    "loadError": "Clear old-brand result layers, neutral/dashed province context and industry-unavailable status; never describe old data as new selected context.",
+    "pointError": "Say inventory unavailable; do not infer zero branches.",
+    "geometryError": "Use explicitly labeled available source extent; do not invent polygon.",
+    "provinceError": "Keep available place/pin context with explicit province-boundary error.",
+    "tileError": "Keep data overlays and explicit basemap failure status.",
+    "zeroUnknown": "Observed zero is distinct from missing/suppressed/not-applicable/unverified/invalid.",
+    "unknownSupply": "Preserve model possiblePatterns/intervals and scope uncertainty, never turn into0.",
+    "parentCrosswalkError": "Keep unmatched areas/pins explicitly unresolved; do not allocate them to a district using a name or extent.",
+    "districtGeometryError": "Show available navigation/list evidence and a source-geometry limitation; do not fall back silently to province grain."
+  },
+  "renderLimits": {
+    "pointsPerView": 1000,
+    "areasPerView": 350,
+    "meaning": "Display caps after viewport/context filtering, not inventory totals.",
+    "disclosure": "Shown/available counts and pin cap near map; zoom/filter to inspect fewer records.",
+    "productionDirection": "For larger point inventory use verified server spatial queries or clustering with disclosed counts; do not fabricate point positions."
+  },
+  "acceptance": [
+    {
+      "id": "MAP-01",
+      "assertion": "One Leaflet instance survives all menu and repeated mount calls; viewport is not refit by ordinary sync."
+    },
+    {
+      "id": "MAP-02",
+      "assertion": "Criteria draft map equals model before/after eligible sets; invalid draft is paused with message; Apply stays explicit."
+    },
+    {
+      "id": "MAP-03",
+      "assertion": "All77 province outline codes,928 native district polygons and7,954 fine reporting UUIDs reconcile; choropleth uses current hierarchy grain and exact li.demand classes across themes."
+    },
+    {
+      "id": "MAP-04",
+      "assertion": "Real polygon and source extent distinguish solid/dashed; no centroid/extent used to fabricate POI or legal membership."
+    },
+    {
+      "id": "MAP-05",
+      "assertion": "Supply tab/brand/search/area filters and O/C/U visibility affect actual valid viewport pins; cap and counts disclosed."
+    },
+    {
+      "id": "MAP-06",
+      "assertion": "Context switch loading/error does not show stale own/competitor labels or describe old data as new."
+    },
+    {
+      "id": "MAP-07",
+      "assertion": "Late focus cannot move map after navigation/brand change/drag/new focus; same-form rerender preserves text and cursor."
+    },
+    {
+      "id": "MAP-08",
+      "assertion": "Basemap changes keep viewport; satellite year/resolution/native zoom and provider attribution explicit."
+    },
+    {
+      "id": "MAP-09",
+      "assertion": "Map gestures and preview produce no criteria/POI mutation, analytical recomputation of national cohort or team event."
+    },
+    {
+      "id": "MAP-10",
+      "assertion": "Review actual TH/EN mobile/desktop light/dark rendering, sticky visibility, popup near edges, keyboard/touch focus and errors."
+    },
+    {
+      "id": "MAP-11",
+      "assertion": "Country choropleth grain is district; province/district grain is verified fine reporting areas; selected fine area exposes relevant original-coordinate O/C/U points."
+    },
+    {
+      "id": "MAP-12",
+      "assertion": "Hierarchy inclusion and district tier summaries use verified parent IDs/crosswalk, not names/bbox/centroids; nationwide cohort and cutoffs remain unchanged."
+    },
+    {
+      "id": "MAP-13",
+      "assertion": "Drill/back/breadcrumb/personal navigation do not emit team events; ordinary route/criteria sync preserves current hierarchy and viewport."
+    },
+    {
+      "id": "MAP-14",
+      "assertion": "Record exact district/fine polygon and parent-crosswalk coverage. Missing geometry is visible; never claim complete geometry from complete metric rows."
+    },
+    {
+      "id": "MAP-15",
+      "assertion": "Selected location interior is transparent (fill=false); boundary/label/status and O/C/U remain visible over basemap. Coarse ordinal analytical choropleths stay native exact/full-opacity."
+    },
+    {
+      "id": "MAP-16",
+      "assertion": "Unassigned coordinate-in-source-polygon matches are view-only; source assignment and supply aggregates remain unchanged. Photo-await stale completions cannot mutate another context."
+    }
+  ],
+  "verification": {
+    "modelAdapterCommand": "node scripts/check-workspace-map.cjs",
+    "complementaryCommands": [
+      "node scripts/check-brand-presets.cjs",
+      "node scripts/check-three-industry.cjs",
+      "node scripts/check-photo-runtime.cjs"
+    ],
+    "scope": "Model/source and local DOM/Leaflet-adapter assertions do not prove actual browser pan/touch, label fit or external tile availability.",
+    "browserEvidence": "Attach actual release review evidence; this contract does not claim visual or production acceptance by itself."
+  },
+  "productionRemaining": [
+    "map view preferences across reload/accounts",
+    "server spatial fetch and scalable clustering",
+    "source refresh/verified geometry coverage",
+    "tenant RBAC/optimistic locking",
+    "shared criteria/events/outbox",
+    "actual operational-demand calibration",
+    "verified hierarchical geometry and crosswalk coverage where missing",
+    "operational freshness and fine-area POI assignment review",
+    "native MVT/spatial tiling optimization if approved; current runtime uses local GeoJSON and no z0 completeness claim"
+  ],
+  "claimLimit": "Location-context screening and team workflow, not measured customers/sales/borrowing, parcel feasibility or permission to open a branch.",
+  "hierarchy": {
+    "status": "Implemented controller with source projection frozen on2026-10-04; automated model/geometry results and browser review are separate evidence.",
+    "levels": [
+      "country",
+      "province",
+      "district",
+      "location"
+    ],
+    "country": {
+      "choroplethGrain": "district",
+      "click": "Click a district polygon to open its verified parent province; country choropleth remains district-grain."
+    },
+    "province": {
+      "choroplethGrain": "fine reporting areas",
+      "click": "Select the verified parent district and drill into it."
+    },
+    "district": {
+      "choroplethGrain": "fine reporting areas",
+      "click": "Select one available fine reporting area."
+    },
+    "fineAreaDefault": {
+      "BKK": "khwaeng",
+      "upcountry": "LAO / municipality reporting area",
+      "scope": "Use the existing reporting UUID grain. Optional administrative subdistrict views require an explicit crosswalk; do not equate a LAO with a tambon."
+    },
+    "districtAggregation": "Best confirmed eligible fine-area qualifyingTier among displayed rows with a verified parent district crosswalk. This is a summary of screened fine areas, not a newly evaluated district or a district percentile.",
+    "parentAssignment": "Use source parent IDs/codes or a verified, provenance/versioned spatial-intersection crosswalk. Support multi-district reporting areas explicitly. Never infer parents from names, municipality code parsing, bbox, centroid or viewport visibility.",
+    "finePOIGate": "Only selected location view shows relevant O/C/U records. Include source-assigned fine UUIDs and unassigned valid coordinates that pass the actual-source-polygon view predicate, explicitly view-only. Existing branch editor may focus one original coordinate with boundary-unresolved label; never invent an area UUID.",
+    "coverage": "928 native district polygons; 7,954 native fine reporting polygons in77 province files. All fine reporting UUIDs have a source polygon-overlap display crosswalk;45 relate to multiple districts. Coverage does not certify statutory boundary, vintage or independent open licence.",
+    "missingGeometry": "Keep an explicit unavailable-geometry message and available list navigation. A dashed source extent is a fit aid only, never a substitute administrative boundary.",
+    "location": {
+      "view": "Selected fine area and its verified source geometry or labelled source extent; then show relevant O/C/U records with usable original coordinates."
+    },
+    "countPolicy": "Reporting UUID is the national count key. Multi-district membership can appear in more than one district summary; dedupe by fine reporting UUID for national/province counts. Never sum district relation edges as national area count.",
+    "crosswalkMethod": {
+      "source": "native source polygon overlap",
+      "calculation": "Planar EPSG:4326 polygon area ratio; display relationship only, not surveyed area",
+      "minimumFineAreaShare": 0.005,
+      "multiDistrict": "Retain every district meeting the threshold; offer explicit district choice, never collapse to a municipality-code guess",
+      "limit": "Not statutory affiliation; boundary vintage and legal status are not independently verified"
+    }
+  },
+  "api": {
+    "mount": "mount({onProvince,onArea,onPoi,onNavigate}) reuses the existing instance. onNavigate(path) receives the actual navigation path; legacy onProvince is used only if onNavigate is absent.",
+    "sync": "sync() updates current navigation/context layers without generic refit.",
+    "navigate": {
+      "signature": "navigate(path, {fit:true, notify:true})",
+      "path": {
+        "level": "country | province | district | location",
+        "provinceCode": "optional source province code",
+        "districtId": "optional source/crosswalk district identifier",
+        "districtName": "optional district label; not an identity join key",
+        "areaId": "optional fine reporting UUID"
+      },
+      "meaning": "Explicit hierarchy/view action. Use actual source IDs and verified crosswalk; retain multi-district membership."
+    },
+    "back": "back() explicitly moves to the parent hierarchy view.",
+    "getNavigation": "getNavigation() returns {level, provinceCode, districtId, districtName, areaId} for the current in-memory view.",
+    "areaMatchesNavigation": "areaMatchesNavigation(areaOrId) uses verified fine reporting/parent crosswalk membership for current navigation.",
+    "navigationLabel": "navigationLabel() uses current TH/EN and the source catalogue; the controller does not require a language argument.",
+    "focusArea": "focusArea(id) opens/fits an available fine reporting area with honest polygon/extent coverage.",
+    "focusPoi": "focusPoi(id) is explicit focus within the applicable fine-area context; stale async tickets abort.",
+    "home": "home() resets to country without itself calling a callback. Home UI/back/breadcrumb use onNavigate; explicit focusArea/focusPoi routes do not emit onNavigate.",
+    "setBasemap": "setBasemap(id) changes only tile layer and preserves current viewpoint.",
+    "setLayer": "setLayer(id) changes before/after/rank visualization without applying criteria.",
+    "poiMatchesNavigation": "poiMatchesNavigation(p) uses assigned fine reporting UUID or validated source districtId; never an extent or inferred point position."
+  },
+  "sourceProjection": {
+    "manifest": "prototype/data/real/hierarchy-index.json",
+    "districtGeometry": "prototype/data/real/district-boundaries.geojson",
+    "fineGeometry": "prototype/data/real/fine-boundaries/{provinceCode}.geojson",
+    "builtAt": "2026-10-04T05:48:17.183908+00:00",
+    "districtNativeRetrieved": 928,
+    "districtInventory": 928,
+    "fineNativeRetrieved": 7954,
+    "fineInventory": 7954,
+    "fineProvinceFiles": 77,
+    "BKKKhwaeng": 180,
+    "upcountryLAO": 7774,
+    "crosswalkSingleDistrict": 7909,
+    "crosswalkMultiDistrict": 45,
+    "crosswalkNoDistrict": 0,
+    "crosswalkRelationEdges": 8001,
+    "crosswalkMinimumFineAreaShare": 0.005,
+    "crosswalkAreaCalculation": "Planar EPSG:4326 polygon area ratio, display hierarchy only; not surveyed surface area.",
+    "displaySimplificationDegrees": {
+      "district": 0.0006,
+      "fine": 0.00015,
+      "exception": "Source components retained unsimplified where a simplified projection would invalidate topology."
+    },
+    "boundaryVintage": null,
+    "legalBoundaryIndependentlyVerified": false,
+    "independentOpenLicenseAsserted": false,
+    "rawArchivePublic": false,
+    "verificationLimit": "Source projection validity/coverage checks passed as recorded in boundary provenance; model/DOM adapter, actual browser review and production evidence remain separate.",
+    "provenance": "prototype/data/real/boundary-provenance.v1.7.json",
+    "geometryValidation": {
+      "publishedValidPolygons": 8882,
+      "bboxFallbackCount": 0,
+      "sourceErrors": 0,
+      "unmatchedFineReportingUUIDs": 0,
+      "passed": true,
+      "scope": "Published source display projection and crosswalk checks, not statutory/vintage/browser certification"
+    },
+    "topologyRepairs": {
+      "sourceSnapshotsImmutable": true,
+      "invalidRawSourceRepaired": {
+        "DISTRICT": 6,
+        "SUBDISTRICT": 47,
+        "MUNICIPALITY": 3770
+      },
+      "method": "Shapely2.1.2 make_valid; retain polygonal components; discard collapsed zero-area linework",
+      "displayValidity": "Topology-preserving simplify, then verify; use valid unsimplified source components if simplify invalidates topology",
+      "metricIsolation": "Do not replace original metric values/base.areaSqm denominators with projected or repaired geometry area."
+    },
+    "payload": {
+      "districtBytes": 6701538,
+      "fineTotalBytes": 30382054,
+      "indexBytes": 3775588,
+      "maxFineProvinceFileBytes": 1175076,
+      "fineLoadPolicy": "Lazy load selected province files; do not preload all77 fine-geometry files."
+    }
+  },
+  "supplyRelative": {
+    "status": "implemented_static_preview_browser_and_production_gates_separate",
+    "document": "docs/SUPPLY_RELATIVE_PROPOSAL.md",
+    "approvedDefaults": {
+      "fuel": {
+        "denominatorMetric": "gfa",
+        "normalization": 100000,
+        "denominatorUnit": "square metres GFA (modeled source value)"
+      },
+      "grocery": {
+        "denominatorMetric": "population",
+        "normalization": 10000,
+        "denominatorUnit": "persons"
+      },
+      "nonbank": {
+        "denominatorMetric": "population",
+        "normalization": 10000,
+        "denominatorUnit": "persons"
+      }
+    },
+    "countMode": "optional; previously saved count contexts remain unchanged until explicit user commit",
+    "relativePolicy": "One adjustable raw source denominator per preset. Independent own/competitor median cutoffs use positive observed exact-count national rates; uncertainty bounds excluded. Minimum-sample fallback must be explicit. Never divide by Demand percentile/rank or silently turn missing into0.",
+    "serializedFields": [
+      "supplyMode",
+      "supplyDenominatorId",
+      "ownRateHigh",
+      "competitorRateHigh",
+      "supplyCalibration"
+    ],
+    "denominatorUnits": {
+      "gfa": 100000,
+      "population": 10000,
+      "working_age_15_64": 10000,
+      "adult_population_20_64": 10000,
+      "factory_workers": 10000,
+      "hotel_rooms": 1000
+    },
+    "minimumNPerRole": 5,
+    "fallbackRate": 1,
+    "fallbackMethod": "hypothesis_insufficient_sample",
+    "calibrationMethod": "median_national_known_positive_exact_rates",
+    "legacyMissingMode": "count",
+    "api": {
+      "seedCriteria": "seedCriteria(c, metricId?)",
+      "countThresholds": "countThresholds(area,c)"
+    },
+    "runtimeModule": "prototype/relative-supply.js",
+    "globalAPI": "YolkRelativeSupply",
+    "runtimeCheck": "node scripts/check-relative-supply.cjs"
+  }
+}

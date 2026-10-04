@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "yolk.share/1.7",
+  "version": "1.7.0",
+  "renderMethod": "Chrome CUA browser JPEG, PNG encoding-only preserving decoded RGB pixels",
+  "viewport": [
+    1200,
+    630
+  ],
+  "fontsObserved": "loaded; Yolk Material Symbols egg_alt; original Arvo/Bai Jamjuree",
+  "visualReview": "Actual 1200x630 screenshot reviewed: all copy visible, official transparent Landometer logo unframed, no motif; egg o visible",
+  "files": [
+    {
+      "path": "design/share-v1.7.html",
+      "bytes": 2298,
+      "sha256": "f233e3a51602626b93c3b84884691098c2fbae5a88ef75fee324c1b1eca67cea"
+    },
+    {
+      "path": "design/yolk-share-v1.7-browser.jpg",
+      "bytes": 40087,
+      "sha256": "2b4a2d66ce5a5cf1471706bbbc403d23dad196b6fc001e1968948281f418e607"
+    },
+    {
+      "path": "prototype/assets/identity/yolk-share-v1.7.png",
+      "bytes": 181665,
+      "sha256": "9ec2b6f560859b001ae00e926cebda40782903da47cc16919243fd2042f553df"
+    }
+  ]
+}

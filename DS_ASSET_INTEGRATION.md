@@ -12,9 +12,9 @@
 | ไอคอน | Material Symbols Rounded FILL0/wght300/GRAD0/opsz; ส่วนต่อขยาย Yolk37glyph เดิม SHA c5b7e050…1aedd พร้อม licence ไม่เรียกว่าชุด canonical ใหม่ |
 | Pattern mapping | Crowded=groups, FOMO=flag, Our Farm=potted_plant, Pioneer=explore, Quiet=bedtime, Their War=swords, Our Island=beach_access, Winter War=ac_unit |
 | Yolk | egg_alt + ชื่อ “ไข่แดง” และข้อความอธิบาย; icon/สีไม่รับรองผลธุรกิจ |
-| Choropleth | heat3class ตาม DS: #FFF6CF / #F5B323 / #C72D10 ช่วง <P95 / P95–<99 / P99–100 สีข้อมูลเดียวกันสองธีม |
+| Choropleth 1.7 | `li.demand`: Tier 3 #F1F5E5 / Tier 2 #60C9AD / Tier 1 #25659A สีข้อมูลเดียวกันสองธีม; ระดับประเทศแสดงอำเภอตาม Tier ดีที่สุดของทำเลที่ยืนยันว่าผ่าน ภายในจังหวัดแสดงแขวง/อปท. เมื่อเลือกทำเลแล้วภายในโปร่งใส ใช้เส้นขอบและข้อความบอก Tier |
 | Metric chart | family5class ใน `assets/yolk-analytical.css` แยกจาก legend แผนที่ |
-| Browser identity | `assets/identity/icon-portfolio-*`, `site.webmanifest`; ภาพแชร์ 1.6 ใช้ composition เดิม พร้อมฟอนต์/สี DS 0.9.7 และชี้ URLสาธารณะจริง |
+| Browser identity | `assets/identity/icon-portfolio-*`, `site.webmanifest`; ภาพแชร์ 1.7 อยู่ที่ `assets/identity/yolk-share-v1.7.png` พร้อมฟอนต์/สี DS 0.9.7 และชี้ URLสาธารณะจริง |
 | Branch photos | 5 mockups เดิมพร้อมmanifest/ที่มา ไม่ใช่รูปสาขาจริง |
 
 ตรวจ full DS packageแล้ว **9,768/9,768 ผ่าน** เป็น package/source/schema/colour projection checks ไม่ใช่การรับรองว่า UI ทุกจุด conform หรือทีม/บัญชีอื่นเปิดใช้แล้ว สถานะ releaseคือ owner-approved unsigned distribution

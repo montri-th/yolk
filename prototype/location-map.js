@@ -7,7 +7,7 @@
   'use strict';
   let instance=null, sequence=0;
   const categories={
-    own:{th:'สาขาเรา',en:'Our branches',symbol:'B'},
+    own:{th:'สาขาเรา',en:'Our stores',symbol:'O'},
     competitor:{th:'คู่แข่ง',en:'Competitors',symbol:'C'},
     unverified:{th:'รอตรวจสอบ',en:'To verify',symbol:'?'},
     factory:{th:'โรงงาน',en:'Factories',symbol:'F'},

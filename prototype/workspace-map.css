@@ -1,0 +1,69 @@
+/* Persistent map shell; exact Yolk Tier HEX and categorical roles come from LDS 0.9.7 tokens. */
+.workspace-map-panel{display:flex;flex-direction:column;min-width:0;min-height:340px;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;--workspace-own:var(--yl-own-ink);--workspace-competitor:var(--yl-rival-ink);--workspace-unverified:var(--warn)}
+.workspace-map-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px 8px;flex-shrink:0}.workspace-map-toolbar h2{font:600 21px/1.4 'Bai Jamjuree',sans-serif;margin:0}.workspace-map-stats{font-size:13px;line-height:1.6;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}.workspace-map-stats strong{font-size:20px;color:var(--ink)}
+.workspace-map-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.workspace-map-actions label{display:grid;gap:2px;font-size:11px;color:var(--muted)}.workspace-map-actions select{max-width:185px;min-height:42px;font-size:14px;padding:5px 8px}.workspace-map-actions button{min-height:44px;min-width:44px;padding:8px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:8px;font:500 13px/1.4 'Bai Jamjuree',sans-serif}.workspace-map-actions .yl-icon{margin:0}
+.workspace-map-poi-layers{display:flex;align-items:center;gap:6px;padding:0 16px 8px;flex-wrap:wrap;flex-shrink:0}.workspace-map-poi-layers button{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:5px 9px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--muted);font-size:12px}.workspace-map-poi-layers button[aria-pressed=true]{background:var(--soft);color:var(--ink);font-weight:600}.workspace-map-poi-layers b{display:inline-grid;place-items:center;min-width:21px;height:21px;border:1px solid currentColor;border-radius:50%;font-size:11px}.workspace-map-poi-layers [data-workspace-poi-layer=own] b{color:var(--workspace-own)}.workspace-map-poi-layers [data-workspace-poi-layer=competitor] b{color:var(--workspace-competitor)}.workspace-map-poi-layers [data-workspace-poi-layer=unverified] b{color:var(--workspace-unverified);border-style:dashed}
+#workspace-map{flex:1;min-width:0;min-height:200px;background:var(--canvas);isolation:isolate}.workspace-map-panel .leaflet-container{font-family:'Bai Jamjuree',sans-serif;background:var(--canvas)}.workspace-map-panel .leaflet-tooltip,.workspace-map-panel .leaflet-popup-content-wrapper{background:var(--paper);color:var(--ink);border:1px solid var(--line)}.workspace-map-panel .leaflet-popup-tip{background:var(--paper)}.workspace-map-panel .leaflet-popup-content{font-size:14px;line-height:1.5}.workspace-map-panel .leaflet-popup-content p{margin:8px 0}.workspace-map-panel .leaflet-control-attribution{font-size:9px;background:var(--paper);color:var(--muted)}.workspace-map-panel .leaflet-bar a{background:var(--paper);color:var(--ink);min-width:36px;min-height:36px}.workspace-map-panel .leaflet-control-attribution a{color:var(--accent)}
+.workspace-map-footer{flex-shrink:0;padding:9px 16px 10px;border-top:1px solid var(--line);background:var(--paper)}.workspace-map-legend{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;font-size:12px;line-height:1.5}.workspace-map-legend span{display:inline-flex;gap:5px;align-items:center}.workspace-map-legend i{width:13px;height:13px;border:1px solid var(--yl-border-strong);display:inline-block;border-radius:2px}.workspace-map-legend .workspace-neutral{background:var(--no-result);border-style:dashed}.workspace-map-footer p{font-size:11px;line-height:1.5;color:var(--muted);margin:4px 0 0}.workspace-map-footer [data-workspace-map-status]:empty{display:none}.workspace-map-panel[aria-busy=true] [data-workspace-map-status]{color:var(--ink)}
+.workspace-poi-marker{background:transparent;border:0}.workspace-pin{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:2px solid currentColor;background:var(--paper);font:600 13px/1 'Bai Jamjuree',sans-serif}.workspace-pin-own{color:var(--workspace-own)}.workspace-pin-competitor{color:var(--workspace-competitor)}.workspace-pin-unverified{color:var(--workspace-unverified);border-style:dashed}.workspace-pin-draft{color:var(--muted);border-style:dashed;border-radius:7px}.workspace-province-badge{background:transparent;border:0}.workspace-province-badge span{display:block;background:var(--paper);border:1px dashed var(--yl-border-strong);color:var(--ink);padding:2px 4px;border-radius:4px;text-align:center;font:500 11px/1.4 'Bai Jamjuree',sans-serif;white-space:nowrap}
+.workspace-map-panel button:focus-visible,.workspace-map-panel select:focus-visible,.workspace-map-panel path:focus-visible,#workspace-map:focus-visible{outline:3px solid var(--yl-focus);outline-offset:2px}
+@media(max-width:999px){.workspace-map-panel{height:340px;min-height:340px;border-radius:10px}.workspace-map-toolbar{padding:8px 10px 4px;gap:8px}.workspace-map-toolbar h2{font-size:16px}.workspace-map-stats{font-size:11px;gap:5px}.workspace-map-stats strong{font-size:17px}.workspace-map-actions{gap:4px}.workspace-map-actions select{font-size:12px;max-width:124px;min-height:38px}.workspace-map-actions button{min-height:38px;min-width:38px;padding:4px}.workspace-map-actions label>span{display:none}.workspace-map-actions [data-workspace-map-focus]{display:none!important}.workspace-map-poi-layers{padding:0 10px 5px;gap:5px}.workspace-map-poi-layers button{min-height:30px;font-size:11px;padding:3px 6px}.workspace-map-footer{padding:6px 10px}.workspace-map-legend{font-size:10px;gap:4px 8px}.workspace-map-footer p{font-size:9px;line-height:1.35;margin-top:2px}.workspace-map-footer [data-workspace-map-note]{display:none}#workspace-map{min-height:145px}.workspace-map-panel .leaflet-control-attribution{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.workspace-map-panel *{scroll-behavior:auto}}
+/* Basemap treatment applies only to tiles; analytical SVG and marker colours stay exact. */
+.workspace-map-panel[data-workspace-basemap=simplified] .leaflet-tile-pane{filter:grayscale(1);opacity:.42}
+html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=simplified] .leaflet-tile-pane{filter:grayscale(1) invert(.9);opacity:.46}
+.workspace-map-panel[data-workspace-basemap=detailed] .leaflet-tile-pane{filter:none;opacity:1}
+html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .leaflet-tile-pane{filter:brightness(.72);opacity:1}
+.workspace-map-panel[data-workspace-basemap=satellite] .leaflet-tile-pane{filter:none;opacity:1}
+@media(max-width:999px){.workspace-map-toolbar{flex-wrap:wrap}.workspace-map-toolbar>div:first-child{flex:1 1 170px}.workspace-map-actions{flex:1 1 210px;justify-content:flex-end}.workspace-map-actions select{max-width:102px}.workspace-map-actions label{flex:0 1 auto}}
+.workspace-map-evidence summary{font-size:12px;line-height:1.5;cursor:pointer;min-height:24px;color:var(--muted)}
+@media(max-width:999px){.workspace-map-legend{font-size:12px;gap:4px 8px}.workspace-map-footer p{font-size:11px}.workspace-map-evidence summary{font-size:11px}.workspace-map-footer{padding:5px 10px}.workspace-map-evidence[open] [data-workspace-map-counts]{max-height:54px;overflow:auto}}
+.workspace-map-breadcrumbs{display:flex;align-items:center;gap:7px;padding:0 16px 8px;flex-wrap:wrap;flex-shrink:0;font-size:13px;line-height:1.5}.workspace-map-breadcrumbs button{border:0;background:transparent;color:var(--accent);font:inherit;min-height:32px;padding:3px 2px;text-decoration:underline;text-underline-offset:3px}.workspace-map-breadcrumbs strong{font-weight:600;color:var(--ink)}.workspace-map-poi-layers[hidden]{display:none}
+@media(max-width:999px){.workspace-map-breadcrumbs{padding:0 10px 4px;gap:5px;font-size:12px}.workspace-map-breadcrumbs button{min-height:30px}}
+.workspace-map-district-choices{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 8px}.workspace-map-district-choices[hidden]{display:none}.workspace-map-district-choices button{border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:8px;min-height:36px;padding:4px 9px;font:inherit;font-size:13px}
+/* Mobile controls reveal over the map; opening them never changes navigation or map extent. */
+.workspace-map-controls-toggle,.workspace-map-title-compact,.workspace-map-stats-compact,.workspace-map-legend-compact,.workspace-map-evidence-compact{display:none}
+@media(max-width:1099px){
+ .workspace-map-panel{min-height:0;position:relative}
+ .workspace-map-toolbar{position:relative;display:flex;flex-wrap:nowrap;align-items:center;gap:8px;padding:0 10px;min-height:44px}
+ .workspace-map-toolbar>.workspace-map-heading{flex:1 1 0;min-width:0}
+ .workspace-map-title-full,.workspace-map-stats-label{display:none}
+ .workspace-map-title-compact,.workspace-map-stats-compact{display:inline}
+ .workspace-map-toolbar h2{font-size:15px;line-height:1.4}
+ .workspace-map-stats{flex-wrap:nowrap;gap:5px;white-space:nowrap;font-size:11px;line-height:1.4}
+ .workspace-map-stats strong{font-size:15px;line-height:1.4}
+ .workspace-map-controls-toggle{display:inline-flex;align-items:center;justify-content:center;gap:5px;flex:0 0 auto;min-height:44px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--ink);font:500 12px/1.25 'Bai Jamjuree',sans-serif}
+ .workspace-map-controls-toggle .yl-icon{font-size:20px;margin:0}
+ .workspace-map-actions.workspace-map-options{display:none;position:absolute;top:calc(100% - 2px);left:10px;right:10px;z-index:1100;max-height:210px;overflow:auto;padding:10px;background:var(--paper);border:1px solid var(--line);border-radius:10px;box-shadow:none}
+ .workspace-map-panel[data-workspace-controls-open=true] .workspace-map-options{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:10px}
+ .workspace-map-options label{display:grid;flex:1 1 130px;min-width:0;gap:4px;font-size:12px}
+ .workspace-map-options label>span{display:block}
+ .workspace-map-options select{width:100%;max-width:none;min-height:44px;font-size:14px}
+ .workspace-map-options button{min-height:44px;min-width:44px;padding:5px 10px;font-size:13px}
+ .workspace-map-options [data-workspace-map-focus]:not([hidden]){display:inline-flex!important;align-items:center}
+ .workspace-map-breadcrumbs{flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;padding:0 10px;gap:5px;min-height:24px;font-size:12px;scrollbar-width:none}
+ .workspace-map-breadcrumbs::-webkit-scrollbar{display:none}
+ .workspace-map-breadcrumbs>*{flex-shrink:0}
+ .workspace-map-breadcrumbs button{min-height:24px;padding:1px 2px}
+ .workspace-map-poi-layers{flex-wrap:nowrap;padding:0 10px;gap:5px;overflow-x:auto}
+ .workspace-map-poi-layers button{min-height:30px;white-space:nowrap;font-size:12px;padding:3px 6px}
+ .workspace-map-poi-layers b{min-width:18px;height:18px;font-size:10px}
+ #workspace-map{min-height:200px}
+ .workspace-map-footer{position:absolute;bottom:0;left:0;right:0;z-index:500;padding:3px 36px 3px 10px;background:var(--paper);border-top:1px solid var(--line);max-height:100px;overflow:auto}
+ .workspace-map-legend{font-size:12px;line-height:1.4;gap:2px 8px;min-height:24px}
+ .workspace-map-legend-full,.workspace-map-evidence-full{display:none}
+ .workspace-map-legend-compact,.workspace-map-evidence-compact{display:inline}
+ .workspace-map-evidence{position:absolute;right:6px;top:3px}
+ .workspace-map-evidence summary{display:flex;align-items:center;justify-content:center;min-width:24px;min-height:24px;list-style:none}
+ .workspace-map-evidence summary::-webkit-details-marker{display:none}
+ .workspace-map-evidence .yl-icon{font-size:18px;margin:0}
+ .workspace-map-evidence[open]{position:static}
+ .workspace-map-evidence[open] summary{position:absolute;right:6px;top:3px}
+ .workspace-map-evidence[open] [data-workspace-map-counts]{max-height:54px;overflow:auto}
+ .workspace-map-legend i{width:10px;height:10px}
+ .workspace-map-evidence summary{font-size:11px;line-height:1.35;min-height:18px}
+ .workspace-map-footer p{font-size:11px;line-height:1.35}
+ .workspace-map-panel .leaflet-bottom{bottom:32px}
+}
+
+.workspace-map-legend .workspace-selected-outline{background:transparent;border:2px solid var(--yl-map-active)}

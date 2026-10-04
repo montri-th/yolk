@@ -23,10 +23,12 @@
     if (input.hasAttribute('data-path-percentile') || /^(buildingP1|buildingP2|activityP|extraP)$/.test(input.dataset.criterion || '')) return 'percentile';
     if (/^activityT[123]$/.test(input.dataset.criterion || '')) return 'hits';
     if (input.hasAttribute('data-weight-scope')) return 'weight';
+    if (input.hasAttribute('data-supply-rate')) return 'rate';
     return 'supply';
   }
 
   function limits(input, type) {
+    if (type === 'rate') return { min: Number(input.min) || 0.001, max: Number(input.max) || 10, step: Number(input.dataset.rangeStep) || 0.01 };
     if (type === 'percentile') return { min: 1, max: 100, step: 1 };
     if (type === 'weight') return { min: 0, max: 100, step: 1 };
     if (type === 'hits') {
@@ -37,12 +39,13 @@
     return { min: Number(input.min) || 1, max: Number(input.max) || 100, step: 1 };
   }
 
-  function display(value, type) {
+  function display(value, type, input) {
     if (!Number.isFinite(value)) return '—';
     const number = String(value);
     if (type === 'percentile') return 'P' + number;
     if (type === 'hits') return number + copy(' ข้อ', ' hits');
     if (type === 'supply') return number + copy(' รายการ', ' records');
+    if (type === 'rate') return Number(value.toFixed(4)) + ' ' + (input?.dataset.rateUnit || copy('สาขา / หน่วยตลาด', 'branches / market unit'));
     return copy('น้ำหนัก ', 'Weight ') + number;
   }
 
@@ -62,10 +65,10 @@
     state.range.step = String(bounds.step);
     state.range.disabled = disabled;
     state.range.setAttribute('aria-label', accessibleLabel(input));
-    state.range.setAttribute('aria-valuetext', display(value, type));
+    state.range.setAttribute('aria-valuetext', display(value, type, input));
     state.range.setAttribute('aria-invalid', String(!Number.isFinite(value) || value < bounds.min || value > bounds.max));
     if (Number.isFinite(value)) state.range.value = String(Math.max(bounds.min, Math.min(bounds.max, value)));
-    state.output.textContent = display(value, type);
+    state.output.textContent = display(value, type, input);
     state.start.textContent = type === 'percentile' ? 'P' + bounds.min : String(bounds.min);
     state.end.textContent = type === 'percentile' ? 'P' + bounds.max : String(bounds.max);
     state.exact.textContent = copy('กรอกค่า', 'Exact value');

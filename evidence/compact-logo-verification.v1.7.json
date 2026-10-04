@@ -1,0 +1,357 @@
+{
+  "schemaVersion": "yolk.compact-logo-verification/1.7",
+  "verifiedAt": "2026-10-04T06:38:37.741449+00:00",
+  "manifest": "prototype/data/brand-logos.v1.7.json",
+  "manifestSha256": "2e94cae3c80656629c05b28edc50e19bc00678f7e88444dbe13ffe4ce10a3b98",
+  "coverage": {
+    "selectorEntries": 37,
+    "verifiedCompactGraphics": 34,
+    "lightUsable": 34,
+    "darkUsable": 33,
+    "namedFallbacks": [
+      "cosmo",
+      "pure",
+      "grocery-brand:LAWSON108"
+    ],
+    "themeOnlyFallbacks": [
+      {
+        "brandId": "legal:0107559000290",
+        "themeSupport": "lightOnly"
+      }
+    ],
+    "originalActiveAssetFiles": 35
+  },
+  "checks": {
+    "exact37SelectorIDs": true,
+    "activeHashesAndLengthsMatched": true,
+    "decodedOriginals": true,
+    "nativeCompactOnly": true,
+    "graphicsOnlyVariants": true,
+    "noCrop": true,
+    "noRedraw": true,
+    "noRecolor": true,
+    "noAddedBackplate": true,
+    "originalAspectRetained": true,
+    "noGeneratedLogos": true,
+    "SVGNoActiveOrExternalContent": true
+  },
+  "scope": "Working contact sheets of original bytes on light/dark canvases and44px contain. Root browser UX proof is separate. Source-native lettering/backgrounds are preserved.",
+  "assets": {
+    "assets/brands/fuel-siam-gas-square-7e78a21eb9.png": {
+      "sha256": "7e78a21eb9979a5e44b2cd83fcae2e32ce8ce79a6b5e96f38c1412e9392eb82e",
+      "bytes": 18540,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/fuel-susco-square-c04da81207.png": {
+      "sha256": "c04da81207298b938b0ca6815def2cecde8dd232ee17fd84f28bb8b6aa90531c",
+      "bytes": 8724,
+      "dimensions": [
+        93,
+        93
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/fuel-unique-gas-square-bece24c9f1.png": {
+      "sha256": "bece24c9f162440f8bb936684c9a2a9f14fbb9a3939eb9c22819dc92ca20eb70",
+      "bytes": 8424,
+      "dimensions": [
+        97,
+        172
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/fuel-world-gas-square-3f2d14b03c.png": {
+      "sha256": "3f2d14b03c56bd74fd5f64ec10c35eb909f79602b02c5adf2d2180204bac5762",
+      "bytes": 26986,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/fuel-world-gas.png": {
+      "sha256": "b24017af42ffda6b5d5edf82f63efe7e7a1a11901d530990f364a02a66f5b1f2",
+      "bytes": 9449,
+      "dimensions": [
+        120,
+        140
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/grocery-grocery-brand-TOOGDEE-square-c8bbae16fd.png": {
+      "sha256": "c8bbae16fde7b6e88fbb72926f72ae436d0b10622e0e2d6b2f10f5901fab725c",
+      "bytes": 15363,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/grocery-grocery-brand-CJ_MORE-square-5721f8ed58.jpg": {
+      "sha256": "5721f8ed58c750b9704bb6c3f301ec40830db1c7f5f454e0fc81c65259431ff7",
+      "bytes": 68376,
+      "dimensions": [
+        1280,
+        1280
+      ],
+      "mime": "image/jpeg"
+    },
+    "assets/brands/grocery-grocery-brand-VILLA_MARKET-square-a47b25ca3c.png": {
+      "sha256": "a47b25ca3c81c98398e2c768f70e4a16d9204e3b4f0254eaf781d450824065b9",
+      "bytes": 719939,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/grocery-grocery-brand-MAXVALU-square-ad52ebb00a.jpg": {
+      "sha256": "ad52ebb00a7f96482b44fdbe95fc6f264c0e33ad5fe6a863287b1d1314c1f1a7",
+      "bytes": 45747,
+      "dimensions": [
+        972,
+        972
+      ],
+      "mime": "image/jpeg"
+    },
+    "assets/brands/grocery-grocery-brand-FOODLAND-square-60845cb070.jpg": {
+      "sha256": "60845cb0703e30f61a3e1a6d4fa72a568725760b86c21c7d6598c730bca35205",
+      "bytes": 7522,
+      "dimensions": [
+        200,
+        200
+      ],
+      "mime": "image/jpeg"
+    },
+    "assets/brands/grocery-grocery-brand-GOURMET_MARKET-square-42e85df78c.png": {
+      "sha256": "42e85df78c3d4082cbd2f040bcd538d69554f323b29cbac75de56b721172d497",
+      "bytes": 21488,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/grocery-grocery-brand-GO_WHOLESALE-square-1a9228b144.png": {
+      "sha256": "1a9228b14421ea61265054cacd212bda88c38e78106f325a5b45df1c54cb07fb",
+      "bytes": 16666,
+      "dimensions": [
+        180,
+        180
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/grocery-grocery-brand-DONKI-square-7cbee15a7b.jpg": {
+      "sha256": "7cbee15a7bff4c1ce08b72b18e7c40685a9104c66291292495f8544fab6dcd9c",
+      "bytes": 25542,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mime": "image/jpeg"
+    },
+    "assets/brands/grocery-grocery-brand-RIMPING-square-fd9b37c27b.jpg": {
+      "sha256": "fd9b37c27b8ba2fb8ccac75f057b0e7350bf4193077749762f5312c06f4e7695",
+      "bytes": 116194,
+      "dimensions": [
+        1667,
+        1667
+      ],
+      "mime": "image/jpeg"
+    },
+    "assets/brands/grocery-grocery-brand-FUJI-square-8de7171d33.png": {
+      "sha256": "8de7171d3351e9174f1c74f25b8376e1b418128172af3e62b6112051e7c7b026",
+      "bytes": 9854,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/fuel-bangchak-square-554c2f65ef.png": {
+      "sha256": "554c2f65ef51964e84b6cabc37827855b25cb6b99f9c05adf552bbfc3eb17d94",
+      "bytes": 6746,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/fuel-ptt-square-1ba7c6ebfa.ico": {
+      "sha256": "1ba7c6ebfaf3fc774c0fb327c3ca1409b78d7bfe3a4310df02abef8c38c9a741",
+      "bytes": 200669,
+      "dimensions": [
+        256,
+        256
+      ],
+      "mime": "image/x-icon"
+    },
+    "assets/brands/fuel-shell-square-55bbd2451e.svg": {
+      "sha256": "55bbd2451ebd8327271311ef92e65c766854602ced336d7d9677acc84607a8e7",
+      "bytes": 1957,
+      "dimensions": [
+        16.0,
+        16.0
+      ],
+      "mime": "image/svg+xml"
+    },
+    "assets/brands/fuel-caltex-square-b85bc225fc.png": {
+      "sha256": "b85bc225fc93e10182211c9f04da5bf43a8a795dfcb6ba91066f93cbfbda95ef",
+      "bytes": 15754,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/grocery-grocery-brand-SEVEN_ELEVEN-square-704286f27b.svg": {
+      "sha256": "704286f27b063dcd83f934a20211615b4f63f5072d31e58edee18ec28e48bfda",
+      "bytes": 41422,
+      "dimensions": [
+        1152.0,
+        1152.0
+      ],
+      "mime": "image/svg+xml"
+    },
+    "assets/brands/grocery-grocery-brand-TOPS-square-e6e51a45ae.png": {
+      "sha256": "e6e51a45ae86612769e16134ee9f70a2bf1087dd320e38340af3bb1aaa890f00",
+      "bytes": 492,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/grocery-grocery-brand-LOTUSS-square-a0dab79cec.ico": {
+      "sha256": "a0dab79cec31c6636d3b64e204c6895fe2c720eca6f0f35a6feaa8220785687c",
+      "bytes": 15406,
+      "dimensions": [
+        48,
+        48
+      ],
+      "mime": "image/x-icon"
+    },
+    "assets/brands/grocery-grocery-brand-MAKRO-square-cd7598334e.png": {
+      "sha256": "cd7598334e124e7c5d0d63095628ef68065ef51e0560f04fc5a154f2b79543e0",
+      "bytes": 11700,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/nonbank-legal-0107557000195-square-dcb1fafe99.svg": {
+      "sha256": "dcb1fafe99bf30a65bfee6d0149e0df6a51d002c7091c83a5229742b43db3c13",
+      "bytes": 1028,
+      "dimensions": [
+        84.0,
+        84.0
+      ],
+      "mime": "image/svg+xml"
+    },
+    "assets/brands/nonbank-legal-0105559126747-square-fc0168d628.png": {
+      "sha256": "fc0168d628bad7638254199ad70be9677a04b61b6e692bada15f07f431e3b3aa",
+      "bytes": 39196,
+      "dimensions": [
+        180,
+        180
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/nonbank-legal-0105564161598-square-88b0c4c1bf.ico": {
+      "sha256": "88b0c4c1bff765346ca19728cc84f65f396ed9835e5bd05eb4d0529d2badda82",
+      "bytes": 3494,
+      "dimensions": [
+        32,
+        26
+      ],
+      "mime": "image/x-icon"
+    },
+    "assets/brands/nonbank-legal-0107563000355-square-bc61d8b17c.ico": {
+      "sha256": "bc61d8b17ce2abfddeb4b90e90e566fbddf10b83f2d6e58c9000bdf4c5582423",
+      "bytes": 15086,
+      "dimensions": [
+        48,
+        48
+      ],
+      "mime": "image/x-icon"
+    },
+    "assets/brands/nonbank-legal-0107559000290-square-9f7f0b1d64.ico": {
+      "sha256": "9f7f0b1d6483c33a130173658eb5af199dae381bcffba380f1fdc6dd6203dfac",
+      "bytes": 274292,
+      "dimensions": [
+        256,
+        256
+      ],
+      "mime": "image/x-icon"
+    },
+    "assets/brands/nonbank-legal-0107566000542-square-0cd582a66c.png": {
+      "sha256": "0cd582a66c0dc9ce403fa102bebc4c5d3ad90937141f5428d99d4e549b79ba3b",
+      "bytes": 6204,
+      "dimensions": [
+        180,
+        180
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/nonbank-legal-0107564000120-square-f0d2343cb8.png": {
+      "sha256": "f0d2343cb89399b4ca68293a147bdaed2a92bf2de73712cc800a3c228c616a2f",
+      "bytes": 8052,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/nonbank-legal-0505560008015-square-b3b0106d7e.png": {
+      "sha256": "b3b0106d7ead5de652235517c21a3a2ef8e81e843195f73166682f30f9436502",
+      "bytes": 65773,
+      "dimensions": [
+        1250,
+        1250
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/fuel-pt-square-b2c25e8e53.png": {
+      "sha256": "b2c25e8e53186da95c400f7c7a2019c71a85b72a874036251cea819525970757",
+      "bytes": 5995,
+      "dimensions": [
+        88,
+        89
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/grocery-grocery-brand-BIG_C-square-f76f25886c.png": {
+      "sha256": "f76f25886c649dfa3b87fd4b26ab8495dc417acaccf7e164f33b3a605e21208c",
+      "bytes": 12865,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mime": "image/png"
+    },
+    "assets/brands/nonbank-legal-0107538000690-square-8d4e21f521.jpg": {
+      "sha256": "8d4e21f521c2fd5b12213a1670c4d9f203cb980aa59b86a5d6cc664e232f738e",
+      "bytes": 60262,
+      "dimensions": [
+        1187,
+        1187
+      ],
+      "mime": "image/jpeg"
+    },
+    "assets/brands/nonbank-legal-0105528033194-square-fc77b3048c.ico": {
+      "sha256": "fc77b3048c4ec868be11f0a37e9ff201102c3556cb3610c16b749792b80c44f7",
+      "bytes": 318,
+      "dimensions": [
+        16,
+        16
+      ],
+      "mime": "image/x-icon"
+    }
+  },
+  "errors": []
+}

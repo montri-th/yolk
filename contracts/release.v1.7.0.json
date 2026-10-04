@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "yolk.public_release/1.7",
+  "version": "1.7.0",
+  "approvedSourcePreview": "1.7.0-persistent-map-brand-experience",
+  "date": "2026-10-04",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "dataSemanticsUnchanged": false,
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "ownerAuthorization": "Owner authorized the existing public Yolk preview and requested O/Our stores, egg wordmark, researched brand presets, official logos, top 10 Non-bank identities and important Grocery formats on2026-10-04. Owner additionally requested the same persistent map across all menus and semantically correct DS map colors.",
+  "publicationDelta": [
+    "O/Our stores and egg o wordmark",
+    "Official source logo chooser with light/dark variants and named fallbacks",
+    "37 brand identities with 9 adjustable starter families",
+    "Important Grocery formats on first selection; per-brand format and criteria persistence",
+    "Nonbank own picker restricted to first10 source companies; comparator inventory retained",
+    "One persistent Leaflet map across menu routes, draft and action updates without generic refit",
+    "Native li.demand ordinal Tier3/2/1, neutral no-match and unresolved evidence cues",
+    "Country clicks province with district choropleth; province/district clicks next boundary with fine-area choropleth; fine selection reveals O/C/U POIs",
+    "Transparent selected-location interior; selection uses outline and labels",
+    "Relative Supply default for new brand contexts with one unit-bearing denominator per preset; count remains optional and saved criteria are preserved",
+    "Official compact square-format brand graphics beside readable names"
+  ],
+  "providerEvidence": "GitHub Actions run for the containing commit; terminal success and remote-byte attestation must be checked after deployment.",
+  "nativeDeviceGate": "Not assessed; prior viewport emulation is not physical-device verification.",
+  "geometryProfile": {
+    "source": "CityMETER native district and fine polygons",
+    "districts": 928,
+    "reportingAreas": 7954,
+    "fineLoading": "lazy_by_province",
+    "districtColour": "best_confirmed_fine_area_tier_with_geometry_crosswalk",
+    "fineColour": "confirmed_reporting_area_tier",
+    "percentilesRecomputedByViewport": false,
+    "sourceExtentsUsedAsChoropleth": false
+  },
+  "sourceSnapshotValuesUnchanged": true,
+  "nationalDemandCutoffsUnchanged": true
+}

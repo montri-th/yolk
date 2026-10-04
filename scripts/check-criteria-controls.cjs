@@ -148,5 +148,13 @@ check('Mount accepts a single exact input and does not dispatch artificial chang
   const before = { input: routed.input, change: routed.change }; const result = api.mount(percentile);
   assert.equal(result.count, 1); assert.equal(result.mounted, 0); assert.equal(routed.input, before.input); assert.equal(routed.change, before.change);
 });
+check('Relative supply slider carries decimal precision and explicit denominator unit', () => {
+  document.documentElement.lang='en';
+  const rate=field(form,'own-rate','Our branch rate',{ 'data-criterion':'ownRateHigh','data-supply-rate':'','data-rate-unit':'branches per 100,000 m²','data-range-step':'0.001',min:'0.001',max:'1',step:'any'},'0.02345678');
+  api.mount(rate);assert.equal(slider(rate).step,'0.001');assert.equal(rate.value,'0.02345678');assert.equal(rate.getAttribute('inputmode'),'decimal');
+  assert(slider(rate).getAttribute('aria-valuetext').includes('branches per 100,000 m²'));
+  slider(rate).value='0.064';inputEvent(slider(rate));assert.equal(rate.value,'0.064');assert.equal(routed.values['own-rate'],.064);
+  rate.value='';inputEvent(rate);assert.equal(reading(rate).textContent,'—');assert.equal(slider(rate).getAttribute('aria-invalid'),'true');
+});
 
 console.log(JSON.stringify({ passed: checks.length, checks, limits: 'DOM contract tests only. Native drag/touch, focus behavior under real rendering and theme/layout are covered separately by browser QA.' }, null, 2));

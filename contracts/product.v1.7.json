@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "yolk.product/1.7",
+  "version": "1.7.0",
+  "status": "source_backed_static_preview_production_pending",
+  "date": "2026-10-04",
+  "entrypoint": "prototype/index.html",
+  "preserveOriginalUI": true,
+  "activeIndustries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "ds": {
+    "version": "0.9.7",
+    "release": "v0.9.7-owner.1",
+    "colors": "color-srgb-10",
+    "baseSha256": "d3085cbc0a50195f1cbf0c77b1d77c0d19b84364daf2948eb367348d65432d96",
+    "locationProfileSha256": "5d4856041709735d3a04d4a510a88b551df86c211fdcab8a0707e8fe7c9efc3b",
+    "motifs": false,
+    "logoFrames": false,
+    "decorativeBrackets": false,
+    "selectedColoredLeftRails": false
+  },
+  "geography": {
+    "primary": "BKK_SUBDISTRICT_upcountry_MUNICIPALITY",
+    "cohortId": "national_7954",
+    "reportedAreaCount": 7954,
+    "BKK": 180,
+    "upcountry": 7774,
+    "aggregateJoin": "exact_reporting_uuid",
+    "bboxIsBoundary": false,
+    "localeInsight": "contextual_prior_only"
+  },
+  "criteriaScope": [
+    "workspaceId",
+    "industryId",
+    "ownEntityId",
+    "formatId",
+    "productId",
+    "profileVersion"
+  ],
+  "criteriaRevision": "immutable accepted revision plus scoped private draft; compare baseRevision at Apply",
+  "criteriaSections": [
+    "Demand",
+    "Supply",
+    "Preferred location types",
+    "Ranking"
+  ],
+  "metricRegistry": "contracts/criteria-proposal.v1.6.json",
+  "presets": "prototype/data/brand-presets.v1.7.json",
+  "catalogue": {
+    "count": 25,
+    "formulaEvaluation": "whitelisted AST/templates only; no eval",
+    "zeroMissingDistinct": true,
+    "positiveDenominatorRequired": true,
+    "sourcePeriodsVisible": true
+  },
+  "filtering": {
+    "nationwideInvariant": true,
+    "knownValuesOnly": true,
+    "percentileMethod": "PERCENTILE.INC",
+    "unroundedComparison": true,
+    "logic": "three_valued",
+    "weightsAffectMembership": false,
+    "demandHighMeans": "declared industry-context proxy passes; not measured purchases or borrowing",
+    "uncertainPattern": "possiblePatterns; guaranteed membership if all possible patterns selected; partial membership review"
+  },
+  "initialProfiles": {
+    "fuel": {
+      "ownEntityId": "bangchak",
+      "scope": "all_fuel",
+      "demandSourceGroups": [
+        "building",
+        "factory",
+        "hotel"
+      ],
+      "preferred": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "ranking": "accepted weighted70/20/10",
+      "legacyCountDefaults": {
+        "ownMany": 3,
+        "competitorMany": 3
+      },
+      "supplyModeForNewContexts": "relative",
+      "supplyDenominatorId": "gfa",
+      "supplyThresholdInitialization": "separate_median_national_positive_known_exact_rates_N>=5_else_hypothesis_1_per_unit"
+    },
+    "grocery": {
+      "ownEntityId": "grocery-brand:SEVEN_ELEVEN",
+      "scope": "C_STORE",
+      "demandSourceGroups": [
+        "population",
+        "factory"
+      ],
+      "preferred": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "ranking": "confirmedTier_then_weakestLinkPercentile",
+      "legacyCountDefaults": {
+        "ownMany": 2,
+        "competitorMany": 2
+      },
+      "supplyModeForNewContexts": "relative",
+      "supplyDenominatorId": "population",
+      "supplyThresholdInitialization": "separate_median_national_positive_known_exact_rates_N>=5_else_hypothesis_1_per_unit"
+    },
+    "nonbank": {
+      "ownEntityId": "legal:0107557000195",
+      "scope": "potential_retail_branch_service",
+      "licenseFamilies": [
+        "nano",
+        "ploan",
+        "ploanCar",
+        "pico",
+        "picoPlus"
+      ],
+      "demandSourceGroups": [
+        "population_adult20_64"
+      ],
+      "preferred": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "ranking": "confirmedTier_then_weakestLinkPercentile",
+      "legacyCountDefaults": {
+        "ownMany": 2,
+        "competitorMany": 2
+      },
+      "supplyModeForNewContexts": "relative",
+      "supplyDenominatorId": "population",
+      "supplyThresholdInitialization": "separate_median_national_positive_known_exact_rates_N>=5_else_hypothesis_1_per_unit"
+    }
+  },
+  "team": {
+    "seats": 10,
+    "admin": 1,
+    "editor": 3,
+    "viewer": 6,
+    "productionAuthorization": "server_side"
+  },
+  "events": {
+    "committedMutation": "one immutable event plus transactional outbox",
+    "privateViewsThemeLanguageDraftsLogged": false,
+    "notifications": "dedupe eventId; external send requires production delivery implementation and permissions"
+  },
+  "supply": "source aggregates immutable; POI overlays reconcile separately; nonbank geography/product uncertainty is not fuel brand-only U",
+  "preservedViews": [
+    "market",
+    "targets",
+    "locationDetail",
+    "supplyCRUD",
+    "criteria",
+    "activityLeaderboard",
+    "team"
+  ],
+  "responsive": {
+    "mobileFirst": true,
+    "languages": [
+      "th",
+      "en"
+    ],
+    "themes": [
+      "light",
+      "dark",
+      "system"
+    ],
+    "tapTargetMinPx": 44,
+    "visualQARequired": true
+  },
+  "maps": {
+    "provinceGeometry": "real source",
+    "areaPolygons": "CityMETER native fine polygons for all7954 reporting UUIDs; extent only for explicit unresolved fallback",
+    "basemaps": [
+      "Simplified",
+      "Detailed",
+      "Satellite"
+    ],
+    "poiCoverageVisible": true,
+    "attributionRequired": true,
+    "mapMetricSeparateFromRank": true,
+    "analyticalScale": {
+      "scaleId": "li.demand",
+      "classes": 3,
+      "orderedLabels": [
+        "Tier3",
+        "Tier2",
+        "Tier1"
+      ],
+      "colors": [
+        "#F1F5E5",
+        "#60C9AD",
+        "#25659A"
+      ],
+      "legendMeaning": "best confirmed eligible fine-area Tier at district grain; fine-area confirmed Tier at finer grain; not percentiles or ranking scores",
+      "sameHexLightDark": true,
+      "selectedLocationInterior": "transparent; outline, Tier label and O/C/U points show state"
+    }
+  },
+  "branchPhotos": {
+    "max": 5,
+    "preview": "mockups/staged local drafts",
+    "production": "permissioned private media with server revision/count validation"
+  },
+  "prototypeLimits": [
+    "snapshot, not live sync",
+    "browser localStorage, not shared backend",
+    "no email/LINE delivery",
+    "public observed/model context, no customer/member records",
+    "no validated sales/loan propensity model"
+  ],
+  "productionPlan": "IMPLEMENTATION_PLAN_v1.7.md",
+  "formulaUIEditScope": {
+    "shipped": [
+      "choose dataset/derivedmetric formula",
+      "percentile thresholds",
+      "Fuel threshold-hit counts",
+      "enabled groups/extra metrics",
+      "maxTier",
+      "Supply many cutoffs",
+      "preferredpatterns",
+      "ranking mode/top/group/metric weights",
+      "relative Supply denominator and role rates; optional branch-count cutoffs"
+    ],
+    "future": [
+      "arbitrary new safe AST formula builder",
+      "change every compositegroup operator",
+      "absolute value gates beyond presetguard"
+    ]
+  },
+  "experienceContract": "contracts/workspace-map.v1.7.json",
+  "brandExperience": {
+    "registry": "prototype/data/brand-presets.v1.7.json",
+    "logos": "prototype/data/brand-logos.v1.7.json",
+    "contract": "contracts/brand-experience.v1.7.json",
+    "ownSelectableCounts": {
+      "fuel": 11,
+      "grocery": 16,
+      "nonbank": 10
+    },
+    "savedCriteriaWins": true,
+    "hypothesisNotOutcomeCalibrated": true
+  },
+  "workspaceMap": "contracts/workspace-map.v1.7.json",
+  "mapNavigation": {
+    "levels": [
+      "country",
+      "province",
+      "district",
+      "location"
+    ],
+    "colourGrainByLevel": {
+      "country": "district",
+      "province": "reporting_area",
+      "district": "reporting_area",
+      "location": "unfilled_reporting_area_outline_with_label"
+    },
+    "poiVisibility": "selected_location_or_explicit_branch_editor",
+    "fixedNationalPercentiles": true
+  },
+  "relativeSupply": {
+    "module": "prototype/relative-supply.js",
+    "guide": "docs/SUPPLY_RELATIVE_PROPOSAL.md",
+    "primaryModeForNewContexts": "relative",
+    "savedCountContexts": "preserved_until_explicit_user_change",
+    "countMode": "optional",
+    "defaultDenominators": {
+      "fuel": {
+        "metricId": "gfa",
+        "unit": 100000
+      },
+      "grocery": {
+        "metricId": "population",
+        "unit": 10000
+      },
+      "nonbank": {
+        "metricId": "population",
+        "unit": 10000
+      }
+    },
+    "formula": "source_branch_count / raw_extensive_denominator * displayed_unit",
+    "highRule": "rate >= role_threshold",
+    "missingOrZeroDenominator": "unknown_not_zero",
+    "calibration": "separate_median_national_positive_known_exact_rates_N>=5_else_exploratory_1_per_unit",
+    "draftReseedOnDenominatorChange": true,
+    "nationalDemandCutoffsUnchanged": true
+  }
+}

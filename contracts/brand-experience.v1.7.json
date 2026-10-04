@@ -1,0 +1,2366 @@
+{
+  "schemaVersion": "yolk.brand-experience/1.0",
+  "documentId": "yolk.brand_experience",
+  "version": "1.7.0",
+  "createdOn": "2026-10-04",
+  "status": "implemented_static_preview_local_browser_state; production_services_pending",
+  "humanGuide": "docs/BRAND_PRESETS_v1.7.md",
+  "authority": {
+    "registry": {
+      "path": "prototype/data/brand-presets.v1.7.json",
+      "version": "1.7.0",
+      "sha256AtHandoff": "a20aeb4294a916d997b2105e3d6f69125743f66dfc920061f6e749a6617a896c",
+      "brandCount": 37,
+      "familyCount": 9,
+      "sourceRefCount": 44
+    },
+    "industryProfiles": "contracts/industry-profiles.json",
+    "runtimePresets": "contracts/runtime-parameter-presets.json",
+    "runtimeMetrics": "prototype/data/real/area-context.json",
+    "metricCatalogue": "evidence/data/metric-catalog.json",
+    "logos": "prototype/data/brand-logos.v1.7.json",
+    "sourceRefs": "prototype/data/brand-presets.v1.7.json#/sourceRefs",
+    "DS": {
+      "version": "0.9.7",
+      "base": "reference/lds-0.9.7/Landometer-Design-System-v0.9.7.md",
+      "baseSHA256": "d3085cbc0a50195f1cbf0c77b1d77c0d19b84364daf2948eb367348d65432d96",
+      "locationProfileSHA256": "5d4856041709735d3a04d4a510a88b551df86c211fdcab8a0707e8fe7c9efc3b",
+      "integrationGuide": "DS_ASSET_INTEGRATION.md"
+    },
+    "precedence": "Existing saved user state wins. Evaluate registry overrides through the existing normalized model; do not execute this review summary as an alternative formula."
+  },
+  "context": {
+    "keyFields": [
+      "workspaceId",
+      "industryId",
+      "ownEntityId",
+      "supplyScope",
+      "industryProfileVersion"
+    ],
+    "previewKeyFunction": "criteriaContextKey in prototype/industry-workspace.js",
+    "previewKeyTemplate": "expansion-demo|{industry}|{ownBrandId}|{supplyScope}|{profile.version}",
+    "revision": "criteria.version is inside context; do not make every revision a separate context namespace.",
+    "lastScopeKey": [
+      "industryId",
+      "ownEntityId"
+    ],
+    "scopePrecedence": [
+      "explicit_user_scope",
+      "last_scope_for_this_industry_and_brand",
+      "registry_brand_defaultScope",
+      "industry_profile_defaultScope"
+    ],
+    "criteriaPrecedence": [
+      "saved_valid_context_applied_criteria",
+      "new_context_normalized_industry_seed_plus_family_override"
+    ],
+    "draftPrecedence": [
+      "saved_context_draft",
+      "clone_current_applied_criteria"
+    ],
+    "restoreFields": [
+      "criteria",
+      "draft",
+      "draftBase",
+      "targets"
+    ],
+    "seedUpdatePolicy": "Never overwrite saved criteria or draft when registry/profile presets change; migrate profile-version contexts only through an explicit reviewed migration.",
+    "tryPreset": "Load a normalized preset into the current draft, preserve applied criteria/version, and show draft map. Explicit Apply is required."
+  },
+  "formatSelection": {
+    "groceryMethod": "brand_primary_positioning_with_source_inventory",
+    "firstSelection": "Use brand.defaultScope and its declared defaultScopeBasis; optional compatible formats remain selectable.",
+    "importantDefaults": {
+      "grocery-brand:SEVEN_ELEVEN": "C_STORE",
+      "grocery-brand:LOTUSS": "HYPERMARKET",
+      "grocery-brand:BIG_C": "HYPERMARKET",
+      "grocery-brand:TOPS": "SUPERMARKET",
+      "grocery-brand:MAKRO": "WHOLESALE"
+    },
+    "countMeaning": "Source inventory records by brand/format, not sales market share, monetary value, capacity or verified current operation.",
+    "scopeFamilyResolverPrecedence": [
+      "brand.perScopeFamily[scope]",
+      "registry.fallbackPerScope[industry][scope]",
+      "brand.defaultFamilyId",
+      "registry.fallback[industry]"
+    ],
+    "ownScopeUnavailable": "Show review/unknown own supply. Do not interpret absence of brand membership in this source scope as0 branches.",
+    "groceryExclusion": [
+      "PHARMACY"
+    ],
+    "C_STOREMeaning": "Source convenience/mini-format category; potential comparable providers, not proof of identical commercial mission."
+  },
+  "brandBindings": [
+    {
+      "industryId": "fuel",
+      "brandId": "ptt",
+      "name": {
+        "th": "PTT Station",
+        "en": "PTT Station"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "PTT_OR_2026"
+      ],
+      "registryPointer": "/brands/0"
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "shell",
+      "name": {
+        "th": "เชลล์",
+        "en": "Shell"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "SHELL_TH_SERVICES"
+      ],
+      "registryPointer": "/brands/1"
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "bangchak",
+      "name": {
+        "th": "บางจาก",
+        "en": "Bangchak"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "BANGCHAK_2025",
+        "BANGCHAK_DESTINATION"
+      ],
+      "registryPointer": "/brands/2"
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "caltex",
+      "name": {
+        "th": "คาลเท็กซ์",
+        "en": "Caltex"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "CALTEX_TH_DEALER",
+        "CALTEX_TH_FLEET"
+      ],
+      "registryPointer": "/brands/3"
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "cosmo",
+      "name": {
+        "th": "COSMO",
+        "en": "COSMO"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [],
+      "registryPointer": "/brands/4"
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "pt",
+      "name": {
+        "th": "PT",
+        "en": "PT"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "PTG_2025"
+      ],
+      "registryPointer": "/brands/5"
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "pure",
+      "name": {
+        "th": "PURE",
+        "en": "PURE"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "PURETHAI_CURRENT"
+      ],
+      "registryPointer": "/brands/6"
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "siam-gas",
+      "name": {
+        "th": "สยามแก๊ส",
+        "en": "Siam Gas"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "SIAMGAS_BUSINESS"
+      ],
+      "registryPointer": "/brands/7"
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "susco",
+      "name": {
+        "th": "ซัสโก้",
+        "en": "SUSCO"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "SUSCO_CURRENT"
+      ],
+      "registryPointer": "/brands/8"
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "unique-gas",
+      "name": {
+        "th": "ยูนิคแก๊ส",
+        "en": "Unique Gas"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "UNIQUEGAS_BUSINESS",
+        "SIAMGAS_BUSINESS"
+      ],
+      "registryPointer": "/brands/9"
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "world-gas",
+      "name": {
+        "th": "เวิลด์แก๊ส",
+        "en": "World Gas"
+      },
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "WORLDGAS_CURRENT",
+        "LONGTAIL_WORLD_GAS"
+      ],
+      "registryPointer": "/brands/10"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:SEVEN_ELEVEN",
+      "name": {
+        "th": "เซเว่น อีเลฟเว่น",
+        "en": "7-Eleven"
+      },
+      "defaultScope": "C_STORE",
+      "defaultFamilyId": "grocery-convenience",
+      "perScopeFamily": {
+        "C_STORE": "grocery-convenience"
+      },
+      "sourceIds": [
+        "CPALL_O2O",
+        "CPALL_EXPANSION"
+      ],
+      "registryPointer": "/brands/11"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:TOOGDEE",
+      "name": {
+        "th": "ถูกดี มีมาตรฐาน",
+        "en": "Toogdee"
+      },
+      "defaultScope": "C_STORE",
+      "defaultFamilyId": "grocery-community",
+      "perScopeFamily": {
+        "C_STORE": "grocery-community"
+      },
+      "sourceIds": [
+        "TOOGDEE_COMMUNITY"
+      ],
+      "registryPointer": "/brands/12"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:LOTUSS",
+      "name": {
+        "th": "Lotus's",
+        "en": "Lotus's"
+      },
+      "defaultScope": "HYPERMARKET",
+      "defaultFamilyId": "grocery-hypermarket",
+      "perScopeFamily": {
+        "C_STORE": "grocery-community",
+        "SUPERMARKET": "grocery-supermarket",
+        "HYPERMARKET": "grocery-hypermarket"
+      },
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS"
+      ],
+      "registryPointer": "/brands/13"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:CJ_MORE",
+      "name": {
+        "th": "ซีเจ มอร์",
+        "en": "CJ More"
+      },
+      "defaultScope": "C_STORE",
+      "defaultFamilyId": "grocery-community",
+      "perScopeFamily": {
+        "C_STORE": "grocery-community"
+      },
+      "sourceIds": [
+        "CJ_MORE_ABOUT"
+      ],
+      "registryPointer": "/brands/14"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:BIG_C",
+      "name": {
+        "th": "บิ๊กซี",
+        "en": "Big C"
+      },
+      "defaultScope": "HYPERMARKET",
+      "defaultFamilyId": "grocery-hypermarket",
+      "perScopeFamily": {
+        "C_STORE": "grocery-community",
+        "SUPERMARKET": "grocery-supermarket",
+        "HYPERMARKET": "grocery-hypermarket",
+        "WHOLESALE": "grocery-wholesale"
+      },
+      "sourceIds": [
+        "BIGC_FORMATS"
+      ],
+      "registryPointer": "/brands/15"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:TOPS",
+      "name": {
+        "th": "ท็อปส์",
+        "en": "Tops"
+      },
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-visitor-context",
+      "perScopeFamily": {
+        "C_STORE": "grocery-visitor-context",
+        "SUPERMARKET": "grocery-visitor-context"
+      },
+      "sourceIds": [
+        "TOPS_MALL_2025",
+        "TOPS_TOURISM_2025",
+        "TOPS_DAILY_2025"
+      ],
+      "registryPointer": "/brands/16"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:MAKRO",
+      "name": {
+        "th": "แม็คโคร",
+        "en": "Makro"
+      },
+      "defaultScope": "WHOLESALE",
+      "defaultFamilyId": "grocery-wholesale",
+      "perScopeFamily": {
+        "WHOLESALE": "grocery-wholesale"
+      },
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS",
+        "CPAXTRA_2026"
+      ],
+      "registryPointer": "/brands/17"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:LAWSON108",
+      "name": {
+        "th": "ลอว์สัน 108",
+        "en": "Lawson 108"
+      },
+      "defaultScope": "C_STORE",
+      "defaultFamilyId": "grocery-convenience",
+      "perScopeFamily": {
+        "C_STORE": "grocery-convenience"
+      },
+      "sourceIds": [
+        "LONGTAIL_LAWSON108"
+      ],
+      "registryPointer": "/brands/18"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:VILLA_MARKET",
+      "name": {
+        "th": "วิลล่า มาร์เก็ต",
+        "en": "Villa Market"
+      },
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_VILLA_MARKET"
+      ],
+      "registryPointer": "/brands/19"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:MAXVALU",
+      "name": {
+        "th": "แม็กซ์แวลู",
+        "en": "MaxValu"
+      },
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_MAXVALU"
+      ],
+      "registryPointer": "/brands/20"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:FOODLAND",
+      "name": {
+        "th": "ฟู้ดแลนด์",
+        "en": "Foodland"
+      },
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_FOODLAND"
+      ],
+      "registryPointer": "/brands/21"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:GOURMET_MARKET",
+      "name": {
+        "th": "กูร์เมต์ มาร์เก็ต",
+        "en": "Gourmet Market"
+      },
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_GOURMET_MARKET"
+      ],
+      "registryPointer": "/brands/22"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:GO_WHOLESALE",
+      "name": {
+        "th": "โก โฮลเซลล์",
+        "en": "GO Wholesale"
+      },
+      "defaultScope": "WHOLESALE",
+      "defaultFamilyId": "grocery-wholesale",
+      "perScopeFamily": {
+        "WHOLESALE": "grocery-wholesale"
+      },
+      "sourceIds": [
+        "LONGTAIL_GO_WHOLESALE"
+      ],
+      "registryPointer": "/brands/23"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:DONKI",
+      "name": {
+        "th": "ดอง ดอง ดองกิ",
+        "en": "Don Don Donki"
+      },
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_DONKI"
+      ],
+      "registryPointer": "/brands/24"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:RIMPING",
+      "name": {
+        "th": "ริมปิง",
+        "en": "Rimping"
+      },
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_RIMPING"
+      ],
+      "registryPointer": "/brands/25"
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:FUJI",
+      "name": {
+        "th": "ยูเอฟเอ็ม ฟูจิ ซูเปอร์",
+        "en": "UFM Fuji Super"
+      },
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_FUJI"
+      ],
+      "registryPointer": "/brands/26"
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107557000195",
+      "name": {
+        "th": "เมืองไทย แคปปิตอล",
+        "en": "Muangthai Capital"
+      },
+      "defaultScope": "potential_retail_branch_service",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "MTC_RISK",
+        "MTC_BUSINESS"
+      ],
+      "registryPointer": "/brands/27"
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0105559126747",
+      "name": {
+        "th": "ศรีสวัสดิ์ พาวเวอร์ 2014",
+        "en": "Srisawad Power 2014"
+      },
+      "defaultScope": "office_context",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "SAWAD_GROUP"
+      ],
+      "registryPointer": "/brands/28"
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0105564161598",
+      "name": {
+        "th": "เงินไชโย · AutoX",
+        "en": "Ngern Chaiyo · AutoX"
+      },
+      "defaultScope": "vehicle_title",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "SCBX_AUTOX"
+      ],
+      "registryPointer": "/brands/29"
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107563000355",
+      "name": {
+        "th": "เงินติดล้อ",
+        "en": "Ngern Tid Lor"
+      },
+      "defaultScope": "vehicle_title",
+      "defaultFamilyId": "nonbank-concentrated",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-concentrated",
+        "office_context": "nonbank-concentrated",
+        "vehicle_title": "nonbank-concentrated",
+        "personal": "nonbank-concentrated",
+        "nano": "nonbank-concentrated",
+        "pico": "nonbank-concentrated",
+        "pico_plus": "nonbank-concentrated"
+      },
+      "sourceIds": [
+        "TIDLOR_BUSINESS"
+      ],
+      "registryPointer": "/brands/30"
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107559000290",
+      "name": {
+        "th": "ศักดิ์สยาม",
+        "en": "Saksiam Leasing"
+      },
+      "defaultScope": "vehicle_title",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "SAK_PRODUCTS"
+      ],
+      "registryPointer": "/brands/31"
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107566000542",
+      "name": {
+        "th": "เงินเทอร์โบ",
+        "en": "Ngern Turbo"
+      },
+      "defaultScope": "vehicle_title",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "TURBO_GENERAL"
+      ],
+      "registryPointer": "/brands/32"
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107564000120",
+      "name": {
+        "th": "เฮงลิสซิ่ง",
+        "en": "Heng Leasing"
+      },
+      "defaultScope": "potential_retail_branch_service",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "HENG_COMPANY"
+      ],
+      "registryPointer": "/brands/33"
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0505560008015",
+      "name": {
+        "th": "นิ่มลีสซิ่ง",
+        "en": "Nim Leasing"
+      },
+      "defaultScope": "potential_retail_branch_service",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "NIM_PRODUCTS"
+      ],
+      "registryPointer": "/brands/34"
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107538000690",
+      "name": {
+        "th": "กรุงศรี ออโต้ · อยุธยา แคปปิตอล ออโต้ ลีส",
+        "en": "Krungsri Auto · Ayudhya Capital Auto Lease"
+      },
+      "defaultScope": "vehicle_title",
+      "defaultFamilyId": "nonbank-concentrated",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-concentrated",
+        "office_context": "nonbank-concentrated",
+        "vehicle_title": "nonbank-concentrated",
+        "personal": "nonbank-concentrated",
+        "nano": "nonbank-concentrated",
+        "pico": "nonbank-concentrated",
+        "pico_plus": "nonbank-concentrated"
+      },
+      "sourceIds": [
+        "AYCAL_SUBSIDIARY",
+        "AYCAL_PRODUCT_SPLIT"
+      ],
+      "registryPointer": "/brands/35"
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0105528033194",
+      "name": {
+        "th": "ยูโอบี แคปปิตอล เซอร์วิสเซส",
+        "en": "UOB Capital Services"
+      },
+      "defaultScope": "personal",
+      "defaultFamilyId": "nonbank-concentrated",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-concentrated",
+        "office_context": "nonbank-concentrated",
+        "vehicle_title": "nonbank-concentrated",
+        "personal": "nonbank-concentrated",
+        "nano": "nonbank-concentrated",
+        "pico": "nonbank-concentrated",
+        "pico_plus": "nonbank-concentrated"
+      },
+      "sourceIds": [
+        "UOB_XPRESS_OPERATOR"
+      ],
+      "registryPointer": "/brands/36"
+    }
+  ],
+  "families": [
+    {
+      "id": "fuel-common",
+      "industryId": "fuel",
+      "name": {
+        "th": "สถานีบริการและจุดแวะของชุมชน",
+        "en": "Fuel & community stops"
+      },
+      "summary": {
+        "th": "มองความเข้มข้นของอาคารและกิจกรรม แล้วเทียบสาขาเราและคู่แข่ง",
+        "en": "Screen built-form and activity concentration, then compare our network and other listed stations."
+      },
+      "authoritativeOverrides": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/0/criteriaOverrides"
+      },
+      "baseProfile": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/0"
+      },
+      "formulaAuthority": "Use normalized industry seed plus this family override. This summary is for review, not a second evaluator.",
+      "overrideKeys": [],
+      "ownMany": 3,
+      "competitorMany": 3,
+      "maxDemandTier": 3,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO",
+        "Our Farm"
+      ],
+      "rankingMode": "weighted",
+      "optionalWeightedParameters": {
+        "demand": 70,
+        "ownGap": 20,
+        "competitorGap": 10
+      },
+      "parameterAuthority": "Editable Yolk screening hypothesis. Primary sources support business mission/format only; not operator-approved or outcome-calibrated.",
+      "sourceIds": [
+        "BANGCHAK_2025",
+        "BANGCHAK_DESTINATION",
+        "PTT_OR_2026",
+        "PTG_2025",
+        "SHELL_TH_SERVICES",
+        "CALTEX_TH_DEALER",
+        "CALTEX_TH_FLEET"
+      ],
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ยังไม่มีปริมาณรถ ทิศทางวิ่ง หรือความนิยมชนิดน้ำมัน",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Vehicle flow, travel direction and fuel preferences remain unknown."
+      },
+      "demandGroupSummary": [
+        {
+          "groupId": "building",
+          "enabled": true,
+          "operator": "threshold_count",
+          "metricIds": [
+            "gfa",
+            "gfa_per_person",
+            "gfa_per_km2"
+          ],
+          "tierRules": [
+            {
+              "tier": 1,
+              "percentile": 99,
+              "atLeast": 3
+            },
+            {
+              "tier": 2,
+              "percentile": 95,
+              "atLeast": 3
+            },
+            {
+              "tier": 3,
+              "percentile": 95,
+              "atLeast": 1
+            }
+          ],
+          "positiveGuard": false
+        },
+        {
+          "groupId": "activity",
+          "enabled": true,
+          "operator": "threshold_count",
+          "metricIds": [
+            "factory_count",
+            "factory_count_per_km2",
+            "factory_workers",
+            "factory_workers_per_km2",
+            "hotel_rooms",
+            "hotel_rooms_per_km2"
+          ],
+          "tierRules": [
+            {
+              "tier": 1,
+              "percentile": 95,
+              "atLeast": 5
+            },
+            {
+              "tier": 2,
+              "percentile": 95,
+              "atLeast": 3
+            },
+            {
+              "tier": 3,
+              "percentile": 95,
+              "atLeast": 1
+            }
+          ],
+          "positiveGuard": false
+        }
+      ],
+      "astReference": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/0/runtimePreset/datasetMetricGroups"
+      }
+    },
+    {
+      "id": "grocery-convenience",
+      "industryId": "grocery",
+      "name": {
+        "th": "ใกล้คนอยู่ ใกล้คนทำงาน",
+        "en": "Homes & workplaces"
+      },
+      "summary": {
+        "th": "คัดชุมชนที่มีประชากรหรือคนงานโรงงานเด่น สำหรับการซื้อของระหว่างวัน",
+        "en": "Find resident or reported workplace concentrations for everyday convenience study."
+      },
+      "authoritativeOverrides": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/1/criteriaOverrides"
+      },
+      "baseProfile": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/1"
+      },
+      "formulaAuthority": "Use normalized industry seed plus this family override. This summary is for review, not a second evaluator.",
+      "overrideKeys": [],
+      "ownMany": 2,
+      "competitorMany": 2,
+      "maxDemandTier": 3,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "rankingMode": "context",
+      "optionalWeightedParameters": {
+        "demand": 100,
+        "ownGap": 0,
+        "competitorGap": 0
+      },
+      "parameterAuthority": "Editable Yolk screening hypothesis. Primary sources support business mission/format only; not operator-approved or outcome-calibrated.",
+      "sourceIds": [
+        "CPALL_O2O",
+        "CPALL_EXPANSION"
+      ],
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน คนงานไม่ได้ยืนยันทางเดินผ่านหน้าร้านหรือยอดซื้อ",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Reported workers do not establish accessible store traffic or purchase volume."
+      },
+      "pathSummary": [
+        {
+          "id": "population_concentrated_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            },
+            {
+              "metric": "population_per_km2",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_concentrated_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 50,
+              "positive_presence": true
+            },
+            {
+              "metric": "population_per_km2",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "workplace_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "factory_workers",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            },
+            {
+              "metric": "factory_workers_per_km2",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "workplace_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "factory_workers",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            },
+            {
+              "metric": "factory_workers_per_km2",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "workplace_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "factory_workers",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        }
+      ],
+      "astReference": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/1/paths"
+      }
+    },
+    {
+      "id": "grocery-community",
+      "industryId": "grocery",
+      "name": {
+        "th": "ร้านประจำของชุมชน",
+        "en": "Community top-up"
+      },
+      "summary": {
+        "th": "เน้นประชากรและความหนาแน่น สำหรับร้านใกล้บ้านและการซื้อเติมในแต่ละวัน",
+        "en": "Focus on population volume and density for neighborhood top-up shopping."
+      },
+      "authoritativeOverrides": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/2/criteriaOverrides"
+      },
+      "baseProfile": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/1"
+      },
+      "formulaAuthority": "Use normalized industry seed plus this family override. This summary is for review, not a second evaluator.",
+      "overrideKeys": [
+        "buildingEnabled",
+        "activityEnabled",
+        "rankingMode",
+        "rankingWeights",
+        "demandGroupWeights",
+        "cohortMode",
+        "minimumCohortN",
+        "positivePresence",
+        "extraMetrics",
+        "ownMany",
+        "competitorMany",
+        "maxDemandTier",
+        "demandMode",
+        "patterns",
+        "paths"
+      ],
+      "ownMany": 2,
+      "competitorMany": 2,
+      "maxDemandTier": 3,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "rankingMode": "context",
+      "optionalWeightedParameters": {
+        "demand": 100,
+        "ownGap": 0,
+        "competitorGap": 0
+      },
+      "parameterAuthority": "Editable Yolk screening hypothesis. Primary sources support business mission/format only; not operator-approved or outcome-calibrated.",
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS",
+        "BIGC_FORMATS",
+        "CJ_MORE_ABOUT",
+        "TOOGDEE_COMMUNITY"
+      ],
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ต้องเจาะดูการรวมตัวของบ้านและทางเข้าถึงจริง",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Inspect occupied housing clusters and real access."
+      },
+      "pathSummary": [
+        {
+          "id": "population_concentrated_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            },
+            {
+              "metric": "population_per_km2",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_concentrated_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 50,
+              "positive_presence": true
+            },
+            {
+              "metric": "population_per_km2",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        }
+      ],
+      "astReference": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/2/criteriaOverrides/paths"
+      }
+    },
+    {
+      "id": "grocery-supermarket",
+      "industryId": "grocery",
+      "name": {
+        "th": "ย่านชุมชนหนาแน่น",
+        "en": "Neighborhood supermarket"
+      },
+      "summary": {
+        "th": "คัดพื้นที่ที่มีประชากรและความหนาแน่นเด่น ก่อนดูศูนย์ค้าและแปลงจริง",
+        "en": "Screen stronger population volume and concentration, then inspect shopping nodes and sites."
+      },
+      "authoritativeOverrides": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/3/criteriaOverrides"
+      },
+      "baseProfile": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/1"
+      },
+      "formulaAuthority": "Use normalized industry seed plus this family override. This summary is for review, not a second evaluator.",
+      "overrideKeys": [
+        "buildingEnabled",
+        "activityEnabled",
+        "rankingMode",
+        "rankingWeights",
+        "demandGroupWeights",
+        "cohortMode",
+        "minimumCohortN",
+        "positivePresence",
+        "extraMetrics",
+        "ownMany",
+        "competitorMany",
+        "maxDemandTier",
+        "demandMode",
+        "patterns",
+        "paths"
+      ],
+      "ownMany": 1,
+      "competitorMany": 1,
+      "maxDemandTier": 3,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "rankingMode": "context",
+      "optionalWeightedParameters": {
+        "demand": 100,
+        "ownGap": 0,
+        "competitorGap": 0
+      },
+      "parameterAuthority": "Editable Yolk screening hypothesis. Primary sources support business mission/format only; not operator-approved or outcome-calibrated.",
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS",
+        "BIGC_FORMATS",
+        "TOPS_MALL_2025"
+      ],
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน หนึ่งสาขาหมายถึงมีรายการในพื้นที่ ไม่ได้หมายถึงตลาดเต็มแล้ว",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. One listed store means recorded presence, not market saturation."
+      },
+      "pathSummary": [
+        {
+          "id": "population_concentrated_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            },
+            {
+              "metric": "population_per_km2",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_concentrated_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            },
+            {
+              "metric": "population_per_km2",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        }
+      ],
+      "astReference": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/3/criteriaOverrides/paths"
+      }
+    },
+    {
+      "id": "grocery-visitor-context",
+      "industryId": "grocery",
+      "name": {
+        "th": "ชุมชนและเมืองท่องเที่ยว",
+        "en": "Communities & visitor context"
+      },
+      "summary": {
+        "th": "คัดจากประชากร หรือความจุห้องพักที่เด่น แล้วตรวจผู้มาเยือนจริง",
+        "en": "Screen population or accommodation capacity, then verify actual visitor patterns."
+      },
+      "authoritativeOverrides": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/4/criteriaOverrides"
+      },
+      "baseProfile": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/1"
+      },
+      "formulaAuthority": "Use normalized industry seed plus this family override. This summary is for review, not a second evaluator.",
+      "overrideKeys": [
+        "buildingEnabled",
+        "activityEnabled",
+        "rankingMode",
+        "rankingWeights",
+        "demandGroupWeights",
+        "cohortMode",
+        "minimumCohortN",
+        "positivePresence",
+        "extraMetrics",
+        "ownMany",
+        "competitorMany",
+        "maxDemandTier",
+        "demandMode",
+        "patterns",
+        "paths"
+      ],
+      "ownMany": 1,
+      "competitorMany": 1,
+      "maxDemandTier": 3,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "rankingMode": "context",
+      "optionalWeightedParameters": {
+        "demand": 100,
+        "ownGap": 0,
+        "competitorGap": 0
+      },
+      "parameterAuthority": "Editable Yolk screening hypothesis. Primary sources support business mission/format only; not operator-approved or outcome-calibrated.",
+      "sourceIds": [
+        "TOPS_MALL_2025",
+        "TOPS_TOURISM_2025",
+        "TOPS_DAILY_2025"
+      ],
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ห้องพักคือความจุ ไม่ใช่ผู้เข้าพัก จำนวนคนเดิน หรือกำลังซื้อ; ปีข้อมูลห้องพักยังไม่ทราบ",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Rooms measure recorded capacity, not occupied stays, footfall or purchasing power; the hotel source period is unknown."
+      },
+      "pathSummary": [
+        {
+          "id": "population_concentrated_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            },
+            {
+              "metric": "population_per_km2",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_concentrated_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            },
+            {
+              "metric": "population_per_km2",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "hospitality_capacity_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "hotel_rooms",
+              "op": "gte_percentile",
+              "percentile": 95,
+              "positive_presence": true
+            },
+            {
+              "metric": "hotel_rooms_per_km2",
+              "op": "gte_percentile",
+              "percentile": 95,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "hospitality_capacity_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "hotel_rooms",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            },
+            {
+              "metric": "hotel_rooms_per_km2",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "hospitality_capacity_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "hotel_rooms",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        }
+      ],
+      "astReference": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/4/criteriaOverrides/paths"
+      }
+    },
+    {
+      "id": "grocery-hypermarket",
+      "industryId": "grocery",
+      "name": {
+        "th": "ศูนย์จับจ่ายของเมือง",
+        "en": "Regional shopping hub"
+      },
+      "summary": {
+        "th": "เน้นจำนวนประชากรรวม สำหรับการศึกษาตลาดที่รองรับร้านขนาดใหญ่",
+        "en": "Focus on population volume for a regional large-format market study."
+      },
+      "authoritativeOverrides": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/5/criteriaOverrides"
+      },
+      "baseProfile": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/1"
+      },
+      "formulaAuthority": "Use normalized industry seed plus this family override. This summary is for review, not a second evaluator.",
+      "overrideKeys": [
+        "buildingEnabled",
+        "activityEnabled",
+        "rankingMode",
+        "rankingWeights",
+        "demandGroupWeights",
+        "cohortMode",
+        "minimumCohortN",
+        "positivePresence",
+        "extraMetrics",
+        "ownMany",
+        "competitorMany",
+        "maxDemandTier",
+        "demandMode",
+        "patterns",
+        "paths"
+      ],
+      "ownMany": 1,
+      "competitorMany": 1,
+      "maxDemandTier": 3,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "rankingMode": "context",
+      "optionalWeightedParameters": {
+        "demand": 100,
+        "ownGap": 0,
+        "competitorGap": 0
+      },
+      "parameterAuthority": "Editable Yolk screening hypothesis. Primary sources support business mission/format only; not operator-approved or outcome-calibrated.",
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS",
+        "BIGC_FORMATS"
+      ],
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ขอบเขต อปท./แขวงไม่ใช่ระยะขับรถ ต้องตรวจตลาดข้ามเขต ทางเข้า ที่ดิน และที่จอดรถ",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Reporting units are not driving catchments. Verify cross-boundary trips, access, land and parking."
+      },
+      "pathSummary": [
+        {
+          "id": "population_volume_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 95,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_volume_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        }
+      ],
+      "astReference": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/5/criteriaOverrides/paths"
+      }
+    },
+    {
+      "id": "grocery-wholesale",
+      "industryId": "grocery",
+      "name": {
+        "th": "พื้นที่รองรับผู้ประกอบการ",
+        "en": "Wholesale context"
+      },
+      "summary": {
+        "th": "มองปริมาณประชากรและห้องพัก ก่อนตรวจฐานร้านค้า ร้านอาหาร และผู้ประกอบการจริง",
+        "en": "Use population volume and accommodation capacity before verifying local operators and food businesses."
+      },
+      "authoritativeOverrides": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/6/criteriaOverrides"
+      },
+      "baseProfile": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/1"
+      },
+      "formulaAuthority": "Use normalized industry seed plus this family override. This summary is for review, not a second evaluator.",
+      "overrideKeys": [
+        "buildingEnabled",
+        "activityEnabled",
+        "rankingMode",
+        "rankingWeights",
+        "demandGroupWeights",
+        "cohortMode",
+        "minimumCohortN",
+        "positivePresence",
+        "extraMetrics",
+        "ownMany",
+        "competitorMany",
+        "maxDemandTier",
+        "demandMode",
+        "patterns",
+        "paths"
+      ],
+      "ownMany": 1,
+      "competitorMany": 1,
+      "maxDemandTier": 3,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "rankingMode": "context",
+      "optionalWeightedParameters": {
+        "demand": 100,
+        "ownGap": 0,
+        "competitorGap": 0
+      },
+      "parameterAuthority": "Editable Yolk screening hypothesis. Primary sources support business mission/format only; not operator-approved or outcome-calibrated.",
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS",
+        "CPAXTRA_2026"
+      ],
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ยังไม่มีจำนวนร้านอาหาร/ร้านค้าผู้ซื้อ จำนวนห้องพักไม่ใช่ยอดสั่งซื้อ",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Buyer, restaurant and reseller counts are unavailable; room capacity is not wholesale purchasing."
+      },
+      "pathSummary": [
+        {
+          "id": "population_volume_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 95,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_volume_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "population",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "hospitality_capacity_volume_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "hotel_rooms",
+              "op": "gte_percentile",
+              "percentile": 95,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "hospitality_capacity_volume_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "hotel_rooms",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "hospitality_capacity_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "hotel_rooms",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        }
+      ],
+      "astReference": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/6/criteriaOverrides/paths"
+      }
+    },
+    {
+      "id": "nonbank-community",
+      "industryId": "nonbank",
+      "name": {
+        "th": "เครือข่ายใกล้ชุมชน",
+        "en": "Community access"
+      },
+      "summary": {
+        "th": "คัดจากประชากรทะเบียนอายุ 20–64 ปีและความหนาแน่น เพื่อดูพื้นที่ให้บริการ",
+        "en": "Screen registered adult population and density to study service coverage."
+      },
+      "authoritativeOverrides": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/7/criteriaOverrides"
+      },
+      "baseProfile": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/2"
+      },
+      "formulaAuthority": "Use normalized industry seed plus this family override. This summary is for review, not a second evaluator.",
+      "overrideKeys": [],
+      "ownMany": 2,
+      "competitorMany": 2,
+      "maxDemandTier": 3,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "rankingMode": "context",
+      "optionalWeightedParameters": {
+        "demand": 100,
+        "ownGap": 0,
+        "competitorGap": 0
+      },
+      "parameterAuthority": "Editable Yolk screening hypothesis. Primary sources support business mission/format only; not operator-approved or outcome-calibrated.",
+      "sourceIds": [
+        "MTC_RISK",
+        "MTC_BUSINESS",
+        "SAK_PRODUCTS",
+        "TURBO_GENERAL",
+        "HENG_COMPANY",
+        "NIM_PRODUCTS",
+        "SCBX_AUTOX"
+      ],
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ไม่ใช่ความต้องการกู้ ความสามารถชำระหนี้ หรือสินเชื่อที่มีให้บริการในทุกสาขา",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Adult population is not borrowing demand, creditworthiness or confirmation of branch products."
+      },
+      "pathSummary": [
+        {
+          "id": "population_concentrated_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "adult_population_20_64",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            },
+            {
+              "metric": "adult_population_20_64_per_km2",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_concentrated_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "adult_population_20_64",
+              "op": "gte_percentile",
+              "percentile": 50,
+              "positive_presence": true
+            },
+            {
+              "metric": "adult_population_20_64_per_km2",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "adult_population_20_64",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        }
+      ],
+      "astReference": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/2/paths"
+      }
+    },
+    {
+      "id": "nonbank-concentrated",
+      "industryId": "nonbank",
+      "name": {
+        "th": "เครือข่ายในย่านเข้มข้น",
+        "en": "Concentrated service areas"
+      },
+      "summary": {
+        "th": "เริ่มจาก Tier 1–2 ซึ่งต้องผ่านทั้งจำนวนและความหนาแน่นของประชากรอายุ 20–64 ปี",
+        "en": "Start with tiers1–2 requiring both adult population volume and density."
+      },
+      "authoritativeOverrides": {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "jsonPointer": "/families/8/criteriaOverrides"
+      },
+      "baseProfile": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/2"
+      },
+      "formulaAuthority": "Use normalized industry seed plus this family override. This summary is for review, not a second evaluator.",
+      "overrideKeys": [
+        "maxDemandTier"
+      ],
+      "ownMany": 2,
+      "competitorMany": 2,
+      "maxDemandTier": 2,
+      "preferredPatterns": [
+        "Pioneer",
+        "FOMO"
+      ],
+      "rankingMode": "context",
+      "optionalWeightedParameters": {
+        "demand": 100,
+        "ownGap": 0,
+        "competitorGap": 0
+      },
+      "parameterAuthority": "Editable Yolk screening hypothesis. Primary sources support business mission/format only; not operator-approved or outcome-calibrated.",
+      "sourceIds": [
+        "TIDLOR_BUSINESS",
+        "AYCAL_SUBSIDIARY",
+        "AYCAL_PRODUCT_SPLIT",
+        "UOB_XPRESS_OPERATOR"
+      ],
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน การตัด Tier 3 เป็นสมมติฐานการศึกษา ไม่ใช่เกณฑ์ของบริษัทหรือหลักฐานผู้กู้",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Excluding volume-only tier3 is a Yolk study hypothesis, not a corporate threshold or borrower evidence."
+      },
+      "pathSummary": [
+        {
+          "id": "population_concentrated_t1",
+          "tier": 1,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "adult_population_20_64",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            },
+            {
+              "metric": "adult_population_20_64_per_km2",
+              "op": "gte_percentile",
+              "percentile": 90,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_concentrated_t2",
+          "tier": 2,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "adult_population_20_64",
+              "op": "gte_percentile",
+              "percentile": 50,
+              "positive_presence": true
+            },
+            {
+              "metric": "adult_population_20_64_per_km2",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        },
+        {
+          "id": "population_volume_t3",
+          "tier": 3,
+          "operator": "AND",
+          "conditions": [
+            {
+              "metric": "adult_population_20_64",
+              "op": "gte_percentile",
+              "percentile": 75,
+              "positive_presence": true
+            }
+          ]
+        }
+      ],
+      "astReference": {
+        "path": "contracts/industry-profiles.json",
+        "jsonPointer": "/profiles/2/paths"
+      }
+    }
+  ],
+  "evaluation": {
+    "unit": "Exact CityMETER reporting UUID: Bangkok khwaeng / upcountry local-authority reporting unit.",
+    "universe": {
+      "id": "national_7954",
+      "areas": 7954,
+      "BKKKhwaeng": 180,
+      "upcountryLAO": 7774,
+      "boundaryStatus": "Source reported unit, not independent statutory/catchment verification"
+    },
+    "percentile": "PERCENTILE.INC over known finite nonnegative values per metric; include valid observed zeros; never fill missing as0.",
+    "filterEffect": "Brand/province/map filtering changes the view and selected supply identity, not national metric cutoffs.",
+    "withinPath": "AND over all conditions using strong Kleene true/false/unknown.",
+    "betweenPaths": "OR; a known true path can confirm proxy high despite other unknown paths.",
+    "tier": "Smallest confirmed numeric tier is strongest; unknown data cannot upgrade confirmed tier. maxDemandTier filters candidate inclusion, not the underlying proxy-high state.",
+    "ASTAllowedOperator": "gte_percentile with positive_presence; retain existing fuel threshold_count groups.",
+    "currentRuntimePathGrouping": "Path IDs beginning workplace are supporting/activity; all other path IDs are primary. Keep grouping explicit when creating new IDs.",
+    "safeFormulaContract": "contracts/industry-profiles.json#/formulaContract; no arbitrary eval.",
+    "denominator": "Must be finite and positive; otherwise derived metric is unavailable.",
+    "states": [
+      "source_zero",
+      "derived_catalog_zero_with_proof",
+      "missing",
+      "suppressed",
+      "not_applicable",
+      "unverified",
+      "invalid"
+    ],
+    "presenceGuard": "New Grocery/Nonbank paths require value>0 and minimum30 valid observations. Preserve accepted Fuel literal-zero behavior and thresholds.",
+    "measuredDemand": "unknown until actual operational evidence is connected; proxy high does not establish measured customers, spending, borrowing or creditworthiness.",
+    "ranking": "Separate from screening and pattern membership. Weight-only changes must not change demand/tier/pattern/eligible membership.",
+    "correlation": "Numerators and density/per-capita variants are correlated, not independent evidence or confidence probabilities.",
+    "possiblePatterns": "All possible patterns in preferred set => confirmed strategy match; some but not all => review; no overlap => outside strategy.",
+    "localeInsight": "Contextual prior only. No eligibility, risk, official population or observed behavior inference; explicit crosswalk needed before aggregation."
+  },
+  "nonbank": {
+    "selectableCount": 10,
+    "selectableBasis": "TOP10 source-office record count, exact legal company IDs in brandBindings.",
+    "comparatorScope": "All source companies with active membership in the selected company-license family, plus visible unknown membership/bounds; never restrict to selectable TOP10.",
+    "retailFamilyUnion": [
+      "nano",
+      "ploan",
+      "ploan_car",
+      "pico",
+      "pico_plus"
+    ],
+    "productFields": {
+      "vehicle_title": "ploan_car",
+      "personal": "ploan",
+      "nano": "nano",
+      "pico": "pico",
+      "pico_plus": "pico_plus"
+    },
+    "office_context": "All source-office companies; no product license inference.",
+    "licenseMeaning": "Company-level potential product permission, not verified product availability at a particular branch.",
+    "unknownLicense": "not_found/unknown is review, not confirmed nonprovider.",
+    "assignmentBounds": "Use province+company residuals as per-area possibilities, not simultaneous allocations or repeated actual offices. Union company/product IDs; do not double count multiple licenses.",
+    "SrisawadLegalPolicy": "legal:0105559126747 defaults to office_context because pinned license snapshot does not establish active product scope for this legal entity; group website is not entity-level license proof."
+  },
+  "events": {
+    "draftOnlyActions": [
+      "change_brand",
+      "change_supply_scope",
+      "try_preset",
+      "edit_draft",
+      "pan_zoom_map",
+      "filter_map",
+      "change_theme",
+      "change_language"
+    ],
+    "draftOnlyMeaning": "Context selection/restoration and private view actions emit no team criteria event; draft edit previews do not commit applied criteria.",
+    "commitAction": "explicit Apply with edit permission, valid nonempty diff and matching draftBase version.",
+    "type": "criteria.updated",
+    "eventsPerCommit": 1,
+    "revisionsPerCommit": 1,
+    "previewLimit": "Browser-local simulated events/notifications; not external Email/LINE delivery or shared server synchronization.",
+    "productionRequirement": "One server transaction commits criteria revision and immutable event/outbox; optimistic locking; deduplicate notifications by eventId; enforce1Admin/3Editors/6Viewers per tenant.",
+    "recordedPreviewFields": [
+      "id",
+      "type",
+      "entity",
+      "entity_id",
+      "actor",
+      "at",
+      "changes",
+      "meta.workspace",
+      "meta.industry",
+      "meta.ownBrandId",
+      "meta.supplyScope",
+      "meta.profileVersion",
+      "meta.version",
+      "recipients"
+    ],
+    "productionAdditionalRequiredContext": [
+      "sourceRevision",
+      "cohortRevision",
+      "serverTenantId"
+    ]
+  },
+  "identity": {
+    "ownMarker": {
+      "glyph": "O",
+      "labelTH": "สาขาเรา",
+      "labelEN": "Our stores"
+    },
+    "competitorMarker": {
+      "glyph": "C",
+      "labelTH": "คู่แข่ง",
+      "labelEN": "Competitors"
+    },
+    "legacySymbolPolicy": "Display O replaces former own-store marker only. Keep exact source/legal IDs and old B/own field semantics; C remains competitor, not own.",
+    "YolkWordmark": {
+      "source": "prototype/icons.js:YolkIcons.yolkWordmark",
+      "letterO": "existing bundled egg_alt glyph",
+      "accessibleName": "Yolk",
+      "status": "reuse_existing_icon_not_newly_generated_art"
+    },
+    "logos": {
+      "manifest": "prototype/data/brand-logos.v1.7.json",
+      "coverageAuthority": "Read manifest.coverage and entries at release; do not hard-code a stale coverage claim.",
+      "source": "Verified official original assets or official theme variants.",
+      "prohibited": [
+        "invented_or_unverified_brand_identity",
+        "recolor",
+        "stretch",
+        "added_frame_or_backing_plate",
+        "crop",
+        "redraw",
+        "generated_logo",
+        "automatic_legal_company_grouping"
+      ],
+      "fallback": "Visible source/registered display name and neutral icon if unverified or no legible variant in current theme.",
+      "rights": "Trademark ownership and provenance are retained; public source does not imply open license or brand endorsement.",
+      "requiredEntryFlag": "verifiedSquareGraphic === true",
+      "selectorPresentation": {
+        "squareBoxCssPx": 44,
+        "objectFit": "contain",
+        "preserveOriginalAspect": true,
+        "completeNativeStoreBadgeLetteringAllowed": true,
+        "horizontalCorporateLockupAllowed": false,
+        "previousLockup": "historical provenance only; never a runtime variant",
+        "themeVariant": "Only verified compact original variants for the current theme; named neutral fallback otherwise"
+      },
+      "scope": "Company chooser graphic marks only. Official Landometer horizontal identity is preserved unchanged."
+    },
+    "DSInheritance": "Preserve verified Landometer logo/font/icon assets and LDS0.9.7 role/hash contracts; no motifs, decorative brackets or selected colored left rails."
+  },
+  "initialOutcomeEvidence": {
+    "evaluatedOn": "2026-10-04",
+    "registrySHA256": "a20aeb4294a916d997b2105e3d6f69125743f66dfc920061f6e749a6617a896c",
+    "method": "Historical count-mode baseline: VM evaluator plus brand seed module, source reporting-UUID supply, license scope membership and assignment/reconciliation bounds. No quota tuning. These are not the new relative-supply initial results.",
+    "defaultContextsEvaluated": 37,
+    "allOwnScopesAvailable": true,
+    "definitions": {
+      "highDemand": "Known profile proxy passes at least one path; ignores selectedmaxTier andSupply strategy.",
+      "highDemandWithinSelectedTiers": "Known profile proxy passes a tier included in the preset; beforeSupply patternfilter.",
+      "eligibleConfirmed": "Possible marketpatterns all belong to the selected strategy group; doesnotrequireexactsinglepattern.",
+      "reviewCount": "Possiblepatterns overlap the strategy group but are not whollycontained. Notconfirmedshortlist.",
+      "top3Confirmed": "Historical count-mode default ranking for confirmed strategy candidates only. Area names are source labels; not geocoded parcels or guaranteed commercial opportunities."
+    },
+    "examples": [
+      {
+        "industryId": "fuel",
+        "brandId": "bangchak",
+        "defaultScope": "all_fuel",
+        "familyId": "fuel-common",
+        "ownScopeAvailable": true,
+        "highDemand": 1067,
+        "highDemandWithinSelectedTiers": 1067,
+        "eligibleConfirmed": 915,
+        "reviewCount": 79,
+        "supplyMode": "count"
+      },
+      {
+        "industryId": "grocery",
+        "brandId": "grocery-brand:SEVEN_ELEVEN",
+        "defaultScope": "C_STORE",
+        "familyId": "grocery-convenience",
+        "ownScopeAvailable": true,
+        "highDemand": 2859,
+        "highDemandWithinSelectedTiers": 2859,
+        "eligibleConfirmed": 1455,
+        "reviewCount": 14,
+        "supplyMode": "count"
+      },
+      {
+        "industryId": "grocery",
+        "brandId": "grocery-brand:LOTUSS",
+        "defaultScope": "HYPERMARKET",
+        "familyId": "grocery-hypermarket",
+        "ownScopeAvailable": true,
+        "highDemand": 1958,
+        "highDemandWithinSelectedTiers": 1958,
+        "eligibleConfirmed": 1797,
+        "reviewCount": 0,
+        "supplyMode": "count"
+      },
+      {
+        "industryId": "grocery",
+        "brandId": "grocery-brand:BIG_C",
+        "defaultScope": "HYPERMARKET",
+        "familyId": "grocery-hypermarket",
+        "ownScopeAvailable": true,
+        "highDemand": 1958,
+        "highDemandWithinSelectedTiers": 1958,
+        "eligibleConfirmed": 1850,
+        "reviewCount": 0,
+        "supplyMode": "count"
+      },
+      {
+        "industryId": "grocery",
+        "brandId": "grocery-brand:TOPS",
+        "defaultScope": "SUPERMARKET",
+        "familyId": "grocery-visitor-context",
+        "ownScopeAvailable": true,
+        "highDemand": 1410,
+        "highDemandWithinSelectedTiers": 1410,
+        "eligibleConfirmed": 1287,
+        "reviewCount": 0,
+        "supplyMode": "count"
+      },
+      {
+        "industryId": "grocery",
+        "brandId": "grocery-brand:MAKRO",
+        "defaultScope": "WHOLESALE",
+        "familyId": "grocery-wholesale",
+        "ownScopeAvailable": true,
+        "highDemand": 2981,
+        "highDemandWithinSelectedTiers": 2981,
+        "eligibleConfirmed": 2832,
+        "reviewCount": 0,
+        "supplyMode": "count"
+      },
+      {
+        "industryId": "nonbank",
+        "brandId": "legal:0107557000195",
+        "defaultScope": "potential_retail_branch_service",
+        "familyId": "nonbank-community",
+        "ownScopeAvailable": true,
+        "highDemand": 2298,
+        "highDemandWithinSelectedTiers": 2298,
+        "eligibleConfirmed": 37,
+        "reviewCount": 1378,
+        "supplyMode": "count"
+      },
+      {
+        "industryId": "nonbank",
+        "brandId": "legal:0107563000355",
+        "defaultScope": "vehicle_title",
+        "familyId": "nonbank-concentrated",
+        "ownScopeAvailable": true,
+        "highDemand": 2298,
+        "highDemandWithinSelectedTiers": 1086,
+        "eligibleConfirmed": 99,
+        "reviewCount": 738,
+        "supplyMode": "count"
+      }
+    ],
+    "purpose": "Regression evidence of declared model behavior, not validation of sales, visits, lending, investment or brand-specific commercial accuracy.",
+    "quotaTuning": false,
+    "fullMatrixWorkingEvidence": "deliverables/yolk-brand-research-1.7/initial-brand-outcomes.v1.7.json in project workspace; not a public runtime dependency.",
+    "supplyMode": "count",
+    "status": "historical_count_mode_baseline",
+    "currentRelativeMode": "New contexts use adjustable relative supply after the selected source supply loads. Evaluate the current context with relative-supply.js; do not reuse this baseline as current relative output."
+  },
+  "implementationAcceptance": [
+    {
+      "id": "BRAND-01",
+      "purpose": "Bind actual identities and format defaults",
+      "inputs": [
+        "prototype/data/brand-presets.v1.7.json",
+        "prototype/data/real/fuel-supply.json",
+        "prototype/data/real/grocery-supply.json",
+        "prototype/data/real/nonbank-supply.json"
+      ],
+      "files": [
+        "prototype/brand-experience.js"
+      ],
+      "assertions": [
+        "37 unique brand IDs resolve to source IDs: fuel11, grocery16, nonbank10.",
+        "9 families and all sourceRefs resolve.",
+        "Bangchak/7Eleven/MTC canonical default overrides remain empty objects.",
+        "A brand-primary format is supported by source membership; source record counts are never labeled market share."
+      ]
+    },
+    {
+      "id": "BRAND-02",
+      "dependsOn": [
+        "BRAND-01"
+      ],
+      "purpose": "Seed only unseen criteria contexts",
+      "files": [
+        "prototype/brand-experience.js",
+        "prototype/industry-workspace.js"
+      ],
+      "assertions": [
+        "normalizeCriteria accepts every new seed.",
+        "Saved applied criteria, draft, draftBase and targets win over a registry update.",
+        "Trying a preset replaces only the current draft; Apply is still required.",
+        "Unseen brand context automatically chooses its important format."
+      ]
+    },
+    {
+      "id": "BRAND-03",
+      "dependsOn": [
+        "BRAND-02"
+      ],
+      "purpose": "Restore last format and isolate each context",
+      "files": [
+        "prototype/industry-workspace.js"
+      ],
+      "assertions": [
+        "Explicit supplyScope wins over remembered scope; remembered scope wins over registry defaultScope.",
+        "New Tops starts SUPERMARKET; new LOTUSS/BIG_C start HYPERMARKET; 7Eleven C_STORE; Makro WHOLESALE.",
+        "A user-selected compatible format is remembered per industry+brand.",
+        "Switch away and back restores applied criteria, unsaved draft and targets without writing a team event.",
+        "A stale async load cannot overwrite the latest selected context."
+      ]
+    },
+    {
+      "id": "BRAND-04",
+      "dependsOn": [
+        "BRAND-01"
+      ],
+      "purpose": "Evaluate defensible context, not invented demand",
+      "files": [
+        "prototype/model.js",
+        "prototype/industry-workspace.js"
+      ],
+      "assertions": [
+        "Percentiles use the pinned national reporting UUID universe and known valid values only; valid zeros remain in distributions.",
+        "A province/map/brand filter does not rebuild national thresholds.",
+        "Exact thresholds use unrounded values and PERCENTILE.INC.",
+        "New paths require positive presence and sufficient valid cohort; accepted Fuel zero semantics remain unchanged.",
+        "Missing/invalid denominator cannot become 0 or qualify through missing data.",
+        "Known passing paths may confirm proxy high; unknown paths cannot strengthen confirmed tier.",
+        "Changing weights changes ordering only; demand, tiers, patterns and eligible IDs stay unchanged.",
+        "Grocery own membership unavailable is unknown own supply, never zero.",
+        "Nonbank comparators use all companies in the selected license scope; selector TOP10 does not truncate supply.",
+        "Every possible pattern preferred means confirmed strategy membership; partial overlap means review."
+      ]
+    },
+    {
+      "id": "BRAND-05",
+      "dependsOn": [
+        "BRAND-02",
+        "BRAND-04"
+      ],
+      "purpose": "Commit only explicit criteria changes",
+      "files": [
+        "prototype/app.js"
+      ],
+      "assertions": [
+        "Slider/input/formula/preset trials update the draft map and emit no team event.",
+        "Apply with a valid nonempty diff creates one criteria revision and one criteria.updated event.",
+        "Same criteria Apply creates no event.",
+        "Version conflict rejects overwrite; failed event restores previous criteria and retains draft.",
+        "Event includes actor, time, before/after and workspace+industry+ownEntity+scope context."
+      ]
+    },
+    {
+      "id": "BRAND-06",
+      "purpose": "Preserve identity and honest official assets",
+      "files": [
+        "prototype/icons.js",
+        "prototype/brand-experience.js",
+        "prototype/data/brand-logos.v1.7.json",
+        "prototype/location-map.js"
+      ],
+      "assertions": [
+        "O means Our stores; C means Competitors across maps, legends and copy.",
+        "The O position of Yolk uses the existing egg_alt glyph and accessible name Yolk.",
+        "Display glyph changes do not rename legal/source IDs or reinterpret old B/C formulas.",
+        "Each logo localPath/variant matches its manifest hash and exact brand identity.",
+        "Official original bytes are not recolored, distorted or placed in added frames/backing plates.",
+        "Unavailable or unsuitable theme asset uses plain source/display name plus a neutral icon; no fabricated mark.",
+        "Landometer logo and icon/font sources remain bound to LDS0.9.7."
+      ]
+    },
+    {
+      "id": "BRAND-07",
+      "dependsOn": [
+        "BRAND-03",
+        "BRAND-05",
+        "BRAND-06"
+      ],
+      "purpose": "Review the actual responsive interaction",
+      "files": [
+        "prototype/index.html",
+        "prototype/brand-experience.css",
+        "prototype/criteria-map.css",
+        "prototype/styles.css"
+      ],
+      "assertions": [
+        "Review real Thai/English at narrow and desktop sizes in light/dark themes.",
+        "Criteria controls and visible map remain usable together.",
+        "Picker dialog focus, Escape, keyboard search and touch controls work without text overlap.",
+        "Current brand, supply format, preset hypothesis and saved-versus-draft state are apparent.",
+        "Do not claim visual/accessibility pass from a hash or syntax test."
+      ]
+    },
+    {
+      "id": "BRAND-08",
+      "dependsOn": [
+        "BRAND-01",
+        "BRAND-02",
+        "BRAND-03",
+        "BRAND-04",
+        "BRAND-05",
+        "BRAND-06"
+      ],
+      "purpose": "Run meaningful regression and record actual scope",
+      "commands": [
+        "node scripts/check-brand-presets.cjs",
+        "node scripts/check-three-industry.cjs",
+        "node scripts/check-photo-runtime.cjs"
+      ],
+      "assertions": [
+        "Every one of37 default brand+scope contexts evaluates from actual source inventory/license data.",
+        "Record confirmed/review/unknown outputs as model checks, never sales or borrowing performance.",
+        "No tuning to a desired candidate quota.",
+        "Production authorization, shared persistence, notifications and fresh source reconciliation remain separately tested work."
+      ]
+    }
+  ],
+  "productionRemaining": [
+    "server tenant/context storage and migrations",
+    "server RBAC and optimistic lock",
+    "immutable revision+event+outbox transaction",
+    "permission-preserving Email/LINE notifications",
+    "live source refresh/reconciliation",
+    "operational demand calibration and field validation"
+  ],
+  "honestClaim": "Implemented local static-preview interactions are separate from production readiness, visual QA, source completeness and commercial performance."
+}

@@ -1,0 +1,2317 @@
+{
+  "schemaVersion": "yolk.brand-presets/1.0",
+  "version": "1.7.0",
+  "createdOn": "2026-10-04",
+  "status": "initial_seed_research_hypotheses",
+  "policy": {
+    "application": "Apply family defaults only to a previously unseen brand/scope context or explicit user reset. Saved applied criteria and saved draft always win.",
+    "brandScope": "Brand identity, product/format scope and industry profile version are separate context keys. Source peers retain all comparable entities; limiting the selectable Nonbank ten does not restrict comparator data.",
+    "acceptedDefaults": [
+      "Bangchak all_fuel",
+      "7-Eleven C_STORE",
+      "Muangthai Capital potential_retail_branch_service"
+    ],
+    "thresholdAuthority": "Public operator evidence supports mission, not Yolk percentiles, supply cutoffs or weights. Do not claim operator-approved or outcome-calibrated presets.",
+    "nationalQuantiles": "Fixed national7954 reporting UUID universe, known valid finite nonnegative values per metric; map filters and brand changes do not recalculate cutoffs.",
+    "missing": "Missing is unknown, not zero. New paths use positive-presence guards; preserve accepted Fuel literalzero semantics.",
+    "selectedNonbankCount": 10,
+    "groceryFallback": "If selected brand has no source membership in a chosen scope, show unavailable own-scope evidence, not ownSupply0. Generic family is a study view, not confirmation of membership.",
+    "brandPrimaryFormat": "Initial brand selection uses the suggested important format supported by brand positioning and observed source membership. Source inventory counts are disclosed as context, never financial market share. User-selected scopes and saved settings remain supported."
+  },
+  "sourceRefs": [
+    {
+      "id": "BANGCHAK_2025",
+      "url": "https://www.bangchak.co.th/en/newsroom/bangchak-news/1832/bangchak-group-reports-2025-financial-performance-continued-synergy-realization-expanding-global-reach-strengthening-long-term-growth",
+      "sourceDate": "2025 financial year; publication date not extracted",
+      "accessedOn": "2026-10-04",
+      "fact": "Station quality, industrial sales and non-oil services are distinct scopes; reported year-end network includes stations, Inthanin and EV charging.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_disclosure"
+    },
+    {
+      "id": "BANGCHAK_DESTINATION",
+      "url": "https://sustainability.bangchak.co.th/en/governance-and-economic/sustainable-product-and-service-development",
+      "sourceDate": "2025 performance section; page undated",
+      "accessedOn": "2026-10-04",
+      "fact": "Non-oil strategy includes convenience stores, coffee, restaurants, charging and vehicle services at stations.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_disclosure"
+    },
+    {
+      "id": "PTT_OR_2026",
+      "url": "https://investor.pttor.com/en/financial-info/business-highlights",
+      "sourceDate": "updated June2026",
+      "accessedOn": "2026-10-04",
+      "fact": "PTT Stations are a mobility/lifestyle physical platform; EV route coverage and station convenience retail are documented.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_disclosure"
+    },
+    {
+      "id": "PTG_2025",
+      "url": "https://sustainability.ptgenergy.co.th/en/economic/business-expansion-transformation",
+      "sourceDate": "2025 strategy section; page undated",
+      "accessedOn": "2026-10-04",
+      "fact": "Fuel network and non-oil touchpoints are integrated through MaxWorld/MaxCard; upgrades and Punthai expansion are discussed separately.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_disclosure"
+    },
+    {
+      "id": "SHELL_TH_SERVICES",
+      "url": "https://www.shell.co.th/th_th/customer.html",
+      "sourceDate": "undated current page",
+      "accessedOn": "2026-10-04",
+      "fact": "Thai service catalogue contains fuels, fleet support, oil change, Shell Select, cafe and charging; no quantitative site-screen formula.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_service_catalogue"
+    },
+    {
+      "id": "CALTEX_TH_DEALER",
+      "url": "https://www.caltex.com/th/investors.html",
+      "sourceDate": "undated current page",
+      "accessedOn": "2026-10-04",
+      "fact": "Dealer investment and business support are offered; it does not publish an empirical area-demand cutoff.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_service_catalogue"
+    },
+    {
+      "id": "CALTEX_TH_FLEET",
+      "url": "https://www.caltex.com/th/business-solutions/fleet-cards/caltex-starcard.html",
+      "sourceDate": "undated current page",
+      "accessedOn": "2026-10-04",
+      "fact": "StarCard serves business fleets including cars, trucks and buses; factory records do not reveal customers or routes.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_service_catalogue"
+    },
+    {
+      "id": "CPALL_O2O",
+      "url": "https://www.cpall.co.th/en/sustain/social-dimension/customer-relationship-management",
+      "sourceDate": "2025 strategic goal section; page undated",
+      "accessedOn": "2026-10-04",
+      "fact": "Offline7Eleven integrates 7App, delivery and AllOnline; public area population is not actual customer reach.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_disclosure"
+    },
+    {
+      "id": "CPALL_EXPANSION",
+      "url": "https://www.cpall.co.th/wp-content/uploads/2025/08/2Q25_Presentation_CPALL_distribution_160825.pdf",
+      "sourceDate": "2Q2025 presentation, August2025",
+      "accessedOn": "2026-10-04",
+      "fact": "Thailand expansion plan and capital budget are presented; no P75/P90 site-selection formula.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_disclosure"
+    },
+    {
+      "id": "CPAXTRA_STORE_MODELS",
+      "url": "https://www.cpaxtra.com/en/about-us/store-model",
+      "sourceDate": "undated current catalogue; retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "Lotusmini is residential/commercial daily top-up; supermarkets serve commercial/suburban neighborhood trips; hypermarkets broad one-stop; Makro serves retailers and food operators in several formats.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_format_catalogue"
+    },
+    {
+      "id": "CPAXTRA_2026",
+      "url": "https://www.cpaxtra.com/en/investor-relations/overview",
+      "sourceDate": "strategy chart dated21April2026",
+      "accessedOn": "2026-10-04",
+      "fact": "Right store formats in high-potential locations, online/offline B2B/B2C integration and fresh/food destination strategy.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_disclosure"
+    },
+    {
+      "id": "BIGC_FORMATS",
+      "url": "https://corporate.bigc.co.th/about?lang=en",
+      "sourceDate": "undated current catalogue",
+      "accessedOn": "2026-10-04",
+      "fact": "Mini is neighborhood/proximity or grab-and-go; Market suburban; Foodplace urban supermarket; Supercenter broad assortment and mall.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_format_catalogue"
+    },
+    {
+      "id": "TOPS_MALL_2025",
+      "url": "https://corporate.tops.co.th/news/tops-under-central-retail-launches-new-branch-at-market-place-theprak-a-prime-phahonyothin-watcharapol-location-targeting-affluent-communities-and-strategic-malls-in-its-drive-to-become-thai/",
+      "sourceDate": "2025-04-24",
+      "accessedOn": "2026-10-04",
+      "fact": "Community malls and affluent communities are an expansion direction; available CityMETER metrics do not measure household income.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_release"
+    },
+    {
+      "id": "TOPS_TOURISM_2025",
+      "url": "https://corporate.tops.co.th/news/test/",
+      "sourceDate": "2025-01-08",
+      "accessedOn": "2026-10-04",
+      "fact": "Tops reports expansion into Samui, Phangan and Kamala tourist destinations; hotel rooms may offer capacity context but not visitors/occupancy.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_release"
+    },
+    {
+      "id": "TOPS_DAILY_2025",
+      "url": "https://corporate.tops.co.th/news/tops-daily-launches-a-new-hybrid-model-tops-daily-x-tops-wine-cellar-combining-the-strengths-of-a-convenience-store-and-a-specialty-wine-shop-targeting-tourists-and-th/",
+      "sourceDate": "2025-03-18",
+      "accessedOn": "2026-10-04",
+      "fact": "TopsDaily hybrid tourist pilot is specifically documented; do not imply allTopsDaily stores serve the same premium mission.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_release"
+    },
+    {
+      "id": "CJ_MORE_ABOUT",
+      "url": "https://www.cjmore.co.th/about",
+      "sourceDate": "company text marks2020-11-09; current search index retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "Community supermarket and local consumer needs; exact expansion model not independently extracted beyond this current official search result.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "medium_official_index_full_page_fetch_failed"
+    },
+    {
+      "id": "TOOGDEE_COMMUNITY",
+      "url": "https://www.td.co.th/careers/",
+      "sourceDate": "undated current policy",
+      "accessedOn": "2026-10-04",
+      "fact": "Works with existing local shop owners and states no policy of opening to compete with them; target is merchant partnership/upgrading, not necessarily new greenfield stores.",
+      "doesNotEstablish": "Yolk percentiles, brand-specific sales-fit weights, demand probabilities or validated catchment radii",
+      "confidence": "high_operator_policy"
+    },
+    {
+      "id": "MTC_RISK",
+      "url": "https://sustainability.muangthaicap.com/th/Sustainability/risk.html",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Branch planning considers area/population/nearby branch performance and economics; no percentile calibration.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "MTC_BUSINESS",
+      "url": "https://investor.muangthaicap.com/th/company-info/mtc-overview",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Community-reaching network and vehicle/land/personal/nano portfolio.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "SAWAD_GROUP",
+      "url": "https://www.sawad.co.th/",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Consumer group portfolio only, not active-license proof for Power2014.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "SCBX_AUTOX",
+      "url": "https://investor.scbx.com/th/business-overview",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "AutoX operates เงินไชโย vehicle-title lending.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "TIDLOR_BUSINESS",
+      "url": "https://www.tidlorinvestor.com/th/corporate-information/nature-of-business",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Vehicle-title/insurance delivered through branch and digital channels.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "SAK_PRODUCTS",
+      "url": "https://saksiam.com/",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Vehicle-title and agricultural/occupational service context, not observed farmer geography.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "TURBO_GENERAL",
+      "url": "https://investor.turbo.co.th/th/about-us/general-information",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Exact company registration number;vehicle/land/nano and associated portfolio.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "HENG_COMPANY",
+      "url": "https://www.hengleasing.com/",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Mixed consumer vehicle/hire-purchase/land services, not point-product availability.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "NIM_PRODUCTS",
+      "url": "https://www.nimleasing.com/official/crm/product",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Vehicle/nano/hire purchase/installment/land portfolio.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "AYCAL_SUBSIDIARY",
+      "url": "https://www.krungsri.com/th/about-krungsri/about-us/subsidiaries/capital-auto-lease",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Exact legal subsidiary name and auto-finance relationship to group.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "UOB_XPRESS_OPERATOR",
+      "url": "https://www.uob.co.th/personal/loans/xpress-loans/about-us.page",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Exact UOB Capital Services operator and unsecured personal-loan identity.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    },
+    {
+      "id": "SIAMGAS_BUSINESS",
+      "url": "https://www.siamgas.com/about-us/",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Current operator service/business context; does not independently reconcile CityMETER historical brand labels or fuel products.",
+      "doesNotEstablish": "Brand-specific numeric demand cutoffs, local station fuel types or exact current brand equivalence."
+    },
+    {
+      "id": "UNIQUEGAS_BUSINESS",
+      "url": "https://uniquegas.co.th/",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Current operator service/business context; does not independently reconcile CityMETER historical brand labels or fuel products.",
+      "doesNotEstablish": "Brand-specific numeric demand cutoffs, local station fuel types or exact current brand equivalence."
+    },
+    {
+      "id": "WORLDGAS_CURRENT",
+      "url": "https://www.worldgas.co.th/",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Current operator service/business context; does not independently reconcile CityMETER historical brand labels or fuel products.",
+      "doesNotEstablish": "Brand-specific numeric demand cutoffs, local station fuel types or exact current brand equivalence."
+    },
+    {
+      "id": "SUSCO_CURRENT",
+      "url": "https://www.susco.co.th/",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Current operator service/business context; does not independently reconcile CityMETER historical brand labels or fuel products.",
+      "doesNotEstablish": "Brand-specific numeric demand cutoffs, local station fuel types or exact current brand equivalence."
+    },
+    {
+      "id": "PURETHAI_CURRENT",
+      "url": "https://www.purethai.co.th/",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Current operator service/business context; does not independently reconcile CityMETER historical brand labels or fuel products.",
+      "doesNotEstablish": "Brand-specific numeric demand cutoffs, local station fuel types or exact current brand equivalence."
+    },
+    {
+      "id": "LONGTAIL_WORLD_GAS",
+      "url": "https://www.worldgas.co.th/thebestthaistreetfood/",
+      "sourceDate": "current page retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "Official WorldGas site redirects to brand campaign.",
+      "doesNotEstablish": "No quantitative expansion threshold extracted; source not enough for newdefaults."
+    },
+    {
+      "id": "LONGTAIL_LAWSON108",
+      "url": "https://www.lawson.co.jp/lab/natural/art/1453684_5111.html",
+      "sourceDate": "2022-06-14 series;retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "Lawson Japan describes ThailandLawson108 inresidential,office,tourist,Japanesecompanyfactory,airport andBTSlocations.",
+      "doesNotEstablish": "Older operatorcontext, not currentformat/channel verification; officecatalog only45valid reporting areas, so do not make office default screeningmetric."
+    },
+    {
+      "id": "LONGTAIL_MAXVALU",
+      "url": "https://www.aeonthailand.co.th/",
+      "sourceDate": "undated current page retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "AEONThailand describes MaxValu supermarket andMaxValuTanjai with daily fresh/ready-to-eat foods and imported goods.",
+      "doesNotEstablish": "Source snapshot assigns MAXVALU onlySUPERMARKET; do not create unobservedC_STOREmembership merelybecausebrandwebsite mentionsTanjai."
+    },
+    {
+      "id": "LONGTAIL_FOODLAND",
+      "url": "https://www.foodland.co.th/",
+      "sourceDate": "home newsSep2026;retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "Foodland official home names supermarket,24-hour service andfresh-food catalogue.",
+      "doesNotEstablish": "Daypartnot available in area-context snapshot; defaultarea screen is not 24-hour observed demand."
+    },
+    {
+      "id": "LONGTAIL_GO_WHOLESALE",
+      "url": "https://www.centralretail.com/en/brands/669/go-wholesale",
+      "sourceDate": "undated current ownerbrand page retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "GOWholesale is food-operator-serving wholesaler with varied sourcing,delivery and professionalconsultancy.",
+      "doesNotEstablish": "Current25metrics lack measuredrestaurant counts or wholesale spend; hotelroomcontext is capacityproxy, pop/GFAcontext not B2Bpurchases. Fieldverifyoperatorclusters before sitechoice."
+    },
+    {
+      "id": "LONGTAIL_DONKI",
+      "url": "https://www.dondondonki.com/th/corporate/",
+      "sourceDate": "current page retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "DONKIThailand official corporatepage identifies retail/supermarketoperation; storecatalog hasmallandspecificdestinations and different openinghours.",
+      "doesNotEstablish": "Available snapshot has SUPERMARKETonly; donot infer Japaneseexpatresidents,income or touristspending frombrandpositioning."
+    },
+    {
+      "id": "LONGTAIL_RIMPING",
+      "url": "https://www.rimping.com/",
+      "sourceDate": "current page retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "Rimping describes supermarket,localcommunityservice,homedelivery andHoReCa division servingrestaurants/hotels/cafes.",
+      "doesNotEstablish": "DefaultsourceisSUPERMARKET; do not switch allbranches towholesale basedonadditionalHoReCadivision."
+    },
+    {
+      "id": "LONGTAIL_FUJI",
+      "url": "https://www.ufmfujisuper.com/",
+      "sourceDate": "current page retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "Official taglineThaiSmilesJapaneseStyles andsitecatalogueofferfood/household/delicatessen products.",
+      "doesNotEstablish": "No localJapaneseexpatcount or income evidence in25metrics; do not claimpremiumaffluencemodel."
+    },
+    {
+      "id": "LONGTAIL_VILLA_MARKET",
+      "url": "https://shop.villamarket.com/",
+      "sourceDate": "current public shop app retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "Official shoppingapp andsourceSUPERMARKETmembership available; no operatorarea-threshold retrieved.",
+      "doesNotEstablish": "Generic verifiedformatfamily; nobrand-specific numericvariation claimed."
+    },
+    {
+      "id": "LONGTAIL_GOURMET_MARKET",
+      "url": "https://gourmetmarketthailand.com/",
+      "sourceDate": "current shopsite retrieved2026-10-04",
+      "accessedOn": "2026-10-04",
+      "fact": "Official groceryshopidentity andsourceSUPERMARKETmembership confirmed; no areathreshold extracted.",
+      "doesNotEstablish": "Genericformatfamily; donot usefiscalperperson orGFAP95 as provenaffluence."
+    },
+    {
+      "id": "AYCAL_PRODUCT_SPLIT",
+      "url": "https://www.krungsriauto.com/",
+      "sourceDate": "undated_current_official_page",
+      "accessedOn": "2026-10-04",
+      "fact": "Official group lists bank car products separately from AYCAL motorcycle/bigbike products.",
+      "doesNotEstablish": "Yolk numeric thresholds, borrowers, creditworthiness or service availability at each listed office."
+    }
+  ],
+  "families": [
+    {
+      "id": "fuel-common",
+      "industryId": "fuel",
+      "name": {
+        "th": "สถานีบริการและจุดแวะของชุมชน",
+        "en": "Fuel & community stops"
+      },
+      "summary": {
+        "th": "มองความเข้มข้นของอาคารและกิจกรรม แล้วเทียบสาขาเราและคู่แข่ง",
+        "en": "Screen built-form and activity concentration, then compare our network and other listed stations."
+      },
+      "criteriaOverrides": {},
+      "sourceIds": [
+        "BANGCHAK_2025",
+        "BANGCHAK_DESTINATION",
+        "PTT_OR_2026",
+        "PTG_2025",
+        "SHELL_TH_SERVICES",
+        "CALTEX_TH_DEALER",
+        "CALTEX_TH_FLEET"
+      ],
+      "status": "adjustable_research_hypothesis_not_operator_calibrated",
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ยังไม่มีปริมาณรถ ทิศทางวิ่ง หรือความนิยมชนิดน้ำมัน",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Vehicle flow, travel direction and fuel preferences remain unknown."
+      },
+      "parameterAuthority": "Yolk design hypothesis. Operator sources support business mission or format, not numeric cutoffs or weights.",
+      "nationalCohortId": "national_7954",
+      "mappingRole": "initial_seed_only_saved_user_criteria_wins"
+    },
+    {
+      "id": "grocery-convenience",
+      "industryId": "grocery",
+      "name": {
+        "th": "ใกล้คนอยู่ ใกล้คนทำงาน",
+        "en": "Homes & workplaces"
+      },
+      "summary": {
+        "th": "คัดชุมชนที่มีประชากรหรือคนงานโรงงานเด่น สำหรับการซื้อของระหว่างวัน",
+        "en": "Find resident or reported workplace concentrations for everyday convenience study."
+      },
+      "criteriaOverrides": {},
+      "sourceIds": [
+        "CPALL_O2O",
+        "CPALL_EXPANSION"
+      ],
+      "status": "adjustable_research_hypothesis_not_operator_calibrated",
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน คนงานไม่ได้ยืนยันทางเดินผ่านหน้าร้านหรือยอดซื้อ",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Reported workers do not establish accessible store traffic or purchase volume."
+      },
+      "parameterAuthority": "Yolk design hypothesis. Operator sources support business mission or format, not numeric cutoffs or weights.",
+      "nationalCohortId": "national_7954",
+      "mappingRole": "initial_seed_only_saved_user_criteria_wins"
+    },
+    {
+      "id": "grocery-community",
+      "industryId": "grocery",
+      "name": {
+        "th": "ร้านประจำของชุมชน",
+        "en": "Community top-up"
+      },
+      "summary": {
+        "th": "เน้นประชากรและความหนาแน่น สำหรับร้านใกล้บ้านและการซื้อเติมในแต่ละวัน",
+        "en": "Focus on population volume and density for neighborhood top-up shopping."
+      },
+      "criteriaOverrides": {
+        "buildingEnabled": true,
+        "activityEnabled": false,
+        "rankingMode": "context",
+        "rankingWeights": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        },
+        "demandGroupWeights": {
+          "building": 100,
+          "activity": 50,
+          "extra": 50
+        },
+        "cohortMode": "national",
+        "minimumCohortN": 30,
+        "positivePresence": true,
+        "extraMetrics": [],
+        "ownMany": 2,
+        "competitorMany": 2,
+        "maxDemandTier": 3,
+        "demandMode": "high",
+        "patterns": [
+          "Pioneer",
+          "FOMO"
+        ],
+        "paths": [
+          {
+            "id": "population_concentrated_t1",
+            "tier": 1,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              },
+              {
+                "metric": "population_per_km2",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรทะเบียนมากและเข้มข้นมาก"
+          },
+          {
+            "id": "population_concentrated_t2",
+            "tier": 2,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 50,
+                "positive_presence": true
+              },
+              {
+                "metric": "population_per_km2",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรทะเบียนมีปริมาณและความเข้มข้น"
+          },
+          {
+            "id": "population_volume_t3",
+            "tier": 3,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรทะเบียนมาก: ตรวจว่ารวมตัวอยู่บริเวณใด"
+          }
+        ]
+      },
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS",
+        "BIGC_FORMATS",
+        "CJ_MORE_ABOUT",
+        "TOOGDEE_COMMUNITY"
+      ],
+      "status": "adjustable_research_hypothesis_not_operator_calibrated",
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ต้องเจาะดูการรวมตัวของบ้านและทางเข้าถึงจริง",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Inspect occupied housing clusters and real access."
+      },
+      "parameterAuthority": "Yolk design hypothesis. Operator sources support business mission or format, not numeric cutoffs or weights.",
+      "nationalCohortId": "national_7954",
+      "mappingRole": "initial_seed_only_saved_user_criteria_wins"
+    },
+    {
+      "id": "grocery-supermarket",
+      "industryId": "grocery",
+      "name": {
+        "th": "ย่านชุมชนหนาแน่น",
+        "en": "Neighborhood supermarket"
+      },
+      "summary": {
+        "th": "คัดพื้นที่ที่มีประชากรและความหนาแน่นเด่น ก่อนดูศูนย์ค้าและแปลงจริง",
+        "en": "Screen stronger population volume and concentration, then inspect shopping nodes and sites."
+      },
+      "criteriaOverrides": {
+        "buildingEnabled": true,
+        "activityEnabled": false,
+        "rankingMode": "context",
+        "rankingWeights": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        },
+        "demandGroupWeights": {
+          "building": 100,
+          "activity": 50,
+          "extra": 50
+        },
+        "cohortMode": "national",
+        "minimumCohortN": 30,
+        "positivePresence": true,
+        "extraMetrics": [],
+        "ownMany": 1,
+        "competitorMany": 1,
+        "maxDemandTier": 3,
+        "demandMode": "high",
+        "patterns": [
+          "Pioneer",
+          "FOMO"
+        ],
+        "paths": [
+          {
+            "id": "population_concentrated_t1",
+            "tier": 1,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              },
+              {
+                "metric": "population_per_km2",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ชุมชนมีประชากรมากและหนาแน่นสูง",
+            "label_en": "High population volume and density"
+          },
+          {
+            "id": "population_concentrated_t2",
+            "tier": 2,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              },
+              {
+                "metric": "population_per_km2",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ชุมชนมีประชากรและความหนาแน่นเด่น",
+            "label_en": "Elevated population volume and density"
+          },
+          {
+            "id": "population_volume_t3",
+            "tier": 3,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรมาก: เจาะดูจุดที่อยู่อาศัย",
+            "label_en": "High population volume: inspect residential clusters"
+          }
+        ]
+      },
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS",
+        "BIGC_FORMATS",
+        "TOPS_MALL_2025"
+      ],
+      "status": "adjustable_research_hypothesis_not_operator_calibrated",
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน หนึ่งสาขาหมายถึงมีรายการในพื้นที่ ไม่ได้หมายถึงตลาดเต็มแล้ว",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. One listed store means recorded presence, not market saturation."
+      },
+      "parameterAuthority": "Yolk design hypothesis. Operator sources support business mission or format, not numeric cutoffs or weights.",
+      "nationalCohortId": "national_7954",
+      "mappingRole": "initial_seed_only_saved_user_criteria_wins"
+    },
+    {
+      "id": "grocery-visitor-context",
+      "industryId": "grocery",
+      "name": {
+        "th": "ชุมชนและเมืองท่องเที่ยว",
+        "en": "Communities & visitor context"
+      },
+      "summary": {
+        "th": "คัดจากประชากร หรือความจุห้องพักที่เด่น แล้วตรวจผู้มาเยือนจริง",
+        "en": "Screen population or accommodation capacity, then verify actual visitor patterns."
+      },
+      "criteriaOverrides": {
+        "buildingEnabled": true,
+        "activityEnabled": false,
+        "rankingMode": "context",
+        "rankingWeights": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        },
+        "demandGroupWeights": {
+          "building": 100,
+          "activity": 50,
+          "extra": 50
+        },
+        "cohortMode": "national",
+        "minimumCohortN": 30,
+        "positivePresence": true,
+        "extraMetrics": [],
+        "ownMany": 1,
+        "competitorMany": 1,
+        "maxDemandTier": 3,
+        "demandMode": "high",
+        "patterns": [
+          "Pioneer",
+          "FOMO"
+        ],
+        "paths": [
+          {
+            "id": "population_concentrated_t1",
+            "tier": 1,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              },
+              {
+                "metric": "population_per_km2",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ชุมชนมีประชากรมากและหนาแน่นสูง",
+            "label_en": "High population volume and density"
+          },
+          {
+            "id": "population_concentrated_t2",
+            "tier": 2,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              },
+              {
+                "metric": "population_per_km2",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ชุมชนมีประชากรและความหนาแน่นเด่น",
+            "label_en": "Elevated population volume and density"
+          },
+          {
+            "id": "population_volume_t3",
+            "tier": 3,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรมาก: เจาะดูจุดที่อยู่อาศัย",
+            "label_en": "High population volume: inspect residential clusters"
+          },
+          {
+            "id": "hospitality_capacity_t1",
+            "tier": 1,
+            "all": [
+              {
+                "metric": "hotel_rooms",
+                "op": "gte_percentile",
+                "percentile": 95,
+                "positive_presence": true
+              },
+              {
+                "metric": "hotel_rooms_per_km2",
+                "op": "gte_percentile",
+                "percentile": 95,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ห้องพักมีปริมาณและความเข้มข้นสูงมาก",
+            "label_en": "Very high accommodation capacity and density"
+          },
+          {
+            "id": "hospitality_capacity_t2",
+            "tier": 2,
+            "all": [
+              {
+                "metric": "hotel_rooms",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              },
+              {
+                "metric": "hotel_rooms_per_km2",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ห้องพักมีปริมาณและความเข้มข้นสูง",
+            "label_en": "High accommodation capacity and density"
+          },
+          {
+            "id": "hospitality_capacity_volume_t3",
+            "tier": 3,
+            "all": [
+              {
+                "metric": "hotel_rooms",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ห้องพักมาก: ตรวจฤดูกาลและการเข้าพัก",
+            "label_en": "High room capacity: check seasonality and occupancy"
+          }
+        ]
+      },
+      "sourceIds": [
+        "TOPS_MALL_2025",
+        "TOPS_TOURISM_2025",
+        "TOPS_DAILY_2025"
+      ],
+      "status": "adjustable_research_hypothesis_not_operator_calibrated",
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ห้องพักคือความจุ ไม่ใช่ผู้เข้าพัก จำนวนคนเดิน หรือกำลังซื้อ; ปีข้อมูลห้องพักยังไม่ทราบ",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Rooms measure recorded capacity, not occupied stays, footfall or purchasing power; the hotel source period is unknown."
+      },
+      "parameterAuthority": "Yolk design hypothesis. Operator sources support business mission or format, not numeric cutoffs or weights.",
+      "nationalCohortId": "national_7954",
+      "mappingRole": "initial_seed_only_saved_user_criteria_wins"
+    },
+    {
+      "id": "grocery-hypermarket",
+      "industryId": "grocery",
+      "name": {
+        "th": "ศูนย์จับจ่ายของเมือง",
+        "en": "Regional shopping hub"
+      },
+      "summary": {
+        "th": "เน้นจำนวนประชากรรวม สำหรับการศึกษาตลาดที่รองรับร้านขนาดใหญ่",
+        "en": "Focus on population volume for a regional large-format market study."
+      },
+      "criteriaOverrides": {
+        "buildingEnabled": true,
+        "activityEnabled": false,
+        "rankingMode": "context",
+        "rankingWeights": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        },
+        "demandGroupWeights": {
+          "building": 100,
+          "activity": 50,
+          "extra": 50
+        },
+        "cohortMode": "national",
+        "minimumCohortN": 30,
+        "positivePresence": true,
+        "extraMetrics": [],
+        "ownMany": 1,
+        "competitorMany": 1,
+        "maxDemandTier": 3,
+        "demandMode": "high",
+        "patterns": [
+          "Pioneer",
+          "FOMO"
+        ],
+        "paths": [
+          {
+            "id": "population_volume_t1",
+            "tier": 1,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 95,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรรวมเด่นระดับ 1",
+            "label_en": "Population volume, signal tier 1"
+          },
+          {
+            "id": "population_volume_t2",
+            "tier": 2,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรรวมเด่นระดับ 2",
+            "label_en": "Population volume, signal tier 2"
+          },
+          {
+            "id": "population_volume_t3",
+            "tier": 3,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรรวมเด่นระดับ 3",
+            "label_en": "Population volume, signal tier 3"
+          }
+        ]
+      },
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS",
+        "BIGC_FORMATS"
+      ],
+      "status": "adjustable_research_hypothesis_not_operator_calibrated",
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ขอบเขต อปท./แขวงไม่ใช่ระยะขับรถ ต้องตรวจตลาดข้ามเขต ทางเข้า ที่ดิน และที่จอดรถ",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Reporting units are not driving catchments. Verify cross-boundary trips, access, land and parking."
+      },
+      "parameterAuthority": "Yolk design hypothesis. Operator sources support business mission or format, not numeric cutoffs or weights.",
+      "nationalCohortId": "national_7954",
+      "mappingRole": "initial_seed_only_saved_user_criteria_wins"
+    },
+    {
+      "id": "grocery-wholesale",
+      "industryId": "grocery",
+      "name": {
+        "th": "พื้นที่รองรับผู้ประกอบการ",
+        "en": "Wholesale context"
+      },
+      "summary": {
+        "th": "มองปริมาณประชากรและห้องพัก ก่อนตรวจฐานร้านค้า ร้านอาหาร และผู้ประกอบการจริง",
+        "en": "Use population volume and accommodation capacity before verifying local operators and food businesses."
+      },
+      "criteriaOverrides": {
+        "buildingEnabled": true,
+        "activityEnabled": false,
+        "rankingMode": "context",
+        "rankingWeights": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        },
+        "demandGroupWeights": {
+          "building": 100,
+          "activity": 50,
+          "extra": 50
+        },
+        "cohortMode": "national",
+        "minimumCohortN": 30,
+        "positivePresence": true,
+        "extraMetrics": [],
+        "ownMany": 1,
+        "competitorMany": 1,
+        "maxDemandTier": 3,
+        "demandMode": "high",
+        "patterns": [
+          "Pioneer",
+          "FOMO"
+        ],
+        "paths": [
+          {
+            "id": "population_volume_t1",
+            "tier": 1,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 95,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรรวมเด่นระดับ 1",
+            "label_en": "Population volume, signal tier 1"
+          },
+          {
+            "id": "population_volume_t2",
+            "tier": 2,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรรวมเด่นระดับ 2",
+            "label_en": "Population volume, signal tier 2"
+          },
+          {
+            "id": "population_volume_t3",
+            "tier": 3,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรรวมเด่นระดับ 3",
+            "label_en": "Population volume, signal tier 3"
+          },
+          {
+            "id": "hospitality_capacity_volume_t1",
+            "tier": 1,
+            "all": [
+              {
+                "metric": "hotel_rooms",
+                "op": "gte_percentile",
+                "percentile": 95,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ห้องพักรวมเด่นระดับ 1",
+            "label_en": "Room capacity, signal tier 1"
+          },
+          {
+            "id": "hospitality_capacity_volume_t2",
+            "tier": 2,
+            "all": [
+              {
+                "metric": "hotel_rooms",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ห้องพักรวมเด่นระดับ 2",
+            "label_en": "Room capacity, signal tier 2"
+          },
+          {
+            "id": "hospitality_capacity_volume_t3",
+            "tier": 3,
+            "all": [
+              {
+                "metric": "hotel_rooms",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ห้องพักรวมเด่นระดับ 3",
+            "label_en": "Room capacity, signal tier 3"
+          }
+        ]
+      },
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS",
+        "CPAXTRA_2026"
+      ],
+      "status": "adjustable_research_hypothesis_not_operator_calibrated",
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ยังไม่มีจำนวนร้านอาหาร/ร้านค้าผู้ซื้อ จำนวนห้องพักไม่ใช่ยอดสั่งซื้อ",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Buyer, restaurant and reseller counts are unavailable; room capacity is not wholesale purchasing."
+      },
+      "parameterAuthority": "Yolk design hypothesis. Operator sources support business mission or format, not numeric cutoffs or weights.",
+      "nationalCohortId": "national_7954",
+      "mappingRole": "initial_seed_only_saved_user_criteria_wins"
+    },
+    {
+      "id": "nonbank-community",
+      "industryId": "nonbank",
+      "name": {
+        "th": "เครือข่ายใกล้ชุมชน",
+        "en": "Community access"
+      },
+      "summary": {
+        "th": "คัดจากประชากรทะเบียนอายุ 20–64 ปีและความหนาแน่น เพื่อดูพื้นที่ให้บริการ",
+        "en": "Screen registered adult population and density to study service coverage."
+      },
+      "criteriaOverrides": {},
+      "sourceIds": [
+        "MTC_RISK",
+        "MTC_BUSINESS",
+        "SAK_PRODUCTS",
+        "TURBO_GENERAL",
+        "HENG_COMPANY",
+        "NIM_PRODUCTS",
+        "SCBX_AUTOX"
+      ],
+      "status": "adjustable_research_hypothesis_not_operator_calibrated",
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน ไม่ใช่ความต้องการกู้ ความสามารถชำระหนี้ หรือสินเชื่อที่มีให้บริการในทุกสาขา",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Adult population is not borrowing demand, creditworthiness or confirmation of branch products."
+      },
+      "parameterAuthority": "Yolk design hypothesis. Operator sources support business mission or format, not numeric cutoffs or weights.",
+      "nationalCohortId": "national_7954",
+      "mappingRole": "initial_seed_only_saved_user_criteria_wins"
+    },
+    {
+      "id": "nonbank-concentrated",
+      "industryId": "nonbank",
+      "name": {
+        "th": "เครือข่ายในย่านเข้มข้น",
+        "en": "Concentrated service areas"
+      },
+      "summary": {
+        "th": "เริ่มจาก Tier 1–2 ซึ่งต้องผ่านทั้งจำนวนและความหนาแน่นของประชากรอายุ 20–64 ปี",
+        "en": "Start with tiers1–2 requiring both adult population volume and density."
+      },
+      "criteriaOverrides": {
+        "maxDemandTier": 2
+      },
+      "sourceIds": [
+        "TIDLOR_BUSINESS",
+        "AYCAL_SUBSIDIARY",
+        "AYCAL_PRODUCT_SPLIT",
+        "UOB_XPRESS_OPERATOR"
+      ],
+      "status": "adjustable_research_hypothesis_not_operator_calibrated",
+      "hypothesisLimits": {
+        "th": "ข้อมูลพื้นที่ช่วยคัดไปศึกษาต่อ ยังไม่ใช่ยอดลูกค้า ยอดขาย หรือการยืนยันว่าทำเลคุ้มลงทุน การตัด Tier 3 เป็นสมมติฐานการศึกษา ไม่ใช่เกณฑ์ของบริษัทหรือหลักฐานผู้กู้",
+        "en": "Area context screens locations for study; it is not measured customers, sales or validated investment performance. Excluding volume-only tier3 is a Yolk study hypothesis, not a corporate threshold or borrower evidence."
+      },
+      "parameterAuthority": "Yolk design hypothesis. Operator sources support business mission or format, not numeric cutoffs or weights.",
+      "nationalCohortId": "national_7954",
+      "mappingRole": "initial_seed_only_saved_user_criteria_wins"
+    }
+  ],
+  "brands": [
+    {
+      "industryId": "fuel",
+      "brandId": "ptt",
+      "name": {
+        "th": "PTT Station",
+        "en": "PTT Station"
+      },
+      "sourceName": "PTT",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "PTT_OR_2026"
+      ],
+      "evidenceStatus": "operator_context_common_hypothesis",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      }
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "shell",
+      "name": {
+        "th": "เชลล์",
+        "en": "Shell"
+      },
+      "sourceName": "Shell",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "SHELL_TH_SERVICES"
+      ],
+      "evidenceStatus": "operator_context_common_hypothesis",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      }
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "bangchak",
+      "name": {
+        "th": "บางจาก",
+        "en": "Bangchak"
+      },
+      "sourceName": "Bangchak",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "BANGCHAK_2025",
+        "BANGCHAK_DESTINATION"
+      ],
+      "evidenceStatus": "operator_context_common_hypothesis",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      }
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "caltex",
+      "name": {
+        "th": "คาลเท็กซ์",
+        "en": "Caltex"
+      },
+      "sourceName": "Caltex",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "CALTEX_TH_DEALER",
+        "CALTEX_TH_FLEET"
+      ],
+      "evidenceStatus": "operator_context_common_hypothesis",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      }
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "cosmo",
+      "name": {
+        "th": "COSMO",
+        "en": "COSMO"
+      },
+      "sourceName": "COSMO",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [],
+      "evidenceStatus": "identity_reconciliation_needed",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      }
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "pt",
+      "name": {
+        "th": "PT",
+        "en": "PT"
+      },
+      "sourceName": "PT",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "PTG_2025"
+      ],
+      "evidenceStatus": "operator_context_common_hypothesis",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      }
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "pure",
+      "name": {
+        "th": "PURE",
+        "en": "PURE"
+      },
+      "sourceName": "PURE",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "PURETHAI_CURRENT"
+      ],
+      "evidenceStatus": "identity_reconciliation_needed",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      },
+      "researchLimit": "Do not merge historical sourcePURE withCaltex or usePurethai logo until exactidentity reconciliation."
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "siam-gas",
+      "name": {
+        "th": "สยามแก๊ส",
+        "en": "Siam Gas"
+      },
+      "sourceName": "SIAM_GAS",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "SIAMGAS_BUSINESS"
+      ],
+      "evidenceStatus": "operator_context_common_hypothesis",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      },
+      "researchLimit": "CurrentCityMETER supply dimensions are trade-brand counts, not fuel-product-specific verified capacities; noLPG-onlycompetition inferred."
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "susco",
+      "name": {
+        "th": "ซัสโก้",
+        "en": "SUSCO"
+      },
+      "sourceName": "SUSCO",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "SUSCO_CURRENT"
+      ],
+      "evidenceStatus": "operator_context_common_hypothesis",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      },
+      "researchLimit": "Same available area-context screen; do not invent corporate fleet demand from factory counts."
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "unique-gas",
+      "name": {
+        "th": "ยูนิคแก๊ส",
+        "en": "Unique Gas"
+      },
+      "sourceName": "UNIQUE_GAS",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "UNIQUEGAS_BUSINESS",
+        "SIAMGAS_BUSINESS"
+      ],
+      "evidenceStatus": "operator_context_common_hypothesis",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      },
+      "researchLimit": "CurrentCityMETER supply dimensions are trade-brand counts, not fuel-product-specific verified capacities; noLPG-onlycompetition inferred."
+    },
+    {
+      "industryId": "fuel",
+      "brandId": "world-gas",
+      "name": {
+        "th": "เวิลด์แก๊ส",
+        "en": "World Gas"
+      },
+      "sourceName": "WORLD_GAS",
+      "defaultScope": "all_fuel",
+      "defaultFamilyId": "fuel-common",
+      "perScopeFamily": {
+        "all_fuel": "fuel-common"
+      },
+      "sourceIds": [
+        "WORLDGAS_CURRENT",
+        "LONGTAIL_WORLD_GAS"
+      ],
+      "evidenceStatus": "operator_context_common_hypothesis",
+      "sourceLimits": {
+        "th": "กลุ่ม Supply ตามรายการต้นทาง ยังไม่แยกชนิดเชื้อเพลิง",
+        "en": "Source fuel inventory does not distinguish verified local fuel/product types."
+      },
+      "researchLimit": "No quantitative expansion threshold extracted; source not enough for newdefaults."
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:SEVEN_ELEVEN",
+      "name": {
+        "th": "เซเว่น อีเลฟเว่น",
+        "en": "7-Eleven"
+      },
+      "sourceName": "7-Eleven",
+      "defaultScope": "C_STORE",
+      "defaultFamilyId": "grocery-convenience",
+      "perScopeFamily": {
+        "C_STORE": "grocery-convenience"
+      },
+      "sourceIds": [
+        "CPALL_O2O",
+        "CPALL_EXPANSION"
+      ],
+      "evidenceStatus": "operator_mission_plus_adjustable_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "C_STORE",
+        "sourceIds": [
+          "CPALL_O2O",
+          "CPALL_EXPANSION"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "C_STORE": 16487
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      }
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:TOOGDEE",
+      "name": {
+        "th": "ถูกดี มีมาตรฐาน",
+        "en": "Toogdee"
+      },
+      "sourceName": "ถูกดี มีมาตรฐาน",
+      "defaultScope": "C_STORE",
+      "defaultFamilyId": "grocery-community",
+      "perScopeFamily": {
+        "C_STORE": "grocery-community"
+      },
+      "sourceIds": [
+        "TOOGDEE_COMMUNITY"
+      ],
+      "evidenceStatus": "operator_mission_plus_adjustable_family_hypothesis",
+      "mission": {
+        "th": "หาเครือข่ายร้านค้าชุมชนเพื่อร่วมมือและยกระดับ",
+        "en": "Find community merchant partnership and upgrade areas"
+      },
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "C_STORE",
+        "sourceIds": [
+          "TOOGDEE_COMMUNITY"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "C_STORE": 3605
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      }
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:LOTUSS",
+      "name": {
+        "th": "Lotus's",
+        "en": "Lotus's"
+      },
+      "sourceName": "Lotus's",
+      "defaultScope": "HYPERMARKET",
+      "defaultFamilyId": "grocery-hypermarket",
+      "perScopeFamily": {
+        "C_STORE": "grocery-community",
+        "SUPERMARKET": "grocery-supermarket",
+        "HYPERMARKET": "grocery-hypermarket"
+      },
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS"
+      ],
+      "evidenceStatus": "operator_mission_plus_adjustable_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "HYPERMARKET",
+        "sourceIds": [
+          "CPAXTRA_STORE_MODELS",
+          "CPAXTRA_2026"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบร้านใหญ่และศูนย์จับจ่ายของ Lotus’s ตามการวางตำแหน่งแบรนด์; Go Fresh เลือกดูเพิ่มเติมได้",
+          "en": "Start with Lotus’s large-store and shopping-center positioning; Go Fresh formats remain selectable."
+        },
+        "counts": {
+          "C_STORE": 1866,
+          "HYPERMARKET": 226,
+          "SUPERMARKET": 195
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      }
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:CJ_MORE",
+      "name": {
+        "th": "ซีเจ มอร์",
+        "en": "CJ More"
+      },
+      "sourceName": "CJ More",
+      "defaultScope": "C_STORE",
+      "defaultFamilyId": "grocery-community",
+      "perScopeFamily": {
+        "C_STORE": "grocery-community"
+      },
+      "sourceIds": [
+        "CJ_MORE_ABOUT"
+      ],
+      "evidenceStatus": "operator_mission_plus_adjustable_family_hypothesis",
+      "sourceLimits": {
+        "th": "ต้นทางจัดไว้ใน C_STORE แม้เว็บไซต์บริษัทเรียกซูเปอร์มาร์เก็ต; ยังไม่ยืนยันคู่แข่งชนิดเดียวกัน",
+        "en": "CityMETER classifies this brand as C_STORE although the operator describes a supermarket; direct-format equivalence is unverified."
+      },
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "C_STORE",
+        "sourceIds": [
+          "CJ_MORE_ABOUT"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "C_STORE": 2207
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      }
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:BIG_C",
+      "name": {
+        "th": "บิ๊กซี",
+        "en": "Big C"
+      },
+      "sourceName": "Big C",
+      "defaultScope": "HYPERMARKET",
+      "defaultFamilyId": "grocery-hypermarket",
+      "perScopeFamily": {
+        "C_STORE": "grocery-community",
+        "SUPERMARKET": "grocery-supermarket",
+        "HYPERMARKET": "grocery-hypermarket",
+        "WHOLESALE": "grocery-wholesale"
+      },
+      "sourceIds": [
+        "BIGC_FORMATS"
+      ],
+      "evidenceStatus": "operator_mission_plus_adjustable_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "HYPERMARKET",
+        "sourceIds": [
+          "BIGC_FORMATS"
+        ],
+        "explanation": {
+          "th": "เริ่มจาก Big C Supercenter และพื้นที่ศูนย์ค้า ซึ่งเป็นการวางตำแหน่งหลักบนเว็บไซต์แบรนด์; Mini เลือกดูเพิ่มเติมได้",
+          "en": "Start with Big C Supercenter and its mall proposition, the corporate site’s main positioning; Mini remains selectable."
+        },
+        "counts": {
+          "C_STORE": 1524,
+          "HYPERMARKET": 151,
+          "SUPERMARKET": 57,
+          "WHOLESALE": 12
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      }
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:TOPS",
+      "name": {
+        "th": "ท็อปส์",
+        "en": "Tops"
+      },
+      "sourceName": "Tops",
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-visitor-context",
+      "perScopeFamily": {
+        "C_STORE": "grocery-visitor-context",
+        "SUPERMARKET": "grocery-visitor-context"
+      },
+      "sourceIds": [
+        "TOPS_MALL_2025",
+        "TOPS_TOURISM_2025",
+        "TOPS_DAILY_2025"
+      ],
+      "evidenceStatus": "operator_mission_plus_adjustable_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "SUPERMARKET",
+        "sourceIds": [
+          "TOPS_MALL_2025",
+          "TOPS_TOURISM_2025"
+        ],
+        "explanation": {
+          "th": "เว็บไซต์และข่าวแบรนด์วาง Tops เป็นซูเปอร์มาร์เก็ต ส่วน Tops Daily เป็นอีกรูปแบบ จึงเริ่มสาธิตด้วยซูเปอร์มาร์เก็ต",
+          "en": "Official Tops positioning and branch stories describe supermarkets; Tops Daily is a distinct format. Start this demo with supermarkets."
+        },
+        "counts": {
+          "SUPERMARKET": 172,
+          "C_STORE": 553
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      }
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:MAKRO",
+      "name": {
+        "th": "แม็คโคร",
+        "en": "Makro"
+      },
+      "sourceName": "Makro",
+      "defaultScope": "WHOLESALE",
+      "defaultFamilyId": "grocery-wholesale",
+      "perScopeFamily": {
+        "WHOLESALE": "grocery-wholesale"
+      },
+      "sourceIds": [
+        "CPAXTRA_STORE_MODELS",
+        "CPAXTRA_2026"
+      ],
+      "evidenceStatus": "operator_mission_plus_adjustable_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "WHOLESALE",
+        "sourceIds": [
+          "CPAXTRA_STORE_MODELS",
+          "CPAXTRA_2026"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "WHOLESALE": 168
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      }
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:LAWSON108",
+      "name": {
+        "th": "ลอว์สัน 108",
+        "en": "Lawson 108"
+      },
+      "sourceName": "Lawson 108",
+      "defaultScope": "C_STORE",
+      "defaultFamilyId": "grocery-convenience",
+      "perScopeFamily": {
+        "C_STORE": "grocery-convenience"
+      },
+      "sourceIds": [
+        "LONGTAIL_LAWSON108"
+      ],
+      "evidenceStatus": "operator_context_plus_source_format_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "C_STORE",
+        "sourceIds": [
+          "LONGTAIL_LAWSON108"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "C_STORE": 95
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      },
+      "researchLimit": "Older operatorcontext, not currentformat/channel verification; officecatalog only45valid reporting areas, so do not make office default screeningmetric."
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:VILLA_MARKET",
+      "name": {
+        "th": "วิลล่า มาร์เก็ต",
+        "en": "Villa Market"
+      },
+      "sourceName": "Villa Market",
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_VILLA_MARKET"
+      ],
+      "evidenceStatus": "operator_context_plus_source_format_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "SUPERMARKET",
+        "sourceIds": [
+          "LONGTAIL_VILLA_MARKET"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "SUPERMARKET": 35
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      },
+      "researchLimit": "Generic verifiedformatfamily; nobrand-specific numericvariation claimed."
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:MAXVALU",
+      "name": {
+        "th": "แม็กซ์แวลู",
+        "en": "MaxValu"
+      },
+      "sourceName": "MaxValu",
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_MAXVALU"
+      ],
+      "evidenceStatus": "operator_context_plus_source_format_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "SUPERMARKET",
+        "sourceIds": [
+          "LONGTAIL_MAXVALU"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "SUPERMARKET": 26
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      },
+      "researchLimit": "Source snapshot assigns MAXVALU onlySUPERMARKET; do not create unobservedC_STOREmembership merelybecausebrandwebsite mentionsTanjai."
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:FOODLAND",
+      "name": {
+        "th": "ฟู้ดแลนด์",
+        "en": "Foodland"
+      },
+      "sourceName": "Foodland",
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_FOODLAND"
+      ],
+      "evidenceStatus": "operator_context_plus_source_format_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "SUPERMARKET",
+        "sourceIds": [
+          "LONGTAIL_FOODLAND"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "SUPERMARKET": 26
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      },
+      "researchLimit": "Daypartnot available in area-context snapshot; defaultarea screen is not 24-hour observed demand."
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:GOURMET_MARKET",
+      "name": {
+        "th": "กูร์เมต์ มาร์เก็ต",
+        "en": "Gourmet Market"
+      },
+      "sourceName": "Gourmet Market",
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_GOURMET_MARKET"
+      ],
+      "evidenceStatus": "operator_context_plus_source_format_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "SUPERMARKET",
+        "sourceIds": [
+          "LONGTAIL_GOURMET_MARKET"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "SUPERMARKET": 16
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      },
+      "researchLimit": "Genericformatfamily; donot usefiscalperperson orGFAP95 as provenaffluence."
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:GO_WHOLESALE",
+      "name": {
+        "th": "โก โฮลเซลล์",
+        "en": "GO Wholesale"
+      },
+      "sourceName": "GO Wholesale",
+      "defaultScope": "WHOLESALE",
+      "defaultFamilyId": "grocery-wholesale",
+      "perScopeFamily": {
+        "WHOLESALE": "grocery-wholesale"
+      },
+      "sourceIds": [
+        "LONGTAIL_GO_WHOLESALE"
+      ],
+      "evidenceStatus": "operator_context_plus_source_format_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "WHOLESALE",
+        "sourceIds": [
+          "LONGTAIL_GO_WHOLESALE"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "WHOLESALE": 14
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      },
+      "researchLimit": "Current25metrics lack measuredrestaurant counts or wholesale spend; hotelroomcontext is capacityproxy, pop/GFAcontext not B2Bpurchases. Fieldverifyoperatorclusters before sitechoice."
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:DONKI",
+      "name": {
+        "th": "ดอง ดอง ดองกิ",
+        "en": "Don Don Donki"
+      },
+      "sourceName": "Don Don Donki",
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_DONKI"
+      ],
+      "evidenceStatus": "operator_context_plus_source_format_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "SUPERMARKET",
+        "sourceIds": [
+          "LONGTAIL_DONKI"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "SUPERMARKET": 9
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      },
+      "researchLimit": "Available snapshot has SUPERMARKETonly; donot infer Japaneseexpatresidents,income or touristspending frombrandpositioning."
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:RIMPING",
+      "name": {
+        "th": "ริมปิง",
+        "en": "Rimping"
+      },
+      "sourceName": "Rimping",
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_RIMPING"
+      ],
+      "evidenceStatus": "operator_context_plus_source_format_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "SUPERMARKET",
+        "sourceIds": [
+          "LONGTAIL_RIMPING"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "SUPERMARKET": 9
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      },
+      "researchLimit": "DefaultsourceisSUPERMARKET; do not switch allbranches towholesale basedonadditionalHoReCadivision."
+    },
+    {
+      "industryId": "grocery",
+      "brandId": "grocery-brand:FUJI",
+      "name": {
+        "th": "ยูเอฟเอ็ม ฟูจิ ซูเปอร์",
+        "en": "UFM Fuji Super"
+      },
+      "sourceName": "UFM Fuji Super",
+      "defaultScope": "SUPERMARKET",
+      "defaultFamilyId": "grocery-supermarket",
+      "perScopeFamily": {
+        "SUPERMARKET": "grocery-supermarket"
+      },
+      "sourceIds": [
+        "LONGTAIL_FUJI"
+      ],
+      "evidenceStatus": "operator_context_plus_source_format_family_hypothesis",
+      "defaultScopeBasis": {
+        "method": "brand_primary_positioning_with_source_inventory",
+        "suggestedDefault": "SUPERMARKET",
+        "sourceIds": [
+          "LONGTAIL_FUJI"
+        ],
+        "explanation": {
+          "th": "เริ่มจากรูปแบบที่สอดคล้องกับการวางตำแหน่งแบรนด์และมีข้อมูลใน CityMETER",
+          "en": "Start with a format consistent with brand positioning and observed CityMETER membership."
+        },
+        "counts": {
+          "SUPERMARKET": 5
+        },
+        "source": "data/real/grocery-supply.json",
+        "sourcePeriod": "snapshot_retrieved_2026-10-03",
+        "doesNotMean": "Suggested important format for the demo, not financial market share, sales leadership or a rule that ignores user-selected formats."
+      },
+      "researchLimit": "No localJapaneseexpatcount or income evidence in25metrics; do not claimpremiumaffluencemodel."
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107557000195",
+      "name": {
+        "th": "เมืองไทย แคปปิตอล",
+        "en": "Muangthai Capital"
+      },
+      "sourceName": "บริษัท เมืองไทย แคปปิตอล จำกัด (มหาชน)",
+      "legalId": "0107557000195",
+      "defaultScope": "potential_retail_branch_service",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "MTC_RISK",
+        "MTC_BUSINESS"
+      ],
+      "evidenceStatus": "operator_context_company_license_not_branch_product",
+      "sourceLimits": {
+        "th": "ข้อมูลใบอนุญาตอยู่ระดับบริษัท ไม่ยืนยันว่าทุกสำนักงานให้บริการสินเชื่อชนิดนั้น",
+        "en": "Company-level licenses do not confirm the product offered at each listed office."
+      },
+      "legalEntityPolicy": "Exact selected legal company only; display/group/product brand never aggregates other entities."
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0105559126747",
+      "name": {
+        "th": "ศรีสวัสดิ์ พาวเวอร์ 2014",
+        "en": "Srisawad Power 2014"
+      },
+      "sourceName": "บริษัท ศรีสวัสดิ์ พาวเวอร์ 2014 จำกัด",
+      "legalId": "0105559126747",
+      "defaultScope": "office_context",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "SAWAD_GROUP"
+      ],
+      "evidenceStatus": "operator_context_company_license_not_branch_product",
+      "sourceLimits": {
+        "th": "ต้นทางไม่พบใบอนุญาตในนิติบุคคลนี้ จึงเริ่มด้วยบัญชีสำนักงาน; ข้อมูลของกลุ่มศรีสวัสดิ์ไม่ยืนยันใบอนุญาตบริษัทนี้",
+        "en": "Pinned license records do not confirm the relevant authorization for this legal company. Start with office context; group branding does not establish its authorization."
+      },
+      "legalEntityPolicy": "Exact selected legal company only; display/group/product brand never aggregates other entities."
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0105564161598",
+      "name": {
+        "th": "เงินไชโย · AutoX",
+        "en": "Ngern Chaiyo · AutoX"
+      },
+      "sourceName": "บริษัท ออโต้ เอกซ์ จำกัด",
+      "legalId": "0105564161598",
+      "defaultScope": "vehicle_title",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "SCBX_AUTOX"
+      ],
+      "evidenceStatus": "operator_context_company_license_not_branch_product",
+      "sourceLimits": {
+        "th": "ข้อมูลใบอนุญาตอยู่ระดับบริษัท ไม่ยืนยันว่าทุกสำนักงานให้บริการสินเชื่อชนิดนั้น",
+        "en": "Company-level licenses do not confirm the product offered at each listed office."
+      },
+      "legalEntityPolicy": "Exact selected legal company only; display/group/product brand never aggregates other entities."
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107563000355",
+      "name": {
+        "th": "เงินติดล้อ",
+        "en": "Ngern Tid Lor"
+      },
+      "sourceName": "บริษัท เงินติดล้อ  จำกัด (มหาชน)",
+      "legalId": "0107563000355",
+      "defaultScope": "vehicle_title",
+      "defaultFamilyId": "nonbank-concentrated",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-concentrated",
+        "office_context": "nonbank-concentrated",
+        "vehicle_title": "nonbank-concentrated",
+        "personal": "nonbank-concentrated",
+        "nano": "nonbank-concentrated",
+        "pico": "nonbank-concentrated",
+        "pico_plus": "nonbank-concentrated"
+      },
+      "sourceIds": [
+        "TIDLOR_BUSINESS"
+      ],
+      "evidenceStatus": "operator_context_company_license_not_branch_product",
+      "sourceLimits": {
+        "th": "ข้อมูลใบอนุญาตอยู่ระดับบริษัท ไม่ยืนยันว่าทุกสำนักงานให้บริการสินเชื่อชนิดนั้น",
+        "en": "Company-level licenses do not confirm the product offered at each listed office."
+      },
+      "legalEntityPolicy": "Exact selected legal company only; display/group/product brand never aggregates other entities."
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107559000290",
+      "name": {
+        "th": "ศักดิ์สยาม",
+        "en": "Saksiam Leasing"
+      },
+      "sourceName": "บริษัท ศักดิ์สยามลิสซิ่ง  จำกัด (มหาชน)",
+      "legalId": "0107559000290",
+      "defaultScope": "vehicle_title",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "SAK_PRODUCTS"
+      ],
+      "evidenceStatus": "operator_context_company_license_not_branch_product",
+      "sourceLimits": {
+        "th": "ข้อมูลใบอนุญาตอยู่ระดับบริษัท ไม่ยืนยันว่าทุกสำนักงานให้บริการสินเชื่อชนิดนั้น",
+        "en": "Company-level licenses do not confirm the product offered at each listed office."
+      },
+      "legalEntityPolicy": "Exact selected legal company only; display/group/product brand never aggregates other entities."
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107566000542",
+      "name": {
+        "th": "เงินเทอร์โบ",
+        "en": "Ngern Turbo"
+      },
+      "sourceName": "บริษัท เงินเทอร์โบ จำกัด (มหาชน)",
+      "legalId": "0107566000542",
+      "defaultScope": "vehicle_title",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "TURBO_GENERAL"
+      ],
+      "evidenceStatus": "operator_context_company_license_not_branch_product",
+      "sourceLimits": {
+        "th": "ข้อมูลใบอนุญาตอยู่ระดับบริษัท ไม่ยืนยันว่าทุกสำนักงานให้บริการสินเชื่อชนิดนั้น",
+        "en": "Company-level licenses do not confirm the product offered at each listed office."
+      },
+      "legalEntityPolicy": "Exact selected legal company only; display/group/product brand never aggregates other entities."
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107564000120",
+      "name": {
+        "th": "เฮงลิสซิ่ง",
+        "en": "Heng Leasing"
+      },
+      "sourceName": "บริษัท เฮงลิสซิ่ง แอนด์ แคปปิตอล จำกัด (มหาชน)",
+      "legalId": "0107564000120",
+      "defaultScope": "potential_retail_branch_service",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "HENG_COMPANY"
+      ],
+      "evidenceStatus": "operator_context_company_license_not_branch_product",
+      "sourceLimits": {
+        "th": "ข้อมูลใบอนุญาตอยู่ระดับบริษัท ไม่ยืนยันว่าทุกสำนักงานให้บริการสินเชื่อชนิดนั้น",
+        "en": "Company-level licenses do not confirm the product offered at each listed office."
+      },
+      "legalEntityPolicy": "Exact selected legal company only; display/group/product brand never aggregates other entities."
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0505560008015",
+      "name": {
+        "th": "นิ่มลีสซิ่ง",
+        "en": "Nim Leasing"
+      },
+      "sourceName": "บริษัท นิ่มลีสซิ่ง จำกัด",
+      "legalId": "0505560008015",
+      "defaultScope": "potential_retail_branch_service",
+      "defaultFamilyId": "nonbank-community",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-community",
+        "office_context": "nonbank-community",
+        "vehicle_title": "nonbank-community",
+        "personal": "nonbank-community",
+        "nano": "nonbank-community",
+        "pico": "nonbank-community",
+        "pico_plus": "nonbank-community"
+      },
+      "sourceIds": [
+        "NIM_PRODUCTS"
+      ],
+      "evidenceStatus": "operator_context_company_license_not_branch_product",
+      "sourceLimits": {
+        "th": "ข้อมูลใบอนุญาตอยู่ระดับบริษัท ไม่ยืนยันว่าทุกสำนักงานให้บริการสินเชื่อชนิดนั้น",
+        "en": "Company-level licenses do not confirm the product offered at each listed office."
+      },
+      "legalEntityPolicy": "Exact selected legal company only; display/group/product brand never aggregates other entities."
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0107538000690",
+      "name": {
+        "th": "กรุงศรี ออโต้ · อยุธยา แคปปิตอล ออโต้ ลีส",
+        "en": "Krungsri Auto · Ayudhya Capital Auto Lease"
+      },
+      "sourceName": "บริษัท อยุธยา แคปปิตอล ออโต้ ลีส จำกัด (มหาชน)",
+      "legalId": "0107538000690",
+      "defaultScope": "vehicle_title",
+      "defaultFamilyId": "nonbank-concentrated",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-concentrated",
+        "office_context": "nonbank-concentrated",
+        "vehicle_title": "nonbank-concentrated",
+        "personal": "nonbank-concentrated",
+        "nano": "nonbank-concentrated",
+        "pico": "nonbank-concentrated",
+        "pico_plus": "nonbank-concentrated"
+      },
+      "sourceIds": [
+        "AYCAL_SUBSIDIARY",
+        "AYCAL_PRODUCT_SPLIT"
+      ],
+      "evidenceStatus": "operator_context_company_license_not_branch_product",
+      "sourceLimits": {
+        "th": "ข้อมูลใบอนุญาตอยู่ระดับบริษัท ไม่ยืนยันว่าทุกสำนักงานให้บริการสินเชื่อชนิดนั้น",
+        "en": "Company-level licenses do not confirm the product offered at each listed office."
+      },
+      "legalEntityPolicy": "Exact selected legal company only; display/group/product brand never aggregates other entities."
+    },
+    {
+      "industryId": "nonbank",
+      "brandId": "legal:0105528033194",
+      "name": {
+        "th": "ยูโอบี แคปปิตอล เซอร์วิสเซส",
+        "en": "UOB Capital Services"
+      },
+      "sourceName": "บริษัท ยูโอบี แคปปิตอล เซอร์วิสเซส จำกัด",
+      "legalId": "0105528033194",
+      "defaultScope": "personal",
+      "defaultFamilyId": "nonbank-concentrated",
+      "perScopeFamily": {
+        "potential_retail_branch_service": "nonbank-concentrated",
+        "office_context": "nonbank-concentrated",
+        "vehicle_title": "nonbank-concentrated",
+        "personal": "nonbank-concentrated",
+        "nano": "nonbank-concentrated",
+        "pico": "nonbank-concentrated",
+        "pico_plus": "nonbank-concentrated"
+      },
+      "sourceIds": [
+        "UOB_XPRESS_OPERATOR"
+      ],
+      "evidenceStatus": "operator_context_company_license_not_branch_product",
+      "sourceLimits": {
+        "th": "ข้อมูลใบอนุญาตอยู่ระดับบริษัท ไม่ยืนยันว่าทุกสำนักงานให้บริการสินเชื่อชนิดนั้น",
+        "en": "Company-level licenses do not confirm the product offered at each listed office."
+      },
+      "legalEntityPolicy": "Exact selected legal company only; display/group/product brand never aggregates other entities."
+    }
+  ],
+  "fallback": {
+    "fuel": "fuel-common",
+    "grocery": "grocery-convenience",
+    "nonbank": "nonbank-community"
+  },
+  "fallbackPerScope": {
+    "fuel": {
+      "all_fuel": "fuel-common"
+    },
+    "grocery": {
+      "C_STORE": "grocery-convenience",
+      "SUPERMARKET": "grocery-supermarket",
+      "HYPERMARKET": "grocery-hypermarket",
+      "WHOLESALE": "grocery-wholesale"
+    },
+    "nonbank": {
+      "potential_retail_branch_service": "nonbank-community",
+      "office_context": "nonbank-community",
+      "vehicle_title": "nonbank-community",
+      "personal": "nonbank-community",
+      "nano": "nonbank-community",
+      "pico": "nonbank-community",
+      "pico_plus": "nonbank-community"
+    }
+  },
+  "nonbankScopeLicenseField": {
+    "potential_retail_branch_service": [
+      "nano",
+      "ploan",
+      "ploan_car",
+      "pico",
+      "pico_plus"
+    ],
+    "vehicle_title": [
+      "ploan_car"
+    ],
+    "personal": [
+      "ploan"
+    ],
+    "nano": [
+      "nano"
+    ],
+    "pico": [
+      "pico"
+    ],
+    "pico_plus": [
+      "pico_plus"
+    ],
+    "office_context": "all source offices, no active-license requirement; office function/current customer service remains unresolved"
+  },
+  "nonbankScopePolicy": "Active source license membership only; union company/office IDs, no double-counting. none does not become active based on group marketing. unknown/not-found stays review. Brand picker top10, comparator source all legal companies."
+}

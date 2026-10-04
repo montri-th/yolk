@@ -1,0 +1,12 @@
+{
+  "source": "https://github.com/wmgeolab/geoBoundaries/blob/9469f09/releaseData/gbOpen/THA/ADM1/geoBoundaries-THA-ADM1_simplified.geojson",
+  "year": 2017,
+  "license": "ODbL 1.0; OpenStreetMap contributors via geoBoundaries",
+  "sourceSha256": "841f1250cac868fa966b2089863f01e9c9b4dc9b7fb0d9d6dce9a495e32b32a0",
+  "publishedFile": "prototype/data/real/province-boundaries.geojson",
+  "publishedSha256": "ee184e559b88e03d698eded14824127d7ab8df57b1d679fcd68d95dabcdc464b",
+  "features": 77,
+  "crosswalk": "properties.code = shapeISO without TH-; exact two-digit province-code join",
+  "geometryCoordinatesUnmodified": true,
+  "purpose": "Province overview/display context only, not statutory or parcel boundaries. Area metrics still use direct reporting UUIDs."
+}

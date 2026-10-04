@@ -9,6 +9,7 @@
   const patternGlyphs = Object.freeze({'Crowded':'groups','FOMO':'flag','Our Farm':'potted_plant','Pioneer':'explore','Quiet':'bedtime','Their War':'swords','Our Island':'beach_access','Winter War':'ac_unit'});
   function patternIcon(name) { return Object.prototype.hasOwnProperty.call(patternGlyphs,name) ? icon(patternGlyphs[name]) : ''; }
   function yolkIcon() { return icon('egg_alt'); }
+  function yolkWordmark() { return '<span class="yolk-wordmark" role="img" aria-label="Yolk"><b aria-hidden="true">Y</b><i class="yolk-letter-o" aria-hidden="true">'+yolkIcon()+'</i><b aria-hidden="true">lk</b></span>'; }
   // Optional explicit enhancement only. Existing labels, children and handlers remain intact.
   function decorate(root) {
     root = root || global.document;
@@ -34,7 +35,7 @@
       return false;
     });
   }
-  global.YolkIcons = Object.freeze({ icon: icon, decorate: decorate, load: load, glyphs: glyphs, patternGlyphs: patternGlyphs, patternIcon: patternIcon, yolkIcon: yolkIcon });
+  global.YolkIcons = Object.freeze({ icon: icon, decorate: decorate, load: load, glyphs: glyphs, patternGlyphs: patternGlyphs, patternIcon: patternIcon, yolkIcon: yolkIcon, yolkWordmark: yolkWordmark });
   // Failed fonts leave readable labels; no raw ligature names or fallback emoji appear.
   load();
 })(typeof window !== 'undefined' ? window : globalThis);
