@@ -1,120 +1,51 @@
 ---
-document_id: yolk.handoff.three_industries
-version: 1.7.2
+version: 1.7.3
 date: 2026-10-04
-status: ready_with_open_manual_gate
+status: local_bounded_QA_pass_release_pending
 start: START_HERE.md
 product_contract: contracts/product.v1.7.json
-experience_contract: contracts/workspace-map.v1.7.json
-criteria_baseline: contracts/criteria-proposal.v1.6.json
-asset_manifest: contracts/assets.v1.7.2.json
-brand_logo_manifest: prototype/data/brand-logos.v1.7.json
-release_manifest: contracts/release.v1.7.2.json
+feature_extension: contracts/location-review.v1.7.3.json
+asset_manifest: contracts/assets.v1.7.3.json
+release_manifest: contracts/release.v1.7.3.json
 ---
 
-# ส่งต่อ dev — Yolk · v1.7.2 · LDS 0.9.7
+# ส่งต่อ dev — Yolk · v1.7.3
 
-**เลือกแบรนด์ ลองเกณฑ์ และทำงานข้างแผนที่เดียวกันทุกหน้า** รุ่นนี้รองรับ Fuel, Grocery และ Non-bank ใช้ snapshot CityMETER จริง 7,954 พื้นที่ มีเกณฑ์และ draft แยกตามแบรนด์/ขอบเขต ข้อมูล Sheets ต้นทางคงเดิม
+**ต่อจากแผนที่และโมเดลเดิม เพิ่มความชัดเจนให้การคัดทำเล** ไม่เริ่ม UIใหม่ รองรับ Fuel / Grocery / Non-bank เท่านั้น ใช้ native DS 0.9.7 assetsและ current contracts
 
-เริ่มจาก [START_HERE](START_HERE.md) → [Product statement](CityMETER_Yolk_Product_Statement_v1.7.2.md) → [Criteria guide](docs/CRITERIA_GUIDE.md) → [Implementation plan](IMPLEMENTATION_PLAN_v1.7.2.md) งานโมเดลใช้ [machine tasks v1.6 ที่รักษาไว้](contracts/implementation-tasks.v1.6.json); งานแผนที่ใช้ [workspace-map contract v1.7](contracts/workspace-map.v1.7.json)
-
-## Current extension: 1.7.2
-
-อ่าน [Map analysis guide](docs/MAP_ANALYSIS_v1.7.2.md) และ [machine contract/tasks](contracts/map-analysis.v1.7.2.json) ก่อนต่อใหม่ `#demand` แสดง pure confirmedDemandTierก่อนpreferred/Supply/maxTier; rawcountrymetricระบุmaximumfine `#supply` เลือกown/competitor/identifiedtotalและcount/km²/market-rateแบบpersonal viewพร้อมCRUDเดิม CountrySupplyใช้directnativeD928/denominators ไม่sum45finecrosswalkหรือใช้fineNB/Grocerycorrections การ์ด8รูปแบบมีnationalconfirmed/reviewก่อนcheckboxโดยretainedDemand/Tiergates Reviewซ้อนกันได้; invalid/loadingdash
-
-Baseรายละเอียดด้านล่างใช้กับretainedmarket/criteria screening layer; analysisใหม่ใช้grain/metric/legendตามextension ห้ามตีความทุกchoroplethว่าเป็นeligibleTierเหมือนเดิม
-
-## ทดลอง workflow
-
-รัน `python3 -m http.server 8854 --bind 127.0.0.1` ที่ root แล้วเปิด `http://127.0.0.1:8854/prototype/` ผ่าน HTTP เพื่อโหลด JSON และฟอนต์
-
-1. เลือกธุรกิจ แบรนด์ และ format หลัก เปิด preset ที่เข้าคู่กัน หรือค่าที่เคยบันทึกไว้ การสลับแบรนด์ไม่แทนทับงานอีกบริบท
-2. สำรวจประเทศ→จังหวัด→อำเภอ→ทำเล ประเทศใช้สีตามอำเภอ จังหวัด/อำเภอใช้สีทำเลละเอียด เลือกทำเลแล้วจึงเห็น O/C/U สลับเมนูได้โดยไม่ซูมกลับทุกครั้งที่ render
-3. ในหน้าเกณฑ์ ลากแถบเลื่อนหรือกรอกค่าละเอียด ดูผ่านเกณฑ์ เกณฑ์ทีม เข้าใหม่ หลุดเกณฑ์ รอตรวจ และอันดับเปลี่ยน กด Apply จึงบันทึกเกณฑ์ทีม
-4. เปิดทำเลหรือสาขาเพื่อซูมไปข้อมูลที่เลือก ดู Demand, Supply, ที่มา และงานต่อ รูปสาขาสูงสุด 5 รูปเป็น local drafts
-5. ทดลอง TH/EN, light/dark/system, feed/leaderboard และบทบาท 10 คน ตรวจว่าการ render ฟอร์มเดิมไม่ทำให้ข้อความหาย
-
-**ขอบเขตเดโม:** การแก้ข้อมูล บทบาท กิจกรรม และ notification เป็น browser-local simulation ยังไม่มี shared backend, server RBAC, ส่ง email/LINE จริง หรือ live Sheets sync โครง AND/OR เริ่มตาม preset; generic rule builder และสูตรใหม่เป็นงานต่อยอด
-
-## Authority ของผลิตภัณฑ์และโมเดล
-
-| ส่วน | ใช้ไฟล์ |
+| งาน | ไฟล์หลัก |
 |---|---|
-| Product รุ่นปัจจุบัน | [product.v1.7.json](contracts/product.v1.7.json) |
-| แผนที่เดียวทุกเมนู | [คู่มือ](docs/PERSISTENT_MAP_v1.7.md) + [workspace-map.v1.7.json](contracts/workspace-map.v1.7.json) |
-| Brand/format และเกณฑ์ตั้งต้น | [Brand presets](docs/BRAND_PRESETS_v1.7.md) + [registry](prototype/data/brand-presets.v1.7.json) + [brand contract](contracts/brand-experience.v1.7.json) |
-| สูตรและความหมายที่รักษาไว้ | [criteria-proposal.v1.6.json](contracts/criteria-proposal.v1.6.json), [parameter presets](contracts/runtime-parameter-presets.json), [industry profiles](contracts/industry-profiles.json) |
-| งาน production พื้นฐาน | [implementation-tasks.v1.6.json](contracts/implementation-tasks.v1.6.json) + [แผน human-readable v1.7](IMPLEMENTATION_PLAN_v1.7.md) |
-| Assets | [DS integration](DS_ASSET_INTEGRATION.md), [asset index 1.7](ASSET_INDEX_v1.7.md), [current asset manifest after sealing](contracts/assets.v1.7.2.json), [official logo manifest](prototype/data/brand-logos.v1.7.json) |
+| เข้าใจผลิตภัณฑ์และขั้นตอน | [Product statement](CityMETER_Yolk_Product_Statement_v1.7.3.md), [Implementation plan](IMPLEMENTATION_PLAN_v1.7.3.md) |
+| Review semantics/checklist | [คู่มือ](docs/LOCATION_REVIEW_v1.7.3.md), [machine extension/tasks](contracts/location-review.v1.7.3.json) |
+| Runtime review | prototype/location-review.js/.css |
+| Tierappearance | prototype/yolk-tier-style.js/.css; owner category recipe, not atmosphere/numericgradient |
+| Raw metric41LUT | prototype/map-analysis.js; exact native samples, declared nationalcuts |
+| Map/criteria/UIbase | contracts/workspace-map.v1.7.json, contracts/map-analysis.v1.7.2.json, contracts/criteria-proposal.v1.6.json |
+| DSassets | [DS integration](DS_ASSET_INTEGRATION.md), [asset index](ASSET_INDEX_v1.7.md), reference/lds-0.9.7 |
+| Evidence/release | contracts/release.v1.7.3.json, evidence/location-review-v1.7.3.json, evidence/release-checks-v1.7.3.json |
 
-Base LDS 0.9.7 และ Location Intelligence Profile ใน `reference/lds-0.9.7/` เป็น authority ด้านรูปแบบ เอกสาร criteria-workspace/release และภาพ v1.6 เป็นประวัติหรือ baseline เฉพาะรุ่นที่ระบุ ไม่ใช่หลักฐานรับแผนที่รุ่นนี้
+## กติกาที่ห้ามเปลี่ยนเงียบ ๆ
 
-## ความหมายข้อมูลและผลคัด
+- Fixednationalcohort7,954 UUIDs /25metrics; BKKใช้180แขวง ต่างจังหวัด7,774อปท. Same-grain percentilesไม่ขึ้นกับviewport
+- Reviewmodalเป็น read-only snapshot / model explanation ไม่ใช่การอนุมัติหรือยืนยันoperation Source correctionต้อง exactUUID/evidence/crosswalk/reconciliation
+- possiblePatternsหนึ่งค่า = รูปแบบชัด; ทุกค่าถูกเลือก = เข้าstrategyได้แม้ชื่อยังไม่ชัด; บางค่าถูกเลือก = strategyreview DemandunknownและPOIverificationแยกกัน
+- UNKNOWN≠unbranded; แก้activeflagของPOIไม่แก้ source aggregate; native D 928ไม่ถูกใช้แจกfine residual
+- OnepersistentLeafletmap; largerhover/clicktargets; selectedfinefill=false; scopedforms/draftsและstalecontextguardsคงเดิม
+- Tiercategoryใช้ownerfried-eggrecipeทั้งสองธีม Raw metricsใช้41native LUTสีเต็มopacity ตัวหาร/units/period/zero/reviewต้องมีlabel
 
-ฐานประเทศมี 7,954 reporting UUIDs: กทม. 180 แขวง / ต่างจังหวัด 7,774 อปท. แต่ละ metric คำนวณ percentile จาก valid values ในฐานเดิม ไม่ rebase ตามจังหวัด แบรนด์ หรือ viewport ไม่เติม missing เป็นศูนย์
+## รับงานและเผยแพร่
 
-ค่า default รายแบรนด์มาจาก registry v1.7 รวม industry baseline และ family overrides จำนวนผลคัดขึ้นกับ context, scope, source release และ criteria revision จึงต้องอ่านจากผล evaluator ของรอบนั้น ไม่ใช้ตัวเลข baseline v1.6 เป็นจำนวนปัจจุบัน
+1. อ่าน AGENTS/START_HERE และเลือก REVIEWtaskเดียวตามdependency
+2. คงsource / formula / criteria ทุก invariant รัน retained regressionsพร้อม tests ใหม่ทั้งสาม
+3. ดู actual render Thai/English desktop/narrowตามthemeที่ระบุจริง ไม่ใช้hashแทนvisualreview
+4. Root freeze bytes หลัง final QA เพิ่มexact approved pathsใน public-copy-selection.v1.7.3.json
+5. Sealและverify1.7.3เท่านั้น Preservehistoricalmanifests/receipts ไม่มีraw / private filesในpublic artifact
+6. Publishเมื่อauthorized เก็บ terminalproviderresultผูกsourceSHAและliveHTTP/MIME/hashproofก่อนclaim
 
-Fuel อาคาร/กิจกรรมของบางจากและน้ำหนัก 70/20/10 ที่ตกลงไว้ยังเป็น baseline Grocery ใช้บริบทประชากร/คนงาน/รูปแบบร้าน; Non-bank ใช้ประชากรและบริบทบริการตาม profile เป็น Demand proxy สำหรับสำรวจ ไม่ยืนยันผู้ซื้อ ผู้กู้ ความสามารถชำระหนี้ หรือสิทธิ์รับบริการ
+Static previewยังเป็น browser-local ไม่มีshared backend/server RBAC/email / LINE รูปเป็นmockupและexternalprovidersไม่รับรองผล ใช้ [Productionbaseline](contracts/implementation-tasks.v1.6.json) ต่อ API/datastore/RBAC/outbox/media ตาม stack CityMETERจริง
 
-Supply aggregates ผูก UUID โดยตรง แยกจาก POI และ team overlays Non-bank ยังมีสำนักงานที่ไม่ผูกพื้นที่ละเอียด; Grocery มี category-assignment discrepancy ใช้ residual/bounds ตาม source evidence ไม่แทน unknown ด้วย 0 หรือกระจายยอดเดียวซ้ำทุกพื้นที่ เก็บ possiblePatterns และ review แยกจาก confirmed membership
+## Final interaction refinements - 1.7.3
 
-## แผนที่ สี และหมุด
+Buttons, links and disclosure summaries containing icons underline only their caption on hover (the Yolk wordmark is excluded); the icon glyph is undecorated and keyboard focus remains visible. Map and tile minZoom is 3, overriding the retained 1.7.2 value 4 so explicit mobile country fit can show the full country. Mobile bottom fit padding uses max(50, ceil(actual rendered footer legend height) + 18) px; desktop uses 18 px. Menu changes, criteria previews and ordinary sync retain the camera; only explicit navigation/home/fit changes it.
 
-ภาพประเทศใช้ choropleth ตามอำเภอ จังหวัด/อำเภอใช้ choropleth ตามทำเลละเอียด สีเป็น **Tier ยืนยันดีที่สุดของไข่แดงที่ผ่านใน layer นั้น** ไม่ใช่ percentile หรือคะแนน rank ของ polygon อำเภอสรุปเฉพาะทำเลที่มี parent crosswalk ตรวจแล้ว ไม่คำนวณ Demand ใหม่ทั้งอำเภอ ใช้ native `li.demand` 3 classes: **Tier 3 = #F1F5E5 / Tier 2 = #60C9AD / Tier 1 = #25659A** คง exact HEX และ fill opacity 1 ทั้งสองธีม ไม่มีผลยืนยันใช้พื้นกลาง; ข้อมูลรอตรวจมีข้อความ/เส้นประ/จำนวนแยก ไม่สรุปว่าไม่มี Demand
-
-Source projection มี 928 อำเภอและ 7,954 ทำเลละเอียดใน 77 ไฟล์จังหวัด ตรวจ coverage/hash จาก [hierarchy index](prototype/data/real/hierarchy-index.json) ได้ Crosswalk มี 7,909 ทำเลสัมพันธ์กับอำเภอเดียวและ45 ทำเลสัมพันธ์กับหลายอำเภอ ใช้การทับซ้อน polygon ต้นทาง ≥0.5% ของพื้นที่ทำเล เป็นอัตราส่วน planar EPSG:4326 สำหรับจัดมุมมอง ไม่ใช่ surveyed area หรือการรับรองเขตปกครอง ยอดประเทศนับ UUID ไม่ซ้ำ ไม่บวก8,001 relation edges เป็นจำนวนทำเล กทม. ใช้แขวง ต่างจังหวัดใช้ อปท./เทศบาล; ตำบล optional ต้องมี crosswalk เพิ่ม ไม่ถือว่า อปท. เท่ากับตำบล รอบขอบเขตและสถานะกฎหมายไม่ได้ตรวจยืนยันอิสระ
-
-[Boundary provenance](prototype/data/real/boundary-provenance.v1.7.json) ระบุ source URL, count/hash และการเตรียม display projection: raw topology ที่ไม่ valid 6 อำเภอ / 47 แขวง / 3,770 อปท. ใช้ `make_valid`, เก็บ polygon และทิ้งเส้นที่ยุบพื้นที่ศูนย์; simplify tolerance 0.0006° อำเภอ / 0.00015° ทำเล พร้อมกลับใช้ valid unsimplified components หาก simplify ผิดรูป ชุดแสดงผล 8,882 polygons ผ่าน validity check ไม่มี bbox แทน polygon ต้นฉบับคง immutable และไม่เปลี่ยน metric/ตัวหารพื้นที่ของโมเดล การตรวจนี้ไม่ใช่การรับรองเขตกฎหมายหรือ browser QA
-
-Map host `#workspace-map` อยู่ภายนอก `#content` ใช้ Leaflet instance เดิม `mount()` ทำซ้ำได้, `sync()` อัปเดต overlay โดยไม่ refit; `navigate(path)`, `back()`, `home()`, `focusArea()` และ `focusPoi()` เป็น explicit view actions อ่าน hierarchy จาก `getNavigation()` และ callback `onNavigate` ตาม controller จริง มุมมองคงอยู่ระหว่างใช้งานในหน้าที่โหลดนี้ ยังไม่บันทึก pan/zoom ข้าม reload
-
-Polygon/MultiPolygon แสดงเมื่อมี source/verified geometry เท่านั้น Extent จากต้นทางเป็นเส้นประไม่เติมสี ใช้จัดมุมมอง ไม่ใช่ขอบเขตทางกฎหมายหรือหลักฐานผูก POI เลือกทำเลละเอียดแล้วจึงแสดงหมุดที่มีพิกัดต้นฉบับและความสัมพันธ์กับพื้นที่ที่ตรวจได้ **O = สาขาเรา / C = คู่แข่ง / U = รอตรวจ** จุดที่มองเห็นไม่ได้รับรองว่าเปิดบริการหรืออยู่ใน Polygon ตามกฎหมาย ยอดรวมไม่ถูกสร้างเป็นหมุด
-
-Selected fine view ไม่เติมสีในขอบเขต (`fill=false`) จึงอ่าน basemap ได้ เน้นเส้นขอบ/ชื่อ/สถานะ Tier โดย country/province/district choropleths ยังใช้ exact full-opacity data fills จุดที่ไม่มี area UUID แสดงได้เมื่อพิกัดจริงผ่าน source-polygon view predicate แต่ไม่เปลี่ยน area assignment หรือยอด aggregate การ save สาขาจับ context/route/record/revision ก่อนรอรูปและตรวจซ้ำหลัง await ผลเก่าต้องไม่แก้หรือ rollback POIs ของบริบทปัจจุบัน
-
-แผนที่แสดงสูงสุด 1,000 หมุดและ 350 ทำเลต่อมุมมอง พร้อมจำนวนที่แสดงเทียบรายการในกรอบ เป็นเพดาน render ไม่ใช่ inventory ทั้งหมด ข้อมูลธุรกิจโหลดไม่สำเร็จต้องซ่อนผลแบรนด์ก่อนหน้า; ค่าตัวเลขผิดพักการคำนวณพร้อมสถานะ; POI/tile โหลดไม่ได้ไม่ตีความเป็นศูนย์
-
-Simplified/Detailed ใช้ OpenStreetMap; Satellite ใช้ ESA WorldCover/Copernicus Sentinel-2 ปี 2021, 10 m ผ่าน Terrascope ต้องคง attribution และระบุว่าซูมเหนือ native 14 ไม่เพิ่มรายละเอียดต้นทาง การปรับภาพพื้นหลังใช้เฉพาะ tile pane ไม่เปลี่ยนสีข้อมูล
-
-## DS และไฟล์แบรนด์
-
-ใช้ฟอนต์ โลโก้ ไอคอน และ tokens ตาม [DS integration](DS_ASSET_INTEGRATION.md) ไม่มี motif, logo frame, decorative bracket หรือ selected coloured left rail LOGO-01 อนุญาตปรับสี wordmark Landometer โดยคงรูปทรงและสัดส่วน ไม่ครอบคลุมการเปลี่ยนสีสัญลักษณ์หรือโลโก้แบรนด์ภายนอก
-
-External brand logos ใช้ bytes ต้นฉบับจากแหล่งทางการ พร้อม source URL, MIME, SHA-256, dimensions และ theme support ใน [manifest](prototype/data/brand-logos.v1.7.json) หากมี official light/dark variants ให้สลับไฟล์; ถ้ายังยืนยันไม่ได้ให้ใช้ชื่อ/ไอคอนกลางที่ระบุไว้ ไม่ recolor หรือสร้าง mark ใหม่ Non-bank selector จำกัด 10 รายแรก; comparator inventory ยังใช้บริษัททั้งหมดใน licence scope ที่เลือก
-
-## Supply-relative mode ที่อนุมัติในรุ่นนี้
-
-[Supply-relative mode](docs/SUPPLY_RELATIVE_PROPOSAL.md) อยู่ใน static model/UI แล้ว: Fuel สาขาต่อ GFA 100,000 ตร.ม.; Grocery/Non-bank สาขาต่อประชากร 10,000 คน ปรับตัวหารได้ เกณฑ์มากของเรา/คู่แข่งแยกจาก median ของ positive national observed exact-count rates ไม่ใช้ Demand percentile/rank score ไม่รวม uncertainty bounds มี sample/fallback ที่เปิดเผย API คือ `YolkRelativeSupply` ใน `prototype/relative-supply.js` บริบทใหม่เริ่ม relative แต่ saved count contexts คงเดิมจนผู้ใช้ Apply โหมด count ยังเป็นทางเลือก Model tests ไม่แทน browser/release evidence
-
-## ตรวจและ release
-
-```sh
-python3 scripts/verify-pages-v1.7.2.py
-node scripts/check-three-industry.cjs
-node scripts/check-brand-presets.cjs
-node scripts/check-workspace-map.cjs
-node scripts/check-criteria-controls.cjs
-node scripts/check-relative-supply.cjs
-node scripts/check-photo-runtime.cjs
-node scripts/check-save-context.cjs
-python3 -m http.server 8854 --bind 127.0.0.1
-```
-
-รุ่น 1.7.2 ผ่าน 217 automated checks ที่รันใหม่, direct district source QA และ native Chrome แบบจำกัดขอบเขต ตาม receipts รุ่นนี้ ใช้ baseline 11 commands พร้อม check-map-analysis.cjs, check-pattern-counts.cjs และ check-analysis-integration.cjs หลัง final QA จึง seal ด้วย --after-final-qa Manifest/receipts รุ่นเก่าคงไว้เป็นประวัติ Share image ใช้ approved 1.7 family เดิม Public provenance อยู่ district-source-provenance.json; raw acquisition/logs/private customer data ไม่เข้า package การเผยแพร่รอ provider/live-byte proof
-
-Model/DOM-adapter tests ตรวจกติกาและ integration บางส่วน ไม่พิสูจน์ pan/touch จริง ขนาดข้อความ popup ใกล้ขอบภาพ หรือความพร้อมของ tile provider ต้องตรวจ browser จริง ไทย/อังกฤษ จอแคบ/desktop light/dark รวมฟอร์มค้าง, invalid draft, context switch และ network error บันทึกสิ่งที่ตรวจจริง ไม่อ้าง viewport emulation ว่าเป็นการทดสอบเครื่องจริง
-
-[QA baseline](evidence/QA.md) และ [ภาพ v1.6](docs/EXPERIENCE_v1.6.md) เก็บผลเดิมตามรุ่น ไม่ใช้แทนหลักฐานรับ v1.7 รุ่นนี้ต้องมี source checks, browser receipt, [public file hashes](contracts/pages-public-manifest.v1.7.2.json), [Pages provider และ live-byte evidence](contracts/release.v1.7.2.json) ที่ตรง commit เดียวกัน
-
-Pages artifact อยู่ใน `prototype/` สำเนา runtime contracts ต้องตรง root และ URL ต้องอยู่ใต้ `/yolk/` Public repo ไม่บรรจุ raw acquisition archive, private workbook links หรือ private customer records
-
-Production ยังต้องเชื่อม CityMETER auth/datastore/spatial API, SourceRelease, tenant/RBAC, revision locks, private media, shared events/outbox, notifications และ calibration จากผลธุรกิจ เก็บ team updates เป็น overlay ก่อน reconcile; ไม่แก้ source totals โดยตรง
-
-## 1.7.1 patch
-
-[Responsiveness and popup handoff](docs/RESPONSIVENESS_v1.7.1.md) includes source files, acceptance and production steps; [machine contract](contracts/responsiveness.v1.7.1.json) is the bounded coding brief. New modules: `prototype/poi-popup.js`, `prototype/poi-popup.css`. New checks: `scripts/check-poi-popup.cjs`, `scripts/check-map-responsiveness.cjs`. Original brand assets, source metrics and demand/supply model stay in their existing contracts.
-
-## Current bounded QA
-
-[217 checks](evidence/release-checks-v1.7.2.json): baseline 179 + analysis 14 + pattern 14 + integration 10 และ [source QA](evidence/district-source-checks-v1.7.2.json): public reads 391 ครั้งสำเร็จครบ / 928 อำเภอ / 77 จังหวัด / 56,507 independent comparisons Supply เริ่ม O+C identified total ต่อฐานตลาด; Demand ประเทศใช้ best confirmed fine tier หรือ raw maximum fine ที่มี label Native Chrome ผ่านตาม [browser receipt](evidence/browser-v1.7.2/native-browser-review.json) ไทย/dark และอังกฤษ/light ที่ 1,440×900 และ 390×844 รวม 10 ภาพ ครอบคลุม transparent selected fine, retained scope, country fit และ counts บนมือถือ ใช้ label “ทำเลเข้าเกณฑ์ / ทำเลรอตรวจ” ทุกการ์ด ไม่ใช่ full matrix หรือเครื่องจริง Provider/live-byte proof ยังรอ release owner; ยังไม่อ้างว่าเผยแพร่แล้ว
+Current automated results: 17 suites / 260 checks passed. Independent snapshot consistency audit: 65 checks passed separately. Bounded native Chrome review passed selected Thai/dark and English/light flows at 1440x900 and390x844. See [native browser receipt](evidence/browser-v1.7.3/native-browser-review.json). This is not a full language/theme matrix or a physical-device/backend pass. Provider/live-byte evidence remains pending.

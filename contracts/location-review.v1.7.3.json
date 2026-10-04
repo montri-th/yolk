@@ -1,0 +1,293 @@
+{
+  "schemaVersion": "yolk.location_review/1.0",
+  "documentId": "yolk.location_review_and_appearance",
+  "version": "1.7.3",
+  "date": "2026-10-04",
+  "status": "local_bounded_QA_pass_release_pending",
+  "humanGuide": "docs/LOCATION_REVIEW_v1.7.3.md",
+  "extends": {
+    "product": "contracts/product.v1.7.json",
+    "mapAnalysis": "contracts/map-analysis.v1.7.2.json",
+    "workspaceMap": "contracts/workspace-map.v1.7.json",
+    "criteria": "contracts/criteria-proposal.v1.6.json"
+  },
+  "invariants": {
+    "reportingUUIDs": 7954,
+    "metrics": 25,
+    "industries": [
+      "fuel",
+      "grocery",
+      "nonbank"
+    ],
+    "fineDemandCutoffsUnchanged": true,
+    "sourceTotalsUnchanged": true,
+    "reviewDoesNotMutateCriteriaSourceOrEvents": true,
+    "selectedFineInterior": "fill=false",
+    "rawQuantitativeScales": "native LDS0.9.7 LUT41; exact light values on both themes",
+    "unknownProviderIsNotUnbranded": true
+  },
+  "stateDefinitions": {
+    "patternConfirmed": "possiblePatterns.length === 1",
+    "patternAmbiguous": "possiblePatterns.length > 1",
+    "strategyConfirmed": "all possiblePatterns are selected; retained demand/tier gates pass",
+    "strategyReview": "some, not all, possiblePatterns are selected; retained demand/tier gates pass",
+    "demandUnknown": "selected Demand signals do not establish high/low; never silently qualify",
+    "poiVerification": "independent field evidence for brand/coordinates/operation; does not directly mutate source aggregates"
+  },
+  "closureRules": [
+    "A source correction closes pattern review only when all possible combinations yield one pattern.",
+    "An interval entirely above/below threshold may establish high/low without an exact count.",
+    "A completed review may conclude the location does not fit the selected strategy.",
+    "A criteria change may reduce ambiguity but is not new source evidence."
+  ],
+  "reasonIds": [
+    "demand_missing",
+    "market_base_missing",
+    "brand_allocation",
+    "area_assignment",
+    "license_scope",
+    "source_reconciliation",
+    "supply_missing"
+  ],
+  "runtime": {
+    "module": "prototype/location-review.js",
+    "api": [
+      "report(row,criteria)",
+      "body(row,criteria)",
+      "detail(row)",
+      "open({areaId,pattern,page})"
+    ],
+    "entryPoints": [
+      "pattern review-count button",
+      "location evidence section"
+    ],
+    "scope": "read-only snapshot/model explanation",
+    "changesSource": false,
+    "changesOperatingStatus": false,
+    "pageSize": 40,
+    "pagination": "All filtered review rows remain reachable,40 perpage; next/previous retain pattern context"
+  },
+  "tierAppearance": {
+    "id": "yolk.owner-fried-egg-tiers.v1.7.3",
+    "authority": "owner-request:2026-10-04:fried-egg-tier-appearance",
+    "priority": "Overrides only tierColors/scaleId appearance of retained map-analysis1.7.2; formulas and raw metric scales unchanged",
+    "kind": "categorical_screening_tier",
+    "atmosphereRecipe": false,
+    "withinPolygonMagnitude": false,
+    "themePolicy": "identical-paints-on-both-themes",
+    "module": "prototype/yolk-tier-style.js",
+    "css": "prototype/yolk-tier-style.css",
+    "tier1": {
+      "gradientSource": "density.area/light/lut[20:41]",
+      "stops": 21,
+      "offsets": "0..100 percent, every5 percent",
+      "direction": "135deg",
+      "solidFallback": "#D6600C"
+    },
+    "tier2": {
+      "token": "energy.yellow",
+      "hex": "#FFBC1F"
+    },
+    "tier3": {
+      "token": "foundation.text.primary.dark",
+      "hex": "#F1F4EF"
+    },
+    "selection": "Transparent interior; use label and meaningful selected/focus outline"
+  },
+  "quantitativeLUT41": {
+    "priority": "Overrides5-color quantitative classification appearance from retained map-analysis1.7.2",
+    "colors": "Each selected scale exact native41sample LIGHT LUT on both themes",
+    "cohort": "fixed national same geographic grain, valid exact comparable values only",
+    "method": "40 quantile cuts P(i*100/41), i=1..40, create41classes index0..40; lowerinclusive/upperexclusive and finalbin>=P97.5609756",
+    "zero": "Observedzero explicitlycued and always classIndex0; knownexactzero remains in nationalcomparablecohort",
+    "review": "Neutral interval state with bounds; no exact classification",
+    "screeningCutoffsChanged": false,
+    "cohortIncludesZero": true,
+    "ties": "Repeatedcuts may leave empty/skippedclasses; do not invent distinctvalues",
+    "legend": "All41 nativecolorsegments with5 actualvalueanchorlabels"
+  },
+  "audit": {
+    "sourceRelease": "1.7.2",
+    "sourceSha": "86c60238480fb4044d72f1f6e82baec7279db497",
+    "publicReceipt": "evidence/location-review-v1.7.3.json",
+    "sourceCorrections": 0,
+    "fieldVerified": 0,
+    "scope": "3named current relative presets; not every brand or live field verification",
+    "presets": [
+      {
+        "industry": "fuel",
+        "brand": "Bangchak",
+        "denominator": "gfa",
+        "highDemand": 1067,
+        "singlePattern": 925,
+        "multiplePatterns": 142,
+        "strategyConfirmed": 987,
+        "strategyReview": 64,
+        "demandUnknown": 2308
+      },
+      {
+        "industry": "grocery",
+        "brand": "7-Eleven",
+        "denominator": "population",
+        "highDemand": 2859,
+        "singlePattern": 2808,
+        "multiplePatterns": 51,
+        "strategyConfirmed": 1779,
+        "strategyReview": 30,
+        "demandUnknown": 1930
+      },
+      {
+        "industry": "nonbank",
+        "brand": "MTC",
+        "denominator": "population",
+        "highDemand": 2298,
+        "singlePattern": 657,
+        "multiplePatterns": 1641,
+        "strategyConfirmed": 28,
+        "strategyReview": 1194,
+        "demandUnknown": 124
+      }
+    ]
+  },
+  "productionCorrectionRequired": [
+    "exact reporting UUID/source record IDs",
+    "dated source URL/evidence",
+    "checked spatial crosswalk",
+    "same-grain reconciliation",
+    "reviewer and expectedRevision",
+    "server-side RBAC",
+    "atomic revision/event/outbox"
+  ],
+  "tasks": [
+    {
+      "id": "REVIEW-00",
+      "dependsOn": [],
+      "work": "Freeze inputs and reproduce read-only model audit"
+    },
+    {
+      "id": "REVIEW-01",
+      "dependsOn": [
+        "REVIEW-00"
+      ],
+      "work": "Pure per-area reason/bounds/threshold report"
+    },
+    {
+      "id": "REVIEW-02",
+      "dependsOn": [
+        "REVIEW-01"
+      ],
+      "work": "Review modal and navigable evidence entry points"
+    },
+    {
+      "id": "REVIEW-03",
+      "dependsOn": [
+        "REVIEW-00",
+        "REVIEW-01"
+      ],
+      "work": "Truthful audit and closure checklist"
+    },
+    {
+      "id": "REVIEW-04",
+      "dependsOn": [
+        "REVIEW-00"
+      ],
+      "work": "Fried-egg categories and native quantitative LUT41"
+    },
+    {
+      "id": "REVIEW-05",
+      "dependsOn": [
+        "REVIEW-00"
+      ],
+      "work": "Demand shortlist action with retained permission/context rules"
+    },
+    {
+      "id": "REVIEW-06",
+      "dependsOn": [
+        "REVIEW-02",
+        "REVIEW-03",
+        "REVIEW-04",
+        "REVIEW-05"
+      ],
+      "work": "Current regressions and bounded native browser review"
+    },
+    {
+      "id": "REVIEW-07",
+      "dependsOn": [
+        "REVIEW-06"
+      ],
+      "work": "Final freeze, allowlist seal, verify, authorized provider/live attestation"
+    }
+  ],
+  "verification": {
+    "newCommands": [
+      "node scripts/check-location-review.cjs",
+      "node scripts/check-yolk-tier.cjs",
+      "node scripts/check-map-lut41.cjs"
+    ],
+    "currentAutomatedReceipt": "evidence/release-checks-v1.7.3.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.7.3/native-browser-review.json",
+    "physicalDevices": "unverified",
+    "sharedBackend": "not_implemented_in_static_preview",
+    "automatedStatus": "PASS",
+    "automatedSuites": 17,
+    "automatedChecks": 260,
+    "independentSnapshotChecks": 65,
+    "nativeBrowserStatus": "PASS_bounded_native_Chrome_viewport_review",
+    "nativeBrowserScope": {
+      "browser": "Chrome",
+      "viewports": [
+        {
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "selectedLanguageThemePairs": [
+        {
+          "language": "th",
+          "theme": "dark"
+        },
+        {
+          "language": "en",
+          "theme": "light"
+        }
+      ],
+      "scope": "Selected renderedflows and DOM/style evidence, not fullmatrix or physicaldevices",
+      "checks": [
+        "Demand shortlist saved state",
+        "Exact Tier1 SVG21stops, Tier2yellow, Tier3eggwhite",
+        "Raw native41segment legend",
+        "Explicit mobile countryfit visible",
+        "Reviewpagination1-40 then41-64, detailreasons, Escapeclose, criteria checkboxes unchanged",
+        "Selected fine fill=none, stroke#347DA8,width3",
+        "Actual pointerhover control/icon decorationnone, captionunderline and keyboardfocusvisible"
+      ],
+      "physicalDevices": "unverified",
+      "sharedBackend": "not_implemented"
+    }
+  },
+  "interactionRefinements": {
+    "captionHover": {
+      "controls": "buttons,links and disclosure summaries containing icons",
+      "hoverUnderline": "caption only (.control-caption)",
+      "iconGlyphUnderline": false,
+      "keyboardFocusOutline": "preserved",
+      "defaultCaptionDecoration": "unchanged",
+      "excludedIdentity": "Yolk wordmark"
+    },
+    "explicitMapFit": {
+      "priority": "Overrides retained1.7.2 minZoom4; no ordinary sync/camera persistence change",
+      "mapMinZoom": 3,
+      "tileMinZoom": 3,
+      "mobileFit": "Country navigation/home/fit can zoomout to show country",
+      "mobileBottomPaddingPx": "max(50,ceil(actual rendered .workspace-map-footer height)+18)",
+      "desktopBottomPaddingPx": 18,
+      "changesCamera": "explicit navigation/fit only; menu/criteria/inspection sync retains camera",
+      "mobileLayoutThresholdPx": 1100,
+      "heightSelector": ".workspace-map-footer"
+    }
+  }
+}

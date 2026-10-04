@@ -1,6 +1,6 @@
-# Assets สำหรับ Yolk 1.7.2
+# Assets สำหรับ Yolk 1.7.3
 
-เริ่มจาก รายการ `contracts/assets.v1.7.2.json` จะสร้างหลัง final QA/seal และ [DS integration](DS_ASSET_INTEGRATION.md) ชุด 1.6 และ1.7.1 เป็นประวัติของรุ่นนั้น ไม่ใช่รายการปัจจุบัน
+เริ่มจาก รายการ `contracts/assets.v1.7.3.json` จะสร้างหลัง final QA/seal และ [DS integration](DS_ASSET_INTEGRATION.md) ชุด 1.6 และ1.7.1 เป็นประวัติของรุ่นนั้น ไม่ใช่รายการปัจจุบัน
 
 | ส่วน | ตำแหน่ง / วิธีใช้ |
 |---|---|
@@ -14,10 +14,20 @@
 
 UI ใช้กล่องโลโก้ 44×44 px แบบ contain คงสัดส่วนต้นฉบับ ไม่มี crop/stretch/recolor/กรอบใหม่ ตราหน้าร้านที่มีตัวอักษรเป็นส่วนหนึ่งของ graphic ใช้ได้ ตรวจไฟล์และความชัดทั้งสองธีม เมื่อไม่มีต้นฉบับเหมาะสมใช้ไอคอนกลางกับชื่อแทน
 
-สีแผนที่ `li.demand`: Tier 3 **#F1F5E5**, Tier 2 **#60C9AD**, Tier 1 **#25659A** เหมือนกันสองธีม เมื่อเลือกทำเล ภายในโปร่งใส ใช้เส้นขอบ/ข้อความและ O/C/U แทนการลงสีทึบ
+สีหมวด Tier ที่เจ้าของเลือก: Tier 3 **#F1F4EF**, Tier 2 **#FFBC1F**, Tier 1 **gradient จาก native density.area LUT20–40** เหมือนกันสองธีม เมื่อเลือกทำเล ภายในโปร่งใส ใช้เส้นขอบ/ข้อความและ O/C/U แทนการลงสีทึบ
 
 โหลดแผนที่ฐานจากผู้ให้บริการที่ระบุใน [map contract](contracts/workspace-map.v1.7.json) พร้อม attribution; ไม่รวม tile cache ใน handoff และไม่อ้างภาพดาวเทียมปี 2021 เป็นภาพสด
 
-## เพิ่มใน1.7.2
+## ประวัติส่วนเพิ่มใน 1.7.2
 
 Analysismodules `prototype/map-analysis.js`, `analysis-ui.js/.css` และfivecompactnativeDistrictfilesใน`prototype/data/real/` ใช้publicprovenanceURL/date/hash; ไม่มีrawacquisition/logs Native5classes count/density.area/density.capita/builtพร้อมหน่วย/denominatorและreuseตรงextension ไม่เปลี่ยนDSassets Socialimage `yolk-share-v1.7.png` ยังคงapproved1.7familyเดิม ไม่มีการอ้างrenderใหม่รุ่น1.7.2 อ่าน [map-analysis contract](contracts/map-analysis.v1.7.2.json)
+
+## เพิ่มใน 1.7.3
+
+Reviewmodule location-review.js/.css, categoricaltierhelper yolk-tier-style.js/.css และ native41LUTrawmaps ตาม contracts/location-review.v1.7.3.json สูตร/sourcecohortไม่เปลี่ยน โหลดCSSใหม่หลังyolk-focus.css และhelperJSก่อนmap-analysis/workspace-map Gradientเป็นownercategoryappearance ไม่ใช่atmosphereหรือค่าที่ต่างกันภายในpolygon อ่าน [reviewguide](docs/LOCATION_REVIEW_v1.7.3.md) และ currentmanifestหลังfinalsealเท่านั้น
+
+## Final interaction refinements - 1.7.3
+
+Buttons, links and disclosure summaries containing icons underline only their caption on hover (the Yolk wordmark is excluded); the icon glyph is undecorated and keyboard focus remains visible. Map and tile minZoom is 3, overriding the retained 1.7.2 value 4 so explicit mobile country fit can show the full country. Mobile bottom fit padding uses max(50, ceil(actual rendered footer legend height) + 18) px; desktop uses 18 px. Menu changes, criteria previews and ordinary sync retain the camera; only explicit navigation/home/fit changes it.
+
+Current automated results: 17 suites / 260 checks passed. Independent snapshot consistency audit: 65 checks passed separately. Bounded native Chrome review passed selected Thai/dark and English/light flows at 1440x900 and390x844. See [native browser receipt](evidence/browser-v1.7.3/native-browser-review.json). This is not a full language/theme matrix or a physical-device/backend pass. Provider/live-byte evidence remains pending.

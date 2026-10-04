@@ -10,7 +10,7 @@ const plain=v=>JSON.parse(JSON.stringify(v)),digest=v=>crypto.createHash('sha256
 const checks=[],observations={contexts:[]};
 h.sandbox.window.document=h.sandbox.document;h.sandbox.num=n=>Number(n).toLocaleString('en-US');
 h.sandbox.window.YolkIcons={icon:name=>'<i data-icon="'+name+'"></i>',yolkIcon:()=>'<i data-icon="yolk"></i>'};
-for(const file of ['relative-supply.js','map-analysis.js','analysis-ui.js'])vm.runInContext(fs.readFileSync(path.join(site,file),'utf8'),h.sandbox,{filename:file});
+for(const file of ['relative-supply.js','yolk-tier-style.js','map-analysis.js','analysis-ui.js'])vm.runInContext(fs.readFileSync(path.join(site,file),'utf8'),h.sandbox,{filename:file});
 const app=fs.readFileSync(path.join(site,'app.js'),'utf8'),navStart=app.indexOf('function mapNavigation(){'),navEnd=app.indexOf('\nfunction market()',navStart);
 assert(navStart>=0&&navEnd>navStart,'Actual app personal-navigation helper extraction failed');vm.runInContext(app.slice(navStart,navEnd),h.sandbox,{filename:'actual-app-map-filters.js'});
 const UI=h.sandbox.window.YolkAnalysisUI,A=h.sandbox.window.YolkMapAnalysis;

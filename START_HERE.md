@@ -1,50 +1,44 @@
 ---
-document_id: yolk.start_here.three_industries
-version: 1.7.2
+version: 1.7.3
 date: 2026-10-04
+status: local_bounded_QA_pass_release_pending
 entrypoint: prototype/index.html
 product_contract: contracts/product.v1.7.json
-feature_extension: contracts/map-analysis.v1.7.2.json
-criteria_contract: contracts/criteria-proposal.v1.6.json
-task_manifest: contracts/map-analysis.v1.7.2.json#/tasks
+feature_extension: contracts/location-review.v1.7.3.json
+map_analysis_baseline: contracts/map-analysis.v1.7.2.json
 design_system: LDS 0.9.7
-status: ready_with_open_manual_gate
 ---
 
-# เริ่มที่นี่ — CityMETER: Yolk · v1.7.2
+# เริ่มที่นี่ — CityMETER: Yolk · v1.7.3
 
-เลือกFuel/Grocery/Non-bankและแบรนด์ ดูDemandก่อน แล้วเทียบSupplyและคัดรูปแบบทำเล ใช้แผนที่เดียว เกณฑ์เดิมของแบรนด์ และฐาน7,954fineUUIDsที่ไม่เปลี่ยนตามviewport
+หาไข่แดง เทียบ Supply แล้วเล็งทำเล ทีมเห็นเหตุที่ข้อมูลยังไม่ชัดและรู้ว่าต้องตรวจอะไรต่อบนแผนที่เดียว รุ่นนี้คงสูตรและ cohort เดิม เพิ่มคำอธิบาย review สี Tier แบบไข่ดาว และ native LUT41 สำหรับตัววัดเชิงปริมาณ
 
 | ต้องการ | เปิด |
 |---|---|
-| เข้าใจผลิตภัณฑ์ | [Product statement](CityMETER_Yolk_Product_Statement_v1.7.2.md) + [retained product contract](contracts/product.v1.7.json) |
-| เข้าใจมุมมองDemand/Supplyและ8patterncounts | [Map analysis guide](docs/MAP_ANALYSIS_v1.7.2.md) + [machine extension/tasks](contracts/map-analysis.v1.7.2.json) |
-| เริ่มพัฒนา | [Implementation plan](IMPLEMENTATION_PLAN_v1.7.2.md) + [retained production tasks](contracts/implementation-tasks.v1.6.json) |
-| ดูสูตรและpreset | [Criteria guide](docs/CRITERIA_GUIDE.md), [Supply-relative](docs/SUPPLY_RELATIVE_PROPOSAL.md), [Brand presets](docs/BRAND_PRESETS_v1.7.md) |
-| คงแผนที่/hover/popup/forms | [Persistent map](docs/PERSISTENT_MAP_v1.7.md), [Responsiveness](docs/RESPONSIVENESS_v1.7.1.md) |
-| ตรวจsource/geometry | [Source summary](evidence/data/SUMMARY.md), [boundary provenance](prototype/data/real/boundary-provenance.v1.7.json), [native district public provenance](prototype/data/real/district-source-provenance.json) |
-| ต่อDS/identity | [Asset integration](DS_ASSET_INTEGRATION.md), [asset index](ASSET_INDEX_v1.7.md) |
-| รับงาน/เผยแพร่ | [Handoff](HANDOFF.md), [pending release](contracts/release.v1.7.2.json) |
+| เข้าใจผลิตภัณฑ์ | [Product statement](CityMETER_Yolk_Product_Statement_v1.7.3.md) |
+| เริ่มพัฒนา | [Implementation plan](IMPLEMENTATION_PLAN_v1.7.3.md) + [machine tasks](contracts/location-review.v1.7.3.json) |
+| เข้าใจทำเลรอตรวจ | [เหตุ ผล audit และ checklist](docs/LOCATION_REVIEW_v1.7.3.md) |
+| เข้าใจ Demand/Supply map | [retained analysis guide](docs/MAP_ANALYSIS_v1.7.2.md) + current appearance override ใน [1.7.3 contract](contracts/location-review.v1.7.3.json) |
+| ดูสูตรและ preset | [Criteria](docs/CRITERIA_GUIDE.md), [Supply-relative](docs/SUPPLY_RELATIVE_PROPOSAL.md), [Brand presets](docs/BRAND_PRESETS_v1.7.md) |
+| ต่อ DS และ identity | [DS integration](DS_ASSET_INTEGRATION.md), [asset index](ASSET_INDEX_v1.7.md) |
+| รับงาน/เผยแพร่ | [Handoff](HANDOFF.md), [release status](contracts/release.v1.7.3.json) |
 
-## ทดลองในเครื่อง
+## ทดลอง
 
-```sh
-python3 -m http.server 8854 --bind 127.0.0.1
-```
+    python3 -m http.server 8854 --bind 127.0.0.1
 
-เปิด `/prototype/` ผ่านHTTP แล้ว:
+เปิด /prototype/ ผ่าน HTTP เลือกธุรกิจ/แบรนด์ → Demand → Supply → เกณฑ์ ทดลองแบบร่างก่อน Apply กดจำนวนรอตรวจบนการ์ดเพื่อดูเหตุ หรือเปิดรายละเอียดทำเล → ดูหลักฐานและสิ่งที่ต้องตรวจ เล็งทำเลได้จากรายการ Demand
 
-1. เลือกindustry/brand/format Presetที่เหมาะกับบริบทหรือsavedcriteriaจะกลับมา ไม่ทับงานอีกแบรนด์
-2. เปิด **Demand** ดูconfirmedTierทั้งหมดก่อนSupply/preferred/maxTier หรือเลือกrawmetric ประเทศติดlabelmaximumknownfinevalue ไม่ใช่districtaggregate
-3. เปิด **Supply** เริ่มO+Cidentifiedtotalต่อฐานตลาด แล้วเลือกเรา/คู่แข่ง/identifiedtotalและจำนวน/ต่อkm²/ต่อฐานตลาด Countryใช้directnativeD928ไม่sumfinecrosswalk BranchCRUDยังอยู่ในหน้านี้
-4. เปิด **เกณฑ์** ดูการ์ดทั้ง 8: “ทำเลเข้าเกณฑ์ / ทำเลรอตรวจ” ทั้งประเทศ ก่อนเลือก checkbox แต่เก็บ Demand/Tier gates ที่เลือก จำนวนรอตรวจอาจซ้อนกัน; invalid/loading แสดง dash
-5. เลื่อนซูม สลับเมนู ภาษา ธีมและbasemap Mapinstanceเดิม Hoverแสดงsourceboundaryที่กดจริง Selectedfineโปร่งใส Popupแสดงrecord/brandจริง
-6. ลองdraftเกณฑ์ก่อนApply Applyหนึ่งครั้งจึงสร้างcriteriarevision/team event Personalmapcontrolsไม่มีteam event
+แผนที่เดียวค้างทุกหน้า Hover เน้นกรอบที่กดได้ ประเทศกดจังหวัดแต่ลงสีอำเภอ จังหวัดลงสีแขวง/อปท. เลือกทำเลแล้วภายในโปร่งใส POI ใช้ O/C/U พร้อมชื่อแบรนด์และ research links
 
-## Authority และขอบเขตหลักฐาน
+## Authority และหลักฐาน
 
-AGENTS + product/map/brandv1.7 + responsivenessv1.7.1 เป็นbase; map-analysisv1.7.2เพิ่มมุมมองและcounts Criteria/industry/productiontasksv1.6ยังเป็นbaseline ไม่มีmigrationสูตร/cohortเงียบๆ LDS0.9.7fullbase+LocationProfileเป็นauthorityด้านรูปแบบ
+Product/map/brand v1.7 + criteria/production tasks v1.6 เป็นฐาน; map-analysis1.7.2 เพิ่มมุมมอง; location-review1.7.3 override เฉพาะเหตุ review และ appearance/classification การแสดงสีที่ระบุ สูตรคัด Demand ไม่เปลี่ยน LDS0.9.7 fullbase + LocationProfile เป็น authorityด้านรูปแบบโดยมี categorical Tier exception ที่เจ้าของเลือก
 
-รุ่น 1.7.2 ผ่าน 217 automated checks, source checks และ native Chrome แบบจำกัดขอบเขต หลักฐาน source, browser, เครื่องจริง, Google providers และ bytes บนเว็บแยกกัน Receipts รุ่นเก่าไม่แทน current QA Raw acquisition/logs/private provenance เก็บใน private; public source catalog มี URL/date/hash เท่านั้น Snapshot/CRUD/feed เป็น browser-local ยังไม่มี shared backend, server RBAC หรือส่ง email/LINE จริง
+Source audit ตรวจสาม preset จาก snapshot เดิม ไม่แก้ต้นทางหรือยืนยัน operation การตรวจ UI/model/hash และ provider / live bytes เป็นหลักฐานคนละชั้น ดู current receipts ใน release contract เครื่องจริง/shared backend/server RBAC/email / LINE ยังไม่ใช่สิ่งที่ static preview ยืนยันได้
 
-Receipts รุ่นนี้: [217 automated checks](evidence/release-checks-v1.7.2.json), [native district source checks](evidence/district-source-checks-v1.7.2.json) และ [browser receipt](evidence/browser-v1.7.2/native-browser-review.json) ประเทศใช้ Demand best confirmed fine tier หรือ raw maximum fine ที่มี label; Supply ใช้ direct district count/rate แผนที่ minZoom 4 และ padding เมื่อสั่ง fit โดยตรงผ่าน bounded review ไทย/dark และอังกฤษ/light ที่ 1,440×900 และ 390×844 การตรวจเครื่องจริง/provider และการยืนยันเผยแพร่ยังเป็นหลักฐานแยก
+## Final interaction refinements - 1.7.3
+
+Buttons, links and disclosure summaries containing icons underline only their caption on hover (the Yolk wordmark is excluded); the icon glyph is undecorated and keyboard focus remains visible. Map and tile minZoom is 3, overriding the retained 1.7.2 value 4 so explicit mobile country fit can show the full country. Mobile bottom fit padding uses max(50, ceil(actual rendered footer legend height) + 18) px; desktop uses 18 px. Menu changes, criteria previews and ordinary sync retain the camera; only explicit navigation/home/fit changes it.
+
+Current automated results: 17 suites / 260 checks passed. Independent snapshot consistency audit: 65 checks passed separately. Bounded native Chrome review passed selected Thai/dark and English/light flows at 1440x900 and390x844. See [native browser receipt](evidence/browser-v1.7.3/native-browser-review.json). This is not a full language/theme matrix or a physical-device/backend pass. Provider/live-byte evidence remains pending.

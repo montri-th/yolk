@@ -4,7 +4,7 @@ const fs=require('fs'),path=require('path'),vm=require('vm'),crypto=require('nod
 const root=path.resolve(__dirname,'..'),prototype=path.join(root,'prototype');
 const prefix=fs.readFileSync(path.join(__dirname,'check-brand-presets.cjs'),'utf8').split('(async () => {')[0];
 const make=Function('require','__dirname',prefix+'\nreturn harness;')(require,__dirname),h=make(),run=h.evaluate;
-for(const name of ['relative-supply.js','map-analysis.js'])vm.runInContext(fs.readFileSync(path.join(prototype,name),'utf8'),h.sandbox,{filename:name});
+for(const name of ['relative-supply.js','yolk-tier-style.js','map-analysis.js'])vm.runInContext(fs.readFileSync(path.join(prototype,name),'utf8'),h.sandbox,{filename:name});
 const A=h.sandbox.window.YolkMapAnalysis,plain=v=>JSON.parse(JSON.stringify(v)),checks=[];
 const supply=(own,competitor,unverified=0,extra={})=>({own,competitor,unverified,state:'reported_assigned_inventory',...extra});
 const row=(id,sp,metrics={population:10000,gfa:100000},areaKm2=2)=>({id,metrics,areaKm2,supply:sp});
@@ -12,11 +12,11 @@ const state=(metric='count',relation='own')=>({kind:'supply',metric,relation});
 const c={industry:'fuel',supplyDenominatorId:'gfa',maxDemandTier:1,patterns:[]};
 async function check(name,test){const start=Date.now();try{await test();checks.push({name,passed:true,elapsedMs:Date.now()-start})}catch(error){checks.push({name,passed:false,error:String(error.stack||error),elapsedMs:Date.now()-start})}}
 (async()=>{
- await check('Every quantitative palette exactly matches native LDS five-class values on light and dark; tier uses native three classes',()=>{
+ await check('Every quantitative palette exactly matches all41native LDS LUT values on light and dark; tiers use the owner category helper',()=>{
   const story=JSON.parse(fs.readFileSync(path.join(root,'reference/lds-0.9.7/color-srgb-10.scales.json'),'utf8'));
   const location=JSON.parse(fs.readFileSync(path.join(root,'reference/lds-0.9.7/location-intelligence-0.9.7.json'),'utf8'));
   for(const [id,palette]of Object.entries(A.palettes))for(const theme of ['light','dark']){
-   const scales=id==='li.demand'?location.scales:story.scales;assert.deepEqual(plain(palette),scales.find(s=>s.scaleId===id&&s.theme===theme).classes[id==='li.demand'?'3':'5']);
+   assert.equal(palette.length,41);assert.deepEqual(plain(palette),story.scales.find(s=>s.scaleId===id&&s.theme===theme).lut);
   }
   assert.equal(A.scaleSource.fillOpacity,1);assert.equal(A.scaleSource.themePolicy,'identical-light-values-on-both-themes');
   for(const [file,expected]of [['Landometer-Design-System-v0.9.7.md',A.scaleSource.baseDocumentSha256],['Location-Intelligence-Profile-for-LDS-v0.9.7.md',A.scaleSource.profileSha256]])assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'reference/lds-0.9.7',file))).digest('hex'),expected);
@@ -74,11 +74,11 @@ async function check(name,test){const start=Date.now();try{await test();checks.p
   const national=[0,10,20,30,40].map((n,i)=>row('district-'+i,supply(n,0)));
   national.push(row('district-review',supply(15,0,0,{ownLower:15,ownUpper:25})),row('district-missing',supply(null,0)));
   const opts={cohortId:'synthetic_national_district_7',cohortRows:national},prepared=A.prepare(national,state(),c,opts);
-  assert.deepEqual(plain(prepared.cutoffs),[10,20,30,38]);assert.equal(prepared.cohort.total,7);assert.equal(prepared.cohort.exact,5);assert.equal(prepared.cohort.review,1);assert.equal(prepared.cohort.missing,1);
-  for(let i=0;i<4;i++)assert.equal(prepared.records.get('district-'+i).classIndex,i);
-  assert.equal(prepared.records.get('district-4').classIndex,4);assert.equal(prepared.records.get('district-review').color,null);assert.equal(prepared.records.get('district-review').value,null);assert.equal(prepared.records.get('district-missing').color,null);
-  const subset=A.prepare([national[3]],state(),c,opts);assert.deepEqual(plain(subset.cutoffs),plain(prepared.cutoffs));assert.equal(subset.records.get('district-3').classIndex,3);assert.equal(subset.cohort.viewportRecalibration,false);
-  const tied=[row('a',supply(5,0)),row('b',supply(5,0))],ties=A.prepare(tied,state(),c,{cohortId:'synthetic_ties',cohortRows:tied});assert.deepEqual(plain(ties.cutoffs),[5,5,5,5]);assert.equal(ties.records.get('a').classIndex,4);assert.equal(ties.records.get('b').classIndex,4);assert.equal(ties.records.get('a').percentile,50);
+  assert.equal(prepared.cutoffs.length,40);for(let i=0;i<40;i++)assert(Math.abs(prepared.cutoffs[i]-40*(i+1)/41)<1e-12);assert.equal(prepared.legend.length,41);assert.equal(prepared.cohort.total,7);assert.equal(prepared.cohort.exact,5);assert.equal(prepared.cohort.review,1);assert.equal(prepared.cohort.missing,1);
+  for(let i=0;i<4;i++)assert.equal(prepared.records.get('district-'+i).classIndex,i===0?0:Math.floor(i*41/4));
+  assert.equal(prepared.records.get('district-4').classIndex,40);assert.equal(prepared.records.get('district-review').color,null);assert.equal(prepared.records.get('district-review').value,null);assert.equal(prepared.records.get('district-missing').color,null);
+  const subset=A.prepare([national[3]],state(),c,opts);assert.deepEqual(plain(subset.cutoffs),plain(prepared.cutoffs));assert.equal(subset.records.get('district-3').classIndex,30);assert.equal(subset.cohort.viewportRecalibration,false);
+  const tied=[row('a',supply(5,0)),row('b',supply(5,0))],ties=A.prepare(tied,state(),c,{cohortId:'synthetic_ties',cohortRows:tied});assert.deepEqual(plain(ties.cutoffs),Array(40).fill(5));assert.equal(ties.records.get('a').classIndex,40);assert.equal(ties.records.get('b').classIndex,40);assert.equal(ties.records.get('a').percentile,50);
  });
  await check('Native rows without an explicit national cohort stay unclassified; no fine-area aggregation fallback exists',()=>{
   const native=row('unregistered-native-district',supply(10,5)),prepared=A.prepare([native],state(),c);assert.equal(prepared.records.get(native.id).value,10);assert.equal(prepared.records.get(native.id).color,null);assert.equal(prepared.records.get(native.id).classificationState,'missing_national_cohort');assert.equal(prepared.cohort.state,'missing');
@@ -95,7 +95,7 @@ async function check(name,test){const start=Date.now();try{await test();checks.p
   await h.select('grocery','grocery-brand:SEVEN_ELEVEN','C_STORE');const grocery=run('AREAS.find(a=>a.supply.ownLower!==undefined&&a.supply.ownUpper>a.supply.ownLower)');assert(grocery);const g=A.value(grocery,state(),c);assert.equal(g.state,'review');assert.equal(g.value,null);assert(g.hi>g.lo);
   await h.select('nonbank','legal:0107557000195','potential_retail_branch_service');const nb=run('AREAS.find(a=>a.supply.ownUpper>a.supply.ownLower)');assert(nb);const n=A.value(nb,state(),c);assert.equal(n.state,'review');assert.equal(n.value,null);assert(n.hi>n.lo);
  });
- const result={schemaVersion:1,test:'check-map-analysis',testedAt:new Date().toISOString(),passed:checks.every(c=>c.passed),checks,scope:'Production pure helper with actual source/model/relative-supply modules plus labelled synthetic boundary/interval fixtures. No browser rendering or physical-device accessibility claim.',sourceHashes:Object.fromEntries(['prototype/map-analysis.js','prototype/relative-supply.js','reference/lds-0.9.7/color-srgb-10.scales.json','reference/lds-0.9.7/location-intelligence-0.9.7.json'].map(name=>[name,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,name))).digest('hex')]))};
- const output=path.resolve(root,'../deliverables/yolk-v1.7.2-review/map-analysis-regression-results.json');fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
+ const result={schemaVersion:1,test:'check-map-analysis',testedAt:new Date().toISOString(),passed:checks.every(c=>c.passed),checks,scope:'Production pure helper with actual source/model/relative-supply modules plus labelled synthetic boundary/interval fixtures. No browser rendering or physical-device accessibility claim.',sourceHashes:Object.fromEntries(['prototype/map-analysis.js','prototype/yolk-tier-style.js','prototype/relative-supply.js','reference/lds-0.9.7/color-srgb-10.scales.json','reference/lds-0.9.7/location-intelligence-0.9.7.json'].map(name=>[name,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,name))).digest('hex')]))};
+ const output=path.resolve(root,'../deliverables/yolk-v1.7.3-review/map-analysis-regression-results.json');fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
  for(const t of checks)console.log((t.passed?'PASS ':'FAIL ')+t.name+(t.error?'\n'+t.error:''));console.log(JSON.stringify({passed:result.passed,checks:checks.length,receipt:output}));if(!result.passed)process.exitCode=1;
 })().catch(error=>{console.error(error);process.exitCode=1});

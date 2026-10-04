@@ -12,7 +12,7 @@
 | ไอคอน | Material Symbols Rounded FILL0/wght300/GRAD0/opsz; ส่วนต่อขยาย Yolk37glyph เดิม SHA c5b7e050…1aedd พร้อม licence ไม่เรียกว่าชุด canonical ใหม่ |
 | Pattern mapping | Crowded=groups, FOMO=flag, Our Farm=potted_plant, Pioneer=explore, Quiet=bedtime, Their War=swords, Our Island=beach_access, Winter War=ac_unit |
 | Yolk | egg_alt + ชื่อ “ไข่แดง” และข้อความอธิบาย; icon/สีไม่รับรองผลธุรกิจ |
-| Choropleth 1.7 | `li.demand`: Tier 3 #F1F5E5 / Tier 2 #60C9AD / Tier 1 #25659A สีข้อมูลเดียวกันสองธีม; ระดับประเทศแสดงอำเภอตาม Tier ดีที่สุดของทำเลที่ยืนยันว่าผ่าน ภายในจังหวัดแสดงแขวง/อปท. เมื่อเลือกทำเลแล้วภายในโปร่งใส ใช้เส้นขอบและข้อความบอก Tier |
+| Choropleth Tier 1.7.3 | Owner-selected categorical recipe: Tier 1 native density.area LUT20–40 gradient; Tier 2 #FFBC1F; Tier 3 #F1F4EF, identical both themes. Districts summarize best confirmed fine Tier; selected fine remains transparent. See contracts/location-review.v1.7.3.json. |
 | Metric chart | family5class ใน `assets/yolk-analytical.css` แยกจาก legend แผนที่ |
 | Browser identity | `assets/identity/icon-portfolio-*`, `site.webmanifest`; ภาพแชร์ 1.7 อยู่ที่ `assets/identity/yolk-share-v1.7.png` พร้อมฟอนต์/สี DS 0.9.7 และชี้ URLสาธารณะจริง |
 | Branch photos | 5 mockups เดิมพร้อมmanifest/ที่มา ไม่ใช่รูปสาขาจริง |
@@ -22,3 +22,9 @@
 คำขอผู้ใช้เหนือกฎตกแต่ง: ไม่มี motif, decorative brackets, coloured selected left rails หรือโลโก้ใส่กรอบ ใช้แค่ text weight/background/spacing สำหรับการเลือก แต่คง keyboard focus และ borders ที่มีความหมาย
 
 ดู [Handoff](HANDOFF.md) สำหรับผลตรวจของ artifact จริง เส้นทาง sourceภายนอกในmanifestคือprovenance ไม่ใช่dependencyสำหรับเปิดพรีวิว
+
+## Owner-selected Tier appearance 1.7.3
+
+Raw choropleths use all 41 exact native DS LUT samples. Tier has a separate categorical screening recipe selected by the owner on 2026-10-04: Tier 1 reuses density.area LIGHT LUT samples 20–40; Tier 2 uses energy.yellow #FFBC1F; Tier 3 uses foundation.text.primary.dark #F1F4EF. The paints remain identical in both themes.
+
+This is not one of the seven atmosphere recipes. Gradient position within a polygon has no analytical magnitude. Use yolk-tier-style.js/.css with labels and meaningful outlines; keep selected fine-area interiors transparent. See contracts/location-review.v1.7.3.json for priority and scope.

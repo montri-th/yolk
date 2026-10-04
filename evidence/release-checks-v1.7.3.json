@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "yolk.bounded_release_checks/1.7.3",
+  "version": "1.7.3",
+  "checkedOn": "2026-10-04T14:53:41.093891+00:00",
+  "status": "PASS_bounded_automated_and_native_viewport_review",
+  "automatedPassed": true,
+  "totalChecks": 260,
+  "reports": [
+    {
+      "suite": "three-industry",
+      "command": "node scripts/check-three-industry.cjs",
+      "status": "PASS",
+      "passed": 30,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "2a21bf19dca6965b615c40434230cbe3df1143c5f643bffc924e7bc2e9163543"
+    },
+    {
+      "suite": "brand-presets",
+      "command": "node scripts/check-brand-presets.cjs",
+      "status": "PASS",
+      "passed": 13,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "86b73ac75d2f86d52396354c85c0fc5ab27c51915b753e4f048aec820d764be0"
+    },
+    {
+      "suite": "workspace-map",
+      "command": "node scripts/check-workspace-map.cjs",
+      "status": "PASS",
+      "passed": 20,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "b742c8cc91dd25c7dbb090f951776e69f808087b8835fbb2de8a91507c044bc0"
+    },
+    {
+      "suite": "photo-runtime",
+      "command": "node scripts/check-photo-runtime.cjs",
+      "status": "PASS",
+      "passed": 28,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "66cdba46df1bcc4ad60351e522b8a3ea8dab90b2b913f9757c35689ab92b5c4c"
+    },
+    {
+      "suite": "criteria-controls",
+      "command": "node scripts/check-criteria-controls.cjs",
+      "status": "PASS",
+      "passed": 12,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "bcc07dec708c907a5a82db4c9b025cf1ed26216a50283c17630f949e5394dca2"
+    },
+    {
+      "suite": "save-context",
+      "command": "node scripts/check-save-context.cjs",
+      "status": "PASS",
+      "passed": 9,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "ce696502d28b0e97f989cd46929159848a36411abb542fe4ee165237ead66610"
+    },
+    {
+      "suite": "relative-supply",
+      "command": "node scripts/check-relative-supply.cjs",
+      "status": "PASS",
+      "passed": 14,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "185cca115b316143988351d5d49c3896e522a4b01d47de767e8c75e0decbea3f"
+    },
+    {
+      "suite": "poi-popup",
+      "command": "node scripts/check-poi-popup.cjs",
+      "status": "PASS",
+      "passed": 17,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "f5b12260306caeb23cdfc1310e137da49cfab182d668611b55b6f5227431de68"
+    },
+    {
+      "suite": "map-hover",
+      "command": "node scripts/check-map-hover.cjs",
+      "status": "PASS",
+      "passed": 12,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "e74d00a419d549d00f1d86bd9d1951b0ae1052e21c460181e1813c2e823a264e"
+    },
+    {
+      "suite": "map-responsiveness",
+      "command": "node scripts/check-map-responsiveness.cjs",
+      "status": "PASS",
+      "passed": 13,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "fcc5ed66441900a1832a9cea6ee966ba81880e4a8371f03548ec11f4aa0b384f"
+    },
+    {
+      "suite": "cold-branch",
+      "command": "node scripts/check-cold-branch.cjs",
+      "status": "PASS",
+      "passed": 11,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "4cb3792638b108bf1e6d9ba5371a092dcb25e2f3874242c9f2ebfdd1cb02f5e9"
+    },
+    {
+      "suite": "map-analysis",
+      "command": "node scripts/check-map-analysis.cjs",
+      "status": "PASS",
+      "passed": 14,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "35247c274616ba378c422288f850756bbc8179114173d56a764e1c94ee375a17"
+    },
+    {
+      "suite": "pattern-counts",
+      "command": "node scripts/check-pattern-counts.cjs",
+      "status": "PASS",
+      "passed": 14,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "413fcfff7cb57936825ddba8dd33fa130c43e07827f89887544fe76b2256160b"
+    },
+    {
+      "suite": "analysis-integration",
+      "command": "node scripts/check-analysis-integration.cjs",
+      "status": "PASS",
+      "passed": 10,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "e3353b51a46b9fcbe93bd7992b9247e3fbb8fdf09888c39e8a663a0bac18554e"
+    },
+    {
+      "suite": "location-review",
+      "command": "node scripts/check-location-review.cjs",
+      "status": "PASS",
+      "passed": 10,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "9e10b76733d897ba1902b13d3edbb3506c77670aebdc92dfaaea2c545a0233f7"
+    },
+    {
+      "suite": "yolk-tier",
+      "command": "node scripts/check-yolk-tier.cjs",
+      "status": "PASS",
+      "passed": 11,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "289f395f762bfa5dc35e7815b5397fce6ed4ca0c2470bea22201739c053abb71"
+    },
+    {
+      "suite": "map-lut41",
+      "command": "node scripts/check-map-lut41.cjs",
+      "status": "PASS",
+      "passed": 22,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "fa46cb8d1eba982937e81ec91518766da1fae413802d75579944a485a73c1cbc"
+    }
+  ],
+  "sourceAuditReceipt": "evidence/location-review-v1.7.3.json",
+  "independentSourceChecks": 65,
+  "sourceChanges": 0,
+  "bulkApproved": 0,
+  "limits": [
+    "Automated model/state/DOM-adapter tests are separate from native-browser/device QA",
+    "No physical-device or shared-backend certification",
+    "Snapshot consistency does not verify operation, legal boundary or missing identities"
+  ],
+  "nativeBrowserReceipt": "evidence/browser-v1.7.3/native-browser-review.json",
+  "finalTargetedReruns": [
+    "workspace-map20",
+    "map-responsiveness13",
+    "analysis-integration10",
+    "location-review10"
+  ]
+}

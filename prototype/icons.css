@@ -55,3 +55,8 @@
 .percentile-exact>summary:focus-visible{outline:3px solid var(--yl-focus);outline-offset:2px;border-radius:3px}
 .percentile-unavailable{font-size:14px;white-space:normal;color:var(--muted)}
 @media(max-width:600px){.percentile-reading{min-width:135px;max-width:none}.preferred-heading{flex-wrap:wrap}.preferred-heading strong{font-size:18px}.preferred-heading .pattern-stars{font-size:12px}}
+
+/* Hover decoration belongs to readable captions, never the icon glyph. */
+button.has-caption-icon:hover:not(:disabled),a.has-caption-icon:hover,summary.has-caption-icon:hover{text-decoration:none}
+button.has-caption-icon:hover:not(:disabled) .control-caption,a.has-caption-icon:hover .control-caption,summary.has-caption-icon:hover .control-caption{text-decoration:underline;text-underline-offset:4px}
+.has-caption-icon .yl-icon{text-decoration:none}

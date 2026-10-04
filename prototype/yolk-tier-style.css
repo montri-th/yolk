@@ -1,0 +1,31 @@
+/* The owner-requested fried-egg categories are a product-specific appearance.
+   No raw Demand/Supply metric color scale is overridden here. */
+:root,
+:root[data-theme="dark"] {
+  --yl-yolk-tier-1: #D6600C;
+  --yl-yolk-tier-2: #FFBC1F;
+  --yl-yolk-tier-3: #F1F4EF;
+  --yl-yolk-tier-ink: #182327;
+  --yl-yolk-tier-1-gradient: linear-gradient(135deg, #E6AB30 0%, #E5A72E 5%, #E5A42D 10%, #E4A02B 15%, #E49D2A 20%, #E39928 25%, #E29526 30%, #E29225 35%, #E18E23 40%, #E08A21 45%, #DF8720 50%, #DF831E 55%, #DE7F1C 60%, #DD7B1A 65%, #DC7818 70%, #DB7417 75%, #DA7015 80%, #D96C13 85%, #D86811 90%, #D7640E 95%, #D6600C 100%);
+  /* Legacy class aliases run from entry Tier 3 to strongest Tier 1. */
+  --yl-yolk-map-1: var(--yl-yolk-tier-3);
+  --yl-yolk-map-2: var(--yl-yolk-tier-2);
+  --yl-yolk-map-3: var(--yl-yolk-tier-1);
+}
+.yolk-tier-swatch {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 22px;
+  height: 16px;
+  border: 1px solid var(--yl-yolk-tier-ink);
+  border-radius: 4px;
+}
+.yolk-tier-swatch[data-yolk-tier="1"] { background: var(--yl-yolk-tier-1-gradient); }
+.yolk-tier-swatch[data-yolk-tier="2"] { background: var(--yl-yolk-tier-2); }
+.yolk-tier-swatch[data-yolk-tier="3"] { background: var(--yl-yolk-tier-3); }
+.yolk-tier-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  line-height: 1.5;
+}

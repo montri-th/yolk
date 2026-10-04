@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.7.3",
+  "version": "1.7.3",
+  "checkedAt": "2026-10-04T14:53:41.093891+00:00",
+  "status": "PASS_bounded_native_viewport_review",
+  "tool": "Native Chrome via computer-use browser controls",
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "reviewedPairings": [
+    "Thai/dark",
+    "English/light"
+  ],
+  "observations": [
+    {
+      "id": "demand_shortlist",
+      "status": "PASS",
+      "observed": "Separate accessible shortlist button creates a saved state through the existing workspace action."
+    },
+    {
+      "id": "pattern_review",
+      "status": "PASS",
+      "observed": "Review-count button opens evidence without changing the preferred-type checkbox."
+    },
+    {
+      "id": "pagination",
+      "status": "PASS",
+      "observed": "Native Next moves from1–40/64 to41–64/64; disabled Next at final page."
+    },
+    {
+      "id": "evidence_detail",
+      "status": "PASS",
+      "observed": "Unresolved brand evidence, Supply ranges, thresholds and possible patterns display in Thai and English."
+    },
+    {
+      "id": "strategy_verdict",
+      "status": "PASS",
+      "observed": "An unresolved interval does not falsely claim every possible type fits the selected strategy."
+    },
+    {
+      "id": "dialog_close",
+      "status": "PASS",
+      "observed": "Close and native Escape dismiss the dialog."
+    },
+    {
+      "id": "review_mobile",
+      "status": "PASS",
+      "observed": "390×844 evidence dialog wraps headings and counts and remains scrollable."
+    },
+    {
+      "id": "tier_gradient",
+      "status": "PASS",
+      "observed": "Country Demand SVG contains21 exact native density.area LUT stops for Tier1."
+    },
+    {
+      "id": "tier_paints",
+      "status": "PASS",
+      "observed": "Observed Tier2 #FFBC1F and Tier3 #F1F4EF, with separate below/no-data/review legend."
+    },
+    {
+      "id": "supply_lut",
+      "status": "PASS",
+      "observed": "Supply analytical legend renders41 segments with raw units and national reference."
+    },
+    {
+      "id": "mobile_country_fit",
+      "status": "PASS",
+      "observed": "Explicit country fit shows the country within mobile map above the41-step footer."
+    },
+    {
+      "id": "persistent_map",
+      "status": "PASS",
+      "observed": "Navigation between Demand, Supply, Criteria and location detail retains the same map surface."
+    },
+    {
+      "id": "selected_transparent",
+      "status": "PASS",
+      "observed": "Selectedfine native SVG fill=none, stroke=#347DA8, stroke-width=3; basemap stays visible."
+    },
+    {
+      "id": "hover_button",
+      "status": "PASS",
+      "observed": "Actual pointer hover: Addbranch control none, icon none, caption underline."
+    },
+    {
+      "id": "hover_link",
+      "status": "PASS",
+      "observed": "Actual pointer hover: CityMETER source link control none, icon none, caption underline."
+    },
+    {
+      "id": "keyboard_focus",
+      "status": "PASS",
+      "observed": "Addbranch remains :focus-visible with visible outline after keyboard interaction."
+    },
+    {
+      "id": "copy_th_dark",
+      "status": "PASS",
+      "observed": "Actual Thai dark desktop and mobile views reviewed."
+    },
+    {
+      "id": "copy_en_light",
+      "status": "PASS",
+      "observed": "Actual English light desktop and mobile views reviewed."
+    },
+    {
+      "id": "layout",
+      "status": "PASS",
+      "observed": "No horizontal document overflow observed at the reviewed390×844 and1440×900 sizes."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.7.3/en-light-demand-mobile.png",
+      "bytes": 43674,
+      "sha256": "6d643cb242c7b1e4f58c66265292041fd633b96e5e3a96513783009fbcf8ef80"
+    },
+    {
+      "path": "evidence/browser-v1.7.3/en-light-review-desktop.png",
+      "bytes": 118829,
+      "sha256": "23411340c136defc1bffa9ab69951422300d0fffe6dcb46852fbe3fcb6c754b0"
+    },
+    {
+      "path": "evidence/browser-v1.7.3/en-light-review-mobile.png",
+      "bytes": 45019,
+      "sha256": "473afd2d5be280c58dac03c899f6213ae34b688d477699a2716bcfc9f9d6e182"
+    },
+    {
+      "path": "evidence/browser-v1.7.3/hover-caption-desktop.png",
+      "bytes": 157137,
+      "sha256": "d8a577aa3e11036b38ecc17afb60da35104bd2b59d177c4fa10b0c923240990f"
+    },
+    {
+      "path": "evidence/browser-v1.7.3/th-dark-demand-desktop.png",
+      "bytes": 130793,
+      "sha256": "531c9271b698d4b2a18e60b3daf55d00228fd249d92dd26cfa99d8d5e2777778"
+    },
+    {
+      "path": "evidence/browser-v1.7.3/th-dark-review-desktop.png",
+      "bytes": 126508,
+      "sha256": "91dd92057a6a499cc8ca9424e48a3e9fae72b29cbef1a92292d2eef80ebefb46"
+    },
+    {
+      "path": "evidence/browser-v1.7.3/th-dark-supply41-desktop.png",
+      "bytes": 143260,
+      "sha256": "6f1bb54c1fe15a0456a0c50d3b59f1e27626b4c0769bdcad7168c1870ac81af1"
+    },
+    {
+      "path": "evidence/browser-v1.7.3/th-dark-supply41-mobile.png",
+      "bytes": 42993,
+      "sha256": "97b21401039d3dc4055fac0ee38cc854f6e5dd0e77b2356fc8ac6e309e45d910"
+    }
+  ],
+  "limits": [
+    "Selected actual flows, not full language/theme/device matrix",
+    "Physical devices unverified",
+    "Static browser-local preview; shared backend and email/LINE unimplemented",
+    "Snapshot consistency does not verify current branch operation or missing identities",
+    "Provider deployment and live bytes require separate receipts"
+  ]
+}

@@ -23,6 +23,14 @@
     });
     return count;
   }
+  function captionControls(root) {
+    root=root||global.document; if(!root?.querySelectorAll)return;
+    for(const control of root.querySelectorAll('button,a,summary')){
+      if(!control.querySelector('.yl-icon')||control.querySelector('.yolk-wordmark'))continue;
+      control.classList.add('has-caption-icon');
+      const wrap=node=>{for(const child of [...node.childNodes]){if(child.nodeType===3&&child.textContent.trim()){const span=child.ownerDocument.createElement('span');span.className='control-caption';child.replaceWith(span);span.appendChild(child);}else if(child.nodeType===1&&!child.matches('.yl-icon,.control-caption,svg,img'))wrap(child);}};wrap(control);
+    }
+  }
   function load() {
     const doc = global.document;
     if (!doc || !doc.fonts || !doc.fonts.load || !doc.documentElement) return Promise.resolve(false);
@@ -35,7 +43,7 @@
       return false;
     });
   }
-  global.YolkIcons = Object.freeze({ icon: icon, decorate: decorate, load: load, glyphs: glyphs, patternGlyphs: patternGlyphs, patternIcon: patternIcon, yolkIcon: yolkIcon, yolkWordmark: yolkWordmark });
+  global.YolkIcons = Object.freeze({ icon: icon, decorate: decorate, captionControls: captionControls, load: load, glyphs: glyphs, patternGlyphs: patternGlyphs, patternIcon: patternIcon, yolkIcon: yolkIcon, yolkWordmark: yolkWordmark });
   // Failed fonts leave readable labels; no raw ligature names or fallback emoji appear.
   load();
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -1,0 +1,1235 @@
+{
+  "schemaVersion": "yolk.location_review_audit/1.7.3",
+  "auditedAt": "2026-10-04T14:07:38.403Z",
+  "snapshotSourceRelease": "1.7.2",
+  "snapshotSourceSha": "86c60238480fb4044d72f1f6e82baec7279db497",
+  "scope": "Read-only deterministic reproduction of source snapshots; no independent site-operation or legal verification and no source changes",
+  "sourceChanges": 0,
+  "fieldVerified": 0,
+  "bulkApproved": 0,
+  "contexts": [
+    {
+      "industry": "fuel",
+      "brand": "bangchak",
+      "scope": "all_fuel",
+      "criteria": {
+        "geographyProfile": "bkk_khwaeng_upcountry_lao",
+        "profile": "fuel-accepted-v1.4-with-evidence-notes.1",
+        "buildingP1": 99,
+        "buildingP2": 95,
+        "activityP": 95,
+        "activityT1": 5,
+        "activityT2": 3,
+        "activityT3": 1,
+        "buildingEnabled": true,
+        "activityEnabled": true,
+        "extraMetrics": [],
+        "extraP": 95,
+        "demandMode": "high",
+        "maxDemandTier": 3,
+        "supplyMode": "relative",
+        "ownMany": 3,
+        "competitorMany": 3,
+        "patterns": [
+          "Pioneer",
+          "FOMO",
+          "Our Farm"
+        ],
+        "rankingMode": "weighted",
+        "rankingWeights": {
+          "demand": 70,
+          "ownGap": 20,
+          "competitorGap": 10
+        },
+        "demandGroupWeights": {
+          "building": 50,
+          "activity": 50,
+          "extra": 50
+        },
+        "metricWeights": {
+          "population": 1,
+          "population_per_km2": 1,
+          "working_age_15_64": 1,
+          "working_age_15_64_per_km2": 1,
+          "adult_population_20_64": 1,
+          "adult_population_20_64_per_km2": 1,
+          "children_0_14": 1,
+          "population_65_plus": 1,
+          "gfa": 1,
+          "building_count": 1,
+          "gfa_per_km2": 1,
+          "gfa_per_person": 1,
+          "factory_count": 1,
+          "factory_count_per_km2": 1,
+          "factory_workers": 1,
+          "factory_workers_per_km2": 1,
+          "hotel_count": 1,
+          "hotel_rooms": 1,
+          "hotel_rooms_per_km2": 1,
+          "office_count": 1,
+          "office_count_per_km2": 1,
+          "fiscal_total_thb": 1,
+          "fiscal_ex_grants_thb": 1,
+          "fiscal_ex_grants_per_km2": 1,
+          "fiscal_ex_grants_per_person": 1
+        },
+        "version": 1,
+        "industry": "fuel",
+        "cohortMode": "national",
+        "minimumCohortN": 30,
+        "positivePresence": false,
+        "seedPresetId": "fuel-common",
+        "seedVersion": "1.7.0",
+        "supplyDenominatorId": "gfa",
+        "ownRateHigh": 0.09344044657285473,
+        "competitorRateHigh": 0.11755607557180173,
+        "supplyCalibration": {
+          "schemaVersion": 1,
+          "metricId": "gfa",
+          "unit": 100000,
+          "industryId": "fuel",
+          "brandId": "bangchak",
+          "scope": "all_fuel",
+          "nationalUniverse": 7954,
+          "minimumSampleN": 5,
+          "positiveExactOnly": true,
+          "intervalRowsExcluded": true,
+          "nonzeroOrUnknownUnverifiedExcluded": true,
+          "own": {
+            "n": 643,
+            "method": "median_national_known_positive_exact_rates",
+            "threshold": 0.09344044657285473
+          },
+          "competitor": {
+            "n": 1340,
+            "method": "median_national_known_positive_exact_rates",
+            "threshold": 0.11755607557180173
+          },
+          "excludedRows": {
+            "missingOrNonpositiveDenominator": 15,
+            "uncertainCounts": 1961
+          },
+          "seededAt": "2026-10-04T14:07:38.385Z",
+          "meaning": "Adjustable screening calibration, not measured customer demand or branch capacity"
+        },
+        "ownBrandId": "bangchak"
+      },
+      "total": 7954,
+      "demand": {
+        "confirmedHigh": 1067,
+        "confirmedLow": 4579,
+        "unknown": 2308,
+        "tiers": {
+          "1": 44,
+          "2": 279,
+          "3": 744
+        },
+        "unknownEnabledMetricCounts": {
+          "gfa_per_person": 88,
+          "hotel_rooms": 406,
+          "hotel_rooms_per_km2": 406,
+          "factory_count": 2065,
+          "factory_count_per_km2": 2065,
+          "factory_workers": 2065,
+          "factory_workers_per_km2": 2065,
+          "gfa": 8,
+          "gfa_per_km2": 8
+        },
+        "unknownStateCounts": {
+          "missing_or_nonpositive_population_denominator": 88,
+          "source_row_missing": 8972,
+          "selected_period_missing": 116
+        }
+      },
+      "pattern": {
+        "demandGated": 1067,
+        "confirmedPattern": 925,
+        "ambiguousPatternUnique": 142,
+        "confirmedStrategy": 987,
+        "reviewStrategyUnique": 64,
+        "notSelectedStrategy": 16,
+        "perCard": {
+          "Crowded": {
+            "confirmed": 16,
+            "review": 64
+          },
+          "FOMO": {
+            "confirmed": 71,
+            "review": 122
+          },
+          "Our Farm": {
+            "confirmed": 24,
+            "review": 95
+          },
+          "Pioneer": {
+            "confirmed": 814,
+            "review": 55
+          },
+          "Quiet": {
+            "confirmed": 0,
+            "review": 0
+          },
+          "Their War": {
+            "confirmed": 0,
+            "review": 0
+          },
+          "Our Island": {
+            "confirmed": 0,
+            "review": 0
+          },
+          "Winter War": {
+            "confirmed": 0,
+            "review": 0
+          }
+        },
+        "ambiguousReasonCounts": {
+          "brand_allocation_unknown": 139,
+          "missing_denominator": 7
+        },
+        "strategyReviewReasonCounts": {
+          "brand_allocation_unknown": 61,
+          "missing_denominator": 7
+        },
+        "supplyThresholdStates": {
+          "known_positive_denominator": 1060,
+          "missing_denominator": 7
+        }
+      },
+      "inventory": {
+        "fineSourceStateCounts": {
+          "reported_assigned_inventory": 7954
+        },
+        "fineIdentifiedTotalMarket": {
+          "id": "national_7954_fine",
+          "total": 7954,
+          "exact": 7939,
+          "review": 0,
+          "missing": 15,
+          "zero": 5469,
+          "state": "available",
+          "scope": "fixed_national_same_geographic_grain",
+          "viewportRecalibration": false,
+          "reasonCounts": {
+            "identified_source_sum": 7939,
+            "missing_denominator": 15
+          }
+        },
+        "nativeDistrictIdentifiedTotalMarket": {
+          "id": "national_928_districts",
+          "total": 928,
+          "exact": 928,
+          "review": 0,
+          "missing": 0,
+          "zero": 103,
+          "state": "available",
+          "scope": "fixed_national_same_geographic_grain",
+          "viewportRecalibration": false,
+          "reasonCounts": {
+            "identified_source_sum": 928
+          }
+        }
+      }
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:SEVEN_ELEVEN",
+      "scope": "C_STORE",
+      "criteria": {
+        "geographyProfile": "bkk_khwaeng_upcountry_lao",
+        "profile": "grocery-convenience-context-hypothesis.1",
+        "buildingP1": 99,
+        "buildingP2": 95,
+        "activityP": 95,
+        "activityT1": 5,
+        "activityT2": 3,
+        "activityT3": 1,
+        "buildingEnabled": true,
+        "activityEnabled": true,
+        "extraMetrics": [],
+        "extraP": 95,
+        "demandMode": "high",
+        "maxDemandTier": 3,
+        "supplyMode": "relative",
+        "ownMany": 2,
+        "competitorMany": 2,
+        "patterns": [
+          "Pioneer",
+          "FOMO"
+        ],
+        "rankingMode": "context",
+        "rankingWeights": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        },
+        "demandGroupWeights": {
+          "building": 50,
+          "activity": 50,
+          "extra": 50
+        },
+        "metricWeights": {
+          "population": 1,
+          "population_per_km2": 1,
+          "working_age_15_64": 1,
+          "working_age_15_64_per_km2": 1,
+          "adult_population_20_64": 1,
+          "adult_population_20_64_per_km2": 1,
+          "children_0_14": 1,
+          "population_65_plus": 1,
+          "gfa": 1,
+          "building_count": 1,
+          "gfa_per_km2": 1,
+          "gfa_per_person": 1,
+          "factory_count": 1,
+          "factory_count_per_km2": 1,
+          "factory_workers": 1,
+          "factory_workers_per_km2": 1,
+          "hotel_count": 1,
+          "hotel_rooms": 1,
+          "hotel_rooms_per_km2": 1,
+          "office_count": 1,
+          "office_count_per_km2": 1,
+          "fiscal_total_thb": 1,
+          "fiscal_ex_grants_thb": 1,
+          "fiscal_ex_grants_per_km2": 1,
+          "fiscal_ex_grants_per_person": 1
+        },
+        "version": 1,
+        "industry": "grocery",
+        "cohortMode": "national",
+        "minimumCohortN": 30,
+        "positivePresence": false,
+        "paths": [
+          {
+            "id": "population_concentrated_t1",
+            "tier": 1,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              },
+              {
+                "metric": "population_per_km2",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรทะเบียนมากและเข้มข้นมาก"
+          },
+          {
+            "id": "population_concentrated_t2",
+            "tier": 2,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 50,
+                "positive_presence": true
+              },
+              {
+                "metric": "population_per_km2",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรทะเบียนมีปริมาณและความเข้มข้น"
+          },
+          {
+            "id": "population_volume_t3",
+            "tier": 3,
+            "all": [
+              {
+                "metric": "population",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรทะเบียนมาก: ตรวจว่ารวมตัวอยู่บริเวณใด"
+          },
+          {
+            "id": "workplace_t1",
+            "tier": 1,
+            "all": [
+              {
+                "metric": "factory_workers",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              },
+              {
+                "metric": "factory_workers_per_km2",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "คนงานที่รายงานมีปริมาณและความเข้มข้นสูงมาก"
+          },
+          {
+            "id": "workplace_t2",
+            "tier": 2,
+            "all": [
+              {
+                "metric": "factory_workers",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              },
+              {
+                "metric": "factory_workers_per_km2",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "คนงานที่รายงานมีปริมาณและความเข้มข้นสูง"
+          },
+          {
+            "id": "workplace_volume_t3",
+            "tier": 3,
+            "all": [
+              {
+                "metric": "factory_workers",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "คนงานที่รายงานมาก: ตรวจกะและทางเข้า"
+          }
+        ],
+        "seedPresetId": "grocery-convenience",
+        "seedVersion": "1.7.0",
+        "supplyDenominatorId": "population",
+        "ownRateHigh": 2.737476047084588,
+        "competitorRateHigh": 2.127885945313331,
+        "supplyCalibration": {
+          "schemaVersion": 1,
+          "metricId": "population",
+          "unit": 10000,
+          "industryId": "grocery",
+          "brandId": "grocery-brand:SEVEN_ELEVEN",
+          "scope": "C_STORE",
+          "nationalUniverse": 7954,
+          "minimumSampleN": 5,
+          "positiveExactOnly": true,
+          "intervalRowsExcluded": true,
+          "nonzeroOrUnknownUnverifiedExcluded": true,
+          "own": {
+            "n": 3375,
+            "method": "median_national_known_positive_exact_rates",
+            "threshold": 2.737476047084588
+          },
+          "competitor": {
+            "n": 3673,
+            "method": "median_national_known_positive_exact_rates",
+            "threshold": 2.127885945313331
+          },
+          "excludedRows": {
+            "missingOrNonpositiveDenominator": 126,
+            "uncertainCounts": 463
+          },
+          "seededAt": "2026-10-04T14:07:38.939Z",
+          "meaning": "Adjustable screening calibration, not measured customer demand or branch capacity"
+        },
+        "ownBrandId": "grocery-brand:SEVEN_ELEVEN"
+      },
+      "total": 7954,
+      "demand": {
+        "confirmedHigh": 2859,
+        "confirmedLow": 3165,
+        "unknown": 1930,
+        "tiers": {
+          "1": 643,
+          "2": 956,
+          "3": 1260
+        },
+        "unknownEnabledMetricCounts": {
+          "factory_workers": 1871,
+          "factory_workers_per_km2": 1871,
+          "population": 107,
+          "population_per_km2": 107
+        },
+        "unknownStateCounts": {
+          "source_row_missing": 3900,
+          "selected_period_missing": 56
+        }
+      },
+      "pattern": {
+        "demandGated": 2859,
+        "confirmedPattern": 2808,
+        "ambiguousPatternUnique": 51,
+        "confirmedStrategy": 1779,
+        "reviewStrategyUnique": 30,
+        "notSelectedStrategy": 1050,
+        "perCard": {
+          "Crowded": {
+            "confirmed": 507,
+            "review": 26
+          },
+          "FOMO": {
+            "confirmed": 273,
+            "review": 29
+          },
+          "Our Farm": {
+            "confirmed": 534,
+            "review": 39
+          },
+          "Pioneer": {
+            "confirmed": 1494,
+            "review": 42
+          },
+          "Quiet": {
+            "confirmed": 0,
+            "review": 0
+          },
+          "Their War": {
+            "confirmed": 0,
+            "review": 0
+          },
+          "Our Island": {
+            "confirmed": 0,
+            "review": 0
+          },
+          "Winter War": {
+            "confirmed": 0,
+            "review": 0
+          }
+        },
+        "ambiguousReasonCounts": {
+          "grocery_category_reconciliation": 36,
+          "missing_denominator": 17
+        },
+        "strategyReviewReasonCounts": {
+          "missing_denominator": 17,
+          "grocery_category_reconciliation": 15
+        },
+        "supplyThresholdStates": {
+          "known_positive_denominator": 2842,
+          "missing_denominator": 17
+        }
+      },
+      "inventory": {
+        "fineSourceStateCounts": {
+          "reported_assigned_inventory": 7484,
+          "source_inventory_with_reconciliation_bounds": 470
+        },
+        "fineIdentifiedTotalMarket": {
+          "id": "national_7954_fine",
+          "total": 7954,
+          "exact": 7502,
+          "review": 326,
+          "missing": 126,
+          "zero": 2674,
+          "state": "available",
+          "scope": "fixed_national_same_geographic_grain",
+          "viewportRecalibration": false,
+          "reasonCounts": {
+            "identified_source_sum": 7502,
+            "identified_supply_bounds": 326,
+            "missing_denominator": 124,
+            "nonpositive_denominator": 2
+          }
+        },
+        "nativeDistrictIdentifiedTotalMarket": {
+          "id": "national_928_districts",
+          "total": 928,
+          "exact": 928,
+          "review": 0,
+          "missing": 0,
+          "zero": 2,
+          "state": "available",
+          "scope": "fixed_national_same_geographic_grain",
+          "viewportRecalibration": false,
+          "reasonCounts": {
+            "identified_source_sum": 928
+          }
+        }
+      }
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0107557000195",
+      "scope": "potential_retail_branch_service",
+      "criteria": {
+        "geographyProfile": "bkk_khwaeng_upcountry_lao",
+        "profile": "nonbank-service-context-hypothesis.1",
+        "buildingP1": 99,
+        "buildingP2": 95,
+        "activityP": 95,
+        "activityT1": 5,
+        "activityT2": 3,
+        "activityT3": 1,
+        "buildingEnabled": true,
+        "activityEnabled": false,
+        "extraMetrics": [],
+        "extraP": 95,
+        "demandMode": "high",
+        "maxDemandTier": 3,
+        "supplyMode": "relative",
+        "ownMany": 2,
+        "competitorMany": 2,
+        "patterns": [
+          "Pioneer",
+          "FOMO"
+        ],
+        "rankingMode": "context",
+        "rankingWeights": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        },
+        "demandGroupWeights": {
+          "building": 100,
+          "activity": 50,
+          "extra": 50
+        },
+        "metricWeights": {
+          "population": 1,
+          "population_per_km2": 1,
+          "working_age_15_64": 1,
+          "working_age_15_64_per_km2": 1,
+          "adult_population_20_64": 1,
+          "adult_population_20_64_per_km2": 1,
+          "children_0_14": 1,
+          "population_65_plus": 1,
+          "gfa": 1,
+          "building_count": 1,
+          "gfa_per_km2": 1,
+          "gfa_per_person": 1,
+          "factory_count": 1,
+          "factory_count_per_km2": 1,
+          "factory_workers": 1,
+          "factory_workers_per_km2": 1,
+          "hotel_count": 1,
+          "hotel_rooms": 1,
+          "hotel_rooms_per_km2": 1,
+          "office_count": 1,
+          "office_count_per_km2": 1,
+          "fiscal_total_thb": 1,
+          "fiscal_ex_grants_thb": 1,
+          "fiscal_ex_grants_per_km2": 1,
+          "fiscal_ex_grants_per_person": 1
+        },
+        "version": 1,
+        "industry": "nonbank",
+        "cohortMode": "national",
+        "minimumCohortN": 30,
+        "positivePresence": false,
+        "paths": [
+          {
+            "id": "population_concentrated_t1",
+            "tier": 1,
+            "all": [
+              {
+                "metric": "adult_population_20_64",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              },
+              {
+                "metric": "adult_population_20_64_per_km2",
+                "op": "gte_percentile",
+                "percentile": 90,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรทะเบียนอายุ 20–64 ปีมากและเข้มข้นมาก"
+          },
+          {
+            "id": "population_concentrated_t2",
+            "tier": 2,
+            "all": [
+              {
+                "metric": "adult_population_20_64",
+                "op": "gte_percentile",
+                "percentile": 50,
+                "positive_presence": true
+              },
+              {
+                "metric": "adult_population_20_64_per_km2",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรทะเบียนอายุ 20–64 ปีมีปริมาณและความเข้มข้น"
+          },
+          {
+            "id": "population_volume_t3",
+            "tier": 3,
+            "all": [
+              {
+                "metric": "adult_population_20_64",
+                "op": "gte_percentile",
+                "percentile": 75,
+                "positive_presence": true
+              }
+            ],
+            "label_th": "ประชากรทะเบียนอายุ 20–64 ปีมาก: ตรวจว่ารวมตัวอยู่บริเวณใด"
+          }
+        ],
+        "seedPresetId": "nonbank-community",
+        "seedVersion": "1.7.0",
+        "supplyDenominatorId": "population",
+        "ownRateHigh": 1,
+        "competitorRateHigh": 1,
+        "supplyCalibration": {
+          "schemaVersion": 1,
+          "metricId": "population",
+          "unit": 10000,
+          "industryId": "nonbank",
+          "brandId": "legal:0107557000195",
+          "scope": "potential_retail_branch_service",
+          "nationalUniverse": 7954,
+          "minimumSampleN": 5,
+          "positiveExactOnly": true,
+          "intervalRowsExcluded": true,
+          "nonzeroOrUnknownUnverifiedExcluded": true,
+          "own": {
+            "n": 0,
+            "method": "hypothesis_insufficient_sample",
+            "threshold": 1
+          },
+          "competitor": {
+            "n": 0,
+            "method": "hypothesis_insufficient_sample",
+            "threshold": 1
+          },
+          "excludedRows": {
+            "missingOrNonpositiveDenominator": 126,
+            "uncertainCounts": 7828
+          },
+          "seededAt": "2026-10-04T14:07:39.543Z",
+          "meaning": "Adjustable screening calibration, not measured customer demand or branch capacity"
+        },
+        "ownBrandId": "legal:0107557000195"
+      },
+      "total": 7954,
+      "demand": {
+        "confirmedHigh": 2298,
+        "confirmedLow": 5532,
+        "unknown": 124,
+        "tiers": {
+          "1": 414,
+          "2": 672,
+          "3": 1212
+        },
+        "unknownEnabledMetricCounts": {
+          "adult_population_20_64": 124,
+          "adult_population_20_64_per_km2": 124
+        },
+        "unknownStateCounts": {
+          "source_row_missing": 248
+        }
+      },
+      "pattern": {
+        "demandGated": 2298,
+        "confirmedPattern": 657,
+        "ambiguousPatternUnique": 1641,
+        "confirmedStrategy": 28,
+        "reviewStrategyUnique": 1194,
+        "notSelectedStrategy": 1076,
+        "perCard": {
+          "Crowded": {
+            "confirmed": 656,
+            "review": 1602
+          },
+          "FOMO": {
+            "confirmed": 0,
+            "review": 1209
+          },
+          "Our Farm": {
+            "confirmed": 0,
+            "review": 1417
+          },
+          "Pioneer": {
+            "confirmed": 1,
+            "review": 1024
+          },
+          "Quiet": {
+            "confirmed": 0,
+            "review": 0
+          },
+          "Their War": {
+            "confirmed": 0,
+            "review": 0
+          },
+          "Our Island": {
+            "confirmed": 0,
+            "review": 0
+          },
+          "Winter War": {
+            "confirmed": 0,
+            "review": 0
+          }
+        },
+        "ambiguousReasonCounts": {
+          "own_records_unassigned_within_province": 1641,
+          "other_records_unassigned_within_province": 1641,
+          "company_license_scope_unknown": 8
+        },
+        "strategyReviewReasonCounts": {
+          "own_records_unassigned_within_province": 1194,
+          "other_records_unassigned_within_province": 1194,
+          "company_license_scope_unknown": 5
+        },
+        "supplyThresholdStates": {
+          "known_positive_denominator": 2298
+        }
+      },
+      "inventory": {
+        "fineSourceStateCounts": {
+          "source_inventory_with_assignment_bounds": 7954
+        },
+        "fineIdentifiedTotalMarket": {
+          "id": "national_7954_fine",
+          "total": 7954,
+          "exact": 0,
+          "review": 7828,
+          "missing": 126,
+          "zero": 0,
+          "state": "missing",
+          "scope": "fixed_national_same_geographic_grain",
+          "viewportRecalibration": false,
+          "reasonCounts": {
+            "identified_supply_bounds": 7828,
+            "missing_denominator": 124,
+            "nonpositive_denominator": 2
+          }
+        },
+        "nativeDistrictIdentifiedTotalMarket": {
+          "id": "national_928_districts",
+          "total": 928,
+          "exact": 903,
+          "review": 25,
+          "missing": 0,
+          "zero": 13,
+          "state": "available",
+          "scope": "fixed_national_same_geographic_grain",
+          "viewportRecalibration": false,
+          "reasonCounts": {
+            "identified_source_sum": 903,
+            "identified_supply_bounds": 25
+          }
+        }
+      }
+    }
+  ],
+  "independentConsistencyChecks": {
+    "schemaVersion": 1,
+    "checkedAt": "2026-10-04",
+    "passed": 65,
+    "checks": [
+      {
+        "name": "7954 unique reporting UUIDs",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "180BKK +7774LAO source reporting grain",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "source land area positive finite",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "source numeric metrics preserve nonnegative finite values and nulls",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "metric-state arrays cover all25metrics",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "metric valid-coverage population",
+        "passed": true,
+        "detail": {
+          "n": 7830
+        }
+      },
+      {
+        "name": "metric valid-coverage population_per_km2",
+        "passed": true,
+        "detail": {
+          "n": 7830
+        }
+      },
+      {
+        "name": "metric valid-coverage working_age_15_64",
+        "passed": true,
+        "detail": {
+          "n": 7830
+        }
+      },
+      {
+        "name": "metric valid-coverage working_age_15_64_per_km2",
+        "passed": true,
+        "detail": {
+          "n": 7830
+        }
+      },
+      {
+        "name": "metric valid-coverage adult_population_20_64",
+        "passed": true,
+        "detail": {
+          "n": 7830
+        }
+      },
+      {
+        "name": "metric valid-coverage adult_population_20_64_per_km2",
+        "passed": true,
+        "detail": {
+          "n": 7830
+        }
+      },
+      {
+        "name": "metric valid-coverage children_0_14",
+        "passed": true,
+        "detail": {
+          "n": 7830
+        }
+      },
+      {
+        "name": "metric valid-coverage population_65_plus",
+        "passed": true,
+        "detail": {
+          "n": 7830
+        }
+      },
+      {
+        "name": "metric valid-coverage gfa",
+        "passed": true,
+        "detail": {
+          "n": 7939
+        }
+      },
+      {
+        "name": "metric valid-coverage building_count",
+        "passed": true,
+        "detail": {
+          "n": 7939
+        }
+      },
+      {
+        "name": "metric valid-coverage gfa_per_km2",
+        "passed": true,
+        "detail": {
+          "n": 7939
+        }
+      },
+      {
+        "name": "metric valid-coverage gfa_per_person",
+        "passed": true,
+        "detail": {
+          "n": 7828
+        }
+      },
+      {
+        "name": "metric valid-coverage factory_count",
+        "passed": true,
+        "detail": {
+          "n": 5822
+        }
+      },
+      {
+        "name": "metric valid-coverage factory_count_per_km2",
+        "passed": true,
+        "detail": {
+          "n": 5822
+        }
+      },
+      {
+        "name": "metric valid-coverage factory_workers",
+        "passed": true,
+        "detail": {
+          "n": 5822
+        }
+      },
+      {
+        "name": "metric valid-coverage factory_workers_per_km2",
+        "passed": true,
+        "detail": {
+          "n": 5822
+        }
+      },
+      {
+        "name": "metric valid-coverage hotel_count",
+        "passed": true,
+        "detail": {
+          "n": 7506
+        }
+      },
+      {
+        "name": "metric valid-coverage hotel_rooms",
+        "passed": true,
+        "detail": {
+          "n": 7506
+        }
+      },
+      {
+        "name": "metric valid-coverage hotel_rooms_per_km2",
+        "passed": true,
+        "detail": {
+          "n": 7506
+        }
+      },
+      {
+        "name": "metric valid-coverage office_count",
+        "passed": true,
+        "detail": {
+          "n": 45
+        }
+      },
+      {
+        "name": "metric valid-coverage office_count_per_km2",
+        "passed": true,
+        "detail": {
+          "n": 45
+        }
+      },
+      {
+        "name": "metric valid-coverage fiscal_total_thb",
+        "passed": true,
+        "detail": {
+          "n": 7751
+        }
+      },
+      {
+        "name": "metric valid-coverage fiscal_ex_grants_thb",
+        "passed": true,
+        "detail": {
+          "n": 7751
+        }
+      },
+      {
+        "name": "metric valid-coverage fiscal_ex_grants_per_km2",
+        "passed": true,
+        "detail": {
+          "n": 7751
+        }
+      },
+      {
+        "name": "metric valid-coverage fiscal_ex_grants_per_person",
+        "passed": true,
+        "detail": {
+          "n": 7717
+        }
+      },
+      {
+        "name": "safe density formula population_per_km2",
+        "passed": true,
+        "detail": {
+          "rows": 7954
+        }
+      },
+      {
+        "name": "safe density formula working_age_15_64_per_km2",
+        "passed": true,
+        "detail": {
+          "rows": 7954
+        }
+      },
+      {
+        "name": "safe density formula adult_population_20_64_per_km2",
+        "passed": true,
+        "detail": {
+          "rows": 7954
+        }
+      },
+      {
+        "name": "safe density formula gfa_per_km2",
+        "passed": true,
+        "detail": {
+          "rows": 7954
+        }
+      },
+      {
+        "name": "safe density formula factory_count_per_km2",
+        "passed": true,
+        "detail": {
+          "rows": 7954
+        }
+      },
+      {
+        "name": "safe density formula factory_workers_per_km2",
+        "passed": true,
+        "detail": {
+          "rows": 7954
+        }
+      },
+      {
+        "name": "safe density formula hotel_rooms_per_km2",
+        "passed": true,
+        "detail": {
+          "rows": 7954
+        }
+      },
+      {
+        "name": "fuel fine rows exact reporting-UUID coverage",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "fuel fine counts valid nonnegative integers",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "fuel fine row totals equal dimension sum",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "fuel native928 district inventory",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "fuel native77 province inventory",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "fuel native row totals equal dimension sum",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "fuel nativeD countrydimensionreconciliation",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "fuel nativeD/P/national totalreconciliation",
+        "passed": true,
+        "detail": {
+          "countryTotal": 8736
+        }
+      },
+      {
+        "name": "grocery fine rows exact reporting-UUID coverage",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "grocery fine counts valid nonnegative integers",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "grocery fine row totals equal dimension sum",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "grocery native928 district inventory",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "grocery native77 province inventory",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "grocery native row totals equal dimension sum",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "grocery nativeD countrydimensionreconciliation",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "grocery nativeD/P/national totalreconciliation",
+        "passed": true,
+        "detail": {
+          "countryTotal": 27608
+        }
+      },
+      {
+        "name": "nonbank fine rows exact reporting-UUID coverage",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "nonbank fine counts valid nonnegative integers",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "nonbank fine row totals equal dimension sum",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "nonbank native928 district inventory",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "nonbank native77 province inventory",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "nonbank native row totals equal dimension sum",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "nonbank nativeD countrydimensionreconciliation",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "nonbank nativeD/P/national totalreconciliation",
+        "passed": true,
+        "detail": {
+          "countryTotal": 23524
+        }
+      },
+      {
+        "name": "source byte/hash integrity fuel-district-supply.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "source byte/hash integrity grocery-district-supply.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "source byte/hash integrity nonbank-district-supply.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "source byte/hash integrity district-context.json",
+        "passed": true,
+        "detail": null
+      }
+    ],
+    "meaning": "Independent source snapshot consistency verification only; no current-operation, legal-boundary or physical-site certification",
+    "sourceChanges": 0,
+    "fieldVerified": 0
+  },
+  "limits": [
+    "Snapshot/data/formula audit only; no independent operating-status, legal-boundary or company-license verification",
+    "Audit counts use recorded default relative criteria, not every saved workspace configuration",
+    "Repeated card review counts overlap; do not add them",
+    "Native district evidence cannot repair reporting-area allocation automatically"
+  ]
+}
