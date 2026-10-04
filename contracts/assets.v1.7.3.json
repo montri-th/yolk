@@ -633,7 +633,7 @@
     {
       "path": "prototype/contracts/runtime-asset-hashes.json",
       "bytes": 2013,
-      "sha256": "cab4be2e34282110aa553e674176bccc1fb2ab5d5df24ee122fa083d6b2414ed"
+      "sha256": "dffe38d916323e98d92bc5e512bd8fe5c8caf1f7035cfef42408c096d2665a28"
     },
     {
       "path": "prototype/criteria-controls.css",
@@ -1193,7 +1193,7 @@
     {
       "path": "prototype/index.html",
       "bytes": 5560,
-      "sha256": "504392aab2f1b05893f79f4f58793d89a3b478675a8b3c8b381413329d7def54"
+      "sha256": "7e5538476b9ee2b67eef38628d418dc02de5c65b041486ef1e9d99f575fdb841"
     },
     {
       "path": "prototype/industry-workspace.css",
@@ -1457,8 +1457,8 @@
     },
     {
       "path": "prototype/workspace-layout.css",
-      "bytes": 7274,
-      "sha256": "7a33c6b559e030cc1a90baee1280f89085f015f2e9356f198413b9708ad2a892"
+      "bytes": 7332,
+      "sha256": "a84621d067b4e90602fe4a29750cdd04d90a9006101a12d4cc26763348f5991e"
     },
     {
       "path": "prototype/workspace-map.css",

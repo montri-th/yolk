@@ -29,7 +29,8 @@
     "Owner-requested fried-egg tier appearance, selected transparent interior retained",
     "Raw quantitative choropleths use41 exact nativeDSsamples with declared national class formula",
     "Icon buttons,links and disclosure summaries underline only captions on hover; Yolk wordmark excluded; keyboard focus retained",
-    "Explicit mobile country fit permits minZoom3 and pads for actual footer legend height; ordinary sync retains camera"
+    "Explicit mobile country fit permits minZoom3 and pads for actual footer legend height; ordinary sync retains camera",
+    "Supply cards fit the fixed action panel; longnames wrap without horizontal scrolling or clipped text"
   ],
   "shareImage": {
     "asset": "prototype/assets/identity/yolk-share-v1.7.png",
@@ -95,5 +96,6 @@
     "External Google provider availability/results unverified",
     "Full DS/vendor conformance not asserted"
   ],
-  "mapAnalysisBaseline": "contracts/map-analysis.v1.7.2.json"
+  "mapAnalysisBaseline": "contracts/map-analysis.v1.7.2.json",
+  "finalCandidateEvidenceBoundary": "Local prepublication receipts do not prove finalserved layout/provider/livebytes. Retain version1.7.3 and existingcheckcounts; finalpostreleaseproof must bind the finalsourceSHA."
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "yolk.native_browser_review/1.7.3",
   "version": "1.7.3",
-  "checkedAt": "2026-10-04T14:53:41.093891+00:00",
+  "checkedAt": "2026-10-04T15:09:03.441378+00:00",
   "status": "PASS_bounded_native_viewport_review",
   "tool": "Native Chrome via computer-use browser controls",
   "viewports": [
@@ -113,6 +113,11 @@
       "id": "layout",
       "status": "PASS",
       "observed": "No horizontal document overflow observed at the reviewed390×844 and1440×900 sizes."
+    },
+    {
+      "id": "supply_panel_fit",
+      "status": "PASS",
+      "observed": "After resetting inherited table min-width, native desktop1440×900 action panel scrollWidth/clientWidth440/440 and scrollLeft0; mobile390×844390/390 and scrollLeft0. Cells wrap long source names without overflow masking."
     }
   ],
   "screenshots": [
@@ -133,8 +138,13 @@
     },
     {
       "path": "evidence/browser-v1.7.3/hover-caption-desktop.png",
-      "bytes": 157137,
-      "sha256": "d8a577aa3e11036b38ecc17afb60da35104bd2b59d177c4fa10b0c923240990f"
+      "bytes": 163938,
+      "sha256": "03b41ebbbfb3b40e47b655cc52a2c9f3c3f7898378705ca03dd986ef0e32cfd4"
+    },
+    {
+      "path": "evidence/browser-v1.7.3/supply-panel-fit-mobile.png",
+      "bytes": 49355,
+      "sha256": "281b2d1f980cd38fdf9f572d54d3bb4b76662eecaeebd1919b97af25087d6fce"
     },
     {
       "path": "evidence/browser-v1.7.3/th-dark-demand-desktop.png",
@@ -148,8 +158,8 @@
     },
     {
       "path": "evidence/browser-v1.7.3/th-dark-supply41-desktop.png",
-      "bytes": 143260,
-      "sha256": "6f1bb54c1fe15a0456a0c50d3b59f1e27626b4c0769bdcad7168c1870ac81af1"
+      "bytes": 145856,
+      "sha256": "2d7c3bf52f20ad6e9f37e62fbe548cf03e5e985ad2e3cac6d46ef0446e02a281"
     },
     {
       "path": "evidence/browser-v1.7.3/th-dark-supply41-mobile.png",
@@ -163,5 +173,9 @@
     "Static browser-local preview; shared backend and email/LINE unimplemented",
     "Snapshot consistency does not verify current branch operation or missing identities",
     "Provider deployment and live bytes require separate receipts"
+  ],
+  "additionalViewport": [
+    1710,
+    910
   ]
 }

@@ -78,6 +78,8 @@ Retained 14 commands ดู [แผน map-analysis](IMPLEMENTATION_PLAN_v1.7.2.
 
 ## Final interaction refinements - 1.7.3
 
+Supply cards must fit the fixed action panel without horizontal scrolling or clipped text. In workspace-layout.css keep supply-table min-width:0 and width:100%; cells allow min-width:0 and overflow-wrap:anywhere. Long branch/brand names wrap; do not hide overflow to mask a layout failure. Verify actual rendered card width against the action-panel client width on desktop and mobile. Final post-release layout/provider/live-byte proof remains separate from local prepublication receipts; no test-count or version change is implied.
+
 Buttons, links and disclosure summaries containing icons underline only their caption on hover (the Yolk wordmark is excluded); the icon glyph is undecorated and keyboard focus remains visible. Map and tile minZoom is 3, overriding the retained 1.7.2 value 4 so explicit mobile country fit can show the full country. Mobile bottom fit padding uses max(50, ceil(actual rendered footer legend height) + 18) px; desktop uses 18 px. Menu changes, criteria previews and ordinary sync retain the camera; only explicit navigation/home/fit changes it.
 
 Current automated results: 17 suites / 260 checks passed. Independent snapshot consistency audit: 65 checks passed separately. Bounded native Chrome review passed selected Thai/dark and English/light flows at 1440x900 and390x844. See [native browser receipt](evidence/browser-v1.7.3/native-browser-review.json). This is not a full language/theme matrix or a physical-device/backend pass. Provider/live-byte evidence remains pending.

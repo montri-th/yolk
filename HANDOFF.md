@@ -46,6 +46,8 @@ Static previewยังเป็น browser-local ไม่มีshared backend/
 
 ## Final interaction refinements - 1.7.3
 
+Supply cards fit the fixed action panel. Long names wrap without horizontal scrolling or clipped text; do not use overflow:hidden to conceal overflow. Check this on the final served candidate. Local prepublication receipts are distinct from post-release layout/provider/live-byte proof; version 1.7.3 and the previously reported test counts remain unchanged.
+
 Buttons, links and disclosure summaries containing icons underline only their caption on hover (the Yolk wordmark is excluded); the icon glyph is undecorated and keyboard focus remains visible. Map and tile minZoom is 3, overriding the retained 1.7.2 value 4 so explicit mobile country fit can show the full country. Mobile bottom fit padding uses max(50, ceil(actual rendered footer legend height) + 18) px; desktop uses 18 px. Menu changes, criteria previews and ordinary sync retain the camera; only explicit navigation/home/fit changes it.
 
 Current automated results: 17 suites / 260 checks passed. Independent snapshot consistency audit: 65 checks passed separately. Bounded native Chrome review passed selected Thai/dark and English/light flows at 1440x900 and390x844. See [native browser receipt](evidence/browser-v1.7.3/native-browser-review.json). This is not a full language/theme matrix or a physical-device/backend pass. Provider/live-byte evidence remains pending.

@@ -288,6 +288,15 @@
       "changesCamera": "explicit navigation/fit only; menu/criteria/inspection sync retains camera",
       "mobileLayoutThresholdPx": 1100,
       "heightSelector": ".workspace-map-footer"
+    },
+    "supplyActionPanel": {
+      "requirement": "Supply cards fit the fixed action panel without horizontal scrolling or clipped text",
+      "longNames": "wrap with overflow-wrap:anywhere",
+      "tableWidth": "100%; min-width:0",
+      "cellMinWidth": 0,
+      "overflowHiddenToMaskFailure": false,
+      "acceptance": "Actual rendered supply-card width fits action-panel client width on finalserved desktop/mobile candidate",
+      "evidenceBoundary": "Local prepublication receipts are separate from postrelease native layout/provider/live-byte proof; no new version or testcounts implied"
     }
   }
 }
