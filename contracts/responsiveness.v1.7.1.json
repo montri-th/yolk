@@ -1,0 +1,801 @@
+{
+  "schemaVersion": "yolk.responsiveness/1.0",
+  "documentId": "yolk.responsiveness_and_poi_actions",
+  "version": "1.7.1",
+  "date": "2026-10-04",
+  "status": "implemented_automated_and_bounded_native_pass_release_pending",
+  "humanGuide": "docs/RESPONSIVENESS_v1.7.1.md",
+  "scope": [
+    "viewport work coalescing",
+    "stable POI popup",
+    "brand/branch identity",
+    "Street View and Google search actions",
+    "stale navigation guards",
+    "source/overlay persistence efficiency",
+    "source-boundary hover for actual drill-down target",
+    "cold direct branch route and draft preservation"
+  ],
+  "authority": {
+    "product": "contracts/product.v1.7.json",
+    "map": "contracts/workspace-map.v1.7.json",
+    "brandExperience": "contracts/brand-experience.v1.7.json",
+    "criteriaBaseline": "contracts/criteria-proposal.v1.6.json",
+    "presets": "contracts/runtime-parameter-presets.json",
+    "industryProfiles": "contracts/industry-profiles.json",
+    "brandOverrides": "prototype/data/brand-presets.v1.7.json",
+    "DS": {
+      "version": "0.9.7",
+      "baseSHA256": "d3085cbc0a50195f1cbf0c77b1d77c0d19b84364daf2948eb367348d65432d96",
+      "locationProfileSHA256": "5d4856041709735d3a04d4a510a88b551df86c211fdcab8a0707e8fe7c9efc3b",
+      "logoRule": "Keep verified external brand asset bytes and proportions; no crop, recolour, frame or invented substitute. Named text fallback when unavailable."
+    }
+  },
+  "invariants": {
+    "cohort": {
+      "reportingUUIDs": 7954,
+      "BKKKhwaeng": 180,
+      "upcountryLAO": 7774,
+      "metricDimensions": 25
+    },
+    "industries": [
+      "fuel",
+      "grocery",
+      "nonbank"
+    ],
+    "calculation": "Preserve current v1.7 criteria, Supply-relative, brand overrides and saved context semantics. No change to Demand/Supply formulas, national cutoffs, Tier, possiblePatterns, eligibility or rank from performance changes.",
+    "geography": "Preserve source geometry, crosswalk, original source metric area denominators and point coordinates. View-only polygon matches never write administrative assignment or alter aggregate supply.",
+    "states": "Observed zero, missing, suppressed, not-applicable, invalid and review states remain distinct.",
+    "view": "One existing Leaflet instance. Ordinary sync does not refit. Pan/zoom/popup/external search remain personal actions with no team event or source/criteria mutation.",
+    "persistence": "Keep source snapshot caches separate from local overlays; preserve other industry/brand/scope contexts and drafts.",
+    "claimLimit": "Proxy screening and contextual source listings, not measured visits/sales/borrowing, current branch operations, legal-boundary certification or parcel feasibility."
+  },
+  "runtimePlan": {
+    "viewport": "RAF-coalesce moveend/zoomend into point/visible-count refresh; do not rebuild evaluator, rank maps, country/district choropleths or computed styles for a view-only event.",
+    "fullSync": "Run on meaningful context/criteria/route/source/theme changes using a single owning integration point; cache verified token values within one sync without changing analytical HEX.",
+    "markers": "Reconcile canonical point ID/context. Retain an open in-scope popup anchor across viewport-only pan/zoom, resize and autopan even if temporarily offscreen. Visible counts exclude an offscreen retained anchor. Closing, filters, source polygon and context exclusions prune it correctly; source totals unchanged.",
+    "staleGuards": "Capture context and route ticket before await; cancel old event navigation or focus when route/context/newer request changes.",
+    "popupModule": {
+      "JS": "prototype/poi-popup.js",
+      "CSS": "prototype/poi-popup.css",
+      "implementationAPI": {
+        "global": "YolkPoiPopup",
+        "version": "1.7.1",
+        "render": "render(point, {lang, industry, area, ownBrandId, ownBrandName})",
+        "helpers": [
+          "prompt(point, options)",
+          "links(point, options)",
+          "publicContext(point, options)",
+          "relationship(point, lang)",
+          "validPoint(point)"
+        ],
+        "editorHook": "data-workspace-open-poi",
+        "loadOrder": "after brand/icon modules; popup CSS after workspace styles"
+      },
+      "status": "implemented_source_vm_17_pass_native_8_language_theme_viewport_combinations_pass"
+    },
+    "workerServer": "Not implied by RAF scheduling. Production workers/spatial APIs and physical-device performance validation remain separate work.",
+    "navigationHover": {
+      "country": {
+        "colour": "district",
+        "hitTarget": "province"
+      },
+      "province": {
+        "colour": "source_fine_area",
+        "hitTarget": "district"
+      },
+      "district": {
+        "colour": "source_fine_area",
+        "hitTarget": "source_fine_area"
+      },
+      "outline": "exact source polygon; fill=false; no analytical value encoding",
+      "pointerTargets": "Unfilled source-boundary hit paths above analytical fills. .workspace-map-panel .leaflet-overlay-pane svg path.workspace-navigation-hit {pointer-events:all;cursor:pointer} must outrank Leaflet SVG path rules; outlines use pointer-events:none. Load CSS after Leaflet/workspace CSS.",
+      "JS": "prototype/map-hover.js",
+      "CSS": "prototype/map-hover.css",
+      "implementationAPI": {
+        "global": "YolkMapHover",
+        "version": "1.7.1",
+        "factory": "create({map, L, token: () => currentDSActiveToken, pane?})",
+        "methods": [
+          "bind(layer, getTarget) -> unbind",
+          "show({level, id, feature, label}, latlng)",
+          "clear(expectedTargetOrKey?)",
+          "destroy()",
+          "getState()"
+        ],
+        "helper": "usableFeature(sourceFeature)",
+        "target": "Exact source Polygon/MultiPolygon feature; level province|district|location. Caller owns hierarchy lookup and click/keyboard navigation."
+      },
+      "activeToken": "--yl-map-active; exact native observed dark #65B6DB and light #347DA8. UI hover is not a demand value or choropleth replacement.",
+      "statePolicy": "Clear on navigation/context changes; same-target motion reuses outline; late mouseout cannot clear a newer target. No source write, team event, centroid or bounding-box substitute.",
+      "status": "source_vm_12_pass_native_three_hierarchy_levels_pass_bounded_theme_language_states"
+    },
+    "preparedEvaluation": "Prepare deterministic criteria-only metric IDs/groups/cutoffs for one uncached evaluation and reuse Supply thresholds inside weighted ranking; discard preparation before returning. No mutable-criteria preparation survives a draft/context.",
+    "resize": "ResizeObserver measures host clientHeight and sets --workspace-popup-max-height=max(100,height-64)px; invalidateSize({pan:true,animate:false}) preserves geographic centre, then updates an open popup without refitting.",
+    "coldBranchForm": {
+      "JS": [
+        "prototype/supply-ui.js",
+        "prototype/app.js",
+        "prototype/industry-workspace.js"
+      ],
+      "implementationAPI": {
+        "renderer": "poiEditor()",
+        "loader": "ensureSourcePoints()",
+        "capture": "workingForm()",
+        "restore": "restoreWorkingForm(snapshot)",
+        "snapshotFields": [
+          "id",
+          "recordId",
+          "recordRevision",
+          "values",
+          "focus",
+          "selection",
+          "province"
+        ]
+      },
+      "routePolicy": "Existing #poi/{id}: show loading until selected inventory is ready, then render only the requested real record. Absent ready record and source failure remain status states. Only explicit #poi/new creates an empty new form.",
+      "draftPolicy": "Capture only current rendered route/context; restore only matching record ID. Preserve original expected revision for save-conflict detection, user values, area, focus and cursor; never restore file inputs. New/other-record snapshots cannot overwrite the loaded source branch.",
+      "status": "source_dom_formdata_11_pass_native_cold_direct_route_observed"
+    }
+  },
+  "popup": {
+    "contentOrder": [
+      "verified brand logo or readable name fallback",
+      "brand name",
+      "selected branch name",
+      "O/C/U with text meaning",
+      "external actions and existing branch action"
+    ],
+    "sourceSafety": "Escape source text and URL-encode query parameters. Use canonical brand registry and selected point record; no bbox/centroid stand-in for invalid coordinates.",
+    "externalActions": [
+      {
+        "id": "street_view",
+        "input": "finite original source latitude [-90,90] and longitude [-180,180]",
+        "provider": "Google Maps official external panorama action",
+        "availability": "Imagery/position/vintage depend on provider. Disable or omit with reason when no valid coordinate. URL validity is not imagery availability.",
+        "urlTemplate": "https://www.google.com/maps/@?api=1&map_action=pano&viewpoint={original_lat},{original_lng}"
+      },
+      {
+        "id": "google_ai_mode",
+        "input": "question from public branch/brand/location fields only",
+        "provider": "Google AI Mode best-effort external navigation",
+        "availability": "Provider/account/device/region dependent; not guaranteed, embedded, fetched or verified by Yolk.",
+        "urlTemplate": "https://www.google.com/search?q={encoded_public_question}&hl={th_or_en}&udm=50&aep=11",
+        "contractStatus": "Best-effort current entry URL, not a Google-documented third-party API contract"
+      },
+      {
+        "id": "google_search",
+        "input": "same public question",
+        "provider": "ordinary Google Search",
+        "availability": "Explicit alternative when AI Mode is unavailable; search/AI answers remain external unverified material.",
+        "urlTemplate": "https://www.google.com/search?q={same_encoded_public_question}&hl={th_or_en}",
+        "placement": "Question disclosure visible in the popup; ordinary Search link is inside that disclosure"
+      }
+    ],
+    "network": "External service opens only on explicit user action; no imagery/answer prefetch, private team notes/photos/member/borrower fields or credentials in query.",
+    "newTab": "noopener noreferrer",
+    "eventPolicy": "View/external-navigation action creates no workspace event/leaderboard action. Saving checked evidence later uses ordinary explicit commit.",
+    "accessibility": "Visible text labels, existing meaningful DS product icons, close action, keyboard focus, long-name wrapping and usable narrow-screen popup. Review actual TH/EN light/dark rendering.",
+    "logoGate": "Only original verifiedSquareGraphic registry assets with applicable official theme variants. Do not crop a wide wordmark into compact graphics. Named brand fallback remains visible if asset/theme unavailable.",
+    "narrowLayout": {
+      "popupWidth": "min(320px, 100vw - 72px)",
+      "actionMinHeightPx": 44,
+      "logoSizePx": 44,
+      "logoFit": "contain; unframed",
+      "mapExpansion": "min(520px,100dvh - 144px) while popup open, subject to layout; measure actual host height rather than hard-code it",
+      "bodyScrollMaxHeight": "width <=1099: min(280px, measured max(100,hostHeight-64)px); wider: min(440px, measured allowance)",
+      "mapExpansionMediaMaxWidthPx": 1099,
+      "observedNative390x844": {
+        "panelOpenHeightPx": 520,
+        "mapHostOpenHeightPx": 420,
+        "panelClosedHeightPx": 320,
+        "mapHostClosedHeightPx": 220,
+        "scope": "Local Chrome responsive viewport; not a physical device or universal CSS height"
+      }
+    }
+  },
+  "tasks": [
+    {
+      "id": "RESP-00",
+      "dependsOn": [],
+      "instruction": "Freeze v1.7 source/calculation/context hashes and before results; name exact device/adapter and timing protocol.",
+      "acceptance": [
+        "before baseline reproducible",
+        "source/profile hashes recorded",
+        "no older count-mode membership used as relative-mode regression target"
+      ],
+      "status": "implemented_source_checks_pass"
+    },
+    {
+      "id": "RESP-01",
+      "dependsOn": [
+        "RESP-00"
+      ],
+      "instruction": "Coalesce view-only map work and cache token reads per full sync; remove duplicate mount/render sync ownership.",
+      "acceptance": [
+        "one pending RAF per burst",
+        "viewport path avoids full evaluator and choropleth rebuild",
+        "normal sync does not refit",
+        "result sets identical to baseline"
+      ],
+      "status": "implemented_source_checks_pass"
+    },
+    {
+      "id": "RESP-02",
+      "dependsOn": [
+        "RESP-01"
+      ],
+      "instruction": "Retain markers by ID/context and an open in-scope popup anchor across viewport pan/zoom, resize and autopan; prune after close/filter/scope/context exclusion.",
+      "acceptance": [
+        "stable same-record marker identity",
+        "in-scope open anchor survives autopan/resize while temporarily offscreen",
+        "offscreen retained anchor excluded from visible counts",
+        "close/filter/context prunes correctly; source counts/coordinates unchanged"
+      ],
+      "status": "implemented_source_checks_pass"
+    },
+    {
+      "id": "RESP-03",
+      "dependsOn": [
+        "RESP-00"
+      ],
+      "instruction": "Separate source-cache/overlay persistence and guard event navigation after context/route awaits.",
+      "acceptance": [
+        "cross-context drafts/overlays preserved",
+        "source totals unchanged",
+        "late route completion does not navigate or mutate",
+        "no extra team event"
+      ],
+      "status": "implemented_source_checks_pass"
+    },
+    {
+      "id": "RESP-04",
+      "dependsOn": [
+        "RESP-02"
+      ],
+      "instruction": "Implement escaped brand/branch popup and explicit Street View/AI Mode/Search actions using verified assets and public fields.",
+      "acceptance": [
+        "original asset proportions/bytes preserved",
+        "named fallback",
+        "invalid coordinate cannot open fabricated panorama",
+        "question encoded and no private fields",
+        "ordinary Search fallback visible"
+      ],
+      "status": "implemented_source_checks_pass"
+    },
+    {
+      "id": "RESP-05",
+      "dependsOn": [
+        "RESP-01",
+        "RESP-02",
+        "RESP-03",
+        "RESP-04",
+        "RESP-06",
+        "RESP-07"
+      ],
+      "instruction": "Run targeted model/adapter regressions and actual browser review, then hand exact evidence to release owner.",
+      "acceptance": [
+        "complete ordered-row before/after parity",
+        "actual popup TH/EN mobile/desktop light/dark review",
+        "native pointer/click at all three hierarchy levels with exact tested themes/languages",
+        "physical device/provider/deployment statuses recorded separately"
+      ],
+      "status": "automated_and_bounded_native_pass_release_pending"
+    },
+    {
+      "id": "RESP-06",
+      "dependsOn": [
+        "RESP-01"
+      ],
+      "status": "implemented_source_and_bounded_native_checks_pass",
+      "instruction": "Bind YolkMapHover to the exact drill-down source boundary, independently of fill grain; preserve the sufficiently specific SVG pointer-events rule above Leaflet and separate click/navigation ownership.",
+      "acceptance": [
+        "country fill district / hit province",
+        "province fill source fine / hit district",
+        "district hit source fine",
+        "unfilled outline, labelled target, same-target reuse and new-target-safe clear",
+        "real pointer/click; no analytical/source/event mutation"
+      ]
+    },
+    {
+      "id": "RESP-07",
+      "dependsOn": [
+        "RESP-03",
+        "RESP-04"
+      ],
+      "status": "implemented_source_and_native_cold_route_checks_pass",
+      "instruction": "Keep existing cold #poi/{id} routes loading until the requested real source record loads. Restore drafts only for matching identity/context while preserving expected revision, focus and cursor.",
+      "acceptance": [
+        "only explicit #poi/new creates an empty form",
+        "existing route renders actual source identity and coordinates",
+        "absent/error inventory stays status",
+        "new/other-record snapshots cannot overwrite source form",
+        "expected revision preserved for conflicts; file inputs untouched"
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "RESP-A01",
+      "assertion": "Performance changes preserve current v1.7 source/calculation outputs for equivalent source, criteria and brand context.",
+      "status": "PASS_exact_ordered_12_case_model_parity",
+      "evidence": "12 cases x7954 complete ordered rows; model hash bound below. Stopped515-case exploration is not a pass."
+    },
+    {
+      "id": "RESP-A02",
+      "assertion": "One RAF handles a viewport event burst without full evaluator/choropleth work and ordinary sync never refits.",
+      "status": "PASS_source_dom_leaflet_adapter"
+    },
+    {
+      "id": "RESP-A03",
+      "assertion": "Same in-scope POI retains marker/popup identity through viewport refresh, resize and autopan including a temporarily offscreen open anchor; visible counts exclude that anchor and close/filter/context changes prune it.",
+      "status": "PASS_source_adapter_and_native_popup_retention"
+    },
+    {
+      "id": "RESP-A04",
+      "assertion": "Source/overlay persistence and async route guards preserve current/other-context records without stale navigation or events.",
+      "status": "PASS_source_adapter"
+    },
+    {
+      "id": "RESP-A05",
+      "assertion": "Popup brand/name/fallback and external action URLs are correctly escaped, encoded, coordinate-valid and public-field only.",
+      "status": "PASS_source_vm_17_and_native_popup_provider_unverified"
+    },
+    {
+      "id": "RESP-A06",
+      "assertion": "Actual local Chrome popup review records TH/EN xlight/dark xdesktop/mobile: identity, actions, wrapping, no overlap/horizontal overflow and settled zoom retention. Full keyboard/failure/device/provider certification remains separate.",
+      "status": "PASS_bounded_native_popup_eight_combinations_additional_keyboard_failure_coverage_unverified"
+    },
+    {
+      "id": "RESP-A07",
+      "assertion": "Physical-device timing and real Street View/AI Mode availability are reported only when observed on that device/provider.",
+      "status": "UNVERIFIED_physical_devices_external_google_provider"
+    },
+    {
+      "id": "RESP-A08",
+      "assertion": "Release owner verifies provider terminal success and live bytes before claiming publication.",
+      "status": "PENDING_release_owner_terminal_deploy_and_live_bytes"
+    },
+    {
+      "id": "RESP-A09",
+      "assertion": "Hover uses exact unfilled source drill-down boundary and real pointer/click follows all three levels; record exact tested language/theme states.",
+      "status": "PASS_source_vm_12_native_country_province_th_dark_district_th_light"
+    },
+    {
+      "id": "RESP-A10",
+      "assertion": "Cold existing route renders requested real branch rather than empty new form; matching draft keeps expected revision/focus; different record/route/context cannot restore it.",
+      "status": "PASS_source_dom_formdata_11_native_cold_route_observed"
+    }
+  ],
+  "verification": {
+    "checkedOn": "2026-10-04",
+    "evidenceSeparation": "Current automated execution supplied by release owner; exact patch/model receipts bound below. Historical v1.7 baseline is not proof of v1.7.1 native fixes.",
+    "automatedSummary": {
+      "status": "PASS",
+      "totalChecks": 179,
+      "executionAuthority": "release owner current execution report",
+      "suites": [
+        {
+          "suite": "core",
+          "command": "node scripts/check-three-industry.cjs",
+          "passed": 30,
+          "scriptSHA256": "2a21bf19dca6965b615c40434230cbe3df1143c5f643bffc924e7bc2e9163543",
+          "status": "PASS"
+        },
+        {
+          "suite": "brands",
+          "command": "node scripts/check-brand-presets.cjs",
+          "passed": 13,
+          "scriptSHA256": "86b73ac75d2f86d52396354c85c0fc5ab27c51915b753e4f048aec820d764be0",
+          "status": "PASS"
+        },
+        {
+          "suite": "map",
+          "command": "node scripts/check-workspace-map.cjs",
+          "passed": 20,
+          "scriptSHA256": "b742c8cc91dd25c7dbb090f951776e69f808087b8835fbb2de8a91507c044bc0",
+          "status": "PASS"
+        },
+        {
+          "suite": "photos",
+          "command": "node scripts/check-photo-runtime.cjs",
+          "passed": 28,
+          "scriptSHA256": "66cdba46df1bcc4ad60351e522b8a3ea8dab90b2b913f9757c35689ab92b5c4c",
+          "status": "PASS"
+        },
+        {
+          "suite": "criteriaControls",
+          "command": "node scripts/check-criteria-controls.cjs",
+          "passed": 12,
+          "scriptSHA256": "bcc07dec708c907a5a82db4c9b025cf1ed26216a50283c17630f949e5394dca2",
+          "status": "PASS"
+        },
+        {
+          "suite": "saveContext",
+          "command": "node scripts/check-save-context.cjs",
+          "passed": 9,
+          "scriptSHA256": "ce696502d28b0e97f989cd46929159848a36411abb542fe4ee165237ead66610",
+          "status": "PASS"
+        },
+        {
+          "suite": "relativeSupply",
+          "command": "node scripts/check-relative-supply.cjs",
+          "passed": 14,
+          "scriptSHA256": "185cca115b316143988351d5d49c3896e522a4b01d47de767e8c75e0decbea3f",
+          "status": "PASS"
+        },
+        {
+          "suite": "popup",
+          "command": "node scripts/check-poi-popup.cjs",
+          "passed": 17,
+          "scriptSHA256": "f5b12260306caeb23cdfc1310e137da49cfab182d668611b55b6f5227431de68",
+          "status": "PASS"
+        },
+        {
+          "suite": "hover",
+          "command": "node scripts/check-map-hover.cjs",
+          "passed": 12,
+          "scriptSHA256": "e74d00a419d549d00f1d86bd9d1951b0ae1052e21c460181e1813c2e823a264e",
+          "status": "PASS"
+        },
+        {
+          "suite": "responsiveness",
+          "command": "node scripts/check-map-responsiveness.cjs",
+          "passed": 13,
+          "scriptSHA256": "fcc5ed66441900a1832a9cea6ee966ba81880e4a8371f03548ec11f4aa0b384f",
+          "status": "PASS"
+        },
+        {
+          "suite": "coldBranch",
+          "command": "node scripts/check-cold-branch.cjs",
+          "passed": 11,
+          "scriptSHA256": "4cb3792638b108bf1e6d9ba5371a092dcb25e2f3874242c9f2ebfdd1cb02f5e9",
+          "status": "PASS"
+        }
+      ],
+      "baselineReceipt": {
+        "path": "evidence/release-checks-v1.7.json",
+        "sha256": "549fe5bbc6fa7696ea43ed745d8e0bdac2080ff2af14755b069fe733d0b54c42",
+        "checks": 126,
+        "role": "Historical seven-suite baseline receipt; current execution status supplied above by release owner."
+      }
+    },
+    "patchCommands": [
+      "node scripts/check-poi-popup.cjs",
+      "node scripts/check-map-hover.cjs",
+      "node scripts/check-map-responsiveness.cjs",
+      "node scripts/check-cold-branch.cjs"
+    ],
+    "automatedReceipts": [
+      {
+        "path": "../deliverables/yolk-v1.7.1-review/map-responsiveness-results.json",
+        "sha256": "f9e4b4fe96c24142613116f6115688f4cd9dab4fdcd24c87afaeebf63ae69ad3",
+        "status": "PASS",
+        "surface": "Actual runtime model/controller and native API-shaped DOM/Leaflet adapter. Browser rendering, pan/zoom animation, external provider and physical-device checks remain separate.",
+        "testedAt": "2026-10-04T07:55:01.029Z",
+        "checksPassed": 13
+      },
+      {
+        "path": "../deliverables/yolk-v1.7.1-review/cold-branch-regression-results.json",
+        "sha256": "358590af8d19ba58556a0ac6e1f14ce8efd761e3be792d120eb5f500edc43c55",
+        "status": "PASS",
+        "surface": "Actual production poiEditor, ensureSourcePoints, workingForm and restoreWorkingForm; real source-record fixture and model/context modules. DOM/FormData and transport adapters only. Does not claim browser timing, pixel layout or physical-device QA.",
+        "testedAt": "2026-10-04T07:53:48.990Z",
+        "checksPassed": 11,
+        "sourceHashesMatchCurrent": true
+      },
+      {
+        "path": "../deliverables/yolk-v1.7.1-review/model-parity-results.json",
+        "sha256": "24df0a928032fcf56ed7c809a1e95582c2a3fc3ffd53dac7387ce8164dd666e5",
+        "status": "PASS",
+        "surface": "Byte-identical serialized complete evaluated rows for a bounded twelve-case matrix, including order, raw metrics, percentiles, uncertainty intervals, possible patterns, supply thresholds, eligibility and rank components. Fuel has no alternate source format, so its alternate case is the Shell preset. The broader 515-variant exploratory run was stopped without completion and is not a pass/gate.",
+        "testedAt": "2026-10-04T07:44:08.398Z",
+        "checksPassed": 12,
+        "cases": 12,
+        "rowsPerCase": 7954,
+        "baselineModelSHA256": "e3f97c0229ecbf1eeef3375686c8eccaf87e6b039f1b17e92e7c3fa75632a341",
+        "currentModelSHA256": "a16e39d101566a6d59f40392176c3107cb91353c0c8852d28f29bcddc6d86aaf"
+      }
+    ],
+    "modelParity": {
+      "status": "PASS",
+      "cases": 12,
+      "rowsPerCase": 7954,
+      "comparison": "Byte-identical complete ordered evaluated rows including raw metrics, percentiles, uncertainty, possible patterns, thresholds, eligibility and rank components.",
+      "caseGroups": [
+        "three industry relative defaults",
+        "three alternate brand/format/scope cases; Fuel uses Shell preset",
+        "three same-grain cases",
+        "three changed-threshold drafts"
+      ],
+      "baselineModelSHA256": "e3f97c0229ecbf1eeef3375686c8eccaf87e6b039f1b17e92e7c3fa75632a341",
+      "currentModelSHA256": "a16e39d101566a6d59f40392176c3107cb91353c0c8852d28f29bcddc6d86aaf",
+      "matchesCurrentModel": true,
+      "receiptPath": "../deliverables/yolk-v1.7.1-review/model-parity-results.json"
+    },
+    "abandonedExploration": {
+      "plannedCases": 515,
+      "status": "stopped_without_completion",
+      "passed": null,
+      "isReleaseGate": false,
+      "receiptPath": "../deliverables/yolk-v1.7.1-review/parity-exploration-stopped.json",
+      "sha256": "7e8963fa9fecb53a47a542f38f47c3fe4a985ae96efab81d021c2837dccf3396",
+      "claimLimit": "No completed receipt; neither pass nor failure. Bounded12-case parity replaces it; source-scope coverage remains in relative Supply14 checks."
+    },
+    "sourceSnapshot": {
+      "capturedAt": "2026-10-04T08:06:47.190898+00:00",
+      "pathBase": "repository root",
+      "hashAlgorithm": "SHA-256",
+      "files": {
+        "prototype/model.js": "a16e39d101566a6d59f40392176c3107cb91353c0c8852d28f29bcddc6d86aaf",
+        "prototype/app.js": "4be8df2b803c8eb5338fa904444541107a30e621e916ef9b3ae5a7feac2e2469",
+        "prototype/industry-workspace.js": "670c7cbe150d1164e58ea3f23e32aae176d3d4a68a48b38fbfd6813fe3349969",
+        "prototype/supply-ui.js": "89ae212460aa48d88f7f4d3e33431cfcccbead5d8b3e7367bd78ab90a17dc9c8",
+        "prototype/workspace-map.js": "ee1ffbdae80809281d07b860ef9b538b7a910c0fc6126a6ab53a172b2fd4d5f3",
+        "prototype/workspace-map.css": "5d8429c35b858e4917bdf5e047f7bddc2da1b6118bc407c2af255f215df77427",
+        "prototype/workspace-layout.css": "7a33c6b559e030cc1a90baee1280f89085f015f2e9356f198413b9708ad2a892",
+        "prototype/poi-popup.js": "548212212a223c304d811675daf861867f6f44505b49db19e6fb94392baf5b58",
+        "prototype/poi-popup.css": "e1252528f4ef62f19c20523166b69335fc46d0bfb126c1ced026b9855e5da796",
+        "prototype/map-hover.js": "1f87f03a23282ecf9da9ad17ffa53a112e6976881064eec1a64ad5b0646bce72",
+        "prototype/map-hover.css": "f7981cbfab779ec3f46f1251060c9399134320313aef513064a82e7073cb9f8c",
+        "prototype/data/brand-presets.v1.7.json": "a20aeb4294a916d997b2105e3d6f69125743f66dfc920061f6e749a6617a896c",
+        "prototype/data/real/grocery-points.json": "093d00e10fcc320f79f85ddf1ff76c387634879cf8682aa42344bcfff0373cac",
+        "contracts/criteria-proposal.v1.6.json": "50bce6c1bd2db41387a66cc954a80b08dae2d88032dfa8d95889181def014eed",
+        "contracts/runtime-parameter-presets.json": "abedf2999ee555de482df5a209b3b12a157b3a7bf7269e01781cc0c7a8b15c17",
+        "contracts/industry-profiles.json": "73934c2d0023e39935fe6a1120e516a1442b99489715bc979bd90a83c5e89f65"
+      },
+      "claimLimit": "Source snapshot, not deployment attestation; metadata/public manifests/live bytes remain release-owner gates."
+    },
+    "postPatchWorkChecks": {
+      "surface": "Node VM actual model/controller, DOM/Leaflet API-shaped adapters",
+      "status": "PASS",
+      "fullSyncComputedStyleReads": 1,
+      "baselineCachedCountryComputedStyleReads": 1933,
+      "countryViewportAnalyticalStylesAndLayerReadds": 0,
+      "sameViewPanZoomMarkerCreatesAndRemovals": 0,
+      "viewportBurstPendingFrames": 1,
+      "receiptPath": "../deliverables/yolk-v1.7.1-review/map-responsiveness-results.json",
+      "claimLimit": "Work-count/identity checks, not native frame/network/device timing."
+    },
+    "pairedScoring": {
+      "surface": "Same process, actual model/source fixtures, alternating before/after order; two warmups then eight timed pairs per industry. Node VM only; not a browser latency or physical-device claim.",
+      "receiptPath": "../deliverables/yolk-v1.7.1-review/paired-scoring-results.json",
+      "sha256": "97685be60dbe16dc883ed55bff425a65742b63e38a83db64077af7c038ef431f",
+      "results": [
+        {
+          "industry": "fuel",
+          "beforeMedianMs": 494.27479200000016,
+          "afterMedianMs": 404.87775000000056,
+          "pairedMedianRatio": 0.907188165361139
+        },
+        {
+          "industry": "grocery",
+          "beforeMedianMs": 649.7061250000006,
+          "afterMedianMs": 465.92979200000264,
+          "pairedMedianRatio": 0.8077625765973859
+        },
+        {
+          "industry": "nonbank",
+          "beforeMedianMs": 315.8484160000007,
+          "afterMedianMs": 275.61699999999837,
+          "pairedMedianRatio": 0.8441140954146982
+        }
+      ],
+      "claimLimit": "Node VM only: eight alternating pairs after two warmups. No browser/device speed guarantee. Concurrent audit wall-clock timings are not comparable before/after evidence."
+    },
+    "browserReview": {
+      "status": "PASS_bounded_local_native_review",
+      "producer": "release owner native Chrome review",
+      "surface": "Local preview; desktop/mobile responsive viewport, not physical phone",
+      "hierarchyAndColdRouteObservations": [
+        {
+          "id": "NATIVE-01",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "lang": "th",
+          "theme": "dark",
+          "status": "PASS_observed",
+          "actions": [
+            "country district colours intact",
+            "real pointer exact unfilled province hover #65B6DB",
+            "direct click drills same province"
+          ],
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/country-hover-province-1440.png",
+            "sha256": "15803eb51cd09057ea0e39cb75bae6cc0860e3d68dde4a7733c44b8a9a81bb6b"
+          }
+        },
+        {
+          "id": "NATIVE-02",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "lang": "th",
+          "theme": "dark",
+          "status": "PASS_observed",
+          "actions": [
+            "Chiang Mai province exact unfilled Mueang Chiang Mai district hover",
+            "real pointer click drills that same district"
+          ],
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/province-hover-district-1440.png",
+            "sha256": "f840677644a57a35c8d5571463ac6410a82009509b2a4bdc00c4f21ea47c058e"
+          }
+        },
+        {
+          "id": "NATIVE-03",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "lang": "th",
+          "theme": "light",
+          "status": "PASS_observed",
+          "actions": [
+            "Din Daeng district pointer tooltip Ratchadaphisek",
+            "exact unfilled source fine outline #347DA8",
+            "click drills same fine location with transparent interior"
+          ],
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/district-hover-location-1440-light.png",
+            "sha256": "7683154ba38f96915def96341d4e82ab1b2b8a16571ce0b0fe4e79445c178cb0"
+          }
+        },
+        {
+          "id": "NATIVE-04",
+          "status": "PASS_observed",
+          "actions": [
+            "cold direct #poi/{existing-id} loads full actual source form rather than blank new form"
+          ],
+          "claimLimit": "Local native observation reported by release owner; exact source/FormData checks bound above."
+        }
+      ],
+      "popupMatrix": [
+        {
+          "lang": "th",
+          "theme": "light",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "status": "PASS_observed",
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/desktop-popup-th-light.png",
+            "sha256": "f81deea1449388f6f63b9651d5ceea658c52903e06d5f076e7c367d1c88c3966"
+          }
+        },
+        {
+          "lang": "th",
+          "theme": "dark",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "status": "PASS_observed",
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/desktop-popup-th-dark.png",
+            "sha256": "436c237c43c6fff5451dde159a778fb831b240f3ae924a81fa3327c856b6a99f"
+          }
+        },
+        {
+          "lang": "en",
+          "theme": "light",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "status": "PASS_observed",
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/desktop-popup-en-light.png",
+            "sha256": "0e25d82ef635347477f870f8812974dfd34df98bec6c53d00d0ca5d6a53b163b"
+          }
+        },
+        {
+          "lang": "en",
+          "theme": "dark",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "status": "PASS_observed",
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/desktop-popup-en-dark.png",
+            "sha256": "f079885cba46f670f7969bd9347095cc8438fe02898d6b9d5e05b58e81b4f820"
+          }
+        },
+        {
+          "lang": "th",
+          "theme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "status": "PASS_observed",
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/mobile-popup-th-light.png",
+            "sha256": "f9c9e63c6c6c4b5089d9a4f2e21537dd73a9c2961008d78add47b8ccca30f50d"
+          }
+        },
+        {
+          "lang": "th",
+          "theme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "status": "PASS_observed",
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/mobile-popup-390.png",
+            "sha256": "8f4c85391f00e9524f6d019e8e8244bfe46a678769fac2950de7e01930702d20"
+          }
+        },
+        {
+          "lang": "en",
+          "theme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "status": "PASS_observed",
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/mobile-popup-en-light.png",
+            "sha256": "dbbb144955c4b2dc542f8d91e4a84b368975b77ab5239aea2261826e1c34dd89"
+          }
+        },
+        {
+          "lang": "en",
+          "theme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "status": "PASS_observed",
+          "screenshot": {
+            "path": "../deliverables/yolk-v1.7.1-review/mobile-popup-en-dark.png",
+            "sha256": "4497e34e3ae96ee7ffad975030372183e97fda349b21955411d624abf7ecf89d"
+          }
+        }
+      ],
+      "commonPopupAssertions": [
+        "actual CJ More logo, brand and branch name",
+        "valid original coordinates; all primary actions visible",
+        "no body/text overlap or browser horizontal overflow",
+        "popup count stays1 after settled zoom and autopan",
+        "mobile panel/host open520/420px and closed320/220px",
+        "repeated menu/theme updates preserve open popup"
+      ],
+      "claimLimit": "Three native hover levels tested only in the explicitly listed TH/theme states; eight popup combinations reviewed. This is not all hover language/theme permutations, complete accessibility or physical-device certification. Near-border rounding may hit an adjacent source polygon; use interior points to verify expected target."
+    },
+    "physicalDeviceReceipt": null,
+    "externalGoogleProviderReceipt": null,
+    "deploymentTerminalReceipt": null,
+    "liveByteReceipt": null,
+    "limits": [
+      "RAF removes redundant work but does not move uncached evaluation into a worker/server.",
+      "Model/adapter success is separate from native rendering and physical devices.",
+      "Constructed Google URLs do not prove provider/account availability, imagery coverage or AI answer accuracy.",
+      "Full keyboard/failure/provider coverage, Safari/Firefox and physical devices remain unverified.",
+      "Existing Leaflet vendor colour/alpha static findings and full DS conformance are not closed by bounded hover/popup checks.",
+      "Static preview remains browser-local; shared backend/delivery channels and business-result claims are outside this patch."
+    ]
+  },
+  "codingPrompt": "Select one RESP task. Read AGENTS/START_HERE, product/map/brand v1.7 and criteria/presets/industry v1.6. Preserve Supply-relative, brand overrides, national cohort, source numeric/unknown semantics and original logo bytes. Reuse one Leaflet map; separate viewport-only refresh from full criteria/context work. Retain an open in-scope popup anchor by record ID without counting it as visible when offscreen. Hover exact source drill-down targets with unfilled outlines and correctly specific SVG hit paths. Existing cold POI routes load the requested real record, never a blank new form; restore drafts only for same identity/context and preserve expected revision. External actions use public fields after explicit click. Report actual commands/results, source hashes and separate native/device/provider/release gates. Do not redesign UI or alter formulas to mask a freeze.",
+  "externalReferences": [
+    {
+      "id": "GOOGLE_MAPS_URLS",
+      "url": "https://developers.google.com/maps/documentation/urls/get-started",
+      "accessedOn": "2026-10-04",
+      "supports": "Documented api=1/map_action=pano/viewpoint URL, encoding and closest panorama behavior",
+      "doesNotProve": "Imagery exists at a supplied branch, exact branch identification or current operation"
+    },
+    {
+      "id": "GOOGLE_AI_MODE_HELP",
+      "url": "https://support.google.com/websearch/answer/16011537",
+      "accessedOn": "2026-10-04",
+      "supports": "AI Mode availability/entry use and possible answer mistakes",
+      "doesNotProve": "A stable third-party q/udm prefill API, provider response or user-account availability"
+    }
+  ]
+}

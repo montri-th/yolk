@@ -1,4 +1,4 @@
-# Development instructions — Yolk three-industry preview v1.7.0
+# Development instructions — Yolk three-industry preview v1.7.1
 
 Updated 2026-10-04. Read START_HERE.md, contracts/product.v1.7.json and IMPLEMENTATION_PLAN_v1.7.md before changes. Use the original Yolk product UI. Support only Fuel, Grocery and Non-bank in the active demo.
 

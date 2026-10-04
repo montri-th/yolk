@@ -1,0 +1,82 @@
+{
+  "version": "1.7.1",
+  "source": "v1.7.0 plus bounded responsiveness/popup patch",
+  "baselineNativeObservation": {
+    "browser": "Chrome",
+    "branch": "grocery:1509148b-c434-4168-a9bb-b2532ba57a19",
+    "brand": "CJ More",
+    "action": "open pin popup, zoom in, inspect after zoom settles",
+    "popupCountBefore": 1,
+    "popupCountAfter": 0,
+    "consoleErrors": 0
+  },
+  "modelRegression": {
+    "status": "PASS",
+    "orderedNationalRowParity": {
+      "cases": 12,
+      "rowsPerCase": 7954,
+      "fields": "all evaluated fields including membership, ranks and uncertainty",
+      "receipt": "local handoff/model-parity-results.json"
+    },
+    "automatedChecks": 179,
+    "suiteCounts": {
+      "threeIndustry": 30,
+      "brandPresets": 13,
+      "workspaceMap": 20,
+      "photos": 28,
+      "criteriaControls": 12,
+      "saveContext": 9,
+      "relativeSupply": 14,
+      "popup": 17,
+      "viewportResponsiveness": 13,
+      "mapHover": 12,
+      "coldBranch": 11
+    },
+    "scope": "Node source/model and native-shaped adapters; rendered browser observations separate",
+    "incompleteExperiment": "515-case exploratory run stopped; not reported as a pass"
+  },
+  "browserReview": {
+    "status": "PASS_bounded_native_Chrome_viewport_review",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "popupCombinations": "TH/EN × light/dark at both viewports",
+    "observations": [
+      "Actual CJ More square logo and readable brand/branch identity",
+      "Popup retains identity after settled zoom, theme and responsive resize",
+      "Mobile primary actions remain inside map; open panel520px/host420px, close panel320px/host220px",
+      "Cold direct branch route waits for exact source record and displays source fields",
+      "Country district choropleth with native province hover/click, Province fine choropleth with native district hover/click, District fine choropleth with native fine hover/click",
+      "Hover outline unfilled exact source target; dark UI token #65B6DB and light UI token #347DA8",
+      "Criteria slider updates map draft ranks; invalid empty number disables apply and retains last valid map; reset restores baseline"
+    ],
+    "limits": [
+      "Native Chrome viewport overrides are not physical mobile-device testing",
+      "No claim of every browser/device/performance workload",
+      "Google provider/account availability and actual answers not verified"
+    ]
+  },
+  "publication": "awaiting exact commit/provider terminal success/live bytes",
+  "manualGates": [
+    "Physical devices and Safari/Firefox not tested",
+    "Inherited Leaflet vendor color/alpha static DS findings remain open; native DS package integrity is separate",
+    "Static preview remains browser-local; shared backend and delivery channels are production work"
+  ],
+  "DSReview": {
+    "version": "0.9.7",
+    "baseHash": "d3085cbc0a50195f1cbf0c77b1d77c0d19b84364daf2948eb367348d65432d96",
+    "locationProfileHash": "5d4856041709735d3a04d4a510a88b551df86c211fdcab8a0707e8fe7c9efc3b",
+    "packageIntegrityChecks": 9768,
+    "mapJSScope": "static PASS; no literal analytical colours introduced",
+    "popupHoverCSSScope": "static PASS; native rendering reviewed separately",
+    "fullConformance": false,
+    "inheritedVendorFindings": "evidence/ds-artifact-scope-v1.7.md"
+  }
+}

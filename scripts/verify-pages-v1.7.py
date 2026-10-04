@@ -20,7 +20,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "prototype"
 CANONICAL = "https://montri-th.github.io/yolk/"
-MANIFEST = ROOT / "contracts/pages-public-manifest.v1.7.0.json"
+MANIFEST = ROOT / "contracts/pages-public-manifest.v1.7.1.json"
 ACTIVE_ROOT_DOCS = (
     "AGENTS.md", "README.md", "DESIGN.md", "START_HERE.md", "HANDOFF.md",
     "ASSET_INDEX_v1.7.md", "DS_ASSET_INTEGRATION.md",

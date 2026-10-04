@@ -1,6 +1,6 @@
 ---
 document_id: yolk.handoff.three_industries
-version: 1.7.0
+version: 1.7.1
 date: 2026-10-04
 status: source_backed_static_preview
 start: START_HERE.md
@@ -9,10 +9,10 @@ experience_contract: contracts/workspace-map.v1.7.json
 criteria_baseline: contracts/criteria-proposal.v1.6.json
 asset_manifest: contracts/assets.v1.7.json
 brand_logo_manifest: prototype/data/brand-logos.v1.7.json
-release_manifest: contracts/release.v1.7.0.json
+release_manifest: contracts/release.v1.7.1.json
 ---
 
-# ส่งต่อ dev — Yolk · v1.7.0 · LDS 0.9.7
+# ส่งต่อ dev — Yolk · v1.7.1 · LDS 0.9.7
 
 **เลือกแบรนด์ ลองเกณฑ์ และทำงานข้างแผนที่เดียวกันทุกหน้า** รุ่นนี้รองรับ Fuel, Grocery และ Non-bank ใช้ snapshot CityMETER จริง 7,954 พื้นที่ มีเกณฑ์และ draft แยกตามแบรนด์/ขอบเขต ข้อมูล Sheets ต้นทางคงเดิม
 
@@ -97,8 +97,12 @@ python3 -m http.server 8854 --bind 127.0.0.1
 
 Model/DOM-adapter tests ตรวจกติกาและ integration บางส่วน ไม่พิสูจน์ pan/touch จริง ขนาดข้อความ popup ใกล้ขอบภาพ หรือความพร้อมของ tile provider ต้องตรวจ browser จริง ไทย/อังกฤษ จอแคบ/desktop light/dark รวมฟอร์มค้าง, invalid draft, context switch และ network error บันทึกสิ่งที่ตรวจจริง ไม่อ้าง viewport emulation ว่าเป็นการทดสอบเครื่องจริง
 
-[QA baseline](evidence/QA.md) และ [ภาพ v1.6](docs/EXPERIENCE_v1.6.md) เก็บผลเดิมตามรุ่น ไม่ใช้แทนหลักฐานรับ v1.7 รุ่นนี้ต้องมี source checks, browser receipt, [public file hashes](contracts/pages-public-manifest.v1.7.0.json), [Pages provider และ live-byte evidence](contracts/release.v1.7.0.json) ที่ตรง commit เดียวกัน
+[QA baseline](evidence/QA.md) และ [ภาพ v1.6](docs/EXPERIENCE_v1.6.md) เก็บผลเดิมตามรุ่น ไม่ใช้แทนหลักฐานรับ v1.7 รุ่นนี้ต้องมี source checks, browser receipt, [public file hashes](contracts/pages-public-manifest.v1.7.1.json), [Pages provider และ live-byte evidence](contracts/release.v1.7.1.json) ที่ตรง commit เดียวกัน
 
 Pages artifact อยู่ใน `prototype/` สำเนา runtime contracts ต้องตรง root และ URL ต้องอยู่ใต้ `/yolk/` Public repo ไม่บรรจุ raw acquisition archive, private workbook links หรือ private customer records
 
 Production ยังต้องเชื่อม CityMETER auth/datastore/spatial API, SourceRelease, tenant/RBAC, revision locks, private media, shared events/outbox, notifications และ calibration จากผลธุรกิจ เก็บ team updates เป็น overlay ก่อน reconcile; ไม่แก้ source totals โดยตรง
+
+## 1.7.1 patch
+
+[Responsiveness and popup handoff](docs/RESPONSIVENESS_v1.7.1.md) includes source files, acceptance and production steps; [machine contract](contracts/responsiveness.v1.7.1.json) is the bounded coding brief. New modules: `prototype/poi-popup.js`, `prototype/poi-popup.css`. New checks: `scripts/check-poi-popup.cjs`, `scripts/check-map-responsiveness.cjs`. Original brand assets, source metrics and demand/supply model stay in their existing contracts.

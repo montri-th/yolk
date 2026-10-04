@@ -1,0 +1,42 @@
+/* DS 0.9.7 surfaces, type and native icon font. Brand graphics keep original bytes. */
+.yolk-poi-popup{box-sizing:border-box;width:min(320px,calc(100vw - 72px));font:400 15px/1.5 'Bai Jamjuree',sans-serif;color:var(--ink);overflow-wrap:anywhere}
+.yolk-poi-heading{display:flex;align-items:center;gap:12px;padding-right:12px;min-height:48px}
+.yolk-poi-heading>div{min-width:0;flex:1}
+.yolk-poi-brand{display:block;font-size:20px;line-height:1.35;font-weight:700}
+.yolk-poi-branch{display:block;margin-top:4px;font-size:15px;line-height:1.5;color:var(--muted)}
+.yolk-poi-mark,.yolk-poi-mark-fallback{display:inline-flex;flex:0 0 44px;width:44px;height:44px;align-items:center;justify-content:center}
+.yolk-poi-mark img{display:block;width:44px;height:44px;object-fit:contain}
+.yolk-poi-mark .yolk-poi-mark-dark{display:none}
+:root[data-theme=dark] .yolk-poi-mark .yolk-poi-mark-light{display:none}
+:root[data-theme=dark] .yolk-poi-mark img.yolk-poi-mark-dark{display:block}
+:root[data-theme=dark] .yolk-poi-mark span.yolk-poi-mark-dark{display:inline-flex}
+.yolk-poi-mark-fallback{color:var(--muted)}
+.yolk-poi-relationship{display:flex;align-items:center;flex-wrap:wrap;gap:6px 8px;margin-top:12px;font-size:14px}
+.yolk-poi-relation-symbol{display:inline-grid;place-items:center;flex:0 0 24px;width:24px;height:24px;border:2px solid currentColor;border-radius:50%;font-weight:600;font-size:12px;background:var(--paper)}
+.yolk-poi-relation-own{color:var(--workspace-own)}
+.yolk-poi-relation-competitor{color:var(--workspace-competitor)}
+.yolk-poi-relation-unverified{color:var(--workspace-unverified);border-style:dashed}
+.yolk-poi-area{color:var(--muted);flex-basis:100%;padding-left:32px;font-size:13px}
+.workspace-map-panel .leaflet-popup-content .yolk-poi-verification{display:flex;align-items:flex-start;gap:6px;color:var(--muted);font-size:13px;line-height:1.5;margin:10px 0}
+.yolk-poi-verification .yl-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.yolk-poi-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.yolk-poi-action,.yolk-poi-open{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;box-sizing:border-box;padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--accent);background:var(--paper);font:600 14px/1.4 'Bai Jamjuree',sans-serif;cursor:pointer;text-decoration:none}
+.workspace-map-panel .leaflet-popup-content a.yolk-poi-action{color:var(--accent);text-decoration:none}
+.yolk-poi-action .yl-icon{font-size:18px;flex-shrink:0}
+.yolk-poi-action .yl-icon:last-child{font-size:14px}
+.yolk-poi-action:hover,.yolk-poi-open:hover{background:var(--soft)}
+.yolk-poi-open{width:100%;margin-top:8px;color:var(--ink)}
+.yolk-poi-open .yl-icon:last-child{transform:rotate(180deg)}
+.yolk-poi-question{margin-top:8px;font-size:13px;color:var(--muted)}
+.yolk-poi-question summary{display:flex;align-items:center;gap:6px;min-height:44px;cursor:pointer;color:var(--accent);list-style:none}
+.yolk-poi-question summary::-webkit-details-marker{display:none}
+.yolk-poi-question summary::after{content:'+';margin-left:auto;font-size:18px}
+.yolk-poi-question[open] summary::after{content:'−'}
+.yolk-poi-question .yl-icon{font-size:18px;flex-shrink:0}
+.workspace-map-panel .leaflet-popup-content .yolk-poi-question p{font-size:13px;line-height:1.6;margin:6px 0}
+.yolk-poi-question a{color:var(--accent)}
+.yolk-poi-unavailable{font-size:12px;color:var(--muted);align-self:center}
+.yolk-poi-popup a:focus-visible,.yolk-poi-popup button:focus-visible,.yolk-poi-popup summary:focus-visible{outline:2px solid var(--yl-focus);outline-offset:3px}
+.workspace-map-panel .leaflet-popup:has(.yolk-poi-popup) .leaflet-popup-content{margin:16px;max-height:min(440px,var(--workspace-popup-max-height,calc(100dvh - 160px)));overflow:auto;overscroll-behavior:contain}
+@media(max-width:1099px){.workspace-map-panel[data-workspace-popup-open=true]{height:min(520px,calc(100dvh - 144px))}.workspace-map-panel .leaflet-popup:has(.yolk-poi-popup) .leaflet-popup-content{max-height:min(280px,var(--workspace-popup-max-height,156px))}}
+@media(max-width:600px){.yolk-poi-heading{gap:10px}.yolk-poi-brand{font-size:18px}.yolk-poi-action{gap:4px;padding:7px 6px;font-size:12px}.yolk-poi-action .yl-icon:last-child{display:none}}

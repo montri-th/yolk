@@ -1,7 +1,7 @@
 {
   "schemaVersion": "yolk.workspace-map/1.0",
   "documentId": "yolk.persistent_workspace_map",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "createdOn": "2026-10-04",
   "status": "implemented_static_preview; source_projection_frozen; browser_and_production_gates_separate",
   "humanGuide": "docs/PERSISTENT_MAP_v1.7.md",

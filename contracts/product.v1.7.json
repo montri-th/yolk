@@ -1,6 +1,6 @@
 {
   "schemaVersion": "yolk.product/1.7",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "status": "source_backed_static_preview_production_pending",
   "date": "2026-10-04",
   "entrypoint": "prototype/index.html",
@@ -287,5 +287,6 @@
     "calibration": "separate_median_national_positive_known_exact_rates_N>=5_else_exploratory_1_per_unit",
     "draftReseedOnDenominatorChange": true,
     "nationalDemandCutoffsUnchanged": true
-  }
+  },
+  "patchContract": "contracts/responsiveness.v1.7.1.json"
 }

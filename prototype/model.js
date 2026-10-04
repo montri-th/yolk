@@ -9,12 +9,15 @@ const normalizeMetricValue=v=>Number.isFinite(v)&&v>=0?v:null;
 const AREAS=DATA.areas.map(a=>({...a,geoType:a.geoType==='khwaeng'?'khwaeng':'local_authority',metrics:Object.fromEntries(Object.entries({...a.metrics,population:a.population,population_per_km2:Number.isFinite(a.population)&&a.areaKm2>0?a.population/a.areaKm2:null}).map(([id,v])=>[id,normalizeMetricValue(v)]))}));
 const AREA_INDEX=new Map(AREAS.map(a=>[a.id,a]));
 const DISTRIBUTIONS=Object.fromEntries(METRICS.filter(m=>m.ready).map(m=>[m.id,AREAS.map(a=>a.metrics[m.id]).filter(v=>Number.isFinite(v)&&v>=0).sort((a,b)=>a-b)]));
+// Reuse criteria-only expressions during one evaluation. Drafts remain mutable;
+// this plan is deliberately discarded before returning, never reused by identity.
+let activeEvaluationPlan=null;
 function lowerBound(arr,x){let l=0,h=arr.length;while(l<h){let m=(l+h)>>1;if(arr[m]<x)l=m+1;else h=m}return l}
 function upperBound(arr,x){let l=0,h=arr.length;while(l<h){let m=(l+h)>>1;if(arr[m]<=x)l=m+1;else h=m}return l}
 function rankValue(v,arr){if(!Number.isFinite(v)||!arr?.length)return null;if(arr.length===1)return 50;let l=lowerBound(arr,v),e=upperBound(arr,v)-l;return 100*(l+.5*Math.max(0,e-1))/(arr.length-1)}
 const COHORT_DISTRIBUTIONS=Object.fromEntries(['khwaeng','local_authority'].map(group=>[group,Object.fromEntries(METRICS.filter(m=>m.ready).map(m=>[m.id,AREAS.filter(a=>a.geoType===group).map(a=>a.metrics[m.id]).filter(v=>Number.isFinite(v)&&v>=0).sort((a,b)=>a-b)]))]));
 function distributionFor(id,a,c){return c?.cohortMode==='same_grain'&&a?COHORT_DISTRIBUTIONS[a.geoType]?.[id]:DISTRIBUTIONS[id]}
-function cutoff(id,p,a=null,c=null){let arr=distributionFor(id,a,c);if(!arr?.length)return null;let n=(arr.length-1)*p/100,k=Math.floor(n);return arr[k]+(arr[Math.min(k+1,arr.length-1)]-arr[k])*(n-k)}
+function cutoff(id,p,a=null,c=null){const plan=activeEvaluationPlan?.criteria===c?activeEvaluationPlan:null,key=id+'|'+p+'|'+(c?.cohortMode==='same_grain'&&a?a.geoType:'national');if(plan?.cutoffs.has(key))return plan.cutoffs.get(key);let arr=distributionFor(id,a,c);if(!arr?.length)return null;let n=(arr.length-1)*p/100,k=Math.floor(n),result=arr[k]+(arr[Math.min(k+1,arr.length-1)]-arr[k])*(n-k);plan?.cutoffs.set(key,result);return result}
 AREAS.forEach(a=>a.percentiles=Object.fromEntries(METRICS.filter(m=>m.ready).map(m=>[m.id,rankValue(a.metrics[m.id],DISTRIBUTIONS[m.id])])));
 const DEFAULT_CRITERIA={geographyProfile:'bkk_khwaeng_upcountry_lao',profile:'bangchak',buildingP1:99,buildingP2:95,activityP:95,activityT1:5,activityT2:3,activityT3:1,buildingEnabled:true,activityEnabled:true,extraMetrics:[],extraP:95,demandMode:'high',maxDemandTier:3,supplyMode:'count',ownMany:3,competitorMany:3,patterns:['Pioneer','FOMO','Our Farm'],rankingMode:'weighted',rankingWeights:{demand:70,ownGap:20,competitorGap:10},demandGroupWeights:{building:50,activity:50,extra:50},metricWeights:Object.fromEntries(METRICS.filter(m=>m.ready).map(m=>[m.id,1])),version:1};
 // Migration changes no criteria version and emits no action: previous workspaces retain their ranked order.
@@ -29,10 +32,10 @@ function normalizeCriteria(raw,options={existing:true}){
   extraMetrics:Array.isArray(source.extraMetrics)?[...source.extraMetrics]:[],
   patterns:Array.isArray(source.patterns)?[...source.patterns]:[...DEFAULT_CRITERIA.patterns]};
 }
-function primaryIds(c){return c.paths?[...new Set(c.paths.filter(p=>!p.id.startsWith('workplace')).flatMap(p=>p.all.map(x=>x.metric)))]:(c.buildingMetricIds||BUILDING_IDS)}
-function activityIds(c){return c.paths?[...new Set(c.paths.filter(p=>p.id.startsWith('workplace')).flatMap(p=>p.all.map(x=>x.metric)))]:(c.activityMetricIds||ACTIVITY_IDS)}
+function primaryIds(c){return activeEvaluationPlan?.criteria===c?activeEvaluationPlan.primary:c.paths?[...new Set(c.paths.filter(p=>!p.id.startsWith('workplace')).flatMap(p=>p.all.map(x=>x.metric)))]:(c.buildingMetricIds||BUILDING_IDS)}
+function activityIds(c){return activeEvaluationPlan?.criteria===c?activeEvaluationPlan.activity:c.paths?[...new Set(c.paths.filter(p=>p.id.startsWith('workplace')).flatMap(p=>p.all.map(x=>x.metric)))]:(c.activityMetricIds||ACTIVITY_IDS)}
 function enabledMetricIds(c){return [...new Set([...(c.buildingEnabled?primaryIds(c):[]),...(c.activityEnabled?activityIds(c):[]),...c.extraMetrics])]}
-function enabledDemandGroups(c){return [{id:'building',ids:c.buildingEnabled?primaryIds(c):[]},{id:'activity',ids:c.activityEnabled?activityIds(c):[]},{id:'extra',ids:c.extraMetrics}].filter(g=>g.ids.length)}
+function enabledDemandGroups(c){return activeEvaluationPlan?.criteria===c?activeEvaluationPlan.groups:[{id:'building',ids:c.buildingEnabled?primaryIds(c):[]},{id:'activity',ids:c.activityEnabled?activityIds(c):[]},{id:'extra',ids:c.extraMetrics}].filter(g=>g.ids.length)}
 
 const STORAGE_KEY='citymeter-yolk-three-industries-workspace-v1';let saved={};try{saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')}catch{}
 const defaultArea=DATA.metadata.poiSampleAreaIds[0]||AREAS[0].id;
@@ -100,8 +103,8 @@ function supplyGap(count,threshold){return 100/(1+count/threshold)}
 function validSupply(sp){return [sp.own,sp.competitor,sp.unverified].every(n=>Number.isInteger(n)&&n>=0)}
 function supplyThresholds(a,c){return window.YolkRelativeSupply?window.YolkRelativeSupply.countThresholds(a,c):c.supplyMode==='relative'?{valid:false,mode:'relative',own:null,competitor:null}:{valid:true,mode:'count',denominator:null,unit:null,own:c.ownMany,competitor:c.competitorMany};}
 function validSupplyBounds(sp){return ['ownLower','ownUpper','competitorLower','competitorUpper'].every(key=>Number.isFinite(sp[key])&&sp[key]>=0)&&sp.ownUpper>=sp.ownLower&&sp.competitorUpper>=sp.competitorLower;}
-function weightedEvaluation(a,c){
- const demand=weightedDemand(a,c),sp=a.supply,thresholds=supplyThresholds(a,c),w=c.rankingWeights,total=w.demand+w.ownGap+w.competitorGap;
+function weightedEvaluation(a,c,preparedThresholds=null){
+ const demand=weightedDemand(a,c),sp=a.supply,thresholds=preparedThresholds||supplyThresholds(a,c),w=c.rankingWeights,total=w.demand+w.ownGap+w.competitorGap;
  let supplyLower=Infinity,supplyUpper=-Infinity,ownLow=100,ownHigh=0,competitorLow=100,competitorHigh=0,supplyKnown=false;
  if(thresholds.valid&&validSupplyBounds(sp)){ownLow=supplyGap(sp.ownUpper,thresholds.own);ownHigh=supplyGap(sp.ownLower,thresholds.own);competitorLow=supplyGap(sp.competitorUpper,thresholds.competitor);competitorHigh=supplyGap(sp.competitorLower,thresholds.competitor);supplyLower=w.ownGap*ownLow+w.competitorGap*competitorLow;supplyUpper=w.ownGap*ownHigh+w.competitorGap*competitorHigh;supplyKnown=sp.ownLower===sp.ownUpper&&sp.competitorLower===sp.competitorUpper;}else if(thresholds.valid&&validSupply(sp)){
   // Evaluate joint allocations: independent endpoint combinations can describe an impossible U allocation.
@@ -118,6 +121,9 @@ function legacyComparator(a,b){return Number(b.eligible)-Number(a.eligible)||(a.
 function weightedComparator(a,b){return Number(b.eligible)-Number(a.eligible)||b.rankScore-a.rankScore||confirmedTier(a)-confirmedTier(b)||stableAreaTie(a,b)}
 function computeEvaluation(c=Y.criteria){
  if(criteriaErrors(c).length)return [];
+ const previousPlan=activeEvaluationPlan,primary=primaryIds(c),activity=activityIds(c),groups=enabledDemandGroups(c);
+ activeEvaluationPlan={criteria:c,primary,activity,groups,cutoffs:new Map()};
+ try{
  let ids=enabledMetricIds(c);
  return AREAS.map(a=>{
   let b=buildingTier(a,c),ac=activityTier(a,c),extra=c.extraMetrics.map(id=>passes(a,id,c.extraP,c,c.industry!=='fuel')),extraHigh=extra.some(x=>x===true)?true:extra.some(x=>x===null)?null:false;
@@ -128,8 +134,9 @@ function computeEvaluation(c=Y.criteria){
   const qualifying=[b.confirmed,ac.confirmed,extraHigh===true?3:0].filter(t=>t>0),qualifyingTier=qualifying.length?Math.min(...qualifying):null,tierEligible=qualifyingTier!==null&&qualifyingTier<=c.maxDemandTier;
   // Tier limits only high-demand candidates. In all-demand mode, confirmed low-demand patterns remain inspectable.
   const demandEligible=c.demandMode==='all'?(high===false||(high===true&&tierEligible)):high===true&&tierEligible;
-  return {...a,score,upper:score,coverage,demand:high,pattern,possiblePatterns:[...possible],supply:sp,supplyThresholds:thresholds,stars,buildingTier:b.exact,activityTier:ac.exact,buildingConfirmed:b.confirmed,activityConfirmed:ac.confirmed,buildingBounds:b,activityBounds:ac,knownActivityPasses:ac.known,activityUnknown:ac.unknown,passes9:pass9,passingSignalCount:enabledPasses,qualifyingTier,tierEligible,...weightedEvaluation(a,c),fieldStudyCandidate:high===true&&tierEligible,contextOpportunity:high===true,measuredDemand:'unknown',pathStates:[...(b.pathStates||[]),...(ac.pathStates||[])],pathStrength:c.paths?Math.max(0,...[...(b.confirmedPaths||[]),...(ac.confirmedPaths||[])].filter(p=>p.tier===qualifyingTier).map(p=>p.strength)):null,guaranteedStrategyMatch:demandEligible&&possible.size>0&&[...possible].every(p=>c.patterns.includes(p)),reviewCandidate:demandEligible&&possible.size>0&&[...possible].some(p=>c.patterns.includes(p))&&![...possible].every(p=>c.patterns.includes(p)),eligible:demandEligible&&possible.size>0&&[...possible].every(p=>c.patterns.includes(p))};
+  return {...a,score,upper:score,coverage,demand:high,pattern,possiblePatterns:[...possible],supply:sp,supplyThresholds:thresholds,stars,buildingTier:b.exact,activityTier:ac.exact,buildingConfirmed:b.confirmed,activityConfirmed:ac.confirmed,buildingBounds:b,activityBounds:ac,knownActivityPasses:ac.known,activityUnknown:ac.unknown,passes9:pass9,passingSignalCount:enabledPasses,qualifyingTier,tierEligible,...weightedEvaluation(a,c,thresholds),fieldStudyCandidate:high===true&&tierEligible,contextOpportunity:high===true,measuredDemand:'unknown',pathStates:[...(b.pathStates||[]),...(ac.pathStates||[])],pathStrength:c.paths?Math.max(0,...[...(b.confirmedPaths||[]),...(ac.confirmedPaths||[])].filter(p=>p.tier===qualifyingTier).map(p=>p.strength)):null,guaranteedStrategyMatch:demandEligible&&possible.size>0&&[...possible].every(p=>c.patterns.includes(p)),reviewCandidate:demandEligible&&possible.size>0&&[...possible].some(p=>c.patterns.includes(p))&&![...possible].every(p=>c.patterns.includes(p)),eligible:demandEligible&&possible.size>0&&[...possible].every(p=>c.patterns.includes(p))};
  }).sort(c.rankingMode==='weighted'?weightedComparator:c.rankingMode==='context'?contextComparator:legacyComparator);
+ }finally{activeEvaluationPlan=previousPlan;}
 }
 
 function contextComparator(a,b){return Number(b.eligible)-Number(a.eligible)||confirmedTier(a)-confirmedTier(b)||(b.pathStrength??-1)-(a.pathStrength??-1)||a.id.localeCompare(b.id)}
@@ -153,4 +160,4 @@ function eventTime(at){return new Intl.DateTimeFormat(Y.lang==='en'?'en-GB':'th-
 const unreadCount=()=>Y.events.filter(e=>e.recipients.includes(Y.actor)&&!(Y.read[Y.actor]||[]).includes(e.id)).length;
 function eventCategory(e){return e.type==='supply.verified'?'verification':e.entity==='supply'?'branches':e.entity==='place'?'locations':e.entity==='criteria'?'criteria':null}
 function leaderboard(period=Y.leaderPeriod,category=Y.leaderCategory,now=Date.now()){let floor=period==='all'?0:now-Number(period)*86400000,seen=new Set();let events=Y.events.filter(e=>{let t=Date.parse(e.at),cat=eventCategory(e);if(seen.has(e.id)||e.meta.sample||!e.changes.length||!Number.isFinite(t)||t<floor||t>now||!cat||!PEOPLE.some(p=>p.id===e.actor))return false;seen.add(e.id);return category==='all'||cat===category});let rows=PEOPLE.map(p=>{let es=events.filter(e=>e.actor===p.id);return {id:p.id,total:es.length,entities:new Set(es.map(e=>e.entity+':'+e.entity_id)).size,last:es[0]?.at||null,counts:Object.fromEntries(['branches','verification','locations','criteria'].map(k=>[k,es.filter(e=>eventCategory(e)===k).length]))}}).sort((a,b)=>b.total-a.total||a.id.localeCompare(b.id));return {rows,events,total:events.length}}
-window.addEventListener('storage',e=>{if(e.key!==STORAGE_KEY||!e.newValue)return;let incoming;try{incoming=JSON.parse(e.newValue)}catch{return}if(incoming.industry!==Y.industry||incoming.ownBrandId!==Y.ownBrandId||incoming.supplyScope!==Y.supplyScope)return;for(let k of ['criteria','pois','targets','events','read'])if(Object.hasOwn(incoming,k))Y[k]=k==='criteria'?normalizeCriteria(incoming[k],{existing:true}):incoming[k];render();notify(tr('ข้อมูลทีมอัปเดตจากอีกแท็บแล้ว','Workspace data updated from another tab'))});
+window.addEventListener('storage',e=>{if(e.key!==STORAGE_KEY||!e.newValue)return;let incoming;try{incoming=JSON.parse(e.newValue)}catch{return}if(incoming.industry!==Y.industry||incoming.ownBrandId!==Y.ownBrandId||incoming.supplyScope!==Y.supplyScope)return;for(let k of ['criteria','targets','events','read'])if(Object.hasOwn(incoming,k))Y[k]=k==='criteria'?normalizeCriteria(incoming[k],{existing:true}):incoming[k];if(Array.isArray(incoming.pois)){Y.localOverlays=incoming.pois.filter(p=>p.localOverlay);Y.pois=Y.pois.filter(p=>!p.localOverlay);if(typeof refreshPointRelations==='function')refreshPointRelations();else Y.pois=[...Y.pois,...Y.localOverlays];}render();notify(tr('ข้อมูลทีมอัปเดตจากอีกแท็บแล้ว','Workspace data updated from another tab'))});

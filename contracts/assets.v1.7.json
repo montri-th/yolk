@@ -1,6 +1,6 @@
 {
   "schemaVersion": "yolk.assets/1.7",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "dsVersion": "0.9.7",
   "entrypoint": "prototype/index.html",
   "publicPath": "https://montri-th.github.io/yolk/",
@@ -12,8 +12,8 @@
     },
     {
       "path": "prototype/app.js",
-      "bytes": 74204,
-      "sha256": "7d09ca4e6bd54785524a1857ef3ddecc789a354400664c9d61b02370c081122c"
+      "bytes": 74789,
+      "sha256": "4be8df2b803c8eb5338fa904444541107a30e621e916ef9b3ae5a7feac2e2469"
     },
     {
       "path": "prototype/assets/arvo-OFL.txt",
@@ -592,8 +592,8 @@
     },
     {
       "path": "prototype/bootstrap.js",
-      "bytes": 3991,
-      "sha256": "1889318f1bcb7a5a1fbe25297e70094c31cbd1de4a9da61a92944c7d110e6492"
+      "bytes": 4021,
+      "sha256": "558572785f7530a319c6e6c59bf8328ca53b667d9390d21f5187372d2fb43e17"
     },
     {
       "path": "prototype/branch-photos.css",
@@ -622,8 +622,8 @@
     },
     {
       "path": "prototype/contracts/runtime-asset-hashes.json",
-      "bytes": 1647,
-      "sha256": "22623d8d0496ec594952bc65486e53c3544b1e399549851a56e8d948a62b3140"
+      "bytes": 1769,
+      "sha256": "657fa7e1413585013134069108822a3a5223cfe995f6a72b84e3901b55f083d7"
     },
     {
       "path": "prototype/criteria-controls.css",
@@ -1157,8 +1157,8 @@
     },
     {
       "path": "prototype/index.html",
-      "bytes": 5251,
-      "sha256": "736eb7b434f23e23692428c5c47a8a04fc38ee42baf7320d66095d52d2a800e1"
+      "bytes": 5369,
+      "sha256": "827e9286046ef169ab491e940106b274c55f8e6369df2718f861cb924a1e46b3"
     },
     {
       "path": "prototype/industry-workspace.css",
@@ -1196,14 +1196,34 @@
       "sha256": "6b4d156fb0a2979830b4df9fdf93fa0db3e2428862a583c17fcd5a7e0e4d0122"
     },
     {
+      "path": "prototype/map-hover.css",
+      "bytes": 291,
+      "sha256": "f7981cbfab779ec3f46f1251060c9399134320313aef513064a82e7073cb9f8c"
+    },
+    {
+      "path": "prototype/map-hover.js",
+      "bytes": 5956,
+      "sha256": "1f87f03a23282ecf9da9ad17ffa53a112e6976881064eec1a64ad5b0646bce72"
+    },
+    {
       "path": "prototype/metrics.js",
       "bytes": 462,
       "sha256": "5dbaa295b0f5f01ff8756c7724c9977cf19dc3ce63c09d88f1a800a28466feed"
     },
     {
       "path": "prototype/model.js",
-      "bytes": 32046,
-      "sha256": "e3f97c0229ecbf1eeef3375686c8eccaf87e6b039f1b17e92e7c3fa75632a341"
+      "bytes": 33215,
+      "sha256": "a16e39d101566a6d59f40392176c3107cb91353c0c8852d28f29bcddc6d86aaf"
+    },
+    {
+      "path": "prototype/poi-popup.css",
+      "bytes": 4265,
+      "sha256": "e1252528f4ef62f19c20523166b69335fc46d0bfb126c1ced026b9855e5da796"
+    },
+    {
+      "path": "prototype/poi-popup.js",
+      "bytes": 10810,
+      "sha256": "548212212a223c304d811675daf861867f6f44505b49db19e6fb94392baf5b58"
     },
     {
       "path": "prototype/relative-supply.js",
@@ -1212,8 +1232,8 @@
     },
     {
       "path": "prototype/supply-ui.js",
-      "bytes": 17990,
-      "sha256": "e5a02c6d888231bee930b521785cc32f4b28a14bf668eba286986dc2ac9bda1c"
+      "bytes": 18945,
+      "sha256": "89ae212460aa48d88f7f4d3e33431cfcccbead5d8b3e7367bd78ab90a17dc9c8"
     },
     {
       "path": "prototype/theme.js",
@@ -1397,8 +1417,8 @@
     },
     {
       "path": "prototype/workspace-map.js",
-      "bytes": 50755,
-      "sha256": "70f396f02361c1f357d02abeff4918ea40f67a4d7852e253666983e0c1db96f4"
+      "bytes": 58237,
+      "sha256": "ee1ffbdae80809281d07b860ef9b538b7a910c0fc6126a6ab53a172b2fd4d5f3"
     },
     {
       "path": "prototype/yolk-focus.css",

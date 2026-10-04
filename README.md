@@ -1,4 +1,4 @@
-# CityMETER: Yolk · v1.7.0 · LDS 0.9.7
+# CityMETER: Yolk · v1.7.1 · LDS 0.9.7
 
 Updated 2026-10-04. **Find the yolk. Grow your market. / หาไข่แดงให้เจอ ขยายตลาดให้ตรงจุด**
 
@@ -37,4 +37,6 @@ python3 -m http.server 8854 --bind 127.0.0.1
 
 Non-bank เลือก 10 รายแรกตามจำนวนรายการต้นทาง ส่วน comparator inventory ยังคงบริษัททั้งหมดตาม licence scope ที่เลือก ดู [brand contract](contracts/brand-experience.v1.7.json) และ [logo manifest](prototype/data/brand-logos.v1.7.json) สำหรับ source, bytes, theme variants และ named fallbacks
 
-Public repo มี runtime projections, assets/licences, contracts และหลักฐานสรุป ไม่บรรจุ raw HTTP snapshots, full acquisition archive, private workbook links หรือ private customer records [หลักฐานเดิม](evidence/QA.md) เป็น baseline ตามรุ่นที่ระบุ การรับรุ่นนี้ต้องมีผล checks/browser review ของรุ่นนี้และ [Pages provider/live-byte evidence](contracts/release.v1.7.0.json) เพิ่มจากการตรวจ source
+Public repo มี runtime projections, assets/licences, contracts และหลักฐานสรุป ไม่บรรจุ raw HTTP snapshots, full acquisition archive, private workbook links หรือ private customer records [หลักฐานเดิม](evidence/QA.md) เป็น baseline ตามรุ่นที่ระบุ การรับรุ่นนี้ต้องมีผล checks/browser review ของรุ่นนี้และ [Pages provider/live-byte evidence](contracts/release.v1.7.1.json) เพิ่มจากการตรวจ source
+
+Current patch **1.7.1** keeps POI popups stable during pan/zoom and adds actual-brand identity, Street View and contextual Google AI Mode / Search links. [Patch handoff](docs/RESPONSIVENESS_v1.7.1.md) · [Machine acceptance](contracts/responsiveness.v1.7.1.json).

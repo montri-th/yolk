@@ -1,7 +1,7 @@
 {
   "schemaVersion": "yolk.brand-experience/1.0",
   "documentId": "yolk.brand_experience",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "createdOn": "2026-10-04",
   "status": "implemented_static_preview_local_browser_state; production_services_pending",
   "humanGuide": "docs/BRAND_PRESETS_v1.7.md",

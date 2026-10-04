@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "yolk.public_release/1.7",
+  "version": "1.7.1",
+  "approvedSourcePreview": "1.7.1-map-responsiveness-poi-research",
+  "date": "2026-10-04",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "dataSemanticsUnchanged": true,
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "ownerAuthorization": "Owner authorized the existing public Yolk preview and requested O/Our stores, egg wordmark, researched brand presets, official logos, top 10 Non-bank identities and important Grocery formats on2026-10-04. Owner additionally requested the same persistent map across all menus and semantically correct DS map colors. Owner requested a careful responsiveness repair and brand identity, Street View and contextual Google AI Mode links in POI popups. Owner additionally requested hover highlighting of the exact broader clickable boundary independently of smaller-grain choropleth.",
+  "publicationDelta": [
+    "Viewport-only coalesced map refresh; stable POI marker identity",
+    "One map sync per route render; cached theme token reads",
+    "Cross-tab source and overlay reconciliation; stale async navigation guard",
+    "POI actual brand logo/name and user-activated Street View, AI Mode and ordinary Search links",
+    "Exact broader source boundary hover/click layer above smaller-grain choropleth",
+    "Responsive popup map expansion and geographic-center-preserving resize",
+    "Cold existing branch route waits for source identity before creating editor; form drafts bound to record ID and revision"
+  ],
+  "providerEvidence": "GitHub Actions run for the containing commit; terminal success and remote-byte attestation must be checked after deployment.",
+  "nativeDeviceGate": "Not assessed; prior viewport emulation is not physical-device verification.",
+  "geometryProfile": {
+    "source": "CityMETER native district and fine polygons",
+    "districts": 928,
+    "reportingAreas": 7954,
+    "fineLoading": "lazy_by_province",
+    "districtColour": "best_confirmed_fine_area_tier_with_geometry_crosswalk",
+    "fineColour": "confirmed_reporting_area_tier",
+    "percentilesRecomputedByViewport": false,
+    "sourceExtentsUsedAsChoropleth": false
+  },
+  "sourceSnapshotValuesUnchanged": true,
+  "nationalDemandCutoffsUnchanged": true
+}

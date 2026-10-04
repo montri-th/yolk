@@ -29,6 +29,10 @@ jobs:
           node scripts/check-criteria-controls.cjs
           node scripts/check-save-context.cjs
           node scripts/check-relative-supply.cjs
+          node scripts/check-poi-popup.cjs
+          node scripts/check-map-responsiveness.cjs
+          node scripts/check-map-hover.cjs
+          node scripts/check-cold-branch.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static preview

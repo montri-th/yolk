@@ -1,6 +1,6 @@
 ---
 document_id: yolk.implementation.three_industries
-version: 1.7.0
+version: 1.7.1
 date: 2026-10-04
 machine_tasks: contracts/implementation-tasks.v1.6.json
 product: CityMETER_Yolk_Product_Statement_v1.7.md
@@ -215,3 +215,9 @@ Model/UI รุ่นนี้ใช้ `prototype/relative-supply.js` และ
 ### ขอบเขตการส่งงาน
 
 ส่ง changes, source/contract versions, commands/results, browser evidence และ acceptance ที่ยังเปิด ไม่ทำเครื่องหมาย production backend หรือ geometry ครบทุกระดับว่าเสร็จเพราะ local preview เปิดได้ งาน deploy ต้องตรวจ provider และ live artifact แยกจาก source checks
+
+## งานเพิ่มในรุ่น 1.7.1 — ความลื่นของแผนที่และ popup
+
+ทำตาม [ขั้นตอน RESP-00 ถึง RESP-05](docs/RESPONSIVENESS_v1.7.1.md) และ [เกณฑ์รับงานสำหรับ dev](contracts/responsiveness.v1.7.1.json) แยกการเลื่อนแผนที่ออกจากการคำนวณเกณฑ์ เก็บ marker เดิมด้วย ID ประกอบสาขาต้นทางกับบันทึกทีมให้ครบ และทิ้งผลโหลดที่มาช้าหลังผู้ใช้เปลี่ยนงานแล้ว
+
+ใช้ popup module ร่วมกับ brand ID และบัญชีโลโก้ที่ตรวจแล้ว รัน regression ใหม่พร้อมชุด model/map/photo/save-context เดิม ตรวจ popup ที่เรนเดอร์จริงทั้งไทย/อังกฤษ สว่าง/มืด และจอแคบ/desktop ก่อนเผยแพร่

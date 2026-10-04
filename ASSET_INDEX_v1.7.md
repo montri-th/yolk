@@ -1,4 +1,4 @@
-# Assets สำหรับ Yolk 1.7.0
+# Assets สำหรับ Yolk 1.7.1
 
 เริ่มจาก [รายการพร้อมขนาดและ SHA-256](contracts/assets.v1.7.json) และ [DS integration](DS_ASSET_INTEGRATION.md) ชุด 1.6 เป็นประวัติของรุ่นนั้น ไม่ใช่รายการปัจจุบัน
 

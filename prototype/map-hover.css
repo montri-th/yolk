@@ -1,0 +1,3 @@
+/* Navigation hit targets are transparent, separate from analytical fill. */
+.workspace-map-panel .leaflet-overlay-pane svg path.workspace-navigation-hit{pointer-events:all;cursor:pointer}
+.workspace-map-panel .leaflet-overlay-pane svg path.workspace-navigation-outline{pointer-events:none}

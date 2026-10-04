@@ -31,6 +31,7 @@ function supply() {
 }
 function poiEditor() {
   const id=location.hash.split('/')[1], existing=Y.pois.find(x=>x.id===id),fresh=!existing;
+  if(id!=='new'&&!existing)return `<a class="back" href="#supply">${uiIcon('arrow_back')}${tr('กลับไปข้อมูลสาขา','Back to branches')}</a><section class="section"><h1>${tr('ข้อมูลสาขา','Branch details')}</h1><p role="status">${Y.pointState==='ready'?tr('ไม่พบสาขานี้ในชุดข้อมูลที่เลือก ลองตรวจธุรกิจ แบรนด์ และขอบเขต Supply','This branch is absent from the selected inventory. Check the industry, brand and supply scope.'):Y.pointState==='error'?tr('โหลดข้อมูลสาขาไม่สำเร็จ กลับไปหน้าสาขาเพื่อลองอีกครั้ง','Branch inventory failed to load. Return to branches to retry.'):tr('กำลังอ่านข้อมูลสาขา…','Loading this branch…')}</p></section>`;
   const p=existing||{id:'new',name:'',brand:'',relation:'unverified',area:Y.poiArea||Y.selected,status:'pending',lat:'',lng:'',note:'',revision:0};
   const area=AREA_INDEX.get(p.area), province=area?.province||p.province||AREA_INDEX.get(Y.selected)?.province||'10';
   const imported=supplyIsImported(p), demo=supplyIsDemo(p), missingSourceName=imported&&!p.name;
