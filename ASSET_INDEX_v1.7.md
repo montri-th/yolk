@@ -1,6 +1,6 @@
-# Assets สำหรับ Yolk 1.7.1
+# Assets สำหรับ Yolk 1.7.2
 
-เริ่มจาก [รายการพร้อมขนาดและ SHA-256](contracts/assets.v1.7.json) และ [DS integration](DS_ASSET_INTEGRATION.md) ชุด 1.6 เป็นประวัติของรุ่นนั้น ไม่ใช่รายการปัจจุบัน
+เริ่มจาก รายการ `contracts/assets.v1.7.2.json` จะสร้างหลัง final QA/seal และ [DS integration](DS_ASSET_INTEGRATION.md) ชุด 1.6 และ1.7.1 เป็นประวัติของรุ่นนั้น ไม่ใช่รายการปัจจุบัน
 
 | ส่วน | ตำแหน่ง / วิธีใช้ |
 |---|---|
@@ -17,3 +17,7 @@ UI ใช้กล่องโลโก้ 44×44 px แบบ contain คงส
 สีแผนที่ `li.demand`: Tier 3 **#F1F5E5**, Tier 2 **#60C9AD**, Tier 1 **#25659A** เหมือนกันสองธีม เมื่อเลือกทำเล ภายในโปร่งใส ใช้เส้นขอบ/ข้อความและ O/C/U แทนการลงสีทึบ
 
 โหลดแผนที่ฐานจากผู้ให้บริการที่ระบุใน [map contract](contracts/workspace-map.v1.7.json) พร้อม attribution; ไม่รวม tile cache ใน handoff และไม่อ้างภาพดาวเทียมปี 2021 เป็นภาพสด
+
+## เพิ่มใน1.7.2
+
+Analysismodules `prototype/map-analysis.js`, `analysis-ui.js/.css` และfivecompactnativeDistrictfilesใน`prototype/data/real/` ใช้publicprovenanceURL/date/hash; ไม่มีrawacquisition/logs Native5classes count/density.area/density.capita/builtพร้อมหน่วย/denominatorและreuseตรงextension ไม่เปลี่ยนDSassets Socialimage `yolk-share-v1.7.png` ยังคงapproved1.7familyเดิม ไม่มีการอ้างrenderใหม่รุ่น1.7.2 อ่าน [map-analysis contract](contracts/map-analysis.v1.7.2.json)

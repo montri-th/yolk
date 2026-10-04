@@ -47,7 +47,7 @@ function calculateSupply(row,area=null){
  }
  // Nonbank function/product uncertainty is not allocated as Fuel's brand-only U.
  if(Y.industry==='nonbank'&&Y.supplyScope!=='office_context'&&unverified>0)return {own,competitor,unverified:null,state:'potential_company_scope_review',unclassifiedProduct:unverified};
- if(Y.industry==='grocery'&&Y.supplyScope==='C_STORE'&&['30','84'].includes(area?.province)){const deficit=area.province==='84'?'SEVEN_ELEVEN':'TOOGDEE',isOwn=ownKey===deficit,delta=area.province==='84'?1:-1;return {own,competitor,unverified,state:'source_inventory_with_reconciliation_bounds',ownLower:Math.max(0,own+(isOwn?Math.min(0,delta):0)),ownUpper:own+(isOwn?Math.max(0,delta):0),competitorLower:Math.max(0,competitor+(!isOwn?Math.min(0,delta):0)),competitorUpper:competitor+(!isOwn?Math.max(0,delta):0),reconciliationReview:true,sourceKey:row[4],assignedTotal:row[3]};}
+ if(Y.industry==='grocery'&&!area?.nativeDistrict&&Y.supplyScope==='C_STORE'&&['30','84'].includes(area?.province)){const deficit=area.province==='84'?'SEVEN_ELEVEN':'TOOGDEE',isOwn=ownKey===deficit,delta=area.province==='84'?1:-1;return {own,competitor,unverified,state:'source_inventory_with_reconciliation_bounds',ownLower:Math.max(0,own+(isOwn?Math.min(0,delta):0)),ownUpper:own+(isOwn?Math.max(0,delta):0),competitorLower:Math.max(0,competitor+(!isOwn?Math.min(0,delta):0)),competitorUpper:competitor+(!isOwn?Math.max(0,delta):0),reconciliationReview:true,sourceKey:row[4],assignedTotal:row[3]};}
  return {own,competitor,unverified,state:'reported_assigned_inventory',sourceKey:row[4],assignedTotal:row[3],mapped:row[5]};
 }
 function applyIndustryData(){

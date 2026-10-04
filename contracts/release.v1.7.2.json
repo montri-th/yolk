@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "yolk.public_release/1.7",
+  "version": "1.7.2",
+  "approvedSourcePreview": "1.7.2-demand-supply-analysis-pattern-counts",
+  "date": "2026-10-04",
+  "status": "ready_with_open_manual_gate",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "productAuthority": "contracts/product.v1.7.json",
+  "featureExtension": "contracts/map-analysis.v1.7.2.json",
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "nationalDemandCutoffsUnchanged": true,
+  "fineModelSemanticsUnchanged": true,
+  "nativeDistrictSourceAdded": 928,
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "publicationDelta": [
+    "Dedicated pure Demand tiers and labelled raw-metric country maxima",
+    "Personal Supply count, land density and market-rate choropleths by own/competitor/identified total",
+    "Native direct district inventory and denominators; no fine crosswalk sum",
+    "Eight preferred-pattern cards with national confirmed/review counts before selection"
+  ],
+  "shareImage": {
+    "asset": "prototype/assets/identity/yolk-share-v1.7.png",
+    "family": "1.7",
+    "changedInThisRelease": false,
+    "meaning": "Retained approved1.7family social image, not a new1.7.2 rendering claim"
+  },
+  "sourceEvidenceBoundary": "Compact public adapters and URL/date/hash summaries only; private acquisition archives/logs/provenance stay outside repository/public artifact.",
+  "localVerification": {
+    "status": "PASS_bounded_automated_source_native",
+    "automatedChecks": 217,
+    "receipt": "evidence/release-checks-v1.7.2.json",
+    "nativeDistrictSourceReceipt": "evidence/district-source-checks-v1.7.2.json",
+    "browserReview": "PASS_bounded_native_Chrome_viewport_review",
+    "nativeBrowserReceipt": "evidence/browser-v1.7.2/native-browser-review.json",
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false
+  },
+  "providerEvidence": null,
+  "liveByteEvidence": null,
+  "limits": [
+    "Source snapshots and proxy screening, not measured business outcomes",
+    "Native viewport review is not a physical-device pass",
+    "No shared backend/email/LINE delivery in static preview",
+    "External Google provider availability/results unverified",
+    "Full DS/vendor conformance not asserted"
+  ]
+}

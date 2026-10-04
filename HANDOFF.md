@@ -1,22 +1,28 @@
 ---
 document_id: yolk.handoff.three_industries
-version: 1.7.1
+version: 1.7.2
 date: 2026-10-04
-status: source_backed_static_preview
+status: ready_with_open_manual_gate
 start: START_HERE.md
 product_contract: contracts/product.v1.7.json
 experience_contract: contracts/workspace-map.v1.7.json
 criteria_baseline: contracts/criteria-proposal.v1.6.json
-asset_manifest: contracts/assets.v1.7.json
+asset_manifest: contracts/assets.v1.7.2.json
 brand_logo_manifest: prototype/data/brand-logos.v1.7.json
-release_manifest: contracts/release.v1.7.1.json
+release_manifest: contracts/release.v1.7.2.json
 ---
 
-# ส่งต่อ dev — Yolk · v1.7.1 · LDS 0.9.7
+# ส่งต่อ dev — Yolk · v1.7.2 · LDS 0.9.7
 
 **เลือกแบรนด์ ลองเกณฑ์ และทำงานข้างแผนที่เดียวกันทุกหน้า** รุ่นนี้รองรับ Fuel, Grocery และ Non-bank ใช้ snapshot CityMETER จริง 7,954 พื้นที่ มีเกณฑ์และ draft แยกตามแบรนด์/ขอบเขต ข้อมูล Sheets ต้นทางคงเดิม
 
-เริ่มจาก [START_HERE](START_HERE.md) → [Product statement](CityMETER_Yolk_Product_Statement_v1.7.md) → [Criteria guide](docs/CRITERIA_GUIDE.md) → [Implementation plan](IMPLEMENTATION_PLAN_v1.7.md) งานโมเดลใช้ [machine tasks v1.6 ที่รักษาไว้](contracts/implementation-tasks.v1.6.json); งานแผนที่ใช้ [workspace-map contract v1.7](contracts/workspace-map.v1.7.json)
+เริ่มจาก [START_HERE](START_HERE.md) → [Product statement](CityMETER_Yolk_Product_Statement_v1.7.2.md) → [Criteria guide](docs/CRITERIA_GUIDE.md) → [Implementation plan](IMPLEMENTATION_PLAN_v1.7.2.md) งานโมเดลใช้ [machine tasks v1.6 ที่รักษาไว้](contracts/implementation-tasks.v1.6.json); งานแผนที่ใช้ [workspace-map contract v1.7](contracts/workspace-map.v1.7.json)
+
+## Current extension: 1.7.2
+
+อ่าน [Map analysis guide](docs/MAP_ANALYSIS_v1.7.2.md) และ [machine contract/tasks](contracts/map-analysis.v1.7.2.json) ก่อนต่อใหม่ `#demand` แสดง pure confirmedDemandTierก่อนpreferred/Supply/maxTier; rawcountrymetricระบุmaximumfine `#supply` เลือกown/competitor/identifiedtotalและcount/km²/market-rateแบบpersonal viewพร้อมCRUDเดิม CountrySupplyใช้directnativeD928/denominators ไม่sum45finecrosswalkหรือใช้fineNB/Grocerycorrections การ์ด8รูปแบบมีnationalconfirmed/reviewก่อนcheckboxโดยretainedDemand/Tiergates Reviewซ้อนกันได้; invalid/loadingdash
+
+Baseรายละเอียดด้านล่างใช้กับretainedmarket/criteria screening layer; analysisใหม่ใช้grain/metric/legendตามextension ห้ามตีความทุกchoroplethว่าเป็นeligibleTierเหมือนเดิม
 
 ## ทดลอง workflow
 
@@ -39,7 +45,7 @@ release_manifest: contracts/release.v1.7.1.json
 | Brand/format และเกณฑ์ตั้งต้น | [Brand presets](docs/BRAND_PRESETS_v1.7.md) + [registry](prototype/data/brand-presets.v1.7.json) + [brand contract](contracts/brand-experience.v1.7.json) |
 | สูตรและความหมายที่รักษาไว้ | [criteria-proposal.v1.6.json](contracts/criteria-proposal.v1.6.json), [parameter presets](contracts/runtime-parameter-presets.json), [industry profiles](contracts/industry-profiles.json) |
 | งาน production พื้นฐาน | [implementation-tasks.v1.6.json](contracts/implementation-tasks.v1.6.json) + [แผน human-readable v1.7](IMPLEMENTATION_PLAN_v1.7.md) |
-| Assets | [DS integration](DS_ASSET_INTEGRATION.md), [asset index 1.7](ASSET_INDEX_v1.7.md), [current asset manifest](contracts/assets.v1.7.json), [official logo manifest](prototype/data/brand-logos.v1.7.json) |
+| Assets | [DS integration](DS_ASSET_INTEGRATION.md), [asset index 1.7](ASSET_INDEX_v1.7.md), [current asset manifest after sealing](contracts/assets.v1.7.2.json), [official logo manifest](prototype/data/brand-logos.v1.7.json) |
 
 Base LDS 0.9.7 และ Location Intelligence Profile ใน `reference/lds-0.9.7/` เป็น authority ด้านรูปแบบ เอกสาร criteria-workspace/release และภาพ v1.6 เป็นประวัติหรือ baseline เฉพาะรุ่นที่ระบุ ไม่ใช่หลักฐานรับแผนที่รุ่นนี้
 
@@ -84,7 +90,7 @@ External brand logos ใช้ bytes ต้นฉบับจากแหล่�
 ## ตรวจและ release
 
 ```sh
-python3 scripts/verify-pages-v1.7.py
+python3 scripts/verify-pages-v1.7.2.py
 node scripts/check-three-industry.cjs
 node scripts/check-brand-presets.cjs
 node scripts/check-workspace-map.cjs
@@ -95,9 +101,11 @@ node scripts/check-save-context.cjs
 python3 -m http.server 8854 --bind 127.0.0.1
 ```
 
+รุ่น 1.7.2 ผ่าน 217 automated checks ที่รันใหม่, direct district source QA และ native Chrome แบบจำกัดขอบเขต ตาม receipts รุ่นนี้ ใช้ baseline 11 commands พร้อม check-map-analysis.cjs, check-pattern-counts.cjs และ check-analysis-integration.cjs หลัง final QA จึง seal ด้วย --after-final-qa Manifest/receipts รุ่นเก่าคงไว้เป็นประวัติ Share image ใช้ approved 1.7 family เดิม Public provenance อยู่ district-source-provenance.json; raw acquisition/logs/private customer data ไม่เข้า package การเผยแพร่รอ provider/live-byte proof
+
 Model/DOM-adapter tests ตรวจกติกาและ integration บางส่วน ไม่พิสูจน์ pan/touch จริง ขนาดข้อความ popup ใกล้ขอบภาพ หรือความพร้อมของ tile provider ต้องตรวจ browser จริง ไทย/อังกฤษ จอแคบ/desktop light/dark รวมฟอร์มค้าง, invalid draft, context switch และ network error บันทึกสิ่งที่ตรวจจริง ไม่อ้าง viewport emulation ว่าเป็นการทดสอบเครื่องจริง
 
-[QA baseline](evidence/QA.md) และ [ภาพ v1.6](docs/EXPERIENCE_v1.6.md) เก็บผลเดิมตามรุ่น ไม่ใช้แทนหลักฐานรับ v1.7 รุ่นนี้ต้องมี source checks, browser receipt, [public file hashes](contracts/pages-public-manifest.v1.7.1.json), [Pages provider และ live-byte evidence](contracts/release.v1.7.1.json) ที่ตรง commit เดียวกัน
+[QA baseline](evidence/QA.md) และ [ภาพ v1.6](docs/EXPERIENCE_v1.6.md) เก็บผลเดิมตามรุ่น ไม่ใช้แทนหลักฐานรับ v1.7 รุ่นนี้ต้องมี source checks, browser receipt, [public file hashes](contracts/pages-public-manifest.v1.7.2.json), [Pages provider และ live-byte evidence](contracts/release.v1.7.2.json) ที่ตรง commit เดียวกัน
 
 Pages artifact อยู่ใน `prototype/` สำเนา runtime contracts ต้องตรง root และ URL ต้องอยู่ใต้ `/yolk/` Public repo ไม่บรรจุ raw acquisition archive, private workbook links หรือ private customer records
 
@@ -106,3 +114,7 @@ Production ยังต้องเชื่อม CityMETER auth/datastore/spat
 ## 1.7.1 patch
 
 [Responsiveness and popup handoff](docs/RESPONSIVENESS_v1.7.1.md) includes source files, acceptance and production steps; [machine contract](contracts/responsiveness.v1.7.1.json) is the bounded coding brief. New modules: `prototype/poi-popup.js`, `prototype/poi-popup.css`. New checks: `scripts/check-poi-popup.cjs`, `scripts/check-map-responsiveness.cjs`. Original brand assets, source metrics and demand/supply model stay in their existing contracts.
+
+## Current bounded QA
+
+[217 checks](evidence/release-checks-v1.7.2.json): baseline 179 + analysis 14 + pattern 14 + integration 10 และ [source QA](evidence/district-source-checks-v1.7.2.json): public reads 391 ครั้งสำเร็จครบ / 928 อำเภอ / 77 จังหวัด / 56,507 independent comparisons Supply เริ่ม O+C identified total ต่อฐานตลาด; Demand ประเทศใช้ best confirmed fine tier หรือ raw maximum fine ที่มี label Native Chrome ผ่านตาม [browser receipt](evidence/browser-v1.7.2/native-browser-review.json) ไทย/dark และอังกฤษ/light ที่ 1,440×900 และ 390×844 รวม 10 ภาพ ครอบคลุม transparent selected fine, retained scope, country fit และ counts บนมือถือ ใช้ label “ทำเลเข้าเกณฑ์ / ทำเลรอตรวจ” ทุกการ์ด ไม่ใช่ full matrix หรือเครื่องจริง Provider/live-byte proof ยังรอ release owner; ยังไม่อ้างว่าเผยแพร่แล้ว

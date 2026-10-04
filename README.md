@@ -1,42 +1,29 @@
-# CityMETER: Yolk · v1.7.1 · LDS 0.9.7
+# CityMETER: Yolk · v1.7.2 · LDS 0.9.7
 
-Updated 2026-10-04. **Find the yolk. Grow your market. / หาไข่แดงให้เจอ ขยายตลาดให้ตรงจุด**
+**Find the yolk. Grow your market. / หาไข่แดงให้เจอ ขยายตลาดให้ตรงจุด**
 
-[เปิดเว็บ](https://montri-th.github.io/yolk/) · [เริ่มอ่านที่นี่](START_HERE.md) · [Product statement](CityMETER_Yolk_Product_Statement_v1.7.md) · [Implementation plan](IMPLEMENTATION_PLAN_v1.7.md)
+[เว็บพรีวิว](https://montri-th.github.io/yolk/) · [เริ่มที่นี่](START_HERE.md) · [Product statement](CityMETER_Yolk_Product_Statement_v1.7.2.md) · [Implementation plan](IMPLEMENTATION_PLAN_v1.7.2.md)
 
-**แผนที่เดียว อยู่กับงานทุกหน้า** ดูภาพรวม ปรับเกณฑ์ เล็งทำเล และจัดการสาขาในแผงข้อมูลข้างแผนที่ มุมมองที่เลื่อนหรือซูมไว้คงอยู่ระหว่างเปลี่ยนเมนูและปรับค่า อ่าน [คู่มือแผนที่](docs/PERSISTENT_MAP_v1.7.md) และ [machine contract](contracts/workspace-map.v1.7.json)
+รุ่น 1.7.2 เพิ่ม **Demand · หาไข่แดง** และแผนที่ Supply **จำนวน / ต่อพื้นที่ / ต่อฐานตลาด** เริ่มที่ O+C รวมผู้ให้บริการที่ระบุได้ต่อฐานตลาด แล้วเลือกดูสาขาเรา คู่แข่ง หรือรวมได้ การ์ดทำเลทั้งแปดแสดง “ทำเลเข้าเกณฑ์ / ทำเลรอตรวจ” ก่อนเลือกกลยุทธ์ Source และ 217 automated checks ผ่านแล้ว พร้อม native Chrome review แบบจำกัดขอบเขต; provider/live-byte proof ยังรอ release owner ดู [คู่มือแผนที่](docs/MAP_ANALYSIS_v1.7.2.md), [machine extension](contracts/map-analysis.v1.7.2.json) และ [release status](contracts/release.v1.7.2.json)
 
-เลือกได้ 3 ธุรกิจ: Fuel, Grocery และ Non-bank ใช้ CityMETER snapshot จริง 7,954 reporting UUIDs และ 25 metrics พร้อมสูตร หน่วย field ต้นทาง รอบข้อมูลและ coverage เลือกแบรนด์พร้อม format หลักและ preset ที่มีเหตุผล เกณฑ์และ draft ที่บันทึกไว้แยกตามบริบทและมีสิทธิ์เหนือ preset ใหม่ ใช้โลโก้จริงจากแหล่งทางการหรือชื่อพร้อมไอคอนกลางเมื่อยังยืนยัน mark ไม่ได้
+รองรับ Fuel, Grocery และ Non-bank บน CityMETER snapshot เดิม **7,954 reporting UUIDs / 25 metrics** เกณฑ์และ draft แยกตามแบรนด์และ format โมเดล v1.7, percentile ฐานประเทศ, relative Supply และ brand presets คงเดิม หน้า Demand แสดง Tier ที่ยืนยันได้ก่อนกรองด้วย Supply, preferred patterns และ Tier สูงสุด ส่วน shortlist ยังคงใช้เกณฑ์ที่ทีมเลือก
 
-สำรวจ **ประเทศ → จังหวัด → อำเภอ → ทำเล** ภาพประเทศใช้สีตามอำเภอ; ในจังหวัด/อำเภอใช้สีตามทำเลละเอียด; เลือกทำเลแล้วจึงดู O/C/U มีขอบเขตต้นทาง 928 อำเภอและ 7,954 ทำเลใน 77 ไฟล์จังหวัด Crosswalk ใช้ polygon ต้นทางเพื่อจัดมุมมอง รองรับทำเลที่สัมพันธ์กับหลายอำเภอ และไม่ใช้รับรองเขตทางกฎหมาย
+**แผนที่เดียวอยู่กับงานทุกหน้า** สำรวจประเทศ→จังหวัด→อำเภอ→ทำเล Country Supply ใช้ข้อมูล 928 อำเภอและตัวหารของอำเภอโดยตรง ไม่บวก fine crosswalk ที่มี 45 ทำเลสัมพันธ์กับหลายอำเภอ จังหวัดและอำเภอเจาะ fine areas เดิม เลือกทำเลแล้วภายในโปร่งใสให้อ่าน basemap คง hover, navigation, popup และ Google research links รุ่น 1.7.1 ยอดรวมครบไม่ได้แปลว่า POI ทุกจุดมีพิกัดหรือยังเปิดบริการ
 
-เมื่อเลือกทำเลแล้ว พื้นในขอบเขตโปร่งใสให้เห็น basemap เน้นเส้นขอบ ชื่อ และสถานะ Tier ส่วน choropleth ประเทศ/จังหวัด/อำเภอคงสีข้อมูลเต็มตาม DS จุดที่ยังไม่ผูก UUID อาจแสดงจากพิกัดใน polygon ต้นทางเพื่อดูบริบทเท่านั้น ไม่เปลี่ยนยอด Supply หรือการผูกเขตปกครอง
+สีข้อมูลใช้ native DS 0.9.7 พร้อมหน่วย ตัวหาร และ legend คง HEX ทั้ง light/dark Demand Tier เป็น proxy; raw Demand ในภาพประเทศระบุค่าสูงสุดของ fine areas ไม่ใช่ยอดรวมอำเภอ Review intervals ใช้พื้นกลาง; missing/invalid ไม่เติมศูนย์ ไม่มี motif, logo frame, decorative bracket หรือ selected left rail สี
 
-Demand ใช้ percentile ฐานประเทศเดียวกัน ไม่เปลี่ยนฐานเมื่อเลือกจังหวัด แบรนด์ หรือกรอบแผนที่ สีแสดง **Tier ที่เด่นที่สุดของไข่แดงที่ผ่านยืนยันในกลุ่มนั้น** ด้วย native `li.demand` 3 classes เหมือนกันทั้งสองธีม แยกข้อมูลรอตรวจและพื้นที่ที่ยังไม่มีผลยืนยัน ผลเป็นสมมติฐานสำหรับศึกษาต่อ ไม่ใช่ยอดลูกค้า ยอดขาย ผู้กู้ หรือคำอนุมัติเปิดสาขา
-
-**Static public preview:** CRUD, photos, roles, feed และ notifications เป็น browser-local simulation ไม่มี shared production backend, server auth/RBAC หรือการส่ง email/LINE จริง Source aggregates แยกจาก POI overlays; รูปตัวอย่าง 5 รูปเป็น mockup; satellite เป็นภาพปี 2021
-
-[Supply ต่อขนาดตลาด](docs/SUPPLY_RELATIVE_PROPOSAL.md) ใช้นิยามที่อนุมัติสำหรับบริบทใหม่: Fuel ต่อ GFA 100,000 ตร.ม.; Grocery/Non-bank ต่อประชากร 10,000 คน โหมด count ยังเลือกได้และค่าที่เคยบันทึกไม่ถูกแทนทับ ตรวจ runtime/release status ในคู่มือก่อนอ้างว่า UI ผ่านการรับงานแล้ว
+**Static preview:** CRUD รูป บทบาท feed และ notifications เป็น browser-local simulation ยังไม่มี shared backend, server RBAC หรือส่ง email/LINE จริง รูปห้ารูปเป็น mockup; satellite ปี 2021 ผลคัดใช้ศึกษาต่อ ไม่รับรองยอดขาย ผู้กู้ เขตกฎหมาย หรือความเหมาะสมรายแปลง
 
 ## สำหรับ dev
 
-[เกณฑ์และสูตร](docs/CRITERIA_GUIDE.md) · [Brand presets](docs/BRAND_PRESETS_v1.7.md) · [Persistent map](docs/PERSISTENT_MAP_v1.7.md) · [Boundary provenance](prototype/data/real/boundary-provenance.v1.7.json) · [Asset integration](DS_ASSET_INTEGRATION.md) · [Handoff](HANDOFF.md)
+อ่าน [START_HERE](START_HERE.md), [HANDOFF](HANDOFF.md), [เกณฑ์](docs/CRITERIA_GUIDE.md), [Brand presets](docs/BRAND_PRESETS_v1.7.md), [DS integration](DS_ASSET_INTEGRATION.md) และ [Supply-relative](docs/SUPPLY_RELATIVE_PROPOSAL.md)
 
 ```sh
-python3 scripts/verify-pages-v1.7.py
-node scripts/check-three-industry.cjs
-node scripts/check-brand-presets.cjs
-node scripts/check-workspace-map.cjs
-node scripts/check-criteria-controls.cjs
-node scripts/check-relative-supply.cjs
-node scripts/check-photo-runtime.cjs
 python3 -m http.server 8854 --bind 127.0.0.1
 ```
 
-เปิด http://127.0.0.1:8854/prototype/ เมื่อทดสอบในเครื่อง Pages ใช้ `prototype/` เป็น artifact และมีสำเนา runtime contracts ภายใน Product authority คือ [product.v1.7.json](contracts/product.v1.7.json); criteria/model/machine tasks v1.6 เป็น baseline ที่รักษาไว้ ไม่ใช่การย้อนรุ่น UI
+เปิด `/prototype/` ผ่าน HTTP ต้องรับ final QA ก่อนรัน `seal-pages-v1.7.2.py --after-final-qa` และ `verify-pages-v1.7.2.py` Product/map/brand authority ยังคง v1.7; criteria/industry/tasks v1.6 เป็น retained baseline และ map-analysis v1.7.2 เป็น extension Public artifact อยู่ `prototype/` พร้อม runtime contract copies ใต้ `/yolk/`
 
-Non-bank เลือก 10 รายแรกตามจำนวนรายการต้นทาง ส่วน comparator inventory ยังคงบริษัททั้งหมดตาม licence scope ที่เลือก ดู [brand contract](contracts/brand-experience.v1.7.json) และ [logo manifest](prototype/data/brand-logos.v1.7.json) สำหรับ source, bytes, theme variants และ named fallbacks
+Public repo เก็บ compact adapters, approved assets/licences, contracts และ bounded receipts ไม่เก็บ raw acquisition, private workbook หรือข้อมูลลูกค้า Historical release manifests/receipts คงตามรุ่น Share image เป็น approved 1.7 family เดิม Source checks ไม่แทน native/browser/device review หรือ provider/live-byte verification
 
-Public repo มี runtime projections, assets/licences, contracts และหลักฐานสรุป ไม่บรรจุ raw HTTP snapshots, full acquisition archive, private workbook links หรือ private customer records [หลักฐานเดิม](evidence/QA.md) เป็น baseline ตามรุ่นที่ระบุ การรับรุ่นนี้ต้องมีผล checks/browser review ของรุ่นนี้และ [Pages provider/live-byte evidence](contracts/release.v1.7.1.json) เพิ่มจากการตรวจ source
-
-Current patch **1.7.1** keeps POI popups stable during pan/zoom and adds actual-brand identity, Street View and contextual Google AI Mode / Search links. [Patch handoff](docs/RESPONSIVENESS_v1.7.1.md) · [Machine acceptance](contracts/responsiveness.v1.7.1.json).
+ผล browser รุ่นนี้: ไทย/dark และอังกฤษ/light ที่ 1,440×900 และ 390×844 พร้อม 10 ภาพใน [browser receipt](evidence/browser-v1.7.2/native-browser-review.json) ไม่อ้าง full language/theme matrix หรือการทดสอบเครื่องมือถือจริง

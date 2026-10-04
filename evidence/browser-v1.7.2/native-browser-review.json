@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1",
+  "version": "1.7.2",
+  "status": "PASS_bounded_native_Chrome_viewport_review",
+  "checkedAt": "2026-10-04T09:58:39.576575+00:00",
+  "testedOrigin": "http://127.0.0.1:8864/prototype/",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "observedCombinations": [
+    "Thai/dark",
+    "English/light"
+  ],
+  "fullLanguageThemeMatrix": false,
+  "physicalDeviceTested": false,
+  "observations": [
+    "Demand and Supply retain the same mounted map across route changes.",
+    "Supply O+C/own/competitor controls and count/area/market metrics update values and native analytical colors.",
+    "Country Supply has 928 direct Fuel district records; Grocery has 928 comparable district records and default Non-bank potential scope has 903 exact plus 25 review districts.",
+    "Country -> Bangkok -> Bang Khun Thian -> Samae Dam drill remains on #supply; selected fine polygon fill is none and outline visible.",
+    "Switch #supply -> #demand retains selected Samae Dam scope.",
+    "Demand tier shows 1,067 high-demand locations before Supply/pattern filtering: 44 Tier1,279 Tier2,744 Tier3.",
+    "Raw factory density shows 5,822 known fine signals and2,132 missing/review, labelled district maximum at country; not a district aggregate.",
+    "Pattern cards show all8 national confirmed/review counts before checkbox selection; changing Demand high/both updates low-demand counts; checkbox changes retain counts.",
+    "All8 card count widths equal scroll widths at390px. English/light FOMO card counts and Thai/dark top/bottom cards rendered without horizontal overflow.",
+    "Mobile initial country fit shows full Thailand including south at zoom4; menu changes preserve camera rather than re-fit.",
+    "Six mobile navigation controls fit390px and remain reachable.",
+    "No captured error-level console entries in checked local tab."
+  ],
+  "limits": [
+    "Browser viewport review is not physical iOS/Android certification.",
+    "All37brands were not manually exercised; automated preset/data integration coverage recorded separately.",
+    "External basemap/Google providers, operations, membership and customer outcomes are not certified."
+  ],
+  "screenshots": [
+    {
+      "path": "supply-mobile-th-dark.png",
+      "bytes": 45819,
+      "sha256": "c5a15d2b97a16813312c8b5757bdd6d8608e1d8ad5f3af4ea0eee99e6171d095"
+    },
+    {
+      "path": "supply-mobile-en-light.png",
+      "bytes": 46614,
+      "sha256": "d3f1a8b34a9590267956a149423ebba5ae3bbd338db05fda52ca1dd29352bf35"
+    },
+    {
+      "path": "supply-desktop-th-dark.png",
+      "bytes": 157067,
+      "sha256": "991220f58ac3a2afa5ed4f7467563a42085ffbf444e84e59f27a5bc0ba3247d0"
+    },
+    {
+      "path": "supply-desktop-en-light.png",
+      "bytes": 121562,
+      "sha256": "f3c439769802e39a4c574844f30284ed42b6438d3f388de1153657e556dae89e"
+    },
+    {
+      "path": "demand-mobile-en-light.png",
+      "bytes": 47258,
+      "sha256": "745cdc4765112a69e30a3887def9616f98d449230d8d11fdd7f7eb35ff903209"
+    },
+    {
+      "path": "demand-desktop-th-dark.png",
+      "bytes": 142627,
+      "sha256": "9a2f3e257afc92b62f739f2b3c763d55d8d94fc4db36253cb211884f0962e58a"
+    },
+    {
+      "path": "demand-desktop-en-light.png",
+      "bytes": 129913,
+      "sha256": "0945355d61d7b7d0de57c9dc3451e70d838fca183a9e7c1e5c112c6e44f9d8c9"
+    },
+    {
+      "path": "pattern-counts-mobile-th-dark.png",
+      "bytes": 47378,
+      "sha256": "2f085ae375f06cf6514896f15a53f6309265db65b55f4260b85b14bb69f20c25"
+    },
+    {
+      "path": "pattern-counts-mobile-th-dark-bottom.png",
+      "bytes": 50873,
+      "sha256": "2d5a18cbe9719177033544d1b139d2d7bcb587414935516992cb0638a4b6ffcc"
+    },
+    {
+      "path": "pattern-counts-mobile-en-light.png",
+      "bytes": 49112,
+      "sha256": "1ee686e05a17311c4dff4f23f9cc127f70da2ae347cfbb9351176ed410dac329"
+    }
+  ]
+}

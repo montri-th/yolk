@@ -1,0 +1,544 @@
+{
+  "schemaVersion": "yolk.bounded_release_checks/1.7.2",
+  "version": "1.7.2",
+  "checkedOn": "2026-10-04",
+  "status": "PASS_bounded_local_QA_publication_pending",
+  "automatedPassed": true,
+  "totalChecks": 217,
+  "baselineChecks": 179,
+  "newAnalysisChecks": 38,
+  "reports": [
+    {
+      "suite": "three-industry",
+      "command": "node scripts/check-three-industry.cjs",
+      "status": "PASS",
+      "passed": 30,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "2a21bf19dca6965b615c40434230cbe3df1143c5f643bffc924e7bc2e9163543",
+      "retainedPrivateExecutionLogSHA256": "cc748106bff54835882bf38e7645b3a490fe5c5ec1027fb2ae0a3a7a7c865634",
+      "checks": [
+        "Exactly three profiles and 7,954 unique real reporting areas",
+        "25 actual metrics, aliases and positive known-only distributions",
+        "Every profile default own identity resolves in its expected industry",
+        "Fuel original numeric rules, weights and initial strategy preserved",
+        "Fuel merged-source brand counts sum to country aggregate 8,736",
+        "Fixed national cutoffs do not change with brand/province or profile",
+        "Grocery C_STORE own/other canonical dimensions and Pure exclusion",
+        "Grocery known proxy-high exactly 2,859 and ranking is separate from screen",
+        "New defaults use 2/2 and Pioneer/FOMO; no Fuel supply bonuses",
+        "Missing stays unknown and positive-presence blocks zero promotion",
+        "Nonbank uses adult20–64 proxy, active-license union, geographic residual bounds",
+        "Pattern certainty and guaranteed strategy membership are independent",
+        "Office context is diagnostic; missing license is never silently excluded",
+        "Brand/scope/profile-version contexts and drafts remain separate",
+        "Source POIs are excluded from browser persistence and CRUD does not change aggregates",
+        "Lazy source coordinates stay separate from unsupported municipality joins",
+        "Invalid metric values normalize to missing; valid distributions exclude negatives",
+        "Known-high Demand with absent Supply retains all four possible high patterns",
+        "Nonbank weighted gap scores use assignment intervals, not assigned zeros as exact",
+        "Unknown/not_found relevant licenses are review context, not nonpeers",
+        "Local overlays survive industry switches without entering aggregate Supply",
+        "Own identity outside the selected source scope is missing, not own-zero",
+        "Point layers follow Grocery format and Nonbank license scope without changing source cache",
+        "Canonical local-overlay relationship follows the newly selected own identity",
+        "Late industry downloads cannot override the final fuel identity/profile/counts",
+        "All 25 dataset/metric disclosures render bilingual equations and coverage",
+        "Cross-context events restore industry/brand/scope before navigation; criteria feed stays scoped",
+        "Supply-event navigation restores the source-point context before resolving the POI",
+        "Cold Supply event waits for the point load already started by the place render",
+        "Cold event continuation cannot navigate or relabel POIs after a newer context switch"
+      ],
+      "scope": "These are core runtime/data checks, not full browser/UI or design-system conformance."
+    },
+    {
+      "suite": "brand-presets",
+      "command": "node scripts/check-brand-presets.cjs",
+      "status": "PASS",
+      "passed": 13,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "86b73ac75d2f86d52396354c85c0fc5ab27c51915b753e4f048aec820d764be0",
+      "retainedPrivateExecutionLogSHA256": "70a8a6c923ec538136abaef0400bb080f60dd27ce1b98c5b4f54e9dbb02695a9",
+      "checks": [
+        "Registry and selectors expose exactly 11 Fuel, 16 Grocery and the ordered first 10 Non-bank IDs",
+        "Every family and every supported brand/scope seed is valid and references actual CityMETER metrics",
+        "First selection applies each brand default/family without recording a team change event",
+        "Accepted Bangchak, Seven Eleven and MTC defaults remain unchanged apart from seed provenance",
+        "Saved custom criteria, draft, versions, weights and targets survive brand visits and browser reload",
+        "Explicit Grocery format is remembered per brand; a new brand uses its own default",
+        "National cutoff distributions remain fixed across all brand seeds, formats and province filters",
+        "Missing demand, unavailable own format and unresolved licenses stay unknown rather than zero",
+        "Srisawad group logo and office context do not upgrade the selected legal company licenses",
+        "Own selector restriction leaves the full 1,233-company comparator inventory intact",
+        "Point loading uses a local response stub and canonical relation changes with selected own identity",
+        "Actual map render uses O for Our stores and C for Competitors in both languages",
+        "Optional local logo registry uses exact known IDs and its bundled bytes match recorded hashes"
+      ],
+      "scope": "Node/source/DOM/Leaflet-shaped adapter; native browser/device/provider checks separate"
+    },
+    {
+      "suite": "workspace-map",
+      "command": "node scripts/check-workspace-map.cjs",
+      "status": "PASS",
+      "passed": 20,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "b742c8cc91dd25c7dbb090f951776e69f808087b8835fbb2de8a91507c044bc0",
+      "retainedPrivateExecutionLogSHA256": "45351cb7fa8fc25a72be14b17550bb542285fdb3ce8c0533a75f43caddb82249",
+      "checks": [
+        "All 77 actual province features retain unique exact reporting codes",
+        "All native hierarchy sources cover 928 districts and every 7,954 metric UUID without bounding-box substitution",
+        "One mounted Leaflet instance survives every workspace route and repeated renders",
+        "Mobile map options are collapsed by default, keyboard labelled and independent of navigation/map state",
+        "Summary classes use confirmed qualifying Tier, independently of numeric rank score",
+        "District analytical fills are exact full-opacity classes while province polygons remain unfilled",
+        "Criteria comparison matches real-model baseline/draft sets; invalid drafts pause last valid output",
+        "Source extent focus is explicitly dashed and unfilled; route sync never fits automatically",
+        "All 18 retrieved source polygons render as genuine source geometry rather than extent substitutes",
+        "Supply marker cap, O/C/U labels and branch filters follow actual user choices",
+        "Draft branch coordinates show a neutral D without saving, supply changes or automatic zoom",
+        "Loading clears stale point labels and failed inventory is not described as zero",
+        "A failed context switch clears previous-brand overlays instead of relabelling stale results",
+        "Persistent controls and map accessible names update when language changes",
+        "Country → province → district → fine location has exact source filters, breadcrumbs and back with no duplicate callbacks",
+        "Fine-detail focus preserves the chosen parent for all multi-district source locations",
+        "Coordinate-only records use an actual polygon for view matching without area or aggregate mutation",
+        "Fine comparison preserves old tier colours for baseline and removed rows while selected interiors remain unfilled",
+        "Late point focus cannot move the map after brand/context switch",
+        "Basemap selection preserves map instance and viewport, with explicit 2021 satellite attribution"
+      ],
+      "scope": "Node/source/DOM/Leaflet-shaped adapter; native browser/device/provider checks separate"
+    },
+    {
+      "suite": "photo-runtime",
+      "command": "node scripts/check-photo-runtime.cjs",
+      "status": "PASS",
+      "passed": 28,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "66cdba46df1bcc4ad60351e522b8a3ea8dab90b2b913f9757c35689ab92b5c4c",
+      "retainedPrivateExecutionLogSHA256": "87ec2072121f8809e7e249eb9b9f455cbd79c2f819e9e5dcedaae151c9d43fa4",
+      "checks": [],
+      "scope": "Node state/permission/storage/file-header checks; browser image decode and visual QA not exercised"
+    },
+    {
+      "suite": "criteria-controls",
+      "command": "node scripts/check-criteria-controls.cjs",
+      "status": "PASS",
+      "passed": 12,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "bcc07dec708c907a5a82db4c9b025cf1ed26216a50283c17630f949e5394dca2",
+      "retainedPrivateExecutionLogSHA256": "f7ec528018b872d39d69dd3acf52878103964cb6edc83e7e302941caecbda0c3",
+      "checks": [
+        "Mount pairs every supported exact-number field and preserves original nodes/labels",
+        "Repeated mount/sync preserves focused nodes and installs one event bridge",
+        "Dragging emits one bubbling original-number input to the existing handler",
+        "Range change forwards one change without repeating the input mutation",
+        "Exact decimal typing stays exact while the integer slider is only an approximate handle",
+        "Empty typing stays empty/NaN, never silently becomes zero, and can recover by dragging",
+        "Disabled fieldsets and explicit disabled inputs propagate to slider without coercing values",
+        "Supporting hit slider uses actual six metric controls, preserving existing exact-input bounds",
+        "Supply count and weight slider endpoints keep zero weight valid",
+        "Language sync updates readable captions/ARIA without rebuilding controls",
+        "Mount accepts a single exact input and does not dispatch artificial changes",
+        "Relative supply slider carries decimal precision and explicit denominator unit"
+      ],
+      "scope": "DOM contract tests only. Native drag/touch, focus behavior under real rendering and theme/layout are covered separately by browser QA."
+    },
+    {
+      "suite": "save-context",
+      "command": "node scripts/check-save-context.cjs",
+      "status": "PASS",
+      "passed": 9,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "ce696502d28b0e97f989cd46929159848a36411abb542fe4ee165237ead66610",
+      "retainedPrivateExecutionLogSHA256": "a7fa9039b89eafcd4be313f331f1706129f65898b2f14e6a2608dcddd6a41b6c",
+      "checks": [
+        "Existing branch save aborts cleanly after brand changes during photo commit",
+        "Existing branch save aborts cleanly after industry changes during photo commit",
+        "New branch save aborts cleanly after brand changes during photo commit",
+        "New branch save aborts cleanly after industry changes during photo commit",
+        "Existing branch save aborts cleanly after actor changes during photo commit",
+        "Existing branch save aborts cleanly after route changes during photo commit",
+        "Existing branch save aborts cleanly after same-context-new-request changes during photo commit",
+        "Existing branch save succeeds once when context remains stable",
+        "New branch save succeeds once when context remains stable"
+      ],
+      "scope": "Node/source/DOM/Leaflet-shaped adapter; native browser/device/provider checks separate"
+    },
+    {
+      "suite": "relative-supply",
+      "command": "node scripts/check-relative-supply.cjs",
+      "status": "PASS",
+      "passed": 14,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "185cca115b316143988351d5d49c3896e522a4b01d47de767e8c75e0decbea3f",
+      "retainedPrivateExecutionLogSHA256": "736380a7696d8673097ddefb1a0e2504fd9fd2161814cc85d85702616c1d6d8d",
+      "checks": [
+        {
+          "name": "Two branches / 20,000 people = 1 per 10,000; three / 100,000 = 0.3, with coherent pattern and gap ordering",
+          "passed": true
+        },
+        {
+          "name": "Source-explicit zero branch counts are usable; absent/zero/nonfinite/negative denominators remain unknown",
+          "passed": true
+        },
+        {
+          "name": "Equivalent denominator/rate unit conversion leaves count thresholds, classifications and rankings invariant",
+          "passed": true
+        },
+        {
+          "name": "Legacy count mode and absent-mode migration retain exact count thresholds and uncertainty behavior",
+          "passed": true
+        },
+        {
+          "name": "Fuel unknown-brand U stays jointly allocated: impossible Pioneer/Crowded states and independent ranking bounds are excluded",
+          "passed": true
+        },
+        {
+          "name": "Assignment/reconciliation lower–upper intervals survive normalization and remain uncertain in patterns/ranking",
+          "passed": true
+        },
+        {
+          "name": "Changing ranking weights cannot alter Supply high/low classification or the eligible UUID set",
+          "passed": true
+        },
+        {
+          "name": "Calibration is the unrounded median of positive exact national rates, never a quota or the filtered province",
+          "passed": true
+        },
+        {
+          "name": "Fewer than five positive exact observations use an explicit insufficient-sample hypothesis of one branch/unit",
+          "passed": true
+        },
+        {
+          "name": "The denominator whitelist excludes densities, percentiles, fiscal revenue and arbitrary/unknown IDs",
+          "passed": true
+        },
+        {
+          "name": "Denominator changes/reseeding are a private draft: committed criteria, events, source inventory and national cuts stay unchanged",
+          "passed": true
+        },
+        {
+          "name": "New contexts start in relative mode after their own inventory loads; saved count criteria/draft/version survive visits and reload",
+          "passed": true
+        },
+        {
+          "name": "All 37 real brand/default-scope contexts produce valid seeds and finite or explicitly missing Supply thresholds across 7,954 UUIDs",
+          "passed": true
+        },
+        {
+          "name": "Every supported alternate brand format/scope uses its own real inventory and family with valid relative thresholds",
+          "passed": true
+        }
+      ],
+      "scope": "Node/source/DOM/Leaflet-shaped adapter; native browser/device/provider checks separate"
+    },
+    {
+      "suite": "poi-popup",
+      "command": "node scripts/check-poi-popup.cjs",
+      "status": "PASS",
+      "passed": 17,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "f5b12260306caeb23cdfc1310e137da49cfab182d668611b55b6f5227431de68",
+      "retainedPrivateExecutionLogSHA256": "704200cc5ae319a6d44b0522676a7f4982cb83a6102c2150b382b90a75004f17",
+      "checks": [
+        "POI identity uses the actual competitor brand, not selected own brand",
+        "relationship has readable label plus independent O/C/U cue",
+        "source status stays visible, source date does not certify current operation",
+        "native map editor hook preserves exact POI ID",
+        "Street View uses the official Maps URL and original coordinates",
+        "missing/invalid coordinates never turn into a Street View zero-point",
+        "Google AI Mode and plain Search carry the same user-visible question",
+        "question uses branch, location and own-brand expansion context",
+        "each supported industry asks for relevant field-study evidence",
+        "public search context excludes notes, personal data, metrics and implicit outcomes",
+        "Thai copy is explicit and does not rely on raw ligature labels",
+        "unknown/missing marks keep brand text without inventing a brand graphic",
+        "historical wordmarks cannot bypass the verified compact-graphic gate",
+        "official theme-limited mark provides a neutral dark fallback",
+        "all external actions are user-activated links with safe new-tab semantics",
+        "source labels and IDs are escaped without changing the record",
+        "new popup CSS has no logo frame, crop or invented analytical colours"
+      ],
+      "scope": "Node/source checks; native browser/device/provider checks separate"
+    },
+    {
+      "suite": "map-hover",
+      "command": "node scripts/check-map-hover.cjs",
+      "status": "PASS",
+      "passed": 12,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "e74d00a419d549d00f1d86bd9d1951b0ae1052e21c460181e1813c2e823a264e",
+      "retainedPrivateExecutionLogSHA256": "a10ddfd91c68bb104d5ef5935001468a08cb285d08e2fdf159ddd3a92bb41cda",
+      "checks": [
+        "outline uses the exact supplied province source polygon over district colouring",
+        "province and district drill targets use their exact respective district/fine source features",
+        "hover adds only an unfilled non-interactive outline with an exact caller-supplied token",
+        "same target mouse movement reuses outline and tooltip rather than re-rendering data",
+        "replacement removes the old outline; stale mouseout cannot erase newer hover",
+        "outline refreshes UI selection token without changing source geometry or analytical fill",
+        "unsupported extents, missing geometry or missing target labels fail visibly closed",
+        "tooltip escapes labels and never becomes a navigation or mutation proxy",
+        "native hover/move/out binding controls the actual target and preserves click owner",
+        "keyboard focus/blur uses the same exact target outline without synthetic click",
+        "binding cleanup and destruction remove active geometry and all handlers",
+        "module contains no centroid, crosswalk guess, opaque paint, fetch or team mutation"
+      ],
+      "scope": "Node/source checks; native browser/device/provider checks separate"
+    },
+    {
+      "suite": "map-responsiveness",
+      "command": "node scripts/check-map-responsiveness.cjs",
+      "status": "PASS",
+      "passed": 13,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "fcc5ed66441900a1832a9cea6ee966ba81880e4a8371f03548ec11f4aa0b384f",
+      "retainedPrivateExecutionLogSHA256": "2853958a8c0030d28dc534a886f61dc69e5bed762e7d345672a58d7e8e557842",
+      "checks": [
+        "Country pan and zoom coalesce without any analytical redraw or marker work",
+        "A full analytical sync reads DS tokens once before writes and preserves exact fills",
+        "POI popup survives settled pan/zoom with the same native marker and no clear/recreate",
+        "Viewport removal reconciles individual markers without closing another retained popup",
+        "Mobile resize/autopan retains only the open in-scope anchor outside viewport; hiding relationship closes it",
+        "Popup module receives selected-brand/industry/area context; branch identity changes update content without recreation",
+        "Context switch removes previous-brand marker references and stale queued viewport work",
+        "Storage updates retain cached source POIs, reconcile incoming local overlays, and do not change Supply aggregates",
+        "Prepared criteria work is discarded after mutable drafts, cohort changes and validation failures",
+        "Polygon fast rejection keeps exact hole/multipolygon membership and never assigns UUIDs",
+        "Resize recentres the same geographic view without fitting, and derives a bounded popup viewport",
+        "Native popup events expose the mobile expansion state and close restores its normal map height",
+        "Application source guards delayed searches/event navigation and shows pending Supply as U, never inventory zero"
+      ],
+      "scope": "Node/source/DOM/Leaflet-shaped adapter; native browser/device/provider checks separate"
+    },
+    {
+      "suite": "cold-branch",
+      "command": "node scripts/check-cold-branch.cjs",
+      "status": "PASS",
+      "passed": 11,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "4cb3792638b108bf1e6d9ba5371a092dcb25e2f3874242c9f2ebfdd1cb02f5e9",
+      "retainedPrivateExecutionLogSHA256": "fae4af63a5f0d1366c727c8e2bdf5af7b8d2d9941d84d487a062ba9d5fc52753",
+      "checks": [
+        "Cold existing-ID route shows loading and cannot become a blank new branch form",
+        "In-flight source inventory keeps the requested branch in a loading state",
+        "Source completion renders the requested real record identity, brand, name and coordinates",
+        "An absent ready record and a failed inventory remain status states, not editable new records",
+        "Only explicit #poi/new creates the new-branch form when the inventory is cold",
+        "Working form captures branch identity, expected revision, edits and text selection",
+        "Same-record rerender restores user edits, area, focus and cursor while retaining the expected revision",
+        "Snapshot from the former blank new form cannot overwrite a newly loaded existing record",
+        "Snapshot from another branch cannot restore values, expected revision or focus",
+        "Route and criteria-context changes invalidate the working snapshot before rerender",
+        "Restore leaves file inputs alone and safely ignores an absent form"
+      ],
+      "scope": "Node/source/DOM/Leaflet-shaped adapter; native browser/device/provider checks separate"
+    },
+    {
+      "suite": "map-analysis",
+      "command": "node scripts/check-map-analysis.cjs",
+      "status": "PASS",
+      "passed": 14,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "fccf906c7c58495cca5c21126e7ecad9c720e0ae71c92c55451df93562b41d70",
+      "retainedPrivateExecutionLogSHA256": "80f95e3c05ec9074173fa5f3f1fb2142710732a09eb97f37a9ae82e5c1e74141",
+      "checks": [
+        "Every quantitative palette exactly matches native LDS five-class values on light and dark; tier uses native three classes",
+        "Exact zero is known and distinct from absent or invalid source supply",
+        "Unidentified U widens each per-role interval without inventing a midpoint",
+        "Unknown U and missing assignment bounds preserve open uncertainty rather than exact role counts",
+        "Identified total sums O+C only and explicitly excludes known or unknown U",
+        "Existing source assignment/reconciliation bounds survive role and total views",
+        "Area density requires positive finite km² and uses the native area-density scale",
+        "Market rates use the actual relative-supply normalization and explicit dimensional denominator",
+        "Confirmed Demand tier ignores preferred patterns, eligibility and maximum allowed tier",
+        "Raw Demand reads the source metric and national percentile, ignoring stored same-grain or viewport percentiles",
+        "Fixed national quantiles include exact zero, exclude uncertain rows, and have deterministic cutoff ties",
+        "Native rows without an explicit national cohort stay unclassified; no fine-area aggregation fallback exists",
+        "Fine-area view subsets retain the fixed 7,954-row national cohort and do not mutate source rows or criteria",
+        "Real Grocery and Non-bank reconciliation/assignment rows remain ranges rather than invented exact values"
+      ],
+      "scope": "Node/source/DOM/Leaflet-shaped adapter; native browser/device/provider checks separate"
+    },
+    {
+      "suite": "pattern-counts",
+      "command": "node scripts/check-pattern-counts.cjs",
+      "status": "PASS",
+      "passed": 14,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "413fcfff7cb57936825ddba8dd33fa130c43e07827f89887544fe76b2256160b",
+      "retainedPrivateExecutionLogSHA256": "73b9937b7925212ac4692bcad3f83f8401abf5ff3cde84091926f57916679dfe",
+      "checks": [
+        "each card matches a single-pattern model evaluation over the same national cohort",
+        "unchecked cards retain their counts, including when no pattern is currently checked",
+        "Demand high excludes all four low-demand patterns; all-demand mode includes them",
+        "Tier gate is respected for all-demand and high-demand modes without changing low-demand membership",
+        "Supply changes refresh counts from the model instead of keeping a previous snapshot",
+        "all eight counts use one cached model read, not a separate evaluation for each card",
+        "unknown Demand is omitted while multi-pattern Supply uncertainty is retained on each possible card",
+        "missing/zero market denominator remains review, never a confirmed absence or forced card",
+        "province/viewport slices and duplicate or alien UUIDs cannot masquerade as the national cohort",
+        "invalid numeric criteria and loading/error states display unavailable instead of zero",
+        "live sync updates all 16 counters through the existing updateImpact hook in both languages",
+        "counts do not alter criteria, eligibility, ranking, events, source values or national cutoffs",
+        "grocery counts retain the same 7,954-area national universe and source uncertainty",
+        "nonbank counts retain the same 7,954-area national universe and source uncertainty"
+      ],
+      "scope": "Node/source checks; native browser/device/provider checks separate"
+    },
+    {
+      "suite": "analysis-integration",
+      "command": "node scripts/check-analysis-integration.cjs",
+      "status": "PASS",
+      "passed": 10,
+      "exitCode": 0,
+      "exitCodeAuthority": "Current execution confirmed by release owner",
+      "scriptSHA256": "198611e0a8fe3e6779731f0046951cc3407662fad7008c23bb89ee40192a3bc0",
+      "retainedPrivateExecutionLogSHA256": "7a4777d51d905c5dd97c9ea0567e9ca6ca16216b053187faf23d304624bd104f",
+      "checks": [
+        "All three native adapters have exactly the geometry/hierarchy 928 UUIDs and source periods, with verified provenance bytes",
+        "Native district brand/company dimensions reconcile to each province and country source totals, rather than fine crosswalk sums",
+        "Actual native district adapters honor all three industry defaults, alternate own identities and Grocery/Non-bank product scopes",
+        "Native Non-bank inventory retains all direct offices and never imports the 5,534 fine-area residual into a district",
+        "Native Grocery counts do not receive fine Nakhon Ratchasima/Surat Thani ±1 bounds and exclude PHARMACY from selected format",
+        "Every native district uses its direct same-grain land area, population and modeled GFA denominators",
+        "Personal Demand/Supply metric and relation handlers preserve full ordered fine results, criteria, drafts, events and storage for each industry",
+        "Personal Demand tier page includes qualifying Yolks excluded by preferred pattern and max-tier screening",
+        "Demand and Supply personal states remain separate; province filters do not recalibrate either national cohort",
+        "Actual async bootstrap loads analytical modules after their dependencies and before map/app, one script at a time"
+      ],
+      "scope": "Node/source/DOM/Leaflet-shaped adapter; native browser/device/provider checks separate"
+    }
+  ],
+  "sourceChecks": {
+    "path": "evidence/district-source-checks-v1.7.2.json",
+    "sha256": "a7fc4cd39b1fa6422df5a194e805750fa00b059d159adb79f7c6684d8ec543dc",
+    "status": "PASS",
+    "publicReads": 391,
+    "nativeDistricts": 928,
+    "directProvinces": 77,
+    "independentComparisons": 56507
+  },
+  "fineModelPreservation": {
+    "status": "PASS_exact_source_bytes_unchanged",
+    "baseline": "Retained1.7.1public source manifest",
+    "rows": [
+      {
+        "path": "prototype/model.js",
+        "sha256": "a16e39d101566a6d59f40392176c3107cb91353c0c8852d28f29bcddc6d86aaf",
+        "matches1_7_1SourceBytes": true
+      },
+      {
+        "path": "prototype/metrics.js",
+        "sha256": "5dbaa295b0f5f01ff8756c7724c9977cf19dc3ce63c09d88f1a800a28466feed",
+        "matches1_7_1SourceBytes": true
+      },
+      {
+        "path": "prototype/relative-supply.js",
+        "sha256": "41b2ccd4201540099ca06f7bf169147a0e61262d38f22d8a5fc44050acc92be6",
+        "matches1_7_1SourceBytes": true
+      },
+      {
+        "path": "prototype/data/real/area-context.json",
+        "sha256": "c0386d1314efd06cd3d67970d08c7cf182ac9e40be0875a7bd177cc91edb6528",
+        "matches1_7_1SourceBytes": true
+      },
+      {
+        "path": "prototype/data/real/fuel-supply.json",
+        "sha256": "1cbe85c16bfe81f5ae577b9d3021e83bfd9efadda5d53064f0b5ce58f6574a4c",
+        "matches1_7_1SourceBytes": true
+      },
+      {
+        "path": "prototype/data/real/grocery-supply.json",
+        "sha256": "1ba2b27cf247cbfb11214a3e3a007393b863e3a37aab0809f0a5e1ef813865ff",
+        "matches1_7_1SourceBytes": true
+      },
+      {
+        "path": "prototype/data/real/nonbank-supply.json",
+        "sha256": "6474915e47611b97b931454ee33ff5a9126e9b45b458ee943036e5611d9c4c0b",
+        "matches1_7_1SourceBytes": true
+      },
+      {
+        "path": "prototype/data/real/nonbank-assignment-bounds.json",
+        "sha256": "8f66548ef51ed3791d36d84755c7ea94e4e95264dc780c332c7b25b2f6705905",
+        "matches1_7_1SourceBytes": true
+      },
+      {
+        "path": "prototype/data/real/nonbank-bkk-membership.json",
+        "sha256": "286445a2f3791551311eb2c70455967e534867845af6368fc4e1a3b32b551e07",
+        "matches1_7_1SourceBytes": true
+      },
+      {
+        "path": "prototype/data/real/nonbank-company-scopes.json",
+        "sha256": "e37d82157f8ec5e24dc6771f3c6d901fa6d1d15e1384f9b0dcd1837b3d912a7d",
+        "matches1_7_1SourceBytes": true
+      },
+      {
+        "path": "prototype/data/brand-presets.v1.7.json",
+        "sha256": "a20aeb4294a916d997b2105e3d6f69125743f66dfc920061f6e749a6617a896c",
+        "matches1_7_1SourceBytes": true
+      }
+    ],
+    "claimLimit": "Protected evaluator/metric/relative/fine aggregate and preset bytes match prior release. Current 14 scripts test source/model integration. No new exhaustive model-parity/device claim is inferred."
+  },
+  "runtimeHashes": {
+    "prototype/map-analysis.js": "f39d23ccc006f069c95938cd25ab855cb810cdfdb42365c5a28d8bd391c56ea4",
+    "prototype/analysis-ui.js": "bdea1470ee50dc2480d0ee59c3f5fec6de8e1cfaecd6fd6624cfcd6a1fbd3ca4",
+    "prototype/analysis-ui.css": "511d11d3ae07bf80037b78f347e7d20d81a1c6f73331064a45e49893a533a31f",
+    "prototype/workspace-map.js": "f9c7319ad1575fac01448d9d5aa66401c7b47e3873f0520f72bbccf3fc188d4e",
+    "prototype/workspace-map.css": "5d8429c35b858e4917bdf5e047f7bddc2da1b6118bc407c2af255f215df77427",
+    "prototype/workspace-layout.css": "7a33c6b559e030cc1a90baee1280f89085f015f2e9356f198413b9708ad2a892",
+    "prototype/decision-ui.js": "bfb1a41cc2ad6f027f8d51636f7f9c1c203eab246ae5e4c7d9228df2e55d07f0",
+    "prototype/decision-ui.css": "48a01d16416dce290ad15370c2a9048bd7e36ae8be58e2832aeda77721241e08",
+    "prototype/app.js": "028db6492f90a1f9ead3af9e7349a8600c56017c1be648488470b89d549fcd5d",
+    "prototype/bootstrap.js": "b85a32fa0e89f1812232cbc1d7443af3de4d008c694462428bdf15a714b6e9c8",
+    "prototype/icons.js": "d6169c5a18979b8925d4ee4cfb2529ec8c32c8d9397019f7cf60fd1b6105f2f4",
+    "prototype/icons.css": "d4ee2209da06f499ec2f3ceea50e317fdad173e8e929501d70c35229e17c133e"
+  },
+  "browserReview": {
+    "status": "PASS_bounded_native_Chrome_viewport_review",
+    "receipt": "evidence/browser-v1.7.2/native-browser-review.json",
+    "sha256": "0b1d6e8f3012ea6acd4f6f9f69fc15b62bfe688bf166d9b667efd702803b8e1b",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "observedCombinations": [
+      "Thai/dark",
+      "English/light"
+    ],
+    "fullLanguageThemeMatrix": false,
+    "physicalDeviceTested": false,
+    "screenshots": 10,
+    "authority": "Current release owner native Chrome review; screenshots verified by bytes/hash."
+  },
+  "publication": {
+    "status": "PENDING",
+    "providerReceipt": null,
+    "liveByteReceipt": null
+  },
+  "limits": [
+    "Node/source/DOM/Leaflet-shaped checks do not prove browser rendering or physical-device responsiveness.",
+    "Current native review is bounded to Thai/dark and English/light at 1440×900 and 390×844; no full language/theme matrix or physical-device claim.",
+    "External Google providers/results, physical devices, Safari/Firefox and full accessibility are unverified.",
+    "Scoped DS checks do not imply full vendor/system DS conformance.",
+    "Static preview remains browser-local; no shared backend or real email/LINE delivery."
+  ]
+}

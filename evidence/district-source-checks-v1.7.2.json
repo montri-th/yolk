@@ -1,0 +1,210 @@
+{
+  "schemaVersion": "yolk.bounded_native_district_source_checks/1.0",
+  "version": "1.7.2",
+  "checkedOn": "2026-10-04",
+  "status": "PASS",
+  "scope": "Compact native direct district/province adapters verified against privately retained acquisition responses. This is source/model evidence, not browser, operations, legal boundary or business-result certification.",
+  "publicReads": {
+    "requests": 391,
+    "successful": 391
+  },
+  "nativeDistricts": 928,
+  "directProvinces": 77,
+  "hierarchyFaults": 0,
+  "industrySummary": {
+    "fuel": {
+      "expected": 928,
+      "present": 928,
+      "zero": 47,
+      "districtTotal": 8736,
+      "provinceTotal": 8736,
+      "countryTotal": 8736,
+      "countryDimensionResidual": {},
+      "allProvinceDimensionTotalsMatch": true
+    },
+    "grocery": {
+      "expected": 928,
+      "present": 928,
+      "zero": 2,
+      "districtTotal": 27608,
+      "provinceTotal": 27608,
+      "countryTotal": 27608,
+      "countryDimensionResidual": {},
+      "allProvinceDimensionTotalsMatch": true
+    },
+    "nonbank": {
+      "expected": 928,
+      "present": 928,
+      "zero": 0,
+      "districtTotal": 23524,
+      "provinceTotal": 23524,
+      "countryTotal": 23524,
+      "countryDimensionResidual": {},
+      "allProvinceDimensionTotalsMatch": true,
+      "mappedDistrictTotal": 17752
+    }
+  },
+  "directDenominatorCoverage": {
+    "areaKm2": {
+      "expected": 928,
+      "known": 928,
+      "missing": 0,
+      "zero": 0,
+      "sum": 515415.5890198392,
+      "nonpositive_not_valid_for_rate": 0
+    },
+    "population": {
+      "expected": 928,
+      "known": 928,
+      "missing": 0,
+      "zero": 0,
+      "sum": 64471433,
+      "nonpositive_not_valid_for_rate": 0
+    },
+    "adult_population_20_64": {
+      "expected": 928,
+      "known": 928,
+      "missing": 0,
+      "zero": 0,
+      "sum": 41668998,
+      "nonpositive_not_valid_for_rate": 0
+    },
+    "working_age_15_64": {
+      "expected": 928,
+      "known": 928,
+      "missing": 0,
+      "zero": 0,
+      "sum": 45561983,
+      "nonpositive_not_valid_for_rate": 0
+    },
+    "gfa": {
+      "expected": 928,
+      "known": 928,
+      "missing": 0,
+      "zero": 0,
+      "sum": 11699179539.261314,
+      "nonpositive_not_valid_for_rate": 0
+    },
+    "building_count": {
+      "expected": 928,
+      "known": 928,
+      "missing": 0,
+      "zero": 0,
+      "sum": 29433348,
+      "nonpositive_not_valid_for_rate": 0
+    }
+  },
+  "provinceContextCoverage": {
+    "areaKm2": {
+      "expected": 77,
+      "known": 77
+    },
+    "population": {
+      "expected": 77,
+      "known": 77
+    },
+    "adult_population_20_64": {
+      "expected": 77,
+      "known": 77
+    },
+    "working_age_15_64": {
+      "expected": 77,
+      "known": 77
+    },
+    "gfa": {
+      "expected": 77,
+      "known": 77
+    },
+    "building_count": {
+      "expected": 77,
+      "known": 77
+    }
+  },
+  "formulas": {
+    "count_per_km2": "count / districtContext.areaKm2; source land area, require>0",
+    "count_per_10000_population": "count / direct districtContext.population *10000;2026-08 require>0",
+    "count_per_100000_gfa": "count / direct districtContext.gfa *100000;V4 modeled GFA, require>0",
+    "district_rate_policy": "No average of fine-area rates; no sums of district rates or medians; direct same-grain numerator and denominator only"
+  },
+  "independentSourceComparison": {
+    "status": "PASS",
+    "tests": [
+      {
+        "check": "391 archived response hashes and successful public values",
+        "comparisons": 391,
+        "status": "PASS",
+        "errorCount": 0
+      },
+      {
+        "check": "1005 district/province contexts×6direct metrics and states exact",
+        "comparisons": 6030,
+        "status": "PASS",
+        "errorCount": 0
+      },
+      {
+        "check": "fuel native928 count rows exact; everycountry/province/dimension reconciles",
+        "comparisons": 7568,
+        "status": "PASS",
+        "errorCount": 0
+      },
+      {
+        "check": "grocery native928 count rows exact; everycountry/province/dimension reconciles",
+        "comparisons": 8981,
+        "status": "PASS",
+        "errorCount": 0
+      },
+      {
+        "check": "nonbank native928 count rows exact; everycountry/province/dimension reconciles",
+        "comparisons": 11257,
+        "status": "PASS",
+        "errorCount": 0
+      },
+      {
+        "check": "Public metadata source references and4pinned adapter hashes",
+        "comparisons": 22280,
+        "status": "PASS",
+        "errorCount": 0
+      }
+    ],
+    "comparisons": 56507,
+    "errorCount": 0
+  },
+  "privateEvidenceHashes": {
+    "district-source-qa.json": "da8d21269ed6d825a15d0cb8489c8439adecaedd9a03d10b124433e01f78d8f6",
+    "district-adapter-validation.json": "f2a5f3db36890c5af9be8b96b94cb26767e56dccc4671f1bd4e003c80b90f763"
+  },
+  "publicFiles": [
+    {
+      "path": "prototype/data/real/district-context.json",
+      "bytes": 1187121,
+      "sha256": "29a07da00dcf03933616ac9c45d2b8494f9bb0ba9da060d823fd0755fc7c7d45"
+    },
+    {
+      "path": "prototype/data/real/fuel-district-supply.json",
+      "bytes": 1329825,
+      "sha256": "9287d66febdbc56e21fc0767e740792116d29fece67f9a85d41daba47fd60be2"
+    },
+    {
+      "path": "prototype/data/real/grocery-district-supply.json",
+      "bytes": 1406099,
+      "sha256": "5875be480c755022f535b7dbae2060e528ef392216892d9118e973d3f1583842"
+    },
+    {
+      "path": "prototype/data/real/nonbank-district-supply.json",
+      "bytes": 1470103,
+      "sha256": "517118c87cc4beff978730e7e05e7b4690633e382b7013934b64a6ad1b13420a"
+    },
+    {
+      "path": "prototype/data/real/district-source-provenance.json",
+      "bytes": 2617,
+      "sha256": "594e26bf86edae6f93f22b5e68f29759d2b194fac4c60b859bd74fd64d2430cf"
+    }
+  ],
+  "privacy": "Only bounded checks and approved public adapters/provenance are emitted. Full source responses, acquisition manifests/logs and internal archive paths remain private.",
+  "limits": [
+    "Totals do not imply complete POI coordinate coverage or active operations.",
+    "Non-bank legal entity identity does not prove branch product/function eligibility.",
+    "Fine geography residual/reconciliation bounds are not applied to native direct D/P.",
+    "Population/GFA are contextual source/modelled inputs, not observed purchasers or borrowers."
+  ]
+}
