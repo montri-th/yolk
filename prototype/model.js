@@ -130,7 +130,7 @@ function computeEvaluation(c=Y.criteria){
 
 function contextComparator(a,b){return Number(b.eligible)-Number(a.eligible)||confirmedTier(a)-confirmedTier(b)||(b.pathStrength??-1)-(a.pathStrength??-1)||a.id.localeCompare(b.id)}
 const evaluationCache=new Map();
-function evaluate(c=Y.criteria){if(criteriaErrors(c).length)return [];let key=Y.industry+'|'+Y.ownBrandId+'|'+Y.supplyScope+'|'+window.YOLK_RUNTIME.revision+'|'+JSON.stringify(c);if(evaluationCache.has(key))return evaluationCache.get(key);let result=computeEvaluation(c);evaluationCache.set(key,result);if(evaluationCache.size>8)evaluationCache.delete(evaluationCache.keys().next().value);return result}
+function evaluate(c=Y.criteria){if(criteriaErrors(c).length)return [];let key=Y.industry+'|'+Y.ownBrandId+'|'+Y.supplyScope+'|'+window.YOLK_RUNTIME.revision+'|'+JSON.stringify(c);if(evaluationCache.has(key)){const hit=evaluationCache.get(key);evaluationCache.delete(key);evaluationCache.set(key,hit);return hit;}let result=computeEvaluation(c);evaluationCache.set(key,result);if(evaluationCache.size>8)evaluationCache.delete(evaluationCache.keys().next().value);return result}
 function diffCriteria(a,b){
  let keys=['buildingP1','buildingP2','activityP','activityT1','activityT2','activityT3','buildingEnabled','activityEnabled','extraMetrics','extraP','demandMode','maxDemandTier','ownMany','competitorMany','patterns','rankingMode','paths','cohortMode','positivePresence','buildingMetricIds','activityMetricIds'];
  let changes=keys.filter(k=>JSON.stringify(a[k])!==JSON.stringify(b[k])).map(k=>({field:k,before:a[k],after:b[k]}));

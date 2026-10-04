@@ -1,11 +1,11 @@
 ---
 document_id: yolk.handoff.three_industries
-version: 1.6.0
+version: 1.6.1
 date: 2026-10-03
 status: approved_public_static_preview
 start: START_HERE.md
 asset_manifest: contracts/assets.v1.6.json
-release_manifest: contracts/release.v1.6.0.json
+release_manifest: contracts/release.v1.6.1.json
 ---
 
 # ส่งต่อ dev — Yolk · 3 ธุรกิจ · LDS 0.9.7
@@ -76,11 +76,17 @@ Production ยังต้องเชื่อม SourceRelease ที่อน
 python3 scripts/verify-pages-v1.6.py
 node scripts/check-three-industry.cjs
 node scripts/check-photo-runtime.cjs
+node scripts/check-criteria-map.cjs
+node scripts/check-criteria-controls.cjs
 python3 -m http.server 8854 --bind 127.0.0.1
 ```
 
 เปิด [เว็บเผยแพร่](https://montri-th.github.io/yolk/) หรือ /prototype/ เมื่อรันในเครื่อง ตัว Pages artifact อยู่ที่ prototype/ และมี runtime contracts สองไฟล์ใน contracts/ ใต้ artifact ให้รักษาสำเนาตรงกับ root contracts ทุกครั้งที่ release
 
-Public source รวม runtime projections, assets/licences, product/implementation contracts และหลักฐานสรุป ไม่รวม raw HTTP gzip archive, full normalized source inputs หรือ browser logs ของเครื่องทำงาน Full local handoff 1.6-preview.1 เป็น snapshot ก่อนเผยแพร่; source นี้มี deployment paths, public reference links และ metadata รุ่น 1.6.0 ที่ปรับสำหรับ Pages ดู [public manifest](contracts/pages-public-manifest.v1.6.0.json) สำหรับ exact published file hashes
+Public source รวม runtime projections, assets/licences, product/implementation contracts และหลักฐานสรุป ไม่รวม raw HTTP gzip archive, full normalized source inputs หรือ browser logs ของเครื่องทำงาน Full local handoff 1.6-preview.1 เป็น snapshot ก่อนเผยแพร่; source รุ่น1.6.1 เพิ่ม criteria workspace, slider/exact control และผลเทียบรายจังหวัด โดยคง data/profile/metric bytes ของ1.6.0 ดู [public manifest](contracts/pages-public-manifest.v1.6.1.json) สำหรับ exact published file hashes
 
 ห้ามเรียกการเปิด public preview ว่า shared production backend หรือการทดสอบเครื่องมือถือจริง การแก้ไขจากผู้ใช้แต่ละคนยังอยู่ใน browser ของคนนั้น
+
+## Criteria workspace1.6.1
+
+เริ่มจาก [คู่มือ UI และขั้นรับงาน](docs/CRITERIA_WORKSPACE_v1.6.1.md) + [machine contract](contracts/criteria-workspace.v1.6.1.json) + [browser receipt](evidence/criteria-workspace-v1.6.1/browser-qa.json) ใช้ evaluator เดิมกับ baseline/draft จาก context เดียวกัน การกรองจังหวัดไม่ rebase cohort; weight เปลี่ยนอันดับ ไม่เปลี่ยนสมาชิก ค่า draft ไม่สร้าง event ทีมก่อน Apply

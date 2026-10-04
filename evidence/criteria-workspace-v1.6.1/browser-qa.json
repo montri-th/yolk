@@ -1,0 +1,98 @@
+{
+  "version": "1.6.1",
+  "date": "2026-10-04",
+  "scope": "Actual Chrome rendered local preview via browser UI. Temporary viewport sizes are not physical-device tests. Provider/live evidence remains separate.",
+  "sourceParity": {
+    "againstCommit": "12d1d030ad0e91bfbd24b2f9ea07c36d532d214e",
+    "unchanged": "all runtime real-data JSON, industry-profiles, criteria-proposal, runtime presets and metrics.js"
+  },
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      1366,
+      768
+    ],
+    [
+      1000,
+      768
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      320,
+      740
+    ]
+  ],
+  "renderedExamples": [
+    "desktop TH dark expanded Supply added",
+    "desktop EN dark expanded ranking",
+    "desktop EN light Nonbank default",
+    "mobile TH dark sticky Supply",
+    "mobile EN light sticky Grocery exact percentile",
+    "320px EN light overflow/expanded resize"
+  ],
+  "observations": [
+    {
+      "action": "Fuel own high threshold 3 to4 using keyboard range",
+      "result": "915 to966 confirmed; +51 / -0. Input focus stays on same range node."
+    },
+    {
+      "action": "Fuel own high threshold 3 to5 via exact field",
+      "result": "915 to1005; +90 / -0. At390px map top0 and height380 while editing."
+    },
+    {
+      "action": "Fuel weight ownGap20 to21 only",
+      "result": "915 to915; +0 / -0;726 existing ranks changed. Ranking province fills neutral, arrows and old-to-new positions visible."
+    },
+    {
+      "action": "Native mouse range drag and map pan",
+      "result": "Range updated exact value and results; pan changes viewBox. Home restores nationwide view."
+    },
+    {
+      "action": "Grocery path percentile99.7 exact",
+      "result": "Exact remains99.7; range handle100. 1455 membership unchanged and27 ranks changed for this single-path edit."
+    },
+    {
+      "action": "Blank percentile, then choose ChonBuri province",
+      "result": "Results paused; no stale paths; inspector cleared; Apply disabled; province dropdown does not throw."
+    },
+    {
+      "action": "Fuel primary metric replacement GFA tobuilding_count then range99 to100",
+      "result": "One paired slider remains, focus retained; result915 to1072 with +161 / -4."
+    },
+    {
+      "action": "Select ChonBuri through province filter",
+      "result": "Provincial list and viewBox change; national comparison/cohort do not rebase."
+    },
+    {
+      "action": "Industry switches Fuel/Grocery/Nonbank",
+      "result": "Default confirmed counts915/1455/37; brand threshold contexts preserved."
+    },
+    {
+      "action": "Expanded workspace resize to320px, Escape and tab-cycle",
+      "result": "Resize exits expanded mode; Escape returns focus to expand button. Tab wraps from last attribution link to active group tab and Shift+Tab back."
+    },
+    {
+      "action": "1000px navbar clearance after fit correction",
+      "result": "Workspace/map bottom636, mobile navbar top700; no horizontal overflow. 1440px map persists beside independently scrolling controls."
+    }
+  ],
+  "screenshots": [
+    "desktop-en-dark-ranking.jpg",
+    "desktop-en-light-nonbank.jpg",
+    "desktop-th-dark-added.jpg",
+    "mobile-en-light-grocery.jpg",
+    "mobile-th-dark-supply.jpg"
+  ],
+  "limits": [
+    "No physical phone/touch hardware/Safari/Firefox certification.",
+    "No exhaustive zoom/contrast certification.",
+    "No shared backend or external team notifications.",
+    "Map is province summary, not fabricated7954 area polygons."
+  ]
+}

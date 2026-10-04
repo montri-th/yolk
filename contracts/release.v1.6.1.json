@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "yolk.public_release/1.6",
+  "version": "1.6.1",
+  "approvedSourcePreview": "1.6.1-criteria-workspace",
+  "date": "2026-10-04",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "dataSemanticsUnchanged": true,
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "ownerAuthorization": "Owner authorized the existing Yolk public preview and requested criteria/map usability improvements on2026-10-04.",
+  "publicationDelta": [
+    "Persistent map beside independently scrolling criteria controls",
+    "Sliders paired with precise numeric inputs",
+    "Province eligible/added/removed/review/rank comparisons",
+    "Expanded workspace and mobile sticky map",
+    "Human/machine UX implementation handoff"
+  ],
+  "providerEvidence": "GitHub Actions run for the containing commit; terminal success and remote-byte attestation must be checked after deployment.",
+  "nativeDeviceGate": "Not assessed; prior viewport emulation is not physical-device verification."
+}

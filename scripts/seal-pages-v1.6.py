@@ -18,19 +18,19 @@ html=re.sub(r'(href|src)=([\"\'])([^\"\']+\.(?:css|js))(?:\?v=[^\"\']*)?\2',
 index.write_text(html)
 assets=[{'path':p.relative_to(ROOT).as_posix(),'bytes':p.stat().st_size,'sha256':sha(p)}
         for p in sorted((ROOT/'prototype').rglob('*')) if p.is_file()]
-write('contracts/assets.v1.6.json',{'schemaVersion':'yolk.assets/1.6','version':'1.6.0','dsVersion':'0.9.7',
+write('contracts/assets.v1.6.json',{'schemaVersion':'yolk.assets/1.6','version':'1.6.1','dsVersion':'0.9.7',
       'entrypoint':'prototype/index.html','publicPath':'https://montri-th.github.io/yolk/','assetFiles':assets,
-      'source':'Approved1.6-preview.1 with publication-only paths/reference-links/identity changes. Data values and decision rules unchanged.'})
-selected=set(json.loads((ROOT/'contracts/public-copy-selection.v1.6.0.json').read_text())['selectedFiles'])
+      'source':'Criteria workspace UX1.6.1; source values, profiles and decision rules unchanged.'})
+selected=set(json.loads((ROOT/'contracts/public-copy-selection.v1.6.1.json').read_text())['selectedFiles'])
 selected.update(row['path'] for row in assets)
-selected.update(['.github/workflows/pages.yml','.nojekyll','evidence/QA.md','contracts/release.v1.6.0.json',
-                 'contracts/public-copy-selection.v1.6.0.json','scripts/verify-pages-v1.6.py','scripts/seal-pages-v1.6.py',
+selected.update(['.github/workflows/pages.yml','.nojekyll','evidence/QA.md','contracts/release.v1.6.1.json',
+                 'contracts/public-copy-selection.v1.6.1.json','scripts/verify-pages-v1.6.py','scripts/seal-pages-v1.6.py',
                  'evidence/share-image-v1.6.json','design/share-v1.6.html','design/yolk-share-v1.6-browser.jpg'])
 rows=[{'path':name,'bytes':(ROOT/name).stat().st_size,'sha256':sha(ROOT/name)} for name in sorted(selected)]
-manifest={'schemaVersion':'yolk.public_artifact/1.6','version':'1.6.0','acceptedLocalSource':'1.6-preview.1','date':'2026-10-03',
+manifest={'schemaVersion':'yolk.public_artifact/1.6','version':'1.6.1','acceptedLocalSource':'1.6.1-criteria-workspace','date':'2026-10-04',
           'publicUrl':'https://montri-th.github.io/yolk/','artifactPath':'prototype','files':rows,
-          'hashExclusions':['contracts/pages-public-manifest.v1.6.0.json','handoff-manifest.json','SHA256SUMS.txt'],
+          'hashExclusions':['contracts/pages-public-manifest.v1.6.1.json','handoff-manifest.json','SHA256SUMS.txt'],
           'sourceEvidenceBoundary':'Compact public runtime projections and bounded summaries; full normalized acquisition/archive and detailed browser logs remain in local handoff.'}
-write('contracts/pages-public-manifest.v1.6.0.json',manifest);write('handoff-manifest.json',manifest)
+write('contracts/pages-public-manifest.v1.6.1.json',manifest);write('handoff-manifest.json',manifest)
 (ROOT/'SHA256SUMS.txt').write_text(''.join(r['sha256']+'  '+r['path']+'\n' for r in rows))
 print(json.dumps({'sealedFiles':len(rows),'bytes':sum(r['bytes'] for r in rows)}))

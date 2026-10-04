@@ -1,6 +1,6 @@
 ---
 document_id: yolk.start_here.three_industries
-version: 1.6.0
+version: 1.6.1
 entrypoint: prototype/index.html
 product_contract: contracts/product.v1.6.json
 criteria_contract: contracts/criteria-proposal.v1.6.json
@@ -21,6 +21,7 @@ UI เดิมของ Yolk + LDS 0.9.7 + snapshot จริง 7,954 พื�
 | เริ่มพัฒนา | [Implementation plan](IMPLEMENTATION_PLAN_v1.6.md) + [machine tasks](contracts/implementation-tasks.v1.6.json) |
 | ตรวจที่มาข้อมูล | [Source summary](evidence/data/SUMMARY.md) + [catalogue](evidence/data/source-catalogue.json) |
 | ต่อ DS และ assets | [Asset integration](DS_ASSET_INTEGRATION.md) |
+| เข้าใจการปรับเกณฑ์บนแผนที่ | [Criteria workspace](docs/CRITERIA_WORKSPACE_v1.6.1.md) |
 | ตรวจชุดส่งมอบ | [Handoff](HANDOFF.md) |
 
 ## ทดลองในเครื่อง
@@ -43,4 +44,4 @@ python3 -m http.server 8854 --bind 127.0.0.1
 
 อ่าน `AGENTS.md`, product/criteria/presets v1.6 และ DS 0.9.7 ใน `reference/lds-0.9.7/` เป็นหลัก เอกสาร v1.2–v1.5, release manifests และ scripts รุ่นเก่าที่เก็บไว้เป็นประวัติ ไม่ใช่หลักฐานตรวจรุ่นนี้ สูตร Fuel ที่รับไว้เดิมยังเป็น baseline ตามข้อกำหนดใหม่ที่ระบุชัด
 
-รุ่น 1.6.0 เผยแพร่เป็น static preview บน GitHub Pages ตามคำขอเจ้าของ ระบบเก็บการแก้ไขใน browser ของผู้ใช้แต่ละคน ไม่มี shared backend หรือ live Sheets sync ดู [หลักฐานและข้อจำกัด](evidence/QA.md) และ [release contract](contracts/release.v1.6.0.json)
+รุ่น 1.6.1 เผยแพร่เป็น static preview บน GitHub Pages ตามคำขอเจ้าของ ระบบเก็บการแก้ไขใน browser ของผู้ใช้แต่ละคน ไม่มี shared backend หรือ live Sheets sync ดู [หลักฐานและข้อจำกัด](evidence/QA.md) และ [release contract](contracts/release.v1.6.1.json)

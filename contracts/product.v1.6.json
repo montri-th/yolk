@@ -1,8 +1,8 @@
 {
   "schemaVersion": "yolk.product/1.6",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "status": "source_backed_static_preview_production_pending",
-  "date": "2026-10-03",
+  "date": "2026-10-04",
   "entrypoint": "prototype/index.html",
   "preserveOriginalUI": true,
   "activeIndustries": [
@@ -214,5 +214,6 @@
       "change every compositegroup operator",
       "absolute value gates beyond presetguard"
     ]
-  }
+  },
+  "experienceContract": "contracts/criteria-workspace.v1.6.1.json"
 }

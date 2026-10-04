@@ -24,6 +24,8 @@ jobs:
         run: |
           node scripts/check-three-industry.cjs
           node scripts/check-photo-runtime.cjs
+          node scripts/check-criteria-map.cjs
+          node scripts/check-criteria-controls.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static preview

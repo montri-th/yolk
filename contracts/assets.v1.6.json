@@ -1,6 +1,6 @@
 {
   "schemaVersion": "yolk.assets/1.6",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "dsVersion": "0.9.7",
   "entrypoint": "prototype/index.html",
   "publicPath": "https://montri-th.github.io/yolk/",
@@ -12,8 +12,8 @@
     },
     {
       "path": "prototype/app.js",
-      "bytes": 66446,
-      "sha256": "5462ed23baadff5338690159d6ab491818bc4882a84719f884dad05e8000cb0b"
+      "bytes": 68133,
+      "sha256": "9cb8dadf56af3d7e41097b091ee56e897eb291bdfba404a6b7adc58b4492adc1"
     },
     {
       "path": "prototype/assets/arvo-OFL.txt",
@@ -222,8 +222,8 @@
     },
     {
       "path": "prototype/bootstrap.js",
-      "bytes": 3653,
-      "sha256": "aae15569260d7c9a23c99a5b3f40e83d19f618fcfb91dcb647d6fbababc6dfc4"
+      "bytes": 3694,
+      "sha256": "aad93f1c1d36fec375a12ace9c7911e7fb167236c1f84438aa2f4cf3f1f9f0ee"
     },
     {
       "path": "prototype/branch-photos.css",
@@ -242,8 +242,28 @@
     },
     {
       "path": "prototype/contracts/runtime-asset-hashes.json",
-      "bytes": 1285,
-      "sha256": "2efc98bd1c549a32852f8fc683cfa97eda28f17d9491dd9e1c4bb3aa60f2b7fb"
+      "bytes": 1429,
+      "sha256": "3b58f34bac0a996c8afd7bbc35cefd7d0221a65ea91f55373f28fa5548851f92"
+    },
+    {
+      "path": "prototype/criteria-controls.css",
+      "bytes": 3197,
+      "sha256": "51a1925a81592a199b12edaa8a24bca4b0b913041d3daa3099e5f53fa9e4e0cb"
+    },
+    {
+      "path": "prototype/criteria-controls.js",
+      "bytes": 6847,
+      "sha256": "89ab2ea859d5b49a46db8041236364afc153c0ad5e0fde6ddd5b0d9e001bbe63"
+    },
+    {
+      "path": "prototype/criteria-map.css",
+      "bytes": 14734,
+      "sha256": "dd8b03ada6d57aa3c89ee4c984cea7c0bd9654f0edaefc073bfd34e436299fb3"
+    },
+    {
+      "path": "prototype/criteria-map.js",
+      "bytes": 19061,
+      "sha256": "e263121b2809fd59579297195febaa7df1f930b776da7d93b826d1e834c658cb"
     },
     {
       "path": "prototype/data/real/area-context.json",
@@ -342,8 +362,8 @@
     },
     {
       "path": "prototype/index.html",
-      "bytes": 4702,
-      "sha256": "f0662d2405b4f4970785d220879ad3fc2a32744df673c18991648d5cbe82c8d8"
+      "bytes": 4831,
+      "sha256": "682933964b1d5d984b7f5661ae31b8b30e2c3aca71b6e83d5acf25d1a9c0cf43"
     },
     {
       "path": "prototype/industry-workspace.css",
@@ -352,8 +372,8 @@
     },
     {
       "path": "prototype/industry-workspace.js",
-      "bytes": 22514,
-      "sha256": "3ecb2d44348b62b18e0e79ccb74c75a4d17e23b538bfa21edabaa94938f412b7"
+      "bytes": 22538,
+      "sha256": "1ea864c54fe38876660946d53116d3a94b78be8dd7eeaa5624fb653e7f008436"
     },
     {
       "path": "prototype/landscape.css",
@@ -387,8 +407,8 @@
     },
     {
       "path": "prototype/model.js",
-      "bytes": 29534,
-      "sha256": "0f4e8b9d7e0872946e61f47473a74e1fc8efdbd1ccb18085bb22594cedf08ed6"
+      "bytes": 29607,
+      "sha256": "83ccc83bb2e5ddbb8294ace204743f39b82982cf89245061353f4a52ff2e3174"
     },
     {
       "path": "prototype/supply-ui.js",
@@ -576,5 +596,5 @@
       "sha256": "ac1fd3fbfe92313de886c73a412e30f7cc03f8b6850ee1520d86556e0b87e5da"
     }
   ],
-  "source": "Approved1.6-preview.1 with publication-only paths/reference-links/identity changes. Data values and decision rules unchanged."
+  "source": "Criteria workspace UX1.6.1; source values, profiles and decision rules unchanged."
 }

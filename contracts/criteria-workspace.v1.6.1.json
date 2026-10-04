@@ -1,0 +1,309 @@
+{
+  "documentId": "yolk.criteria-workspace",
+  "version": "1.6.1",
+  "date": "2026-10-04",
+  "status": "preview_implementation_release_verification_recorded_separately",
+  "humanDocument": "docs/CRITERIA_WORKSPACE_v1.6.1.md",
+  "analyticalContractsUnchanged": [
+    "contracts/criteria-proposal.v1.6.json",
+    "contracts/industry-profiles.json"
+  ],
+  "runtimeFiles": [
+    "prototype/app.js",
+    "prototype/criteria-map.js",
+    "prototype/criteria-map.css",
+    "prototype/criteria-controls.js",
+    "prototype/criteria-controls.css"
+  ],
+  "scope": {
+    "industries": [
+      "fuel",
+      "grocery",
+      "nonbank"
+    ],
+    "draftKey": [
+      "workspace",
+      "industry",
+      "ownEntity",
+      "formatOrProduct",
+      "profileVersion"
+    ],
+    "nationalReportingUnits": 7954,
+    "bangkokDefault": "khwaeng",
+    "upcountryDefault": "local_authority",
+    "benchmarkRebasedByPersonalMapFilter": false,
+    "sourceAggregateAffectedByLocalPOIEdit": false
+  },
+  "layout": {
+    "desktopMinWidthPx": 1000,
+    "desktop": {
+      "controls": "independently_scrolling_panel",
+      "map": "large_persistent_panel_in_same_viewport",
+      "height": "fit_available_viewport_after_header_and_context",
+      "preserveDuringAdjustment": [
+        "inputNode",
+        "focus",
+        "selectedProvince",
+        "mapViewBox"
+      ],
+      "expandedWorkspace": {
+        "action": "explicit_expand_and_exit_button",
+        "contents": "controls_and_map_fill_viewport",
+        "keyboard": "focus_trap_escape_exit_focus_return",
+        "resizeBelowDesktop": "exit_expanded_mode_keep_draft_and_map_context",
+        "apply": "existing_explicit_apply_available_in_control_footer"
+      }
+    },
+    "mobile": {
+      "map": "compact_sticky_panel",
+      "defaultHeightPx": 380,
+      "widthAtMost380HeightPx": 350,
+      "locations": "explicit_toggle_for_result_list",
+      "resultsOpenHeightPx": 470,
+      "widthAtMost380ResultsOpenHeightPx": 430,
+      "controls": "tabbed_panel_below_map",
+      "reviewActualSafeAreaAndNavbar": true
+    },
+    "tabs": [
+      "demand",
+      "supply",
+      "types",
+      "weights"
+    ],
+    "languages": [
+      "th",
+      "en"
+    ],
+    "themes": [
+      "light",
+      "dark",
+      "system"
+    ],
+    "inputMethods": [
+      "mouse",
+      "touch",
+      "keyboard"
+    ]
+  },
+  "numericControls": {
+    "pairing": "native_range_and_existing_exact_number_input_share_one_parameter",
+    "preserveOriginalInputNodeAndLabel": true,
+    "emptyIsZero": false,
+    "rangeStep": 1,
+    "percentile": {
+      "rangeMin": 1,
+      "rangeMax": 100,
+      "exactDecimals": "preserve_existing_validator"
+    },
+    "hitCount": {
+      "rangeMin": 1,
+      "rangeMax": "metric_control_count_in_group",
+      "exactBounds": "preserve_existing_input_and_validator"
+    },
+    "supplyThreshold": {
+      "rangeMin": "existing_input_min_or_1",
+      "rangeMax": "existing_input_max_or_100",
+      "exactKind": "integer"
+    },
+    "weight": {
+      "rangeMin": 0,
+      "rangeMax": 100,
+      "zeroIsValid": true
+    },
+    "outsideSliderRange": "retain_exact_value_and_show_note_without_silent_coercion",
+    "disabled": "propagate_input_and_fieldset_disabled_state",
+    "bridge": "one_original_number_input_mutation_per_range_input",
+    "accessibility": [
+      "meaningful_label",
+      "aria_valuetext",
+      "visible_focus",
+      "keyboard_range_operation"
+    ]
+  },
+  "preview": {
+    "baseline": "current_committed_criteria_revision_in_same_context",
+    "next": "current_private_draft",
+    "evaluator": "existing_evaluate_without_formula_changes",
+    "identity": "exact_reporting_uuid",
+    "sets": {
+      "eligible": "draftRows.filter(row => row.eligible)",
+      "added": "draftEligibleIds minus teamEligibleIds",
+      "removed": "teamEligibleIds minus draftEligibleIds",
+      "review": "draftRows.filter(row => row.reviewCandidate)",
+      "rank": "draftEligibleIds intersect teamEligibleIds where one_based_rank_changed"
+    },
+    "ranks": "one_based_order_within_each_evaluator_eligible_result_set",
+    "rankMovementMayFollowMembershipChange": true,
+    "weightsChangeEligibility": false,
+    "invalidDraft": "pause_results_clear_stale_map_and_list_disable_apply",
+    "teamEventsBeforeApply": false,
+    "updateScheduling": {
+      "input": "write_parameter_immediately_then_coalesce_display_evaluation",
+      "intervalMs": 120,
+      "change": "flush_final_value",
+      "guard": [
+        "route_is_criteria",
+        "context_key_unchanged"
+      ],
+      "replaceAllControlsEveryInputTick": false
+    }
+  },
+  "map": {
+    "boundaryGrain": "province",
+    "provinceCount": 77,
+    "fabricatedReportingAreaPolygons": false,
+    "badgePositionMeansBranchCoordinate": false,
+    "badgeCollisionPolicy": "hide_overlapping_badges_keep_full_counts_in_province_list",
+    "provinceSelectionChangesBenchmark": false,
+    "layers": [
+      "eligible",
+      "added",
+      "removed",
+      "review",
+      "rank"
+    ],
+    "heat": {
+      "meaning": "maximum_known_demand_signal_percentile_among_demand_true_rows_in_shown_layer",
+      "rankingScore": false,
+      "areaCount": false,
+      "provinceWideDemandScore": false,
+      "classes": [
+        {
+          "label": "<P95",
+          "hex": "#FFF6CF"
+        },
+        {
+          "label": "P95–<P99",
+          "hex": "#F5B323"
+        },
+        {
+          "label": "P99–P100",
+          "hex": "#C72D10"
+        }
+      ],
+      "sameDataHexBothThemes": true,
+      "unchangedColorMayAccompanyChangedCountOrRank": true,
+      "excludedLayers": [
+        "review",
+        "rank"
+      ]
+    },
+    "reviewCue": "hatching_and_label_excluded_from_confirmed_count",
+    "rankCue": "neutral_province_fill_arrow_pair_count_and_team_rank_to_draft_rank",
+    "noRowsInLayer": "neutral_surface_not_no_market_claim",
+    "resultList": {
+      "firstRowsLimit": 30,
+      "showTruncationCount": true,
+      "narrowByProvince": true
+    },
+    "inspector": "selected_area_draft_tier_supply_and_membership",
+    "detailLink": "explicitly_labeled_committed_team_criteria_detail"
+  },
+  "commit": {
+    "action": "explicit_apply",
+    "requirements": [
+      "can_edit",
+      "valid_draft",
+      "nonempty_diff",
+      "base_revision_matches"
+    ],
+    "success": "one_criteria_revision_and_one_event",
+    "failure": "preserve_private_draft",
+    "themeLanguageMapTabAndDraftActionsGenerateTeamEvents": false,
+    "previewCollaboration": "browser_storage_simulation",
+    "production": "server_validation_revision_lock_transactional_event_outbox_remaining_work"
+  },
+  "designSystem": {
+    "release": "LDS 0.9.7 / v0.9.7-owner.1 / color-srgb-10",
+    "analyticalColorTransformationByTheme": false,
+    "preserveOriginalVerifiedLogoAndIcons": true,
+    "motifs": false,
+    "logoFrameOrBackingPlate": false,
+    "decorativeBracketsOrSelectedColoredLeftRail": false
+  },
+  "acceptance": [
+    {
+      "id": "CW-01",
+      "behavior": "desktop controls scroll without moving map out of the working viewport"
+    },
+    {
+      "id": "CW-02",
+      "behavior": "range and exact entry yield the same parameter and evaluator result"
+    },
+    {
+      "id": "CW-03",
+      "behavior": "exact decimal remains exact and blank remains invalid rather than zero"
+    },
+    {
+      "id": "CW-04",
+      "behavior": "added and removed UUID sets stay visible when net count is zero"
+    },
+    {
+      "id": "CW-05",
+      "behavior": "weights-only change preserves membership and displays changed ranks"
+    },
+    {
+      "id": "CW-06",
+      "behavior": "review remains separate from confirmed and unknowns are not zero"
+    },
+    {
+      "id": "CW-07",
+      "behavior": "invalid draft pauses results and does not show stale output as current"
+    },
+    {
+      "id": "CW-08",
+      "behavior": "change flushes final slider value and context switch rejects obsolete work"
+    },
+    {
+      "id": "CW-09",
+      "behavior": "metric replacement restores paired controls with working labels"
+    },
+    {
+      "id": "CW-10",
+      "behavior": "adjustment preserves input focus selected province and map zoom"
+    },
+    {
+      "id": "CW-11",
+      "behavior": "draft emits no team event and successful Apply emits one event"
+    },
+    {
+      "id": "CW-12",
+      "behavior": "actual TH EN narrow desktop light dark renders remain readable and operable"
+    }
+  ],
+  "verification": {
+    "focusedCommands": [
+      "node scripts/check-criteria-controls.cjs",
+      "node scripts/check-criteria-map.cjs"
+    ],
+    "existingReleaseGates": [
+      "python3 scripts/verify-pages-v1.6.py",
+      "node scripts/check-three-industry.cjs",
+      "node scripts/check-photo-runtime.cjs"
+    ],
+    "browserEvidence": "record_actual_results_in_release_evidence_not_inferred_from_this_contract",
+    "nativeDeviceCoverage": "no_native_device_pass_claimed_by_this_contract"
+  },
+  "productionScalePlan": {
+    "status": "planned_not_existing_preview_capability",
+    "execution": "worker_or_existing_citymeter_calculation_service_after_stack_mapping",
+    "requestEnvelope": [
+      "requestId",
+      "contextKey",
+      "sourceReleaseId",
+      "cohortHash",
+      "baseRevision",
+      "draftHash"
+    ],
+    "responseAcceptance": "latest_request_and_matching_context_source_and_draft",
+    "cancelObsoleteWhenPossible": true,
+    "cacheBaselineBy": [
+      "sourceReleaseId",
+      "cohortHash",
+      "contextKey",
+      "committedRevision"
+    ],
+    "serverCommit": "validate_and_lock_revision_then_write_revision_event_outbox_in_one_transaction",
+    "newAreaGeometry": "verified_provenance_and_crosswalk_required_extent_is_fit_only"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "passed": 18,
+  "checks": [
+    "Added and removed are identity differences, not a net count",
+    "Weights-only reordered results retain membership and report changed existing ranks",
+    "A newly inserted leading location moves old ranks without treating them as new",
+    "Review candidates remain separate from confirmed membership",
+    "Confirmed low-demand patterns remain eligible without becoming Yolks",
+    "Guaranteed selected-group membership survives an unresolved exact pattern",
+    "Unknown demand is not included unless upstream evaluation confirms membership",
+    "An eligible result becoming review is removed once and queued for review",
+    "Snapshot never reorders or mutates supplied result rows",
+    "Province results include eligible low Demand while keeping its polygon outside warm Yolk classes",
+    "Review map hatches pending evidence and does not increase confirmed counts",
+    "Rank map isolates moved existing locations instead of repainting all qualifying locations",
+    "Invalid numeric settings pause the map instead of reporting zero matches",
+    "Province selection stays safe while invalid settings leave no rendered path",
+    "Selected draft inspector and province filter stay synchronized, then clear for invalid criteria",
+    "Province select narrows the location list but retains nationwide comparison totals and criteria",
+    "Mobile results toggle exposes and collapses the panel without changing criteria",
+    "Switching brand/context resets result layer without emitting shared actions"
+  ],
+  "scope": "Pure snapshot and DOM-stub map contracts; browser layout, pointer behavior and live deployment are separate checks."
+}

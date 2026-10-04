@@ -1,11 +1,12 @@
 ---
 document_id: yolk.implementation.three_industries
-version: 1.6-preview.1
-date: 2026-10-03
+version: 1.6.1
+date: 2026-10-04
 machine_tasks: contracts/implementation-tasks.v1.6.json
 product: CityMETER_Yolk_Product_Statement_v1.6.md
 entrypoint: prototype/index.html
 status: prototype_exists_production_work_remaining
+experience_contract: contracts/criteria-workspace.v1.6.1.json
 ---
 
 # แผนพัฒนา Yolk — เริ่มจากของเดิม ทำทีละงานที่ตรวจได้
@@ -27,6 +28,9 @@ status: prototype_exists_production_work_remaining
 | `prototype/data/real/*` | snapshot ที่ normalize สำหรับเดโม ไม่มี live sync |
 | `landscape.js`, `location-map.js`, `supply-ui.js`, `branch-photos.js` | market evidence, map, CRUD และ photo drafts เดิม |
 | `theme.js`, `icons.js`, `prototype/assets/*` | ธีม ฟอนต์ โลโก้ ไอคอนและภาพตัวอย่างตาม role |
+| `prototype/criteria-map.js`, `criteria-map.css` | แผนที่ผลแบบร่างคงอยู่ขณะปรับค่า สรุปรายจังหวัด แยกผ่าน/เข้าใหม่/หลุด/รอตรวจ/อันดับ |
+| `prototype/criteria-controls.js`, `criteria-controls.css` | แถบเลื่อนคู่ช่องกรอกค่า เชื่อมกลับ interaction เดิมโดยไม่เปลี่ยนสูตร |
+| `contracts/criteria-workspace.v1.6.1.json` | สัญญา UX และ acceptance ของหน้าเกณฑ์รุ่น 1.6.1; ไม่แทนสัญญาสูตร v1.6 |
 
 ชื่อ path ของบริการ production ด้านล่างเป็น **module ที่ต้อง map เข้ากับ stack จริงใน Task 00** ไม่อ้างว่ามี API/database/queue แล้ว
 
@@ -108,13 +112,21 @@ Fuel weighted70/20/10 คงเดิม Grocery/Non-bank เริ่ม contex
 
 **รับงานเมื่อ:** weights เปลี่ยน rank แต่ไม่เปลี่ยน membership; deterministicties; exactpatternunknown แต่ guaranteedpreferencemembership ทำงาน; reviewcandidate ไม่ปนรายชื่อ confirmed
 
-### 08 — ต่อหน้าเกณฑ์และ preview diff
+### 08 — ต่อหน้าเกณฑ์ที่ดูแผนที่ไปด้วยได้
 
-รักษา 4 หมวด Demand / Supply / รูปแบบทำเลที่สนใจ / การจัดอันดับ Metric picker เริ่มที่ dataset แล้วแสดง metric, formula, unit, coverage, period Parameter defaults มาจาก profile user เปลี่ยน percentiles/count/minimum/groupoperator/weights ได้ใน scope ตนเอง
+อ่าน [UX contract](contracts/criteria-workspace.v1.6.1.json) และ [คำอธิบาย](docs/CRITERIA_WORKSPACE_v1.6.1.md) แล้วทำทีละขั้น:
 
-draft แสดงเพิ่ม/หาย/ยังต้องตรวจและอันดับก่อนกดใช้กับทีม validate ก่อน commit ส่ง`baseRevision`เพื่อป้องกัน editor คนอื่นแก้ทับ
+1. **จัดพื้นที่ทำงาน:** desktop ให้แผนที่ใช้พื้นที่หลัก ตัวปรับค่าเลื่อนอ่านแยกกันในแท็บ Demand / Supply / รูปแบบ / น้ำหนัก บนมือถือให้แผนที่ย่อคงอยู่และเปิดรายชื่อทำเลได้ ตรวจความสูง viewport จริงร่วมกับ navbar และ safe area
+2. **เชื่อมตัวปรับค่า:** ใช้ range คู่ input เดิม แสดงค่า หน่วย และช่วงเลื่อน ค่า percentile/จำนวน/น้ำหนักใช้ขอบเขตตามชนิด กรอกทศนิยมได้ตาม validator เดิม ห้ามให้ช่องว่างกลายเป็น 0 ห้ามสร้าง event mutation ซ้ำจาก input คู่กัน
+3. **คำนวณ diff จาก ID:** ใช้ evaluator เดียวกับหน้าหลัก เปรียบเทียบ revision ทีมกับ private draft หา eligible/added/removed/review/rank movement ทุกจังหวัด ไม่ใช้ผลต่างยอดรวมแทนชุดทำเลที่เข้าและหลุด
+4. **อัปเดตโดยไม่รบกวนการลาก:** ระหว่าง `input` รวมคำขอแสดงผลประมาณทุก 120ms; เมื่อ `change` ให้ flush ค่าสุดท้าย ตรวจ route และ context key ก่อนส่งผลขึ้นจอ รักษา focus ตัวปรับค่า จังหวัด และ zoom ที่เลือก ไม่ render ฟอร์มทั้งหน้าในทุก tick
+5. **บันทึกอย่างชัดเจน:** ก่อน Apply ไม่มี team event; validate และเทียบ `baseRevision` ก่อน commit หลังบันทึกสำเร็จจึงเพิ่ม revision และ event หนึ่งครั้ง ถ้าขัดแย้งหรือบันทึกไม่สำเร็จให้เก็บ draft ไว้
 
-**รับงานเมื่อ:** badformula หรือ zero-weight ทั้งหมดบันทึกไม่ได้; TH/EN อ่านสูตรเดียวกัน; reload/theme/brand ไม่ทำ draft หาย; conflicts ให้ merge/retry อย่างชัดเจน
+สีแผนที่เป็น Demand signal เด่นสุดในกลุ่มที่แสดง ไม่ใช่คะแนน rank หรือจำนวนทำเล ตัวเลข +/−/↕ และรายชื่อช่วยบอกผลที่เปลี่ยนเมื่อสีไม่เปลี่ยน จังหวัดที่ไม่มีรายการใน layer ใช้สถานะ “ไม่มีทำเลในมุมมองนี้” ไม่สรุปว่าไม่มีตลาดหรือไม่มีข้อมูลทุกชนิด
+
+**รับงานเมื่อ:** ลาก/กรอกให้ผลเดียวกัน; เข้าและหลุดนับแยกแม้ยอดสุทธิเท่ากัน; weights เปลี่ยนอันดับแต่ไม่เปลี่ยน membership; invalid draft ไม่แสดงผลเก่าเป็นผลใหม่; สลับบริบทระหว่างคำนวณไม่รับผลเก่า; keyboard/TH/EN/mobile/light/dark อ่านและใช้งานได้; draft ไม่สร้าง feed และ Apply ไม่สร้าง event ซ้ำ
+
+**ต่อ production เมื่อข้อมูลโตขึ้น:** ย้าย evaluator ที่หนักไป worker หรือบริการคำนวณที่ map จาก Task 00 โดยแนบ `requestId`, context, source release และ criteria hash ทุกงาน รับเฉพาะผลของคำขอล่าสุดที่ยังตรงบริบท ยกเลิกงานเก่าเมื่อทำได้ Cache baseline ตาม source/cohort/revision ไม่คำนวณ percentile ใหม่ตามจังหวัด Worker, cancellation และ API ดังกล่าวเป็นงานต่อยอด ไม่ใช่สิ่งที่ preview นี้พิสูจน์ว่ามีแล้ว
 
 ### 09 — ต่อ map, detail และ CRUD เดิม
 
@@ -155,3 +167,19 @@ test threshold boundary, missing, ties, disabled groups และ national bench
 ```
 
 machine tasks ระบุ dependencies, inputs, outputs, acceptance, test IDs และ prompt ใช้ reference ที่มีจริง ไม่ทำเครื่องหมาย productionwork ว่าเสร็จเพราะ staticprototype ทดลองได้
+
+สำหรับงานหน้าเกณฑ์ ใช้ prompt ที่มีขอบเขตเล็กกว่านี้:
+
+```text
+ทำขั้น 08.3–08.4 ตาม contracts/criteria-workspace.v1.6.1.json
+อ่าน prototype/criteria-map.js, criteria-controls.js, app.js และ evaluator ใน model.js
+คง analytical profiles v1.6, source grain, national cohort และ scope ของ draft เดิม
+เชื่อมผลล่าสุดของ draft เข้ากับ map/list โดยไม่เสีย focus หรือ zoom
+ทดสอบ ID-set diff, weights-only rank, invalid input, flush change และ context switch
+รายงาน tests ที่รันจริงกับ rendered states ที่ยังต้องตรวจ ห้ามอ้าง production API/worker มีแล้ว
+```
+
+
+### ขยายพื้นที่ทำงานบน desktop
+
+กด **ขยายพื้นที่ทำงาน** เพื่อใช้เกณฑ์กับแผนที่เต็มพื้นที่หน้าจอ ยังลากค่าและใช้กับทีมได้ในมุมมองเดียว กด **กลับหน้าปกติ** หรือ Escape เพื่อกลับ แยกการซูม/เลือกจังหวัดออกจากการเปลี่ยนเกณฑ์ การเปิดเมนูธุรกิจให้คำนวณพื้นที่ว่างใหม่โดยไม่เปลี่ยน cohort

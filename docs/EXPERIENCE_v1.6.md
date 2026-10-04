@@ -1,6 +1,13 @@
+---
+document_id: yolk.experience.three_industries
+version: 1.6.1
+date: 2026-10-04
+criteria_workspace: CRITERIA_WORKSPACE_v1.6.1.md
+---
+
 # UI เดิมของ Yolk · ข้อมูลจริง 3 ธุรกิจ
 
-ภาพด้านล่างจับจาก browser ของ preview รุ่นนี้ ดูภาษา/ธีม/viewport และขอบเขตตรวจใน [QA receipt](../evidence/QA.md) ใช้ [เกณฑ์และสูตร](CRITERIA_GUIDE.md) ควบคู่กับภาพ; สีหรือชื่อ pattern ไม่ใช่ผลสอบเทียบธุรกิจ
+ภาพด้านล่างเป็นหลักฐานของ preview ฐาน v1.6 ก่อนปรับหน้าเกณฑ์ใน v1.6.1 ดูภาษา/ธีม/viewport และขอบเขตตรวจเดิมใน [QA receipt](../evidence/QA.md) ใช้ [เกณฑ์และสูตร](CRITERIA_GUIDE.md) ควบคู่กับภาพ; สีหรือชื่อ pattern ไม่ใช่ผลสอบเทียบธุรกิจ เอกสารนี้ไม่ใช้ภาพเก่ารับรองการตรวจ layout ใหม่
 
 ## ภาพรวมประเทศ: หาไข่แดงก่อน แล้วเลือกกลยุทธ์
 
@@ -16,7 +23,17 @@ Navbar เดิมอยู่ครบ ส่วนภาษา ธีม แ�
 
 ![Mobile · ภาษาไทย · ธีมมืด](../evidence/browser-three-industry/mobile-th-dark-market-viewport-final.png)
 
-## เกณฑ์: เลือก dataset → metric/สูตร → parameter
+## เกณฑ์ v1.6.1: ลากค่าแล้วดูแผนที่ควบคู่กัน
+
+บน desktop แผนที่ใหญ่และตัวปรับค่าอยู่ในพื้นที่ทำงานเดียวกัน ตัวปรับค่าเลื่อนอ่านแยกจากแผนที่ ใช้แท็บ Demand / Supply / รูปแบบ / น้ำหนัก จึงทดลองเกณฑ์ได้โดยยังเห็นผลบนพื้นที่ บนมือถือคงแผนที่ย่อขณะเลื่อนปรับค่า และเปิดรายชื่อทำเลได้
+
+ค่าตัวเลขมีแถบเลื่อนคู่ช่องกรอก ช่วยลองหลายค่าได้เร็วและกรอกค่าที่แน่นอนได้ ผลเทียบ draft กับเกณฑ์ทีมแบ่งเป็น **ผ่านเกณฑ์ / เข้าใหม่ / หลุดเกณฑ์ / รอตรวจ / อันดับ** กดจังหวัดเพื่อดูรายชื่อทำเลที่เปลี่ยน กดรายชื่อเพื่ออ่านผล draft; ปุ่มเปิด detail ระบุชัดว่า detail ใช้เกณฑ์ทีมที่บันทึกแล้ว
+
+สีจังหวัดสรุป Demand signal เด่นสุดในกลุ่มที่แสดง ส่วน badge สรุปจำนวนทำเล การเปลี่ยนน้ำหนักจึงใช้ ↕ และอันดับก่อน → หลังเป็นหลัก สีเดิมอาจไม่เปลี่ยนเมื่อจำนวนหรืออันดับเปลี่ยน ไม่มีการวาด polygon แขวง/อปท. แทนข้อมูลที่ขาด
+
+การลากปรับเป็น private draft ระบบรวมงานแสดงผลช่วงสั้น ๆ และ flush เมื่อปล่อยหรือยืนยันค่า ก่อน Apply ไม่สร้างข้อความใน feed ข้อกำหนดรับงานและ production scaling อยู่ใน [Criteria workspace](CRITERIA_WORKSPACE_v1.6.1.md)
+
+## ภาพอ้างอิงหน้าเกณฑ์ฐาน v1.6
 
 แยก Demand, Supply, รูปแบบทำเลที่สนใจ และน้ำหนัก สูตร หน่วย field ต้นทาง รอบข้อมูล และ coverage เปิดดูได้ในแต่ละตัววัด ก่อน Apply เห็นจำนวนพื้นที่เพิ่ม/หายและอันดับเปลี่ยน การสลับแบรนด์เก็บค่าที่เลือกแยกกัน
 
@@ -51,3 +68,13 @@ Navbar เดิมอยู่ครบ ส่วนภาษา ธีม แ�
 ![Activity และ leaderboard](../evidence/browser-three-industry/desktop-en-dark-feed.png)
 
 ภาพ snapshot เป็นส่วนหนึ่งของหลักฐานการตรวจ ไม่มีการแก้ภาพเพื่อซ่อนข้อจำกัด รายละเอียด viewport/font/overflow อยู่ใน render matrix; ไม่เท่ากับทดสอบบนเครื่องมือถือทุกชนิด
+
+## ภาพหน้าจอ criteria workspace1.6.1 ที่ตรวจจริง
+
+![Desktop: ลาก Supply แล้วเห็นทำเลเข้าใหม่บนแผนที่](../evidence/criteria-workspace-v1.6.1/desktop-th-dark-added.jpg)
+
+![Desktop: น้ำหนักเปลี่ยนอันดับ โดยไม่เปลี่ยนชุดทำเล](../evidence/criteria-workspace-v1.6.1/desktop-en-dark-ranking.jpg)
+
+![มือถือ: แผนที่อยู่ต่อขณะปรับ Supply](../evidence/criteria-workspace-v1.6.1/mobile-th-dark-supply.jpg)
+
+ผลและข้อจำกัดของการตรวจอยู่ใน [browser receipt](../evidence/criteria-workspace-v1.6.1/browser-qa.json) ภาพนี้เป็น Chrome viewport ไม่ใช่การรับรองอุปกรณ์จริง

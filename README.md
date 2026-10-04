@@ -1,8 +1,10 @@
-# CityMETER: Yolk · v1.6.0 · LDS 0.9.7
+# CityMETER: Yolk · v1.6.1 · LDS 0.9.7
 
 **Find the yolk. Grow your market. / หาไข่แดงให้เจอ ขยายตลาดให้ตรงจุด**
 
 [เปิดเว็บ](https://montri-th.github.io/yolk/) · [เริ่มอ่านที่นี่](START_HERE.md) · [Product statement](CityMETER_Yolk_Product_Statement_v1.6.md) · [Implementation plan](IMPLEMENTATION_PLAN_v1.6.md)
+
+รุ่น1.6.1 เพิ่มแผนที่ควบคู่เกณฑ์ตลอดการปรับค่า พร้อมแถบเลื่อน ช่องกรอกละเอียด และโหมดขยายพื้นที่ทำงาน ดู [UX contract](docs/CRITERIA_WORKSPACE_v1.6.1.md)
 
 คง UI โลโก้ และ icons เดิมของ Yolk ปรับเป็น LDS 0.9.7 เลือกได้ 3 ธุรกิจ: Fuel, Grocery และ Non-bank ใช้ CityMETER snapshot จริง 7,954 reporting UUIDs และ 25 metric พร้อมสูตร หน่วย field ต้นทาง รอบข้อมูลและ coverage แต่ละแบรนด์มี preset เริ่มต้นและปรับเกณฑ์แยกกัน
 
@@ -18,6 +20,8 @@ Demand ใช้ percentile ฐานประเทศเดียวกัน 
 python3 scripts/verify-pages-v1.6.py
 node scripts/check-three-industry.cjs
 node scripts/check-photo-runtime.cjs
+node scripts/check-criteria-map.cjs
+node scripts/check-criteria-controls.cjs
 python3 -m http.server 8854 --bind 127.0.0.1
 ```
 
