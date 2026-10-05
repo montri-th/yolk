@@ -1,0 +1,164 @@
+{
+  "version": "1.7.5",
+  "date": "2026-10-05",
+  "suites": [
+    {
+      "suite": "three-industry",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 4.69,
+      "checks": 30,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "brand-presets",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 7.6,
+      "checks": 13,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "photo-runtime",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 0.19,
+      "checks": 28,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "workspace-map",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 2.75,
+      "checks": 24,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "criteria-controls",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 0.03,
+      "checks": 13,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "save-context",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 6.24,
+      "checks": 14,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "relative-supply",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 25.26,
+      "checks": 14,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "poi-popup",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 0.03,
+      "checks": 17,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "map-responsiveness",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 2.95,
+      "checks": 13,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "map-hover",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 0.07,
+      "checks": 13,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "cold-branch",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 0.73,
+      "checks": 12,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "branch-context",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 7.63,
+      "checks": 38,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "map-analysis",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 1.24,
+      "checks": 14,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "pattern-counts",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 5.0,
+      "checks": 14,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "analysis-integration",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 5.33,
+      "checks": 10,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "location-review",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 1.9,
+      "checks": 10,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "yolk-tier",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 0.03,
+      "checks": 11,
+      "receipt": "evidence/automated-v1.7.5.json"
+    },
+    {
+      "suite": "map-lut41",
+      "exitCode": 0,
+      "passed": true,
+      "seconds": 2.26,
+      "checks": 22,
+      "receipt": "evidence/automated-v1.7.5.json"
+    }
+  ],
+  "passedSuites": 18,
+  "totalSuites": 18,
+  "scope": "Current model/runtime/DOM-adapter suites; source display matching, not legal or operational certification. Native browser and provider receipts are separate.",
+  "automatedChecks": 310,
+  "runtimeHashes": {
+    "branch-context.js": "bf7b189c14eccb7644f4fea21cbf4c64f6c7afd98fdb42ed8cc921c3db421c09",
+    "app.js": "eca304d4be92e28c9bb40f902f3f461282cfbfd88e96416e3648e9feabd4ddf4",
+    "workspace-map.js": "7fd51a12a8d42c3be188c0c8b8d108ca0374923c9c1f289021920ab4287eaeb1",
+    "supply-ui.js": "27aeb56e7ba9c3bb204be4d3795b97759dada4652bcced4a6f7db6adbe8fd29f",
+    "bootstrap.js": "8cfcdf53d3ed220e8bbbb93d25f315ba62e49331cce6aab98d42e1a826882350",
+    "industry-workspace.js": "ecae3b661b8aee3a6c1b415be46d4f4e7ecbb5d3c943e7d92836bf0457421c1f",
+    "workspace-layout.css": "3c132052829c7b242d8d848c68365507d65e57f8c1373909017dbf5b9ff9fa38"
+  },
+  "focusedContextChecks": 38
+}

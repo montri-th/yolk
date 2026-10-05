@@ -1,0 +1,1215 @@
+{
+  "version": "1.7.5",
+  "suites": [
+    {
+      "suite": "three-industry",
+      "passed": true,
+      "checks": 30,
+      "items": [
+        {
+          "name": "Exactly three profiles and 7,954 unique real reporting areas",
+          "passed": true
+        },
+        {
+          "name": "25 actual metrics, aliases and positive known-only distributions",
+          "passed": true
+        },
+        {
+          "name": "Every profile default own identity resolves in its expected industry",
+          "passed": true
+        },
+        {
+          "name": "Fuel original numeric rules, weights and initial strategy preserved",
+          "passed": true
+        },
+        {
+          "name": "Fuel merged-source brand counts sum to country aggregate 8,736",
+          "passed": true
+        },
+        {
+          "name": "Fixed national cutoffs do not change with brand/province or profile",
+          "passed": true
+        },
+        {
+          "name": "Grocery C_STORE own/other canonical dimensions and Pure exclusion",
+          "passed": true
+        },
+        {
+          "name": "Grocery known proxy-high exactly 2,859 and ranking is separate from screen",
+          "passed": true
+        },
+        {
+          "name": "New defaults use 2/2 and Pioneer/FOMO; no Fuel supply bonuses",
+          "passed": true
+        },
+        {
+          "name": "Missing stays unknown and positive-presence blocks zero promotion",
+          "passed": true
+        },
+        {
+          "name": "Nonbank uses adult20–64 proxy, active-license union, geographic residual bounds",
+          "passed": true
+        },
+        {
+          "name": "Pattern certainty and guaranteed strategy membership are independent",
+          "passed": true
+        },
+        {
+          "name": "Office context is diagnostic; missing license is never silently excluded",
+          "passed": true
+        },
+        {
+          "name": "Brand/scope/profile-version contexts and drafts remain separate",
+          "passed": true
+        },
+        {
+          "name": "Source POIs are excluded from browser persistence and CRUD does not change aggregates",
+          "passed": true
+        },
+        {
+          "name": "Lazy source coordinates stay separate from unsupported municipality joins",
+          "passed": true
+        },
+        {
+          "name": "Invalid metric values normalize to missing; valid distributions exclude negatives",
+          "passed": true
+        },
+        {
+          "name": "Known-high Demand with absent Supply retains all four possible high patterns",
+          "passed": true
+        },
+        {
+          "name": "Nonbank weighted gap scores use assignment intervals, not assigned zeros as exact",
+          "passed": true
+        },
+        {
+          "name": "Unknown/not_found relevant licenses are review context, not nonpeers",
+          "passed": true
+        },
+        {
+          "name": "Local overlays survive industry switches without entering aggregate Supply",
+          "passed": true
+        },
+        {
+          "name": "Own identity outside the selected source scope is missing, not own-zero",
+          "passed": true
+        },
+        {
+          "name": "Point layers follow Grocery format and Nonbank license scope without changing source cache",
+          "passed": true
+        },
+        {
+          "name": "Canonical local-overlay relationship follows the newly selected own identity",
+          "passed": true
+        },
+        {
+          "name": "Late industry downloads cannot override the final fuel identity/profile/counts",
+          "passed": true
+        },
+        {
+          "name": "All 25 dataset/metric disclosures render bilingual equations and coverage",
+          "passed": true
+        },
+        {
+          "name": "Cross-context events restore industry/brand/scope before navigation; criteria feed stays scoped",
+          "passed": true
+        },
+        {
+          "name": "Supply-event navigation restores the source-point context before resolving the POI",
+          "passed": true
+        },
+        {
+          "name": "Cold Supply event waits for the point load already started by the place render",
+          "passed": true
+        },
+        {
+          "name": "Cold event continuation cannot navigate or relabel POIs after a newer context switch",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "brand-presets",
+      "passed": true,
+      "checks": 13,
+      "items": [
+        {
+          "name": "Registry and selectors expose exactly 11 Fuel, 16 Grocery and the ordered first 10 Non-bank IDs",
+          "passed": true
+        },
+        {
+          "name": "Every family and every supported brand/scope seed is valid and references actual CityMETER metrics",
+          "passed": true
+        },
+        {
+          "name": "First selection applies each brand default/family without recording a team change event",
+          "passed": true
+        },
+        {
+          "name": "Accepted Bangchak, Seven Eleven and MTC defaults remain unchanged apart from seed provenance",
+          "passed": true
+        },
+        {
+          "name": "Saved custom criteria, draft, versions, weights and targets survive brand visits and browser reload",
+          "passed": true
+        },
+        {
+          "name": "Explicit Grocery format is remembered per brand; a new brand uses its own default",
+          "passed": true
+        },
+        {
+          "name": "National cutoff distributions remain fixed across all brand seeds, formats and province filters",
+          "passed": true
+        },
+        {
+          "name": "Missing demand, unavailable own format and unresolved licenses stay unknown rather than zero",
+          "passed": true
+        },
+        {
+          "name": "Srisawad group logo and office context do not upgrade the selected legal company licenses",
+          "passed": true
+        },
+        {
+          "name": "Own selector restriction leaves the full 1,233-company comparator inventory intact",
+          "passed": true
+        },
+        {
+          "name": "Point loading uses a local response stub and canonical relation changes with selected own identity",
+          "passed": true
+        },
+        {
+          "name": "Actual map render uses O for Our stores and C for Competitors in both languages",
+          "passed": true
+        },
+        {
+          "name": "Optional local logo registry uses exact known IDs and its bundled bytes match recorded hashes",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "photo-runtime",
+      "passed": true,
+      "checks": 28,
+      "items": []
+    },
+    {
+      "suite": "workspace-map",
+      "passed": true,
+      "checks": 24,
+      "items": [
+        {
+          "name": "All 77 actual province features retain unique exact reporting codes",
+          "passed": true
+        },
+        {
+          "name": "All native hierarchy sources cover 928 districts and every 7,954 metric UUID without bounding-box substitution",
+          "passed": true
+        },
+        {
+          "name": "One mounted Leaflet instance survives every workspace route and repeated renders",
+          "passed": true
+        },
+        {
+          "name": "Mobile map options are collapsed by default, keyboard labelled and independent of navigation/map state",
+          "passed": true
+        },
+        {
+          "name": "Summary classes use confirmed qualifying Tier, independently of numeric rank score",
+          "passed": true
+        },
+        {
+          "name": "District analytical fills are exact full-opacity classes while province polygons remain unfilled",
+          "passed": true
+        },
+        {
+          "name": "Criteria comparison matches real-model baseline/draft sets; invalid drafts pause last valid output",
+          "passed": true
+        },
+        {
+          "name": "Source extent focus is explicitly dashed and unfilled; route sync never fits automatically",
+          "passed": true
+        },
+        {
+          "name": "All 18 retrieved source polygons render as genuine source geometry rather than extent substitutes",
+          "passed": true
+        },
+        {
+          "name": "Supply marker cap, O/C/U labels and branch filters follow actual user choices",
+          "passed": true
+        },
+        {
+          "name": "Draft branch coordinates show a neutral D without saving, supply changes or automatic zoom",
+          "passed": true
+        },
+        {
+          "name": "Loading clears stale point labels and failed inventory is not described as zero",
+          "passed": true
+        },
+        {
+          "name": "A failed context switch clears previous-brand overlays instead of relabelling stale results",
+          "passed": true
+        },
+        {
+          "name": "Persistent controls and map accessible names update when language changes",
+          "passed": true
+        },
+        {
+          "name": "Country → province → district → fine location has exact source filters, breadcrumbs and back with no duplicate callbacks",
+          "passed": true
+        },
+        {
+          "name": "Fine-detail focus preserves the chosen parent for all multi-district source locations",
+          "passed": true
+        },
+        {
+          "name": "Coordinate-only records use an actual polygon for view matching without area or aggregate mutation",
+          "passed": true
+        },
+        {
+          "name": "Fine comparison preserves old tier colours for baseline and removed rows while selected interiors remain unfilled",
+          "passed": true
+        },
+        {
+          "name": "Supply cutoff changes leave raw Demand Yolks unchanged and expose a separate draft-match count",
+          "passed": true
+        },
+        {
+          "name": "Late point focus cannot move the map after brand/context switch",
+          "passed": true
+        },
+        {
+          "name": "Basemap selection preserves map instance and viewport, with explicit 2021 satellite attribution",
+          "passed": true
+        },
+        {
+          "name": "White source strokes retain thin relative hierarchy and survive opaque child fills at every drill-down",
+          "passed": true
+        },
+        {
+          "name": "Criteria edits restore parent-stroke order without changing camera or source metrics",
+          "passed": true
+        },
+        {
+          "name": "Country and province hover expose the exact larger click boundary in yellow without obscuring data",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "criteria-controls",
+      "passed": true,
+      "checks": 13,
+      "items": [
+        {
+          "name": "Mount pairs every supported exact-number field and preserves original nodes/labels",
+          "passed": true
+        },
+        {
+          "name": "Repeated mount/sync preserves focused nodes and installs one event bridge",
+          "passed": true
+        },
+        {
+          "name": "Dragging emits one bubbling original-number input to the existing handler",
+          "passed": true
+        },
+        {
+          "name": "Range change forwards one change without repeating the input mutation",
+          "passed": true
+        },
+        {
+          "name": "Exact decimal typing stays exact while the integer slider is only an approximate handle",
+          "passed": true
+        },
+        {
+          "name": "Empty typing stays empty/NaN, never silently becomes zero, and can recover by dragging",
+          "passed": true
+        },
+        {
+          "name": "Disabled fieldsets and explicit disabled inputs propagate to slider without coercing values",
+          "passed": true
+        },
+        {
+          "name": "Supporting hit slider uses actual six metric controls, preserving existing exact-input bounds",
+          "passed": true
+        },
+        {
+          "name": "Supply count and weight slider endpoints keep zero weight valid",
+          "passed": true
+        },
+        {
+          "name": "Language sync updates readable captions/ARIA without rebuilding controls",
+          "passed": true
+        },
+        {
+          "name": "Supply cutoff direction is explicit, described to assistive users and absent from unrelated sliders",
+          "passed": true
+        },
+        {
+          "name": "Mount accepts a single exact input and does not dispatch artificial changes",
+          "passed": true
+        },
+        {
+          "name": "Relative supply slider carries decimal precision and explicit denominator unit",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "save-context",
+      "passed": true,
+      "checks": 14,
+      "items": [
+        {
+          "name": "Existing branch save aborts cleanly after brand changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "Existing branch save aborts cleanly after industry changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "New branch save aborts cleanly after brand changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "New branch save aborts cleanly after industry changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "Existing branch save aborts cleanly after actor changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "Existing branch save aborts cleanly after route changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "Existing branch save aborts cleanly after same-context-new-request changes during photo commit",
+          "passed": true
+        },
+        {
+          "name": "Existing branch save succeeds once when context remains stable",
+          "passed": true
+        },
+        {
+          "name": "New branch save succeeds once when context remains stable",
+          "passed": true
+        },
+        {
+          "name": "An unassigned source record can save a note without inventing administrative membership",
+          "passed": true
+        },
+        {
+          "name": "Saving a real area UUID derives its province rather than retaining a contradictory selector",
+          "passed": true
+        },
+        {
+          "name": "A recognized alias submits with its canonical own identity and keeps the known brand ID",
+          "passed": true
+        },
+        {
+          "name": "A canonical brand alias cannot bypass the duplicate branch guard",
+          "passed": true
+        },
+        {
+          "name": "New photo drafts are scoped to brand/context, not the shared literal new record ID",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "relative-supply",
+      "passed": true,
+      "checks": 14,
+      "items": [
+        {
+          "name": "Two branches / 20,000 people = 1 per 10,000; three / 100,000 = 0.3, with coherent pattern and gap ordering",
+          "passed": true
+        },
+        {
+          "name": "Source-explicit zero branch counts are usable; absent/zero/nonfinite/negative denominators remain unknown",
+          "passed": true
+        },
+        {
+          "name": "Equivalent denominator/rate unit conversion leaves count thresholds, classifications and rankings invariant",
+          "passed": true
+        },
+        {
+          "name": "Legacy count mode and absent-mode migration retain exact count thresholds and uncertainty behavior",
+          "passed": true
+        },
+        {
+          "name": "Fuel unknown-brand U stays jointly allocated: impossible Pioneer/Crowded states and independent ranking bounds are excluded",
+          "passed": true
+        },
+        {
+          "name": "Assignment/reconciliation lower–upper intervals survive normalization and remain uncertain in patterns/ranking",
+          "passed": true
+        },
+        {
+          "name": "Changing ranking weights cannot alter Supply high/low classification or the eligible UUID set",
+          "passed": true
+        },
+        {
+          "name": "Calibration is the unrounded median of positive exact national rates, never a quota or the filtered province",
+          "passed": true
+        },
+        {
+          "name": "Fewer than five positive exact observations use an explicit insufficient-sample hypothesis of one branch/unit",
+          "passed": true
+        },
+        {
+          "name": "The denominator whitelist excludes densities, percentiles, fiscal revenue and arbitrary/unknown IDs",
+          "passed": true
+        },
+        {
+          "name": "Denominator changes/reseeding are a private draft: committed criteria, events, source inventory and national cuts stay unchanged",
+          "passed": true
+        },
+        {
+          "name": "New contexts start in relative mode after their own inventory loads; saved count criteria/draft/version survive visits and reload",
+          "passed": true
+        },
+        {
+          "name": "All 37 real brand/default-scope contexts produce valid seeds and finite or explicitly missing Supply thresholds across 7,954 UUIDs",
+          "passed": true
+        },
+        {
+          "name": "Every supported alternate brand format/scope uses its own real inventory and family with valid relative thresholds",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "poi-popup",
+      "passed": true,
+      "checks": 17,
+      "items": [
+        {
+          "name": "POI identity uses the actual competitor brand, not selected own brand",
+          "passed": true
+        },
+        {
+          "name": "relationship has readable label plus independent O/C/U cue",
+          "passed": true
+        },
+        {
+          "name": "source status stays visible, source date does not certify current operation",
+          "passed": true
+        },
+        {
+          "name": "native map editor hook preserves exact POI ID",
+          "passed": true
+        },
+        {
+          "name": "Street View uses the official Maps URL and original coordinates",
+          "passed": true
+        },
+        {
+          "name": "missing/invalid coordinates never turn into a Street View zero-point",
+          "passed": true
+        },
+        {
+          "name": "Google AI Mode and plain Search carry the same user-visible question",
+          "passed": true
+        },
+        {
+          "name": "question uses branch, location and own-brand expansion context",
+          "passed": true
+        },
+        {
+          "name": "each supported industry asks for relevant field-study evidence",
+          "passed": true
+        },
+        {
+          "name": "public search context excludes notes, personal data, metrics and implicit outcomes",
+          "passed": true
+        },
+        {
+          "name": "Thai copy is explicit and does not rely on raw ligature labels",
+          "passed": true
+        },
+        {
+          "name": "unknown/missing marks keep brand text without inventing a brand graphic",
+          "passed": true
+        },
+        {
+          "name": "historical wordmarks cannot bypass the verified compact-graphic gate",
+          "passed": true
+        },
+        {
+          "name": "official theme-limited mark provides a neutral dark fallback",
+          "passed": true
+        },
+        {
+          "name": "all external actions are user-activated links with safe new-tab semantics",
+          "passed": true
+        },
+        {
+          "name": "source labels and IDs are escaped without changing the record",
+          "passed": true
+        },
+        {
+          "name": "new popup CSS has no logo frame, crop or invented analytical colours",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "map-responsiveness",
+      "passed": true,
+      "checks": 13,
+      "items": [
+        {
+          "name": "Country pan and zoom coalesce without any analytical redraw or marker work",
+          "passed": true
+        },
+        {
+          "name": "A full analytical sync reads DS tokens once before writes and preserves exact fills",
+          "passed": true
+        },
+        {
+          "name": "POI popup survives settled pan/zoom with the same native marker and no clear/recreate",
+          "passed": true
+        },
+        {
+          "name": "Viewport removal reconciles individual markers without closing another retained popup",
+          "passed": true
+        },
+        {
+          "name": "Mobile resize/autopan retains only the open in-scope anchor outside viewport; hiding relationship closes it",
+          "passed": true
+        },
+        {
+          "name": "Popup module receives selected-brand/industry/area context; branch identity changes update content without recreation",
+          "passed": true
+        },
+        {
+          "name": "Context switch removes previous-brand marker references and stale queued viewport work",
+          "passed": true
+        },
+        {
+          "name": "Storage updates retain cached source POIs, reconcile incoming local overlays, and do not change Supply aggregates",
+          "passed": true
+        },
+        {
+          "name": "Prepared criteria work is discarded after mutable drafts, cohort changes and validation failures",
+          "passed": true
+        },
+        {
+          "name": "Polygon fast rejection keeps exact hole/multipolygon membership and never assigns UUIDs",
+          "passed": true
+        },
+        {
+          "name": "Resize recentres the same geographic view without fitting, and derives a bounded popup viewport",
+          "passed": true
+        },
+        {
+          "name": "Native popup events expose the mobile expansion state and close restores its normal map height",
+          "passed": true
+        },
+        {
+          "name": "Application source guards delayed searches/event navigation and shows pending Supply as U, never inventory zero",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "map-hover",
+      "passed": true,
+      "checks": 13,
+      "items": [
+        {
+          "name": "outline uses the exact supplied province source polygon over district colouring",
+          "passed": true
+        },
+        {
+          "name": "province and district drill targets use their exact respective district/fine source features",
+          "passed": true
+        },
+        {
+          "name": "hover adds only an unfilled non-interactive outline with an exact caller-supplied token",
+          "passed": true
+        },
+        {
+          "name": "same target mouse movement reuses outline and tooltip rather than re-rendering data",
+          "passed": true
+        },
+        {
+          "name": "replacement removes the old outline; stale mouseout cannot erase newer hover",
+          "passed": true
+        },
+        {
+          "name": "outline refreshes the caller hover token without changing source geometry or analytical fill",
+          "passed": true
+        },
+        {
+          "name": "yellow hover stays above native LUT fills and removal restores the untouched source painter order",
+          "passed": true
+        },
+        {
+          "name": "unsupported extents, missing geometry or missing target labels fail visibly closed",
+          "passed": true
+        },
+        {
+          "name": "tooltip escapes labels and never becomes a navigation or mutation proxy",
+          "passed": true
+        },
+        {
+          "name": "native hover/move/out binding controls the actual target and preserves click owner",
+          "passed": true
+        },
+        {
+          "name": "keyboard focus/blur uses the same exact target outline without synthetic click",
+          "passed": true
+        },
+        {
+          "name": "binding cleanup and destruction remove active geometry and all handlers",
+          "passed": true
+        },
+        {
+          "name": "module contains no centroid, crosswalk guess, opaque paint, fetch or team mutation",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "cold-branch",
+      "passed": true,
+      "checks": 12,
+      "items": [
+        {
+          "name": "Cold existing-ID route shows loading and cannot become a blank new branch form",
+          "passed": true
+        },
+        {
+          "name": "In-flight source inventory keeps the requested branch in a loading state",
+          "passed": true
+        },
+        {
+          "name": "Source completion renders the requested real record identity, brand, name and coordinates",
+          "passed": true
+        },
+        {
+          "name": "An absent ready record and a failed inventory remain status states, not editable new records",
+          "passed": true
+        },
+        {
+          "name": "Only explicit #poi/new creates the new-branch form when the inventory is cold",
+          "passed": true
+        },
+        {
+          "name": "Working form captures branch identity, expected revision, edits and text selection",
+          "passed": true
+        },
+        {
+          "name": "Same-record rerender restores user edits, area, focus and cursor while retaining the expected revision",
+          "passed": true
+        },
+        {
+          "name": "Snapshot from the former blank new form cannot overwrite a newly loaded existing record",
+          "passed": true
+        },
+        {
+          "name": "Snapshot from another branch cannot restore values, expected revision or focus",
+          "passed": true
+        },
+        {
+          "name": "Route and criteria-context changes invalidate the working snapshot before rerender",
+          "passed": true
+        },
+        {
+          "name": "Restore leaves file inputs alone and safely ignores an absent form",
+          "passed": true
+        },
+        {
+          "name": "Source assignment suggestions and manual choices survive same-record form replacement",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "branch-context",
+      "passed": true,
+      "checks": 38,
+      "items": [
+        {
+          "name": "Required reusable context APIs are available",
+          "passed": true
+        },
+        {
+          "name": "Blank, partial and invalid coordinates remain missing instead of becoming zero",
+          "passed": true
+        },
+        {
+          "name": "Valid numeric zero and source decimal coordinates remain exact",
+          "passed": true
+        },
+        {
+          "name": "Strict interior is distinct from exterior",
+          "passed": true
+        },
+        {
+          "name": "Every square edge and vertex is a boundary, never an automatic interior assignment",
+          "passed": true
+        },
+        {
+          "name": "Polygon holes exclude their interior and retain the hole-edge boundary",
+          "passed": true
+        },
+        {
+          "name": "MultiPolygon includes either component without filling the gap",
+          "passed": true
+        },
+        {
+          "name": "Invalid points and unsupported/malformed geometry never become candidates",
+          "passed": true
+        },
+        {
+          "name": "Overlapping polygons retain both candidates rather than claiming a unique assignment",
+          "passed": true
+        },
+        {
+          "name": "A shared polygon edge retains boundary candidates on both sides",
+          "passed": true
+        },
+        {
+          "name": "The reported source coordinate has exactly one strict province match across all 77 provinces",
+          "passed": true
+        },
+        {
+          "name": "The source coordinate has exactly one strict native district match across 928 districts",
+          "passed": true
+        },
+        {
+          "name": "All 7,954 fine source polygons produce one strict Suwannaphum local-authority candidate",
+          "passed": true
+        },
+        {
+          "name": "A new nationwide record never inherits an old selected sample area or forced Bangkok",
+          "passed": true
+        },
+        {
+          "name": "A new record uses the current province but does not invent its fine location",
+          "passed": true
+        },
+        {
+          "name": "A district context narrows geography without choosing an arbitrary fine location",
+          "passed": true
+        },
+        {
+          "name": "A current fine-location context seeds its real reporting UUID and parent province",
+          "passed": true
+        },
+        {
+          "name": "Existing source fields override unrelated map/filter defaults without mutating the record",
+          "passed": true
+        },
+        {
+          "name": "A known source province is retained even when fine membership is unresolved",
+          "passed": true
+        },
+        {
+          "name": "An unknown source province does not inherit unrelated current map geography",
+          "passed": true
+        },
+        {
+          "name": "Explicit Our stores context seeds the canonical selected identity while remaining pending",
+          "passed": true
+        },
+        {
+          "name": "Cold Fuel suggestions contain every known source brand despite an empty point cache",
+          "passed": true
+        },
+        {
+          "name": "Canonical identity accepts actual aliases and registry display names without fuzzy invention",
+          "passed": true
+        },
+        {
+          "name": "An existing identity remains usable when the source label is absent",
+          "passed": true
+        },
+        {
+          "name": "A recognized new identity is not overwritten by an unrelated previous brand ID",
+          "passed": true
+        },
+        {
+          "name": "Industry changes refresh cold suggestions and do not resolve an unrelated industry alias",
+          "passed": true
+        },
+        {
+          "name": "Non-bank source identity resolves despite harmless whitespace differences",
+          "passed": true
+        },
+        {
+          "name": "Context suggestions and classification never write records, criteria or aggregate supply",
+          "passed": true
+        },
+        {
+          "name": "An automatic coordinate hint fills the actual candidate and records its spatial evidence",
+          "passed": true
+        },
+        {
+          "name": "Changing coordinates invalidates an old automatic hint immediately, before debounce or response",
+          "passed": true
+        },
+        {
+          "name": "Typing coordinates also invalidates automatic map-context defaults before the first lookup",
+          "passed": true
+        },
+        {
+          "name": "Invalid coordinate typing clears automatic values and does not keep old assignment evidence",
+          "passed": true
+        },
+        {
+          "name": "Outside-coordinate resolution leaves automatic geography unresolved rather than keeping an old location",
+          "passed": true
+        },
+        {
+          "name": "A failed geometry lookup cannot revive previous automatic location or assignment evidence",
+          "passed": true
+        },
+        {
+          "name": "Manual location choices survive invalid/outside coordinates and geometry failure",
+          "passed": true
+        },
+        {
+          "name": "A late lookup result cannot replace newer coordinates, manual area choice or another route",
+          "passed": true
+        },
+        {
+          "name": "Known branch typing follows canonical relation and explicit Our stores fills its canonical brand",
+          "passed": true
+        },
+        {
+          "name": "Map coordinate resolution returns source candidates without moving the persistent camera or changing aggregates",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "map-analysis",
+      "passed": true,
+      "checks": 14,
+      "items": [
+        {
+          "name": "Every quantitative palette exactly matches all41native LDS LUT values on light and dark; tiers use the owner category helper",
+          "passed": true
+        },
+        {
+          "name": "Exact zero is known and distinct from absent or invalid source supply",
+          "passed": true
+        },
+        {
+          "name": "Unidentified U widens each per-role interval without inventing a midpoint",
+          "passed": true
+        },
+        {
+          "name": "Unknown U and missing assignment bounds preserve open uncertainty rather than exact role counts",
+          "passed": true
+        },
+        {
+          "name": "Identified total sums O+C only and explicitly excludes known or unknown U",
+          "passed": true
+        },
+        {
+          "name": "Existing source assignment/reconciliation bounds survive role and total views",
+          "passed": true
+        },
+        {
+          "name": "Area density requires positive finite km² and uses the native area-density scale",
+          "passed": true
+        },
+        {
+          "name": "Market rates use the actual relative-supply normalization and explicit dimensional denominator",
+          "passed": true
+        },
+        {
+          "name": "Confirmed Demand tier ignores preferred patterns, eligibility and maximum allowed tier",
+          "passed": true
+        },
+        {
+          "name": "Raw Demand reads the source metric and national percentile, ignoring stored same-grain or viewport percentiles",
+          "passed": true
+        },
+        {
+          "name": "Fixed national quantiles include exact zero, exclude uncertain rows, and have deterministic cutoff ties",
+          "passed": true
+        },
+        {
+          "name": "Native rows without an explicit national cohort stay unclassified; no fine-area aggregation fallback exists",
+          "passed": true
+        },
+        {
+          "name": "Fine-area view subsets retain the fixed 7,954-row national cohort and do not mutate source rows or criteria",
+          "passed": true
+        },
+        {
+          "name": "Real Grocery and Non-bank reconciliation/assignment rows remain ranges rather than invented exact values",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "pattern-counts",
+      "passed": true,
+      "checks": 14,
+      "items": [
+        {
+          "name": "each card matches a single-pattern model evaluation over the same national cohort",
+          "passed": true
+        },
+        {
+          "name": "unchecked cards retain their counts, including when no pattern is currently checked",
+          "passed": true
+        },
+        {
+          "name": "Demand high excludes all four low-demand patterns; all-demand mode includes them",
+          "passed": true
+        },
+        {
+          "name": "Tier gate is respected for all-demand and high-demand modes without changing low-demand membership",
+          "passed": true
+        },
+        {
+          "name": "Supply changes refresh counts from the model instead of keeping a previous snapshot",
+          "passed": true
+        },
+        {
+          "name": "all eight counts use one cached model read, not a separate evaluation for each card",
+          "passed": true
+        },
+        {
+          "name": "unknown Demand is omitted while multi-pattern Supply uncertainty is retained on each possible card",
+          "passed": true
+        },
+        {
+          "name": "missing/zero market denominator remains review, never a confirmed absence or forced card",
+          "passed": true
+        },
+        {
+          "name": "province/viewport slices and duplicate or alien UUIDs cannot masquerade as the national cohort",
+          "passed": true
+        },
+        {
+          "name": "invalid numeric criteria and loading/error states display unavailable instead of zero",
+          "passed": true
+        },
+        {
+          "name": "live sync updates all 16 counters through the existing updateImpact hook in both languages",
+          "passed": true
+        },
+        {
+          "name": "counts do not alter criteria, eligibility, ranking, events, source values or national cutoffs",
+          "passed": true
+        },
+        {
+          "name": "grocery counts retain the same 7,954-area national universe and source uncertainty",
+          "passed": true
+        },
+        {
+          "name": "nonbank counts retain the same 7,954-area national universe and source uncertainty",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "analysis-integration",
+      "passed": true,
+      "checks": 10,
+      "items": [
+        {
+          "name": "All three native adapters have exactly the geometry/hierarchy 928 UUIDs and source periods, with verified provenance bytes",
+          "passed": true
+        },
+        {
+          "name": "Native district brand/company dimensions reconcile to each province and country source totals, rather than fine crosswalk sums",
+          "passed": true
+        },
+        {
+          "name": "Actual native district adapters honor all three industry defaults, alternate own identities and Grocery/Non-bank product scopes",
+          "passed": true
+        },
+        {
+          "name": "Native Non-bank inventory retains all direct offices and never imports the 5,534 fine-area residual into a district",
+          "passed": true
+        },
+        {
+          "name": "Native Grocery counts do not receive fine Nakhon Ratchasima/Surat Thani ±1 bounds and exclude PHARMACY from selected format",
+          "passed": true
+        },
+        {
+          "name": "Every native district uses its direct same-grain land area, population and modeled GFA denominators",
+          "passed": true
+        },
+        {
+          "name": "Personal Demand/Supply metric and relation handlers preserve full ordered fine results, criteria, drafts, events and storage for each industry",
+          "passed": true
+        },
+        {
+          "name": "Personal Demand tier page includes qualifying Yolks excluded by preferred pattern and max-tier screening",
+          "passed": true
+        },
+        {
+          "name": "Demand and Supply personal states remain separate; province filters do not recalibrate either national cohort",
+          "passed": true
+        },
+        {
+          "name": "Actual async bootstrap loads analytical modules after their dependencies and before map/app, one script at a time",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "location-review",
+      "passed": true,
+      "checks": 10,
+      "items": [
+        {
+          "name": "Unknown brand is reviewed rather than certified unbranded or forced competitor",
+          "passed": true
+        },
+        {
+          "name": "Positive denominator is mandatory and does not infer empty network",
+          "passed": true
+        },
+        {
+          "name": "Confirmed pattern can coexist with uncertain branch counts",
+          "passed": true
+        },
+        {
+          "name": "Unknown Demand is separate from pattern review and exposes missing metrics",
+          "passed": true
+        },
+        {
+          "name": "Each of eight review counts is an actionable semantic button without changing checkboxes",
+          "passed": true
+        },
+        {
+          "name": "Inspection changes no criteria, source, events, shortlist or ranking",
+          "passed": true
+        },
+        {
+          "name": "Review copy is bilingual and does not offer a fake approval action",
+          "passed": true
+        },
+        {
+          "name": "Grocery reconciliation is explained separately from unknown brands",
+          "passed": true
+        },
+        {
+          "name": "Nonbank residuals require record-level area assignment and are never auto allocated",
+          "passed": true
+        },
+        {
+          "name": "Demand cards have a separate accessible shortlist control and reuse existing workspace action",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "yolk-tier",
+      "passed": true,
+      "checks": 11,
+      "items": []
+    },
+    {
+      "suite": "map-lut41",
+      "passed": true,
+      "checks": 22,
+      "items": [
+        {
+          "name": "count light exactly consumes all41native LUT entries",
+          "passed": true
+        },
+        {
+          "name": "count dark exactly consumes all41native LUT entries",
+          "passed": true
+        },
+        {
+          "name": "density.area light exactly consumes all41native LUT entries",
+          "passed": true
+        },
+        {
+          "name": "density.area dark exactly consumes all41native LUT entries",
+          "passed": true
+        },
+        {
+          "name": "density.capita light exactly consumes all41native LUT entries",
+          "passed": true
+        },
+        {
+          "name": "density.capita dark exactly consumes all41native LUT entries",
+          "passed": true
+        },
+        {
+          "name": "built light exactly consumes all41native LUT entries",
+          "passed": true
+        },
+        {
+          "name": "built dark exactly consumes all41native LUT entries",
+          "passed": true
+        },
+        {
+          "name": "price light exactly consumes all41native LUT entries",
+          "passed": true
+        },
+        {
+          "name": "price dark exactly consumes all41native LUT entries",
+          "passed": true
+        },
+        {
+          "name": "Native source hashes, base release and 41-sample traceability are explicit",
+          "passed": true
+        },
+        {
+          "name": "40national quantile boundaries P(i*100/41) produce41indices with all native colours represented on distinct data",
+          "passed": true
+        },
+        {
+          "name": "Legend communicates units, thresholds, end-bin and native LUT order without interpolation",
+          "passed": true
+        },
+        {
+          "name": "Viewport subsets keep the same national41class boundaries, colours and values",
+          "passed": true
+        },
+        {
+          "name": "Interval, absent, suppressed and unknown role values remain uncoloured and outside comparable quantiles",
+          "passed": true
+        },
+        {
+          "name": "Observed zero keeps class0 when repeated zero cutoffs would otherwise promote it",
+          "passed": true
+        },
+        {
+          "name": "Allzero and tiedpositive datasets retain correct values, explicit zero cues and disclosed empty classes",
+          "passed": true
+        },
+        {
+          "name": "Raw metric cutoff equality is lowerinclusive and upperexclusive in all40boundaries",
+          "passed": true
+        },
+        {
+          "name": "Tier1/2/3 use three ownercategories with gradient paint, yellow, eggwhite and explicit labels",
+          "passed": true
+        },
+        {
+          "name": "fuel actualfine/nativeDistrict views use fixed same-grain41LUTs without altering source or thresholds",
+          "passed": true
+        },
+        {
+          "name": "grocery actualfine/nativeDistrict views use fixed same-grain41LUTs without altering source or thresholds",
+          "passed": true
+        },
+        {
+          "name": "nonbank actualfine/nativeDistrict views use fixed same-grain41LUTs without altering source or thresholds",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "checks": 310,
+  "passed": true
+}

@@ -1,0 +1,363 @@
+{
+  "schemaVersion": "yolk.branch_context/1.7",
+  "version": "1.7.5",
+  "status": "release_pending_current_QA",
+  "date": "2026-10-05",
+  "baseline": "1.7.4",
+  "humanDocument": "docs/BRANCH_CONTEXT_v1.7.5.md",
+  "scope": [
+    "branch_editor_prefill",
+    "dependent_geography_options",
+    "brand_identity_relationship",
+    "unresolved_record_work",
+    "scoped_new_photo_drafts",
+    "coordinate_view_filters",
+    "stale_async_protection"
+  ],
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "unchanged": [
+    "Demand and Supply formulas",
+    "national reporting cohort and benchmark",
+    "source aggregate inventory",
+    "source operation truth",
+    "LDS 0.9.7 and effective 1.7.4 map appearance",
+    "quantitative native LUT41 and categorical egg tiers",
+    "persistent map instance and ordinary camera behavior"
+  ],
+  "authority": {
+    "product": "contracts/product.v1.7.json",
+    "mapBase": "contracts/workspace-map.v1.7.json",
+    "mapAnalysis": "contracts/map-analysis.v1.7.2.json",
+    "reviewTier": "contracts/location-review.v1.7.3.json",
+    "mapAppearance": "contracts/map-boundary-appearance.v1.7.4.json",
+    "branchContextExtension": "contracts/branch-context.v1.7.5.json",
+    "precedence": "This extension changes editor defaults, dependent options and coordinate display proposals only; source lineage, analytical semantics and uncertainty remain authoritative."
+  },
+  "runtimeIntegration": {
+    "module": "prototype/branch-context.js",
+    "namespace": "YolkBranchContext",
+    "pureInterfaces": [
+      "coordinatePair(latitude,longitude)",
+      "classifyPoint(feature,point)",
+      "initialValues(record,navigation)",
+      "brands()",
+      "canonicalBrand(label,existingId)"
+    ],
+    "consumers": [
+      "prototype/supply-ui.js",
+      "prototype/app.js",
+      "prototype/workspace-map.js",
+      "prototype/branch-photos.js"
+    ],
+    "bootstrap": "Load module before its editor/app consumers; hash and public selection updates belong to final release sealing.",
+    "implementationStatus": "Candidate integration and tests require current evidence; interface listing is not a production certification."
+  },
+  "editorPriority": [
+    "current manually edited or explicitly accepted draft values",
+    "saved team overlay values and existing source fields, distinguished by provenance",
+    "usable direct source province/reporting UUID",
+    "unique strict-interior coordinate proposal for empty or auto-managed values",
+    "current navigation/filter context for a fresh record only"
+  ],
+  "sourceFirst": {
+    "existingRecordMustNotInheritUnrelatedNavigation": true,
+    "existingSourceAssignmentPreserved": true,
+    "manualSavedConflict": "Show current value and coordinate proposal. Change only by explicit Use coordinate suggestion action.",
+    "proposalIsNot": [
+      "source UUID certification",
+      "independently verified statutory boundary",
+      "physical branch identity",
+      "operation verification",
+      "new aggregate membership"
+    ],
+    "sourceOverwrite": false
+  },
+  "coordinates": {
+    "pair": "Finite numeric latitude in [-90,90] and longitude in [-180,180], both supplied. Preserve source/input precision.",
+    "blankPartialInvalid": "Return missing/invalid state; never Number(empty)->0. Partial/invalid supplied values must be fixed before save.",
+    "numericZeroPairValid": true,
+    "geometryCRS": "EPSG:4326; GeoJSON coordinates [longitude,latitude]",
+    "classifications": [
+      "inside",
+      "boundary",
+      "outside"
+    ],
+    "geometryTypes": [
+      "Polygon",
+      "MultiPolygon"
+    ],
+    "holes": "Inside outer ring and outside all holes; a hole edge is boundary.",
+    "uniquePolicy": "Exactly one inside candidate and no boundary/other overlapping candidate for the applicable level. Only strict-interior uniqueness can prefill an empty/auto-managed editor field.",
+    "states": [
+      "loading",
+      "unique_strict_interior",
+      "boundary",
+      "multiple_candidates",
+      "no_match",
+      "geometry_unavailable",
+      "invalid_pair",
+      "manual_conflict"
+    ],
+    "boundaryMultiple": "Keep candidate set and require a user choice; do not select first or force a UUID.",
+    "noMatch": "Leave unresolved values visible; manual selection/work remains available.",
+    "forbiddenFallbacks": [
+      "nearest place",
+      "bbox-only assignment",
+      "first polygon by file order",
+      "forced Bangkok",
+      "stale Y.selected"
+    ],
+    "candidateIndex": "Bounding boxes may reduce candidates only; actual polygon classification decides the proposal.",
+    "sources": {
+      "province": "prototype/data/real/province-boundaries.geojson",
+      "district": "prototype/data/real/district-boundaries.geojson",
+      "hierarchy": "prototype/data/real/hierarchy-index.json",
+      "fineFileRegistry": "metadata.provinceFiles[provinceCode].file; area geometryFile links are available",
+      "fine": "prototype/data/real/fine-boundaries/{provinceCode}.geojson",
+      "limitedExamples": "prototype/data/real/source-geometries.json contains 18 examples and is not national coverage",
+      "geometryIsDisplaySource": "Native source/display-simplified geometry; independent legal-boundary verification is false"
+    },
+    "cache": "Load required source geometry lazily, share/cache in-flight loads, preserve all candidate ambiguity.",
+    "autoFit": false,
+    "automaticEvent": false,
+    "aggregateMutation": false,
+    "draftMarker": "D remains unsaved, excluded from analytical Supply."
+  },
+  "defaults": {
+    "freshCountry": "No default fine area/province without a valid current filter; no old selected example or forced province.",
+    "freshProvince": "Current province only; no arbitrary fine area or invented coordinates.",
+    "freshDistrict": "Current province/district filters; fine options via source crosswalk; no arbitrary child selection.",
+    "freshLocation": "Current validated reporting UUID and its province; coordinates remain empty unless user supplies them.",
+    "existing": "Use record and source values before navigation/filter hints; leave unresolved fields unresolved pending coordinate proposal or explicit choice.",
+    "initialStatus": "pending for new records; lookup/prefill never promotes existing/source status",
+    "freshOwnTab": "Canonical selected own brand with own relation, pending status.",
+    "freshBrandFilter": "Use a recognized current identity as default; derive relation within selected scope.",
+    "noImplicitOwnBrandInAllTab": "Without explicit own/filter context, keep unidentified brand/relation unresolved.",
+    "dependentProvince": "Refresh fine options and Bangkok Khwaeng versus upcountry LAO label. Keep same valid selection; clear incompatible displayed option only after the user explicitly changes province, retain former draft provenance and explain next step.",
+    "dependentArea": "Effective province must equal the province of the selected valid reporting UUID; source adminScope/provenance stays separate.",
+    "candidateFilterEscape": "Provide a clear way to select another area; a proposal/filter is not a forced assignment.",
+    "protectedFields": [
+      "branch name",
+      "notes/evidence",
+      "photos",
+      "manual choices",
+      "expected revision",
+      "focus/cursor"
+    ]
+  },
+  "brands": {
+    "source": "Current industry supplyCache registry, aliases, selected identity and governed brand metadata; not only loaded Y.pois.",
+    "coldInventorySupported": true,
+    "identity": "Store canonical ID; retain readable canonical label and original source provenance.",
+    "matching": "Exact normalized registry name/declared alias; harmless case/whitespace normalization allowed, no fuzzy invention.",
+    "oldId": "Do not reuse an old ID when the new recognizable label identifies another entity.",
+    "ambiguousOrUnrecognized": "Remain unresolved; no guessed canonical identity.",
+    "relationship": "Derive O/C/U using selected own identity and pointRelation/scope policy; keep Non-bank unknown licence/product scope as U.",
+    "explicitOwnChoice": "Selected Our stores relationship can fill canonical own identity; do not overwrite unrelated saved fields.",
+    "unknownNotUnbranded": true,
+    "knownBrandNotOperationVerification": true,
+    "nonbankPicker": "Top-10 selectable own identities remains separate from full comparator source inventory."
+  },
+  "savePolicy": {
+    "existingUnresolved": "Permit notes/evidence/photos and other valid edits without forcing reporting UUID.",
+    "newRequired": "name && (valid coordinate pair || valid reporting-area UUID)",
+    "invalidPartialCoordinates": "Reject incomplete or invalid supplied pair with field error; do not silently drop it.",
+    "provinceConsistency": "Persist effective province from selected valid area, otherwise explicit known province/coordinate proposal with provenance; unresolved is allowed.",
+    "geoProposal": "Store proposal provenance in draft/team overlay, not immutable source.",
+    "sourceUnchangedUntilGovernedReconciliation": true,
+    "statusUnchangedByAutofill": true,
+    "event": "Only successful committed branch mutation emits the normal before/after event; typing/lookup/filtering has no event."
+  },
+  "photoDraft": {
+    "freshKey": "Namespace the temporary new-record photo draft by criteriaContextKey(); branch recordId/route new remains a separate identity.",
+    "contextSwitch": "No photos carried to another brand/industry/supplyScope; previous context draft remains recoverable.",
+    "commit": "Move scoped temporary photos to generated branch ID only through existing commit/finalize/rollback flow.",
+    "cap": 5,
+    "sourcePolicy": "Retain existing validation, browser-local storage and privacy limits; no production upload claim."
+  },
+  "viewFilters": {
+    "levels": [
+      "province",
+      "district",
+      "location"
+    ],
+    "priority": "Saved effective assignment, then usable direct source administrative fields; coordinate candidates only when source membership is unresolved.",
+    "unassignedCoordinateMatch": "View-only pin/list matching with explicit coordinate-derived label and candidate uncertainty.",
+    "preserveFields": [
+      "p.area",
+      "p.province",
+      "original adminScope",
+      "source record",
+      "SupplyObservation"
+    ],
+    "noAggregateEffect": true,
+    "boundaryMultiple": "Do not turn ambiguous display candidates into exact Supply counts or forced membership.",
+    "sourceConflict": "Expose mismatch for review; opening/filtering cannot relocate a source UUID.",
+    "crosswalk": "Many-to-many display links do not duplicate reporting UUIDs/counts."
+  },
+  "async": {
+    "capture": [
+      "form record ID",
+      "expected record revision",
+      "criteriaContextKey",
+      "context request generation",
+      "route hash",
+      "coordinate signature",
+      "manual edit generation"
+    ],
+    "applyOnlyIf": "All captured values still match, form remains connected, field is eligible for automatic prefill or user explicitly applies the current proposal.",
+    "cancelOn": [
+      "new coordinate input",
+      "manual geography selection",
+      "record change",
+      "context change",
+      "route change",
+      "revision change"
+    ],
+    "mountAfter": "workingForm/restoreWorkingForm has restored manual values and state.",
+    "rerenderState": [
+      "values",
+      "manual/autofill provenance",
+      "expected revision",
+      "focus/cursor",
+      "scoped photo draft identity"
+    ],
+    "failures": "Show loading/error/unresolved status without erasing entered fields or applying an older result."
+  },
+  "sourceCoordinateFixture": {
+    "latitude": 15.597502,
+    "longitude": 103.808856,
+    "expectedProvince": {
+      "code": "45",
+      "nameTh": "ร้อยเอ็ด"
+    },
+    "expectedDistrict": {
+      "code": "4511",
+      "uuid": "a52c56b4-46e2-477f-bde9-99bb328394a1",
+      "nameTh": "สุวรรณภูมิ"
+    },
+    "expectedArea": {
+      "uuid": "8f69c8f1-b275-4616-8ab5-8c641881e93f",
+      "nameTh": "เทศบาลตำบล สุวรรณภูมิ"
+    },
+    "meaning": "Required expected unique strict-interior source-geometry candidate; not a new branch identity/operation/statutory verification.",
+    "status": "REQUIRED_CURRENT_QA_NOT_CLAIMED_BY_CONTRACT"
+  },
+  "acceptance": [
+    {
+      "id": "BC01",
+      "case": "Known source/overlay values with unrelated current map geography",
+      "expected": "Existing values preserved; no default overwrites."
+    },
+    {
+      "id": "BC02",
+      "case": "Unique strict-interior coordinates and empty/auto-managed geography",
+      "expected": "Prefill editor proposal with provenance; no source/status/aggregate change."
+    },
+    {
+      "id": "BC03",
+      "case": "Shared edge, vertex, polygon hole or multiple overlaps",
+      "expected": "Correct geometric class/candidates; no forced fine UUID."
+    },
+    {
+      "id": "BC04",
+      "case": "Blank, partial, nonfinite, out-of-range and legitimate numeric-zero pair",
+      "expected": "Preserve distinct states; no empty-to-zero coercion; no guessed geography."
+    },
+    {
+      "id": "BC05",
+      "case": "Saved/manual area differs from coordinate proposal",
+      "expected": "Preserve current value; explicit comparison/apply action only."
+    },
+    {
+      "id": "BC06",
+      "case": "Fresh country/province/district/location editor",
+      "expected": "Current valid geography defaults only; no stale selected area/Bangkok/coordinates."
+    },
+    {
+      "id": "BC07",
+      "case": "Province/area/district dependent dropdown edits",
+      "expected": "Options/labels and effective province agree; no duplicate fine identity or lost manual input."
+    },
+    {
+      "id": "BC08",
+      "case": "Cold point cache with known brand registry/aliases",
+      "expected": "All known current-industry suggestions and canonical IDs available."
+    },
+    {
+      "id": "BC09",
+      "case": "Brand or Our stores selection and uncertain Non-bank licence scope",
+      "expected": "Consistent O/C/U; unknown scope remains uncertain, pending operation stays pending."
+    },
+    {
+      "id": "BC10",
+      "case": "Existing unresolved record notes/photos; new name plus coords or area",
+      "expected": "Valid work saves without invented UUID; new validation follows OR rule."
+    },
+    {
+      "id": "BC11",
+      "case": "New photo draft and context switch/back",
+      "expected": "No cross-context carryover; correct draft recoverable, save moves to generated branch ID."
+    },
+    {
+      "id": "BC12",
+      "case": "Province/district/fine view filters on unassigned coordinate POI",
+      "expected": "View-only matching, explicit labels, no aggregate/assignment writes."
+    },
+    {
+      "id": "BC13",
+      "case": "Deferred lookup then record/context/route/revision/coordinate/manual change",
+      "expected": "Stale result discarded; no field overwrite or wrong branch write."
+    },
+    {
+      "id": "BC14",
+      "case": "Language/theme/source completion rerender",
+      "expected": "Manual state, values, revision, focus/cursor and photos retained."
+    },
+    {
+      "id": "BC15",
+      "case": "Geometry error/no match/multiple candidates",
+      "expected": "Unresolved status and manual workflow remain available; no nearest/bbox fallback."
+    },
+    {
+      "id": "BC16",
+      "case": "Source-coordinate fixture 45/4511/8f69c8f1-b275-4616-8ab5-8c641881e93f",
+      "expected": "Unique strict-interior candidates at all three source levels, with non-statutory label."
+    },
+    {
+      "id": "BC17",
+      "case": "All default/filter/lookup actions before explicit save",
+      "expected": "No team Event, Supply totals, criteria, cohort or camera mutation."
+    },
+    {
+      "id": "BC18",
+      "case": "Rendered TH/EN, light/dark, desktop/narrow, keyboard, long labels, loading/error",
+      "expected": "Usable dependent fields, clear suggestions and preserved focus; physical devices/backend remain separately unverified."
+    }
+  ],
+  "verification": {
+    "requiredChecks": [
+      "scripts/check-branch-context.cjs",
+      "retained cold-branch checks",
+      "retained save-context checks",
+      "retained photo checks",
+      "retained workspace-map checks",
+      "bounded native TH/EN/theme/width flow review"
+    ],
+    "status": "pending_current_candidate_evidence",
+    "runtimeTestResults": null,
+    "nativeBrowserReceipt": null,
+    "providerEvidence": null,
+    "liveByteEvidence": null,
+    "limits": [
+      "Contract creation does not establish runtime test success or publication.",
+      "Geometry proposals are not independent legal boundary or operating-site verification.",
+      "No shared backend/server RBAC/email/LINE or production-media certification.",
+      "VM/viewport review is not physical-device QA."
+    ]
+  }
+}

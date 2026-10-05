@@ -24,6 +24,7 @@ function fixture(){
   constructor(form){this.entries=Object.entries(form.elements).filter(([,el])=>el.type!=='file').map(([name,el])=>[name,el.value]);}
   [Symbol.iterator](){return this.entries[Symbol.iterator]()}
  };
+ vm.runInContext(fs.readFileSync(path.join(prototype,'branch-context.js'),'utf8'),h.sandbox,{filename:'actual-branch-context.js'});
  vm.runInContext(fs.readFileSync(path.join(prototype,'supply-ui.js'),'utf8'),h.sandbox,{filename:'actual-supply-ui.js'});
  vm.runInContext(formSource,h.sandbox,{filename:'actual-app-form-preservation.js'});
  const run=h.evaluate;
@@ -31,7 +32,7 @@ function fixture(){
  function mountForm(id,revision,values,province='10'){
   nodes.clear();focusCalls.length=0;
   const elements=Object.fromEntries(Object.entries(values).map(([name,value])=>[name,{value,type:'text'}]));
-  const form={id:'poi-form',dataset:{id,revision:String(revision)},elements};
+  const form={id:'poi-form',dataset:{id,revision:String(revision),photoDraftId:h.sandbox.window.YolkBranchContext.photoDraftId({id})},elements};
   nodes.set('#poi-form',form);
   nodes.set('#branch-province',{value:province});
   nodes.set('#branch-area',{innerHTML:'original area options'});
@@ -98,11 +99,12 @@ function fixture(){
 
  await check('Only explicit #poi/new creates the new-branch form when the inventory is cold',()=>{
   h.sandbox.location.hash='#poi/new';run('Y.pointState="not_loaded";Y.pois=[]');
-  const html=run('poiEditor()');assert(html.includes('id="poi-form"'));assert(html.includes('data-id="new"'));assert(html.includes('data-revision="0"'));
+  const html=run('poiEditor()');assert(html.includes('id="poi-form"'));assert(html.includes('data-id="new"'));assert(html.includes('data-revision="0"'));assert(html.includes('data-photo-draft-id="new:'+run('escapeHTML(criteriaContextKey())')+'"'));
+  assert(html.includes('name="province"'));assert(!/<select[^>]*id="branch-area"[^>]*\brequired\b/.test(html),'Unresolved source membership must remain editable');
  });
 
  const area=plain(run('AREAS.find(a=>a.province==="10")'));
- const userValues={name:'ชื่อที่ทีมกำลังตรวจ',brand:loaded.brand,relation:'competitor',status:'pending',area:area.id,lat:String(loaded.lat),lng:String(loaded.lng),note:'User draft, cursor stays here'};
+ const userValues={name:'ชื่อที่ทีมกำลังตรวจ',brand:loaded.brand,relation:'competitor',status:'pending',province:'10',area:area.id,lat:String(loaded.lat),lng:String(loaded.lng),note:'User draft, cursor stays here'};
  h.sandbox.location.hash='#poi/'+loaded.id;
  let snapshot;
  await check('Working form captures branch identity, expected revision, edits and text selection',()=>{
@@ -146,10 +148,17 @@ function fixture(){
   f.nodes.clear();f.restore(snapshot);assert.equal(run('workingForm()'),null);
  });
 
+ await check('Source assignment suggestions and manual choices survive same-record form replacement',()=>{
+  const {form}=f.mountForm(loaded.id,1,userValues);const api=h.sandbox.window.YolkBranchContext;
+  const state={manualProvince:true,manualArea:true,autoProvince:false,autoArea:false,candidates:[{id:area.id,province:'10',classification:'inside'}],result:{state:'unique',provinceCandidates:[{code:'10',classification:'inside'}],areaCandidates:[{id:area.id,province:'10',classification:'inside'}],sourceFiles:['test-display-boundary']}};
+  api.restore(form,state);const saved=plain(run('workingForm()'));assert.deepEqual(saved.branchContext,state);
+  const replacement=f.mountForm(loaded.id,1,userValues).form;f.restore(saved);assert.deepEqual(plain(api.snapshot(replacement)),state);
+ });
+
  const result={schemaVersion:1,test:'check-cold-branch',testedAt:new Date().toISOString(),passed:checks.every(c=>c.passed),elapsedMs:Date.now()-started,checks,
   scope:'Actual production poiEditor, ensureSourcePoints, workingForm and restoreWorkingForm; real source-record fixture and model/context modules. DOM/FormData and transport adapters only. Does not claim browser timing, pixel layout or physical-device QA.',
-  sourceHashes:Object.fromEntries(['prototype/app.js','prototype/supply-ui.js','prototype/industry-workspace.js','prototype/model.js','prototype/data/real/grocery-points.json'].map(name=>[name,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,name))).digest('hex')]))};
- const output=path.resolve(root,'../deliverables/yolk-v1.7.1-review/cold-branch-regression-results.json');fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
+  sourceHashes:Object.fromEntries(['prototype/app.js','prototype/supply-ui.js','prototype/branch-context.js','prototype/industry-workspace.js','prototype/model.js','prototype/data/real/grocery-points.json'].map(name=>[name,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,name))).digest('hex')]))};
+ const output=path.resolve(root,'../deliverables/yolk-v1.7.5-context/cold-branch-regression-results.json');fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
  for(const c of checks)console.log((c.passed?'PASS ':'FAIL ')+c.name+(c.error?'\n'+c.error:''));
  console.log(JSON.stringify({passed:result.passed,checks:checks.length,receipt:output}));if(!result.passed)process.exitCode=1;
 })().catch(error=>{console.error(error);process.exitCode=1});

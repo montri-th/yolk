@@ -1,6 +1,6 @@
-# Development instructions — Yolk three-industry preview v1.7.4
+# Development instructions — Yolk three-industry preview v1.7.5
 
-Updated 2026-10-04. Read START_HERE.md, contracts/product.v1.7.json and IMPLEMENTATION_PLAN_v1.7.4.md and contracts/location-review.v1.7.3.json before changes. Use the original Yolk product UI. Support only Fuel, Grocery and Non-bank in the active demo.
+Updated 2026-10-05. Read START_HERE.md, contracts/product.v1.7.json, CityMETER_Yolk_Full_Product_and_Implementation_v1.7.5.md and contracts/branch-context.v1.7.5.json and contracts/location-review.v1.7.3.json before changes. Use the original Yolk product UI. Support only Fuel, Grocery and Non-bank in the active demo.
 
 ## Active authority
 
@@ -75,3 +75,9 @@ Show Demand Yolks separately from all-criteria matches. The raw Demand count use
 The [Supply semantics receipt](evidence/supply-cutoff-semantics-v1.7.4.json) covers 37 current default contexts / 444 probes. It supports model semantics, not browser/touch usability, arbitrary strategies or final release verification. Current release QA/provider/live-byte gates remain pending.
 
 Supply rate slider endpoints and steps use the role calibration threshold (fallback team criteria), not the current draft thumb value. Keep the scale stable across rerenders, language and route changes. Exact-number inputs retain values outside the slider range with the existing warning. Refresh cached broad navigation hit accessible labels on language change; preserve geometry, map instance, formulas, draft and preset.
+
+## Active context-aware CRUD extension · 1.7.5
+
+Read docs/BRANCH_CONTEXT_v1.7.5.md and contracts/branch-context.v1.7.5.json. This controls source-first editor suggestions, contextual new-branch defaults, dropdown filtering, canonical brand identity, unresolved notes/photos, scoped new-photo drafts and view-only coordinate filtering. Unique strict-interior display matches may fill editor drafts; manual/saved assignments win and conflicts require explicit choice. Do not change original source membership, legal/operating status or aggregate Supply. Current map context seeds NEW records only; never stale Y.selected or forced Bangkok. Unknown brand remains unknown. All async hints must retain form/context/route/revision/coordinates, no camera move/event.
+
+Run retained workflow checks plus check-branch-context.cjs. Use current 1.7.5 sealer/verifier after final QA. Historical pending statements above describe the historical manifest state; current status is contracts/release.v1.7.5.json and current receipts. Full native/physical-device/backend gates remain separate.

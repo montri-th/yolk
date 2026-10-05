@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify public 1.7.4 artifact, source grains and DS assets
-        run: python3 scripts/verify-pages-v1.7.4.py
+      - name: Verify public 1.7.5 artifact, source grains and DS assets
+        run: python3 scripts/verify-pages-v1.7.5.py
       - name: Check retained models, evidence review and map colours
         run: |
           node scripts/check-three-industry.cjs
@@ -33,6 +33,7 @@ jobs:
           node scripts/check-map-responsiveness.cjs
           node scripts/check-map-hover.cjs
           node scripts/check-cold-branch.cjs
+          node scripts/check-branch-context.cjs
           node scripts/check-map-analysis.cjs
           node scripts/check-pattern-counts.cjs
           node scripts/check-analysis-integration.cjs

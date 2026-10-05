@@ -54,3 +54,6 @@
 .yl-rate-summary dd { margin:4px 0; font-weight:600; font-size:23px; }
 .yl-rate-summary small { display:block; color:var(--muted); font-size:14px; }
 @media(max-width:400px){.supply-mode-option {gap:8px;padding:10px 8px}.supply-mode-option strong{font-size:15px}.yl-rate-summary dl{grid-template-columns:1fr}}
+
+/* Coordinate hints use existing DS surfaces and readable, wrapping actions. */
+#branch-context-note{display:grid;gap:10px;align-items:start}#branch-context-note p{margin:0}#branch-context-note .btn{justify-self:start;max-width:100%;white-space:normal;text-align:left}#branch-context-note small{display:block;line-height:1.6}

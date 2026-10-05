@@ -1,0 +1,48 @@
+{
+  "version": "1.7.5",
+  "date": "2026-10-05",
+  "status": "bounded_native_browser_pass",
+  "browser": "Chrome extension, native rendered viewports",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "language": "th",
+      "theme": "dark"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "language": "en",
+      "theme": "light"
+    }
+  ],
+  "observations": [
+    "Original coordinate-only PTT source record fills province45 and real Suwannaphum fine UUID with two choices (placeholder plus one candidate).",
+    "Show all expands to203 options (202 source areas and placeholder).",
+    "User-selected Bangkok area and unsaved note survive language and theme rerender.",
+    "Explicit Use coordinate match changes area/province to the coordinate candidate while retaining note.",
+    "New nationwide editor begins with empty province/fine membership rather than stale sample/Bangkok.",
+    "Known source editor retains source status; no auto operation verification or source aggregate edits.",
+    "Coordinate edits invalidate old automatic hints immediately; result settles to unique source match.",
+    "No document horizontal overflow in tested390/1440 viewports; Thai and English hint/actions read without overlap."
+  ],
+  "screenshots": [
+    "evidence/browser-v1.7.5/desktop-th-dark-branch-context.png",
+    "evidence/browser-v1.7.5/mobile-en-light-coordinate-options.png"
+  ],
+  "runtimeHashes": {
+    "branch-context.js": "bf7b189c14eccb7644f4fea21cbf4c64f6c7afd98fdb42ed8cc921c3db421c09",
+    "app.js": "eca304d4be92e28c9bb40f902f3f461282cfbfd88e96416e3648e9feabd4ddf4",
+    "workspace-map.js": "7fd51a12a8d42c3be188c0c8b8d108ca0374923c9c1f289021920ab4287eaeb1",
+    "supply-ui.js": "27aeb56e7ba9c3bb204be4d3795b97759dada4652bcced4a6f7db6adbe8fd29f",
+    "bootstrap.js": "8cfcdf53d3ed220e8bbbb93d25f315ba62e49331cce6aab98d42e1a826882350",
+    "industry-workspace.js": "ecae3b661b8aee3a6c1b415be46d4f4e7ecbb5d3c943e7d92836bf0457421c1f",
+    "workspace-layout.css": "3c132052829c7b242d8d848c68365507d65e57f8c1373909017dbf5b9ff9fa38"
+  },
+  "limits": [
+    "Bounded native viewport review, not physical touch/device certification or full language/theme matrix.",
+    "No shared backend, notification provider or external Google outcome QA.",
+    "Automated tests carry race/invalid/overlap and source-immutability assertions separately."
+  ]
+}
