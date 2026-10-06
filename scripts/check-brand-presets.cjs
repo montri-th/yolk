@@ -64,7 +64,7 @@ function harness(savedWrites = new Map()) {
       throw new Error('Unexpected fetch: ' + name);
     }
   });
-  for (const file of ['metrics.js', 'model.js', 'brand-experience.js', 'industry-workspace.js', 'location-map.js']) {
+  for (const file of ['icons.js', 'metrics.js', 'model.js', 'brand-experience.js', 'industry-workspace.js', 'location-map.js']) {
     vm.runInContext(fs.readFileSync(path.join(prototype, file), 'utf8'), sandbox, {filename: file});
     // A browser's global object is window; this VM deliberately has a separate, small window stub.
     if (file === 'brand-experience.js') sandbox.YolkBrands = window.YolkBrands;
@@ -266,17 +266,21 @@ async function check(name, test) {
     assert.equal(digest(h.runtime.supplyCache.get('grocery')), supplyHashes.grocery);
   });
 
-  await check('Actual map render uses O for Our stores and C for Competitors in both languages', () => {
+  await check('Actual map render pairs DS shield/swords with own/competitor captions in both languages', () => {
     const area = {id: 'qa-map', demand: true, mapContext: {boundaryStatus: 'missing', pois: [
       {id: 'own', area: 'qa-map', name: 'Our branch', relation: 'own', lat: 13.75, lng: 100.5},
       {id: 'peer', area: 'qa-map', name: 'Peer branch', relation: 'competitor', lat: 13.76, lng: 100.51}
     ]}};
     for (const language of ['th', 'en']) {
       const html = h.sandbox.window.YolkLocationMap.render(area, [], language);
-      assert(html.includes('yl-map-key yl-key-own" aria-hidden="true">O</span>'));
-      assert(html.includes('yl-map-key yl-key-competitor" aria-hidden="true">C</span>'));
-      assert(!html.includes('yl-map-key yl-key-own" aria-hidden="true">C</span>'));
-      if (language === 'en') assert(html.includes('Our stores') && html.includes('Competitors'));
+      const ownCue = 'yl-map-key yl-key-own" aria-hidden="true">' + h.sandbox.window.YolkIcons.icon('shield');
+      const peerCue = 'yl-map-key yl-key-competitor" aria-hidden="true">' + h.sandbox.window.YolkIcons.icon('swords');
+      assert(html.includes(ownCue));
+      assert(html.includes(peerCue));
+      assert(!html.includes('yl-map-key yl-key-own" aria-hidden="true">O</span>'));
+      assert(!html.includes('yl-map-key yl-key-competitor" aria-hidden="true">C</span>'));
+      assert(html.includes(language === 'en' ? 'Our stores' : 'สาขาเรา'));
+      assert(html.includes(language === 'en' ? 'Competitors' : 'คู่แข่ง'));
     }
   });
 

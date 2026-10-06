@@ -1,0 +1,43 @@
+.criteria-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.simple-demand h2,.ranking-section h2,.supply-section h2{display:flex;align-items:center;gap:8px}
+.simple-demand .lead{font-size:16px;line-height:1.7;margin-bottom:18px}
+.demand-level-options{display:grid;gap:10px}
+.demand-level-options legend{font-weight:600;margin-bottom:10px}
+.demand-level-option{display:grid;grid-template-columns:20px 26px 1fr;gap:10px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:pointer}
+.demand-level-option:has(input:checked){background:var(--soft);border-color:var(--ink)}
+.demand-level-option:focus-within{outline:3px solid var(--yl-focus);outline-offset:2px}
+.demand-level-option input{width:18px;height:18px;accent-color:var(--accent)}
+.demand-level-option .yolk-tier-swatch{width:25px;height:25px;border-radius:50%;border:1px solid var(--yl-yolk-tier-ink)}
+.demand-level-option strong{font-size:16px;line-height:1.5}
+.demand-level-option small{display:block;color:var(--muted);font-size:14px;margin-top:3px}
+.simple-demand-count{display:flex;gap:14px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);margin-bottom:20px}
+.simple-demand-count>strong{font:700 30px/1.2 'Bai Jamjuree',sans-serif;color:var(--ink)}
+.simple-demand-count small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.simple-signal-digest h3{display:flex;align-items:center;font-size:18px}
+.simple-signal-digest p{margin:8px 0;color:var(--muted)}
+.simple-signal-digest ul{padding-left:20px;columns:1;line-height:1.7;font-size:15px}
+.simple-signal-digest li{break-inside:avoid;margin:3px 0}
+.simple-advanced{border-top:1px solid var(--line);margin-top:20px}
+.simple-advanced>.demand-section{padding:14px 0;border:0;margin:0}
+.simple-advanced .demand-section>.block-title,.simple-advanced .demand-section>.lead,.simple-advanced .demand-section>.rule-caption{display:none}
+.criteria-shortlist-step{padding:20px;border:1px solid var(--line);border-radius:12px;margin:20px 0;background:var(--paper)}
+.criteria-shortlist-step>strong{display:flex;align-items:center;gap:6px;font-size:18px}
+.criteria-shortlist-step p{margin:10px 0 16px;font-size:15px;color:var(--muted);line-height:1.65}
+.supply-compare{padding:16px 0;margin:12px 0;font-size:15px}
+.supply-compare>h3{font-size:19px;margin:0 0 8px}
+.supply-compare>p{color:var(--muted);font-size:14px;margin:0 0 16px}
+.supply-pair{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;margin:16px 0;color:var(--yl-own-ink)}
+.supply-pair-competitor{color:var(--yl-rival-ink)}
+.supply-pair-label{display:flex;align-items:center;gap:6px;min-width:0;font-weight:600}
+.supply-pair-label .yl-icon{font-size:24px;margin:0}
+.supply-pair strong{font:600 17px/1.5 'Bai Jamjuree',sans-serif}
+.supply-pair-track{position:relative;grid-column:1/-1;height:10px;border:1px solid var(--line);border-radius:5px;background:var(--soft);overflow:hidden}
+.supply-pair-bar{position:absolute;left:0;top:0;height:100%;background:var(--yl-own-ink)}
+.supply-pair-competitor .supply-pair-bar{background:var(--yl-rival-ink)}
+.supply-pair-uncertainty{position:absolute;top:0;height:100%;background:repeating-linear-gradient(135deg,transparent 0 3px,currentColor 3px 4px)}
+.supply-pair-missing{position:absolute;inset:0;border-top:1px dashed var(--muted);top:50%}
+.supply-compare-compact{padding:0 14px;margin:0 0 14px}
+.supply-compare-compact .supply-pair{margin:10px 0}
+.supply-compare-compact>small{font-size:12px;color:var(--muted)}
+.analysis-tier-summary .yolk-tier-label{white-space:normal;line-height:1.5}
+@media(max-width:600px){.criteria-tabs button{font-size:14px;min-height:52px;padding:8px}.criteria-tabs .yl-icon{font-size:20px}.simple-demand .lead{font-size:15px}.demand-level-option{padding:12px;gap:8px;grid-template-columns:18px 23px 1fr}.demand-level-option strong{font-size:15px}.simple-demand-count{align-items:flex-start}.simple-demand-count>strong{font-size:26px}}

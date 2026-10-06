@@ -1,0 +1,283 @@
+{
+  "schemaVersion": "yolk.criteria_experience/1.8",
+  "version": "1.8.0",
+  "date": "2026-10-07",
+  "status": "locally_verified_pending_publication",
+  "humanDocument": "CityMETER_Yolk_Full_Product_and_Implementation_v1.8.0.md",
+  "authority": "Owner-authorized simplified active decision flow. Overrides retained pattern/demandMode eligibility and star priorities, preserving source Demand/Supply formulas.",
+  "baseContracts": [
+    "contracts/product.v1.7.json",
+    "contracts/criteria-proposal.v1.6.json",
+    "contracts/industry-profiles.json",
+    "contracts/workspace-map.v1.7.json",
+    "contracts/map-analysis.v1.7.2.json",
+    "contracts/branch-context.v1.7.5.json"
+  ],
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "flow": [
+    {
+      "id": "find_yolk",
+      "th": "หาไข่แดง",
+      "en": "Find Yolks",
+      "job": "Determine Demand tier from pinned metric formulas, fixed national cutoffs and saved context parameters."
+    },
+    {
+      "id": "compare_supply",
+      "th": "ดูช่องว่างสาขา",
+      "en": "Compare supply",
+      "job": "Compare our and competitor branches with one market denominator; ranking parameters may reorder Demand-qualified locations."
+    },
+    {
+      "id": "shortlist",
+      "th": "เล็งทำเล",
+      "en": "Shortlist locations",
+      "job": "Save a location and reasons; do not alter eligibility or imply field/investment approval."
+    }
+  ],
+  "demand": {
+    "confirmed": "demand === true",
+    "membership": "demand === true AND qualifyingTier is integer1..3 AND qualifyingTier <= maxDemandTier",
+    "defaultMaxDemandTier": 3,
+    "countBeforeTierSelection": "count(demand===true) in current administrative scope; never camera viewport",
+    "eligibleCount": "count(membership) in same scope",
+    "tierVocabulary": [
+      {
+        "tier": 1,
+        "th": "ไข่แดงเข้ม",
+        "en": "Deep yolk",
+        "demandTh": "สูงมาก",
+        "demandEn": "Very high",
+        "appearance": "Exact retained density.area LUT20..40 gradient",
+        "displayLabelEn": "Deep yolk · very high demand"
+      },
+      {
+        "tier": 2,
+        "th": "ไข่แดง",
+        "en": "Yolk",
+        "demandTh": "สูง",
+        "demandEn": "High",
+        "appearance": "energy.yellow #FFBC1F",
+        "displayLabelEn": "Yolk · high demand"
+      },
+      {
+        "tier": 3,
+        "th": "ไข่ขาว",
+        "en": "Egg white",
+        "demandTh": "ค่อนข้างสูง",
+        "demandEn": "Elevated",
+        "appearance": "owner categorical egg-white #F1F4EF",
+        "displayLabelEn": "Egg white · elevated demand"
+      }
+    ],
+    "meaning": "Confirmed Demand proxy screening strength, not measured purchases, statistical confidence or forecast revenue.",
+    "unknown": "Not confirmed Yolk; preserve reason/evidence state."
+  },
+  "supply": {
+    "defaultMode": "relative",
+    "optionalMode": "count",
+    "singleRawDenominator": true,
+    "defaultDenominators": {
+      "fuel": {
+        "metricId": "gfa",
+        "unit": 100000,
+        "label": "branches per100,000sqm GFA"
+      },
+      "grocery": {
+        "metricId": "population",
+        "unit": 10000,
+        "label": "branches per10,000persons"
+      },
+      "nonbank": {
+        "metricId": "population",
+        "unit": 10000,
+        "label": "relevant office/branch records per10,000persons"
+      }
+    },
+    "formula": "roleCount / positive known rawDenominator * normalizationUnit",
+    "thresholdMeaning": "Gap reference: equal observed rate gives gap score50/100. Lower observed Supply gives a larger gap. Retained High/Low diagnostics remain historical; the primary UI does not use a many/few gate. Never capacity, sales or active Yolk eligibility.",
+    "high": "value >= roleThreshold",
+    "low": "value < roleThreshold",
+    "unknown": "Missing/nonpositive denominator or unresolved numerator; not zero.",
+    "interval": "Retain lower/upper and admissible joint constraints; do not render a bound as an exact value.",
+    "calibration": "Retained per-role national positive exact-count median withN>=5; preserve existing saved contexts and no reseeding while dragging.",
+    "membershipEffect": "NONE",
+    "countEffect": "NONE on confirmed Demand count and active eligible IDs"
+  },
+  "ranking": {
+    "membershipEffect": "NONE",
+    "defaults": {
+      "fuel": {
+        "mode": "weighted",
+        "weights": {
+          "demand": 70,
+          "ownGap": 20,
+          "competitorGap": 10
+        }
+      },
+      "grocery": {
+        "mode": "context",
+        "weightedFallback": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        }
+      },
+      "nonbank": {
+        "mode": "context",
+        "weightedFallback": {
+          "demand": 100,
+          "ownGap": 0,
+          "competitorGap": 0
+        }
+      }
+    },
+    "formula": "gap(N,T)=100/(1+N/T); weightedScore=(Wd*DemandScore+Wo*OwnGap+Wc*CompetitorGap)/(Wd+Wo+Wc)",
+    "uncertainty": "Retain rankLower/rankUpper and conservative admissible joint bounds, configured missing weights and evidence coverage.",
+    "contextOrder": [
+      "eligible first",
+      "qualifyingTier ascending",
+      "strongest confirmed same-tier path descending",
+      "areaId ascending"
+    ],
+    "weightedOrder": [
+      "eligible first",
+      "rankLower descending",
+      "qualifyingTier ascending",
+      "sourceRank ascending",
+      "areaId ascending"
+    ],
+    "legacyStars": "Historical-only; not active ranking criterion.",
+    "zeroWeights": "All-zero top weights are invalid; a zero metric weight removes rank contribution but not Demand threshold membership."
+  },
+  "symbols": {
+    "our": {
+      "icon": "shield",
+      "th": "สาขาเรา",
+      "en": "Our stores",
+      "colorRole": "Retained LDS categorical own-network ink; blue"
+    },
+    "competitor": {
+      "icon": "swords",
+      "th": "คู่แข่ง",
+      "en": "Competitors",
+      "colorRole": "Retained LDS categorical competitor ink; red"
+    },
+    "unresolved": {
+      "icon": "help",
+      "th": "รอตรวจ",
+      "en": "To verify",
+      "meaning": "Unresolved record; UNKNOWN is not unbranded."
+    },
+    "rule": "Symbol identifies party; number or paired bar identifies quantity. More swords does not imply an unattractive location.",
+    "iconsSource": "Verified LDS Material Symbols runtime through shared uiIcon helper, never emoji as the shipped symbol.",
+    "pairedBars": "Our and competitor use the same metric, denominator, period, unit and local extent within each pair. Set extent to the maximum positive roleUpper, including uncertainty bounds; use fallback1 only when both sides are zero or unavailable. Do not floor positive sub-one rates to1. Label Local scale and actual extent in full/compact views. Do not compare bar lengths across locations. Unknown is labelled; known zero is shown as0. Count mode shows actual branch counts; rate mode shows inventory per named denominator unit.",
+    "poi": "Keep actual verified square brand graphic and visible brand name; add party badge. Generic role icon only when an approved graphic is unavailable.",
+    "pairedScaleFixture": {
+      "input": {
+        "ownLower": 0.01,
+        "ownUpper": 0.01,
+        "competitorLower": 0.02,
+        "competitorUpper": 0.02,
+        "unit": "same selected rate unit"
+      },
+      "expected": {
+        "extent": 0.02,
+        "ownBarPercent": 50,
+        "competitorBarPercent": 100,
+        "localScaleVisible": true
+      },
+      "allZeroOrUnavailableFallback": 1
+    }
+  },
+  "patterns": {
+    "active": false,
+    "uiCards": false,
+    "filter": false,
+    "starPriority": false,
+    "retained": "Historical8definitions/evidence and internal diagnostics may remain for migration; no hidden preferred-pattern membership gate.",
+    "migration": "Preserve stored criteria/history; ignore legacy patterns and demandMode for active 1.8 eligibility, mark engineVersion and explain result-set change. Do not emit team-change events merely on load."
+  },
+  "map": {
+    "persistentInstance": true,
+    "syncRefits": false,
+    "selectedFineFill": false,
+    "ordinaryOutline": "#FFFFFF with retained relative parent/child widths",
+    "hoverOutline": "#FFBC1F /2px clickable parent target",
+    "finePoiRole": "Actual branded POIs only at fine-area detail; aggregate symbols never pretend to be point locations.",
+    "tierColors": "Retained owner fried-egg categories; no fill opacity transformation",
+    "rawMetricColors": "All41exact LDS LUT colors identical both themes; scale selected by metric/denominator; review and zero distinct."
+  },
+  "unchanged": [
+    "7,954fixednationalreportingUUIDcohort",
+    "25source-derivedmetrics",
+    "3industry/9family/37brandbindings",
+    "immutable source snapshots/counts/geometry provenance",
+    "Demandformula/tierthresholds/presetresearchscope",
+    "CRUD/RBAC10seatproposal/feed/private5photoapproach",
+    "branch-context1.7.5source-firstmanual-safeinference",
+    "actualDS0.9.7assets/brand-squarelogos/mapcamera/drilldown"
+  ],
+  "acceptance": [
+    {
+      "id": "CX01",
+      "case": "Change own/competitor Supply cutoff, count/rate mode or denominator",
+      "expect": "Demand/Tier/activeeligibleIDset unchanged; rates and rank may change."
+    },
+    {
+      "id": "CX02",
+      "case": "Change top/group/metric ranking weights",
+      "expect": "Membership unchanged; stable ranking updates; all-zero configuration rejected."
+    },
+    {
+      "id": "CX03",
+      "case": "Restore saved legacy preferred patterns",
+      "expect": "No active pattern gate, cards or stars; historical values preserved, activeengineversionexplicit."
+    },
+    {
+      "id": "CX04",
+      "case": "Known0 versus missing/nonpositive denominator/interval",
+      "expect": "Distinct numbers/cues; no missing=>0 or lower-bound=>exact conversion."
+    },
+    {
+      "id": "CX05",
+      "case": "Brand graphic exists on actual POI",
+      "expect": "Graphic, visible brand name, party shield/swords and existing research/editor actions shown."
+    },
+    {
+      "id": "CX06",
+      "case": "Switch route, language, theme, context or edit draft",
+      "expect": "Persistent camera unless explicitnavigation/focus; stale asyncdata guarded; saved criteria isolated."
+    }
+  ],
+  "verification": {
+    "localQA": {
+      "status": "bounded_local_pass",
+      "automatedSuites": 21,
+      "automatedChecks": 354,
+      "automatedReceipt": "evidence/automated-v1.8.0.json",
+      "releaseChecksReceipt": "evidence/release-checks-v1.8.0.json",
+      "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "browserChecks": 11,
+      "nativeBrowserReceipt": "evidence/browser-v1.8.0/native-browser-review.json",
+      "snapshots": [
+        "evidence/browser-v1.8.0/desktop-en-light-supply.jpg",
+        "evidence/browser-v1.8.0/desktop-th-dark-demand.jpg",
+        "evidence/browser-v1.8.0/location-th-dark-poi.jpg",
+        "evidence/browser-v1.8.0/mobile-en-light-supply.jpg",
+        "evidence/browser-v1.8.0/mobile-th-dark-demand.jpg"
+      ],
+      "fullLanguageThemeMatrix": false,
+      "physicalDevices": "unverified",
+      "productionBackend": "not_implemented_in_static_preview"
+    },
+    "nativeBrowser": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "provider": "pending_external_attestation",
+    "liveBytes": "pending_external_attestation",
+    "productionBackend": "not_implemented_in_static_preview",
+    "physicalDevice": "unverified"
+  }
+}

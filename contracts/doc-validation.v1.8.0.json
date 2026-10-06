@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "yolk.document_validation/1",
+  "version": "1.8.0",
+  "date": "2026-10-07",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 10,
+  "metrics": 25,
+  "industries": 3,
+  "families": 9,
+  "brandBindings": 37,
+  "tasks": 20,
+  "fixtures": 33,
+  "historicalPatternDefinitions": 8,
+  "checks": [
+    "All10 embedded JSON blocks parse",
+    "Embedded block map equals contracts/full-product.v1.8.0.json",
+    "Embedded active experience equals criteria-experience.v1.8.0.json",
+    "Expected registry/task/fixture counts match",
+    "Active patterns=false; Supply membership effect=NONE",
+    "Actual LDS base/Profile file SHA256 matches pinned authority",
+    "Actual39glyph WOFF2 file has wOF2 signature,6,820bytes and current SHA256 matching the icon handoff",
+    "Canonical EN tier labels match final runtime vocabulary; pair scale follows positive maximum roleUpper, fallback1 only bothzero/unavailable"
+  ],
+  "coverageBoundary": "This document validation remains document/asset consistency only. Separate current receipts support21automated suites/354checks and bounded native11checkreview; not physical-device, full language/theme matrix, provider/live or production QA.",
+  "currentRuntimeQAClaim": {
+    "status": "locally_verified_pending_publication",
+    "suites": 21,
+    "checks": 354,
+    "browser": "bounded11checknativepass",
+    "receipt": "evidence/release-checks-v1.8.0.json",
+    "provider": "pending_external_attestation",
+    "liveBytes": "pending_external_attestation"
+  },
+  "iconVerification": {
+    "path": "prototype/assets/material-symbols-rounded-yolk-300-v1.8.0.woff2",
+    "format": "WOFF2",
+    "signature": "wOF2",
+    "bytes": 6820,
+    "sha256": "2998791392b42334dbff07b513d28b794462db6392885dfb0fd0968e90919187",
+    "glyphs": 39,
+    "earlierCandidate": "Earlier non-WOFF2 candidate superseded; not current evidence"
+  }
+}

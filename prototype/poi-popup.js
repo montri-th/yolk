@@ -32,7 +32,8 @@
   }
   function relationship(p, lang) {
     const key = p.relation === 'own' ? 'own' : p.relation === 'competitor' ? 'competitor' : 'unverified';
-    return {key, symbol:{own:'O', competitor:'C', unverified:'U'}[key], name:text(lang, ...({own:['สาขาเรา','Our store'], competitor:['คู่แข่ง','Competitor'], unverified:['รอตรวจสอบ','To verify']}[key]))};
+    // O/C/U remain source-friendly codes; visible symbols express party, never quantity.
+    return {key, symbol:{own:'O', competitor:'C', unverified:'U'}[key], glyph:{own:'shield',competitor:'swords',unverified:'fact_check'}[key], name:text(lang, ...({own:['สาขาเรา','Our store'], competitor:['คู่แข่ง','Competitor'], unverified:['รอตรวจสอบ','To verify']}[key]))};
   }
   function validPoint(p) { return typeof p.lat === 'number' && typeof p.lng === 'number' && Number.isFinite(p.lat) && Number.isFinite(p.lng) && Math.abs(p.lat) <= 90 && Math.abs(p.lng) <= 180; }
   function publicContext(p, options = {}) {
@@ -58,8 +59,11 @@
     const maps = validPoint(p) ? new URLSearchParams({api:'1', map_action:'pano', viewpoint:`${p.lat},${p.lng}`}) : null;
     return Object.freeze({prompt:question, streetView:maps ? `https://www.google.com/maps/@?${maps}` : null, aiMode:`https://www.google.com/search?${ai}`, search:`https://www.google.com/search?${query}`});
   }
+  function compactMark(p) {
+    return (root.YOLK_RUNTIME?.brandLogos?.entries || []).find(b => b.brandId === p.brandId && b.verifiedSquareGraphic === true && /^assets\/brands\/[a-zA-Z0-9_.-]+$/.test(b.localPath || ''));
+  }
   function mark(p) {
-    const entry = (root.YOLK_RUNTIME?.brandLogos?.entries || []).find(b => b.brandId === p.brandId && b.verifiedSquareGraphic === true);
+    const entry = compactMark(p);
     if (!entry?.localPath) return `<span class="yolk-poi-mark-fallback" aria-hidden="true">${icon('store')}</span>`;
     const assetFor = theme => entry.variants?.[theme] || (entry.themeSupport === 'both' || entry.themeSupport === theme + 'Only' ? entry : null);
     const safeAsset = asset => asset && /^assets\/brands\/[a-zA-Z0-9_.-]+$/.test(asset.localPath || '');
@@ -67,6 +71,11 @@
       const asset = assetFor(theme);
       return safeAsset(asset) ? `<img class="yolk-poi-mark-${theme}" src="${esc(asset.localPath)}?v=${esc((asset.sha256 || '').slice(0,12))}" width="44" height="44" alt="" decoding="async">` : `<span class="yolk-poi-mark-${theme} yolk-poi-mark-fallback">${icon('store')}</span>`;
     }).join('')}</span>`;
+  }
+  function marker(p = {}, options = {}) {
+    const lang=language(options), relation=relationship(p,lang), branded=!!compactMark(p);
+    const cue=icon(relation.glyph);
+    return `<span class="yolk-supply-pin yolk-supply-pin-${relation.key}${branded?' yolk-supply-pin-branded':''}" aria-hidden="true" data-supply-party="${relation.key}">${branded?mark(p):`<span class="yolk-supply-pin-symbol">${cue}</span>`}${branded?`<span class="yolk-supply-pin-badge">${cue}</span>`:''}</span>`;
   }
   function verification(p, lang) {
     if (p.status === 'verified') return text(lang, 'ทีมตรวจแล้ว', 'Team verified');
@@ -79,12 +88,12 @@
     const action = (url, glyph, title, cls = '') => `<a class="yolk-poi-action ${cls}" href="${esc(url)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">${icon(glyph)}<span>${title}</span>${icon('open_in_new')}</a>`;
     return `<section class="yolk-poi-popup" aria-label="${esc(text(lang, 'ข้อมูลจุดสาขา', 'Branch pin details'))}">
       <div class="yolk-poi-heading">${mark(p)}<div><strong class="yolk-poi-brand">${esc(brandName(p, lang))}</strong><span class="yolk-poi-branch">${esc(branchName(p, lang))}</span></div></div>
-      <div class="yolk-poi-relationship"><span class="yolk-poi-relation-symbol yolk-poi-relation-${relation.key}" aria-hidden="true">${relation.symbol}</span><span>${esc(relation.name)}</span>${area ? `<span class="yolk-poi-area">${esc(area)}</span>` : ''}</div>
+      <div class="yolk-poi-relationship"><span class="yolk-poi-relation-symbol yolk-poi-relation-${relation.key}" aria-hidden="true">${icon(relation.glyph)}</span><span>${esc(relation.name)}</span>${area ? `<span class="yolk-poi-area">${esc(area)}</span>` : ''}</div>
       <p class="yolk-poi-verification">${icon('fact_check')}${esc(verification(p, lang))}${p.observedAt && /^\d{4}-\d{2}-\d{2}$/.test(p.observedAt) ? ` · ${esc(p.observedAt)}` : ''}</p>
       <div class="yolk-poi-actions">${urls.streetView ? action(urls.streetView, 'explore', 'Street View') : `<span class="yolk-poi-unavailable">${text(lang, 'ยังไม่มีพิกัดสำหรับ Street View', 'Street View needs usable coordinates')}</span>`}${action(urls.aiMode, 'search', 'Google AI Mode')}</div>
       <button type="button" class="yolk-poi-open" data-workspace-open-poi="${esc(p.id || '')}">${icon('edit')}<span>${text(lang, 'ดูข้อมูลสาขา', 'View branch')}</span>${icon('arrow_back')}</button>
       <details class="yolk-poi-question"><summary>${icon('help')}${text(lang, 'คำถามสำหรับสำรวจทำเล', 'Question for your site study')}</summary><p>${esc(urls.prompt)}</p><p>${text(lang, 'หาก AI Mode เปิดไม่ได้ ใช้คำถามเดียวกันใน','If AI Mode is unavailable, use the same question in')} <a href="${esc(urls.search)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Google Search ${icon('open_in_new')}</a></p></details>
     </section>`;
   }
-  root.YolkPoiPopup = Object.freeze({render, prompt, links, publicContext, relationship, validPoint, version:'1.7.1'});
+  root.YolkPoiPopup = Object.freeze({render, marker, mark, prompt, links, publicContext, relationship, validPoint, version:'1.8.0'});
 })(typeof window !== 'undefined' ? window : globalThis);

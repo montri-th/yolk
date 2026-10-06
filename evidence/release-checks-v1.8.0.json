@@ -1,0 +1,33 @@
+{
+  "version": "1.8.0",
+  "status": "PASS_PRESEAL_LOCAL_VALIDATION",
+  "date": "2026-10-06T19:08:18.062084+00:00",
+  "automatedSuites": 21,
+  "automatedChecks": 354,
+  "automatedReceipt": "evidence/automated-v1.8.0.json",
+  "syntax": {
+    "status": "PASS",
+    "files": 27,
+    "errors": []
+  },
+  "diffCheck": {
+    "status": "PASS",
+    "output": ""
+  },
+  "DS": {
+    "release": "v0.9.7-owner.1",
+    "version": "0.9.7",
+    "packageVerifierStatus": "PASS",
+    "packageChecks": 9768,
+    "retainedWarnings": 65,
+    "scope": "Normative DS package validation, not full artifact/device/team conformance."
+  },
+  "browserReceipt": "evidence/browser-v1.8.0/native-browser-review.json",
+  "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "physicalDevice": "unverified",
+  "fullLanguageThemeMatrix": false,
+  "publication": "not_performed_at_source_seal",
+  "artifactByteVerification": "Runs after seal through scripts/verify-pages-v1.8.0.py; final receipt outside sealed source to avoid self-reference.",
+  "sourceModel": "7954UUIDs/25metrics/3industries; activeDemand+maxTiereligibility intentionally changes; sourceformulas/data/DSretained",
+  "productionServices": "Browser-local simulation only; backend/serverRBAC/outbox/private-media not implemented"
+}

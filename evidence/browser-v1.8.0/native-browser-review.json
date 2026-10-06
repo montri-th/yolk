@@ -1,0 +1,79 @@
+{
+  "version": "1.8.0",
+  "reviewedAt": "2026-10-06T19:02:25.652601+00:00",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "browser": "Codex in-app browser / Chromium family",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "renderedStates": [
+    "desktop Thai dark Demand controls",
+    "desktop English light Supply controls",
+    "mobile Thai dark Demand controls with sticky map",
+    "mobile English light Supply explanation with sticky map",
+    "Thai dark observed Chong Nonsi location and Bangchak POI popup"
+  ],
+  "checks": [
+    {
+      "name": "Exactly two current criteria tabs; no active preferred-pattern controls",
+      "passed": true
+    },
+    {
+      "name": "Demand levels produce 44 / 323 / 1067 fuel locations at national scope",
+      "passed": true
+    },
+    {
+      "name": "Changing own-gap weight20 to80 keeps1067 and membership+0/-0 while1054ranks change",
+      "passed": true
+    },
+    {
+      "name": "390px viewport document scrollWidth390; cards and bottom navigation readable",
+      "passed": true
+    },
+    {
+      "name": "Persistent mobile map stays visible while Supply and Demand controls scroll",
+      "passed": true
+    },
+    {
+      "name": "Official shield/swords font glyphs render; true square brand graphics retained",
+      "passed": true
+    },
+    {
+      "name": "Fine selected polygon transparent, white boundary; real branded POIs visible",
+      "passed": true
+    },
+    {
+      "name": "Bangchak popup has visible brand graphic/name/shield plus Street View and AI Mode actions",
+      "passed": true
+    },
+    {
+      "name": "Full paired bars visible with positive local extent,16.6667% own and100%competitor",
+      "passed": true
+    },
+    {
+      "name": "Actual DS categorical ink render rgb(83,150,255)/rgb(255,79,109) in dark theme",
+      "passed": true
+    },
+    {
+      "name": "Browser captured error logs empty for examinedstates",
+      "passed": true
+    }
+  ],
+  "snapshots": [
+    "desktop-en-light-supply.jpg",
+    "desktop-th-dark-demand.jpg",
+    "location-th-dark-poi.jpg",
+    "mobile-en-light-supply.jpg",
+    "mobile-th-dark-demand.jpg"
+  ],
+  "scope": "Native browser renders and actual UI interactions on local current artifact. Selected language/theme/viewport states only. No physical iPhone/Android touch or complete accessibility certification. External Street View/AI links checked as UI links, not evidence of actual operations. No backend/auth/delivery test.",
+  "fullLanguageThemeMatrix": false,
+  "physicalDevices": "unverified"
+}

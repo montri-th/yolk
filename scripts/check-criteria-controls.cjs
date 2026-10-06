@@ -144,16 +144,16 @@ check('Language sync updates readable captions/ARIA without rebuilding controls'
   const old = slider(hits); document.documentElement.lang = 'th'; api.sync(form);
   assert.equal(slider(hits), old); assert.equal(reading(hits).textContent, '5 ข้อ'); assert.equal(reading(supply).textContent, '3 รายการ'); assert(slider(hits).getAttribute('aria-label').includes('ลากปรับค่า'));
 });
-check('Supply cutoff direction is explicit, described to assistive users and absent from unrelated sliders', () => {
+check('Supply gap-reference direction is explicit, described to assistive users and absent from unrelated sliders', () => {
   const direction=wrapper(supply).querySelectorAll('.criteria-supply-direction')[0];
   assert.equal(direction.hidden,false);assert.equal(direction.id,'own-many-direction');
   assert(supply.getAttribute('aria-describedby').split(/\s+/).includes(direction.id));
   assert(slider(supply).getAttribute('aria-describedby').split(/\s+/).includes(direction.id));
-  assert(direction.children[0].textContent.includes('ง่ายขึ้น'));assert(direction.children[1].textContent.includes('ต้องมากขึ้น'));
+  assert(direction.children[0].textContent.includes('จุดเทียบต่ำ'));assert(direction.children[1].textContent.includes('จุดเทียบสูง'));
   for(const input of [percentile,pathPercentile,hits,weight])assert.equal(wrapper(input).querySelectorAll('.criteria-supply-direction')[0].hidden,true);
   const before={input:routed.input,change:routed.change,value:supply.value};document.documentElement.lang='en';api.sync(form);
   assert.equal(wrapper(supply).querySelectorAll('.criteria-supply-direction')[0],direction);
-  assert.equal(direction.children[0].textContent,'← Easier to be High');assert.equal(direction.children[1].textContent,'Needs more to be High →');
+  assert.equal(direction.children[0].textContent,'← Lower reference');assert.equal(direction.children[1].textContent,'Higher reference →');
   assert.equal(routed.input,before.input);assert.equal(routed.change,before.change);assert.equal(supply.value,before.value);
 });
 check('Mount accepts a single exact input and does not dispatch artificial changes', () => {
@@ -165,7 +165,7 @@ check('Relative supply slider carries decimal precision and explicit denominator
   const rate=field(form,'own-rate','Our branch rate',{ 'data-criterion':'ownRateHigh','data-supply-rate':'','data-rate-unit':'branches per 100,000 m²','data-range-step':'0.001',min:'0.001',max:'1',step:'any'},'0.02345678');
   api.mount(rate);assert.equal(slider(rate).step,'0.001');assert.equal(rate.value,'0.02345678');assert.equal(rate.getAttribute('inputmode'),'decimal');
   assert(slider(rate).getAttribute('aria-valuetext').includes('branches per 100,000 m²'));
-  const direction=wrapper(rate).querySelectorAll('.criteria-supply-direction')[0];assert.equal(direction.hidden,false);assert.equal(direction.children[0].textContent,'← Easier to be High');assert(slider(rate).getAttribute('aria-describedby').includes(direction.id));
+  const direction=wrapper(rate).querySelectorAll('.criteria-supply-direction')[0];assert.equal(direction.hidden,false);assert.equal(direction.children[0].textContent,'← Lower reference');assert(slider(rate).getAttribute('aria-describedby').includes(direction.id));
   slider(rate).value='0.064';inputEvent(slider(rate));assert.equal(rate.value,'0.064');assert.equal(routed.values['own-rate'],.064);
   rate.value='';inputEvent(rate);assert.equal(reading(rate).textContent,'—');assert.equal(slider(rate).getAttribute('aria-invalid'),'true');
 });

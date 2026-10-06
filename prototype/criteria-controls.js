@@ -84,8 +84,8 @@
     state.end.textContent = type === 'percentile' ? 'P' + bounds.max : String(bounds.max);
     state.exact.textContent = copy('กรอกค่า', 'Exact value');
     state.direction.hidden = !supplyDirection(input);
-    state.directionLeft.textContent = copy('← เรียก “มาก” ง่ายขึ้น', '← Easier to be High');
-    state.directionRight.textContent = copy('ต้องมากขึ้น ถึงเรียก “มาก” →', 'Needs more to be High →');
+    state.directionLeft.textContent = copy('← จุดเทียบต่ำ', '← Lower reference');
+    state.directionRight.textContent = copy('จุดเทียบสูง →', 'Higher reference →');
     if (!state.direction.hidden) {
       describe(input, state.direction.id);
       describe(state.range, state.direction.id);

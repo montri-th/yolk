@@ -7,9 +7,9 @@
   'use strict';
   let instance=null, sequence=0;
   const categories={
-    own:{th:'สาขาเรา',en:'Our stores',symbol:'O'},
-    competitor:{th:'คู่แข่ง',en:'Competitors',symbol:'C'},
-    unverified:{th:'รอตรวจสอบ',en:'To verify',symbol:'?'},
+    own:{th:'สาขาเรา',en:'Our stores',symbol:'O',glyph:'shield'},
+    competitor:{th:'คู่แข่ง',en:'Competitors',symbol:'C',glyph:'swords'},
+    unverified:{th:'รอตรวจสอบ',en:'To verify',symbol:'?',glyph:'fact_check'},
     factory:{th:'โรงงาน',en:'Factories',symbol:'F'},
     hotel:{th:'โรงแรม',en:'Hotels',symbol:'H'},
     hospital:{th:'โรงพยาบาล',en:'Hospitals',symbol:'+'},
@@ -19,6 +19,7 @@
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const txt=(lang,th,en)=>lang==='en'?en:th;
   const uiIcon=name=>global.YolkIcons?.icon(name)||'';
+  const categoryCue=key=>categories[key]?.glyph?uiIcon(categories[key].glyph):esc(categories[key]?.symbol||'•');
   const numeric=v=>typeof v==='number'&&Number.isFinite(v);
   const safePoint=p=>numeric(p?.lat)&&numeric(p?.lng)&&Math.abs(p.lat)<=85&&Math.abs(p.lng)<=180;
   const label=(key,lang)=>categories[key]?.[lang==='en'?'en':'th']||categories.other[lang==='en'?'en':'th'];
@@ -60,13 +61,13 @@
       </div><button type="button" class="yl-map-fit" data-map-fit>${uiIcon('location_on')}${txt(lang,'ดูทั้งทำเล','Fit location')}</button></div>
       <div class="yl-map-surface" data-basemap="simplified"><div class="yl-map-canvas" id="yl-location-map" role="region" aria-label="${txt(lang,'แผนที่โต้ตอบ เลื่อนและซูมได้','Interactive map: pan and zoom')}"></div><div class="yl-map-loading" data-map-loading>${txt(lang,'กำลังเตรียมแผนที่…','Preparing map…')}</div></div>
       <div class="yl-map-network" role="status" aria-live="polite" data-map-network hidden><span></span><button type="button" data-map-retry>${txt(lang,'ลองอีกครั้ง','Retry')}</button></div>
-      <div class="yl-map-underlay"><div class="yl-map-layers" role="group" aria-label="${txt(lang,'ชั้นข้อมูล','Map layers')}">${c.boundary?`<label><input type="checkbox" data-map-layer="boundary" checked><span class="yl-boundary-key" aria-hidden="true"></span>${txt(lang,'ขอบเขต','Boundary')}</label>`:''}${available.map(k=>`<label><input type="checkbox" data-map-layer="${k}" checked><span class="yl-map-key yl-key-${k}" aria-hidden="true">${esc(categories[k].symbol)}</span>${esc(label(k,lang))} <b>${c.pois.filter(p=>p.category===k).length}</b></label>`).join('')}</div>
+      <div class="yl-map-underlay"><div class="yl-map-layers" role="group" aria-label="${txt(lang,'ชั้นข้อมูล','Map layers')}">${c.boundary?`<label><input type="checkbox" data-map-layer="boundary" checked><span class="yl-boundary-key" aria-hidden="true"></span>${txt(lang,'ขอบเขต','Boundary')}</label>`:''}${available.map(k=>`<label><input type="checkbox" data-map-layer="${k}" checked><span class="yl-map-key yl-key-${k}" aria-hidden="true">${categoryCue(k)}</span>${esc(label(k,lang))} <b>${c.pois.filter(p=>p.category===k).length}</b></label>`).join('')}</div>
       <p class="yl-map-basemap-note" data-map-basemap-note>${txt(lang,'เรียบง่าย: ลดสีแผนที่ถนน เพื่อให้เห็นจุดและขอบเขตชัด','Simplified: subdued street-map colours keep pins and boundaries clear.')}</p>
       <p class="yl-map-disclosure">${esc(note)}</p>
       ${synthetic?`<p class="yl-map-secondary-note">${txt(lang,'จุดบนแผนที่ใช้สาธิตการใช้งาน ไม่ได้นำไปคำนวณ Supply','Map pins demonstrate the interface and are excluded from Supply calculations.')}</p>`:`<p class="yl-map-secondary-note">${txt(lang,'แสดงเฉพาะรายการที่มีพิกัดในชุดข้อมูลนี้ ยังไม่ใช่รายการครบทุกสาขาหรือทุกกิจกรรม','Only available coordinate records are shown. This is not a complete inventory of branches or activities.')}</p>`}
       ${c.sourceLabel?`<p class="yl-map-secondary-note">${txt(lang,'แหล่งขอบเขตและจุด: ','Boundary & pin source: ')}${esc(c.sourceLabel)}${c.observedAt?' · '+esc(c.observedAt):''}</p>`:''}
       ${c.missingCoordinateCount?`<p class="yl-map-secondary-note">${c.missingCoordinateCount} ${txt(lang,'รายการยังไม่มีพิกัด จึงไม่แสดงบนแผนที่','records have no coordinates and are not mapped.')}</p>`:''}
-      <details class="yl-map-poi-details"><summary>${txt(lang,'จุดที่แสดงบนแผนที่','Places on this map')} <span data-map-visible-count>${c.pois.length}</span></summary><ul class="yl-map-poi-list">${c.pois.map((p,i)=>`<li data-map-list-item="${esc(p.category)}"><button type="button" data-map-poi="${i}"><span class="yl-map-key yl-key-${esc(p.category)}" aria-hidden="true">${esc(categories[p.category]?.symbol||'•')}</span><span><strong>${esc(p.name||p.name_th||p.name_en||label(p.category,lang))}</strong><small>${esc(label(p.category,lang))}${p.brand?' · '+esc(p.brand):''}</small></span><span class="yl-map-list-arrow" aria-hidden="true">↗</span></button></li>`).join('')}</ul>${!c.pois.length?`<p>${txt(lang,'ยังไม่มีรายการที่มีพิกัดในทำเลนี้','No coordinate records for this location yet.')}</p>`:''}</details>
+      <details class="yl-map-poi-details"><summary>${txt(lang,'จุดที่แสดงบนแผนที่','Places on this map')} <span data-map-visible-count>${c.pois.length}</span></summary><ul class="yl-map-poi-list">${c.pois.map((p,i)=>`<li data-map-list-item="${esc(p.category)}"><button type="button" data-map-poi="${i}"><span class="yl-map-key yl-key-${esc(p.category)}" aria-hidden="true">${categoryCue(p.category)}</span><span><strong>${esc(p.name||p.name_th||p.name_en||label(p.category,lang))}</strong><small>${esc(label(p.category,lang))}${p.brand?' · '+esc(p.brand):''}</small></span><span class="yl-map-list-arrow" aria-hidden="true">↗</span></button></li>`).join('')}</ul>${!c.pois.length?`<p>${txt(lang,'ยังไม่มีรายการที่มีพิกัดในทำเลนี้','No coordinate records for this location yet.')}</p>`:''}</details>
       </div></section>`;
   }
   function destroy(){
@@ -90,17 +91,18 @@
     const legendColor=key=>getComputedStyle(root).getPropertyValue('--yl-map-'+key).trim()||'#244590';
     let boundary=null;
     if(c.boundary){
-      boundary=L.geoJSON(c.boundary,{style:{color:legendColor('boundary'),fillColor:legendColor('boundary'),fillOpacity:.12,opacity:1,weight:3,dashArray:['verified','source'].includes(c.boundaryStatus)?null:'8 5'}}).addTo(map);
+      boundary=L.geoJSON(c.boundary,{style:{color:legendColor('boundary'),fill:false,opacity:1,weight:.8,dashArray:['verified','source'].includes(c.boundaryStatus)?null:'8 5'}}).addTo(map);
       boundary.bindTooltip(txt(lang,c.boundaryStatus==='synthetic'?'ขอบเขตจำลอง':c.boundaryStatus==='draft'?'ขอบเขตฉบับร่าง':c.boundaryStatus==='source'?'ขอบเขตจาก CityMETER':'ขอบเขตที่ตรวจสอบแล้ว',c.boundaryStatus==='synthetic'?'Illustrative boundary':c.boundaryStatus==='draft'?'Draft boundary':c.boundaryStatus==='source'?'CityMETER boundary':'Verified boundary'),{sticky:true});
     }
     Object.keys(categories).forEach(k=>groups[k]=L.layerGroup().addTo(map));
     c.pois.forEach((p,i)=>{
       const key=categories[p.category]?p.category:'other';
       const title=p.name||p.name_th||p.name_en||label(key,lang);
-      const icon=L.divIcon({className:'yl-poi-marker',html:`<span class="yl-map-pin yl-key-${key}" aria-hidden="true">${esc(categories[key].symbol)}</span>`,iconSize:[38,38],iconAnchor:[19,19],popupAnchor:[0,-18]});
+      const pointRecord=categories[key].glyph?{...p,relation:key}:p;
+      const icon=L.divIcon({className:'yl-poi-marker',html:categories[key].glyph&&global.YolkPoiPopup?.marker?global.YolkPoiPopup.marker(pointRecord,{lang}):`<span class="yl-map-pin yl-key-${key}" aria-hidden="true">${categoryCue(key)}</span>`,iconSize:[40,40],iconAnchor:[20,20],popupAnchor:[0,-18]});
       const marker=L.marker([p.lat,p.lng],{icon,keyboard:true,title,alt:title}).addTo(groups[key]);
       const origin=p.synthetic||c.synthetic?txt(lang,'จุดจำลอง','Illustrative pin'):p.sourceDataset||txt(lang,'ข้อมูล workspace','Workspace record');
-      marker.bindPopup(`<div class="yl-map-popup"><span class="yl-map-popup-kind">${esc(label(key,lang))}</span><strong>${esc(title)}</strong>${p.brand?`<p>${esc(p.brand)}</p>`:''}<small>${esc(origin)}</small></div>`,{maxWidth:280,minWidth:180});
+      marker.bindPopup(categories[key].glyph&&global.YolkPoiPopup?.render?global.YolkPoiPopup.render(pointRecord,{lang,industry:p.industryId||p.sourceDataset,area}):`<div class="yl-map-popup"><span class="yl-map-popup-kind">${esc(label(key,lang))}</span><strong>${esc(title)}</strong>${p.brand?`<p>${esc(p.brand)}</p>`:''}<small>${esc(origin)}</small></div>`,{maxWidth:360,minWidth:220});
       marker.on('click',()=>{root.querySelectorAll('[data-map-poi]').forEach(b=>b.classList.toggle('selected',b.dataset.mapPoi===String(i)));});
       markers.push(marker);
     });

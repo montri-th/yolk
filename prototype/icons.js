@@ -1,7 +1,7 @@
 /* Yolk product icon subset. DS ICON-01 style; canonical DS font bytes are unchanged. */
 (function (global) {
   'use strict';
-  const glyphs = Object.freeze(["ac_unit", "add", "add_photo_alternate", "arrow_back", "beach_access", "bedtime", "bookmark_add", "bookmark_added", "close", "contrast", "dark_mode", "delete", "edit", "egg_alt", "explore", "fact_check", "flag", "groups", "help", "history", "layers", "light_mode", "local_gas_station", "location_on", "map", "menu", "notifications", "open_in_new", "photo", "potted_plant", "satellite_alt", "save", "search", "share", "store", "swords", "tune"]);
+  const glyphs = Object.freeze(["ac_unit", "add", "add_photo_alternate", "arrow_back", "beach_access", "bedtime", "bookmark_add", "bookmark_added", "close", "contrast", "dark_mode", "delete", "edit", "egg_alt", "explore", "fact_check", "flag", "groups", "help", "history", "layers", "light_mode", "local_gas_station", "location_on", "map", "menu", "notifications", "open_in_new", "photo", "potted_plant", "satellite_alt", "save", "search", "share", "shield", "arrow_forward", "store", "swords", "tune"]);
   const allowed = new Set(glyphs);
   function icon(name) {
     return allowed.has(name) ? '<span class="yl-icon" aria-hidden="true" data-yolk-glyph="'+name+'">'+name+'</span>' : '';

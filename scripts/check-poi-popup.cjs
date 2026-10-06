@@ -24,10 +24,10 @@ check('POI identity uses the actual competitor brand, not selected own brand', (
   assert.match(rendered, new RegExp(entry.localPath.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
   assert(!rendered.includes(logos.entries.find(l => l.brandId === 'grocery-brand:SEVEN_ELEVEN').localPath));
 });
-check('relationship has readable label plus independent O/C/U cue', () => {
-  for (const [relation, symbol, word] of [['own','O','Our store'], ['competitor','C','Competitor'], ['unverified','U','To verify']]) {
+check('relationship has readable label plus shield/swords/review cue', () => {
+  for (const [relation, glyph, word] of [['own','shield','Our store'], ['competitor','swords','Competitor'], ['unverified','fact_check','To verify']]) {
     const html = popup.render({...p, relation}, {lang:'en'});
-    assert.match(html, new RegExp(`>${symbol}</span>`)); assert(html.includes(word));
+    assert.match(html, new RegExp(`data-yolk-glyph="${glyph}"`)); assert(html.includes(word));
   }
 });
 check('source status stays visible, source date does not certify current operation', () => {

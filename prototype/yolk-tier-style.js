@@ -25,9 +25,9 @@
  ]);
  const gradient='linear-gradient(135deg, '+stops.map((hex,i)=>hex+' '+(i*5)+'%').join(', ')+')';
  const definitions=Object.freeze({
-  1:Object.freeze({tier:1,color:'#D6600C',css:gradient,paint:'url(#'+gradientId+')',labelTh:'Tier 1 · ไข่แดงเข้ม',labelEn:'Tier 1 · Strongest Yolk',source:source.gradientSource}),
+  1:Object.freeze({tier:1,color:'#D6600C',css:gradient,paint:'url(#'+gradientId+')',labelTh:'Tier 1 · ไข่แดงเข้ม',labelEn:'Tier 1 · Deep yolk',source:source.gradientSource}),
   2:Object.freeze({tier:2,color:'#FFBC1F',css:'#FFBC1F',paint:'#FFBC1F',labelTh:'Tier 2 · ไข่แดง',labelEn:'Tier 2 · Yolk',source:source.yellowSource}),
-  3:Object.freeze({tier:3,color:'#F1F4EF',css:'#F1F4EF',paint:'#F1F4EF',labelTh:'Tier 3 · ไข่ขาว',labelEn:'Tier 3 · Egg-white',source:source.eggWhiteSource})
+  3:Object.freeze({tier:3,color:'#F1F4EF',css:'#F1F4EF',paint:'#F1F4EF',labelTh:'Tier 3 · ไข่ขาว',labelEn:'Tier 3 · Egg white',source:source.eggWhiteSource})
  });
  const definition=tier=>Number.isInteger(tier)&&Object.hasOwn(definitions,tier)?definitions[tier]:null;
  const color=tier=>definition(tier)?.color??null;

@@ -45,7 +45,7 @@
     const kinds = ['own','rival','unknown'];
     const hasBounds=Number.isFinite(area.supply?.ownUpper)&&Number.isFinite(area.supply?.competitorUpper);
     const boundsNote=hasBounds?`<p class="yl-note"><strong>${text('ช่วงตรวจทาน Supply','Supply review bounds')}</strong> · ${labels[0]} ${supplyCountText(area.supply,'own')} · ${text('ผู้ให้บริการอื่นที่เป็นไปได้','Potential other providers')} ${supplyCountText(area.supply,'competitor')}<br>${area.supply.reconciliationReview?text('ช่วงเผื่อ category ที่ยังไม่กระทบยอดต้นทาง ไม่ใช่การเติมจุดหรือยืนยันว่าสาขาหายอยู่ที่นี่','Bounds cover source-category reconciliation, without inventing or locating missing points.'):text('ขอบล่างคือรายการที่ผูกพื้นที่ได้ ขอบบนรวม residual ระดับจังหวัด/บริษัทที่ยังไม่ทราบพื้นที่ และใบอนุญาตที่รอตรวจ; ช่วงต่อพื้นที่ไม่สามารถรวมเป็นจำนวนใหม่ทั้งประเทศ','Lower bounds use assigned records. Upper bounds include unresolved province/company assignments and license-review context. Per-area possibilities cannot be summed as new country counts.')}</p>`:'';
-    const stats = values.map((value,i)=>`<div class="yl-supply-stat yl-${kinds[i]}"><dt><span class="yl-key" aria-hidden="true"></span>${labels[i]}</dt><dd>${value===null?text('ยังไม่มีข้อมูล','No data'):number(value)} <small>${value===null?'':text('รายการ','records')}</small></dd></div>`).join('');
+    const stats = values.map((value,i)=>`<div class="yl-supply-stat yl-${kinds[i]}"><dt>${global.YolkIcons?.icon(i===0?'shield':i===1?'swords':'fact_check')||''}${labels[i]}</dt><dd>${value===null?text('ยังไม่มีข้อมูล','No data'):number(value)} <small>${value===null?'':text('รายการ','records')}</small></dd></div>`).join('');
     const bar = complete && total>0 ? `<div class="yl-supply-bar" aria-hidden="true">${values.map((value,i)=>value>0?`<span class="yl-${kinds[i]}" style="width:${100*value/total}%"></span>`:'').join('')}</div>` : `<div class="yl-no-bar">${complete?text('ข้อมูลชุดนี้รายงาน 0 รายการในพื้นที่','This snapshot reports 0 records in this area'):text('ข้อมูลยังไม่ครบ จึงยังแสดงสัดส่วนไม่ได้','Incomplete counts; proportions are not shown')}</div>`;
     const observed = text('Snapshot สาธารณะ 3 ต.ค. 2026 · ยอดรายการที่ต้นทางผูก UUID','Public snapshot 3 Oct 2026 · Direct reporting-UUID assigned counts');
     const records = typeof Y !== 'undefined' && Array.isArray(Y.pois) ? Y.pois.filter(p=>(global.YolkWorkspaceMap?.poiMatchesArea?.(p,area.id)??String(p.area)===String(area.id))&&!p.archived&&p.status!=='closed') : [];
@@ -108,7 +108,7 @@
   }
   function renderMarketLandscape(area) {
     if (!area || typeof area!=='object') return `<section class="yl-panel"><p>${text('ยังไม่มีข้อมูลทำเลสำหรับแสดงภาพตลาด','No location evidence is available for the market landscape.')}</p></section>`;
-    return `<div class="yl-landscape">${supplyPanel(area)}${demandPanel(area)}${patternPanel(area)}</div>`;
+    return `<div class="yl-landscape">${supplyPanel(area)}${demandPanel(area)}</div>`;
   }
   global.renderMarketLandscape = renderMarketLandscape;
 })(typeof window!=='undefined'?window:globalThis);

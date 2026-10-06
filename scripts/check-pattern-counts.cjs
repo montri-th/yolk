@@ -1,4 +1,4 @@
-/* Preferred-card counts use the real national model; DOM adapter is not browser QA. */
+/* Retained historical pattern diagnostics use the national model. Current UI has no pattern gate; DOM adapter is not browser QA. */
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const repo=path.resolve(__dirname,'..');
@@ -22,7 +22,7 @@ const criteria=()=>plain(run('draft'));
  const original=criteria();
  await check('each card matches a single-pattern model evaluation over the same national cohort',()=>{
   const counts=plain(api.patternCounts());assert(counts.valid);assert.equal(counts.total,7954);
-  for(const name of run('patternNames')){h.sandbox.cardName=name;const expected=plain(run('(()=>{const rows=evaluate({...draft,patterns:[cardName]});return {confirmed:rows.filter(a=>a.eligible).length,review:rows.filter(a=>a.reviewCandidate).length}})()'));assert.deepEqual(counts.counts[name],expected,name);}
+  for(const name of run('patternNames')){h.sandbox.cardName=name;const expected=plain(run('(()=>{const rows=computeEvaluation({...draft,patterns:[cardName]},{legacyPatternFiltering:true});return {confirmed:rows.filter(a=>a.eligible).length,review:rows.filter(a=>a.reviewCandidate).length}})()'));assert.deepEqual(counts.counts[name],expected,name);}
  });
  await check('unchecked cards retain their counts, including when no pattern is currently checked',()=>{
   const baseline=plain(api.patternCounts()).counts;run('draft.patterns=[]');assert(criteria().patterns.length===0);assert.deepEqual(plain(api.patternCounts()).counts,baseline);run('draft.patterns=["Quiet"]');assert.deepEqual(plain(api.patternCounts()).counts,baseline);h.sandbox.originalCriteria=original;run('draft=structuredClone(originalCriteria)');
@@ -58,11 +58,11 @@ const criteria=()=>plain(run('draft'));
  await check('invalid numeric criteria and loading/error states display unavailable instead of zero',()=>{
   run('draft.buildingP2=NaN');let result=api.patternCounts();assert.equal(result.valid,false);assert(api.patternCountView('FOMO',result).includes('>—</strong>'));run('draft=structuredClone(originalCriteria);Y.loading=true');assert.equal(api.patternCounts().reason,'loading');run('Y.loading=false;Y.loadError="test provider failure"');assert.equal(api.patternCounts().reason,'load_error');run('Y.loadError=null');
  });
- await check('live sync updates all 16 counters through the existing updateImpact hook in both languages',()=>{
+ await check('retained diagnostic sync updates counters; current bilingual explainer has no pattern controls',()=>{
   const cards=run('patternNames').map(name=>({dataset:{patternCount:name},values:{confirmed:{textContent:''},review:{textContent:''}},querySelector(selector){return this.values[selector.includes('confirmed')?'confirmed':'review'];}}));
   const dom={querySelectorAll(selector){return selector==='[data-pattern-count]'?cards:[];}};
   const result=api.syncPatternCounts(dom);for(const card of cards){assert.equal(card.dataset.countState,'ready');assert.equal(card.values.confirmed.textContent,run('num('+result.counts[card.dataset.patternCount].confirmed+')'));}
-  for(const lang of ['th','en']){h.sandbox.languageUnderTest=lang;run('Y.lang=languageUnderTest');const html=api.preferred();assert.equal((html.match(/data-pattern-confirmed=/g)||[]).length,8);assert.equal((html.match(/data-pattern-review=/g)||[]).length,8);assert(html.includes(lang==='th'?'ทำเลเข้าเกณฑ์':'confirmed locations'));assert(html.includes(lang==='th'?'รอตรวจอาจซ้ำกันหลายรูปแบบ':'Review locations can appear in several types'));}
+  for(const lang of ['th','en']){h.sandbox.languageUnderTest=lang;run('Y.lang=languageUnderTest');const html=api.preferred();assert.equal((html.match(/data-pattern-confirmed=/g)||[]).length,0);assert.equal((html.match(/data-pattern-review=/g)||[]).length,0);assert(!html.includes('data-pattern='));assert(html.includes(lang==='th'?'ไข่แดงเข้ม':'Deep yolk'));}
  });
  await check('counts do not alter criteria, eligibility, ranking, events, source values or national cutoffs',()=>{
   const before=run('JSON.stringify({criteria:Y.criteria,draft,rows:evaluate(draft),events:Y.events,areas:AREAS,cutoffs:METRICS.filter(m=>m.ready).map(m=>[m.id,cutoff(m.id,95)])})');api.patternCounts();api.preferred();api.syncPatternCounts({querySelectorAll:()=>[]});const after=run('JSON.stringify({criteria:Y.criteria,draft,rows:evaluate(draft),events:Y.events,areas:AREAS,cutoffs:METRICS.filter(m=>m.ready).map(m=>[m.id,cutoff(m.id,95)])})');assert.equal(after,before);

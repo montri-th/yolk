@@ -1,4 +1,19 @@
-# Development instructions — Yolk three-industry preview v1.7.5
+# Development instructions — Yolk three-industry preview v1.8.0
+
+## Active 1.8.0 authority — simplified Demand-first experience
+
+Read START_HERE.md, CityMETER_Yolk_Full_Product_and_Implementation_v1.8.0.md and contracts/criteria-experience.v1.8.0.json before changes. This owner-authorized extension supersedes all retained active preferred-pattern/demandMode filters, strategy membership/review counts and explanatory-star priorities below. Historical8 definitions/possible-pattern diagnostics remain readable history only; they must not gate active eligibility or rank. Do not delete saved criteria/history or emit a team revision merely when loading migration.
+
+Active flow: Find the yolk → Compare branch gaps → Shortlist. Criteria has two primary panels; advanced datasets/metrics/formulas/percentiles/Supply denominators/weights remain available. eligible = demand===true && qualifyingTier in1..3 && qualifyingTier<=maxDemandTier (default3). Supply mode/denominator/reference and weights may change ordering, never Demand/Tier/eligible IDs. Legacy demandMode and pattern preferences are inactive. Raw confirmed-Demand count remains before maxTier in the selected administrative scope, not camera viewport.
+
+Tier1 Deep yolk/ไข่แดงเข้ม = very high; Tier2 Yolk/ไข่แดง = high; Tier3 Egg white/ไข่ขาว = fairly high Demand proxy. Shield = our stores; swords = competitors. Caption and number remain visible; symbols identify parties, not capacity or sales. Actual POI retains verified square brand graphic + brand name + role badge. Paired bars use the same unit/local extent within one location; do not imply shared scale across all locations. The Supply slider is a gap reference (same retained gap formula); larger reference may alter ranking but cannot add Yolks.
+
+Source formulas,25metrics,7,954fixednationalcohort,3industries/9families/37bindings,geometry/provenance,41exactDSmaps,tiercolors,persistentcamera and branch-context1.7.5 are retained. Use exact new icon extension plus contracts/icons.v1.8.0.json; do not restore the old font from earlier handoffs.
+
+Current release authority is contracts/release.v1.8.0.json. Current bounded local QA passed21suites/354checks and native11checkreview at1440x900/390x844 for the five recorded states. This is not a full language/theme matrix, physical-device or backend pass; provider/live-byte publication proof remains pending external attestation. Run current suites/sealer/verifier after final QA as release-owned. Old counts/pending states/check names below describe historical releases and are not current passes. Shared production/backend, physical-device and full human-review gates remain separate.
+
+## Retained baseline instructions and history
+
 
 Updated 2026-10-05. Read START_HERE.md, contracts/product.v1.7.json, CityMETER_Yolk_Full_Product_and_Implementation_v1.7.5.md and contracts/branch-context.v1.7.5.json and contracts/location-review.v1.7.3.json before changes. Use the original Yolk product UI. Support only Fuel, Grocery and Non-bank in the active demo.
 

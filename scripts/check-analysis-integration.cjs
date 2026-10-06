@@ -9,8 +9,7 @@ const native=Object.fromEntries(['fuel','grocery','nonbank'].map(i=>[i,read(i+'-
 const plain=v=>JSON.parse(JSON.stringify(v)),digest=v=>crypto.createHash('sha256').update(typeof v==='string'?v:JSON.stringify(v)).digest('hex');
 const checks=[],observations={contexts:[]};
 h.sandbox.window.document=h.sandbox.document;h.sandbox.num=n=>Number(n).toLocaleString('en-US');
-h.sandbox.window.YolkIcons={icon:name=>'<i data-icon="'+name+'"></i>',yolkIcon:()=>'<i data-icon="yolk"></i>'};
-for(const file of ['relative-supply.js','yolk-tier-style.js','map-analysis.js','analysis-ui.js'])vm.runInContext(fs.readFileSync(path.join(site,file),'utf8'),h.sandbox,{filename:file});
+for(const file of ['relative-supply.js','yolk-tier-style.js','decision-ui.js','supply-compare.js','simple-criteria.js','map-analysis.js','analysis-ui.js'])vm.runInContext(fs.readFileSync(path.join(site,file),'utf8'),h.sandbox,{filename:file});
 const app=fs.readFileSync(path.join(site,'app.js'),'utf8'),navStart=app.indexOf('function mapNavigation(){'),navEnd=app.indexOf('\nfunction market()',navStart);
 assert(navStart>=0&&navEnd>navStart,'Actual app personal-navigation helper extraction failed');vm.runInContext(app.slice(navStart,navEnd),h.sandbox,{filename:'actual-app-map-filters.js'});
 const UI=h.sandbox.window.YolkAnalysisUI,A=h.sandbox.window.YolkMapAnalysis;
@@ -97,11 +96,12 @@ function personalRelation(relation){run('Y.route="supply"');const handler=h.docu
    assert.equal(digest(run('evaluate()')),resultHash);assert.equal(run('evaluate()'),baseline);assert.equal(digest(run('Y.criteria')),criteriaHash);assert.equal(digest(run('draft')),draftHash);assert.equal(digest(run('Y.events')),eventsHash);assert.equal(digest(h.runtime.supplyCache.get(industry)),sourceHash);assert.equal(digest([...h.writes]),writesHash);
   }
  });
- await check('Personal Demand tier page includes qualifying Yolks excluded by preferred pattern and max-tier screening',async()=>{
+ await check('Personal Demand tier page includes every confirmed Demand level; active selection uses maximum tier and ignores legacy patterns',async()=>{
   await h.select('fuel','bangchak','all_fuel');const previous=plain(run('Y.criteria'));run('Y.criteria={...Y.criteria,patterns:["Quiet"],maxDemandTier:1};Y.route="demand"');UI.set('metric','tier');
-  try{const rows=run('evaluate()'),high=rows.filter(r=>r.demand===true),excluded=high.filter(r=>r.qualifyingTier>1&&!r.eligible);assert(high.length>0);assert(excluded.length>0);assert.equal(rows.filter(r=>r.eligible).length,0);
+  try{const rows=run('evaluate()'),high=rows.filter(r=>r.demand===true),excluded=high.filter(r=>r.qualifyingTier>1&&!r.eligible),eligible=rows.filter(r=>r.eligible);assert(high.length>0);assert(excluded.length>0);assert.equal(eligible.length,high.filter(r=>r.qualifyingTier===1).length);assert(eligible.length>0);assert(eligible.every(r=>r.demand===true&&r.qualifyingTier===1));
+   const previousIds=eligible.map(r=>r.id);run('Y.criteria={...Y.criteria,patterns:["Pioneer"],demandMode:"all"}');assert.deepEqual(plain(run('evaluate().filter(r=>r.eligible).map(r=>r.id)')),plain(previousIds));
    const p=A.prepare(rows,UI.state('demand'),run('Y.criteria'));assert(excluded.every(r=>p.records.get(r.id).exact&&p.records.get(r.id).value===r.qualifyingTier));const html=UI.demandPage();for(const tier of [1,2,3])assert(html.includes('<strong>'+high.filter(r=>r.qualifyingTier===tier).length.toLocaleString('en-US')+'</strong>'));
-   observations.demand={confirmed:high.length,excludedByPersonalScreening:excluded.length,eligible:0};
+   observations.demand={confirmed:high.length,excludedByMaximumTier:excluded.length,eligible:eligible.length,legacyPatternsIgnored:true};
   }finally{h.sandbox.previousCriteria=previous;run('Y.criteria=previousCriteria')}
  });
  await check('Demand and Supply personal states remain separate; province filters do not recalibrate either national cohort',async()=>{
@@ -113,10 +113,10 @@ function personalRelation(relation){run('Y.route="supply"');const handler=h.docu
   const document={getElementById:id=>id==='content'?content:null,createElement:name=>{assert.equal(name,'script');return {}},body:{append(script){scripts.push(script.src.split('?')[0]);pending++;maxPending=Math.max(maxPending,pending);setImmediate(()=>{pending--;script.onload()})}}};
   const boot=vm.createContext({window:{},document,localStorage:{getItem:()=>null},fetch:async file=>{requests.push(file);const local=path.join(site,file);assert(fs.existsSync(local),'Bootstrap file must exist: '+file);return {ok:true,json:async()=>JSON.parse(fs.readFileSync(local,'utf8'))}},console,Map,Promise});
   await vm.runInContext(fs.readFileSync(path.join(site,'bootstrap.js'),'utf8'),boot,{filename:'actual-bootstrap.js'});
-  for(const [before,after]of [['metrics.js','map-analysis.js'],['model.js','map-analysis.js'],['relative-supply.js','map-analysis.js'],['industry-workspace.js','analysis-ui.js'],['map-analysis.js','analysis-ui.js'],['analysis-ui.js','workspace-map.js'],['workspace-map.js','app.js']])assert(scripts.indexOf(before)>=0&&scripts.indexOf(before)<scripts.indexOf(after),before+' before '+after);
+  for(const [before,after]of [['metrics.js','map-analysis.js'],['model.js','map-analysis.js'],['relative-supply.js','map-analysis.js'],['industry-workspace.js','analysis-ui.js'],['supply-compare.js','analysis-ui.js'],['simple-criteria.js','analysis-ui.js'],['map-analysis.js','analysis-ui.js'],['analysis-ui.js','workspace-map.js'],['workspace-map.js','app.js']])assert(scripts.indexOf(before)>=0&&scripts.indexOf(before)<scripts.indexOf(after),before+' before '+after);
   assert.equal(maxPending,1);assert.equal(scripts.at(-1),'app.js');assert.equal(boot.window.YOLK_DEMO_DATA.areas.length,7954);assert(!content.innerHTML.includes('Data unavailable'));observations.bootstrap={moduleOrder:scripts,transportOnly:true};
  });
- const sourceFiles=['prototype/analysis-ui.js','prototype/industry-workspace.js','prototype/map-analysis.js','prototype/bootstrap.js','prototype/model.js','prototype/data/real/district-source-provenance.json','prototype/data/real/district-context.json',...Object.keys(native).map(i=>'prototype/data/real/'+i+'-district-supply.json')];
+ const sourceFiles=['prototype/analysis-ui.js','prototype/industry-workspace.js','prototype/map-analysis.js','prototype/bootstrap.js','prototype/model.js','prototype/icons.js','prototype/decision-ui.js','prototype/supply-compare.js','prototype/simple-criteria.js','prototype/data/real/district-source-provenance.json','prototype/data/real/district-context.json',...Object.keys(native).map(i=>'prototype/data/real/'+i+'-district-supply.json')];
  const result={schemaVersion:1,test:'check-analysis-integration',testedAt:new Date().toISOString(),passed:checks.every(c=>c.passed),checks,observations,scope:'Actual native-D adapters, analysis controls, source snapshots, fixed-cohort helper, full ordered fine-row preservation and asynchronous bootstrap loader. DOM/events/script transport mocked; no browser rendering, provider availability or physical-device claim.',sourceHashes:Object.fromEntries(sourceFiles.map(name=>[name,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,name))).digest('hex')]))};
  const output=path.resolve(root,'../deliverables/yolk-v1.7.2-review/analysis-integration-regression-results.json');fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
  for(const c of checks)console.log((c.passed?'PASS ':'FAIL ')+c.name+(c.error?'\n'+c.error:''));console.log(JSON.stringify({passed:result.passed,checks:checks.length,receipt:output}));if(!result.passed)process.exitCode=1;

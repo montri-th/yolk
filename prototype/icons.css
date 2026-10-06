@@ -1,10 +1,10 @@
-/* Product-specific 37-glyph extension: Material Symbols Rounded / FILL 0 / 300 / GRAD 0 / opsz 24. */
+/* Product-specific 39-glyph extension: Material Symbols Rounded / FILL 0 / 300 / GRAD 0 / opsz 24. */
 @font-face {
   font-family: "Yolk Material Symbols";
   font-style: normal;
   font-weight: 300;
   font-display: block;
-  src: url("assets/material-symbols-rounded-yolk-300-v1.5.woff2") format("woff2");
+  src: url("assets/material-symbols-rounded-yolk-300-v1.8.0.woff2?v=2998791392b4") format("woff2");
 }
 .yl-icon {
   font-family: "Yolk Material Symbols";

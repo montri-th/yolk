@@ -20,7 +20,8 @@ function distributionFor(id,a,c){return c?.cohortMode==='same_grain'&&a?COHORT_D
 function cutoff(id,p,a=null,c=null){const plan=activeEvaluationPlan?.criteria===c?activeEvaluationPlan:null,key=id+'|'+p+'|'+(c?.cohortMode==='same_grain'&&a?a.geoType:'national');if(plan?.cutoffs.has(key))return plan.cutoffs.get(key);let arr=distributionFor(id,a,c);if(!arr?.length)return null;let n=(arr.length-1)*p/100,k=Math.floor(n),result=arr[k]+(arr[Math.min(k+1,arr.length-1)]-arr[k])*(n-k);plan?.cutoffs.set(key,result);return result}
 AREAS.forEach(a=>a.percentiles=Object.fromEntries(METRICS.filter(m=>m.ready).map(m=>[m.id,rankValue(a.metrics[m.id],DISTRIBUTIONS[m.id])])));
 const DEFAULT_CRITERIA={geographyProfile:'bkk_khwaeng_upcountry_lao',profile:'bangchak',buildingP1:99,buildingP2:95,activityP:95,activityT1:5,activityT2:3,activityT3:1,buildingEnabled:true,activityEnabled:true,extraMetrics:[],extraP:95,demandMode:'high',maxDemandTier:3,supplyMode:'count',ownMany:3,competitorMany:3,patterns:['Pioneer','FOMO','Our Farm'],rankingMode:'weighted',rankingWeights:{demand:70,ownGap:20,competitorGap:10},demandGroupWeights:{building:50,activity:50,extra:50},metricWeights:Object.fromEntries(METRICS.filter(m=>m.ready).map(m=>[m.id,1])),version:1};
-// Migration changes no criteria version and emits no action: previous workspaces retain their ranked order.
+// Normalization preserves saved parameters/revisions and emits no action.
+// The current product ignores historical pattern gates and star-based priority.
 function normalizeCriteria(raw,options={existing:true}){
  const source=raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:{};
  return {...structuredClone(DEFAULT_CRITERIA),...source,
@@ -66,7 +67,7 @@ function pathTier(a,c,group){
  const confirmed=confirmedPaths.length?Math.min(...confirmedPaths.map(p=>p.tier)):0,possible=possiblePaths.length?Math.min(...possiblePaths.map(p=>p.tier)):0;
  return {...tierBounds(confirmed,possible),confirmedPaths,pathStates};
 }
-function criteriaErrors(c){
+function criteriaErrors(c,options={}){
  let errors=[];
  if(!c.buildingEnabled&&!c.activityEnabled&&!c.extraMetrics.length)errors.push('signal');
  if(![c.buildingP1,c.buildingP2,c.activityP,c.extraP].every(n=>Number.isFinite(n)&&n>=1&&n<=100)||c.buildingP1<c.buildingP2)errors.push('percentile');
@@ -75,8 +76,12 @@ function criteriaErrors(c){
  if(!['count','relative'].includes(c.supplyMode??'count'))errors.push('supplyMode');
  if(c.supplyMode==='relative'){if(!window.YolkRelativeSupply)errors.push('relativeSupplyUnavailable');if(!window.YolkRelativeSupply?.catalog.some(m=>m.id===c.supplyDenominatorId)||![c.ownRateHigh,c.competitorRateHigh].every(n=>Number.isFinite(n)&&n>0))errors.push('relativeSupply');}else if(![c.ownMany,c.competitorMany].every(n=>Number.isInteger(n)&&n>=1&&n<=100))errors.push('supply');
  if(c.extraMetrics.some(id=>!METRIC_INDEX[id]?.ready||enabledMetricIds({...c,extraMetrics:[]}).includes(id))||new Set(c.extraMetrics).size!==c.extraMetrics.length)errors.push('unavailable');
- if(!['high','all'].includes(c.demandMode))errors.push('demandMode');
- if(!Array.isArray(c.patterns)||!c.patterns.length||c.patterns.some(p=>!patternNames.includes(p))||new Set(c.patterns).size!==c.patterns.length)errors.push('patterns');
+ // The current product screens Demand only. Saved pattern preferences and the
+ // old all-demand switch remain historical data, not hidden eligibility gates.
+ if(options.legacyPatternFiltering){
+  if(!['high','all'].includes(c.demandMode))errors.push('demandMode');
+  if(!Array.isArray(c.patterns)||!c.patterns.length||c.patterns.some(p=>!patternNames.includes(p))||new Set(c.patterns).size!==c.patterns.length)errors.push('patterns');
+ }
  if(!['weighted','legacy','context'].includes(c.rankingMode))errors.push('rankingMode');
  if(c.paths&&(!c.paths.length||c.paths.some(p=>![1,2,3].includes(p.tier)||!p.all.length||p.all.some(x=>!METRIC_INDEX[x.metric]?.ready||!Number.isFinite(x.percentile)||x.percentile<1||x.percentile>100))))errors.push('paths');
  const validWeight=n=>Number.isFinite(n)&&n>=0&&n<=100;
@@ -117,10 +122,14 @@ function weightedEvaluation(a,c,preparedThresholds=null){
 }
 function confirmedTier(a){return a.qualifyingTier||9}
 function stableAreaTie(a,b){return (Number.isFinite(a.sourceRank)?a.sourceRank:Infinity)-(Number.isFinite(b.sourceRank)?b.sourceRank:Infinity)||a.id.localeCompare(b.id)}
-function legacyComparator(a,b){return Number(b.eligible)-Number(a.eligible)||(a.demand===true?0:a.demand===null?1:2)-(b.demand===true?0:b.demand===null?1:2)||b.stars-a.stars||Math.min(a.buildingConfirmed||9,a.activityConfirmed||9)-Math.min(b.buildingConfirmed||9,b.activityConfirmed||9)||b.passingSignalCount-a.passingSignalCount||b.supply.competitor-a.supply.competitor||a.supply.own-b.supply.own||stableAreaTie(a,b)}
+function historicalLegacyComparator(a,b){return Number(b.eligible)-Number(a.eligible)||(a.demand===true?0:a.demand===null?1:2)-(b.demand===true?0:b.demand===null?1:2)||b.stars-a.stars||Math.min(a.buildingConfirmed||9,a.activityConfirmed||9)-Math.min(b.buildingConfirmed||9,b.activityConfirmed||9)||b.passingSignalCount-a.passingSignalCount||b.supply.competitor-a.supply.competitor||a.supply.own-b.supply.own||stableAreaTie(a,b)}
+// Old saved rankingMode='legacy' remains readable, but pattern stars no longer
+// steer the current product. Supply influences order only in weighted ranking.
+function legacyComparator(a,b){return Number(b.eligible)-Number(a.eligible)||confirmedTier(a)-confirmedTier(b)||b.passingSignalCount-a.passingSignalCount||stableAreaTie(a,b)}
 function weightedComparator(a,b){return Number(b.eligible)-Number(a.eligible)||b.rankScore-a.rankScore||confirmedTier(a)-confirmedTier(b)||stableAreaTie(a,b)}
-function computeEvaluation(c=Y.criteria){
- if(criteriaErrors(c).length)return [];
+function computeEvaluation(c=Y.criteria,options={}){
+ if(criteriaErrors(c,options).length)return [];
+ const historical=options.legacyPatternFiltering===true;
  const previousPlan=activeEvaluationPlan,primary=primaryIds(c),activity=activityIds(c),groups=enabledDemandGroups(c);
  activeEvaluationPlan={criteria:c,primary,activity,groups,cutoffs:new Map()};
  try{
@@ -132,10 +141,16 @@ function computeEvaluation(c=Y.criteria){
   let pattern=possible.size===1?[...possible][0]:null,valid=ids.map(id=>a.percentiles[id]).filter(Number.isFinite),score=valid.length?Math.max(...valid):null,coverage=ids.length?valid.length/ids.length:0,stars=({'Pioneer':3,'FOMO':2,'Our Farm':1})[pattern]||0;
   let enabledPasses=ids.filter(id=>passes(a,id,primaryIds(c).includes(id)?c.buildingP2:activityIds(c).includes(id)?c.activityP:c.extraP,c,c.industry!=='fuel')===true).length,pass9=CORE_IDS.filter(id=>passes(a,id,id.startsWith('gfa')?c.buildingP2:c.activityP,c,!!c.positivePresence)===true).length;
   const qualifying=[b.confirmed,ac.confirmed,extraHigh===true?3:0].filter(t=>t>0),qualifyingTier=qualifying.length?Math.min(...qualifying):null,tierEligible=qualifyingTier!==null&&qualifyingTier<=c.maxDemandTier;
-  // Tier limits only high-demand candidates. In all-demand mode, confirmed low-demand patterns remain inspectable.
-  const demandEligible=c.demandMode==='all'?(high===false||(high===true&&tierEligible)):high===true&&tierEligible;
-  return {...a,score,upper:score,coverage,demand:high,pattern,possiblePatterns:[...possible],supply:sp,supplyThresholds:thresholds,stars,buildingTier:b.exact,activityTier:ac.exact,buildingConfirmed:b.confirmed,activityConfirmed:ac.confirmed,buildingBounds:b,activityBounds:ac,knownActivityPasses:ac.known,activityUnknown:ac.unknown,passes9:pass9,passingSignalCount:enabledPasses,qualifyingTier,tierEligible,...weightedEvaluation(a,c,thresholds),fieldStudyCandidate:high===true&&tierEligible,contextOpportunity:high===true,measuredDemand:'unknown',pathStates:[...(b.pathStates||[]),...(ac.pathStates||[])],pathStrength:c.paths?Math.max(0,...[...(b.confirmedPaths||[]),...(ac.confirmedPaths||[])].filter(p=>p.tier===qualifyingTier).map(p=>p.strength)):null,guaranteedStrategyMatch:demandEligible&&possible.size>0&&[...possible].every(p=>c.patterns.includes(p)),reviewCandidate:demandEligible&&possible.size>0&&[...possible].some(p=>c.patterns.includes(p))&&![...possible].every(p=>c.patterns.includes(p)),eligible:demandEligible&&possible.size>0&&[...possible].every(p=>c.patterns.includes(p))};
- }).sort(c.rankingMode==='weighted'?weightedComparator:c.rankingMode==='context'?contextComparator:legacyComparator);
+  const yolkEligible=high===true&&tierEligible;
+  const historicalDemandEligible=c.demandMode==='all'?(high===false||yolkEligible):yolkEligible;
+  const historicalMatch=historical&&historicalDemandEligible&&possible.size>0&&[...possible].every(p=>c.patterns.includes(p));
+  const historicalReview=historical&&historicalDemandEligible&&possible.size>0&&[...possible].some(p=>c.patterns.includes(p))&&![...possible].every(p=>c.patterns.includes(p));
+  const possibleQualifying=[b.possible,ac.possible,extraHigh!==false?3:0].filter(t=>t>0);
+  // Review is about unresolved Demand/Tier evidence in this workflow. Unknown
+  // Supply stays in its interval/evidence fields and cannot remove a Yolk.
+  const demandReview=!yolkEligible&&high!==false&&possibleQualifying.some(t=>t<=c.maxDemandTier);
+  return {...a,score,upper:score,coverage,demand:high,pattern,possiblePatterns:[...possible],supply:sp,supplyThresholds:thresholds,stars,buildingTier:b.exact,activityTier:ac.exact,buildingConfirmed:b.confirmed,activityConfirmed:ac.confirmed,buildingBounds:b,activityBounds:ac,knownActivityPasses:ac.known,activityUnknown:ac.unknown,passes9:pass9,passingSignalCount:enabledPasses,qualifyingTier,tierEligible,...weightedEvaluation(a,c,thresholds),fieldStudyCandidate:yolkEligible,contextOpportunity:high===true,measuredDemand:'unknown',pathStates:[...(b.pathStates||[]),...(ac.pathStates||[])],pathStrength:c.paths?Math.max(0,...[...(b.confirmedPaths||[]),...(ac.confirmedPaths||[])].filter(p=>p.tier===qualifyingTier).map(p=>p.strength)):null,guaranteedStrategyMatch:historical?historicalMatch:yolkEligible,reviewCandidate:historical?historicalReview:demandReview,eligible:historical?historicalMatch:yolkEligible};
+ }).sort(c.rankingMode==='weighted'?weightedComparator:c.rankingMode==='context'?contextComparator:historical?historicalLegacyComparator:legacyComparator);
  }finally{activeEvaluationPlan=previousPlan;}
 }
 
@@ -149,8 +164,8 @@ function diffCriteria(a,b){
  return changes;
 }
 
-const fieldNames={buildingP1:['อาคาร Tier 1: Percentile','Building Tier 1: percentile'],buildingP2:['อาคาร Tier 2/3: Percentile','Building Tier 2/3: percentile'],activityP:['กิจกรรม: Percentile','Activity percentile'],activityT1:['กิจกรรม Tier 1: จำนวนข้อ','Activity Tier 1: hits'],activityT2:['กิจกรรม Tier 2: จำนวนข้อ','Activity Tier 2: hits'],activityT3:['กิจกรรม Tier 3: จำนวนข้อ','Activity Tier 3: hits'],buildingEnabled:['ใช้สัญญาณอาคาร','Building signal enabled'],activityEnabled:['ใช้สัญญาณกิจกรรม','Activity signal enabled'],extraMetrics:['ปัจจัย Demand เพิ่มเติม','Additional demand signals'],extraP:['ปัจจัยเพิ่มเติม: Percentile','Additional signals: percentile'],demandMode:['ระดับ Demand ที่คัดไว้','Demand screening mode'],ownMany:['สาขาเราเริ่มมากที่','Own supply is high at'],competitorMany:['คู่แข่งเริ่มมากที่','Competitor supply is high at'],patterns:['รูปแบบที่คัดเลือก','Selected patterns'],name:['ชื่อสาขา','Branch name'],brand:['แบรนด์','Brand'],relation:['ประเภทสาขา','Branch relationship'],status:['สถานะ','Status'],area:['ทำเล','Location'],note:['บันทึก','Note'],owner:['ผู้รับผิดชอบ','Owner'],lat:['ละติจูด','Latitude'],lng:['ลองจิจูด','Longitude'],archived:['เก็บเข้าคลัง','Archived'],photos:['รูปสาขา','Branch photos'],target:['เล็งทำเล','Shortlisted']};
-Object.assign(fieldNames,{supplyMode:['วิธีประเมิน Supply','Supply measurement mode'],supplyDenominatorId:['ตัวหารอัตราสาขา','Branch-rate denominator'],ownRateHigh:['อัตราสาขาเราเริ่มมากที่','Own branch rate is high at'],competitorRateHigh:['อัตราคู่แข่งเริ่มมากที่','Competitor branch rate is high at'],supplyCalibration:['ที่มาค่าเริ่มต้นของอัตราสาขา','Branch-rate seed calibration'],maxDemandTier:['คัด Demand ถึง Tier','Demand tiers to include'],rankingMode:['วิธีเรียงทำเล','Ranking method'],'rankingWeights.demand':['น้ำหนัก: Demand','Weight: demand'],'rankingWeights.ownGap':['น้ำหนัก: ช่องว่างสาขาเรา','Weight: own branch gap'],'rankingWeights.competitorGap':['น้ำหนัก: ช่องว่างคู่แข่ง','Weight: competitor gap'],'demandGroupWeights.building':['น้ำหนักกลุ่ม: อาคาร','Group weight: buildings'],'demandGroupWeights.activity':['น้ำหนักกลุ่ม: กิจกรรม','Group weight: activity'],'demandGroupWeights.extra':['น้ำหนักกลุ่ม: ปัจจัยเสริม','Group weight: extra signals']});
+const fieldNames={buildingP1:['อาคาร Tier 1: Percentile','Building Tier 1: percentile'],buildingP2:['อาคาร Tier 2/3: Percentile','Building Tier 2/3: percentile'],activityP:['กิจกรรม: Percentile','Activity percentile'],activityT1:['กิจกรรม Tier 1: จำนวนข้อ','Activity Tier 1: hits'],activityT2:['กิจกรรม Tier 2: จำนวนข้อ','Activity Tier 2: hits'],activityT3:['กิจกรรม Tier 3: จำนวนข้อ','Activity Tier 3: hits'],buildingEnabled:['ใช้สัญญาณอาคาร','Building signal enabled'],activityEnabled:['ใช้สัญญาณกิจกรรม','Activity signal enabled'],extraMetrics:['ปัจจัย Demand เพิ่มเติม','Additional demand signals'],extraP:['ปัจจัยเพิ่มเติม: Percentile','Additional signals: percentile'],demandMode:['ระดับ Demand ที่คัดไว้','Demand screening mode'],ownMany:['จุดเทียบช่องว่างสาขาเรา','Own branch-gap reference'],competitorMany:['จุดเทียบช่องว่างคู่แข่ง','Competitor branch-gap reference'],patterns:['รูปแบบที่คัดเลือก','Selected patterns'],name:['ชื่อสาขา','Branch name'],brand:['แบรนด์','Brand'],relation:['ประเภทสาขา','Branch relationship'],status:['สถานะ','Status'],area:['ทำเล','Location'],note:['บันทึก','Note'],owner:['ผู้รับผิดชอบ','Owner'],lat:['ละติจูด','Latitude'],lng:['ลองจิจูด','Longitude'],archived:['เก็บเข้าคลัง','Archived'],photos:['รูปสาขา','Branch photos'],target:['เล็งทำเล','Shortlisted']};
+Object.assign(fieldNames,{supplyMode:['วิธีประเมิน Supply','Supply measurement mode'],supplyDenominatorId:['ตัวหารอัตราสาขา','Branch-rate denominator'],ownRateHigh:['จุดเทียบช่องว่างสาขาเรา (อัตรา)','Own branch-gap rate reference'],competitorRateHigh:['จุดเทียบช่องว่างคู่แข่ง (อัตรา)','Competitor branch-gap rate reference'],supplyCalibration:['ที่มาค่าเริ่มต้นของอัตราสาขา','Branch-rate seed calibration'],maxDemandTier:['คัด Demand ถึง Tier','Demand tiers to include'],rankingMode:['วิธีเรียงทำเล','Ranking method'],'rankingWeights.demand':['น้ำหนัก: Demand','Weight: demand'],'rankingWeights.ownGap':['น้ำหนัก: ช่องว่างสาขาเรา','Weight: own branch gap'],'rankingWeights.competitorGap':['น้ำหนัก: ช่องว่างคู่แข่ง','Weight: competitor gap'],'demandGroupWeights.building':['น้ำหนักกลุ่ม: อาคาร','Group weight: buildings'],'demandGroupWeights.activity':['น้ำหนักกลุ่ม: กิจกรรม','Group weight: activity'],'demandGroupWeights.extra':['น้ำหนักกลุ่ม: ปัจจัยเสริม','Group weight: extra signals']});
 for(const m of METRICS.filter(m=>m.ready))fieldNames['metricWeights.'+m.id]=['น้ำหนัก: '+m.th,'Weight: '+m.en];
 Object.assign(fieldNames,{paths:['เส้นทาง Demand และสูตร','Demand paths and formulas'],buildingMetricIds:['ตัววัดกลุ่มหลัก','Primary metrics'],activityMetricIds:['ตัววัดกลุ่มสนับสนุน','Supporting metrics'],cohortMode:['ฐานเทียบ Percentile','Percentile benchmark'],positivePresence:['กำหนดค่าสัญญาณมากกว่า 0','Positive-presence guard']});
 const valLabels={context:['Tier → ความเข้มของเส้นทางสัญญาณ','Tier → confirmed path strength'],weighted:['เรียงตามน้ำหนัก','Weighted ranking'],legacy:['เรียงตามเกณฑ์เดิม','Previous ranking'],high:['Demand สูงเท่านั้น','High demand only'],all:['ทุกระดับ Demand','All demand levels'],own:['สาขาเรา','Own network branch'],competitor:['คู่แข่ง','Competitor'],unverified:['รอตรวจสอบ','Unverified'],pending:['รอตรวจสอบ','Pending verification'],source:['ตามข้อมูลต้นทาง','Source record'],active:['ทีมยืนยันเปิดอยู่','Team-confirmed open'],closed:['ทีมบันทึกว่าปิดแล้ว','Team-recorded closed'],survey:['รอลงพื้นที่','To survey'],study:['กำลังศึกษา','In review'],hold:['ติดตาม','Watching'],rejected:['ไม่ไปต่อ','Not pursuing']};

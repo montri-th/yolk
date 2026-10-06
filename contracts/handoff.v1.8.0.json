@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "yolk.developer_handoff/1.8",
+  "version": "1.8.0",
+  "date": "2026-10-07",
+  "status": "locally_verified_pending_publication",
+  "startHere": "START_HERE.md",
+  "fullDocument": "CityMETER_Yolk_Full_Product_and_Implementation_v1.8.0.md",
+  "quickPlan": "IMPLEMENTATION_PLAN_v1.8.0.md",
+  "humanHandoff": "HANDOFF.md",
+  "assetIndex": "ASSET_INDEX_v1.8.0.md",
+  "machineBlueprint": "contracts/full-product.v1.8.0.json",
+  "activeCriteria": "contracts/criteria-experience.v1.8.0.json",
+  "releaseAuthority": "contracts/release.v1.8.0.json",
+  "runtimeRoot": "prototype/",
+  "normativeRoot": "reference/lds-0.9.7/",
+  "brandGraphics": "prototype/data/brand-logos.v1.7.json",
+  "icons": "contracts/icons.v1.8.0.json",
+  "requiredExternalServices": {
+    "production": "CityMETER stack mapping/auth/datastore/server RBAC/private media/outbox/email/LINE remain tasks",
+    "mapTiles": "Provider URLs and attribution are required; no tile cache is packaged"
+  },
+  "assetPolicy": "Use supplied original assets and current sealed hashes. DS base/profile/icons are pinned; no logo frames or motifs.",
+  "sourcePolicy": "Public compact adapters/provenance only; sources and private acquisition archives remain immutable/excluded.",
+  "experienceInvariants": [
+    "Demand/Tier alone determine active membership",
+    "Supply and weights can reorder, never add or remove confirmed Demand IDs",
+    "legacy patterns/demandMode remain inactive history",
+    "shield identifies own network; swords identifies comparator network",
+    "local paired-bar scale within a location does not compare length across locations",
+    "actual POI keeps true square brand graphic + name + role badge",
+    "map camera changes only for explicit navigation/focus/fit",
+    "source-first form hints preserve manual choices and do not allocate aggregates"
+  ],
+  "packageEvidence": {
+    "zip": "Prepared by release owner after final source/asset selection and QA",
+    "snapshots": "Five actual current local native-browser captures exist; scope is bounded in the native review receipt.",
+    "currentQA": {
+      "status": "bounded_local_pass",
+      "automatedSuites": 21,
+      "automatedChecks": 354,
+      "automatedReceipt": "evidence/automated-v1.8.0.json",
+      "releaseChecksReceipt": "evidence/release-checks-v1.8.0.json",
+      "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "browserChecks": 11,
+      "nativeBrowserReceipt": "evidence/browser-v1.8.0/native-browser-review.json",
+      "snapshots": [
+        "evidence/browser-v1.8.0/desktop-en-light-supply.jpg",
+        "evidence/browser-v1.8.0/desktop-th-dark-demand.jpg",
+        "evidence/browser-v1.8.0/location-th-dark-poi.jpg",
+        "evidence/browser-v1.8.0/mobile-en-light-supply.jpg",
+        "evidence/browser-v1.8.0/mobile-th-dark-demand.jpg"
+      ],
+      "fullLanguageThemeMatrix": false,
+      "physicalDevices": "unverified",
+      "productionBackend": "not_implemented_in_static_preview"
+    },
+    "provider": "Pending external attestation",
+    "liveBytes": "Pending external attestation",
+    "physicalDevices": "Unverified",
+    "localQAReceipt": "evidence/release-checks-v1.8.0.json",
+    "automatedReceipt": "evidence/automated-v1.8.0.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.8.0/native-browser-review.json",
+    "snapshotsActual": [
+      "evidence/browser-v1.8.0/desktop-th-dark-demand.jpg",
+      "evidence/browser-v1.8.0/desktop-en-light-supply.jpg",
+      "evidence/browser-v1.8.0/mobile-th-dark-demand.jpg",
+      "evidence/browser-v1.8.0/mobile-en-light-supply.jpg",
+      "evidence/browser-v1.8.0/location-th-dark-poi.jpg"
+    ]
+  }
+}
