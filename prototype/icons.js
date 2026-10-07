@@ -28,7 +28,7 @@
     for(const control of root.querySelectorAll('button,a,summary')){
       if(!control.querySelector('.yl-icon')||control.querySelector('.yolk-wordmark'))continue;
       control.classList.add('has-caption-icon');
-      const wrap=node=>{for(const child of [...node.childNodes]){if(child.nodeType===3&&child.textContent.trim()){const span=child.ownerDocument.createElement('span');span.className='control-caption';child.replaceWith(span);span.appendChild(child);}else if(child.nodeType===1&&!child.matches('.yl-icon,.control-caption,svg,img'))wrap(child);}};wrap(control);
+      const wrap=node=>{for(const child of [...node.childNodes]){if(child.nodeType===3&&child.textContent.trim()){const span=child.ownerDocument.createElement('span');span.className='control-caption';child.replaceWith(span);span.appendChild(child);}else if(child.nodeType===1&&!child.matches('.yl-icon,.control-caption,[data-yolk-counter],svg,img'))wrap(child);}};wrap(control);
     }
   }
   function load() {

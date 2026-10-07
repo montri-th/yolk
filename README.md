@@ -1,10 +1,10 @@
-# CityMETER: Yolk · 1.9.1 · LDS 0.9.7
+# CityMETER: Yolk · 1.9.2 · LDS 0.9.7
 
 **หาไข่แดง ขยายตลาด — Find the yolk. Grow your market.**
 
 คัดพื้นที่ Demand เข้มข้น เทียบสาขาและการแข่งขัน แล้วเลือกวิธีขยายตลาดพร้อมแผนสำรวจ บนแผนที่เดียว รองรับ Fuel, Grocery และ Non-bank
 
-[Web preview](https://montri-th.github.io/yolk/) · [Product + implementation ฉบับเต็มไฟล์เดียว](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.1.md) · [เริ่มพัฒนา](START_HERE.md) · [Handoff](HANDOFF.md) · [Assets](ASSET_INDEX_v1.9.1.md)
+[Web preview](https://montri-th.github.io/yolk/) · [Product + implementation ฉบับเต็มไฟล์เดียว](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.2.md) · [เริ่มพัฒนา](START_HERE.md) · [Handoff](HANDOFF.md) · [Assets](ASSET_INDEX_v1.9.2.md)
 
 ## ทำงานอย่างไร
 
@@ -26,10 +26,12 @@
 
 Demo เป็น browser-local simulation ยังไม่มี shared backend/server RBAC/email/LINE/private production media ข้อมูลบริบทและบัญชีสาขาไม่ยืนยัน traffic, การเปิดจริง, capacity, market share หรือยอดขาย ส่วน brand positioning ที่อ้างจากผู้ประกอบการไม่ใช่ผลสำรวจการรับรู้ของลูกค้า
 
-อ่านผลตรวจและสถานะเผยแพร่ปัจจุบันที่ [release contract 1.9.1](contracts/release.v1.9.1.json) แยก local QA, native browser, provider และ live-byte evidence การพัฒนาใน checkout ไม่ใช่หลักฐานว่าเว็บสาธารณะเปลี่ยนแล้ว และ hash checks ไม่แทนการตรวจ UI หรืออุปกรณ์จริง
+อ่านผลตรวจและสถานะเผยแพร่ปัจจุบันที่ [release contract 1.9.2](contracts/release.v1.9.2.json) แยก local QA, native browser, provider และ live-byte evidence การพัฒนาใน checkout ไม่ใช่หลักฐานว่าเว็บสาธารณะเปลี่ยนแล้ว และ hash checks ไม่แทนการตรวจ UI หรืออุปกรณ์จริง
 
-ผลรุ่น 1.9.0 และเก่ากว่าเก็บเป็นประวัติใน contracts/evidence ของรุ่นนั้น ไม่ใช่ผลตรวจผ่านของ 1.9.1 เริ่มพัฒนาจากศูนย์ได้ที่ [เอกสารเต็ม](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.1.md) พร้อม [machine blueprint](contracts/full-product.v1.9.1.json)
+ผลรุ่น 1.9.1 และเก่ากว่าเก็บเป็นประวัติใน contracts/evidence ของรุ่นนั้น ไม่ใช่ผลตรวจผ่านของ 1.9.2 เริ่มพัฒนาจากศูนย์ได้ที่ [เอกสารเต็ม](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.2.md) พร้อม [machine blueprint](contracts/full-product.v1.9.2.json)
 
-รุ่น 1.9.1 ปรับ tooltip ให้มีเพียงอันเดียว ลดเส้นรบกวนเมื่อดูจุดสาขา และแสดงปลายทาง/จำนวนเมื่อเล็งทำเล อ่าน [ข้อตกลง interaction](docs/MAP_CLARITY_AND_ACTION_GUIDANCE_v1.9.1.md). สูตรและโปรไฟล์ยังใช้ 1.9.0 เดิม ผลตรวจรุ่นใหม่ต้องดู receipt 1.9.1 ไม่ยกผลเก่ามาใช้แทน
+รุ่น 1.9.1 ปรับ tooltip ให้มีเพียงอันเดียว ลดเส้นรบกวนเมื่อดูจุดสาขา และแสดงปลายทาง/จำนวนเมื่อเล็งทำเล อ่าน [ข้อตกลง interaction](docs/MAP_CLARITY_AND_ACTION_GUIDANCE_v1.9.1.md). สูตรและโปรไฟล์ยังใช้ 1.9.0 เดิม Interaction นี้คงไว้จาก 1.9.1 ส่วน current release ตรวจตาม receipt 1.9.2
 
-Current local QA: 28 suites / 497 checks และ bounded native review 22 ข้อ ภาพจริง 6 ภาพ ดู [QA 1.9.1](evidence/qa-v1.9.1.json). Package LDS ตรวจใหม่ผ่าน 9,768 ข้อ/65 warnings เป็น package-only ไม่รับรอง artifact/account/team ทั้งหมด Provider/live-byte evidence แยก และ physical device/screen reader/full matrix ยังไม่ตรวจ
+QA รุ่น1.9.2 ผ่าน 29 suites / 506 checks และ native review แบบจำกัด 12 ข้อ ภาพจริง 12 ภาพ ดู [QA](evidence/qa-v1.9.2.json). ผล1.9.1 เป็นประวัติ Provider/live bytes, physical device, screen reader และ full matrix แยกจากผลนี้
+
+รุ่น 1.9.2 ใช้ Villa Market/Lawson108/Tops artwork ที่เจ้าของส่ง และแก้ Supply icon/caption อ่าน [คู่มือ patch](docs/BRAND_IDENTITY_AND_SUPPLY_CHIPS_v1.9.2.md) ข้อมูลและ preset เดิมไม่เปลี่ยน

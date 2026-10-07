@@ -133,7 +133,7 @@ small, .small, .eyebrow, .crumb, .market-status, .notice, .footline,
 .supply-table { font-size: 16px; }
 .supply-table th, .supply-table small { font-size: 14px; line-height: 1.6; }
 .supply-table td { padding-block: 16px; }
-.supply-tabs button span { font-size: 13px; }
+.supply-tabs button > .supply-tab-count { font-size: 13px; }
 .feed-avatar { width: 36px; height: 36px; font-size: 16px; }
 .feed-item { grid-template-columns: 36px minmax(0,1fr); }
 .change-line { margin-block: 16px; }

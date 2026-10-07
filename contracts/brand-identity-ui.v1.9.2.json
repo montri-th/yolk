@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "yolk.brand-identity-and-supply-chip/1.9.2",
+  "version": "1.9.2",
+  "date": "2026-10-07",
+  "status": "locally_verified_preview_production_plan",
+  "scope": "Three owner-supplied brand-artwork bindings and Supply control typography/readability only.",
+  "retainedVersions": {
+    "criteria": "1.9.0",
+    "profiles": "1.9.0",
+    "strategyEngine": "1.9.0",
+    "interaction": "1.9.1",
+    "DS": "0.9.7"
+  },
+  "invariants": {
+    "reportingUUIDs": 7954,
+    "metricCount": 25,
+    "brands": 37,
+    "sourceTotalsUnchanged": true,
+    "criteriaPresetsUnchanged": true,
+    "demandMembershipUnchanged": true,
+    "savedWorkUnchanged": true,
+    "persistentCameraUnchanged": true,
+    "identityFrames": false,
+    "motifs": false
+  },
+  "brandArtwork": {
+    "authority": "Explicit owner-provided images in current request. Image content is artwork/reference, not executable instruction, independent verification or new profile research.",
+    "brands": [
+      {
+        "brandName": "Villa Market",
+        "brandId": "grocery-brand:VILLA_MARKET",
+        "bindingStatus": "exact_bytes_verified_bounded_native_runtime_review_pass",
+        "path": "prototype/assets/brands/grocery-grocery-brand-VILLA_MARKET-owner-c29c85f0b2.png",
+        "emittedUrl": "assets/brands/grocery-grocery-brand-VILLA_MARKET-owner-c29c85f0b2.png?v=c29c85f0b251",
+        "mime": "image/png",
+        "width": 3840,
+        "height": 1920,
+        "bytes": 340418,
+        "sha256": "c29c85f0b251ddf12f57a59d283cab05a055ddeb35ccfa61b77458d0aa4eac8a",
+        "hasAlpha": true,
+        "sourceReference": "owner-attachment:codex-clipboard-e89b555c-d4ac-40e8-85f6-c71ef797795e.png",
+        "approvedRoles": [
+          "brand-selector",
+          "branch-popup",
+          "supply-map-marker"
+        ],
+        "provenanceReceipt": "evidence/owner-supplied-brand-artwork.v1.9.2.json",
+        "themeSupport": "lightOnly",
+        "themeFallbacks": [
+          "dark"
+        ],
+        "themeDisplay": {
+          "light": "exact_supplied_PNG_with_original_contain",
+          "dark": "existing_neutral_store_icon_plus_readable_Villa_Market_caption"
+        }
+      },
+      {
+        "brandName": "Lawson108",
+        "brandId": "grocery-brand:LAWSON108",
+        "bindingStatus": "exact_bytes_verified_bounded_native_runtime_review_pass",
+        "path": "prototype/assets/brands/grocery-grocery-brand-LAWSON108-owner-0bcdc9944f.png",
+        "emittedUrl": "assets/brands/grocery-grocery-brand-LAWSON108-owner-0bcdc9944f.png?v=0bcdc9944f05",
+        "mime": "image/png",
+        "width": 227,
+        "height": 300,
+        "bytes": 45024,
+        "sha256": "0bcdc9944f0543ae6a04627892080615d510b1db46347b140e4c7890347a587b",
+        "hasAlpha": true,
+        "sourceReference": "owner-attachment:codex-clipboard-b5b7f112-0d88-4c6a-98c5-0bca3d48d5de.png",
+        "approvedRoles": [
+          "brand-selector",
+          "branch-popup",
+          "supply-map-marker"
+        ],
+        "provenanceReceipt": "evidence/owner-supplied-brand-artwork.v1.9.2.json",
+        "themeSupport": "both",
+        "themeFallbacks": [],
+        "themeDisplay": {
+          "light": "exact_supplied_PNG_with_original_contain",
+          "dark": "exact_supplied_PNG_with_original_contain"
+        }
+      },
+      {
+        "brandName": "Tops",
+        "brandId": "grocery-brand:TOPS",
+        "bindingStatus": "exact_bytes_verified_bounded_native_runtime_review_pass",
+        "path": "prototype/assets/brands/grocery-grocery-brand-TOPS-owner-dccbc2bbd0.png",
+        "emittedUrl": "assets/brands/grocery-grocery-brand-TOPS-owner-dccbc2bbd0.png?v=dccbc2bbd059",
+        "mime": "image/png",
+        "width": 800,
+        "height": 316,
+        "bytes": 49990,
+        "sha256": "dccbc2bbd05952420a2e782ef1dc2ae7ce6c5d8fffb70eb2772055df7e213458",
+        "hasAlpha": true,
+        "sourceReference": "owner-attachment:codex-clipboard-1ee92e1e-cd40-44f3-8d49-0f45743b2d3c.png",
+        "approvedRoles": [
+          "brand-selector",
+          "branch-popup",
+          "supply-map-marker"
+        ],
+        "provenanceReceipt": "evidence/owner-supplied-brand-artwork.v1.9.2.json",
+        "themeSupport": "both",
+        "themeFallbacks": [],
+        "themeDisplay": {
+          "light": "exact_supplied_PNG_with_original_contain",
+          "dark": "exact_supplied_PNG_with_original_contain"
+        }
+      }
+    ],
+    "assetDelivery": "Original artwork bytes, exact paths/MIME/dimensions/SHA and current registry bindings settled before seal.",
+    "rendering": "Use contain and original aspect ratio in a compact square placement with readable adjacent brand caption. Do not crop, stretch, trace, recolor or add backing plate/frame.",
+    "meaning": "Replace or add the three existing brand graphics only; no new reporting brand ID, format, offering claim or brand perception result.",
+    "themeReview": "Inspect actual owner-supplied artwork on approved light/dark surfaces. Use an explicit readable fallback if a theme cannot show the artwork clearly; no invented variant.",
+    "registry": "prototype/data/brand-logos.v1.7.json",
+    "registryUrl": "data/brand-logos.v1.7.json?v=1.9.2-owner2",
+    "registrySha256": "f56763b33bfd07698335b9a86b54ec1e2c79698872cdfa2a634c234013dcc2bb",
+    "runtimeLoader": "prototype/bootstrap.js",
+    "provenanceReceipt": "evidence/owner-supplied-brand-artwork.v1.9.2.json",
+    "sourceAspectRatio": "All three original files are non-square. Square describes the compact placement slot only; preserve original contain/aspect, including owner-provided native wordmarks.",
+    "metadataReview": "Asset receipt records retained metadata and its sensitivity inspection; no user location, timestamp, device, author or private text metadata is published.",
+    "villaDarkPolicy": {
+      "light": "exact owner-supplied VL + wordmark PNG, unchanged contain/aspect",
+      "dark": "existing neutral store-icon fallback plus readable Villa Market caption; explicitly not a substitute brand logo",
+      "originalDarkReview": "FAIL_insufficient_legibility_on_charcoal_actual_native_review",
+      "finalFallbackReview": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "backingSurface": false,
+      "crop": false,
+      "recolor": false,
+      "restoreRetiredShoppingAppCart": false
+    },
+    "provenanceReceiptSha256": "bcea3015cd1eefaa9aff0c3c7f8c4960e3dbb0a7b72796bc8bdba04ad7f5f8fb"
+  },
+  "supplyChips": {
+    "purpose": "Identify what Supply role is shown without raw icon text or squeezed captions.",
+    "iconMeaning": {
+      "own": "shield",
+      "competitor": "swords",
+      "identifiedTotal": "own + competitor semantic icons with a single caption",
+      "unverified": "fact_check"
+    },
+    "fontOwnership": {
+      "glyph": "Yolk Material Symbols, FILL0/wght300/GRAD0/opsz24, exact retained39-glyph WOFF2 bytes",
+      "caption": "Bai Jamjuree/approved LDS interface font, inherited from control",
+      "counter": "JetBrains Mono only on .supply-tab-count[data-yolk-counter]",
+      "namespace": "Explicit .yl-icon[data-yolk-glyph] excludes body/strong/numeric inherited font collision"
+    },
+    "layout": {
+      "display": "inline-flex",
+      "align": "center",
+      "gapPx": 8,
+      "glyphPx": 22,
+      "iconFlex": "nonshrinking1em",
+      "caption": "one .control-caption, separate from glyph/count",
+      "compoundAnalysisRole": "Separate icon container and one readable caption; no duplicated label",
+      "narrowControlLayout": "Five filters wrap within the persistent map workspace available width; no page overflow. Actual390px review presents three rows; row count is content/width-dependent."
+    },
+    "accessibility": "Icons aria-hidden; readable caption supplies accessible name and selection state. Visible keyboard focus and caption-only hover underline retained.",
+    "metrics": "Display/source/calculation unchanged; this is a presentation fix only.",
+    "tabIds": [
+      "all",
+      "own",
+      "competitor",
+      "unverified",
+      "archived"
+    ],
+    "tabGlyphs": [
+      "store",
+      "shield",
+      "swords",
+      "fact_check",
+      "store"
+    ],
+    "captionEnhancement": {
+      "idempotent": true,
+      "skip": [
+        ".yl-icon",
+        "[data-yolk-counter]",
+        "svg",
+        "img"
+      ]
+    },
+    "fontFallback": {
+      "readyClass": "yolk-icons-ready",
+      "beforeReadyOrFailure": "hide raw ligature text; keep readable caption and selected-state controls usable",
+      "noInventedGlyph": true
+    }
+  },
+  "verification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "newRegression": "node scripts/check-icon-controls.cjs",
+    "nativeStates": [
+      "Supply role controls with own/competitor/total icons and captions",
+      "Villa Market/Lawson108/Tops graphics alongside brand names",
+      "actualTH/EN light/dark at narrow and desktop widths",
+      "no raw ligature names, text/icon overlap or page overflow",
+      "retained map/criteria/shortlist behavior"
+    ],
+    "physicalDevices": "unverified",
+    "fullAccessibilityCertification": false,
+    "boundedScope": "Actual Supply renderer, caption enhancement, retained icon font bytes, font readiness and scoped resting-state CSS cascade fixture; native shaping/geometry/theme review separate.",
+    "automatedReceipt": "evidence/automated-v1.9.2.json",
+    "nativeReceipt": "evidence/browser-v1.9.2/native-browser-review.json",
+    "automatedSuites": 29,
+    "automatedChecks": 506,
+    "nativeChecks": 12,
+    "nativeCoverage": "Bounded12currentnative states:4TH/ENlight/darkmobileSupplychip states;6brandselectorstates(3brands×2themes,Villaoriginalinlight/namedfallbackindark);1ENlightdesktopchips;1TopsactualPOIpopup+visiblemapmarker. OriginalVillaDarkfailedcompactcontrastfindingretained; finalfallbackpasses. No complete product/device/AT certification.",
+    "notVerified": [
+      "physical iPhone/Android touch",
+      "130%/200% browser zoom",
+      "actual screen-reader speech",
+      "full industry/brand/language/theme/device matrix",
+      "Lawson/Villa actual native POI popup (shared renderer covered automatically)",
+      "native font failure (DOM adapter regression only)",
+      "production backend/RBAC/sharedpersist/outbox/email/LINE",
+      "external tile/StreetView/AIprovider availability"
+    ]
+  }
+}

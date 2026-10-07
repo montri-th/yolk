@@ -1,31 +1,37 @@
 {
   "schemaVersion": "yolk.brand-logos/1.7",
   "createdOn": "2026-10-04",
-  "status": "visually_verified_official_compact_graphics_with_named_fallbacks",
+  "status": "retained_verified_graphics_plus_owner_supplied_originals_bounded_native_review_passed",
   "coverage": {
     "fuelSelectable": 11,
     "grocerySelectable": 16,
     "nonbankActiveSelector": 10,
     "nonbankSupplyEntities": 1233,
     "selectorEntries": 37,
-    "verifiedBrands": 34,
+    "verifiedBrands": 35,
     "textFallbackBrands": [
       "cosmo",
-      "pure",
-      "grocery-brand:LAWSON108"
+      "pure"
     ],
     "lightAndDarkBrands": 33,
-    "originalAssetFiles": 35,
+    "originalAssetFiles": 36,
     "officialVariantBrands": 1,
-    "verifiedSquareGraphicBrands": 34,
+    "verifiedSquareGraphicBrands": 35,
     "squareGraphicFallbackBrands": [
       "cosmo",
-      "pure",
-      "grocery-brand:LAWSON108"
+      "pure"
     ],
     "squareGraphicBothThemes": 33,
-    "lightUsableCompactBrands": 34,
-    "darkUsableCompactBrands": 33
+    "lightUsableCompactBrands": 35,
+    "darkUsableCompactBrands": 33,
+    "ownerSuppliedArtworkBrands": 3,
+    "ownerSuppliedNativeRuntimeReview": "PASS_bounded_three_brand_selector_light_dark_and_actual_Tops_popup_marker",
+    "namedDarkThemeFallbackBrands": [
+      "cosmo",
+      "pure",
+      "grocery-brand:VILLA_MARKET",
+      "legal:0107559000290"
+    ]
   },
   "policy": {
     "originalBytesOnly": true,
@@ -36,12 +42,17 @@
     "rights": "Brand marks remain their owners trademarks. Public source provenance is not an open license or endorsement.",
     "identity": "Exact reporting ID is preserved. Trade names do not aggregate distinct companies or silently alter supply classifications.",
     "nativeBackground": "Original opaque fields inside official assets are preserved. They are not added UI logo frames. If distracting, use the named text fallback; do not remove or recolor the original.",
-    "themeSelection": "variants[light|dark] is authoritative when present; fallback to plain named text when current theme has no official legible variant.",
+    "themeSelection": "variants[light|dark] is authoritative when present; retain exact owner-provided artwork and readable adjacent name. No invented variants. Use named text fallback if a native runtime review fails legibility.",
     "squareGraphicSelector": true,
     "verifiedSquareGraphicRequired": true,
-    "compactDefinition": "Official native symbol or compact storefront/branch badge. Integral stylized lettering is allowed; long horizontal corporate lockups are not used.",
+    "compactDefinition": "Official native symbols or storefront/branch badges; the three explicit owner-supplied 1.9.2 artworks override prior compact selection and keep full native artwork, including integral wordmarks, where legible. Existing named theme fallback applies when current native compact review fails. Square placement does not imply square source pixels.",
     "squareBox": "44 CSS px, object-fit contain, original aspect ratio, no crop/redraw/recolor/new frame.",
-    "fallbackFields": "textFallback=true means no usable verified compact graphic in either theme. themeFallbacks lists individual themes using neutral-icon plus adjacent name; false does not mean an asset is guaranteed to load."
+    "fallbackFields": "textFallback=true means no usable verified compact graphic in either theme. themeFallbacks lists individual themes using neutral-icon plus adjacent name; false does not mean an asset is guaranteed to load.",
+    "ownerSuppliedOverrides": [
+      "grocery-brand:VILLA_MARKET",
+      "grocery-brand:LAWSON108",
+      "grocery-brand:TOPS"
+    ]
   },
   "entries": [
     {
@@ -835,184 +846,490 @@
       "industryId": "grocery",
       "brandId": "grocery-brand:LAWSON108",
       "name": "Lawson 108",
-      "sourcePage": "https://page.line.me/wpp1996q",
-      "assetUrl": "https://profile.line-scdn.net/0m0efd3af07251480fa1ef7370fbddc0813871e46d95da",
-      "researchStatus": "official_site_certificate_unavailable",
-      "notes": "Official brand identity is verified, but its native900px LINE avatar contains a tiny horizontal wordmark at the center.44px graphic slot uses named neutral fallback; old avatar is historical provenance only, never cropped.",
       "sourceName": "Lawson 108",
-      "retrievedOn": "2026-10-04",
+      "sourceKind": "owner_supplied",
+      "sourceReference": "owner-attachment:codex-clipboard-b5b7f112-0d88-4c6a-98c5-0bca3d48d5de.png",
+      "sourcePage": null,
+      "assetUrl": null,
+      "finalUrl": null,
+      "httpStatus": null,
+      "researchStatus": "owner_supplied_current_artwork_bounded_native_selector_review_passed",
+      "notes": "Owner-supplied native artwork retained unchanged in square display placement with original aspect ratio and adjacent brand name. No crop, synthetic mark or added logo frame. This identity update does not change brand profiles, formats, numerical presets, reporting IDs or source totals.",
+      "status": "owner_supplied_original",
       "preservedOriginal": true,
-      "textFallback": true,
-      "status": "text_fallback",
-      "localPath": null,
-      "themeSupport": "textFallback",
-      "finalUrl": "https://profile.line-scdn.net/0m0efd3af07251480fa1ef7370fbddc0813871e46d95da",
-      "httpStatus": 200,
-      "sourceMime": "image/jpeg",
-      "mime": "image/jpeg",
-      "bytes": 18407,
-      "sha256": "8195fec62a6e56e04b988d59b84a15f2ff4c2759b820d13b5454141777797a0f",
+      "textFallback": false,
+      "themeSupport": "both",
+      "themeFallbacks": [],
+      "verifiedIdentity": true,
+      "verifiedSquareGraphic": true,
+      "graphicKind": "owner_supplied_native_lawson_station_108_sign",
+      "localPath": "assets/brands/grocery-grocery-brand-LAWSON108-owner-0bcdc9944f.png",
+      "mime": "image/png",
+      "sourceMime": "image/png",
+      "bytes": 45024,
+      "sha256": "0bcdc9944f0543ae6a04627892080615d510b1db46347b140e4c7890347a587b",
       "dimensions": [
-        900,
-        900
+        227,
+        300
       ],
-      "hasAlpha": false,
-      "visualVerification": {
-        "date": "2026-10-04",
-        "method": "decoded logo contact sheets viewed on LDS light canvas #F6F7F3 and dark canvas #11191D",
-        "verifiedIdentity": true
+      "hasAlpha": true,
+      "cacheRevision": "0bcdc9944f05",
+      "alt": {
+        "th": "โลโก้ Lawson 108",
+        "en": "Lawson 108 logo"
       },
-      "lightDarkPolicy": "Use exact official original compatible with canvas. Do not recolor, crop, trace, stretch, or add a frame.",
-      "variants": {},
-      "verifiedSquareGraphic": false,
-      "previousLockup": {
+      "lightDarkPolicy": "Display exact owner-supplied artwork on current surface with object-fit contain and adjacent name. Preserve alpha/aspect; do not crop, recolor, stretch or add backing plate. Runtime light/dark compact legibility remains a native review gate.",
+      "visualVerification": {
+        "date": "2026-10-07",
+        "method": "Supplied source PNGs decoded and viewed directly; PNG signature/dimensions/alpha and exact-copy SHA verified.",
+        "identityBasis": "owner_supplied_brand_binding",
+        "verifiedIdentity": true,
+        "verifiedSquareGraphic": true,
+        "squareMeaning": "Compact square display slot, not assertion that source pixels have square aspect.",
+        "nativeRuntimeReview": "PASS_bounded_current_selector_original_artwork_light_dark",
+        "nativeEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json",
+        "nativeReviewScope": {
+          "selector": "PASS_current_original_light_dark",
+          "selectorStates": [
+            "light",
+            "dark"
+          ],
+          "rendering": "Original contain, native aspect and adjacent readable name; no crop/recolor/added backing field.",
+          "actualPopup": "not_reviewed_for_this_brand",
+          "actualMapMarker": "not_reviewed_for_this_brand",
+          "limitations": "Bounded Chrome states only; exact language/viewport/themes are governed by the native receipt. This does not certify a complete responsive/theme matrix, physical devices or full accessibility."
+        }
+      },
+      "variants": {
+        "light": {
+          "localPath": "assets/brands/grocery-grocery-brand-LAWSON108-owner-0bcdc9944f.png",
+          "sha256": "0bcdc9944f0543ae6a04627892080615d510b1db46347b140e4c7890347a587b",
+          "mime": "image/png",
+          "sourceMime": "image/png",
+          "bytes": 45024,
+          "dimensions": [
+            227,
+            300
+          ],
+          "hasAlpha": true,
+          "preservedOriginal": true,
+          "verifiedIdentity": true,
+          "verifiedSquareGraphic": true,
+          "graphicKind": "owner_supplied_native_lawson_station_108_sign",
+          "sourceKind": "owner_supplied",
+          "sourceReference": "owner-attachment:codex-clipboard-b5b7f112-0d88-4c6a-98c5-0bca3d48d5de.png",
+          "sourceSha256": "0bcdc9944f0543ae6a04627892080615d510b1db46347b140e4c7890347a587b",
+          "cacheRevision": "0bcdc9944f05",
+          "sourcePage": null,
+          "assetUrl": null,
+          "finalUrl": null,
+          "httpStatus": null
+        },
+        "dark": {
+          "localPath": "assets/brands/grocery-grocery-brand-LAWSON108-owner-0bcdc9944f.png",
+          "sha256": "0bcdc9944f0543ae6a04627892080615d510b1db46347b140e4c7890347a587b",
+          "mime": "image/png",
+          "sourceMime": "image/png",
+          "bytes": 45024,
+          "dimensions": [
+            227,
+            300
+          ],
+          "hasAlpha": true,
+          "preservedOriginal": true,
+          "verifiedIdentity": true,
+          "verifiedSquareGraphic": true,
+          "graphicKind": "owner_supplied_native_lawson_station_108_sign",
+          "sourceKind": "owner_supplied",
+          "sourceReference": "owner-attachment:codex-clipboard-b5b7f112-0d88-4c6a-98c5-0bca3d48d5de.png",
+          "sourceSha256": "0bcdc9944f0543ae6a04627892080615d510b1db46347b140e4c7890347a587b",
+          "cacheRevision": "0bcdc9944f05",
+          "sourcePage": null,
+          "assetUrl": null,
+          "finalUrl": null,
+          "httpStatus": null
+        }
+      },
+      "provenance": {
+        "kind": "owner_supplied",
+        "sourceReference": "owner-attachment:codex-clipboard-b5b7f112-0d88-4c6a-98c5-0bca3d48d5de.png",
+        "suppliedBy": "Montri",
+        "approvedBy": "Montri",
+        "approvedOn": "2026-10-07",
+        "approvalBasis": "Explicit image supplied for Yolk brand artwork replacement in the current request.",
+        "approvedRoles": [
+          "brand-selector",
+          "branch-popup",
+          "supply-map-marker"
+        ],
+        "prohibitedRoles": [
+          "invented-brand-endorsed-preset",
+          "offering-or-operation-verification",
+          "redrawn-or-recolored-mark"
+        ],
+        "sourceSha256": "0bcdc9944f0543ae6a04627892080615d510b1db46347b140e4c7890347a587b",
+        "sourceMime": "image/png",
+        "sourceDimensions": [
+          227,
+          300
+        ],
+        "sourceHasAlpha": true,
+        "sourceColorProfile": "sRGB_chunk_retained",
+        "sourceMetadata": "retained_original_eXIf_and_sRGB_chunks",
+        "transformation": {
+          "operation": "copy_exact_original_bytes",
+          "crop": "none",
+          "resize": "none",
+          "reencode": false,
+          "colorConversion": "none",
+          "alpha": "retained",
+          "metadata": "retained"
+        },
+        "rights": "Brand artwork remains the respective brand owner’s mark; owner-provided selection is not a trademark licence or brand endorsement.",
+        "runtimeReviewStatus": "PASS_bounded_current_selector_light_dark_only",
+        "metadataReview": {
+          "method": "Read PNG chunk inventory and TIFF eXIf field names recursively; values are not printed.",
+          "fields": [
+            "ExifIFD",
+            "ColorSpace",
+            "PixelXDimension",
+            "PixelYDimension"
+          ],
+          "sensitiveAbsentTrue": true,
+          "gpsPresent": false,
+          "cameraOwnerOrSerialPresent": false,
+          "personNameCommentOrDocumentMetadataPresent": false,
+          "unknownTagsPresent": false,
+          "privateMetadataAction": "none_needed_original_bytes_retained"
+        },
+        "runtimeReviewEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json"
+      },
+      "previousArtwork": {
         "sourcePage": "https://page.line.me/wpp1996q",
         "assetUrl": "https://profile.line-scdn.net/0m0efd3af07251480fa1ef7370fbddc0813871e46d95da",
-        "localPath": "assets/brands/grocery-grocery-brand-LAWSON108.jpg",
-        "sha256": "8195fec62a6e56e04b988d59b84a15f2ff4c2759b820d13b5454141777797a0f",
+        "researchStatus": "official_site_certificate_unavailable",
+        "notes": "Official brand identity is verified, but its native900px LINE avatar contains a tiny horizontal wordmark at the center.44px graphic slot uses named neutral fallback; old avatar is historical provenance only, never cropped.",
+        "sourceName": "Lawson 108",
+        "retrievedOn": "2026-10-04",
+        "preservedOriginal": true,
+        "textFallback": true,
+        "status": "text_fallback",
+        "localPath": null,
+        "themeSupport": "textFallback",
+        "finalUrl": "https://profile.line-scdn.net/0m0efd3af07251480fa1ef7370fbddc0813871e46d95da",
+        "httpStatus": 200,
+        "sourceMime": "image/jpeg",
         "mime": "image/jpeg",
         "bytes": 18407,
+        "sha256": "8195fec62a6e56e04b988d59b84a15f2ff4c2759b820d13b5454141777797a0f",
         "dimensions": [
           900,
           900
         ],
-        "variants": {
-          "dark": {
-            "localPath": "assets/brands/grocery-grocery-brand-LAWSON108.jpg",
-            "sha256": "8195fec62a6e56e04b988d59b84a15f2ff4c2759b820d13b5454141777797a0f",
-            "mime": "image/jpeg",
-            "bytes": 18407,
-            "dimensions": [
-              900,
-              900
-            ],
-            "sourcePage": "https://page.line.me/wpp1996q",
-            "assetUrl": "https://profile.line-scdn.net/0m0efd3af07251480fa1ef7370fbddc0813871e46d95da",
-            "finalUrl": "https://profile.line-scdn.net/0m0efd3af07251480fa1ef7370fbddc0813871e46d95da",
-            "httpStatus": 200
-          }
+        "hasAlpha": false,
+        "visualVerification": {
+          "date": "2026-10-04",
+          "method": "decoded logo contact sheets viewed on LDS light canvas #F6F7F3 and dark canvas #11191D",
+          "verifiedIdentity": true
         },
-        "themeSupport": "darkOnly"
-      },
-      "compactFallbackReason": "Official native900square LINE avatar is a tiny horizontal white wordmark on black. Visual44px review fails compact/recognizable graphic; do not crop/rebuild. Thai official website certificate is expired, so no new verified compact original acquired.",
-      "themeFallbacks": [
-        "light",
-        "dark"
-      ]
+        "lightDarkPolicy": "Use exact official original compatible with canvas. Do not recolor, crop, trace, stretch, or add a frame.",
+        "variants": {},
+        "verifiedSquareGraphic": false,
+        "previousLockup": {
+          "sourcePage": "https://page.line.me/wpp1996q",
+          "assetUrl": "https://profile.line-scdn.net/0m0efd3af07251480fa1ef7370fbddc0813871e46d95da",
+          "localPath": "assets/brands/grocery-grocery-brand-LAWSON108.jpg",
+          "sha256": "8195fec62a6e56e04b988d59b84a15f2ff4c2759b820d13b5454141777797a0f",
+          "mime": "image/jpeg",
+          "bytes": 18407,
+          "dimensions": [
+            900,
+            900
+          ],
+          "variants": {
+            "dark": {
+              "localPath": "assets/brands/grocery-grocery-brand-LAWSON108.jpg",
+              "sha256": "8195fec62a6e56e04b988d59b84a15f2ff4c2759b820d13b5454141777797a0f",
+              "mime": "image/jpeg",
+              "bytes": 18407,
+              "dimensions": [
+                900,
+                900
+              ],
+              "sourcePage": "https://page.line.me/wpp1996q",
+              "assetUrl": "https://profile.line-scdn.net/0m0efd3af07251480fa1ef7370fbddc0813871e46d95da",
+              "finalUrl": "https://profile.line-scdn.net/0m0efd3af07251480fa1ef7370fbddc0813871e46d95da",
+              "httpStatus": 200
+            }
+          },
+          "themeSupport": "darkOnly"
+        },
+        "compactFallbackReason": "Official native900square LINE avatar is a tiny horizontal white wordmark on black. Visual44px review fails compact/recognizable graphic; do not crop/rebuild. Thai official website certificate is expired, so no new verified compact original acquired.",
+        "themeFallbacks": [
+          "light",
+          "dark"
+        ]
+      }
     },
     {
       "industryId": "grocery",
       "brandId": "grocery-brand:VILLA_MARKET",
       "name": "Villa Market",
-      "sourcePage": "https://shop.villamarket.com/",
-      "assetUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
-      "researchStatus": "official_source_and_compact_graphic_visually_verified",
-      "notes": "Exact export in publicly served /js/app~0d7b3add.6e23e918.js. Mobile alternative /img/logo-villa-mobile.349b5202.svg. Official shop app uses these named brand assets.",
       "sourceName": "Villa Market",
-      "retrievedOn": "2026-10-04",
+      "sourceKind": "owner_supplied",
+      "sourceReference": "owner-attachment:codex-clipboard-e89b555c-d4ac-40e8-85f6-c71ef797795e.png",
+      "sourcePage": null,
+      "assetUrl": null,
+      "finalUrl": null,
+      "httpStatus": null,
+      "researchStatus": "owner_supplied_current_artwork_bounded_native_selector_review_passed",
+      "notes": "Owner-supplied native VL plus wordmark artwork retained unchanged, with original aspect ratio and adjacent brand name. Source is suitable for light placement. Native dark review found the purple mark insufficiently legible on charcoal; dark uses the existing neutral store icon and readable Villa Market caption. Do not restore the retired shopping-app cart mark, crop/recolor artwork or add a logo backing surface. Brand IDs, profiles, formats, presets and source totals are unchanged.",
+      "status": "owner_supplied_original",
       "preservedOriginal": true,
       "textFallback": false,
-      "finalUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
-      "httpStatus": 200,
-      "sourceMime": "image/png",
-      "bytes": 719939,
-      "sha256": "a47b25ca3c81c98398e2c768f70e4a16d9204e3b4f0254eaf781d450824065b9",
-      "mime": "image/png",
-      "svgViewBox": "0 0 220 19",
-      "dimensions": [
-        1024,
-        1024
+      "themeSupport": "lightOnly",
+      "themeFallbacks": [
+        "dark"
       ],
-      "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET-square-a47b25ca3c.png",
-      "status": "verified_official_original",
-      "themeSupport": "both",
+      "verifiedIdentity": true,
+      "verifiedSquareGraphic": true,
+      "graphicKind": "owner_supplied_vl_with_native_wordmark",
+      "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET-owner-c29c85f0b2.png",
+      "mime": "image/png",
+      "sourceMime": "image/png",
+      "bytes": 340418,
+      "sha256": "c29c85f0b251ddf12f57a59d283cab05a055ddeb35ccfa61b77458d0aa4eac8a",
+      "dimensions": [
+        3840,
+        1920
+      ],
+      "hasAlpha": true,
+      "cacheRevision": "c29c85f0b251",
+      "alt": {
+        "th": "โลโก้ Villa Market",
+        "en": "Villa Market logo"
+      },
+      "lightDarkPolicy": "Light: exact owner-supplied PNG with native contain and adjacent name. Dark: named neutral-icon fallback and readable Villa Market text because the exact purple original failed actual dark placement review. No crop, recolor, stretch, invented variant or backing plate.",
       "visualVerification": {
-        "date": "2026-10-04",
-        "method": "Exact originals decoded and viewed on LDS light/dark canvases; native compact branch/sign identity inspected",
+        "date": "2026-10-07",
+        "method": "Supplied source PNGs decoded and viewed directly; PNG signature/dimensions/alpha and exact-copy SHA verified.",
+        "identityBasis": "owner_supplied_brand_binding",
         "verifiedIdentity": true,
         "verifiedSquareGraphic": true,
-        "noAccompanyingHorizontalLockup": true,
-        "proof": "working square-logo-candidates/square-proof.png and compact-logos-44px-proof.png"
+        "squareMeaning": "Compact square display slot, not assertion that source pixels have square aspect.",
+        "nativeRuntimeReview": "PASS_bounded_current_selector_light_original_and_dark_named_fallback",
+        "nativeDarkOriginal": "FAIL_insufficient_legibility_on_charcoal_actual_1440x900_Chrome_review",
+        "darkFallback": "existing_neutral_store_icon_plus_readable_Villa_Market_caption",
+        "nativeEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json",
+        "nativeReviewScope": {
+          "selector": "PASS_current_original_light_and_dark_named_fallback",
+          "selectorStates": [
+            "light",
+            "dark"
+          ],
+          "rendering": "Original contain, native aspect and adjacent readable name; no crop/recolor/added backing field.",
+          "actualPopup": "not_reviewed_for_this_brand",
+          "actualMapMarker": "not_reviewed_for_this_brand",
+          "limitations": "Bounded Chrome states only; exact language/viewport/themes are governed by the native receipt. This does not certify a complete responsive/theme matrix, physical devices or full accessibility."
+        },
+        "nativeDarkFallback": "PASS_existing_neutral_store_icon_and_readable_Villa_Market_text"
       },
-      "lightDarkPolicy": "Use exact official original compatible with canvas. Do not recolor, crop, trace, stretch, or add a frame.",
       "variants": {
         "light": {
-          "sourcePage": "https://shop.villamarket.com/",
-          "assetUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
-          "finalUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
-          "httpStatus": 200,
+          "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET-owner-c29c85f0b2.png",
+          "sha256": "c29c85f0b251ddf12f57a59d283cab05a055ddeb35ccfa61b77458d0aa4eac8a",
           "mime": "image/png",
-          "bytes": 719939,
-          "sha256": "a47b25ca3c81c98398e2c768f70e4a16d9204e3b4f0254eaf781d450824065b9",
-          "dimensions": [
-            1024,
-            1024
-          ],
           "sourceMime": "image/png",
+          "bytes": 340418,
+          "dimensions": [
+            3840,
+            1920
+          ],
           "hasAlpha": true,
-          "htmlSha256": "dd174d37345e470eb99d409d290d2f0fa5b76405a9a4d593665c86fb3007a01e",
-          "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET-square-a47b25ca3c.png",
           "preservedOriginal": true,
           "verifiedIdentity": true,
           "verifiedSquareGraphic": true,
-          "graphicKind": "official_shopping_app_symbol",
-          "visualVerifiedOn": "2026-10-04"
-        },
-        "dark": {
-          "sourcePage": "https://shop.villamarket.com/",
-          "assetUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
-          "finalUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
-          "httpStatus": 200,
-          "mime": "image/png",
-          "bytes": 719939,
-          "sha256": "a47b25ca3c81c98398e2c768f70e4a16d9204e3b4f0254eaf781d450824065b9",
-          "dimensions": [
-            1024,
-            1024
-          ],
-          "sourceMime": "image/png",
-          "hasAlpha": true,
-          "htmlSha256": "dd174d37345e470eb99d409d290d2f0fa5b76405a9a4d593665c86fb3007a01e",
-          "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET-square-a47b25ca3c.png",
-          "preservedOriginal": true,
-          "verifiedIdentity": true,
-          "verifiedSquareGraphic": true,
-          "graphicKind": "official_shopping_app_symbol",
-          "visualVerifiedOn": "2026-10-04"
+          "graphicKind": "owner_supplied_vl_with_native_wordmark",
+          "sourceKind": "owner_supplied",
+          "sourceReference": "owner-attachment:codex-clipboard-e89b555c-d4ac-40e8-85f6-c71ef797795e.png",
+          "sourceSha256": "c29c85f0b251ddf12f57a59d283cab05a055ddeb35ccfa61b77458d0aa4eac8a",
+          "cacheRevision": "c29c85f0b251",
+          "sourcePage": null,
+          "assetUrl": null,
+          "finalUrl": null,
+          "httpStatus": null
         }
       },
-      "verifiedSquareGraphic": true,
-      "previousLockup": {
+      "provenance": {
+        "kind": "owner_supplied",
+        "sourceReference": "owner-attachment:codex-clipboard-e89b555c-d4ac-40e8-85f6-c71ef797795e.png",
+        "suppliedBy": "Montri",
+        "approvedBy": "Montri",
+        "approvedOn": "2026-10-07",
+        "approvalBasis": "Explicit image supplied for Yolk brand artwork replacement in the current request.",
+        "approvedRoles": [
+          "brand-selector",
+          "branch-popup",
+          "supply-map-marker"
+        ],
+        "prohibitedRoles": [
+          "invented-brand-endorsed-preset",
+          "offering-or-operation-verification",
+          "redrawn-or-recolored-mark"
+        ],
+        "sourceSha256": "c29c85f0b251ddf12f57a59d283cab05a055ddeb35ccfa61b77458d0aa4eac8a",
+        "sourceMime": "image/png",
+        "sourceDimensions": [
+          3840,
+          1920
+        ],
+        "sourceHasAlpha": true,
+        "sourceColorProfile": "sRGB_chunk_retained",
+        "sourceMetadata": "retained_original_eXIf_and_sRGB_chunks",
+        "transformation": {
+          "operation": "copy_exact_original_bytes",
+          "crop": "none",
+          "resize": "none",
+          "reencode": false,
+          "colorConversion": "none",
+          "alpha": "retained",
+          "metadata": "retained"
+        },
+        "rights": "Brand artwork remains the respective brand owner’s mark; owner-provided selection is not a trademark licence or brand endorsement.",
+        "runtimeReviewStatus": "PASS_bounded_current_selector_light_original_dark_named_fallback",
+        "metadataReview": {
+          "method": "Read PNG chunk inventory and TIFF eXIf field names recursively; values are not printed.",
+          "fields": [
+            "ExifIFD",
+            "ColorSpace",
+            "PixelXDimension",
+            "PixelYDimension"
+          ],
+          "sensitiveAbsentTrue": true,
+          "gpsPresent": false,
+          "cameraOwnerOrSerialPresent": false,
+          "personNameCommentOrDocumentMetadataPresent": false,
+          "unknownTagsPresent": false,
+          "privateMetadataAction": "none_needed_original_bytes_retained"
+        },
+        "themeUse": {
+          "light": "owner_supplied_original",
+          "dark": "named_neutral_store_icon_and_readable_brand_caption"
+        },
+        "runtimeReviewEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json"
+      },
+      "previousArtwork": {
         "sourcePage": "https://shop.villamarket.com/",
-        "assetUrl": "https://shop.villamarket.com/img/logo-villa-desktop.9c87a5da.svg",
-        "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET.svg",
-        "sha256": "9de97588ca5f36e8f7945c25fdfd1ee08dad962a633195cc9502e2044de61d3b",
-        "themeSupport": "lightOnly",
+        "assetUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
+        "researchStatus": "official_source_and_compact_graphic_visually_verified",
+        "notes": "Exact export in publicly served /js/app~0d7b3add.6e23e918.js. Mobile alternative /img/logo-villa-mobile.349b5202.svg. Official shop app uses these named brand assets.",
+        "sourceName": "Villa Market",
+        "retrievedOn": "2026-10-04",
+        "preservedOriginal": true,
+        "textFallback": false,
+        "finalUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
+        "httpStatus": 200,
+        "sourceMime": "image/png",
+        "bytes": 719939,
+        "sha256": "a47b25ca3c81c98398e2c768f70e4a16d9204e3b4f0254eaf781d450824065b9",
+        "mime": "image/png",
+        "svgViewBox": "0 0 220 19",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET-square-a47b25ca3c.png",
+        "status": "verified_official_original",
+        "themeSupport": "both",
+        "visualVerification": {
+          "date": "2026-10-04",
+          "method": "Exact originals decoded and viewed on LDS light/dark canvases; native compact branch/sign identity inspected",
+          "verifiedIdentity": true,
+          "verifiedSquareGraphic": true,
+          "noAccompanyingHorizontalLockup": true,
+          "proof": "working square-logo-candidates/square-proof.png and compact-logos-44px-proof.png"
+        },
+        "lightDarkPolicy": "Use exact official original compatible with canvas. Do not recolor, crop, trace, stretch, or add a frame.",
         "variants": {
           "light": {
-            "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET.svg",
-            "sha256": "9de97588ca5f36e8f7945c25fdfd1ee08dad962a633195cc9502e2044de61d3b",
-            "mime": "image/svg+xml",
-            "bytes": 54719,
-            "dimensions": [
-              220.0,
-              19.0
-            ],
             "sourcePage": "https://shop.villamarket.com/",
-            "assetUrl": "https://shop.villamarket.com/img/logo-villa-desktop.9c87a5da.svg",
-            "finalUrl": "https://shop.villamarket.com/img/logo-villa-desktop.9c87a5da.svg",
-            "httpStatus": 200
+            "assetUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
+            "finalUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
+            "httpStatus": 200,
+            "mime": "image/png",
+            "bytes": 719939,
+            "sha256": "a47b25ca3c81c98398e2c768f70e4a16d9204e3b4f0254eaf781d450824065b9",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "sourceMime": "image/png",
+            "hasAlpha": true,
+            "htmlSha256": "dd174d37345e470eb99d409d290d2f0fa5b76405a9a4d593665c86fb3007a01e",
+            "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET-square-a47b25ca3c.png",
+            "preservedOriginal": true,
+            "verifiedIdentity": true,
+            "verifiedSquareGraphic": true,
+            "graphicKind": "official_shopping_app_symbol",
+            "visualVerifiedOn": "2026-10-04"
+          },
+          "dark": {
+            "sourcePage": "https://shop.villamarket.com/",
+            "assetUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
+            "finalUrl": "https://shop.villamarket.com/img/icons/apple-touch-icon-152x152.png",
+            "httpStatus": 200,
+            "mime": "image/png",
+            "bytes": 719939,
+            "sha256": "a47b25ca3c81c98398e2c768f70e4a16d9204e3b4f0254eaf781d450824065b9",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "sourceMime": "image/png",
+            "hasAlpha": true,
+            "htmlSha256": "dd174d37345e470eb99d409d290d2f0fa5b76405a9a4d593665c86fb3007a01e",
+            "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET-square-a47b25ca3c.png",
+            "preservedOriginal": true,
+            "verifiedIdentity": true,
+            "verifiedSquareGraphic": true,
+            "graphicKind": "official_shopping_app_symbol",
+            "visualVerifiedOn": "2026-10-04"
           }
         },
-        "status": "verified_official_original"
+        "verifiedSquareGraphic": true,
+        "previousLockup": {
+          "sourcePage": "https://shop.villamarket.com/",
+          "assetUrl": "https://shop.villamarket.com/img/logo-villa-desktop.9c87a5da.svg",
+          "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET.svg",
+          "sha256": "9de97588ca5f36e8f7945c25fdfd1ee08dad962a633195cc9502e2044de61d3b",
+          "themeSupport": "lightOnly",
+          "variants": {
+            "light": {
+              "localPath": "assets/brands/grocery-grocery-brand-VILLA_MARKET.svg",
+              "sha256": "9de97588ca5f36e8f7945c25fdfd1ee08dad962a633195cc9502e2044de61d3b",
+              "mime": "image/svg+xml",
+              "bytes": 54719,
+              "dimensions": [
+                220.0,
+                19.0
+              ],
+              "sourcePage": "https://shop.villamarket.com/",
+              "assetUrl": "https://shop.villamarket.com/img/logo-villa-desktop.9c87a5da.svg",
+              "finalUrl": "https://shop.villamarket.com/img/logo-villa-desktop.9c87a5da.svg",
+              "httpStatus": 200
+            }
+          },
+          "status": "verified_official_original"
+        },
+        "hasAlpha": true,
+        "htmlSha256": "dd174d37345e470eb99d409d290d2f0fa5b76405a9a4d593665c86fb3007a01e",
+        "verifiedIdentity": true,
+        "graphicKind": "official_shopping_app_symbol",
+        "visualVerifiedOn": "2026-10-04",
+        "legibility44": "graphic_recognizable_with_adjacent_name",
+        "themeFallbacks": []
       },
-      "hasAlpha": true,
-      "htmlSha256": "dd174d37345e470eb99d409d290d2f0fa5b76405a9a4d593665c86fb3007a01e",
-      "verifiedIdentity": true,
-      "graphicKind": "official_shopping_app_symbol",
-      "visualVerifiedOn": "2026-10-04",
-      "legibility44": "graphic_recognizable_with_adjacent_name",
-      "themeFallbacks": []
+      "compactFallbackReason": "Dark only: exact owner-supplied purple VL artwork is not readable on charcoal at compact size. Keep the readable adjacent Villa Market name with the existing neutral store icon; no added backing field."
     },
     {
       "industryId": "grocery",
@@ -2511,130 +2828,290 @@
     {
       "industryId": "grocery",
       "brandId": "grocery-brand:TOPS",
-      "name": "grocery-brand:TOPS",
-      "sourcePage": "https://corporate.tops.co.th/",
-      "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
-      "researchStatus": "official_source_and_compact_graphic_visually_verified",
-      "notes": "official_current_header_brand_logo",
+      "name": "Tops",
       "sourceName": "Tops",
-      "retrievedOn": "2026-10-04",
+      "sourceKind": "owner_supplied",
+      "sourceReference": "owner-attachment:codex-clipboard-1ee92e1e-cd40-44f3-8d49-0f45743b2d3c.png",
+      "sourcePage": null,
+      "assetUrl": null,
+      "finalUrl": null,
+      "httpStatus": null,
+      "researchStatus": "owner_supplied_current_artwork_bounded_native_selector_review_passed_actual_popup_marker_review_passed",
+      "notes": "Owner-supplied native artwork retained unchanged in square display placement with original aspect ratio and adjacent brand name. No crop, synthetic mark or added logo frame. This identity update does not change brand profiles, formats, numerical presets, reporting IDs or source totals.",
+      "status": "owner_supplied_original",
       "preservedOriginal": true,
       "textFallback": false,
-      "finalUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
-      "httpStatus": 200,
-      "sourceMime": "image/png",
-      "bytes": 492,
-      "sha256": "e6e51a45ae86612769e16134ee9f70a2bf1087dd320e38340af3bb1aaa890f00",
-      "mime": "image/png",
-      "svgViewBox": "0 0 1200 600",
-      "dimensions": [
-        192,
-        192
-      ],
-      "localPath": "assets/brands/grocery-grocery-brand-TOPS-square-e6e51a45ae.png",
-      "status": "verified_official_original",
       "themeSupport": "both",
+      "themeFallbacks": [],
+      "verifiedIdentity": true,
+      "verifiedSquareGraphic": true,
+      "graphicKind": "owner_supplied_native_tops_wordmark",
+      "localPath": "assets/brands/grocery-grocery-brand-TOPS-owner-dccbc2bbd0.png",
+      "mime": "image/png",
+      "sourceMime": "image/png",
+      "bytes": 49990,
+      "sha256": "dccbc2bbd05952420a2e782ef1dc2ae7ce6c5d8fffb70eb2772055df7e213458",
+      "dimensions": [
+        800,
+        316
+      ],
+      "hasAlpha": true,
+      "cacheRevision": "dccbc2bbd059",
+      "alt": {
+        "th": "โลโก้ Tops",
+        "en": "Tops logo"
+      },
+      "lightDarkPolicy": "Display exact owner-supplied artwork on current surface with object-fit contain and adjacent name. Preserve alpha/aspect; do not crop, recolor, stretch or add backing plate. Runtime light/dark compact legibility remains a native review gate.",
       "visualVerification": {
-        "date": "2026-10-04",
-        "method": "Exact originals decoded and viewed on LDS light/dark canvases; native compact branch/sign identity inspected",
+        "date": "2026-10-07",
+        "method": "Supplied source PNGs decoded and viewed directly; PNG signature/dimensions/alpha and exact-copy SHA verified.",
+        "identityBasis": "owner_supplied_brand_binding",
         "verifiedIdentity": true,
         "verifiedSquareGraphic": true,
-        "noAccompanyingHorizontalLockup": true,
-        "proof": "working square-logo-candidates/square-proof.png and compact-logos-44px-proof.png"
-      },
-      "lightDarkPolicy": "Use exact official original compatible with canvas. Do not recolor, crop, trace, stretch, or add a frame.",
-      "variants": {
-        "light": {
-          "sourcePage": "https://corporate.tops.co.th/",
-          "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
-          "finalUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
-          "httpStatus": 200,
-          "mime": "image/png",
-          "bytes": 492,
-          "sha256": "e6e51a45ae86612769e16134ee9f70a2bf1087dd320e38340af3bb1aaa890f00",
-          "dimensions": [
-            192,
-            192
+        "squareMeaning": "Compact square display slot, not assertion that source pixels have square aspect.",
+        "nativeRuntimeReview": "PASS_bounded_current_selector_original_artwork_light_dark",
+        "nativeEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json",
+        "nativeReviewScope": {
+          "selector": "PASS_current_original_light_dark",
+          "selectorStates": [
+            "light",
+            "dark"
           ],
-          "sourceMime": "image/png",
-          "hasAlpha": false,
-          "htmlSha256": "f1ef6f5ae8d1733e16ad5607ad37155cc66a4620557d5910094f336ab76f697c",
-          "localPath": "assets/brands/grocery-grocery-brand-TOPS-square-e6e51a45ae.png",
-          "preservedOriginal": true,
-          "verifiedIdentity": true,
-          "verifiedSquareGraphic": true,
-          "graphicKind": "official_letter_symbol",
-          "visualVerifiedOn": "2026-10-04"
-        },
-        "dark": {
-          "sourcePage": "https://corporate.tops.co.th/",
-          "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
-          "finalUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
-          "httpStatus": 200,
-          "mime": "image/png",
-          "bytes": 492,
-          "sha256": "e6e51a45ae86612769e16134ee9f70a2bf1087dd320e38340af3bb1aaa890f00",
-          "dimensions": [
-            192,
-            192
-          ],
-          "sourceMime": "image/png",
-          "hasAlpha": false,
-          "htmlSha256": "f1ef6f5ae8d1733e16ad5607ad37155cc66a4620557d5910094f336ab76f697c",
-          "localPath": "assets/brands/grocery-grocery-brand-TOPS-square-e6e51a45ae.png",
-          "preservedOriginal": true,
-          "verifiedIdentity": true,
-          "verifiedSquareGraphic": true,
-          "graphicKind": "official_letter_symbol",
-          "visualVerifiedOn": "2026-10-04"
+          "rendering": "Original contain, native aspect and adjacent readable name; no crop/recolor/added backing field.",
+          "actualPopup": "PASS_as_recorded_in_native_receipt",
+          "actualMapMarker": "PASS_as_recorded_in_native_receipt",
+          "limitations": "Bounded Chrome states only; exact language/viewport/themes are governed by the native receipt. This does not certify a complete responsive/theme matrix, physical devices or full accessibility."
         }
       },
-      "verifiedSquareGraphic": true,
-      "previousLockup": {
+      "variants": {
+        "light": {
+          "localPath": "assets/brands/grocery-grocery-brand-TOPS-owner-dccbc2bbd0.png",
+          "sha256": "dccbc2bbd05952420a2e782ef1dc2ae7ce6c5d8fffb70eb2772055df7e213458",
+          "mime": "image/png",
+          "sourceMime": "image/png",
+          "bytes": 49990,
+          "dimensions": [
+            800,
+            316
+          ],
+          "hasAlpha": true,
+          "preservedOriginal": true,
+          "verifiedIdentity": true,
+          "verifiedSquareGraphic": true,
+          "graphicKind": "owner_supplied_native_tops_wordmark",
+          "sourceKind": "owner_supplied",
+          "sourceReference": "owner-attachment:codex-clipboard-1ee92e1e-cd40-44f3-8d49-0f45743b2d3c.png",
+          "sourceSha256": "dccbc2bbd05952420a2e782ef1dc2ae7ce6c5d8fffb70eb2772055df7e213458",
+          "cacheRevision": "dccbc2bbd059",
+          "sourcePage": null,
+          "assetUrl": null,
+          "finalUrl": null,
+          "httpStatus": null
+        },
+        "dark": {
+          "localPath": "assets/brands/grocery-grocery-brand-TOPS-owner-dccbc2bbd0.png",
+          "sha256": "dccbc2bbd05952420a2e782ef1dc2ae7ce6c5d8fffb70eb2772055df7e213458",
+          "mime": "image/png",
+          "sourceMime": "image/png",
+          "bytes": 49990,
+          "dimensions": [
+            800,
+            316
+          ],
+          "hasAlpha": true,
+          "preservedOriginal": true,
+          "verifiedIdentity": true,
+          "verifiedSquareGraphic": true,
+          "graphicKind": "owner_supplied_native_tops_wordmark",
+          "sourceKind": "owner_supplied",
+          "sourceReference": "owner-attachment:codex-clipboard-1ee92e1e-cd40-44f3-8d49-0f45743b2d3c.png",
+          "sourceSha256": "dccbc2bbd05952420a2e782ef1dc2ae7ce6c5d8fffb70eb2772055df7e213458",
+          "cacheRevision": "dccbc2bbd059",
+          "sourcePage": null,
+          "assetUrl": null,
+          "finalUrl": null,
+          "httpStatus": null
+        }
+      },
+      "provenance": {
+        "kind": "owner_supplied",
+        "sourceReference": "owner-attachment:codex-clipboard-1ee92e1e-cd40-44f3-8d49-0f45743b2d3c.png",
+        "suppliedBy": "Montri",
+        "approvedBy": "Montri",
+        "approvedOn": "2026-10-07",
+        "approvalBasis": "Explicit image supplied for Yolk brand artwork replacement in the current request.",
+        "approvedRoles": [
+          "brand-selector",
+          "branch-popup",
+          "supply-map-marker"
+        ],
+        "prohibitedRoles": [
+          "invented-brand-endorsed-preset",
+          "offering-or-operation-verification",
+          "redrawn-or-recolored-mark"
+        ],
+        "sourceSha256": "dccbc2bbd05952420a2e782ef1dc2ae7ce6c5d8fffb70eb2772055df7e213458",
+        "sourceMime": "image/png",
+        "sourceDimensions": [
+          800,
+          316
+        ],
+        "sourceHasAlpha": true,
+        "sourceColorProfile": "sRGB_chunk_retained",
+        "sourceMetadata": "retained_original_eXIf_and_sRGB_chunks",
+        "transformation": {
+          "operation": "copy_exact_original_bytes",
+          "crop": "none",
+          "resize": "none",
+          "reencode": false,
+          "colorConversion": "none",
+          "alpha": "retained",
+          "metadata": "retained"
+        },
+        "rights": "Brand artwork remains the respective brand owner’s mark; owner-provided selection is not a trademark licence or brand endorsement.",
+        "runtimeReviewStatus": "PASS_bounded_current_selector_light_dark_and_actual_Tops_popup_marker",
+        "metadataReview": {
+          "method": "Read PNG chunk inventory and TIFF eXIf field names recursively; values are not printed.",
+          "fields": [
+            "ExifIFD",
+            "ColorSpace",
+            "PixelXDimension",
+            "PixelYDimension"
+          ],
+          "sensitiveAbsentTrue": true,
+          "gpsPresent": false,
+          "cameraOwnerOrSerialPresent": false,
+          "personNameCommentOrDocumentMetadataPresent": false,
+          "unknownTagsPresent": false,
+          "privateMetadataAction": "none_needed_original_bytes_retained"
+        },
+        "runtimeReviewEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json"
+      },
+      "previousArtwork": {
         "sourcePage": "https://corporate.tops.co.th/",
-        "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2026/04/topslogo.svg",
-        "localPath": "assets/brands/grocery-grocery-brand-TOPS.svg",
-        "sha256": "ac44418daef4d641acaca1c5a97450d096e9ddc7b8c938dab57ca743b5f771d5",
+        "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
+        "researchStatus": "official_source_and_compact_graphic_visually_verified",
+        "notes": "official_current_header_brand_logo",
+        "sourceName": "Tops",
+        "retrievedOn": "2026-10-04",
+        "preservedOriginal": true,
+        "textFallback": false,
+        "finalUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
+        "httpStatus": 200,
+        "sourceMime": "image/png",
+        "bytes": 492,
+        "sha256": "e6e51a45ae86612769e16134ee9f70a2bf1087dd320e38340af3bb1aaa890f00",
+        "mime": "image/png",
+        "svgViewBox": "0 0 1200 600",
+        "dimensions": [
+          192,
+          192
+        ],
+        "localPath": "assets/brands/grocery-grocery-brand-TOPS-square-e6e51a45ae.png",
+        "status": "verified_official_original",
         "themeSupport": "both",
+        "visualVerification": {
+          "date": "2026-10-04",
+          "method": "Exact originals decoded and viewed on LDS light/dark canvases; native compact branch/sign identity inspected",
+          "verifiedIdentity": true,
+          "verifiedSquareGraphic": true,
+          "noAccompanyingHorizontalLockup": true,
+          "proof": "working square-logo-candidates/square-proof.png and compact-logos-44px-proof.png"
+        },
+        "lightDarkPolicy": "Use exact official original compatible with canvas. Do not recolor, crop, trace, stretch, or add a frame.",
         "variants": {
           "light": {
-            "localPath": "assets/brands/grocery-grocery-brand-TOPS.svg",
-            "sha256": "ac44418daef4d641acaca1c5a97450d096e9ddc7b8c938dab57ca743b5f771d5",
-            "mime": "image/svg+xml",
-            "bytes": 1963,
-            "dimensions": [
-              1200.0,
-              600.0
-            ],
             "sourcePage": "https://corporate.tops.co.th/",
-            "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2026/04/topslogo.svg",
-            "finalUrl": "https://corporate.tops.co.th/wp-content/uploads/2026/04/topslogo.svg",
-            "httpStatus": 200
+            "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
+            "finalUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
+            "httpStatus": 200,
+            "mime": "image/png",
+            "bytes": 492,
+            "sha256": "e6e51a45ae86612769e16134ee9f70a2bf1087dd320e38340af3bb1aaa890f00",
+            "dimensions": [
+              192,
+              192
+            ],
+            "sourceMime": "image/png",
+            "hasAlpha": false,
+            "htmlSha256": "f1ef6f5ae8d1733e16ad5607ad37155cc66a4620557d5910094f336ab76f697c",
+            "localPath": "assets/brands/grocery-grocery-brand-TOPS-square-e6e51a45ae.png",
+            "preservedOriginal": true,
+            "verifiedIdentity": true,
+            "verifiedSquareGraphic": true,
+            "graphicKind": "official_letter_symbol",
+            "visualVerifiedOn": "2026-10-04"
           },
           "dark": {
-            "localPath": "assets/brands/grocery-grocery-brand-TOPS.svg",
-            "sha256": "ac44418daef4d641acaca1c5a97450d096e9ddc7b8c938dab57ca743b5f771d5",
-            "mime": "image/svg+xml",
-            "bytes": 1963,
-            "dimensions": [
-              1200.0,
-              600.0
-            ],
             "sourcePage": "https://corporate.tops.co.th/",
-            "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2026/04/topslogo.svg",
-            "finalUrl": "https://corporate.tops.co.th/wp-content/uploads/2026/04/topslogo.svg",
-            "httpStatus": 200
+            "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
+            "finalUrl": "https://corporate.tops.co.th/wp-content/uploads/2025/07/cropped-favicon-1-192x192.png",
+            "httpStatus": 200,
+            "mime": "image/png",
+            "bytes": 492,
+            "sha256": "e6e51a45ae86612769e16134ee9f70a2bf1087dd320e38340af3bb1aaa890f00",
+            "dimensions": [
+              192,
+              192
+            ],
+            "sourceMime": "image/png",
+            "hasAlpha": false,
+            "htmlSha256": "f1ef6f5ae8d1733e16ad5607ad37155cc66a4620557d5910094f336ab76f697c",
+            "localPath": "assets/brands/grocery-grocery-brand-TOPS-square-e6e51a45ae.png",
+            "preservedOriginal": true,
+            "verifiedIdentity": true,
+            "verifiedSquareGraphic": true,
+            "graphicKind": "official_letter_symbol",
+            "visualVerifiedOn": "2026-10-04"
           }
         },
-        "status": "verified_official_original"
-      },
-      "hasAlpha": false,
-      "htmlSha256": "f1ef6f5ae8d1733e16ad5607ad37155cc66a4620557d5910094f336ab76f697c",
-      "verifiedIdentity": true,
-      "graphicKind": "official_letter_symbol",
-      "visualVerifiedOn": "2026-10-04",
-      "legibility44": "graphic_recognizable_with_adjacent_name",
-      "themeFallbacks": []
+        "verifiedSquareGraphic": true,
+        "previousLockup": {
+          "sourcePage": "https://corporate.tops.co.th/",
+          "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2026/04/topslogo.svg",
+          "localPath": "assets/brands/grocery-grocery-brand-TOPS.svg",
+          "sha256": "ac44418daef4d641acaca1c5a97450d096e9ddc7b8c938dab57ca743b5f771d5",
+          "themeSupport": "both",
+          "variants": {
+            "light": {
+              "localPath": "assets/brands/grocery-grocery-brand-TOPS.svg",
+              "sha256": "ac44418daef4d641acaca1c5a97450d096e9ddc7b8c938dab57ca743b5f771d5",
+              "mime": "image/svg+xml",
+              "bytes": 1963,
+              "dimensions": [
+                1200.0,
+                600.0
+              ],
+              "sourcePage": "https://corporate.tops.co.th/",
+              "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2026/04/topslogo.svg",
+              "finalUrl": "https://corporate.tops.co.th/wp-content/uploads/2026/04/topslogo.svg",
+              "httpStatus": 200
+            },
+            "dark": {
+              "localPath": "assets/brands/grocery-grocery-brand-TOPS.svg",
+              "sha256": "ac44418daef4d641acaca1c5a97450d096e9ddc7b8c938dab57ca743b5f771d5",
+              "mime": "image/svg+xml",
+              "bytes": 1963,
+              "dimensions": [
+                1200.0,
+                600.0
+              ],
+              "sourcePage": "https://corporate.tops.co.th/",
+              "assetUrl": "https://corporate.tops.co.th/wp-content/uploads/2026/04/topslogo.svg",
+              "finalUrl": "https://corporate.tops.co.th/wp-content/uploads/2026/04/topslogo.svg",
+              "httpStatus": 200
+            }
+          },
+          "status": "verified_official_original"
+        },
+        "hasAlpha": false,
+        "htmlSha256": "f1ef6f5ae8d1733e16ad5607ad37155cc66a4620557d5910094f336ab76f697c",
+        "verifiedIdentity": true,
+        "graphicKind": "official_letter_symbol",
+        "visualVerifiedOn": "2026-10-04",
+        "legibility44": "graphic_recognizable_with_adjacent_name",
+        "themeFallbacks": []
+      }
     },
     {
       "industryId": "grocery",
@@ -4415,5 +4892,6 @@
       "themeFallbacks": []
     }
   ],
-  "updatedAt": "2026-10-04T06:37:06.235779+00:00"
+  "updatedAt": "2026-10-07T14:49:02.816575+00:00",
+  "artworkRevision": "1.9.2-owner2"
 }

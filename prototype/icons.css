@@ -60,3 +60,12 @@
 button.has-caption-icon:hover:not(:disabled),a.has-caption-icon:hover,summary.has-caption-icon:hover{text-decoration:none}
 button.has-caption-icon:hover:not(:disabled) .control-caption,a.has-caption-icon:hover .control-caption,summary.has-caption-icon:hover .control-caption{text-decoration:underline;text-underline-offset:4px}
 .has-caption-icon .yl-icon{text-decoration:none}
+/* The glyph namespace must outrank text/number span selectors inside labelled controls.
+ * Geometry can still use each component's deliberate icon size; face and axes never change.
+ */
+.yl-icon[data-yolk-glyph]{font-family:"Yolk Material Symbols";font-weight:300;font-style:normal;font-variation-settings:"FILL" 0,"wght" 300,"GRAD" 0,"opsz" 24;font-feature-settings:"liga";text-transform:none;letter-spacing:normal}
+/* Supply filter chips have three separate roles: symbol, readable caption, numeric count. */
+.supply-tabs button{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.supply-tabs button>.yl-icon{font-size:22px;margin:0}
+.supply-tabs button>.control-caption{font:inherit;letter-spacing:normal;white-space:normal}
+.supply-tabs button>.supply-tab-count{flex:0 0 auto;line-height:1.5;margin:0}

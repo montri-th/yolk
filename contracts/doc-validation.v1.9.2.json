@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "yolk.document_validation/1.9",
+  "version": "1.9.2",
+  "recordedAt": "2026-10-07T14:50:52.643021+00:00",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 3,
+  "checks": [
+    {
+      "name": "All three embedded JSON blocks parse",
+      "passed": true
+    },
+    {
+      "name": "Full embedded blueprint equals current machine contract",
+      "passed": true
+    },
+    {
+      "name": "Twenty-five unique bounded T00-T24 tasks preserve inputs/outputs/acceptance/coding prompts",
+      "passed": true
+    },
+    {
+      "name": "Source/profile/Demand/Supply/ranking/opportunity/API/production/schema content equals retained baseline",
+      "passed": true
+    },
+    {
+      "name": "Semantic criteria/profile/engine version stays1.9.0",
+      "passed": true
+    },
+    {
+      "name": "Retained interaction1.9.1 projection is unchanged",
+      "passed": true
+    },
+    {
+      "name": "New brand/control projection equals current extension",
+      "passed": true
+    },
+    {
+      "name": "Three original owner-artwork bindings have exact bytes/dimensions/hash/provenance",
+      "passed": true
+    },
+    {
+      "name": "Current registry is the runtime-loaded owner revision with exact hash",
+      "passed": true
+    },
+    {
+      "name": "Glyph/caption/counter namespaces and wrapping narrow controls remain explicit",
+      "passed": true
+    },
+    {
+      "name": "Current29-suite actual receipt matches frozen test hashes and check counts",
+      "passed": true
+    },
+    {
+      "name": "Current native pass/screenshots have verified actual bytes/hashes/dimensions",
+      "passed": true
+    },
+    {
+      "name": "PinnedbaseDSsource bytes match declared hash",
+      "passed": true
+    },
+    {
+      "name": "PinnedlocationProfilesource bytes match declared hash",
+      "passed": true
+    },
+    {
+      "name": "Current document Markdown references resolve locally",
+      "passed": true
+    },
+    {
+      "name": "Final diff whitespace check passes",
+      "passed": true
+    }
+  ],
+  "checkCount": 16,
+  "metrics": 25,
+  "industries": 3,
+  "brandBindings": 37,
+  "tasks": 25,
+  "newOwnerArtworkBindings": 3,
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.2.md",
+    "sha256": "70c8355049d96a99ea467f4717dcdc322ad83b320e8572d64661f97f908c3ad3"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.2.json",
+    "sha256": "e263cab2982db6dab58cabcd22926cc0d80ab7ea5affabb0d3a64d4ef1214bd3"
+  },
+  "coverageBoundary": "Document/contract/source/current receipt/snapshot consistency only. Runtime506checks/native12checks are separate bounded receipts; no physical-device/fullmatrix/actual-screen-reader/provider/sharedbackend certification.",
+  "currentQAReceipt": "evidence/qa-v1.9.2.json"
+}

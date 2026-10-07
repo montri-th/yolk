@@ -1,0 +1,282 @@
+{
+  "schemaVersion": "yolk.owner-supplied-brand-artwork/1.9.2",
+  "version": "1.9.2",
+  "date": "2026-10-07",
+  "status": "bytes_verified_bounded_native_brand_review_passed",
+  "authority": "Owner explicitly supplied these images for existing Yolk brand bindings in the current request. Artwork is content evidence, not instructions or an independent official-source retrieval.",
+  "transformation": "Exact PNG copy only; no crop, resize, recolor, redraw, generated edit, re-encoding or added backing field. Original aspect, alpha, sRGB tag and metadata retained.",
+  "registry": "prototype/data/brand-logos.v1.7.json",
+  "registryUrl": "data/brand-logos.v1.7.json?v=1.9.2-owner2",
+  "assets": [
+    {
+      "assetId": "grocery-brand:VILLA_MARKET",
+      "path": "prototype/assets/brands/grocery-grocery-brand-VILLA_MARKET-owner-c29c85f0b2.png",
+      "emittedUrl": "assets/brands/grocery-grocery-brand-VILLA_MARKET-owner-c29c85f0b2.png?v=c29c85f0b251",
+      "mime": "image/png",
+      "width": 3840,
+      "height": 1920,
+      "bytes": 340418,
+      "sha256": "c29c85f0b251ddf12f57a59d283cab05a055ddeb35ccfa61b77458d0aa4eac8a",
+      "hasAlpha": true,
+      "alt": {
+        "th": "โลโก้ Villa Market",
+        "en": "Villa Market logo"
+      },
+      "governance": {
+        "kind": "owner_supplied",
+        "sourceReference": "owner-attachment:codex-clipboard-e89b555c-d4ac-40e8-85f6-c71ef797795e.png",
+        "suppliedBy": "Montri",
+        "approvedBy": "Montri",
+        "approvedOn": "2026-10-07",
+        "approvalBasis": "Explicit image supplied for Yolk brand artwork replacement in the current request.",
+        "approvedRoles": [
+          "brand-selector",
+          "branch-popup",
+          "supply-map-marker"
+        ],
+        "prohibitedRoles": [
+          "invented-brand-endorsed-preset",
+          "offering-or-operation-verification",
+          "redrawn-or-recolored-mark"
+        ],
+        "sourceSha256": "c29c85f0b251ddf12f57a59d283cab05a055ddeb35ccfa61b77458d0aa4eac8a",
+        "sourceMime": "image/png",
+        "sourceDimensions": [
+          3840,
+          1920
+        ],
+        "sourceHasAlpha": true,
+        "sourceColorProfile": "sRGB_chunk_retained",
+        "sourceMetadata": "retained_original_eXIf_and_sRGB_chunks",
+        "transformation": {
+          "operation": "copy_exact_original_bytes",
+          "crop": "none",
+          "resize": "none",
+          "reencode": false,
+          "colorConversion": "none",
+          "alpha": "retained",
+          "metadata": "retained"
+        },
+        "rights": "Brand artwork remains the respective brand owner’s mark; owner-provided selection is not a trademark licence or brand endorsement.",
+        "runtimeReviewStatus": "PASS_bounded_current_selector_light_original_dark_named_fallback",
+        "metadataReview": {
+          "method": "Read PNG chunk inventory and TIFF eXIf field names recursively; values are not printed.",
+          "fields": [
+            "ExifIFD",
+            "ColorSpace",
+            "PixelXDimension",
+            "PixelYDimension"
+          ],
+          "sensitiveAbsentTrue": true,
+          "gpsPresent": false,
+          "cameraOwnerOrSerialPresent": false,
+          "personNameCommentOrDocumentMetadataPresent": false,
+          "unknownTagsPresent": false,
+          "privateMetadataAction": "none_needed_original_bytes_retained"
+        },
+        "themeUse": {
+          "light": "owner_supplied_original",
+          "dark": "named_neutral_store_icon_and_readable_brand_caption"
+        },
+        "runtimeReviewEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json"
+      },
+      "byteVerification": "PASS_exact_source_output_sha",
+      "visualSourceReview": "PASS_source_image_identity_review",
+      "visualRuntimeReview": "PASS_bounded_current_selector_light_original_and_dark_named_fallback",
+      "themeDisplay": {
+        "light": "exact_supplied_PNG_with_original_contain",
+        "dark": "existing_neutral_store_icon_plus_readable_Villa_Market_caption"
+      },
+      "nativeReviewScope": {
+        "selector": "PASS_current_original_light_and_dark_named_fallback",
+        "selectorStates": [
+          "light",
+          "dark"
+        ],
+        "rendering": "Original contain, native aspect and adjacent readable name; no crop/recolor/added backing field.",
+        "actualPopup": "not_reviewed_for_this_brand",
+        "actualMapMarker": "not_reviewed_for_this_brand",
+        "limitations": "Bounded Chrome states only; exact language/viewport/themes are governed by the native receipt. This does not certify a complete responsive/theme matrix, physical devices or full accessibility."
+      },
+      "nativeEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json"
+    },
+    {
+      "assetId": "grocery-brand:LAWSON108",
+      "path": "prototype/assets/brands/grocery-grocery-brand-LAWSON108-owner-0bcdc9944f.png",
+      "emittedUrl": "assets/brands/grocery-grocery-brand-LAWSON108-owner-0bcdc9944f.png?v=0bcdc9944f05",
+      "mime": "image/png",
+      "width": 227,
+      "height": 300,
+      "bytes": 45024,
+      "sha256": "0bcdc9944f0543ae6a04627892080615d510b1db46347b140e4c7890347a587b",
+      "hasAlpha": true,
+      "alt": {
+        "th": "โลโก้ Lawson 108",
+        "en": "Lawson 108 logo"
+      },
+      "governance": {
+        "kind": "owner_supplied",
+        "sourceReference": "owner-attachment:codex-clipboard-b5b7f112-0d88-4c6a-98c5-0bca3d48d5de.png",
+        "suppliedBy": "Montri",
+        "approvedBy": "Montri",
+        "approvedOn": "2026-10-07",
+        "approvalBasis": "Explicit image supplied for Yolk brand artwork replacement in the current request.",
+        "approvedRoles": [
+          "brand-selector",
+          "branch-popup",
+          "supply-map-marker"
+        ],
+        "prohibitedRoles": [
+          "invented-brand-endorsed-preset",
+          "offering-or-operation-verification",
+          "redrawn-or-recolored-mark"
+        ],
+        "sourceSha256": "0bcdc9944f0543ae6a04627892080615d510b1db46347b140e4c7890347a587b",
+        "sourceMime": "image/png",
+        "sourceDimensions": [
+          227,
+          300
+        ],
+        "sourceHasAlpha": true,
+        "sourceColorProfile": "sRGB_chunk_retained",
+        "sourceMetadata": "retained_original_eXIf_and_sRGB_chunks",
+        "transformation": {
+          "operation": "copy_exact_original_bytes",
+          "crop": "none",
+          "resize": "none",
+          "reencode": false,
+          "colorConversion": "none",
+          "alpha": "retained",
+          "metadata": "retained"
+        },
+        "rights": "Brand artwork remains the respective brand owner’s mark; owner-provided selection is not a trademark licence or brand endorsement.",
+        "runtimeReviewStatus": "PASS_bounded_current_selector_light_dark_only",
+        "metadataReview": {
+          "method": "Read PNG chunk inventory and TIFF eXIf field names recursively; values are not printed.",
+          "fields": [
+            "ExifIFD",
+            "ColorSpace",
+            "PixelXDimension",
+            "PixelYDimension"
+          ],
+          "sensitiveAbsentTrue": true,
+          "gpsPresent": false,
+          "cameraOwnerOrSerialPresent": false,
+          "personNameCommentOrDocumentMetadataPresent": false,
+          "unknownTagsPresent": false,
+          "privateMetadataAction": "none_needed_original_bytes_retained"
+        },
+        "runtimeReviewEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json"
+      },
+      "byteVerification": "PASS_exact_source_output_sha",
+      "visualSourceReview": "PASS_source_image_identity_review",
+      "visualRuntimeReview": "PASS_bounded_current_selector_original_artwork_light_dark",
+      "nativeReviewScope": {
+        "selector": "PASS_current_original_light_dark",
+        "selectorStates": [
+          "light",
+          "dark"
+        ],
+        "rendering": "Original contain, native aspect and adjacent readable name; no crop/recolor/added backing field.",
+        "actualPopup": "not_reviewed_for_this_brand",
+        "actualMapMarker": "not_reviewed_for_this_brand",
+        "limitations": "Bounded Chrome states only; exact language/viewport/themes are governed by the native receipt. This does not certify a complete responsive/theme matrix, physical devices or full accessibility."
+      },
+      "nativeEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json"
+    },
+    {
+      "assetId": "grocery-brand:TOPS",
+      "path": "prototype/assets/brands/grocery-grocery-brand-TOPS-owner-dccbc2bbd0.png",
+      "emittedUrl": "assets/brands/grocery-grocery-brand-TOPS-owner-dccbc2bbd0.png?v=dccbc2bbd059",
+      "mime": "image/png",
+      "width": 800,
+      "height": 316,
+      "bytes": 49990,
+      "sha256": "dccbc2bbd05952420a2e782ef1dc2ae7ce6c5d8fffb70eb2772055df7e213458",
+      "hasAlpha": true,
+      "alt": {
+        "th": "โลโก้ Tops",
+        "en": "Tops logo"
+      },
+      "governance": {
+        "kind": "owner_supplied",
+        "sourceReference": "owner-attachment:codex-clipboard-1ee92e1e-cd40-44f3-8d49-0f45743b2d3c.png",
+        "suppliedBy": "Montri",
+        "approvedBy": "Montri",
+        "approvedOn": "2026-10-07",
+        "approvalBasis": "Explicit image supplied for Yolk brand artwork replacement in the current request.",
+        "approvedRoles": [
+          "brand-selector",
+          "branch-popup",
+          "supply-map-marker"
+        ],
+        "prohibitedRoles": [
+          "invented-brand-endorsed-preset",
+          "offering-or-operation-verification",
+          "redrawn-or-recolored-mark"
+        ],
+        "sourceSha256": "dccbc2bbd05952420a2e782ef1dc2ae7ce6c5d8fffb70eb2772055df7e213458",
+        "sourceMime": "image/png",
+        "sourceDimensions": [
+          800,
+          316
+        ],
+        "sourceHasAlpha": true,
+        "sourceColorProfile": "sRGB_chunk_retained",
+        "sourceMetadata": "retained_original_eXIf_and_sRGB_chunks",
+        "transformation": {
+          "operation": "copy_exact_original_bytes",
+          "crop": "none",
+          "resize": "none",
+          "reencode": false,
+          "colorConversion": "none",
+          "alpha": "retained",
+          "metadata": "retained"
+        },
+        "rights": "Brand artwork remains the respective brand owner’s mark; owner-provided selection is not a trademark licence or brand endorsement.",
+        "runtimeReviewStatus": "PASS_bounded_current_selector_light_dark_and_actual_Tops_popup_marker",
+        "metadataReview": {
+          "method": "Read PNG chunk inventory and TIFF eXIf field names recursively; values are not printed.",
+          "fields": [
+            "ExifIFD",
+            "ColorSpace",
+            "PixelXDimension",
+            "PixelYDimension"
+          ],
+          "sensitiveAbsentTrue": true,
+          "gpsPresent": false,
+          "cameraOwnerOrSerialPresent": false,
+          "personNameCommentOrDocumentMetadataPresent": false,
+          "unknownTagsPresent": false,
+          "privateMetadataAction": "none_needed_original_bytes_retained"
+        },
+        "runtimeReviewEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json"
+      },
+      "byteVerification": "PASS_exact_source_output_sha",
+      "visualSourceReview": "PASS_source_image_identity_review",
+      "visualRuntimeReview": "PASS_bounded_current_selector_original_artwork_light_dark",
+      "nativeReviewScope": {
+        "selector": "PASS_current_original_light_dark",
+        "selectorStates": [
+          "light",
+          "dark"
+        ],
+        "rendering": "Original contain, native aspect and adjacent readable name; no crop/recolor/added backing field.",
+        "actualPopup": "PASS_as_recorded_in_native_receipt",
+        "actualMapMarker": "PASS_as_recorded_in_native_receipt",
+        "limitations": "Bounded Chrome states only; exact language/viewport/themes are governed by the native receipt. This does not certify a complete responsive/theme matrix, physical devices or full accessibility."
+      },
+      "nativeEvidenceRef": "evidence/browser-v1.9.2/native-browser-review.json"
+    }
+  ],
+  "registrySha256": "f56763b33bfd07698335b9a86b54ec1e2c79698872cdfa2a634c234013dcc2bb",
+  "themePolicy": "Exact owner-supplied images where legible; Villa Market uses light original and dark named neutral-icon fallback after failed actual dark original review. No new backing surface or reconstructed mark.",
+  "nativeReview": {
+    "evidenceRef": "evidence/browser-v1.9.2/native-browser-review.json",
+    "reportedBy": "release_root_native_browser_review",
+    "status": "PASS_bounded_selected_states",
+    "scope": "Six brand selector states (three brands × light/dark), plus actual Tops POI popup and supply-map marker. Villa uses a reviewed dark named fallback.",
+    "retainedFinding": "Exact Villa purple original was insufficiently legible on charcoal; that dark-original finding remains FAIL, while the current dark fallback is PASS.",
+    "limits": "No native actual Villa/Lawson popup claim; no full matrix, physical-device, accessibility, provider or live-byte certification."
+  }
+}

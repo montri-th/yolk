@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "yolk.public_release/1.9",
+  "version": "1.9.2",
+  "approvedSourcePreview": "1.9.2-brand-artwork-supply-chips",
+  "date": "2026-10-07",
+  "status": "locally_verified_pending_publication",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "productAuthority": "contracts/product.v1.7.json",
+  "featureExtension": "contracts/brand-identity-ui.v1.9.2.json",
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "nationalDemandCutoffsUnchanged": true,
+  "fineModelSemanticsUnchanged": true,
+  "modelChange": "None from1.9.1: criteria/profile/engine/strategy remain1.9.0; interaction1.9.1 retained. Three owner-supplied brand graphics and Supply-chip font/layout only.",
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "publicationDelta": [
+    "Owner-supplied VillaMarket/Lawson108/Tops graphics bind to existing brand identities; unchanged profiles/presets.",
+    "Explicit MaterialSymbols icon font and separate LDS caption styling prevent raw glyph text/overlap in Supply role chips.",
+    "Responsive compound icon/caption layout and readable labels; no data, criteria or camera changes."
+  ],
+  "shareImage": {
+    "asset": "prototype/assets/identity/yolk-share-v1.7.png",
+    "family": "1.7",
+    "changedInThisRelease": false,
+    "meaning": "Retained approved1.7family asset; no new1.9render claimed."
+  },
+  "sourceEvidenceBoundary": "Compact public adapters and provenance only; private source acquisition/customer data excluded.",
+  "localVerification": {
+    "status": "locally_verified_pending_publication",
+    "receipt": "evidence/qa-v1.9.2.json",
+    "automatedReceipt": "evidence/automated-v1.9.2.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.2.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.2/native-browser-review.json",
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "automatedChecks": 506,
+    "automatedSuites": 29,
+    "browserReview": "bounded_native_pass",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 12,
+    "snapshots": [
+      "evidence/browser-v1.9.2/chips-th-dark-mobile.jpg",
+      "evidence/browser-v1.9.2/chips-th-light-mobile.jpg",
+      "evidence/browser-v1.9.2/chips-en-light-mobile.jpg",
+      "evidence/browser-v1.9.2/chips-en-dark-mobile.jpg",
+      "evidence/browser-v1.9.2/tops-en-dark-desktop.jpg",
+      "evidence/browser-v1.9.2/lawson-en-dark-desktop.jpg",
+      "evidence/browser-v1.9.2/villa-en-dark-desktop.jpg",
+      "evidence/browser-v1.9.2/villa-en-light-desktop.jpg",
+      "evidence/browser-v1.9.2/lawson-en-light-desktop.jpg",
+      "evidence/browser-v1.9.2/tops-en-light-desktop.jpg",
+      "evidence/browser-v1.9.2/chips-en-light-desktop.jpg",
+      "evidence/browser-v1.9.2/tops-popup-en-light.jpg"
+    ],
+    "notVerified": [
+      "physical iPhone/Android touch",
+      "130%/200% browser zoom",
+      "actual screen-reader speech",
+      "full industry/brand/language/theme/device matrix",
+      "Lawson/Villa actual native POI popup (shared renderer covered automatically)",
+      "native font failure (DOM adapter regression only)",
+      "production backend/RBAC/sharedpersist/outbox/email/LINE",
+      "external tile/StreetView/AIprovider availability"
+    ],
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "providerEvidence": "Pending terminal deployment success bound to final source SHA; external attestation separate from local QA.",
+  "liveByteEvidence": "Pending current public emitted-URL/hash/MIME checks in external attestation; not inferred from local QA.",
+  "limits": [
+    "Demand proxy is not observed traffic/purchases/borrowing or a revenueforecast",
+    "Static preview does not implement sharedbackend/serverRBAC/email/LINE/privateproductionmedia",
+    "Native viewport review is not physicaldevice certification",
+    "External provider availability/results need separate verification",
+    "Operator-stated positioning is not measured consumer perception or branch-level offering certification",
+    "Strategy candidates are survey cues, not measured unmet demand, market share, sales or winning probability",
+    "POI coordinate inventories and native choropleth counts have different coverage; screen groups are not a customer-attraction model"
+  ],
+  "retainedContracts": [
+    "contracts/workspace-map.v1.7.json",
+    "contracts/map-analysis.v1.7.2.json",
+    "contracts/location-review.v1.7.3.json",
+    "contracts/map-boundary-appearance.v1.7.4.json",
+    "contracts/branch-context.v1.7.5.json",
+    "contracts/opportunity-strategies.v1.9.0.json",
+    "contracts/full-product.v1.9.0.json",
+    "contracts/interaction-guidance.v1.9.1.json",
+    "contracts/full-product.v1.9.1.json"
+  ],
+  "currentQAOnly": true,
+  "designSystemPackageVerification": {
+    "release": "v0.9.7-owner.1",
+    "version": "0.9.7",
+    "packageVerifierStatus": "RETAINED_PINNED_PACKAGE_RECEIPT_NOT_FRESH_1.9.2_PASS",
+    "receipt": "evidence/lds-package-verification.json",
+    "receiptSha256": "a396dd0d02244cb2b68fd3a0a8b725bafcb6b9fc43d0dddac68a253791e0cb86",
+    "scope": "Retained pinned LDS0.9.7 package evidence. Current source integration is checked separately; no fresh package-verifier execution claimed for1.9.2."
+  },
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "fullProduct": "contracts/full-product.v1.9.2.json",
+  "responsiveCameraRule": "Substantial width change over100px or crossing1100px refits the same geographic navigation after invalidation; height-only/footer changes and ordinary route/criteria/mode changes do not fit. Open POI/group popup anchors suppress responsive fitting.",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  }
+}

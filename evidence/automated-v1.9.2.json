@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "yolk.automated_qa/1.9",
+  "version": "1.9.2",
+  "recordedAt": "2026-10-07T14:36:53.052679+00:00",
+  "status": "PASS",
+  "suites": 29,
+  "checksPassed": 506,
+  "results": [
+    {
+      "suite": "scripts/check-action-guidance.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 26,
+      "testSourceSha256": "4367fc2047a3b6bcbab7b1a57a17001243877dd57200e3ecb9135ce91f4f7f39",
+      "executionLogSha256": "85eb0c3e050c91ebe28ef2a2a78e69e99b8b53207a6d4048778c642d2d0475b9",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-analysis-integration.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 10,
+      "testSourceSha256": "c94b733f8e89aceb4304e6f6e2ac3c40cdc39f3117405be27f983ac3d92eb727",
+      "executionLogSha256": "4cdd90164005e674667a6fd25f8a5a3ff3c4cc76fb1bca8a805dc0635586d0b5",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate.",
+      "rerunAfterFinalInteractionFreeze": true
+    },
+    {
+      "suite": "scripts/check-branch-context.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 38,
+      "testSourceSha256": "4bb63cce7aa3a31178683824eca24f19e23052e7edcd7571bd982b4a8c48959e",
+      "executionLogSha256": "935c519603d55b8bbfc7ea39a93e9fb624a31272fe24ef85c24c7b030d7c03b5",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-brand-presets.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 13,
+      "testSourceSha256": "e33b7db7ff1b31166c005219f6781982679fcb9923943ba8cb19232b55819147",
+      "executionLogSha256": "c5ac7933cdcda0ccffb73bba9d787ac3652749a749cfdeb69ad3b41f3592f211",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate.",
+      "rerunAfterFinalInteractionFreeze": true
+    },
+    {
+      "suite": "scripts/check-cold-branch.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 12,
+      "testSourceSha256": "08b87a0d404e48bab76addf59c0ec3a45825f81977a3e129770a2a822aa5adc9",
+      "executionLogSha256": "086b9c42d16936b2be54f28db7abc59cde13e936dde184728e58b8debb387f30",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-criteria-controls.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 14,
+      "testSourceSha256": "3d0726ac3aacafd576846395a493442fc19a1e1a0fdaf9e7567127244fd59855",
+      "executionLogSha256": "c837e687db2fd5475516314efd3bf18c6d0bac505a39a51a9a134a9a53120500",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-criteria-map.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 18,
+      "testSourceSha256": "1425d99159d72c71b99a2196f77986b1e6a5b3f2a5ec7abba2223b565bcb1060",
+      "executionLogSha256": "4c4709e5c6555dd4925bb42d408053903a5a9a0301ca1d72ffe2c7dd43a2cd2c",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-demand-factors.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 12,
+      "testSourceSha256": "27c6a96d4f4734ea34c03d2a66b7d1336b8dc5b9009009fe23880229d9455e6d",
+      "executionLogSha256": "2a7d941546782242c19a098232c2a6cfbdac06bc141e9b8b867bba827f008743",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-icon-controls.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 9,
+      "testSourceSha256": "92ad1b6ae0009fd78d0776796f9bcbf2058ae2b7dbfb940fd701e5caf4ea6538",
+      "executionLogSha256": "03201f0323ae750cd6f740c2ea945c86c8617c9c3ad2f3edd4f5a1a5e4c0bd11",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-location-review.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 11,
+      "testSourceSha256": "5e4d36c9d556e884a4498a21f237066f650ddd66e292fc25ef5d38906582b74f",
+      "executionLogSha256": "5b14cb54e4ed3b628df9eef2a21335a36e2e5536695a8d93f488cff7fe462fae",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-map-analysis.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 14,
+      "testSourceSha256": "955f0468df85ba02eb2b406244f4d1be39b5c92178014dbeb16a0e68f8746b76",
+      "executionLogSha256": "ff7f6ad17b4b392001042566cad67b12e0168e79c4206e57a1acd983348f9f4f",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-map-clarity.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 10,
+      "testSourceSha256": "d203a6892a2b68cef38f0576768d717ffebc0657102cd52c5f0fa77fd0eff955",
+      "executionLogSha256": "3ad523425a2aaf98872a80932b8ef3fa65598270f09097fd532ccaef7b2dbd7d",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-map-hover.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 14,
+      "testSourceSha256": "b49d056191c4605e2fba3fdf8c37deeb216dc41971220e86bb5d27d6f306786f",
+      "executionLogSha256": "d0cd3576fbc74698b02803913776d066d782272a9a0f1f6229ebe9c0c2d5b6f4",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-map-lut41.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 22,
+      "testSourceSha256": "14124df5ed4f98d34bcddfac4d841340ee1fda9f8d6a8ef2bffc98cca0471572",
+      "executionLogSha256": "47929b58265ed6dd70579080cd8067481b2ecb2d8c57c168376af917cc6aab7e",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-map-responsiveness.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 13,
+      "testSourceSha256": "09c646e81953beea9e0633c115c0c4d852f62a2c40bd2669a48099b469c1e2fd",
+      "executionLogSha256": "1a93b264adcee4584d9ac3eb67703a444a166e6d3a364a11617fb01b218e35d5",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-opportunity-strategies.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 39,
+      "testSourceSha256": "54660b59c70856c8871e351cfa00b751164788c00a38044500491414b1a8ef50",
+      "executionLogSha256": "6d665ce0bac302da94ea5c850f73d6c8f6e3e2d20fed4afa1346ed64d0d5857d",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-pattern-counts.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 14,
+      "testSourceSha256": "ba55894e177efd378fc646fa7efeab5842f2da7cee2fbd1ef022edb64e3114d9",
+      "executionLogSha256": "fd443c59ae297da6cbae753d71762a7e416c22fafed5291e90a0772ffc98ea53",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-photo-runtime.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 28,
+      "testSourceSha256": "66cdba46df1bcc4ad60351e522b8a3ea8dab90b2b913f9757c35689ab92b5c4c",
+      "executionLogSha256": "87ec2072121f8809e7e249eb9b9f455cbd79c2f819e9e5dcedaae151c9d43fa4",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-poi-popup.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 17,
+      "testSourceSha256": "9bc8ef21c06a8f93d33a8d20d17700662b0d0d6a2f880493bb62a105288ccfc5",
+      "executionLogSha256": "e2ad17f68d950ad9bc452640d883ad7d19f7a316c4974a5d3e39dc44fb1726c7",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate.",
+      "rerunAfterFinalInteractionFreeze": true
+    },
+    {
+      "suite": "scripts/check-relative-supply.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 14,
+      "testSourceSha256": "9260117aa67753cb71662bc44001cc25c33ab379e7ae7fe358346de3eb5cf99e",
+      "executionLogSha256": "ab84fe2216a1b3be23be24de7012498c5c3ffc223e8102cc21755a345385674a",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-save-context.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 14,
+      "testSourceSha256": "c3bd1aed32ea899cd98b169570a21d5cca4603d6c20ad78439501ca63266c96c",
+      "executionLogSha256": "98f00569aaeb7f67acf57a1bd591b93d76a3d91962d347923962a25e2894f50b",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-simple-criteria.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 22,
+      "testSourceSha256": "dca2a8a849640fbf847e6eabea3b58a238a5b39de4d0ef9b1cc1fe4bb50c3432",
+      "executionLogSha256": "2a7dd78602c5cba258958fc53a36fc58caea159d99733e03afde9f0c1b36e1bb",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-strategy-ui.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 24,
+      "testSourceSha256": "f5ca28d5146e2558fc6b79f34566c186666e61a06ce79857f443b6145b6bd079",
+      "executionLogSha256": "f7488a66aca3305943363b90611ee6761cdc1bbb1d21b47cee981530879d30a4",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-supply-compare.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 11,
+      "testSourceSha256": "988f9d91f356ad4ffbd31dc707e931a754b0d9d8ebc41d9028f04cc733852464",
+      "executionLogSha256": "02891ca0f66fbe47980a07c801979ffa9c711fcc151856dbdb0541d880862f25",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-supply-poi-modes.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 9,
+      "testSourceSha256": "696748dcd2a71010371571c6d3274279f3f119ef4f6ac40eb759b168579eee99",
+      "executionLogSha256": "4d8350d1357144e1a9d211d909929abf41a3377d0fef1e9e68ffb2c7ea0af1b3",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-supply-symbols.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 10,
+      "testSourceSha256": "e4adbf6b1ada5b29fd4534af6e9bdd547ad1993fd7bd247d385943dff659326e",
+      "executionLogSha256": "5fe611107cc086c6d99d23d693552482f28ba825d7e39456ca0dbd6580a734ba",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate.",
+      "rerunAfterFinalInteractionFreeze": true
+    },
+    {
+      "suite": "scripts/check-three-industry.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 30,
+      "testSourceSha256": "854f0951c99e3889dff93f0b8487a0df5820366c3ae1d8c9337d95bfc7a48b85",
+      "executionLogSha256": "54d7f29632c380138f737814576bd1c67cc86fb682ea6e1479309fbaf6e31081",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-workspace-map.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 27,
+      "testSourceSha256": "164df8bdbe38a64eaccfb308dc3c43f26ba7b5841d83da30277e09ba35603164",
+      "executionLogSha256": "e1593680e2d513b2f1826c903af5db41e58066d8631d5ee72ae6b33fec62930a",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    },
+    {
+      "suite": "scripts/check-yolk-tier.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "checks": 11,
+      "testSourceSha256": "289f395f762bfa5dc35e7815b5397fce6ed4ca0c2470bea22201739c053abb71",
+      "executionLogSha256": "a458c0115237d50a830cdf2e67ae637d64f443e8ff0af7c202517fbf037fd1ac",
+      "scope": "Current Node source/VM/DOM-adapter regressions; native UI and production services are separate."
+    }
+  ]
+}

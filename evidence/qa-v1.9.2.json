@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "yolk.current_qa/1.9",
+  "version": "1.9.2",
+  "recordedAt": "2026-10-07T14:50:52.643021+00:00",
+  "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "automated": {
+    "suites": 29,
+    "checks": 506,
+    "status": "PASS",
+    "receipt": "evidence/automated-v1.9.2.json",
+    "scope": "Current source/VM/DOM/transaction regressions; native visual, physical-device and production services remain separate."
+  },
+  "nativeBrowser": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "checks": 12,
+    "receipt": "evidence/browser-v1.9.2/native-browser-review.json",
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.2/chips-th-dark-mobile.jpg",
+        "bytes": 56397,
+        "sha256": "7956a51c77e23bfeb69069ccca4fd857991ae5dc8a7bc26f1d8defca31a1ccc9",
+        "width": 390,
+        "height": 844,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/chips-th-light-mobile.jpg",
+        "bytes": 62720,
+        "sha256": "1fa546a81ae7ab67bea44ad2cae88fbb70e31a6d9dc74fc0a126f66972494df3",
+        "width": 390,
+        "height": 844,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/chips-en-light-mobile.jpg",
+        "bytes": 63080,
+        "sha256": "c03a389a5c73ffa0b013562e19d3eaad4f82ac93dc01d4acd92976d9f28b466d",
+        "width": 390,
+        "height": 844,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/chips-en-dark-mobile.jpg",
+        "bytes": 68241,
+        "sha256": "601ff9ddc963f14ed1307beb6a142d071579e4e8f2750e0999d154627b358dc9",
+        "width": 390,
+        "height": 844,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/tops-en-dark-desktop.jpg",
+        "bytes": 196126,
+        "sha256": "945387c68d276721e3247b7bdca7fcdbdfcd7e98d5c73cb921a35b6dd84443af",
+        "width": 1440,
+        "height": 900,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/lawson-en-dark-desktop.jpg",
+        "bytes": 202126,
+        "sha256": "b7aa504e26f978f72a134b89e6b97eb41126e61523b1d1449a0c996df0024799",
+        "width": 1440,
+        "height": 900,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/villa-en-dark-desktop.jpg",
+        "bytes": 200629,
+        "sha256": "2c71a7b4f133446d8332e58b2b743d02953ae5ecae8cff6667212935e3fe9c50",
+        "width": 1440,
+        "height": 900,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/villa-en-light-desktop.jpg",
+        "bytes": 189631,
+        "sha256": "60b50028fd4cee348d20b6cd55b3ea5bb41fd7d494f2ab56ebb9a2a73adb7622",
+        "width": 1440,
+        "height": 900,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/lawson-en-light-desktop.jpg",
+        "bytes": 192617,
+        "sha256": "cccb5648426fd6fea3e9bfbf15acdf30fd0db337467a5cddf54a6bf6198519a4",
+        "width": 1440,
+        "height": 900,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/tops-en-light-desktop.jpg",
+        "bytes": 185238,
+        "sha256": "39857c938f70b88203a98c34b7abed66abf0e43aefe9881f2f5e00a93d5ab390",
+        "width": 1440,
+        "height": 900,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/chips-en-light-desktop.jpg",
+        "bytes": 194015,
+        "sha256": "ae255234c282a1d2ae2026288de01df3f55adfed146f25c0ac10efb5b135fc0f",
+        "width": 1440,
+        "height": 900,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.2/tops-popup-en-light.jpg",
+        "bytes": 197997,
+        "sha256": "4f0735ff3efcd3867b24a40e57b6d09a07089118536e031040765728fa36e1da",
+        "width": 1440,
+        "height": 900,
+        "format": "JPEG"
+      }
+    ],
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "scope": "Bounded12currentnative states:4TH/ENlight/darkmobileSupplychip states;6brandselectorstates(3brands×2themes,Villaoriginalinlight/namedfallbackindark);1ENlightdesktopchips;1TopsactualPOIpopup+visiblemapmarker. OriginalVillaDarkfailedcompactcontrastfindingretained; finalfallbackpasses. No complete product/device/AT certification.",
+    "notVerified": [
+      "physical iPhone/Android touch",
+      "130%/200% browser zoom",
+      "actual screen-reader speech",
+      "full industry/brand/language/theme/device matrix",
+      "Lawson/Villa actual native POI popup (shared renderer covered automatically)",
+      "native font failure (DOM adapter regression only)",
+      "production backend/RBAC/sharedpersist/outbox/email/LINE",
+      "external tile/StreetView/AIprovider availability"
+    ]
+  },
+  "designSystemPackage": {
+    "release": "v0.9.7-owner.1",
+    "version": "0.9.7",
+    "packageVerifierStatus": "RETAINED_PINNED_PACKAGE_RECEIPT_NOT_FRESH_1.9.2_PASS",
+    "receipt": "evidence/lds-package-verification.json",
+    "receiptSha256": "a396dd0d02244cb2b68fd3a0a8b725bafcb6b9fc43d0dddac68a253791e0cb86",
+    "scope": "Retained pinned LDS0.9.7 package evidence. Current source integration is checked separately; no fresh package-verifier execution claimed for1.9.2."
+  },
+  "brandArtworkReceipt": "evidence/owner-supplied-brand-artwork.v1.9.2.json",
+  "sourceAndSemantics": {
+    "nationalReportingUUIDs": 7954,
+    "nationalNativeDistricts": 928,
+    "metrics": 25,
+    "industries": [
+      "fuel",
+      "grocery",
+      "nonbank"
+    ],
+    "quantitativeLUTSamples": 41,
+    "unseenContextNumericDefaultsIntentionallyChanged": false,
+    "savedCriteriaAndDraftsPreserved": true,
+    "strategySelectionMutatesDemand": false,
+    "coordinateGroupsMutateNativeSupply": false,
+    "criteriaModeVersion": "1.9.0",
+    "profileVersion": "1.9.0",
+    "strategyEngineVersion": "1.9.0",
+    "interactionVersion": "1.9.1"
+  },
+  "physicalDevices": "unverified",
+  "fullLanguageThemeMatrix": false,
+  "productionBackend": "not_implemented_in_static_preview",
+  "providerEvidence": "pending_external_attestation",
+  "liveByteEvidence": "pending_external_attestation"
+}
