@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "yolk.developer_handoff/1.9",
+  "version": "1.9.3",
+  "date": "2026-10-08",
+  "status": "locally_verified_pending_publication",
+  "startHere": "START_HERE.md",
+  "fullDocument": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.3.md",
+  "quickPlan": "IMPLEMENTATION_PLAN_v1.9.3.md",
+  "humanHandoff": "HANDOFF_v1.9.3.md",
+  "assetIndex": "ASSET_INDEX_v1.9.3.md",
+  "machineBlueprint": "contracts/full-product.v1.9.3.json",
+  "activeCriteria": "contracts/full-product.v1.9.3.json",
+  "releaseAuthority": "contracts/release.v1.9.3.json",
+  "runtimeRoot": "prototype/",
+  "normativeRoot": "reference/lds-0.9.7/",
+  "brandGraphics": "prototype/data/brand-logos.v1.7.json",
+  "icons": "contracts/icons.v1.8.0.json",
+  "requiredExternalServices": {
+    "production": "CityMETER stack mapping/auth/datastore/server RBAC/private media/outbox/email/LINE remain tasks",
+    "mapTiles": "Provider URLs and attribution are required; no tile cache is packaged"
+  },
+  "assetPolicy": "Use supplied original assets and current sealed hashes. DS base/profile/icons are pinned; no logo frames or motifs.",
+  "sourcePolicy": "Public compact adapters/provenance only; sources and private acquisition archives remain immutable/excluded.",
+  "experienceInvariants": [
+    "Demand/Tier alone determine active membership",
+    "Supply and weights can reorder, never add or remove confirmed Demand IDs",
+    "legacy patterns/demandMode remain inactive history",
+    "shield identifies own network; swords identifies comparator network",
+    "local paired-bar scale within a location does not compare length across locations",
+    "actual POI keeps source artwork contained in a compact square slot or explicit named theme fallback + name + role badge",
+    "Explicit map expansion/collapse preserves camera including desktop host width; ordinary responsive width/breakpoint fitting retains scope and popup anchors.",
+    "source-first form hints preserve manual choices and do not allocate aggregates",
+    "Strategies are a post-Demand projection with distinct candidate, incomplete and unsupported states",
+    "At most three factor families and three metrics per joint rule; at most three selected strategies",
+    "Current profiles seed only unseen brand/scope context; saved applied criteria/drafts win",
+    "Supply defaults to choropleth; optional coordinate POIs at all four drilldown levels without automatic camera changes",
+    "Coordinate groups preserve all available records and never rewrite administrative counts or certify a customer-attraction cluster",
+    "One scope-owned area tooltip; readable scope name, current value and unit",
+    "Optional point view suppresses unnecessary child boundary networks, retaining clickable scope and yellow hover",
+    "Successful new save updates real shortlist count exactly once; duplicate/failure does not",
+    "Finite motion is optional; reduced-motion/interruption final state remains visible and operable",
+    "Three supplied brand graphics bind to stable existing IDs without preset/profile changes",
+    "Supply icons have their own verified icon font and readable separate caption; no raw ligature text or layout overlap",
+    "First page is Expansion opportunities with inline maximum3-of8strategies; Demand/Supply remain supporting pages.",
+    "Legacy#strategy is an alias preserving context/camera/drafts; no duplicate map or team event.",
+    "Only unfilled choropleth parent stroke gets neutral halo; child0.30px and POI quiet hierarchy retain actual source geography.",
+    "Expanded mode is personal display state; current source/native tile recovery must be verified before a retry/availability claim.",
+    "Read-only bilingual guide explains all eight current strategies with hypothetical examples and accessible illustrations; opening/closing never changes strategy selection or criteria."
+  ],
+  "packageEvidence": {
+    "zip": "CityMETER_Yolk_Handoff_v1.9.3.zip — generation and source-bound external attestation pending",
+    "currentQA": {
+      "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+      "receipt": "evidence/qa-v1.9.3.json",
+      "receiptSha256": "93c4f585ddf58a6000684a6a27c7c026df0b63759375632e675f75b73bb93cd9",
+      "automatedReceipt": "evidence/automated-v1.9.3.json",
+      "automatedReceiptSha256": "9fa680f714f7683c4f7be39af9f3fc36478190abf40268011a67115c7afcef5b",
+      "releaseChecksReceipt": "evidence/release-checks-v1.9.3.json",
+      "releaseChecksReceiptSha256": "e67c3c625269499a848b03e57b8cb7d0559aae1d911a14974836f450f0ca0717",
+      "nativeBrowserReceipt": "evidence/browser-v1.9.3/native-browser-review.json",
+      "nativeBrowserReceiptSha256": "399818fd8609a9acc460a61e7960e47483e8abe2fce007ccf71e2a2cb5daf7cc",
+      "automatedSuites": 32,
+      "automatedChecks": 537,
+      "checkCountMeaning": "Sum of reported passed test cases or exact PASS output lines; not individual assertion counts. Original full-run timestamp and unaffected output bytes are preserved. Hierarchy was rerun for its final CSS cascade fix; recovery, workspace map and hierarchy were rerun after same-style fractional-zoom retry; recovery and workspace map were rerun after the Leaflet removal-listener lifecycle fix.",
+      "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "browserChecks": 22,
+      "snapshots": [
+        "evidence/browser-v1.9.3/desktop-dark-en-guide-future_entry.jpg",
+        "evidence/browser-v1.9.3/desktop-dark-en-guide-segment_gap.jpg",
+        "evidence/browser-v1.9.3/desktop-dark-en-supply-boundaries.jpg",
+        "evidence/browser-v1.9.3/desktop-dark-en-supply-poi-popup.jpg",
+        "evidence/browser-v1.9.3/desktop-light-guide-index.jpg",
+        "evidence/browser-v1.9.3/desktop-light-guide-network.jpg",
+        "evidence/browser-v1.9.3/desktop-light-opportunities.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-en-guide-future.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-guide-complementary.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-guide-index.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-map-expanded.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-market.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-supply-basemap-retry.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-supply-country.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-th-guide-future_entry.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-th-guide-segment_gap.jpg",
+        "evidence/browser-v1.9.3/mobile-light-th-guide-example-evidence.jpg"
+      ],
+      "snapshotFiles": [
+        {
+          "path": "evidence/browser-v1.9.3/desktop-dark-en-guide-future_entry.jpg",
+          "bytes": 103873,
+          "sha256": "843f17dc41bd98ff6e276c84c4691d0250b0b6811d667199e9fe2b5d90831ad9",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-dark-en-guide-segment_gap.jpg",
+          "bytes": 102917,
+          "sha256": "ef2532df4a5c275869e8b6efadae13449b8d8497173a35bc729fff2b2e829262",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-dark-en-supply-boundaries.jpg",
+          "bytes": 160898,
+          "sha256": "f6641e77669a0e33926f730a6c745e8d8191c43dc2787b5414220dd5ee94f7ca",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-dark-en-supply-poi-popup.jpg",
+          "bytes": 146937,
+          "sha256": "258449abbe67e12f094373252051c6301cfd877c9291c463789818a153af90e7",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-light-guide-index.jpg",
+          "bytes": 107621,
+          "sha256": "a48a852c59329eb0aa3d6c0d6a85d68341ee53b46f73082a0507aa9fd9920a41",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-light-guide-network.jpg",
+          "bytes": 94785,
+          "sha256": "d35405256e1f3f936057e35bc868d673d55d3a60223a85546ce2d3762940adb4",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-light-opportunities.jpg",
+          "bytes": 145962,
+          "sha256": "4fbb417b187f3981d5ccee274335f40b4d582f4f184dc549bd4b65601d0f071f",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-en-guide-future.jpg",
+          "bytes": 45278,
+          "sha256": "e6d90083f0ef74edd21ce11a78ee6926187aee54f2cacfebf9a302f09eadf99c",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-guide-complementary.jpg",
+          "bytes": 47516,
+          "sha256": "52ff2b96df679d7c2c46d8f9aa2ab24c3aac2bfb32646afa5efeba808a3c2824",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-guide-index.jpg",
+          "bytes": 50688,
+          "sha256": "7c2e2f9331e69516ec590a9a557f8865d93cc9cfc494219d2f4b1a99c7564a08",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-map-expanded.jpg",
+          "bytes": 46258,
+          "sha256": "95c3508337753e827312927b8953f0261ca721b381abc1ea00378f8f855487eb",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-market.jpg",
+          "bytes": 48519,
+          "sha256": "19395b26935c5b310b9f5ad326e6afea62334f6b7c89988ab22c6ecb434d9fb1",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-supply-basemap-retry.jpg",
+          "bytes": 57464,
+          "sha256": "6d94cfae94bd88126bd7dd84f8d9ab01ec082b82af1ffb6dc5c5ebded78f8857",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-supply-country.jpg",
+          "bytes": 46816,
+          "sha256": "71e06905c8df659063c046134ec87a52d19f6ee21c7fff75bb97be041e9c46fe",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-th-guide-future_entry.jpg",
+          "bytes": 44313,
+          "sha256": "a04836e561a2405bcbf59d3d216eca9b98d6cf0d5487039869f6abcd4c6c1f66",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-th-guide-segment_gap.jpg",
+          "bytes": 46762,
+          "sha256": "08844005eec1e0c228545ea1bc4b9ffd5bfc1d4a5b22c9fa91adfa00665e7aaf",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-light-th-guide-example-evidence.jpg",
+          "bytes": 48616,
+          "sha256": "c49abbe7fbdf0d80c2441a55a46554a2af01584c89f90b352da9fee4d22a2648",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      ],
+      "physicalDevices": "unverified",
+      "fullLanguageThemeMatrix": false,
+      "productionBackend": "not_implemented_in_static_preview",
+      "notVerified": [
+        "physical iPhone/Android unverified",
+        "complete brand-language-theme-device matrix unverified",
+        "actual all-boundary pointer-hover and screen-reader speech unverified",
+        "external tile/StreetView/Google AI availability not guaranteed",
+        "shared backend/auth/outbox not implemented in static preview"
+      ],
+      "nativeScope": "Bounded local viewport/native interaction review and exact sampled DOM styles, plus explicitly named automated state guarantees. Original missing-rectangle screenshot not recreated identically; a fractional-tile retry bug and retired-layer listener bug were reproduced and fixed. Does not certify all brands, physical devices, Safari, providers or production collaboration.",
+      "finalNativeRuntime": {
+        "workspaceMapSha256": "ce27743ff1c991cfb828963cfc3f2ee6f9c11489b498326f45f8d0b80d1f228c",
+        "workspaceMapCacheToken": "ce27743ff1c9",
+        "freshConsoleErrors": 0
+      }
+    },
+    "provider": "pending separate final source-bound attestation",
+    "liveBytes": "pending separate emitted-route MIME/hash attestation",
+    "physicalDevices": "unverified",
+    "snapshotsActual": [
+      "evidence/browser-v1.9.3/desktop-dark-en-guide-future_entry.jpg",
+      "evidence/browser-v1.9.3/desktop-dark-en-guide-segment_gap.jpg",
+      "evidence/browser-v1.9.3/desktop-dark-en-supply-boundaries.jpg",
+      "evidence/browser-v1.9.3/desktop-dark-en-supply-poi-popup.jpg",
+      "evidence/browser-v1.9.3/desktop-light-guide-index.jpg",
+      "evidence/browser-v1.9.3/desktop-light-guide-network.jpg",
+      "evidence/browser-v1.9.3/desktop-light-opportunities.jpg",
+      "evidence/browser-v1.9.3/mobile-dark-en-guide-future.jpg",
+      "evidence/browser-v1.9.3/mobile-dark-guide-complementary.jpg",
+      "evidence/browser-v1.9.3/mobile-dark-guide-index.jpg",
+      "evidence/browser-v1.9.3/mobile-dark-map-expanded.jpg",
+      "evidence/browser-v1.9.3/mobile-dark-market.jpg",
+      "evidence/browser-v1.9.3/mobile-dark-supply-basemap-retry.jpg",
+      "evidence/browser-v1.9.3/mobile-dark-supply-country.jpg",
+      "evidence/browser-v1.9.3/mobile-dark-th-guide-future_entry.jpg",
+      "evidence/browser-v1.9.3/mobile-dark-th-guide-segment_gap.jpg",
+      "evidence/browser-v1.9.3/mobile-light-th-guide-example-evidence.jpg"
+    ],
+    "localQAReceipt": "evidence/qa-v1.9.3.json",
+    "designSystemPackage": {
+      "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+      "version": "0.9.7",
+      "releaseRef": "v0.9.7-owner.1",
+      "receipt": "evidence/lds-package-verification.v1.9.3.json",
+      "receiptSha256": "a396dd0d02244cb2b68fd3a0a8b725bafcb6b9fc43d0dddac68a253791e0cb86",
+      "checks": 9768,
+      "warnings": 65,
+      "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+      "artifactAndAccountTeamCertification": false
+    }
+  },
+  "strategyContract": "contracts/opportunity-strategies.v1.9.0.json",
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "interactionExtension": "contracts/interaction-guidance.v1.9.1.json",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  },
+  "brandIdentityUIExtension": "contracts/brand-identity-ui.v1.9.2.json",
+  "expansionExperience": "contracts/expansion-experience.v1.9.3.json",
+  "strategyGuide": "prototype/data/strategy-guide.v1.9.3.json"
+}

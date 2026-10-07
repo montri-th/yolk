@@ -1,0 +1,591 @@
+{
+  "schemaVersion": "yolk.strategy-guide/1.9.3",
+  "version": "1.9.3",
+  "engineVersion": "1.9.0",
+  "languages": [
+    "th",
+    "en"
+  ],
+  "sourceContracts": [
+    "contracts/opportunity-strategies.v1.9.0.json",
+    "prototype/data/brand-strategy-profiles.v1.9.0.json",
+    "docs/BRAND_RESEARCH_v1.9.0.md"
+  ],
+  "readOnly": true,
+  "examplePolicy": {
+    "allExamplesHypothetical": true,
+    "noRealLocationsBrandsResults": true,
+    "diagramMeaning": "Explanatory illustration, not measured geometry, traffic, market share or actual business results.",
+    "noEligibilityOrThresholdMutation": true
+  },
+  "strategies": [
+    {
+      "id": "underserved_market",
+      "name": {
+        "th": "เติมช่องว่างตลาด",
+        "en": "Underserved market"
+      },
+      "shortLabel": {
+        "th": "เติมช่องว่าง",
+        "en": "Fill a gap"
+      },
+      "icon": "explore",
+      "oneSentence": {
+        "th": "Demand เข้มข้น แต่ผู้ให้บริการที่เทียบกันได้ยังน้อยตามจุดเทียบที่ตั้งไว้",
+        "en": "Concentrated Demand, with relatively few comparable providers under your chosen reference."
+      },
+      "why": {
+        "th": "ชวนตรวจว่าบริการที่มีอยู่ยังตอบพื้นที่นี้ไม่พอหรือไม่ มอง Supply รวมทั้งเราและคู่แข่ง ไม่ใช่ดูเฉพาะแบรนด์เรา",
+        "en": "Investigate whether existing provision serves the area adequately. Compare the combined own and competitor network, not just our brand."
+      },
+      "howToUse": [
+        {
+          "th": "เริ่มจากไข่แดงที่ผ่านเกณฑ์ Demand",
+          "en": "Start with a location that passes the Demand criteria."
+        },
+        {
+          "th": "เทียบ Supply รวมกับฐานตลาด ดูช่วงค่าที่รวมรายการรอตรวจ",
+          "en": "Compare total Supply with the market base, retaining unresolved-record bounds."
+        },
+        {
+          "th": "ตรวจผู้ให้บริการที่ตกหล่น เวลาเปิดและการเข้าถึง ก่อนเล็งแปลง",
+          "en": "Check omitted providers, opening hours and access before selecting a site."
+        }
+      ],
+      "illustrativeExample": {
+        "industry": "grocery",
+        "scenario": {
+          "th": "สมมติชุมชนมีประชากรเข้มข้น ร้านรูปแบบเดียวกันรวมแล้วต่ำกว่าจุดเทียบ",
+          "en": "Suppose a densely populated community has comparable stores below the chosen provision reference."
+        },
+        "action": {
+          "th": "ชวนทีมสำรวจว่าร้านที่มีอยู่รองรับช่วงเย็นได้พอหรือไม่",
+          "en": "Investigate whether existing stores adequately serve evening shopping."
+        },
+        "caveat": {
+          "th": "จำนวนร้านน้อยยังไม่ยืนยันว่าคนต้องการร้านเพิ่ม หรือว่าร้านเดิมรองรับไม่ไหว",
+          "en": "Few stores do not establish unmet demand or insufficient existing capacity."
+        }
+      },
+      "availableP0Evidence": [
+        {
+          "th": "Demand tier จาก CityMETER ที่ผ่านเกณฑ์",
+          "en": "Confirmed CityMETER proxy Demand tier."
+        },
+        {
+          "th": "ยอด Supply ใน scope เดียวกัน ช่วงค่าเรา/คู่แข่ง และตัวหารดิบ",
+          "en": "Same-scope Supply totals, own/competitor bounds and a raw denominator."
+        }
+      ],
+      "neededEvidence": [
+        {
+          "th": "ร้านที่ตกหล่น ความจุ เวลาเปิด ทางเข้า และความต้องการที่ยังไม่ได้รับบริการ",
+          "en": "Omitted providers, capacity, hours, access and actual unmet service."
+        }
+      ],
+      "phase": "P0",
+      "tradeoff": {
+        "th": "พื้นที่ Supply น้อยอาจมีข้อจำกัดที่ทำให้ธุรกิจเปิดยากด้วย ต้องตรวจสาเหตุ",
+        "en": "Low provision can also reflect constraints that make operating difficult. Investigate the reason."
+      },
+      "question": {
+        "th": "บริการไหนยังขาด และเราตอบได้จริงหรือไม่?",
+        "en": "What service is missing, and can we provide it?"
+      }
+    },
+    {
+      "id": "segment_gap",
+      "name": {
+        "th": "เติมช่องว่างของกลุ่มลูกค้า",
+        "en": "Segment gap"
+      },
+      "shortLabel": {
+        "th": "ตอบโจทย์ที่ยังขาด",
+        "en": "Serve an unmet occasion"
+      },
+      "icon": "groups",
+      "oneSentence": {
+        "th": "มีบริการอยู่แล้ว แต่ยังอาจขาดสินค้า ราคา หรือเวลาให้บริการที่ลูกค้ากลุ่มหนึ่งต้องการ",
+        "en": "Providers exist, but a customer group may lack a suitable product, price or service time."
+      },
+      "why": {
+        "th": "จำนวนสาขาเท่ากันไม่ได้แปลว่าตอบโจทย์เดียวกัน ต้องรู้ทั้งกลุ่มลูกค้าและ offering ของแต่ละสาขา",
+        "en": "Equal branch counts do not imply equivalent service. Understand customer occasions and actual branch offerings."
+      },
+      "howToUse": [
+        {
+          "th": "เลือกไข่แดงและตั้งสมมติฐานกลุ่มลูกค้าที่อยากตอบ",
+          "en": "Select a Yolk and state the customer occasion you want to serve."
+        },
+        {
+          "th": "ตรวจสินค้า ราคา เวลาเปิด และบริการของสาขาที่เกี่ยวข้อง",
+          "en": "Verify relevant branches’ products, pricing, hours and services."
+        },
+        {
+          "th": "คุยกับลูกค้าเพื่อยืนยันโจทย์ที่ยังขาดก่อนเสนอทำเล",
+          "en": "Validate the unmet occasion with customers before proposing a location."
+        }
+      ],
+      "illustrativeExample": {
+        "industry": "grocery",
+        "scenario": {
+          "th": "สมมติย่านมีร้านหลายแห่ง แต่ยังไม่พบร้านที่เปิดช่วงคนงานเลิกกะดึก",
+          "en": "Suppose an area has many stores, but none identified as serving a late-shift shopping occasion."
+        },
+        "action": {
+          "th": "ตรวจตารางกะ เวลาเปิด และการซื้อจริง เพื่อดูว่ารูปแบบร้านของเราเหมาะไหม",
+          "en": "Check shift schedules, opening hours and actual purchases to assess format fit."
+        },
+        "caveat": {
+          "th": "คนงานในทะเบียนไม่ยืนยันว่ามีกะดึกหรือซื้อของหลังเลิกงาน",
+          "en": "Registry worker counts do not establish late shifts or after-work purchasing."
+        }
+      },
+      "availableP0Evidence": [
+        {
+          "th": "Demand และรูปแบบ/กลุ่มใบอนุญาตในต้นทางใช้ตั้งคำถามเบื้องต้น",
+          "en": "Demand and source formats or company license families provide initial context."
+        }
+      ],
+      "neededEvidence": [
+        {
+          "th": "กลุ่มลูกค้าและโอกาสใช้บริการจริง รวมทั้ง offering/ราคา/เวลาเปิดรายสาขา",
+          "en": "Observed customer groups and occasions, plus branch-level offerings, prices and hours."
+        }
+      ],
+      "phase": "P1",
+      "tradeoff": {
+        "th": "ช่องว่างอาจเล็กหรือไม่คุ้มต้นทุน ต้องตรวจขนาดโจทย์ ไม่ตี format ต่างกันว่าเป็น segment gap ทันที",
+        "en": "The unmet occasion may be small or costly to serve. Different source formats alone do not establish a segment gap."
+      },
+      "question": {
+        "th": "ใครยังไม่ได้รับบริการที่ใช่ และเขาต้องการอะไรเมื่อไร?",
+        "en": "Who lacks the right service, and what do they need when?"
+      }
+    },
+    {
+      "id": "competitive_entry",
+      "name": {
+        "th": "ชิงลูกค้าจากคู่แข่ง",
+        "en": "Competitive entry"
+      },
+      "shortLabel": {
+        "th": "แข่งด้วยข้อได้เปรียบ",
+        "en": "Enter with an advantage"
+      },
+      "icon": "swords",
+      "oneSentence": {
+        "th": "Demand เข้มข้นและมีคู่แข่งอยู่แล้ว เล็งพื้นที่ที่เรามีเหตุผลว่าจะตอบโจทย์ได้ดีกว่า",
+        "en": "Demand is concentrated and competitors are present. Investigate where we may offer a relevant advantage."
+      },
+      "why": {
+        "th": "การมีคู่แข่งเป็นหลักฐานว่ามีผู้ให้บริการอยู่ ไม่ใช่หลักฐานยอดขายของเขา ต้องตอบให้ได้ว่าลูกค้าจะเลือกเราเพราะอะไร",
+        "en": "Competitor presence shows provision, not their sales. Establish why customers might choose us."
+      },
+      "howToUse": [
+        {
+          "th": "เลือกไข่แดงที่พบคู่แข่งใน submarket ที่เทียบกันได้",
+          "en": "Select a Yolk with competitors in a comparable source submarket."
+        },
+        {
+          "th": "ตรวจคู่แข่งจริง แล้วระบุข้อได้เปรียบที่แบรนด์เราอาจเสนอ",
+          "en": "Verify competitors and state the advantage our brand may offer."
+        },
+        {
+          "th": "ทดสอบเหตุผลที่ลูกค้าจะเปลี่ยน และต้นทุนการแข่งก่อนเล็ง",
+          "en": "Test switching reasons and competitive costs before shortlisting."
+        }
+      ],
+      "illustrativeExample": {
+        "industry": "fuel",
+        "scenario": {
+          "th": "สมมติไข่แดงแห่งหนึ่งมีสถานีคู่แข่งอยู่แล้ว และแบรนด์เรามีสมมติฐานว่าจะเข้าถึงง่ายกว่า",
+          "en": "Suppose a Yolk has competing fuel stations and our brand hypothesizes more convenient access."
+        },
+        "action": {
+          "th": "สำรวจฝั่งถนน จุดกลับรถและทางเข้าสถานี เพื่อทดสอบข้อได้เปรียบนั้น",
+          "en": "Survey road side, U-turns and station entrances to test that advantage."
+        },
+        "caveat": {
+          "th": "พิกัดและจำนวนสถานีไม่ยืนยันทางเข้า offering หรือยอดขายจริง",
+          "en": "Coordinates and station counts do not verify access, offerings or actual sales."
+        }
+      },
+      "availableP0Evidence": [
+        {
+          "th": "Demand tier และคู่แข่งที่ระบุได้ใน scope เดียวกัน",
+          "en": "Confirmed Demand tier and identified comparable competitors."
+        }
+      ],
+      "neededEvidence": [
+        {
+          "th": "บริการ/เวลาเปิดจริง ข้อได้เปรียบแบรนด์ และหลักฐานการเปลี่ยนผู้ให้บริการ",
+          "en": "Actual services/hours, brand advantage and evidence of customer switching."
+        }
+      ],
+      "phase": "P0",
+      "tradeoff": {
+        "th": "อาจต้องใช้ต้นทุนสูงเพื่อชนะ และรายได้ใหม่อาจแย่งสาขาเราเดิม",
+        "en": "Winning may be costly, and new revenue may displace our existing stores."
+      },
+      "question": {
+        "th": "ลูกค้าจะเลือกเราแทนคู่แข่งเพราะอะไร?",
+        "en": "Why would customers choose us over competitors?"
+      }
+    },
+    {
+      "id": "cluster_participation",
+      "name": {
+        "th": "เข้าร่วมย่านที่ดึงลูกค้า",
+        "en": "Cluster participation"
+      },
+      "shortLabel": {
+        "th": "ร่วมย่านที่ลูกค้ามา",
+        "en": "Join a destination"
+      },
+      "icon": "store",
+      "oneSentence": {
+        "th": "ร่วมย่านที่ลูกค้ามาเปรียบเทียบหรือใช้หลายบริการในทริปเดียว",
+        "en": "Join a district where customers compare options or use several services on one trip."
+      },
+      "why": {
+        "th": "สาขาอยู่ใกล้กันอาจช่วยดึงลูกค้าร่วมกัน แต่จำนวนสาขาใน อปท. เดียวกันหรือกลุ่มหมุดบนแผนที่ยังไม่พิสูจน์ย่านแบบนี้",
+        "en": "Nearby businesses may jointly attract visits, but area totals or map marker groups do not prove a physical destination cluster."
+      },
+      "howToUse": [
+        {
+          "th": "ค้นหาย่านที่มีสาขาใกล้กันจริงและเดินทางเชื่อมกันได้",
+          "en": "Identify verified nearby branches with practical connections."
+        },
+        {
+          "th": "ตรวจว่าลูกค้ามาเปรียบเทียบหรือใช้หลายบริการจริง",
+          "en": "Check whether customers actually compare options or combine visits."
+        },
+        {
+          "th": "เทียบค่าเช่า การแข่งขัน และประโยชน์จากย่านก่อนเลือกจุด",
+          "en": "Compare rents, competition and shared destination benefits before choosing a site."
+        }
+      ],
+      "illustrativeExample": {
+        "industry": "nonbank",
+        "scenario": {
+          "th": "สมมติถนนสายหนึ่งมีสำนักงานผู้ให้บริการหลายรายอยู่ใกล้กัน",
+          "en": "Suppose several financial service offices operate close together on one street."
+        },
+        "action": {
+          "th": "ตรวจบริการจริงและสัมภาษณ์ว่าลูกค้าเข้ามาเปรียบเทียบหลายรายหรือไม่",
+          "en": "Verify actual services and investigate whether customers visit to compare providers."
+        },
+        "caveat": {
+          "th": "ใบอนุญาตบริษัทและหมุดใกล้กันไม่ยืนยันบริการรายสาขาหรือการเปรียบเทียบของลูกค้า",
+          "en": "Company licenses and nearby points do not establish branch services or comparison behavior."
+        }
+      },
+      "availableP0Evidence": [
+        {
+          "th": "พิกัดต้นทางใช้หาเบาะแสสำหรับสำรวจ ไม่ใช่ผลวัด shared visits",
+          "en": "Source coordinates can guide investigation, but do not measure shared visits."
+        }
+      ],
+      "neededEvidence": [
+        {
+          "th": "ย่านจริง การเชื่อมต่อ การเดินทางร่วมกันของลูกค้า และต้นทุนทำเล",
+          "en": "Verified physical cluster, connections, shared customer visits and location costs."
+        }
+      ],
+      "phase": "P1",
+      "tradeoff": {
+        "th": "ได้ประโยชน์จากย่าน แต่ค่าเช่าและการแข่งขันอาจสูงตาม",
+        "en": "Destination benefits may come with higher rent and stronger competition."
+      },
+      "question": {
+        "th": "ย่านนี้ช่วยดึงลูกค้าร่วมกันจริง หรือแค่อยู่ใกล้กัน?",
+        "en": "Does the district attract shared visits, or are businesses merely nearby?"
+      }
+    },
+    {
+      "id": "complementary_location",
+      "name": {
+        "th": "เกาะกิจกรรมที่ส่งลูกค้าให้กัน",
+        "en": "Complementary location"
+      },
+      "shortLabel": {
+        "th": "ต่อยอดกิจกรรมใกล้กัน",
+        "en": "Connect to an activity"
+      },
+      "icon": "layers",
+      "oneSentence": {
+        "th": "มองกิจกรรมที่เกี่ยวข้องกับแบรนด์ แล้วตรวจว่ามีทางส่งลูกค้ามาหาเราหรือไม่",
+        "en": "Find an activity relevant to the brand, then verify whether it can generate useful visits."
+      },
+      "why": {
+        "th": "แหล่งงานหรือที่พักช่วยตั้งสมมติฐานโอกาสใช้บริการ แต่ต้องมีจุดเชื่อม ทางเข้า และช่วงเวลาที่เข้ากับธุรกิจ",
+        "en": "Workplaces or accommodation suggest service occasions, but practical exits, access and timing must fit the business."
+      },
+      "howToUse": [
+        {
+          "th": "เลือกกิจกรรมที่ profile รองรับไม่เกิน 3 ตัว เช่น คนงานหรือห้องพัก",
+          "en": "Choose at most three supported activity metrics, such as workers or hotel rooms."
+        },
+        {
+          "th": "ใช้ข้อมูลระดับพื้นที่หาทำเลน่าตรวจ แล้วหาตำแหน่งกิจกรรมจริง",
+          "en": "Use area activity cues to find candidates, then verify actual anchor positions."
+        },
+        {
+          "th": "ตรวจทางออก เวลาใช้บริการ และการซื้อจริงก่อนเลือกจุดใกล้กิจกรรม",
+          "en": "Check exits, service times and purchases before selecting a nearby site."
+        }
+      ],
+      "illustrativeExample": {
+        "industry": "grocery",
+        "scenario": {
+          "th": "สมมติไข่แดงมีคนงานโรงงานที่รายงานสูง และร้านเราเน้นของกินประจำวัน",
+          "en": "Suppose a Yolk has high reported factory employment and our format serves everyday food shopping."
+        },
+        "action": {
+          "th": "หาโรงงานจริง ตรวจประตูออกและช่วงเลิกงาน เพื่อเลือกจุดที่เข้าถึงได้",
+          "en": "Verify factories, exits and shift-end times to identify accessible sites."
+        },
+        "caveat": {
+          "th": "คนงานสูงไม่ยืนยันลูกค้าเข้าร้าน โรงพยาบาล/โรงเรียนยังต้องเพิ่ม POI ที่ตรวจแล้วใน P1",
+          "en": "High employment does not establish store visits. Verified hospital/school POIs still require P1 adapters."
+        }
+      },
+      "availableP0Evidence": [
+        {
+          "th": "factory_count / factory_workers / hotel_rooms ที่ profile รองรับและมีค่าใช้ได้",
+          "en": "Usable profile-supported factory_count, factory_workers and hotel_rooms metrics."
+        },
+        {
+          "th": "midrank ของกิจกรรมในฐานเทียบที่เลือก เป็นเบาะแสระดับพื้นที่",
+          "en": "Activity midranks in the selected benchmark provide area-level cues."
+        }
+      ],
+      "neededEvidence": [
+        {
+          "th": "ตำแหน่งกิจกรรมจริง ประตูออก ช่วงเวลาและกระแสการซื้อ; hospital/school adapters อยู่ P1",
+          "en": "Verified anchor positions, exits, timing and purchasing flows; hospital/school adapters are P1."
+        }
+      ],
+      "phase": "P0",
+      "tradeoff": {
+        "th": "พึ่งกิจกรรมหนึ่งมากเกินไป อาจได้รับผลเมื่อกะงาน ฤดูกาลหรือผู้ประกอบการเปลี่ยน",
+        "en": "Dependence on one activity can expose the site to shift, seasonal or operator changes."
+      },
+      "question": {
+        "th": "กิจกรรมไหนส่งคนมาถึงเรา และเขาต้องการบริการเมื่อไร?",
+        "en": "Which activity can bring people to us, and when would they need our service?"
+      }
+    },
+    {
+      "id": "route_capture",
+      "name": {
+        "th": "รับลูกค้าบนเส้นทาง",
+        "en": "Route capture"
+      },
+      "shortLabel": {
+        "th": "รับลูกค้าระหว่างทาง",
+        "en": "Serve a journey"
+      },
+      "icon": "arrow_forward",
+      "oneSentence": {
+        "th": "เลือกจุดที่คนผ่าน เข้าถึงได้ และมีเหตุให้หยุดใช้บริการ",
+        "en": "Find a point people pass, can access and have reason to stop at."
+      },
+      "why": {
+        "th": "รถผ่านมากไม่เท่ากับลูกค้าหยุด ต้องดูทิศทาง ฝั่งถนน ทางเข้า และโอกาสใช้บริการร่วมกัน",
+        "en": "Passing traffic does not equal customers who stop. Consider direction, road side, access and service occasion together."
+      },
+      "howToUse": [
+        {
+          "th": "ระบุเส้นทางและทิศทางเดินทางที่เกี่ยวข้องกับแบรนด์",
+          "en": "Identify journeys and travel directions relevant to the brand."
+        },
+        {
+          "th": "ตรวจทางเข้า จุดกลับรถและข้อจำกัดการเลี้ยวจริง",
+          "en": "Verify entrances, U-turns and actual turn restrictions."
+        },
+        {
+          "th": "วัดการผ่าน หยุด และใช้บริการตามช่วงเวลาก่อนเลือกจุด",
+          "en": "Measure passing, stopping and service use by daypart before selecting a site."
+        }
+      ],
+      "illustrativeExample": {
+        "industry": "fuel",
+        "scenario": {
+          "th": "สมมติถนนหลักตัดบายพาสของหัวเมือง และทีมอยากศึกษาจุดเติมน้ำมันระหว่างทาง",
+          "en": "Suppose a main highway meets a city bypass and the team wants to study refueling on that journey."
+        },
+        "action": {
+          "th": "สำรวจทิศทางรถ ทางเข้า-ออกและจุดกลับรถ พร้อมนับรถที่หยุดตามช่วงเวลา",
+          "en": "Survey travel directions, access and U-turns, and observe stops by daypart."
+        },
+        "caveat": {
+          "th": "OSM ช่วยอธิบายโครงข่าย ไม่ยืนยันปริมาณรถ การหยุดหรือการซื้อจริง",
+          "en": "OSM can describe the network, but does not establish traffic volumes, stops or purchases."
+        }
+      },
+      "availableP0Evidence": [
+        {
+          "th": "Demand และพิกัดสาขาใช้เป็นบริบท ยังไม่ใช่ผลคัด route capture",
+          "en": "Demand and branch coordinates provide context, not a route-capture qualification."
+        }
+      ],
+      "neededEvidence": [
+        {
+          "th": "โครงข่ายมีทิศทาง ฝั่งถนน ข้อจำกัดเข้า-ออก และหลักฐานผ่าน/หยุด/ซื้อ",
+          "en": "Directed road network, road side, access restrictions and passing/stopping/purchasing evidence."
+        }
+      ],
+      "phase": "P2",
+      "tradeoff": {
+        "th": "ผิดฝั่งหรือเข้ายากอาจเสียโอกาส แม้รถผ่านมาก",
+        "en": "An inconvenient side or difficult access can undermine a site despite heavy traffic."
+      },
+      "question": {
+        "th": "คนที่ผ่านเข้าได้ หยุดได้ และมีเหตุให้ใช้บริการไหม?",
+        "en": "Can passing users enter, stop and find a reason to use our service?"
+      }
+    },
+    {
+      "id": "network_infill",
+      "name": {
+        "th": "เติมเครือข่ายของเรา",
+        "en": "Network infill"
+      },
+      "shortLabel": {
+        "th": "เติมช่องว่างของเรา",
+        "en": "Fill our network"
+      },
+      "icon": "shield",
+      "oneSentence": {
+        "th": "Demand เข้มข้น แต่เครือข่ายของเรายังเบาบางตามจุดเทียบ แม้มีคู่แข่งอยู่ได้",
+        "en": "Demand is concentrated, but our network is relatively sparse under the chosen reference, even if competitors are present."
+      },
+      "why": {
+        "th": "ดูพื้นที่ที่แบรนด์เราอาจยังเข้าถึงไม่พอ ต่างจากเติมช่องว่างตลาดซึ่งมอง Supply รวมทุกแบรนด์",
+        "en": "Investigate where our brand may lack reach. Unlike Underserved market, this compares our network rather than total provision."
+      },
+      "howToUse": [
+        {
+          "th": "เลือกไข่แดงแล้วเทียบ Supply เราต่อฐานตลาด",
+          "en": "Select a Yolk and compare our Supply with the market base."
+        },
+        {
+          "th": "ตรวจสาขาเราใกล้เคียง เวลาเดินทางและกำลังให้บริการ",
+          "en": "Check nearby own stores, travel time and service capacity."
+        },
+        {
+          "th": "ประเมินยอดเพิ่มสุทธิและการแย่งยอดสาขาเราเดิมก่อนเล็ง",
+          "en": "Assess incremental business and displacement of existing own stores before shortlisting."
+        }
+      ],
+      "illustrativeExample": {
+        "industry": "nonbank",
+        "scenario": {
+          "th": "สมมติพื้นที่มีประชากรผู้ใหญ่อายุ 20–64 เข้มข้น แต่สำนักงานแบรนด์เรามีน้อย",
+          "en": "Suppose an area has concentrated adult population aged 20–64, but few offices of our brand."
+        },
+        "action": {
+          "th": "ตรวจสำนักงานที่มีอยู่และบริการจริง เพื่อดูการเข้าถึงที่เครือข่ายเราอาจยังขาด",
+          "en": "Verify existing offices and actual services to investigate possible gaps in our network reach."
+        },
+        "caveat": {
+          "th": "ประชากรผู้ใหญ่ไม่ใช่จำนวนผู้ต้องการกู้ ผู้มีสิทธิ์ หรือหลักฐานความสามารถชำระ",
+          "en": "Adult population is not borrower demand, eligibility or repayment capacity."
+        }
+      },
+      "availableP0Evidence": [
+        {
+          "th": "Demand tier, ช่วงค่า Supply เรา และตัวหารที่มีค่าดิบใช้ได้",
+          "en": "Confirmed Demand tier, own-Supply bounds and a usable raw denominator."
+        }
+      ],
+      "neededEvidence": [
+        {
+          "th": "เวลาเดินทาง ความจุสาขาเดิม การเข้าถึง และผลแย่งยอด; performance calibration อยู่ P3",
+          "en": "Travel time, existing capacity, access and displacement; performance calibration is P3."
+        }
+      ],
+      "phase": "P0",
+      "tradeoff": {
+        "th": "เข้าถึงพื้นที่ใหม่ได้ แต่ต้องไม่สร้างสาขาที่เพียงแบ่งยอดเดิม",
+        "en": "New reach should not merely split business already served by our network."
+      },
+      "question": {
+        "th": "สาขาใหม่นี้เพิ่มการเข้าถึง หรือแค่ย้ายยอดของเรา?",
+        "en": "Would this store add reach or merely relocate our business?"
+      }
+    },
+    {
+      "id": "future_entry",
+      "name": {
+        "th": "เปิดก่อนเพื่อได้พื้นที่ก่อน",
+        "en": "Future entry"
+      },
+      "shortLabel": {
+        "th": "จับตาตลาดอนาคต",
+        "en": "Watch a future market"
+      },
+      "icon": "flag",
+      "oneSentence": {
+        "th": "ติดตามพื้นที่ที่มีเหตุการณ์ในอนาคตชัดเจน แล้วตัดสินใจตาม milestone",
+        "en": "Track locations with credible future milestones and decide when those milestones occur."
+      },
+      "why": {
+        "th": "ตลาดอาจยังไม่พร้อมวันนี้ ต้องแยก watchlist อนาคตจากไข่แดงปัจจุบันและผูกการตัดสินใจกับหลักฐานเวลา",
+        "en": "A market may not be ready today. Keep the future watchlist separate from current Yolks and tie decisions to dated evidence."
+      },
+      "howToUse": [
+        {
+          "th": "ยืนยันโครงการ วันสำคัญและความคืบหน้าจากแหล่งที่ตรวจได้",
+          "en": "Verify projects, milestones and progress from traceable sources."
+        },
+        {
+          "th": "บันทึกสิทธิ์ทำเล ต้นทุนรอและเงื่อนไขไปต่อหรือหยุด",
+          "en": "Record site options, holding costs and go/stop conditions."
+        },
+        {
+          "th": "ติดตาม milestone แล้วสำรวจ Demand ใหม่ก่อนตัดสินใจเปิด",
+          "en": "Follow milestones and reassess Demand before an opening decision."
+        }
+      ],
+      "illustrativeExample": {
+        "industry": "grocery",
+        "scenario": {
+          "th": "สมมติมีโครงการที่อยู่อาศัยใหม่พร้อมกำหนดส่งมอบที่ตรวจสอบได้",
+          "en": "Suppose a new housing project has a verifiable handover schedule."
+        },
+        "action": {
+          "th": "ตั้ง watchlist และทบทวนเมื่อเริ่มส่งมอบหรือมีผู้อยู่อาศัยจริง",
+          "en": "Create a watchlist and review when handover or actual occupancy begins."
+        },
+        "caveat": {
+          "th": "จำนวนยูนิตตามแผนไม่ยืนยันผู้อยู่อาศัยหรือยอดซื้อ ไม่เลื่อนพื้นที่เป็นไข่แดงปัจจุบันเอง",
+          "en": "Planned units do not establish occupancy or purchases, and do not promote an area to a current Yolk."
+        }
+      },
+      "availableP0Evidence": [
+        {
+          "th": "ข้อมูลปัจจุบันเป็น baseline เท่านั้น ยังไม่มีผลคัด Future entry",
+          "en": "Current data provides a baseline only; no Future-entry qualification is produced."
+        }
+      ],
+      "neededEvidence": [
+        {
+          "th": "milestone ที่ตรวจแล้ว สิทธิ์ทำเล ต้นทุนรอและ trigger หยุด/ไปต่อ",
+          "en": "Verified milestones, site options, holding costs and go/stop triggers."
+        }
+      ],
+      "phase": "P2",
+      "tradeoff": {
+        "th": "อาจได้พื้นที่ก่อน แต่ต้องรับต้นทุนรอและความเสี่ยงโครงการเลื่อน",
+        "en": "Early access to a site can mean holding costs and delayed-project exposure."
+      },
+      "question": {
+        "th": "หลักฐานอะไรทำให้พร้อมเปิด และเมื่อไรควรหยุดรอ?",
+        "en": "What evidence would make the site ready, and when should we stop waiting?"
+      }
+    }
+  ]
+}

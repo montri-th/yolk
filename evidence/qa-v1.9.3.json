@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "yolk.integrated_qa/1.9",
+  "version": "1.9.3",
+  "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "reviewedAt": "2026-10-07T17:59:53.989649+00:00",
+  "automated": {
+    "status": "PASS",
+    "suites": 32,
+    "reportedPassedCases": 537,
+    "receipt": "evidence/automated-v1.9.3.json",
+    "meaning": "Reported named cases/summary checks/PASS lines; not assertion count."
+  },
+  "nativeBrowser": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "checks": 22,
+    "receipt": "evidence/browser-v1.9.3/native-browser-review.json",
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.3/desktop-dark-en-guide-future_entry.jpg",
+        "bytes": 103873,
+        "sha256": "843f17dc41bd98ff6e276c84c4691d0250b0b6811d667199e9fe2b5d90831ad9",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/desktop-dark-en-guide-segment_gap.jpg",
+        "bytes": 102917,
+        "sha256": "ef2532df4a5c275869e8b6efadae13449b8d8497173a35bc729fff2b2e829262",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/desktop-dark-en-supply-boundaries.jpg",
+        "bytes": 160898,
+        "sha256": "f6641e77669a0e33926f730a6c745e8d8191c43dc2787b5414220dd5ee94f7ca",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/desktop-dark-en-supply-poi-popup.jpg",
+        "bytes": 146937,
+        "sha256": "258449abbe67e12f094373252051c6301cfd877c9291c463789818a153af90e7",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/desktop-light-guide-index.jpg",
+        "bytes": 107621,
+        "sha256": "a48a852c59329eb0aa3d6c0d6a85d68341ee53b46f73082a0507aa9fd9920a41",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/desktop-light-guide-network.jpg",
+        "bytes": 94785,
+        "sha256": "d35405256e1f3f936057e35bc868d673d55d3a60223a85546ce2d3762940adb4",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/desktop-light-opportunities.jpg",
+        "bytes": 145962,
+        "sha256": "4fbb417b187f3981d5ccee274335f40b4d582f4f184dc549bd4b65601d0f071f",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/mobile-dark-en-guide-future.jpg",
+        "bytes": 45278,
+        "sha256": "e6d90083f0ef74edd21ce11a78ee6926187aee54f2cacfebf9a302f09eadf99c",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/mobile-dark-guide-complementary.jpg",
+        "bytes": 47516,
+        "sha256": "52ff2b96df679d7c2c46d8f9aa2ab24c3aac2bfb32646afa5efeba808a3c2824",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/mobile-dark-guide-index.jpg",
+        "bytes": 50688,
+        "sha256": "7c2e2f9331e69516ec590a9a557f8865d93cc9cfc494219d2f4b1a99c7564a08",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/mobile-dark-map-expanded.jpg",
+        "bytes": 46258,
+        "sha256": "95c3508337753e827312927b8953f0261ca721b381abc1ea00378f8f855487eb",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/mobile-dark-market.jpg",
+        "bytes": 48519,
+        "sha256": "19395b26935c5b310b9f5ad326e6afea62334f6b7c89988ab22c6ecb434d9fb1",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/mobile-dark-supply-basemap-retry.jpg",
+        "bytes": 57464,
+        "sha256": "6d94cfae94bd88126bd7dd84f8d9ab01ec082b82af1ffb6dc5c5ebded78f8857",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/mobile-dark-supply-country.jpg",
+        "bytes": 46816,
+        "sha256": "71e06905c8df659063c046134ec87a52d19f6ee21c7fff75bb97be041e9c46fe",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/mobile-dark-th-guide-future_entry.jpg",
+        "bytes": 44313,
+        "sha256": "a04836e561a2405bcbf59d3d216eca9b98d6cf0d5487039869f6abcd4c6c1f66",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/mobile-dark-th-guide-segment_gap.jpg",
+        "bytes": 46762,
+        "sha256": "08844005eec1e0c228545ea1bc4b9ffd5bfc1d4a5b22c9fa91adfa00665e7aaf",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.3/mobile-light-th-guide-example-evidence.jpg",
+        "bytes": 48616,
+        "sha256": "c49abbe7fbdf0d80c2441a55a46554a2af01584c89f90b352da9fee4d22a2648",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    ],
+    "fullLanguageThemeDeviceMatrix": false,
+    "physicalDevices": "unverified"
+  },
+  "designSystemPackage": {
+    "version": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "checks": 9768,
+    "warnings": 65,
+    "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+    "receipt": "evidence/lds-package-verification.v1.9.3.json",
+    "scope": "Fresh package/data parity, math, document and asset checks only; no full artifact or account/team activation certificate."
+  },
+  "semanticBoundary": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0",
+    "analyticalPaint": "Exact retained colors/opacity/41-valueLUT; boundary neutral treatment on unfilled parent SVG only."
+  },
+  "publication": "not performed by this local QA receipt",
+  "limits": [
+    "physical iPhone/Android unverified",
+    "complete brand-language-theme-device matrix unverified",
+    "actual all-boundary pointer-hover and screen-reader speech unverified",
+    "external tile/StreetView/Google AI availability not guaranteed",
+    "shared backend/auth/outbox not implemented in static preview"
+  ]
+}

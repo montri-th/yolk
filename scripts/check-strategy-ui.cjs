@@ -23,6 +23,7 @@ function harness(savedWrites = new Map()) {
   h.runtime.sourceHashes = Object.fromEntries(['area-context', 'fuel-supply', 'grocery-supply', 'nonbank-supply'].map(id => [id, fileHash('prototype/data/real/' + id + '.json')]));
   h.sandbox.document.querySelector = () => null;
   h.sandbox.testScopeIds = null;
+  h.sandbox.mapNavigationTitle = () => "Country";
   h.sandbox.committedCount = 0;
   h.sandbox.committed = () => {h.sandbox.committedCount++;};
   // The navigation integration has its own browser/Leaflet suite. Here the actual UI receives a scoped predicate.
@@ -59,7 +60,10 @@ function countText(html, caption) {
   run('Y.route="strategy";Y.lang="en";draft=structuredClone(Y.criteria)');
 
   await check('Actual eight strategy cards emit eight meaningful allowed DS glyphs and readable labels', () => {
-    const cards = renderedCards(h.ui.page()), ids = plain(h.api.strategies().map(s => s.id));
+    assert.equal(renderedCards(h.ui.page()).length,0, 'Choices are deferred on entry');
+    const content={innerHTML:''};
+    h.documentListeners.get('toggle').at(-1)({target:{open:true,matches:()=>true,querySelector:()=>content}});
+    const cards = renderedCards(content.innerHTML), ids = plain(h.api.strategies().map(s => s.id));
     const expected = ['explore', 'groups', 'swords', 'store', 'layers', 'arrow_forward', 'shield', 'flag'];
     assert.equal(cards.length, 8);
     cards.forEach((card, index) => {
@@ -170,9 +174,9 @@ function countText(html, caption) {
     await check(industry + ': actual page counters, strategy-card counts and result cards agree within an administrative scope', () => {
       const scoped = rows.filter(a => a.province === '10'); h.sandbox.testScopeIds = new Set(scoped.map(a => a.id));
       run('Y.lang="en"'); const html = h.ui.page(), view = h.ui.currentView(rows);
-      assert.equal(countText(html, 'Demand-qualified in this scope'), scoped.filter(a => a.eligible).length);
+      assert.equal(countText(html, 'Demand-qualified Yolks'), scoped.filter(a => a.eligible).length);
       const candidateCount = view.rows.filter(item => h.sandbox.testScopeIds.has(item.row.id)).length;
-      assert.equal(countText(html, 'Strategy research candidates'), candidateCount);
+      assert.equal(countText(html, 'Places to investigate'), candidateCount);
       assert(h.ui.mapSummary().includes(' · ' + new Intl.NumberFormat('en-GB').format(candidateCount) + ' areas to investigate'));
       for (const card of renderedCards(html).filter(card => card.includes('areas to investigate in this scope'))) {
         const id = /data-strategy-id="([^"]+)"/.exec(card)[1];
@@ -191,10 +195,19 @@ function countText(html, caption) {
   await check('Evidence-only strategies show a survey guide and empty candidate state, never a fabricated match', () => {
     const view = h.ui.currentView(), html = h.ui.page();
     assert.equal(view.opportunityViewCount, 0);
-    assert(html.includes('No supported candidate for this view yet'));
+    assert(html.includes('No supported candidate for this approach yet'));
     assert(html.includes('Survey guide · additional data needed'));
-    assert(html.includes('future-market watchlist and never adds to current Yolks'));
+    assert(html.includes('Future entry never adds current Yolks'));
     assert(!html.includes('data-strategy-action="save"'));
+  });
+
+  await check('Merged opportunity entry and old strategy route use the same private draft and candidate IDs without changing Demand', () => {
+    const baseline=run('JSON.stringify({criteria:Y.criteria,draft,events:Y.events})');
+    run('Y.route="strategy"'); const prior=plain(h.ui.currentView().rows.map(x=>x.row.id));
+    run('Y.route="market"'); assert.deepEqual(plain(h.ui.currentView().rows.map(x=>x.row.id)),prior);
+    assert(h.ui.page().includes('Expansion opportunities'));assert(h.ui.page().includes('data-guide-index'));
+    assert.equal(run('JSON.stringify({criteria:Y.criteria,draft,events:Y.events})'),baseline);
+    run('Y.route="strategy"');
   });
 
   h.ui.setSelected(['underserved_market', 'competitive_entry', 'network_infill']);

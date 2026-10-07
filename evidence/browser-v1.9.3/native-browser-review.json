@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.9",
+  "version": "1.9.3",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "reviewedAt": "2026-10-07T17:59:53.989649+00:00",
+  "browser": "Chrome extension, actual native rendered page controlled through cua_repl",
+  "results": [
+    {
+      "id": "merged_first_page",
+      "status": "PASS",
+      "evidence": "Canonical market page displays Expansion opportunities, preset context, two Demand/candidate counters, selected approach disclosure before results and guide entry."
+    },
+    {
+      "id": "canonical_navigation",
+      "status": "PASS",
+      "evidence": "Six desktop and five mobile menu links observed; separate Strategy menu removed; generic Supply glyph is store."
+    },
+    {
+      "id": "legacy_alias",
+      "status": "PASS",
+      "evidence": "Native legacy #strategy opened Expansion opportunities, retained Bangkok navigation and 10 km scale; automated controller checks bind exact camera/context/draft semantics."
+    },
+    {
+      "id": "desktop_map_layout",
+      "status": "PASS",
+      "evidence": "At1440x900 opportunity drawable map measured742x626.703px with independent work pane; no horizontal overflow."
+    },
+    {
+      "id": "mobile_map_layout",
+      "status": "PASS",
+      "evidence": "At390x844 normal opportunity drawable map317.117px high, panel489.516px; footer in normal flow and attribution visible."
+    },
+    {
+      "id": "mobile_supply_layout",
+      "status": "PASS",
+      "evidence": "Supply country drawable map342.516px high, panel624.555px after final74svh rule."
+    },
+    {
+      "id": "expanded_mobile",
+      "status": "PASS",
+      "evidence": "Supply expanded drawable map473.961px high; bottom navigation hidden; Escape restored navigation and focused expand control."
+    },
+    {
+      "id": "soft_light_foundations",
+      "status": "PASS",
+      "evidence": "Observed light canvasRGB229,233,230 (#E5E9E6), paperRGB238,241,238 (#EEF1EE), primary#182327 and accent#176B82."
+    },
+    {
+      "id": "explicit_dark_links",
+      "status": "PASS",
+      "evidence": "Observed desktop dark journey linksRGB104,196,226 (#68C4E2), with current generic Supply shop glyph; no purple in sampled link states."
+    },
+    {
+      "id": "white_parent_hierarchy",
+      "status": "PASS",
+      "evidence": "Native computed parent SVG stroke#FFFFFF width1.2 and exact0.65px#11191D neutral shadow after cascade correction."
+    },
+    {
+      "id": "quiet_poi_boundaries",
+      "status": "PASS",
+      "evidence": "Supply point mode observed zero parent-halo attributes; child outline mesh absent while province navigation remains usable."
+    },
+    {
+      "id": "guide_index",
+      "status": "PASS",
+      "evidence": "Native guide index exposes eight numbered illustrated icon cards and explicit hypothetical-example notice."
+    },
+    {
+      "id": "guide_english_desktop",
+      "status": "PASS",
+      "evidence": "Opened all eight English detail pages at1440x900; all five detail sections present; no horizontal overflow."
+    },
+    {
+      "id": "guide_thai_mobile",
+      "status": "PASS",
+      "evidence": "Opened all eight Thai detail pages at390x844; examples, diagram/caption and evidence sections present; no horizontal overflow."
+    },
+    {
+      "id": "guide_english_mobile",
+      "status": "PASS",
+      "evidence": "Opened all eight English detail pages at390x844 in final fresh tab; no horizontal overflow."
+    },
+    {
+      "id": "guide_light_example",
+      "status": "PASS",
+      "evidence": "Scrolled Thai light guide through example, next action, three-step use and evidence; readable actual layout recorded."
+    },
+    {
+      "id": "guide_focus_and_fonts",
+      "status": "PASS",
+      "evidence": "Escape restored opener; close focused on opening; sampled guide glyphs use Yolk Material Symbols at300, caption font Bai Jamjuree."
+    },
+    {
+      "id": "three_industry_contexts",
+      "status": "PASS",
+      "evidence": "Native industry selection exercised Fuel, Grocery and Non-bank; preset/brand/context/navigation updated without horizontal overflow. Non-bank155Demand-qualified/0strategy candidates remains an honest evidence gap."
+    },
+    {
+      "id": "integer_provider_retry",
+      "status": "PASS",
+      "evidence": "Before fix native old redraw produced OSM /10.25/x/y.png failures. Final same-style recreation retry produced only integer provider URLs;9/9sampled tiles loaded and loading/error notice hidden; Bangkok breadcrumb, pane transform and scale stable immediately across retry."
+    },
+    {
+      "id": "retired_layer_cleanup",
+      "status": "PASS",
+      "evidence": "Final fresh tab tokence27743ff1c9 underwent two retries,390↔1440viewport changes and zoom in/out with0captured console errors;15/15tiles loaded after zoom."
+    },
+    {
+      "id": "brand_popup",
+      "status": "PASS",
+      "evidence": "Final Tops popup displayed exact owner PNG, readable brand/branch/relation and source-status text; StreetView and contextual Google AI links present;9/9tiles loaded and basemap status hidden."
+    },
+    {
+      "id": "read_only_guide",
+      "status": "PASS",
+      "evidence": "No guide action saves criteria or workspace records; controller regression verifies no Y/draft/targets/events mutation. Native opened/closed reader without saving workspace data."
+    }
+  ],
+  "checks": 22,
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.9.3/desktop-dark-en-guide-future_entry.jpg",
+      "bytes": 103873,
+      "sha256": "843f17dc41bd98ff6e276c84c4691d0250b0b6811d667199e9fe2b5d90831ad9",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/desktop-dark-en-guide-segment_gap.jpg",
+      "bytes": 102917,
+      "sha256": "ef2532df4a5c275869e8b6efadae13449b8d8497173a35bc729fff2b2e829262",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/desktop-dark-en-supply-boundaries.jpg",
+      "bytes": 160898,
+      "sha256": "f6641e77669a0e33926f730a6c745e8d8191c43dc2787b5414220dd5ee94f7ca",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/desktop-dark-en-supply-poi-popup.jpg",
+      "bytes": 146937,
+      "sha256": "258449abbe67e12f094373252051c6301cfd877c9291c463789818a153af90e7",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/desktop-light-guide-index.jpg",
+      "bytes": 107621,
+      "sha256": "a48a852c59329eb0aa3d6c0d6a85d68341ee53b46f73082a0507aa9fd9920a41",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/desktop-light-guide-network.jpg",
+      "bytes": 94785,
+      "sha256": "d35405256e1f3f936057e35bc868d673d55d3a60223a85546ce2d3762940adb4",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/desktop-light-opportunities.jpg",
+      "bytes": 145962,
+      "sha256": "4fbb417b187f3981d5ccee274335f40b4d582f4f184dc549bd4b65601d0f071f",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/mobile-dark-en-guide-future.jpg",
+      "bytes": 45278,
+      "sha256": "e6d90083f0ef74edd21ce11a78ee6926187aee54f2cacfebf9a302f09eadf99c",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/mobile-dark-guide-complementary.jpg",
+      "bytes": 47516,
+      "sha256": "52ff2b96df679d7c2c46d8f9aa2ab24c3aac2bfb32646afa5efeba808a3c2824",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/mobile-dark-guide-index.jpg",
+      "bytes": 50688,
+      "sha256": "7c2e2f9331e69516ec590a9a557f8865d93cc9cfc494219d2f4b1a99c7564a08",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/mobile-dark-map-expanded.jpg",
+      "bytes": 46258,
+      "sha256": "95c3508337753e827312927b8953f0261ca721b381abc1ea00378f8f855487eb",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/mobile-dark-market.jpg",
+      "bytes": 48519,
+      "sha256": "19395b26935c5b310b9f5ad326e6afea62334f6b7c89988ab22c6ecb434d9fb1",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/mobile-dark-supply-basemap-retry.jpg",
+      "bytes": 57464,
+      "sha256": "6d94cfae94bd88126bd7dd84f8d9ab01ec082b82af1ffb6dc5c5ebded78f8857",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/mobile-dark-supply-country.jpg",
+      "bytes": 46816,
+      "sha256": "71e06905c8df659063c046134ec87a52d19f6ee21c7fff75bb97be041e9c46fe",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/mobile-dark-th-guide-future_entry.jpg",
+      "bytes": 44313,
+      "sha256": "a04836e561a2405bcbf59d3d216eca9b98d6cf0d5487039869f6abcd4c6c1f66",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/mobile-dark-th-guide-segment_gap.jpg",
+      "bytes": 46762,
+      "sha256": "08844005eec1e0c228545ea1bc4b9ffd5bfc1d4a5b22c9fa91adfa00665e7aaf",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.3/mobile-light-th-guide-example-evidence.jpg",
+      "bytes": 48616,
+      "sha256": "c49abbe7fbdf0d80c2441a55a46554a2af01584c89f90b352da9fee4d22a2648",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  ],
+  "currentFinalRuntime": {
+    "workspaceMapSha256": "ce27743ff1c991cfb828963cfc3f2ee6f9c11489b498326f45f8d0b80d1f228c",
+    "workspaceMapCacheToken": "ce27743ff1c9",
+    "freshConsoleErrors": 0
+  },
+  "guideChecks": {
+    "englishDesktop": 8,
+    "thaiMobile": 8,
+    "englishMobile": 8,
+    "examples": "hypothetical; illustrations are concept scenes, not measured map data"
+  },
+  "scope": "Bounded local viewport/native interaction review and exact sampled DOM styles, plus explicitly named automated state guarantees. Original missing-rectangle screenshot not recreated identically; a fractional-tile retry bug and retired-layer listener bug were reproduced and fixed. Does not certify all brands, physical devices, Safari, providers or production collaboration.",
+  "limits": [
+    "physical iPhone/Android unverified",
+    "complete brand-language-theme-device matrix unverified",
+    "actual all-boundary pointer-hover and screen-reader speech unverified",
+    "external tile/StreetView/Google AI availability not guaranteed",
+    "shared backend/auth/outbox not implemented in static preview"
+  ],
+  "originalFailuresResolved": [
+    {
+      "failure": "GridLayer.redraw used fractional tile URL10.25",
+      "resolution": "Recreate same-style public tile layer; no camera rounding or data changes"
+    },
+    {
+      "failure": "Old blanket layer.off erased Leaflet remove-event cleanup, leaving null-map listeners during resize",
+      "resolution": "Public removeLayer(previous) before previous.off; final fresh resize/retry/zoom0errors"
+    }
+  ]
+}

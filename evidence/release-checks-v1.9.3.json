@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "yolk.release_script_guards/1.0",
+  "version": "1.9.3",
+  "recordedAt": "2026-10-07T18:06:05.822941+00:00",
+  "status": "PASS_BOUNDED_RELEASE_SCRIPT_GUARDS",
+  "checks": 8,
+  "results": [
+    {
+      "id": "release_utility_syntax",
+      "status": "PASS",
+      "details": {
+        "scripts": 6,
+        "interface": "No main function invoked; syntax checks only."
+      }
+    },
+    {
+      "id": "sealer_path_guards",
+      "status": "PASS",
+      "details": {
+        "validPathsAccepted": 1,
+        "invalidPathsRejected": 10,
+        "cases": "empty/root/noncanonical/absolute/traversal/private/backslash paths"
+      }
+    },
+    {
+      "id": "explicit_selection_guards",
+      "status": "PASS",
+      "details": {
+        "selectedFiles": 655,
+        "historicalExplicitPathsPreserved": 613,
+        "selfHashManifestsSelected": 0,
+        "generatedAtSeal": [
+          "contracts/assets.v1.9.3.json"
+        ]
+      }
+    },
+    {
+      "id": "public_runtime_inventory",
+      "status": "PASS",
+      "details": {
+        "runtimeFiles": 316,
+        "unapprovedRuntimePaths": 0,
+        "unusedSyntheticRuntimeFeeds": 0
+      }
+    },
+    {
+      "id": "workflow_current_verifier_and_suites",
+      "status": "PASS",
+      "details": {
+        "verifier": "scripts/verify-pages-v1.9.3.py",
+        "declaredSuites": 32,
+        "newSuites": [
+          "scripts/check-map-hierarchy.cjs",
+          "scripts/check-map-recovery.cjs",
+          "scripts/check-strategy-guide.cjs"
+        ],
+        "artifactPath": "prototype",
+        "scope": "Declaration and path checks only; no workflow/provider execution."
+      }
+    },
+    {
+      "id": "canonical_route_and_counter_guards",
+      "status": "PASS",
+      "details": {
+        "canonicalRoute": "#market",
+        "compatibilityAlias": "#strategy",
+        "primaryCounters": 2,
+        "counterBasis": [
+          "confirmed Demand eligible in administrative scope",
+          "strategy candidates in administrative scope"
+        ],
+        "scope": "Source predicates only; no fresh native rendering claim."
+      }
+    },
+    {
+      "id": "retained_semantic_bytes",
+      "status": "PASS",
+      "details": {
+        "filesCompared": 9,
+        "sameAsRetainedSealed1_9_2": true,
+        "semanticAuthority": "criteria/profile/engine 1.9.0"
+      }
+    },
+    {
+      "id": "retained_registry_and_actual_artwork_urls",
+      "status": "PASS",
+      "details": {
+        "artworkRevision": "1.9.2-owner2",
+        "exactBootstrapRequest": "data/brand-logos.v1.7.json?v=1.9.2-owner2",
+        "distinctActualOwnerPNGRequests": 3,
+        "scope": "Actual retained renderer HTML src/path/hash verification only, not visual/theme certification."
+      }
+    }
+  ],
+  "reviewedFiles": [
+    {
+      "path": "scripts/seal-pages-v1.9.3.py",
+      "bytes": 11811,
+      "sha256": "17eeff6a3f6597dd5e465573fd830f3961ca9dc4a950190893c0f3c8ef02d1b7"
+    },
+    {
+      "path": "scripts/verify-pages-v1.9.3.py",
+      "bytes": 47177,
+      "sha256": "ddf9bb9f6b8e06a68890feea984dc5c8659885451ef46438e719dfff40b9fbf9"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.3/release/prepare-live-checks.py",
+      "bytes": 11916,
+      "sha256": "b0e8c94d7a61f8d47e9f9b68d2cc3b8e26508a6f496bf2fe71e5cf08411ae713"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.3/release/run-live-checks.py",
+      "bytes": 1280,
+      "sha256": "5ccfc00c95e6aacad30032c723c80500ec9011ba9acf83566b4f29768cea6083"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.3/release/package-handoff.py",
+      "bytes": 6696,
+      "sha256": "28c74cd243a1bb1afc405249ce5e689fdee69718becb5fb492a13642e99f3647"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.3/release/check-release-guards.py",
+      "bytes": 7454,
+      "sha256": "8f61aaebdddefe67f22e967f5d1fdd9fcde0f3ad3e4a8e853f17ab58ccee4582"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "bytes": 2446,
+      "sha256": "2a5d1b881203e6b653f5814d2c63dd9de3dbe7bd28106017d1f12b6806bb2f85"
+    }
+  ],
+  "selection": {
+    "path": "contracts/public-copy-selection.v1.9.3.json",
+    "sha256": "70d76e254dabdd91797a6fafd888a5acc6a57dafa1a565ef09ba2a6143220505"
+  },
+  "scope": "Read-only syntax, explicit-public inventory, current workflow verifier/suite declarations and sealer guard checks, current route/two-counter source predicates, retained semantic byte hashes and actual emitted artwork URL extraction. No sealed artifact verification, workflow/provider/live fetch, native-browser or deployment assertion.",
+  "notVerified": [
+    "Final full-document consistency",
+    "Final integrated/native receipts",
+    "Actual current sealed public manifest",
+    "Actual workflow/provider execution and live bytes",
+    "ZIP package and attachment"
+  ],
+  "publication": "not_performed"
+}

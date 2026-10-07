@@ -8,3 +8,12 @@
 .workspace-map-hover-tooltip .workspace-hover-title{display:block;font-weight:600;margin-bottom:4px}
 .workspace-map-hover-tooltip .workspace-hover-detail{display:block;white-space:pre-line}
 @media(max-width:480px){.workspace-map-hover-tooltip{width:240px}}
+
+/* Neutral contrast belongs to unfilled hierarchy parents, never data colours. */
+.workspace-map-panel .leaflet-overlay-pane svg path[data-workspace-boundary-halo="parent"][fill="none"][stroke="#FFFFFF"][stroke-opacity="1"]{filter:drop-shadow(0 0 .65px var(--ldm-foundation-surface-canvas-dark))}
+
+/* Source-tile feedback floats over imagery; it never resizes the map or recolours data. */
+.workspace-map-basemap-status:not([hidden]){position:absolute;z-index:650;left:12px;right:12px;top:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font-size:13px;line-height:1.4}
+.workspace-map-basemap-status>span{flex:1;min-width:0;overflow-wrap:anywhere}
+.workspace-map-basemap-status button{flex-shrink:0;min-height:44px;padding:4px 8px;background:transparent;color:var(--accent);border:1px solid var(--line);border-radius:4px;font:inherit;font-weight:600}
+.workspace-map-basemap-status button[hidden]{display:none}

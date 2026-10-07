@@ -3,8 +3,8 @@
    Light uses calm alt/canvas surfaces. Dark uses the canonical dark role pairs. */
 :root {
   color-scheme: light;
-  --canvas: var(--ldm-foundation-surface-alt-light);
-  --paper: var(--ldm-foundation-surface-canvas-light);
+  --canvas: var(--ldm-foundation-surface-soft-light);
+  --paper: var(--ldm-foundation-surface-alt-light);
   --beige: var(--ldm-foundation-surface-beige-tint-light);
   --soft: var(--ldm-foundation-surface-soft-light);
   --ink: var(--ldm-foundation-text-primary-light);
@@ -147,6 +147,11 @@ small, .small, .eyebrow, .crumb, .market-status, .notice, .footline,
 .skip { background: var(--paper); color: var(--ink); }
 #header, #mobile-nav, dialog, .theme-control select, select option { background: var(--paper); color: var(--ink); }
 input, textarea, select, button { accent-color: var(--accent); }
+/* Explicit visited state keeps task links in their DS role in every history state. */
+a:where(:link, :visited) { color: var(--accent); }
+.strategy-flow a:link, .strategy-flow a:visited { color: var(--accent); text-decoration: none; }
+.strategy-flow a .yl-icon { text-decoration: none; }
+.strategy-flow a:hover .control-caption { text-decoration: underline; text-underline-offset: 4px; }
 input::placeholder, textarea::placeholder { color: var(--yl-meta); opacity: 1; }
 button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible,
 textarea:focus-visible, summary:focus-visible, .search input:focus-visible { outline: 3px solid var(--yl-focus); outline-offset: 3px; }

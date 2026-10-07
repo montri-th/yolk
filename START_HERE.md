@@ -1,24 +1,16 @@
-# Start here · Yolk 1.9.2
+# Start here · Yolk 1.9.3 · local review complete
 
-**หาไข่แดง → ดู Supply และการแข่งขัน → เลือก Strategy → เล็งพร้อมแผนสำรวจ**
+**เลือกแบรนด์ → โอกาสขยาย → เหตุผล → เล็งพร้อมแผนสำรวจ**
 
-1. อ่าน [Product statement + implementation ฉบับเต็มไฟล์เดียว](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.2.md) เพื่อเข้าใจ product, data, UX และงาน T00–T24 พร้อม machine blueprint ท้ายไฟล์
-2. อ่าน [AGENTS.md](AGENTS.md), [full product contract](contracts/full-product.v1.9.2.json), [8 Strategy](contracts/opportunity-strategies.v1.9.0.json) และ [Strategy experience](docs/STRATEGY_EXPERIENCE_v1.9.0.md) ก่อนเปลี่ยน behavior
-3. ตรวจ stack จริงของ CityMETER ก่อนเลือก framework/datastore แล้วทำทีละงานตาม dependencies ใน [แผนพัฒนา](IMPLEMENTATION_PLAN_v1.9.2.md) แต่ละงานมี inputs, outputs, acceptance และ tests
-4. ใช้ [brand research](docs/BRAND_RESEARCH_v1.9.0.md) และ [runtime registry](prototype/data/brand-strategy-profiles.v1.9.0.json) เป็นแหล่ง preset เดียวกัน รองรับ Fuel, Grocery และ Non-bank รวม 37 โปรไฟล์ ไม่คัดลอกค่าตั้งต้นลง component อีกชุด
-5. ใช้ [DS integration](DS_ASSET_INTEGRATION.md) + [Asset index](ASSET_INDEX_v1.9.2.md) จาก LDS 0.9.7 และ icon extension ที่ตรวจไฟล์จริง ไม่สร้าง logo/font/color แทน
-6. Demand เป็นผู้คัดไข่แดง; Supply, weights และ Strategy ไม่เปลี่ยน Demand/Tier/eligible IDs จำกัดปัจจัยร่วมกันไม่เกิน 3 ในแต่ละจุด ดู [factor/strategy rules](contracts/full-product.v1.9.2.json)
-7. ใช้แผนที่เดียวทุกเมนู และอ่าน [Supply POI modes](docs/SUPPLY_POI_MODES_v1.9.0.md): choropleth เป็นค่าเริ่มต้น เลือกจุดสาขาได้ทุกระดับ กลุ่มจุดบนหน้าจอไม่ใช่หลักฐาน physical cluster
-8. Branch CRUD ใช้ [source-first context](contracts/branch-context.v1.7.5.json) ที่ยังคงไว้: manual/saved assignment มาก่อน hint และ inference ไม่เปลี่ยนยอด Supply ต้นทาง
-9. เปิด `prototype/` ผ่าน HTTP ตรวจข้อความจริง TH/EN, mobile/desktop และ light/dark แล้วรัน current suites ตาม release contract ผล VM/hash ไม่แทนการตรวจ browser
-10. อ่าน [Handoff](HANDOFF.md), [handoff contract](contracts/handoff.v1.9.2.json) และ [release state](contracts/release.v1.9.2.json) ก่อน seal/publish ให้แยก local QA, native browser, provider และ live bytes ผลรุ่นก่อนเป็นประวัติ
+1. อ่าน [Product statement + implementation จากศูนย์](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.3.md) และ [full machine blueprint](contracts/full-product.v1.9.3.json)
+2. ทำ T00 เพื่อสำรวจ stack จริงก่อนเลือก framework/datastore แล้วทำ T00–T24 ทีละงานตาม dependencies, inputs, outputs, acceptance และ codingPrompt
+3. อ่าน [AGENTS](AGENTS.md), [expansion experience](contracts/expansion-experience.v1.9.3.json) และ [คู่มือ](docs/EXPANSION_OPPORTUNITIES_v1.9.3.md) สำหรับหน้าแรก alias, map และ layout
+4. ใช้ [brand research](docs/BRAND_RESEARCH_v1.9.0.md) และ [runtime profiles](prototype/data/brand-strategy-profiles.v1.9.0.json) เป็น authority ของ preset เกณฑ์/draft ที่บันทึกไว้มาก่อน starter preset
+5. อ่าน [8 Strategy rules](contracts/opportunity-strategies.v1.9.0.json) และ [bilingual guide](prototype/data/strategy-guide.v1.9.3.json) จำกัดเลือก 3 ใช้ engine เดิมแยก candidate/incomplete/unsupported เปิด guide ไม่เปลี่ยนเกณฑ์
+6. ใช้ [DS integration](DS_ASSET_INTEGRATION.md) และ [asset index](ASSET_INDEX_v1.9.3.md) ใช้ LDS 0.9.7, fonts, graphics, icons และ LUT ต้นฉบับ ไม่มี motif กรอบโลโก้หรือ selected left rail
+7. ทำ persistent map: Demand/Supply แยก จุดสาขาเลือกได้ทุก drilldown ขยาย/ย่อคงกล้อง เส้น parent/child ไม่เปลี่ยนสีข้อมูล
+8. CRUD, source-first hints, snapshots, feed และ notifications ใช้ invariants เดิม แยก browser-local preview จาก production backend
+9. ตรวจข้อความไทย/อังกฤษจริงทั้งจอแคบและ desktop ใน light/dark รวมคิวทำเล guide, alias, controls, expanded map, hover, tiles และ save failure ก่อน seal ใช้ receipt รุ่นนี้เท่านั้น
+10. ดู [handoff](HANDOFF_v1.9.3.md) และ [release state](contracts/release.v1.9.3.json) Current local QA ผ่านแบบจำกัด ดู receipt ปัจจุบัน Provider/live/ZIP ยัง pending อุปกรณ์จริง full matrix และ backend ไม่ถูกยืนยันจาก hash หรือ VM tests
 
-P0 ใช้ข้อมูล CityMETER ที่เชื่อมแล้วเพื่อคัด Demand และสร้างคิวสำรวจ Strategy 01/03/05/07 ส่วน offering รายสาขา โรงพยาบาล/โรงเรียน คลัสเตอร์จริง เส้นทาง และผลธุรกิจอยู่ในเฟสเพิ่มหลักฐาน ไม่สร้างผลเทียมแทนข้อมูลที่ขาด
-
-Static preview เก็บงานใน browser นี้ ยังไม่มี shared backend, server RBAC, email/LINE delivery หรือ private production media งานเหล่านั้นอยู่ใน production plan สถานะตรวจรับและเผยแพร่ปัจจุบันให้ดู receipt รุ่น 1.9.2 เท่านั้น
-
-รุ่น 1.9.1 ปรับ tooltip ให้มีเพียงอันเดียว ลดเส้นรบกวนเมื่อดูจุดสาขา และแสดงปลายทาง/จำนวนเมื่อเล็งทำเล อ่าน [ข้อตกลง interaction](docs/MAP_CLARITY_AND_ACTION_GUIDANCE_v1.9.1.md). สูตรและโปรไฟล์ยังใช้ 1.9.0 เดิม Interaction นี้คงไว้จาก 1.9.1 ส่วน current release ตรวจตาม receipt 1.9.2
-
-QA รุ่น1.9.2 ผ่าน 29 suites / 506 checks และ native review แบบจำกัด 12 ข้อ ภาพจริง 12 ภาพ ดู [QA](evidence/qa-v1.9.2.json). ผล1.9.1 เป็นประวัติ Provider/live bytes, physical device, screen reader และ full matrix แยกจากผลนี้
-
-รุ่น 1.9.2 ใช้ Villa Market/Lawson108/Tops artwork ที่เจ้าของส่ง และแก้ Supply icon/caption อ่าน [คู่มือ patch](docs/BRAND_IDENTITY_AND_SUPPLY_CHIPS_v1.9.2.md) ข้อมูลและ preset เดิมไม่เปลี่ยน
+P0 ใช้ CityMETER ที่เชื่อมแล้วสำหรับ Demand/Supply และเบาะแส Strategy 01/03/05/07 ส่วน anchors, offerings, physical clusters, route capture, future milestones และ performance อยู่เฟสเพิ่มหลักฐาน ไม่สร้างค่าแทนข้อมูลที่ขาด

@@ -1,3 +1,9 @@
+# Current handoff · Yolk 1.9.3 candidate
+
+เริ่มจาก [handoff รุ่น 1.9.3](HANDOFF_v1.9.3.md), [Product + plan ฉบับเต็ม](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.3.md) และ [release state](contracts/release.v1.9.3.json). Current local QA ผ่านแบบจำกัดตาม receipt รุ่น 1.9.3 Publication/live bytes ยัง pending ผลรุ่นก่อนด้านล่างเป็นประวัติ
+
+---
+
 # Developer handoff · CityMETER: Yolk 1.9.2
 
 เริ่มจาก [Product statement + implementation ฉบับเต็มไฟล์เดียว](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.2.md) แล้วทำ T00 เพื่อ map stack จริงของ CityMETER ก่อนเขียนบริการ production

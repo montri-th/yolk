@@ -103,3 +103,48 @@ html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .lea
 .workspace-cluster-list{display:grid;gap:5px;margin-top:8px}
 .workspace-cluster-list button{display:flex;align-items:center;gap:7px;text-align:start;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--ink);padding:7px;font:500 13px/1.45 'Bai Jamjuree',sans-serif}
 @media(max-width:1099px){.workspace-supply-view{padding:0 10px 4px;gap:5px}.workspace-supply-view button{min-height:36px;font-size:12px;padding:4px 8px}.workspace-map-panel[data-workspace-supply-view=points] .workspace-map-stats{white-space:normal;flex-wrap:wrap}}
+
+/* Map-first workspace: two compact task controls and one shared options disclosure.
+ * Preserve labels, units and accessible evidence; only auxiliary detail is collapsed. */
+.workspace-map-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"title options expand" "stats stats stats";align-items:center;column-gap:8px;row-gap:0;padding:8px 12px 6px;min-height:64px}
+.workspace-map-toolbar>.workspace-map-heading{display:contents}
+.workspace-map-toolbar h2{grid-area:title;min-width:0;font-size:18px;line-height:1.4;overflow-wrap:anywhere}
+.workspace-map-toolbar .workspace-map-stats{grid-area:stats;min-width:0;flex-wrap:wrap;white-space:normal;font-size:12px;line-height:1.5;gap:3px 8px}
+.workspace-map-stats strong{font-size:17px;line-height:1.4}
+.workspace-map-stats .workspace-demand-count{flex-basis:auto;font-size:12px}
+.workspace-map-controls-toggle,.workspace-map-expand{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:44px;min-width:44px;max-width:100%;padding:6px 9px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--ink);font:500 13px/1.4 'Bai Jamjuree',sans-serif;white-space:nowrap}
+.workspace-map-controls-toggle{grid-area:options}
+.workspace-map-expand{grid-area:expand}
+.workspace-map-controls-toggle .yl-icon,.workspace-map-expand .yl-icon{font-size:20px;margin:0}
+.workspace-map-actions.workspace-map-options{display:none;position:absolute;top:calc(100% - 2px);left:12px;right:12px;z-index:1100;max-height:min(340px,calc(100svh - 176px));overflow:auto;overscroll-behavior:contain;padding:12px;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+.workspace-map-panel[data-workspace-controls-open=true] .workspace-map-options{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:12px}
+.workspace-map-options label{display:grid;flex:1 1 140px;min-width:0;gap:4px;font-size:13px}
+.workspace-map-options label>span{display:block}
+.workspace-map-options select{width:100%;max-width:none;min-height:44px;font-size:14px}
+.workspace-map-options button{min-height:44px;min-width:44px;padding:6px 10px;font-size:13px}
+.workspace-map-options [data-workspace-map-focus]:not([hidden]){display:inline-flex!important;align-items:center}
+.workspace-map-panel #workspace-map{flex:1 1 0;min-height:0}
+.workspace-map-footer{background:var(--canvas);padding:6px 12px}
+.workspace-map-evidence summary{min-height:44px;display:flex;align-items:center;gap:6px}
+.workspace-map-evidence[open] [data-workspace-map-note]{display:block}
+.workspace-map-panel .leaflet-bar a{min-width:44px;min-height:44px;line-height:44px}
+@media(max-width:1099px){
+ .workspace-map-toolbar{min-height:58px;padding:4px 10px;column-gap:6px}
+ .workspace-map-toolbar h2{font-size:15px;line-height:1.4}
+ .workspace-map-controls-toggle,.workspace-map-expand{font-size:12px;padding:5px 7px}
+ .workspace-map-toolbar .workspace-map-stats{font-size:12px;line-height:1.4;gap:3px 7px}
+ .workspace-map-stats strong{font-size:16px}
+ .workspace-map-breadcrumbs{min-height:44px;gap:6px;padding-inline:10px}
+ .workspace-map-breadcrumbs button{min-height:44px;padding:3px 2px}
+ .workspace-map-poi-layers{padding:0 10px 4px;gap:6px}
+ .workspace-map-poi-layers button,.workspace-supply-view button{min-height:44px;padding:5px 8px}
+ .workspace-supply-view{padding:0 10px 4px}
+ .workspace-map-actions.workspace-map-options{left:10px;right:10px}
+ .workspace-map-footer{position:relative;inset:auto;padding:4px 54px 4px 10px;min-height:52px;max-height:148px}
+ .workspace-map-evidence{right:4px;top:0}
+ .workspace-map-evidence summary{min-width:44px;min-height:44px}
+ .workspace-map-evidence[open] summary{right:4px;top:0}
+ .workspace-map-evidence[open] [data-workspace-map-counts]{max-height:64px}
+ .workspace-map-footer [data-workspace-map-status]{max-height:52px;overflow:auto}
+ .workspace-map-panel .leaflet-bottom{bottom:0}
+}

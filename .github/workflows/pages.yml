@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify public 1.9.2 artifact, source grains and DS assets
-        run: python3 scripts/verify-pages-v1.9.2.py
-      - name: Check Demand factors, strategy evidence, Supply modes and retained source/map/CRUD invariants
+      - name: Verify public 1.9.3 artifact, source grains and DS assets
+        run: python3 scripts/verify-pages-v1.9.3.py
+      - name: Check opportunities, illustrated guide, map recovery and retained analytical invariants
         run: |
           node scripts/check-three-industry.cjs
           node scripts/check-brand-presets.cjs
@@ -51,6 +51,9 @@ jobs:
           node scripts/check-map-clarity.cjs
           node scripts/check-action-guidance.cjs
           node scripts/check-icon-controls.cjs
+          node scripts/check-map-hierarchy.cjs
+          node scripts/check-map-recovery.cjs
+          node scripts/check-strategy-guide.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static preview

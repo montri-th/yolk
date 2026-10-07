@@ -7,3 +7,22 @@
 @media(max-width:1099px){#mobile-nav{grid-template-columns:repeat(5,minmax(0,1fr))}}
 
 .strategy-choices{container-type:inline-size}@container(min-width:650px){.strategy-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.opportunity-head h1{display:flex;align-items:center;gap:10px}
+.opportunity-counters{grid-template-columns:repeat(2,minmax(0,1fr));margin:16px 0}
+.opportunity-head p{font-size:16px;line-height:1.65}
+.opportunity-scope,.opportunity-reason{font-size:15px;line-height:1.65}
+.opportunity-scope .yl-icon,.opportunity-reason .yl-icon{vertical-align:middle;margin-right:6px}
+.opportunity-strategy-picker{margin:18px 0;padding:14px;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+.opportunity-strategy-picker>summary,.opportunity-evidence>summary,.opportunity-profile>summary,.opportunity-limits>summary,.opportunity-sort>summary{min-height:44px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:15px;line-height:1.6;color:var(--accent)}
+.opportunity-strategy-picker>summary span{min-width:0}
+.opportunity-evidence{border-top:1px solid var(--line);padding-top:6px}
+.opportunity-evidence>summary .control-caption{font-weight:600}
+.opportunity-profile .section{border:0;padding:12px 0;margin:0}
+.opportunity-sort{font-size:14px;color:var(--muted)}
+.opportunity-strategy-picker>summary::after,.opportunity-evidence>summary::after,.opportunity-profile>summary::after,.opportunity-limits>summary::after,.opportunity-sort>summary::after{content:'⌄';margin-left:auto;flex:0 0 auto}
+.opportunity-strategy-picker[open]>summary::after,.opportunity-evidence[open]>summary::after,.opportunity-profile[open]>summary::after,.opportunity-limits[open]>summary::after,.opportunity-sort[open]>summary::after{content:'⌃'}
+.strategy-result-tags .tag{display:inline-flex;gap:6px;align-items:center}
+.strategy-flow a:where(:link,:visited){color:var(--accent);text-decoration:none}
+.strategy-flow a:hover .control-caption{text-decoration:underline;text-underline-offset:4px}
+.strategy-flow a .yl-icon{text-decoration:none}

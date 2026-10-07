@@ -1,0 +1,336 @@
+{
+  "schemaVersion": "yolk.automated-qa/1.9",
+  "version": "1.9.3",
+  "status": "PASS",
+  "testedAt": "2026-10-07T17:12:01.743305+00:00",
+  "results": [
+    {
+      "suite": "scripts/check-action-guidance.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "4367fc2047a3b6bcbab7b1a57a17001243877dd57200e3ecb9135ce91f4f7f39",
+      "outputSha256": "4cdf103eb6af0490812c729af970812b26d88c704b7d56b4e0a95cda1d7714c5",
+      "passLines": 26,
+      "checks": 26,
+      "countBasis": "reported_named_test_cases"
+    },
+    {
+      "suite": "scripts/check-analysis-integration.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "c94b733f8e89aceb4304e6f6e2ac3c40cdc39f3117405be27f983ac3d92eb727",
+      "outputSha256": "4cdd90164005e674667a6fd25f8a5a3ff3c4cc76fb1bca8a805dc0635586d0b5",
+      "passLines": 10,
+      "checks": 10,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-branch-context.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "4bb63cce7aa3a31178683824eca24f19e23052e7edcd7571bd982b4a8c48959e",
+      "outputSha256": "935c519603d55b8bbfc7ea39a93e9fb624a31272fe24ef85c24c7b030d7c03b5",
+      "passLines": 0,
+      "checks": 38,
+      "countBasis": "reported_named_test_cases"
+    },
+    {
+      "suite": "scripts/check-brand-presets.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "e33b7db7ff1b31166c005219f6781982679fcb9923943ba8cb19232b55819147",
+      "outputSha256": "7d809097d22e07e8eff566c904b03ec4925099e3a3861de47b8bb8b5db82fed4",
+      "passLines": 13,
+      "checks": 13,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-cold-branch.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "08b87a0d404e48bab76addf59c0ec3a45825f81977a3e129770a2a822aa5adc9",
+      "outputSha256": "086b9c42d16936b2be54f28db7abc59cde13e936dde184728e58b8debb387f30",
+      "passLines": 12,
+      "checks": 12,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-criteria-controls.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "3d0726ac3aacafd576846395a493442fc19a1e1a0fdaf9e7567127244fd59855",
+      "outputSha256": "c837e687db2fd5475516314efd3bf18c6d0bac505a39a51a9a134a9a53120500",
+      "passLines": 0,
+      "checks": 14,
+      "countBasis": "reported_named_test_cases"
+    },
+    {
+      "suite": "scripts/check-criteria-map.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "1425d99159d72c71b99a2196f77986b1e6a5b3f2a5ec7abba2223b565bcb1060",
+      "outputSha256": "4c4709e5c6555dd4925bb42d408053903a5a9a0301ca1d72ffe2c7dd43a2cd2c",
+      "passLines": 0,
+      "checks": 18,
+      "countBasis": "reported_named_test_cases"
+    },
+    {
+      "suite": "scripts/check-demand-factors.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "27c6a96d4f4734ea34c03d2a66b7d1336b8dc5b9009009fe23880229d9455e6d",
+      "outputSha256": "2a7d941546782242c19a098232c2a6cfbdac06bc141e9b8b867bba827f008743",
+      "passLines": 0,
+      "checks": 12,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-icon-controls.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "92ad1b6ae0009fd78d0776796f9bcbf2058ae2b7dbfb940fd701e5caf4ea6538",
+      "outputSha256": "03201f0323ae750cd6f740c2ea945c86c8617c9c3ad2f3edd4f5a1a5e4c0bd11",
+      "passLines": 9,
+      "checks": 9,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-location-review.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "5e4d36c9d556e884a4498a21f237066f650ddd66e292fc25ef5d38906582b74f",
+      "outputSha256": "5b14cb54e4ed3b628df9eef2a21335a36e2e5536695a8d93f488cff7fe462fae",
+      "passLines": 11,
+      "checks": 11,
+      "countBasis": "PASS_output_lines"
+    },
+    {
+      "suite": "scripts/check-map-analysis.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "955f0468df85ba02eb2b406244f4d1be39b5c92178014dbeb16a0e68f8746b76",
+      "outputSha256": "ff7f6ad17b4b392001042566cad67b12e0168e79c4206e57a1acd983348f9f4f",
+      "passLines": 14,
+      "checks": 14,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-map-clarity.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "59b227ca434868e2c6f11310e79b6ff6e0e1bb83c2ef66678accdd248d8f8578",
+      "outputSha256": "3ad523425a2aaf98872a80932b8ef3fa65598270f09097fd532ccaef7b2dbd7d",
+      "passLines": 10,
+      "checks": 10,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-map-hover.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "b49d056191c4605e2fba3fdf8c37deeb216dc41971220e86bb5d27d6f306786f",
+      "outputSha256": "d0cd3576fbc74698b02803913776d066d782272a9a0f1f6229ebe9c0c2d5b6f4",
+      "passLines": 14,
+      "checks": 14,
+      "countBasis": "PASS_output_lines"
+    },
+    {
+      "suite": "scripts/check-map-lut41.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "14124df5ed4f98d34bcddfac4d841340ee1fda9f8d6a8ef2bffc98cca0471572",
+      "outputSha256": "47929b58265ed6dd70579080cd8067481b2ecb2d8c57c168376af917cc6aab7e",
+      "passLines": 22,
+      "checks": 22,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-map-responsiveness.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "e46c4676c8e5d10ff5441fdaa203445138067b1dd0186f80891c525e58a45913",
+      "outputSha256": "4f1514acde5b752c0bda8690c2f76256d31084200e49156f83c8fd2c18e77767",
+      "passLines": 13,
+      "checks": 13,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-opportunity-strategies.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "54660b59c70856c8871e351cfa00b751164788c00a38044500491414b1a8ef50",
+      "outputSha256": "6d665ce0bac302da94ea5c850f73d6c8f6e3e2d20fed4afa1346ed64d0d5857d",
+      "passLines": 39,
+      "checks": 39,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-pattern-counts.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "ba55894e177efd378fc646fa7efeab5842f2da7cee2fbd1ef022edb64e3114d9",
+      "outputSha256": "fd443c59ae297da6cbae753d71762a7e416c22fafed5291e90a0772ffc98ea53",
+      "passLines": 14,
+      "checks": 14,
+      "countBasis": "PASS_output_lines"
+    },
+    {
+      "suite": "scripts/check-photo-runtime.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "66cdba46df1bcc4ad60351e522b8a3ea8dab90b2b913f9757c35689ab92b5c4c",
+      "outputSha256": "87ec2072121f8809e7e249eb9b9f455cbd79c2f819e9e5dcedaae151c9d43fa4",
+      "passLines": 0,
+      "checks": 28,
+      "countBasis": "reported_passed_test_case_total"
+    },
+    {
+      "suite": "scripts/check-poi-popup.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "9bc8ef21c06a8f93d33a8d20d17700662b0d0d6a2f880493bb62a105288ccfc5",
+      "outputSha256": "e2ad17f68d950ad9bc452640d883ad7d19f7a316c4974a5d3e39dc44fb1726c7",
+      "passLines": 17,
+      "checks": 17,
+      "countBasis": "PASS_output_lines"
+    },
+    {
+      "suite": "scripts/check-relative-supply.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "9260117aa67753cb71662bc44001cc25c33ab379e7ae7fe358346de3eb5cf99e",
+      "outputSha256": "77425d0bab1dc37d34fd7a458691f3e8bca323bc5c1adc1a8ee669581f6643f7",
+      "passLines": 0,
+      "checks": 14,
+      "countBasis": "reported_named_test_cases"
+    },
+    {
+      "suite": "scripts/check-save-context.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "c3bd1aed32ea899cd98b169570a21d5cca4603d6c20ad78439501ca63266c96c",
+      "outputSha256": "98f00569aaeb7f67acf57a1bd591b93d76a3d91962d347923962a25e2894f50b",
+      "passLines": 14,
+      "checks": 14,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-simple-criteria.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "dca2a8a849640fbf847e6eabea3b58a238a5b39de4d0ef9b1cc1fe4bb50c3432",
+      "outputSha256": "2a7dd78602c5cba258958fc53a36fc58caea159d99733e03afde9f0c1b36e1bb",
+      "passLines": 22,
+      "checks": 22,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-strategy-ui.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "0409621464bfadb4bee44f327f249e608fec10ab46990a4191cf9ee103b8a5d1",
+      "outputSha256": "eece0b922cf8bb381810836dcf7797b0a736aeca1b1d8014f991821e1cb7ed05",
+      "passLines": 25,
+      "checks": 25,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-supply-compare.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "988f9d91f356ad4ffbd31dc707e931a754b0d9d8ebc41d9028f04cc733852464",
+      "outputSha256": "02891ca0f66fbe47980a07c801979ffa9c711fcc151856dbdb0541d880862f25",
+      "passLines": 11,
+      "checks": 11,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-supply-poi-modes.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "696748dcd2a71010371571c6d3274279f3f119ef4f6ac40eb759b168579eee99",
+      "outputSha256": "4d8350d1357144e1a9d211d909929abf41a3377d0fef1e9e68ffb2c7ea0af1b3",
+      "passLines": 9,
+      "checks": 9,
+      "countBasis": "reported_named_test_cases"
+    },
+    {
+      "suite": "scripts/check-supply-symbols.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "e4adbf6b1ada5b29fd4534af6e9bdd547ad1993fd7bd247d385943dff659326e",
+      "outputSha256": "5fe611107cc086c6d99d23d693552482f28ba825d7e39456ca0dbd6580a734ba",
+      "passLines": 10,
+      "checks": 10,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-three-industry.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "854f0951c99e3889dff93f0b8487a0df5820366c3ae1d8c9337d95bfc7a48b85",
+      "outputSha256": "54d7f29632c380138f737814576bd1c67cc86fb682ea6e1479309fbaf6e31081",
+      "passLines": 0,
+      "checks": 30,
+      "countBasis": "reported_named_test_cases"
+    },
+    {
+      "suite": "scripts/check-workspace-map.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "5ba517433a2dd14a3af6c18a8bbbd9b6a512d4e44b2e09d43f374a93bc3f27d1",
+      "outputSha256": "a2705e064594cdbfb9994730f9b4c1df081d67320b3a4dd8e83c96f93f712140",
+      "passLines": 27,
+      "checks": 27,
+      "countBasis": "reported_test_case_total",
+      "testedAt": "2026-10-07T17:54:01.394803+00:00"
+    },
+    {
+      "suite": "scripts/check-yolk-tier.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "289f395f762bfa5dc35e7815b5397fce6ed4ca0c2470bea22201739c053abb71",
+      "outputSha256": "a458c0115237d50a830cdf2e67ae637d64f443e8ff0af7c202517fbf037fd1ac",
+      "passLines": 11,
+      "checks": 11,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-map-hierarchy.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "5ce6707ecf2eb2de9774d973b4e4d8a4a772b930c9d4ee740976632c15756cce",
+      "outputSha256": "006d5d89cb45593cb5cb3433f0ed42ff28b1be9e4ee8c4c1c4de8d3dbf04308e",
+      "passLines": 8,
+      "testedAt": "2026-10-07T17:44:38.181123+00:00",
+      "checks": 8,
+      "countBasis": "reported_test_case_total"
+    },
+    {
+      "suite": "scripts/check-map-recovery.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "d9714a0f1552765ba87f3f76df366ec5eedb11a53da7e413ba9acdffd7b3c493",
+      "outputSha256": "0be1e6b7bf04e80add783a2c46b2f1f6b2177509f0a81562fabcaff3d9ad8def",
+      "passLines": 11,
+      "checks": 11,
+      "countBasis": "reported_test_case_total",
+      "testedAt": "2026-10-07T17:53:59.631655+00:00"
+    },
+    {
+      "suite": "scripts/check-strategy-guide.cjs",
+      "exitCode": 0,
+      "passed": true,
+      "testSourceSha256": "10e7836babb528e63384a5a281ec5e1f05d1f33d551662c5bc1710aed8ce534e",
+      "outputSha256": "543ab07fdca0e5200c2d9d771c6a22a66d882dde6f9bd0b000a6a07fa3459584",
+      "passLines": 11,
+      "checks": 11,
+      "countBasis": "reported_test_case_total"
+    }
+  ],
+  "scope": "Current source-backed runtime and UI/controller regression suites. Native browser, external tile/provider delivery and business outcomes remain separate.",
+  "suites": 32,
+  "checksPassed": 537,
+  "updatedAt": "2026-10-07T17:54:01.404952+00:00",
+  "checkCountDefinition": "Sum of reported passed test cases or exact PASS output lines; not individual assertion counts. Original full-run timestamp and unaffected output bytes are preserved. Hierarchy was rerun for its final CSS cascade fix; recovery, workspace map and hierarchy were rerun after same-style fractional-zoom retry; recovery and workspace map were rerun after the Leaflet removal-listener lifecycle fix."
+}

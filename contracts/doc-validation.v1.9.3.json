@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "yolk.document_validation/1.9",
+  "version": "1.9.3",
+  "recordedAt": "2026-10-07T18:10:41.521217+00:00",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 3,
+  "tasks": 25,
+  "metrics": 25,
+  "brandBindings": 37,
+  "guideStrategies": 8,
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.3.md",
+    "sha256": "8449d69612b59f45c47ed2a5ca3ac7c32f6ba05fe8f9936f231088cca70a413b"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.3.json",
+    "sha256": "1dc5a932b46bb46361b641193fddcb21ac9d30c961d1dafe44752e526679392a"
+  },
+  "narrativeRegistry": {
+    "path": "prototype/data/strategy-guide.v1.9.3.json",
+    "sha256": "04aad69b6b3ec79cfae0923a6b743ce9807c1ce63798d04a15e58ec7775ad080"
+  },
+  "checks": [
+    {
+      "name": "Three embedded machine blocks parse; final block equals standalone full blueprint",
+      "passed": true
+    },
+    {
+      "name": "Full analytical contracts source/profiles/Demand/Supply/ranking/opportunity remain exactly latest retained baseline",
+      "passed": true
+    },
+    {
+      "name": "Complete production/schema/API plan retained exactly",
+      "passed": true
+    },
+    {
+      "name": "Retained interaction1.9.1 and brandIdentityUI1.9.2 projections unchanged",
+      "passed": true
+    },
+    {
+      "name": "25 bounded tasks have dependencies inputs outputs steps acceptance verification codingPrompt",
+      "passed": true
+    },
+    {
+      "name": "All task dependencies refer to earlier declared task",
+      "passed": true
+    },
+    {
+      "name": "Current expansion experience projection equals standalone contract",
+      "passed": true
+    },
+    {
+      "name": "Strategy guide projection equals authoritative bilingual registry",
+      "passed": true
+    },
+    {
+      "name": "Guide matches eight canonical current strategy IDs and phase",
+      "passed": true
+    },
+    {
+      "name": "Eight guide items have nonempty Thai/English and three use steps",
+      "passed": true
+    },
+    {
+      "name": "Guide icons agree with current strategy UI and retained subset",
+      "passed": true
+    },
+    {
+      "name": "Guide is read-only with explicit hypothetical illustration policy",
+      "passed": true
+    },
+    {
+      "name": "Examples use supported industries only and include bilingual scenario/action/caveat",
+      "passed": true
+    },
+    {
+      "name": "Current verification binds actual current receipts and bounded counts",
+      "passed": true
+    },
+    {
+      "name": "Handoff current full product/release/guide links resolve; retained brand identity points1.9.2",
+      "passed": true
+    },
+    {
+      "name": "Release current bounded local status and receipt bindings without publication upgrade",
+      "passed": true
+    },
+    {
+      "name": "Routing alias exactmarket with camera/context/draft preservation and only two main counters",
+      "passed": true
+    },
+    {
+      "name": "Soft DS surfaces exact and child hierarchy/POI unchanged",
+      "passed": true
+    },
+    {
+      "name": "Current human document local links all resolve",
+      "passed": true
+    }
+  ],
+  "currentRuntimeAcceptance": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "nativeAcceptance": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "sourceQAReceipt": {
+    "path": "evidence/qa-v1.9.3.json",
+    "sha256": "93c4f585ddf58a6000684a6a27c7c026df0b63759375632e675f75b73bb93cd9"
+  },
+  "nativeReceipt": {
+    "path": "evidence/browser-v1.9.3/native-browser-review.json",
+    "sha256": "399818fd8609a9acc460a61e7960e47483e8abe2fce007ccf71e2a2cb5daf7cc"
+  },
+  "coverageBoundary": "Current document/embedded/narrative consistency and exact fresh local receipt bindings only. Referenced native review is bounded to its22checks/17screenshots; fresh LDS verification is package-only. Provider/live/publication/ZIP, physical devices, fullmatrix, screen-reader speech and production backend are separate, unverified gates."
+}

@@ -1,37 +1,23 @@
-# CityMETER: Yolk · 1.9.2 · LDS 0.9.7
+# CityMETER: Yolk · 1.9.3 · local review complete · LDS 0.9.7
 
 **หาไข่แดง ขยายตลาด — Find the yolk. Grow your market.**
 
-คัดพื้นที่ Demand เข้มข้น เทียบสาขาและการแข่งขัน แล้วเลือกวิธีขยายตลาดพร้อมแผนสำรวจ บนแผนที่เดียว รองรับ Fuel, Grocery และ Non-bank
+เลือกแบรนด์แล้วเห็น **โอกาสขยาย**: คิวทำเลชวนสำรวจจาก preset ที่ข้อมูลรองรับ เปิดเหตุผล สิ่งที่ยังไม่รู้และงานแรก แล้วเล็งพร้อมผู้รับผิดชอบบนแผนที่เดียว รองรับ Fuel, Grocery และ Non-bank
 
-[Web preview](https://montri-th.github.io/yolk/) · [Product + implementation ฉบับเต็มไฟล์เดียว](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.2.md) · [เริ่มพัฒนา](START_HERE.md) · [Handoff](HANDOFF.md) · [Assets](ASSET_INDEX_v1.9.2.md)
+[Web preview](https://montri-th.github.io/yolk/) · [Product + plan จากศูนย์ไฟล์เดียว](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.3.md) · [Start here](START_HERE.md) · [Handoff](HANDOFF_v1.9.3.md) · [Assets](ASSET_INDEX_v1.9.3.md) · [Release state](contracts/release.v1.9.3.json)
 
-## ทำงานอย่างไร
+## ใช้งาน
 
-1. **หาไข่แดง:** เลือกธุรกิจ แบรนด์ และรูปแบบ ได้เกณฑ์ตั้งต้นจากข้อมูล CityMETER จริง ปรับได้ไม่เกิน 3 ปัจจัยร่วมกันในแต่ละจุด สีไข่แดงเข้ม/ไข่แดง/ไข่ขาวบอก Demand สูงมาก/สูง/ค่อนข้างสูง
-2. **ดู Supply และการแข่งขัน:** เทียบโล่ของเราและดาบของคู่แข่งในตลาดที่เกี่ยวข้อง ดูจำนวนหรือสาขาเทียบฐานตลาด เปลี่ยนจาก choropleth เป็นจุดสาขาได้ทุกระดับ
-3. **เลือก Strategy:** เลือก 1–3 วิธีขยายตลาด อ่าน “พบแล้ว / ยังไม่รู้ / งานแรก” แล้วเล็งทำเลพร้อมผู้รับผิดชอบและ snapshot ของเกณฑ์/ข้อมูลรุ่นที่ใช้
+1. **เห็นโอกาส:** ใช้ preset หรือเกณฑ์เดิมของแบรนด์ เลือกไม่เกิน 3 จาก 8 Strategy ในหน้าเดียว เปิดภาพและตัวอย่างเพื่อเข้าใจแต่ละวิธี
+2. **เข้าใจเหตุผล:** ดูทำเลชวนสำรวจ เปิดหน้า Demand หรือ Supply เมื่อต้องตรวจสมมติฐาน แผนที่ กล้องและ draft เดิมยังอยู่
+3. **เล็งและลงมือ:** บันทึก snapshot ผู้รับผิดชอบและงานแรก แล้วเพิ่มหลักฐานจากภาคสนามก่อนลงทุน
 
-8 Strategy เป็นวิธีสร้างคิวสำรวจชุดใหม่ แยกจาก 8 รูปแบบ Demand/Competitor/Own เดิม P0 มีเบาะแสสำหรับวิธี 01/03/05/07 ส่วนวิธีอื่นระบุข้อมูลที่ต้องเพิ่ม การคัดผ่านยังไม่ใช่การอนุมัติเปิดสาขาหรือการรับประกันยอดขาย อ่าน [Strategy experience](docs/STRATEGY_EXPERIENCE_v1.9.0.md)
+ฐาน 7,954 reporting UUIDs, 25 metrics, 37 profiles และ national benchmark คงเดิม Strategy เป็นคิวสำรวจ ไม่ใช่คะแนนยอดขายหรือหลักฐาน unmet demand การเปลี่ยน Supply, น้ำหนักหรือ Strategy ไม่เปลี่ยน Demand/Tier/eligible IDs เกณฑ์/profile/engine ใช้ 1.9.0, interaction ใช้ 1.9.1 และ identity ใช้ 1.9.2
 
-## ข้อมูลและ preset
+## รุ่น 1.9.3
 
-ฐานทั่วประเทศมี **7,954 reporting UUIDs และ 25 metrics** กทม. ใช้แขวง ต่างจังหวัดใช้ อปท. การซูมหรือกรองจังหวัดไม่เปลี่ยน national benchmark โปรไฟล์ 37 แบรนด์/นิติบุคคลมีที่มาและข้อจำกัดใน [brand research](docs/BRAND_RESEARCH_v1.9.0.md) และ [runtime registry](prototype/data/brand-strategy-profiles.v1.9.0.json)
+รวมภาพรวมประเทศกับ Strategy เป็น **โอกาสขยาย / Expansion opportunities** ส่วน Demand/Supply แยกไว้ มีแผนที่ใหญ่ขึ้น ปุ่มขยาย/ย่อ controls สั้น และเส้นขอบขาวที่แยก parent/child ได้ชัดขึ้น Light ใช้ foundation surface อ่อนตาม LDS Guide ทั้ง 8 วิธีมีไอคอน ภาพอธิบายและตัวอย่างสมมติ #strategy เดิมเป็น alias ของหน้าเดียว
 
-รุ่น 1.9.0 ปรับ initial Demand paths ให้จำกัดไม่เกิน 3 ปัจจัยและเหมาะกับแต่ละ profile รวมถึง Fuel ที่เปลี่ยนจาก activity vote เดิม ค่าใหม่เป็นสมมติฐานของ Yolk แสดง diff ก่อนใช้ และไม่เขียนทับเกณฑ์หรือแบบร่างที่เคยบันทึก Supply, weights และ Strategy เปลี่ยนลำดับหรือมุมมองได้ แต่ไม่เปลี่ยนชุดพื้นที่ผ่าน Demand ภายใต้เกณฑ์เดิม
+อ่าน [Experience guide](docs/EXPANSION_OPPORTUNITIES_v1.9.3.md), [machine contract](contracts/expansion-experience.v1.9.3.json) และ [Strategy narrative](prototype/data/strategy-guide.v1.9.3.json)
 
-ใช้ exact LDS 0.9.7 base + Location Intelligence Profile, official unframed Landometer logo, square brand graphics และ Material Symbols extension ไม่มี motif, selected left rail หรือกรอบตกแต่งโลโก้
-
-## สถานะ preview และการตรวจรับ
-
-Demo เป็น browser-local simulation ยังไม่มี shared backend/server RBAC/email/LINE/private production media ข้อมูลบริบทและบัญชีสาขาไม่ยืนยัน traffic, การเปิดจริง, capacity, market share หรือยอดขาย ส่วน brand positioning ที่อ้างจากผู้ประกอบการไม่ใช่ผลสำรวจการรับรู้ของลูกค้า
-
-อ่านผลตรวจและสถานะเผยแพร่ปัจจุบันที่ [release contract 1.9.2](contracts/release.v1.9.2.json) แยก local QA, native browser, provider และ live-byte evidence การพัฒนาใน checkout ไม่ใช่หลักฐานว่าเว็บสาธารณะเปลี่ยนแล้ว และ hash checks ไม่แทนการตรวจ UI หรืออุปกรณ์จริง
-
-ผลรุ่น 1.9.1 และเก่ากว่าเก็บเป็นประวัติใน contracts/evidence ของรุ่นนั้น ไม่ใช่ผลตรวจผ่านของ 1.9.2 เริ่มพัฒนาจากศูนย์ได้ที่ [เอกสารเต็ม](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.2.md) พร้อม [machine blueprint](contracts/full-product.v1.9.2.json)
-
-รุ่น 1.9.1 ปรับ tooltip ให้มีเพียงอันเดียว ลดเส้นรบกวนเมื่อดูจุดสาขา และแสดงปลายทาง/จำนวนเมื่อเล็งทำเล อ่าน [ข้อตกลง interaction](docs/MAP_CLARITY_AND_ACTION_GUIDANCE_v1.9.1.md). สูตรและโปรไฟล์ยังใช้ 1.9.0 เดิม Interaction นี้คงไว้จาก 1.9.1 ส่วน current release ตรวจตาม receipt 1.9.2
-
-QA รุ่น1.9.2 ผ่าน 29 suites / 506 checks และ native review แบบจำกัด 12 ข้อ ภาพจริง 12 ภาพ ดู [QA](evidence/qa-v1.9.2.json). ผล1.9.1 เป็นประวัติ Provider/live bytes, physical device, screen reader และ full matrix แยกจากผลนี้
-
-รุ่น 1.9.2 ใช้ Villa Market/Lawson108/Tops artwork ที่เจ้าของส่ง และแก้ Supply icon/caption อ่าน [คู่มือ patch](docs/BRAND_IDENTITY_AND_SUPPLY_CHIPS_v1.9.2.md) ข้อมูลและ preset เดิมไม่เปลี่ยน
+Current local QA ผ่านแบบจำกัด: 32 suites / 537 reported cases, 22 native checks และภาพจริง 17 ภาพ Publication/provider/live-byte evidence ยังรอแยก ผลรุ่นก่อนเป็นประวัติ Demo ยังเก็บงานใน browser การทำงานร่วมทีมต้องพัฒนา shared backend, server RBAC, outbox, email/LINE และ private media ตาม [full plan](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.3.md)

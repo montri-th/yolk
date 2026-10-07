@@ -1,0 +1,590 @@
+{
+  "schemaVersion": "yolk.expansion-experience/1.9.3",
+  "version": "1.9.3",
+  "date": "2026-10-08",
+  "status": "locally_verified_preview_publication_pending",
+  "scope": "Merge the country overview and Strategy into one first page, with larger persistent map, compact controls and clearer white boundary hierarchy. No analytical migration.",
+  "retainedVersions": {
+    "criteria": "1.9.0",
+    "profiles": "1.9.0",
+    "strategyEngine": "1.9.0",
+    "interaction": "1.9.1",
+    "brandIdentityUI": "1.9.2",
+    "DS": "0.9.7"
+  },
+  "invariants": {
+    "reportingUUIDs": 7954,
+    "metrics": 25,
+    "selectableBrands": 37,
+    "nationalBenchmarkUnchanged": true,
+    "demandMembershipUnchanged": true,
+    "supplyTotalsUnchanged": true,
+    "savedCriteriaAndDraftsPreserved": true,
+    "samePersistentMap": true,
+    "noMotifsOrLogoFrames": true,
+    "analyticalColorAndOpacityUnchanged": true
+  },
+  "firstPage": {
+    "route": "#market",
+    "name": {
+      "th": "โอกาสขยาย",
+      "en": "Expansion opportunities"
+    },
+    "defaultContext": "Use the selected industry/brand/important format with saved criteria/draft first; an unseen context uses its single researched starter preset. No new user data is required for an initial evidence-limited queue.",
+    "internalPipeline": [
+      "Evaluate confirmed high Demand under the selected criteria and national benchmark",
+      "Compare relevant source-scope Supply with bounds/unknowns",
+      "Assess selected profile-relevant strategies against the same Demand rows",
+      "Project an evidence-limited candidate-to-check queue without mutating eligibility",
+      "Open reasons/missing evidence/first field task and shortlist with owner"
+    ],
+    "strategySelection": {
+      "catalog": "contracts/opportunity-strategies.v1.9.0.json",
+      "available": 8,
+      "maximumSelected": 3,
+      "default": "Existing researched profile/scope defaults only; preserve saved personal choices and drafts.",
+      "placement": "Collapsed inline chooser below the two primary counters/scope and before candidate results; render choices lazily when opened. Existing preferences remain per context, maximum three."
+    },
+    "queue": {
+      "label": {
+        "th": "ทำเลชวนสำรวจ",
+        "en": "Places to investigate"
+      },
+      "candidateMeaning": "A source-supported cue for a field check, not measured unmet demand, revenue, market share, consumer perception or success probability.",
+      "separateStates": [
+        "candidate_to_check",
+        "evidence_incomplete",
+        "not_supported_by_current_evidence",
+        "not_current_yolk",
+        "demand_evidence_incomplete"
+      ],
+      "cardFields": [
+        "location name and reporting scope",
+        "Demand tier",
+        "supported selected strategy reason",
+        "observed value/unit/period/source",
+        "missing evidence",
+        "first field task",
+        "shortlist action + current saved state"
+      ],
+      "sortAuthority": "Retained OpportunityEngine comparator; do not describe a different order or combine quantities across strategy units.",
+      "noResults": "Explain whether no confirmed Demand, no current strategy cue, missing evidence or unavailable source; keep data states separate from measured zero.",
+      "map": "Retain Demand tier colors on candidate areas; nonmatching or incomplete areas are transparent, not low Demand.",
+      "primaryCounters": [
+        "confirmed Demand eligible in selected scope",
+        "candidate-to-check locations in selected scope"
+      ],
+      "secondaryCounters": {
+        "shortlist": "Persistent navigation count, not repeated in the first-page main counter strip",
+        "incomplete": "No primary visible incomplete count. Explain states in page evidence-limits disclosure and result details/empty state; never fabricate a combined opportunity count."
+      },
+      "cardDisclosure": "Show the first supported reason, View place and Shortlist actions. Full reasons, missing evidence and field tasks use progressive disclosure.",
+      "emptyAction": "Link to the dedicated Demand investigation without changing criteria.",
+      "resultsHeading": {
+        "th": "เริ่มดูทำเลเหล่านี้",
+        "en": "Start with these places"
+      }
+    },
+    "supportPages": {
+      "demand": "Dedicated Demand investigation and criteria-supported metrics",
+      "supply": "Dedicated relevant Supply comparison with default choropleth and optional coordinate POIs at all drilldowns",
+      "criteria": "Shared applied criteria and private draft preview",
+      "targets": "Saved targets with assessment snapshots and owners",
+      "feed": "Committed team activity"
+    },
+    "compatibilityAlias": {
+      "from": "#strategy",
+      "to": "#market",
+      "status": "current_source_and_bounded_native_alias_pass_exact_state_bound_by_controller_regressions",
+      "preserve": [
+        "industry/brand/scope context",
+        "team criteria and private drafts",
+        "selected strategy set",
+        "map instance/camera/navigation",
+        "saved targets and evidence"
+      ],
+      "mustNot": [
+        "reset preset/context",
+        "remount map",
+        "silently apply draft",
+        "emit a team data-change event",
+        "create a duplicate page or change source counts"
+      ],
+      "hashRewrite": "Render normalizes legacy strategy to market without forcing a hash rewrite."
+    },
+    "brandContext": "Shared team/private-draft banner; brand/profile details and evidence limits collapsed below results. No duplicate mandatory three-step landing block."
+  },
+  "mapLayout": {
+    "desktop": {
+      "normalHeight": "calc(100dvh - 72px)",
+      "normalWorkPanelWidth": "380–440px",
+      "expanded": "Full workspace width; hide only the work panel. Keep persistent map and viewport/context.",
+      "status": "current_source_and_bounded_native_viewport_pass",
+      "actualNativeMeasurements": {
+        "status": "bounded_native_browser_measurement_pass",
+        "viewportPx": [
+          1440,
+          900
+        ],
+        "opportunityCanvasPx": [
+          742,
+          626.703
+        ]
+      }
+    },
+    "toolbar": {
+      "minimumHeightPx": {
+        "desktop": 64,
+        "mobile": 58
+      },
+      "statsRow": "Full-width row below compact primary controls.",
+      "options": "Progressive disclosure at all widths; no duplicated long control bar.",
+      "touchZoomEvidenceMinimumPx": 44
+    },
+    "mobile": {
+      "defaultHeight": "clamp(360px, 58svh, 560px)",
+      "expandControl": "Explicit Expand map / Compact control, personal display state; same map/camera.",
+      "minimumTouchTargetPx": 44,
+      "sameMapAndCamera": true,
+      "scrollAndFocus": "Expanded map is personal view state. Escape closes open map options first, then collapses the expanded map, restores bottom navigation and focuses its toggle. Named current viewport dimensions/behavior passed bounded native review; physical devices/full matrix remain unverified.",
+      "expandedHeight": "min(760px, 100svh - 88px - safe-area)",
+      "footer": {
+        "position": "Normal flex flow, not an overlay on canvas",
+        "minimumHeightPx": 52,
+        "maximumHeightPx": 148,
+        "boundedWhenEvidenceOpen": true,
+        "mapHostFlexMin": 0
+      },
+      "supplyDefaultHeight": {
+        "selector": "[data-analysis-kind=\"supply\"]",
+        "height": "clamp(480px, 74svh, 680px)",
+        "appliesTo": "Supply region-colour and optional point modes",
+        "precedence": "Explicit expanded mode overrides this route-specific default.",
+        "status": "current_source_and_bounded_native_viewport_pass"
+      },
+      "actualCanvasMeasurements": {
+        "status": "bounded_native_browser_measurement_pass",
+        "viewportPx": [
+          390,
+          844
+        ],
+        "market": {
+          "canvasHeightPx": 317.117,
+          "panelHeightPx": 489.516
+        },
+        "supplyCountry": {
+          "canvasHeightPx": 342.516,
+          "panelHeightPx": 624.555
+        },
+        "supplyExpanded": {
+          "canvasHeightPx": 473.961,
+          "bottomNavigationHidden": true,
+          "EscapeRestoresNavigation": true
+        },
+        "notPhysicalDeviceCertification": true
+      },
+      "expandedBottomNavigation": {
+        "hiddenWhileExpanded": true,
+        "restoreOn": [
+          "Compact",
+          "Escape collapse"
+        ],
+        "reason": "Avoid overlap with map attribution and legend; preserve a visible Compact control and keyboard escape path.",
+        "personalOnly": true
+      }
+    },
+    "resize": "Explicit Expand/Compact invalidates the existing map while preserving camera, including desktop width changes caused by that control. Ordinary responsive significant-width fitting remains governed by the retained rule; no recreation or criterion mutation."
+  },
+  "mapAppearance": {
+    "ordinaryWhite": "#FFFFFF",
+    "choroplethStrokePx": {
+      "countryDistrictChild": 0.3,
+      "ordinaryFineChild": 0.3,
+      "provinceParent": 1.2,
+      "districtParent": 1.05,
+      "chosenParentDistrict": 1.1,
+      "selectedFine": 0.8
+    },
+    "parentHalo": {
+      "only": "existing unfilled choropleth parent outlines",
+      "attribute": "data-workspace-boundary-halo=parent",
+      "dropShadowPx": 0.65,
+      "token": "--ldm-foundation-surface-canvas-dark",
+      "hex": "#11191D",
+      "neutral": true,
+      "forbidden": [
+        "POI view",
+        "selected fine area",
+        "filled analytical paint",
+        "new hit geometry",
+        "data-color/opacity transformation"
+      ]
+    },
+    "hover": {
+      "clickableScopeOutline": "#FFBC1F",
+      "widthPx": 2,
+      "singleTooltipOwner": "retained1.9.1"
+    },
+    "pointMode": "Retain the1.9.1 quiet POI stroke schedule; no extra child mesh or parent halo.",
+    "data": "Retain exact41LUTs and egg Tier1/2/3 colors/direction/opacity in both themes; source/display/click geography stays unchanged."
+  },
+  "foundationAndIcons": {
+    "lightSurfaces": {
+      "canvas": {
+        "token": "surface.soft.light",
+        "hex": "#E5E9E6"
+      },
+      "paper": {
+        "token": "surface.alt.light",
+        "hex": "#EEF1EE"
+      },
+      "scope": "Exact LDS foundation UI values only. Analytical data LUT/tier colors are separate and unchanged.",
+      "status": "sampled_native_actual_values_match_exact_DS_foundation_tokens"
+    },
+    "linkStates": "Sampled dark journey links#68C4E2 and light accent#176B82; caption-only underline and visible keyboard focus retained. Bounded actual review is distinct from a full element/state matrix.",
+    "genericSupply": "Use the existing store icon for overall Supply/menu/step; shield remains own network and swords remains competitor meaning.",
+    "identity": "Retain1.9.2 exact original artwork and explicit Villa light-original/dark-named fallback; no backing plate/motif/new glyph binaries."
+  },
+  "tileRecovery": {
+    "implementationStatus": "current_source_and_bounded_native_retry_pass",
+    "tracker": "Leaflet basemap tile events; loading / partial / error states, retained-grid counts are diagnostic only.",
+    "retry": {
+      "label": {
+        "th": "โหลดพื้นหลังใหม่",
+        "en": "Reload background"
+      },
+      "method": "Recreate only the current-style public tile layer through setBasemap(S.basemap); preserve the existing Leaflet map/camera/data/providers.",
+      "explicitUserAction": true,
+      "automaticRetry": false,
+      "preserve": [
+        "same map instance",
+        "camera and navigation",
+        "current criteria and source values",
+        "saved work"
+      ],
+      "avoids": [
+        "GridLayer.redraw()",
+        "camera zoom rounding",
+        "invalidateSize on retry",
+        "analytical data or geometry redraw"
+      ],
+      "tileLayerLifecycle": {
+        "activeLayers": 1,
+        "lateRetiredLayerEventsIgnored": true,
+        "retirementOrder": "Call public map.removeLayer(previous) before previous.off(); allow Leaflet once(remove) map-event cleanup to run, then clear the retired layer local handlers.",
+        "nativeConsole": {
+          "status": "bounded_fresh_native_zero_captured_errors",
+          "cacheToken": "ce27743ff1c9",
+          "errors": 0,
+          "observedSequence": "Two retry cycles,390↔1440viewport resize and zoom in/out.",
+          "boundary": "Only the named final fresh local browser sequence; no universal error-free or provider availability claim."
+        }
+      }
+    },
+    "boundariesRemainUsable": true,
+    "mustNotClaim": [
+      "provider root cause from local event counts",
+      "global availability",
+      "offline portability",
+      "successful retry without actual event/native evidence"
+    ],
+    "noPackagedTileCaches": true,
+    "nativeDiagnosis": {
+      "observation": "Leaflet GridLayer.redraw at fractional map zoom10.25 emitted an invalid /10.25/x/y.png OSM tile request in native review.",
+      "boundedCause": "Application retry path; not proof of provider availability or a global provider incident.",
+      "response": "Replace redraw with the existing same-style tile-layer creation path so normal tile-zoom quantization applies.",
+      "status": "fixed_source_and_bounded_native_recheck_pass"
+    },
+    "nativeSample": {
+      "receipt": "evidence/browser-v1.9.3/native-browser-review.json",
+      "integerURLRetry": "9/9sampled tiles loaded; status hidden after recovery; camera/breadcrumb/scale retained immediately",
+      "afterFinalZoom": "15/15tiles loaded in named final browser sequence",
+      "originalScreenshotLimitation": "Original missing-rectangle screenshot was not recreated identically; actual retry and listener-lifecycle faults were reproduced and corrected."
+    }
+  },
+  "verification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "knownNewRegression": [
+      "node scripts/check-map-hierarchy.cjs",
+      "node scripts/check-map-recovery.cjs"
+    ],
+    "additionalRegressionNames": [
+      "node scripts/check-strategy-guide.cjs",
+      "Current32suite inventory in evidence/automated-v1.9.3.json"
+    ],
+    "nativeRequired": [
+      "TH/EN actual first-page labels/reasons/strategy selection at narrow and desktop widths",
+      "light/dark foundation/link/icon states",
+      "same map/camera while page/strategy/criteria and expanded controls change",
+      "white parent/child hierarchy with halo only on eligible parent strokes",
+      "POI quiet mode and transparent selected fine",
+      "legacy#strategy alias preserving context/draft/camera",
+      "shortlist new/duplicate/failure feedback",
+      "basemap loading/error/retry where implemented",
+      "Actual eight-guide overview/details/illustrations, hypothetical captions, Escape and focus restoration at narrow/desktop widths",
+      "Guide opens without changing selected strategies, Demand IDs, criteria, map or events"
+    ],
+    "automatedSuites": 32,
+    "automatedChecks": 537,
+    "nativeChecks": 22,
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "localEvidence": {
+      "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+      "receipt": "evidence/qa-v1.9.3.json",
+      "receiptSha256": "93c4f585ddf58a6000684a6a27c7c026df0b63759375632e675f75b73bb93cd9",
+      "automatedReceipt": "evidence/automated-v1.9.3.json",
+      "automatedReceiptSha256": "9fa680f714f7683c4f7be39af9f3fc36478190abf40268011a67115c7afcef5b",
+      "releaseChecksReceipt": "evidence/release-checks-v1.9.3.json",
+      "releaseChecksReceiptSha256": "e67c3c625269499a848b03e57b8cb7d0559aae1d911a14974836f450f0ca0717",
+      "nativeBrowserReceipt": "evidence/browser-v1.9.3/native-browser-review.json",
+      "nativeBrowserReceiptSha256": "399818fd8609a9acc460a61e7960e47483e8abe2fce007ccf71e2a2cb5daf7cc",
+      "automatedSuites": 32,
+      "automatedChecks": 537,
+      "checkCountMeaning": "Sum of reported passed test cases or exact PASS output lines; not individual assertion counts. Original full-run timestamp and unaffected output bytes are preserved. Hierarchy was rerun for its final CSS cascade fix; recovery, workspace map and hierarchy were rerun after same-style fractional-zoom retry; recovery and workspace map were rerun after the Leaflet removal-listener lifecycle fix.",
+      "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "browserChecks": 22,
+      "snapshots": [
+        "evidence/browser-v1.9.3/desktop-dark-en-guide-future_entry.jpg",
+        "evidence/browser-v1.9.3/desktop-dark-en-guide-segment_gap.jpg",
+        "evidence/browser-v1.9.3/desktop-dark-en-supply-boundaries.jpg",
+        "evidence/browser-v1.9.3/desktop-dark-en-supply-poi-popup.jpg",
+        "evidence/browser-v1.9.3/desktop-light-guide-index.jpg",
+        "evidence/browser-v1.9.3/desktop-light-guide-network.jpg",
+        "evidence/browser-v1.9.3/desktop-light-opportunities.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-en-guide-future.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-guide-complementary.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-guide-index.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-map-expanded.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-market.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-supply-basemap-retry.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-supply-country.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-th-guide-future_entry.jpg",
+        "evidence/browser-v1.9.3/mobile-dark-th-guide-segment_gap.jpg",
+        "evidence/browser-v1.9.3/mobile-light-th-guide-example-evidence.jpg"
+      ],
+      "snapshotFiles": [
+        {
+          "path": "evidence/browser-v1.9.3/desktop-dark-en-guide-future_entry.jpg",
+          "bytes": 103873,
+          "sha256": "843f17dc41bd98ff6e276c84c4691d0250b0b6811d667199e9fe2b5d90831ad9",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-dark-en-guide-segment_gap.jpg",
+          "bytes": 102917,
+          "sha256": "ef2532df4a5c275869e8b6efadae13449b8d8497173a35bc729fff2b2e829262",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-dark-en-supply-boundaries.jpg",
+          "bytes": 160898,
+          "sha256": "f6641e77669a0e33926f730a6c745e8d8191c43dc2787b5414220dd5ee94f7ca",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-dark-en-supply-poi-popup.jpg",
+          "bytes": 146937,
+          "sha256": "258449abbe67e12f094373252051c6301cfd877c9291c463789818a153af90e7",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-light-guide-index.jpg",
+          "bytes": 107621,
+          "sha256": "a48a852c59329eb0aa3d6c0d6a85d68341ee53b46f73082a0507aa9fd9920a41",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-light-guide-network.jpg",
+          "bytes": 94785,
+          "sha256": "d35405256e1f3f936057e35bc868d673d55d3a60223a85546ce2d3762940adb4",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/desktop-light-opportunities.jpg",
+          "bytes": 145962,
+          "sha256": "4fbb417b187f3981d5ccee274335f40b4d582f4f184dc549bd4b65601d0f071f",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-en-guide-future.jpg",
+          "bytes": 45278,
+          "sha256": "e6d90083f0ef74edd21ce11a78ee6926187aee54f2cacfebf9a302f09eadf99c",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-guide-complementary.jpg",
+          "bytes": 47516,
+          "sha256": "52ff2b96df679d7c2c46d8f9aa2ab24c3aac2bfb32646afa5efeba808a3c2824",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-guide-index.jpg",
+          "bytes": 50688,
+          "sha256": "7c2e2f9331e69516ec590a9a557f8865d93cc9cfc494219d2f4b1a99c7564a08",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-map-expanded.jpg",
+          "bytes": 46258,
+          "sha256": "95c3508337753e827312927b8953f0261ca721b381abc1ea00378f8f855487eb",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-market.jpg",
+          "bytes": 48519,
+          "sha256": "19395b26935c5b310b9f5ad326e6afea62334f6b7c89988ab22c6ecb434d9fb1",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-supply-basemap-retry.jpg",
+          "bytes": 57464,
+          "sha256": "6d94cfae94bd88126bd7dd84f8d9ab01ec082b82af1ffb6dc5c5ebded78f8857",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-supply-country.jpg",
+          "bytes": 46816,
+          "sha256": "71e06905c8df659063c046134ec87a52d19f6ee21c7fff75bb97be041e9c46fe",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-th-guide-future_entry.jpg",
+          "bytes": 44313,
+          "sha256": "a04836e561a2405bcbf59d3d216eca9b98d6cf0d5487039869f6abcd4c6c1f66",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-dark-th-guide-segment_gap.jpg",
+          "bytes": 46762,
+          "sha256": "08844005eec1e0c228545ea1bc4b9ffd5bfc1d4a5b22c9fa91adfa00665e7aaf",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.3/mobile-light-th-guide-example-evidence.jpg",
+          "bytes": 48616,
+          "sha256": "c49abbe7fbdf0d80c2441a55a46554a2af01584c89f90b352da9fee4d22a2648",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      ],
+      "physicalDevices": "unverified",
+      "fullLanguageThemeMatrix": false,
+      "productionBackend": "not_implemented_in_static_preview",
+      "notVerified": [
+        "physical iPhone/Android unverified",
+        "complete brand-language-theme-device matrix unverified",
+        "actual all-boundary pointer-hover and screen-reader speech unverified",
+        "external tile/StreetView/Google AI availability not guaranteed",
+        "shared backend/auth/outbox not implemented in static preview"
+      ],
+      "nativeScope": "Bounded local viewport/native interaction review and exact sampled DOM styles, plus explicitly named automated state guarantees. Original missing-rectangle screenshot not recreated identically; a fractional-tile retry bug and retired-layer listener bug were reproduced and fixed. Does not certify all brands, physical devices, Safari, providers or production collaboration.",
+      "finalNativeRuntime": {
+        "workspaceMapSha256": "ce27743ff1c991cfb828963cfc3f2ee6f9c11489b498326f45f8d0b80d1f228c",
+        "workspaceMapCacheToken": "ce27743ff1c9",
+        "freshConsoleErrors": 0
+      }
+    },
+    "designSystemPackage": {
+      "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+      "version": "0.9.7",
+      "releaseRef": "v0.9.7-owner.1",
+      "receipt": "evidence/lds-package-verification.v1.9.3.json",
+      "receiptSha256": "a396dd0d02244cb2b68fd3a0a8b725bafcb6b9fc43d0dddac68a253791e0cb86",
+      "checks": 9768,
+      "warnings": 65,
+      "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+      "artifactAndAccountTeamCertification": false
+    }
+  },
+  "strategyGuide": {
+    "registry": "prototype/data/strategy-guide.v1.9.3.json",
+    "availableIds": [
+      "underserved_market",
+      "segment_gap",
+      "competitive_entry",
+      "cluster_participation",
+      "complementary_location",
+      "route_capture",
+      "network_infill",
+      "future_entry"
+    ],
+    "readOnly": true,
+    "entryPoints": [
+      "Clean icon cards on Expansion opportunities main page",
+      "Illustration & example control adjacent to strategy choices",
+      "Strategy labels/cards open that strategy detail"
+    ],
+    "view": "Accessible reader dialog with overview and eight details; concise definition, explanatory SVG diagram, three steps, hypothetical example, available and missing evidence, tradeoff and next question.",
+    "noSelectionMutation": true,
+    "dismiss": "Escape and explicit close; focus returns to the invoking control.",
+    "diagram": "Generated by strategy ID. All example arrangements are illustrative, not measured geometry, traffic or actual business results.",
+    "requiredBindings": [
+      "id",
+      "name.th/en",
+      "shortLabel.th/en",
+      "icon",
+      "oneSentence.th/en",
+      "why.th/en",
+      "howToUse[3].th/en",
+      "illustrativeExample.industry/scenario/action/caveat.th/en",
+      "availableP0Evidence",
+      "neededEvidence",
+      "phase",
+      "tradeoff.th/en",
+      "question.th/en"
+    ],
+    "iconNamespace": "Current verified YolkMaterialSymbols subset, consistent with strategy-ui glyph mapping; captions stay visible if font fails.",
+    "futureDiagram": "Future-market illustration prompts Demand validation; it does not depict a future site as a confirmed current Yolk."
+  }
+}
