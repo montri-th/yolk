@@ -54,7 +54,9 @@ class TestNode {
   }
   matches(selector) {
     return selector.split(',').some(part => {
-      const text = part.trim(); const tag = text.match(/^[a-z]+/i);
+      const exclusions = [...part.matchAll(/:not\(([^)]+)\)/g)].map(match => match[1]);
+      if (exclusions.some(exclusion => this.matches(exclusion))) return false;
+      const text = part.replace(/:not\([^)]+\)/g, '').trim(); const tag = text.match(/^[a-z]+/i);
       if (tag && this.tagName !== tag[0].toUpperCase()) return false;
       const classes = [...text.matchAll(/\.([\w-]+)/g)].map(match => match[1]);
       if (classes.some(name => !this.className.split(/\s+/).includes(name))) return false;
@@ -101,6 +103,12 @@ const checks = []; function check(name, run) { run(); checks.push(name); }
 check('Mount pairs every supported exact-number field and preserves original nodes/labels', () => {
   const result = api.mount(form); assert.equal(result.mounted, 5); assert.equal(result.count, 5);
   for (const input of [percentile, pathPercentile, supply, hits, weight]) { assert.equal(wrapper(input).querySelectorAll('input[type="number"]')[0], input); assert.equal(input.labels.length, 1); assert(slider(input).getAttribute('aria-label').includes(input.labels[0].textContent)); }
+});
+check('Factor-owned percentile fields keep their own sliders without a duplicate generic bridge', () => {
+  const factor = field(form, 'factor-population-percentile', 'Factor population percentile', { 'data-path-percentile': '', 'data-factor-number': '' }, '80');
+  const result = api.mount(form);
+  assert.equal(result.mounted, 0); assert.equal(result.count, 5);
+  assert.equal(wrapper(factor), null); assert.equal(factor.value, '80');
 });
 check('Repeated mount/sync preserves focused nodes and installs one event bridge', () => {
   document.activeElement = slider(percentile); const before = document.activeElement;

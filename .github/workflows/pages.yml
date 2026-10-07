@@ -18,15 +18,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify public 1.8.0 artifact, source grains and DS assets
-        run: python3 scripts/verify-pages-v1.8.0.py
-      - name: Check current eligibility, symbols and retained source/map/CRUD invariants
+      - name: Verify public 1.9.0 artifact, source grains and DS assets
+        run: python3 scripts/verify-pages-v1.9.0.py
+      - name: Check Demand factors, strategy evidence, Supply modes and retained source/map/CRUD invariants
         run: |
           node scripts/check-three-industry.cjs
           node scripts/check-brand-presets.cjs
           node scripts/check-photo-runtime.cjs
           node scripts/check-workspace-map.cjs
           node scripts/check-criteria-controls.cjs
+          node scripts/check-criteria-map.cjs
           node scripts/check-save-context.cjs
           node scripts/check-relative-supply.cjs
           node scripts/check-poi-popup.cjs
@@ -43,6 +44,10 @@ jobs:
           node scripts/check-simple-criteria.cjs
           node scripts/check-supply-compare.cjs
           node scripts/check-supply-symbols.cjs
+          node scripts/check-opportunity-strategies.cjs
+          node scripts/check-supply-poi-modes.cjs
+          node scripts/check-strategy-ui.cjs
+          node scripts/check-demand-factors.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static preview

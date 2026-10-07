@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "yolk.local_release_checks/1.9",
+  "version": "1.9.0",
+  "status": "PASS_PRESEAL_LOCAL_VALIDATION",
+  "recordedAt": "2026-10-07T09:18:19Z",
+  "automatedSuites": 26,
+  "automatedChecks": 460,
+  "automatedReceipt": "evidence/automated-v1.9.0.json",
+  "browserReceipt": "evidence/browser-v1.9.0/native-browser-review.json",
+  "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "browserChecks": 14,
+  "snapshotFiles": [
+    {
+      "path": "evidence/browser-v1.9.0/desktop-th-dark-strategy.jpg",
+      "bytes": 282864,
+      "sha256": "0e01d2a43b31b79c0c5091dfa55c31d6a45e81288a01b03dfa3f689fdb3ffc5e",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.0/desktop-en-light-strategy.jpg",
+      "bytes": 251454,
+      "sha256": "e0eb1c99afa465fea76584e39f8984b7b83cab8ed78249d827e3dc1b001940f6",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.0/mobile-th-dark-strategy.jpg",
+      "bytes": 76430,
+      "sha256": "c3bcda134b9fccd0196f0181aeacf2fd91e997a9942993faa45d06cfe70afbcf",
+      "width": 390,
+      "height": 844,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.0/mobile-en-light-criteria.jpg",
+      "bytes": 70467,
+      "sha256": "b36fd72c2050518d89c8fdf9b18d70a250ce9c9fe4ec6de75613535319b134d3",
+      "width": 390,
+      "height": 844,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.0/supply-country-points.jpg",
+      "bytes": 239662,
+      "sha256": "61532a55e9a4c070f3c7e2bb54f5912cc1fb822c5006fbcacb187a880bfcb9f5",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.0/supply-fine-points.jpg",
+      "bytes": 234815,
+      "sha256": "f617b65ca9c63dfaf58770ba701b7cc487f9d5133163abdd65745da15cf573b8",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    }
+  ],
+  "DS": {
+    "release": "v0.9.7-owner.1",
+    "version": "0.9.7",
+    "packageVerifierStatus": "PASS",
+    "packageChecks": 9768,
+    "retainedWarnings": 65,
+    "receipt": "evidence/lds-package-verification.json",
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim."
+  },
+  "diffCheck": {
+    "status": "PASS",
+    "evidence": "Observed git diff --check empty after final edits."
+  },
+  "physicalDevice": "unverified",
+  "fullLanguageThemeMatrix": false,
+  "browserZoom130And200Percent": "unverified",
+  "publication": "not_performed_at_source_seal",
+  "artifactByteVerification": "Run after seal through scripts/verify-pages-v1.9.0.py; final verifier result remains outside sealed source to avoid self-reference.",
+  "sourceModel": "Fixed7954 UUIDs/25metrics/3industries; new current brand-profile Demand paths intentionally change initial contexts; immutable source geography/totals and exact DS assets retained.",
+  "productionServices": "Browser-local simulation only; sharedbackend/serverRBAC/outbox/private production media remain implementation tasks."
+}

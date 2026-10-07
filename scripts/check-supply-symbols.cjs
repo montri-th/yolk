@@ -38,8 +38,13 @@ check('unsafe artwork paths cannot become map image requests',()=>{
 check('symbol CSS retains exact existing party tokens and original image containment',()=>{
  const css=source('supply-symbols.css');assert(css.includes('var(--yl-own-ink)'));assert(css.includes('var(--yl-rival-ink)'));assert(css.includes('var(--warn)'));assert(css.includes('object-fit:contain'));assert(!css.includes('object-fit:cover'));assert(!/#[0-9a-f]{3,8}\b/i.test(css));assert(css.includes('border-style:dashed'));assert(css.includes('text-decoration:none'));
 });
-check('persistent map still shows actual POIs only at fine selection or explicit editor focus',()=>{
- const code=source('workspace-map.js');assert(code.includes("const showPoints=S.nav.level==='location'||Y.route==='poi'"));assert(code.includes('global.YolkPoiPopup?.marker?.'));assert(code.includes('data-workspace-party-caption'));assert(code.includes('title=[brand,branchName(p),party]'));assert(code.includes('record.iconHTML!==markerIcon.options?.html'));
+check('persistent map keeps fine/editor POIs and enables optional Supply points at every drilldown',()=>{
+ const code=source('workspace-map.js');
+ assert(code.includes("S.supplyView='regions'"));
+ assert(code.includes("const supplyPointsActive=()=>Y.route==='supply'&&S.supplyView==='points'"));
+ assert(code.includes("const pointsActive=()=>supplyPointsActive()||S.nav.level==='location'||Y.route==='poi'"));
+ assert(code.includes('const showPoints=pointsActive()'));
+ assert(code.includes('global.YolkPoiPopup?.marker?.'));assert(code.includes('data-workspace-party-caption'));assert(code.includes('title=[brand,branchName(p),party]'));assert(code.includes('record.iconHTML!==markerIcon.options?.html'));
 });
 check('legacy location detail also preserves transparent selected boundary and real marker identity',()=>{
  const code=source('location-map.js');assert(code.includes("fill:false,opacity:1,weight:.8"));assert(!code.includes('fillOpacity:.12'));assert(code.includes('global.YolkPoiPopup.marker(pointRecord,{lang})'));assert(code.includes('global.YolkPoiPopup.render(pointRecord'));

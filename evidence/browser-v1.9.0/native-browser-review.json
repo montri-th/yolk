@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.9",
+  "version": "1.9.0",
+  "reviewedAt": "2026-10-07T09:18:19Z",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "evidenceOrigin": "Root coordinator actual native browser review and interactions; six final immutable JPEG files inspected for format/dimensions/hash by release-preparation agent.",
+  "browser": "Codex in-app browser / Chromium family",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "languageThemePairs": [
+    "th/dark",
+    "en/light"
+  ],
+  "checks": [
+    {
+      "name": "Thai-dark and English-light desktop/narrow states have readable headings and no horizontal overflow at reviewed widths",
+      "passed": true,
+      "observed": {}
+    },
+    {
+      "name": "Real brand logos, party shield/swords and current icon glyphs render in the reviewed states",
+      "passed": true,
+      "observed": {}
+    },
+    {
+      "name": "Try preset previews a new Fuel draft without overwriting the applied team revision",
+      "passed": true,
+      "observed": {
+        "draftDemand": 1264,
+        "teamDemand": 1067,
+        "added": 239,
+        "removed": 42
+      }
+    },
+    {
+      "name": "Strategy map candidate count matches the right-hand view while keeping current draft Demand separate",
+      "passed": true,
+      "observed": {
+        "demand": 1264,
+        "strategyCandidates": 1186
+      }
+    },
+    {
+      "name": "Deselecting strategy01 changes candidates while Demand remains unchanged",
+      "passed": true,
+      "observed": {
+        "demand": 1264,
+        "strategyCandidates": 1137
+      }
+    },
+    {
+      "name": "Selecting strategy02 alone shows zero supported candidates and a missing-evidence guide, not zero Demand",
+      "passed": true,
+      "observed": {
+        "demand": 1264,
+        "strategyCandidates": 0
+      }
+    },
+    {
+      "name": "Shortlisting creates one record with owner and captured strategy/criteria snapshot",
+      "passed": true,
+      "observed": {
+        "createdRecords": 1
+      }
+    },
+    {
+      "name": "Location detail displays the saved survey plan",
+      "passed": true,
+      "observed": {}
+    },
+    {
+      "name": "Grocery context shows Demand and candidate counts separately under the reviewed new profile",
+      "passed": true,
+      "observed": {
+        "demand": 2859,
+        "strategyCandidates": 2389
+      }
+    },
+    {
+      "name": "Non-bank context shows Demand and candidate counts separately under the reviewed new profile",
+      "passed": true,
+      "observed": {
+        "demand": 2298,
+        "strategyCandidates": 31
+      }
+    },
+    {
+      "name": "Keyboard input changes the Tier1 threshold from P99 to P100 and updates the map",
+      "passed": true,
+      "observed": {}
+    },
+    {
+      "name": "Country Supply points expose coordinate-record coverage and bounded screen groups",
+      "passed": true,
+      "observed": {
+        "coordinateRecords": 4363,
+        "renderedMarks": 31,
+        "notNativeAreaInventory": true
+      }
+    },
+    {
+      "name": "Selected fine Supply view has transparent interior and an actual PTT point/brand identity",
+      "passed": true,
+      "observed": {}
+    },
+    {
+      "name": "Final responsive1440→390→1440 review retains Country navigation and restores a readable geographic fit",
+      "passed": true,
+      "observed": {
+        "mobileScaleLabel": "1000km",
+        "desktopScaleLabel": "200km",
+        "horizontalOverflow": false
+      }
+    }
+  ],
+  "checkCount": 14,
+  "snapshots": [
+    "evidence/browser-v1.9.0/desktop-th-dark-strategy.jpg",
+    "evidence/browser-v1.9.0/desktop-en-light-strategy.jpg",
+    "evidence/browser-v1.9.0/mobile-th-dark-strategy.jpg",
+    "evidence/browser-v1.9.0/mobile-en-light-criteria.jpg",
+    "evidence/browser-v1.9.0/supply-country-points.jpg",
+    "evidence/browser-v1.9.0/supply-fine-points.jpg"
+  ],
+  "snapshotFiles": [
+    {
+      "path": "evidence/browser-v1.9.0/desktop-th-dark-strategy.jpg",
+      "bytes": 282864,
+      "sha256": "0e01d2a43b31b79c0c5091dfa55c31d6a45e81288a01b03dfa3f689fdb3ffc5e",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.0/desktop-en-light-strategy.jpg",
+      "bytes": 251454,
+      "sha256": "e0eb1c99afa465fea76584e39f8984b7b83cab8ed78249d827e3dc1b001940f6",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.0/mobile-th-dark-strategy.jpg",
+      "bytes": 76430,
+      "sha256": "c3bcda134b9fccd0196f0181aeacf2fd91e997a9942993faa45d06cfe70afbcf",
+      "width": 390,
+      "height": 844,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.0/mobile-en-light-criteria.jpg",
+      "bytes": 70467,
+      "sha256": "b36fd72c2050518d89c8fdf9b18d70a250ce9c9fe4ec6de75613535319b134d3",
+      "width": 390,
+      "height": 844,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.0/supply-country-points.jpg",
+      "bytes": 239662,
+      "sha256": "61532a55e9a4c070f3c7e2bb54f5912cc1fb822c5006fbcacb187a880bfcb9f5",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.0/supply-fine-points.jpg",
+      "bytes": 234815,
+      "sha256": "f617b65ca9c63dfaf58770ba701b7cc487f9d5133163abdd65745da15cf573b8",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    }
+  ],
+  "scope": "Bounded local native rendering and actual UI interactions only. Province/district POI modes are covered by VM/controller checks, not claimed as native browser drilldown proof. Screen groups are display aggregation, not customer-attraction evidence.",
+  "notVerified": [
+    "physical iPhone/Android touch",
+    "130%/200% browser zoom",
+    "complete language/theme/device matrix",
+    "production auth/RBAC/outbox/email/LINE/private media",
+    "external tile/Street View/AI provider results",
+    "native province/district POI drilldown"
+  ],
+  "physicalDevices": "unverified",
+  "fullLanguageThemeMatrix": false
+}

@@ -158,7 +158,7 @@ function fixture(){
  const result={schemaVersion:1,test:'check-cold-branch',testedAt:new Date().toISOString(),passed:checks.every(c=>c.passed),elapsedMs:Date.now()-started,checks,
   scope:'Actual production poiEditor, ensureSourcePoints, workingForm and restoreWorkingForm; real source-record fixture and model/context modules. DOM/FormData and transport adapters only. Does not claim browser timing, pixel layout or physical-device QA.',
   sourceHashes:Object.fromEntries(['prototype/app.js','prototype/supply-ui.js','prototype/branch-context.js','prototype/industry-workspace.js','prototype/model.js','prototype/data/real/grocery-points.json'].map(name=>[name,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,name))).digest('hex')]))};
- const output=path.resolve(root,'../deliverables/yolk-v1.7.5-context/cold-branch-regression-results.json');fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
+ const output=path.resolve(root,'../deliverables/yolk-v1.9.0/cold-branch-regression-results.json');fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
  for(const c of checks)console.log((c.passed?'PASS ':'FAIL ')+c.name+(c.error?'\n'+c.error:''));
  console.log(JSON.stringify({passed:result.passed,checks:checks.length,receipt:output}));if(!result.passed)process.exitCode=1;
 })().catch(error=>{console.error(error);process.exitCode=1});

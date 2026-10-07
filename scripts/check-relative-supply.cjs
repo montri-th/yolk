@@ -281,7 +281,7 @@ function evaluatedFixture(h, area, criteria) {
   });
 
   const result = {version:'1.7',builtAt:new Date().toISOString(),source:'actual production relative-supply.js/model.js/industry-workspace.js with national source inventory',passed:checks.every(c=>c.passed),checkCount:checks.length,elapsedMs:Date.now()-started,checks,observations};
-  const receipt = path.join(repo,'..','deliverables','yolk-brand-research-1.7','relative-supply-regression-results.json');
+  const receipt = path.join(repo,'..','deliverables','yolk-v1.9.0','relative-supply-regression-results.json');
   fs.mkdirSync(path.dirname(receipt),{recursive:true}); fs.writeFileSync(receipt,JSON.stringify(result,null,2)+'\n');
   console.log(JSON.stringify({passed:result.passed,checks:checks.map(({name,passed,error})=>({name,passed,...(error?{error}: {})})),elapsedMs:result.elapsedMs,receipt},null,2));
   process.exitCode = result.passed ? 0 : 1;

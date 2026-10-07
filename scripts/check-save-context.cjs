@@ -83,6 +83,6 @@ async function check(name,test){try{await test();checks.push({name,passed:true})
   assert.equal(f.api.read(f.photoDraftId).count,1);const pending=f.submit();await f.started;f.release();await pending;assert.equal(f.run('Y.pois[0].photos.length'),1);assert.equal(f.run('Y.events.length'),1);assert(f.calls.includes('finalizeCommit'));assert(!f.calls.includes('rollbackCommit'));
  });
  const result={schemaVersion:1,test:'check-save-context',testedAt:new Date().toISOString(),passed:checks.every(c=>c.passed),checks,scope:'Actual extracted app async submit handler with real model, brand/context and photo modules; DOM and IndexedDB transaction transport mocked. No browser image decoding.'};
- const output=path.resolve(root,'../deliverables/yolk-v1.7.5-context/save-context-regression-results.json');fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
+ const output=path.resolve(root,'../deliverables/yolk-v1.9.0/save-context-regression-results.json');fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
  for(const c of checks)console.log((c.passed?'PASS ':'FAIL ')+c.name+(c.error?'\n'+c.error:''));console.log(JSON.stringify({passed:result.passed,checks:checks.length,receipt:output}));if(!result.passed)process.exitCode=1;
 })().catch(error=>{console.error(error);process.exitCode=1});

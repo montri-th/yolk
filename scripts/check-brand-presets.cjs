@@ -149,11 +149,12 @@ async function check(name, test) {
     assert.deepEqual(h.requests, [], 'Selecting cached context must not fetch license data or POIs');
   });
 
-  await check('Accepted Bangchak, Seven Eleven and MTC defaults remain unchanged apart from seed provenance', () => {
+  await check('Legacy registry fallback keeps accepted numeric defaults when current strategy profiles are absent', () => {
     for (const industry of ['fuel', 'grocery', 'nonbank']) {
       h.sandbox.testIndustry = industry;
       const criteria = plain(run('(()=>{const p=PROFILE_BY_ID[testIndustry];return YolkBrands.seed(presetCriteria(testIndustry),testIndustry,p.defaultOwnBrandId,p.defaultScope)})()'));
-      delete criteria.seedPresetId; delete criteria.seedVersion;
+      assert.equal(criteria.strategyProfileVersion, null, 'Absent current profiles must be explicit, not invented');
+      delete criteria.seedPresetId; delete criteria.seedVersion; delete criteria.strategyProfileVersion;
       assert.deepEqual(criteria, plain(run('presetCriteria(testIndustry)')));
     }
     assert.deepEqual(registry.families.find(f => f.id === 'nonbank-community').criteriaOverrides, {});
@@ -313,7 +314,7 @@ async function check(name, test) {
     inputHashes: {brandPresets: digest(registry), brandLogos: digest(logos), sourceSupply: supplyHashes, companyScopes: scopeHash},
     checks, observations
   };
-  const destination = process.argv[2] ? path.resolve(process.argv[2]) : path.resolve(root, '../deliverables/yolk-brand-research-1.7/brand-preset-regression-results.json');
+  const destination = process.argv[2] ? path.resolve(process.argv[2]) : path.resolve(root, '../deliverables/yolk-v1.9.0/brand-preset-regression-results.json');
   fs.mkdirSync(path.dirname(destination), {recursive: true});
   fs.writeFileSync(destination, JSON.stringify(report, null, 2) + '\n');
   for (const result of checks) console.log((result.passed ? 'PASS ' : 'FAIL ') + result.name + (result.passed ? '' : '\n' + result.error));

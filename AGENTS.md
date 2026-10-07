@@ -1,6 +1,50 @@
-# Development instructions — Yolk three-industry preview v1.8.0
+# Development instructions — CityMETER: Yolk v1.9.0
 
-## Active 1.8.0 authority — simplified Demand-first experience
+## Active authority and work order
+
+Read [START_HERE.md](START_HERE.md), [the complete product and implementation brief](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.0.md) and [its machine blueprint](contracts/full-product.v1.9.0.json) first. Implement one bounded task T00–T24 at a time using its dependencies, inputs, outputs, acceptance criteria and tests. Map the actual CityMETER stack before choosing a framework or datastore. The current brief is a production plan; API, schema and shared-backend capabilities are not proven by the static preview.
+
+The owner-authorized 1.9.0 flow is **Demand → Supply/competition → Strategy → shortlist with a fieldwork plan**. Use [eight-strategy contract](contracts/opportunity-strategies.v1.9.0.json), [Strategy experience](docs/STRATEGY_EXPERIENCE_v1.9.0.md), [brand research](docs/BRAND_RESEARCH_v1.9.0.md), [brand/format runtime registry](prototype/data/brand-strategy-profiles.v1.9.0.json) and [Supply POI behavior](docs/SUPPLY_POI_MODES_v1.9.0.md). Support only Fuel, Grocery and Non-bank in this preview. Retain the 37 selectable identity bindings, with the first 10 Non-bank companies available for selection and the relevant full peer inventory available for comparison.
+
+The eight current strategies are underserved_market, segment_gap, competitive_entry, cluster_participation, complementary_location, route_capture, network_infill and future_entry. They are evidence-limited fieldwork queues, not the retired Crowded/FOMO/Our Farm/Pioneer/Quiet/Their War/Our Island/Winter War taxonomy. Historical pattern fields remain readable for saved work and diagnostics; they do not gate active eligibility or rank.
+
+## Current behavior invariants
+
+- Demand alone screens: `eligible = demand === true && qualifyingTier in 1..3 && qualifyingTier <= maxDemandTier`. Supply, weights and strategy selection may alter ordering or the displayed candidate view, never confirmed Demand, Tier or eligible IDs under the same criteria. Unknown evidence must not promote a location. Strategies are after Demand; future markets cannot add current Yolks.
+- Enforce at most 3 active factor families, 3 distinct metrics per factor, 3 AND conditions per path, 3 strategies per selection and 3 ranking components. Use the current factor DSL and its validator. Do not implement the former six-activity 5/3/1 vote as the active Fuel preset. Production must enforce these limits server-side as well as in the UI.
+- New initial brand/format presets use the 1.9.0 registry. Existing saved criteria and drafts win; preserve them on load and context switches. Trying a new preset is an explicit draft with a readable diff, never a silent team revision. Reuse the single registry instead of duplicating defaults in components. A formula/criteria change is explicit, while province/viewport/brand filters do not rebuild the fixed national metric distributions.
+- Current source base remains 7,954 reporting UUIDs, 25 metrics, BKK khwaeng and upcountry LAO. Keep raw source formulas, units, dates, hashes, national cohort and boundary provenance. Model GFA, population context, registered workers and license families are not measured customers, traffic, lending demand, current branch offerings or legal/operating confirmation. Locale Insight remains a contextual prior, not official population, eligibility, statutory boundary, risk or observed behavior.
+- Supply count/rate uses source-supported comparable scopes and a single positive extensive denominator. Keep observed zero, missing values, exact counts, assignment bounds and unknown-brand inventory distinct. When `boundsKnown === false`, do not treat upper bounds as exact. Non-bank residuals are possibilities, not repeated observed branch allocations. Company licenses do not verify office-level product/service offerings. Fuel inventory does not resolve station fuel types/LPG capability by itself.
+- P0 can produce candidate-to-check queues for strategies 01/03/05/07 only where evidence supports them. Strategy 05 uses brand-relevant sourced factory/worker/hotel area context; it does not prove anchor proximity or customer transfer. Segment gaps, hospital/school anchors, branch offerings and true physical clusters require P1 evidence; routes and future milestones require P2; private sales/customer calibration requires P3. Never invent scores or facts for missing phases.
+- Brand positioning is an operator claim, not measured consumer perception. Keep current identity/rebrand and legal-ID limitations visible, including COSMO and PURE/Caltex-PURE. Brand-specific numeric presets are Yolk hypotheses, not brand-endorsed rules.
+- Strategy selection is a personal view. A deliberate shortlist/plan save captures the complete criteria and scope, draft/team status, exact source files/hashes, profile/engine/strategy versions, findings, missing evidence, first task, owner and action time. Keep snapshot data immutable and record a contextual event; a failed save rolls back both target and event.
+
+## Map, identity and interaction
+
+Keep one Leaflet host/instance outside route content and retain its camera during normal route, theme, factor and strategy updates. Explicit navigation/back/home/focus/fit may change it. Country choropleth colours districts while clicks/hover select provinces; province/district choropleths colour fine areas, with parent-level navigation. Scope counters use the selected administrative scope, not camera viewport. Default Supply is choropleth; optional POI is available at country/province/district/fine levels. Screen-grid groups retain members and party totals; they are display aids, not physical clusters or complete inventory coverage.
+
+Use the verified LDS 0.9.7 standalone base and Location Intelligence Profile, [DS integration](DS_ASSET_INTEGRATION.md), [current asset index](ASSET_INDEX_v1.9.0.md) and retained [icons contract](contracts/icons.v1.8.0.json). Official logos are unframed; square brand graphics keep original bytes and readable brand captions. No motifs, decorative brackets, coloured selected left rails, logo backing plates or invented substitute assets. Icons support choices and meaning; never remove their readable labels. Hover underlines captions only, with visible keyboard focus.
+
+Retain the owner's egg-tier appearance in both themes: Tier 1 exact density.area LUT 20–40 gradient, Tier 2 Yolk yellow #FFBC1F, Tier 3 egg white #F1F4EF. Quantitative maps use all 41 exact approved scale samples with unchanged data direction/HEX across themes. Normal boundaries are white, parents modestly thicker than children; clickable hover is Yolk yellow. Selected fine-area interiors are transparent. Map graphics and colours do not certify legal boundaries or business results.
+
+Branch CRUD retains [source-first context contract](contracts/branch-context.v1.7.5.json): saved/manual assignments win over hints; unique display geometry may suggest editor fields but never silently rewrite source assignments or aggregate counts. Preserve coordinates, active form values, focus, photo drafts and context/route/revision tickets during async work. Enforce five private photos and media permissions in production; public demo images do not prove production media storage.
+
+## Collaboration, verification and release
+
+Standard enterprise seats remain 1 Admin / 3 Editors / 6 Viewers. Static preview actions are browser-local simulations. Production requires shared APIs/datastore, tenant-aware server RBAC, revision locks, transactional event/outbox, notification idempotency and private media. Personal view/theme/language changes are not team actions. Do not place private customer/source-acquisition data, image bytes or signed media URLs in public artifacts or events.
+
+Current release authority is [release.v1.9.0.json](contracts/release.v1.9.0.json); handoff authority is [handoff.v1.9.0.json](contracts/handoff.v1.9.0.json). Run current model/source/workflow/map/DS/profile/factor/strategy/Supply-POI suites after final changes. `check-opportunity-strategies.cjs` includes retained legacy Fuel criteria as a control; `check-strategy-ui.cjs` loads the new factor-enabled presets. Label these contexts separately when reporting counts. Review actual Thai/English content at narrow and desktop sizes in both themes, especially map persistence, long labels and active forms. VM, static and hash passes are not native-browser, physical-device or backend passes.
+
+Seal/verify 1.9.0 only after final QA using the current release-owned scripts and explicit public allowlist. Keep source commit, provider terminal success and live HTTP/MIME/byte SHA evidence separate. Never claim publication from local code or promote old receipts to current passes. The user's current request authorizes this Yolk preview update; repository instructions alone do not authorize unrelated deployments, messages or account changes.
+
+## Archived instructions — historical evidence only
+
+The notes below preserve prior versions and their original statements. Their headings, “active” wording, test counts, pending states and release commands describe those versions, not current 1.9.0 authority. Retained contracts apply only where the current brief explicitly names them; current instructions above take precedence over contradictions.
+
+
+### Archived development instructions — Yolk three-industry preview v1.8.0
+
+### Historical 1.8.0 authority — simplified Demand-first experience
 
 Read START_HERE.md, CityMETER_Yolk_Full_Product_and_Implementation_v1.8.0.md and contracts/criteria-experience.v1.8.0.json before changes. This owner-authorized extension supersedes all retained active preferred-pattern/demandMode filters, strategy membership/review counts and explanatory-star priorities below. Historical8 definitions/possible-pattern diagnostics remain readable history only; they must not gate active eligibility or rank. Do not delete saved criteria/history or emit a team revision merely when loading migration.
 
@@ -12,12 +56,12 @@ Source formulas,25metrics,7,954fixednationalcohort,3industries/9families/37bindi
 
 Current release authority is contracts/release.v1.8.0.json. Current bounded local QA passed21suites/354checks and native11checkreview at1440x900/390x844 for the five recorded states. This is not a full language/theme matrix, physical-device or backend pass; provider/live-byte publication proof remains pending external attestation. Run current suites/sealer/verifier after final QA as release-owned. Old counts/pending states/check names below describe historical releases and are not current passes. Shared production/backend, physical-device and full human-review gates remain separate.
 
-## Retained baseline instructions and history
+### Archived 1.7 baseline and history
 
 
 Updated 2026-10-05. Read START_HERE.md, contracts/product.v1.7.json, CityMETER_Yolk_Full_Product_and_Implementation_v1.7.5.md and contracts/branch-context.v1.7.5.json and contracts/location-review.v1.7.3.json before changes. Use the original Yolk product UI. Support only Fuel, Grocery and Non-bank in the active demo.
 
-## Active authority
+### Historical authority
 
 - Product: contracts/product.v1.7.json. Persistent map: contracts/workspace-map.v1.7.json and docs/PERSISTENT_MAP_v1.7.md. Brand experience: contracts/brand-experience.v1.7.json and the actual brand preset/logo registries.
 - Calculation baseline remains contracts/criteria-proposal.v1.6.json, contracts/runtime-parameter-presets.json, contracts/industry-profiles.json and contracts/implementation-tasks.v1.6.json. A product/UI version change does not silently replace formulas or the national cohort. Brand-family overrides are declared in prototype/data/brand-presets.v1.7.json.
@@ -40,7 +84,7 @@ Updated 2026-10-05. Read START_HERE.md, contracts/product.v1.7.json, CityMETER_Y
 - In retained market/criteria screening views, the metric remains ordinal yolk.demand_proxy_tier. Appearance1.7.3 is the owner's fried-egg categorical recipe: Tier1 exact density.area LUT20–40 gradient (#E6AB30→#D6600C), Tier2 energy.yellow #FFBC1F, Tier3 egg-white #F1F4EF, identical both themes. Use prototype/yolk-tier-style.js/.css. Gradient within a Tier1 polygon has no spatial magnitude. This overrides previous li.demand tier appearance only; raw metric semantics/scales and best-confirmed-fine tier aggregation remain unchanged. Selected fine stays unfilled. Unknown/review remains separate.
 - In selected fine-location view the interior is transparent (fill=false), with boundary/label/tier status to preserve basemap visibility. This is a selection outline, not a low-opacity data colour. Country/province/district analytical choropleths retain exact/full-opacity fills. Unassigned POI coordinates may pass the source-polygon view predicate, but remain administratively unassigned and never change aggregate counts. Capture context/route/record/revision before photo awaits; abort stale completion without mutating or restoring another context's POIs.
 
-## Active 1.7.2 map-analysis extension
+### Historical 1.7.2 map-analysis extension
 
 - Read contracts/map-analysis.v1.7.2.json and docs/MAP_ANALYSIS_v1.7.2.md. Product/workspace-map v1.7 and responsiveness v1.7.1 remain the base authority; this extension controls the new dedicated Demand/Supply map modes and pre-selection pattern counts only.
 - Pure Demand view uses confirmed demand===true/qualifyingTier1–3 before preferred-pattern, Supply and maxDemandTier filters. The actual shortlist still uses its saved gates. Country raw Demand metric must be labelled maximum known fine-area value; never call it a native district sum/mean.
@@ -50,7 +94,7 @@ Updated 2026-10-05. Read START_HERE.md, contracts/product.v1.7.json, CityMETER_Y
 - Pattern cards count all7954unique national rows before preferred checkbox selection, retaining Demand mode/maxTier gates. One possible pattern is confirmed; multiple distinct possibilities increment overlapping review counts. UnknownDemand and invalid/loading inputs remain separate/dash; weights, view filters and checkbox selection cannot change pre-selection counts.
 - Run all179baseline regressions plus check-map-analysis.cjs, check-pattern-counts.cjs and check-analysis-integration.cjs. After final root QA only, seal with scripts/seal-pages-v1.7.4.py --after-final-qa, then verify-pages-v1.7.4.py. Preserve historical release manifests/receipts; retained social image is explicitly the unchanged1.7family asset. No publication claim before terminal provider/live-byte evidence.
 
-## Production work and checks
+### Historical production work and checks
 
 - Reuse the actual CityMETER stack after Task 00 mapping. Shared APIs/datastore/outbox/RBAC/media and delivery channels remain production work, not capabilities proven by the static preview.
 - Standard seats: 1 Admin / 3 Editors / 6 Viewers, enforced server-side in production. Successful mutations write one event/outbox transaction; dedupe notifications by event ID. Personal view/theme/language/draft changes do not count as team activity.
@@ -59,7 +103,7 @@ Updated 2026-10-05. Read START_HERE.md, contracts/product.v1.7.json, CityMETER_Y
 - Run python3 scripts/verify-pages-v1.7.4.py, node scripts/check-three-industry.cjs, node scripts/check-brand-presets.cjs, node scripts/check-workspace-map.cjs, node scripts/check-criteria-controls.cjs and node scripts/check-photo-runtime.cjs as appropriate. The Pages artifact is prototype/; runtime contract copies must match root contracts and resolve within /yolk/.
 - Review actual Thai/English content on narrow and desktop screens in both themes, including map persistence, popup/focus, long labels, active forms and provider failure. Hash/model/DOM-adapter checks do not prove browser or physical-device QA. Report deployment provider success and live-byte evidence separately.
 
-## Active1.7.3 evidence/appearance extension
+### Historical1.7.3 evidence/appearance extension
 
 Read contracts/location-review.v1.7.3.json and docs/LOCATION_REVIEW_v1.7.3.md. This extension has priority for location-review explanations, categorical tier appearance and raw quantitative41LUT mapping over the retained1.7.2 map-analysis appearance only. It does not change source totals, national fine Demand cutoffs, model formulas or branch verification states.
 
@@ -67,13 +111,13 @@ Location review is read-only. Single possible pattern means pattern-confirmed; a
 
 Run retained regressions plus check-location-review.cjs, check-yolk-tier.cjs and check-map-lut41.cjs. Current receipts belong to1.7.3; old217checks are historical. Public selection includes only explicit approvedpaths; append actual newbrowserPNGpaths before finalseal. FinalQA/provider/livebytes must be supported by currentevidence.
 
-## Final interaction refinements - 1.7.3
+### Historical interaction refinements - 1.7.3
 
 Buttons, links and disclosure summaries containing icons underline only their caption on hover (the Yolk wordmark is excluded); the icon glyph is undecorated and keyboard focus remains visible. Map and tile minZoom is 3, overriding the retained 1.7.2 value 4 so explicit mobile country fit can show the full country. Mobile bottom fit padding uses max(50, ceil(actual rendered footer legend height) + 18) px; desktop uses 18 px. Menu changes, criteria previews and ordinary sync retain the camera; only explicit navigation/home/fit changes it.
 
 Historical1.7.3 automated results: 17 suites / 260 checks passed. Independent snapshot consistency audit: 65 checks passed separately. Bounded native Chrome review passed selected Thai/dark and English/light flows at 1440x900 and390x844. See [native browser receipt](evidence/browser-v1.7.3/native-browser-review.json). This is not a full language/theme matrix or a physical-device/backend pass. Those1.7.3 prepublication statements are retainedhistory;1.7.4 QA/provider/live-byte evidence is pending.
 
-## Active 1.7.4 appearance and Supply clarity - release pending
+### Historical 1.7.4 appearance and Supply clarity - release pending
 
 Read [current appearance contract](contracts/map-boundary-appearance.v1.7.4.json), [boundary guide](docs/MAP_BOUNDARIES_v1.7.4.md) and [implementation plan](IMPLEMENTATION_PLAN_v1.7.4.md). All ordinary and selected fine-area outlines are white #FFFFFF; clickable hover outlines are Yolk yellow #FFBC1F / 2 px in both themes. Widths: province 1.2; country district 0.45; closer district 1.05; chosen parent district 1.1; ordinary fine 0.45; selected fine 0.8 px. Selected fine stays fill=false, replacing the previous blue selection stroke.
 
@@ -81,7 +125,7 @@ At location level, show only the chosen parent district as unfilled, noninteract
 
 Current 1.7.4 QA and publication are pending. The retained 1.7.3 product behavior/data and receipts are baseline/history, not current release passes. Use [release contract](contracts/release.v1.7.4.json). Current manifests, sealing, provider and live-byte evidence remain the release owner's work.
 
-## Supply cutoff clarity - 1.7.4
+### Historical Supply cutoff clarity - 1.7.4
 
 A Supply slider sets the point that starts High: observed count/rate >= cutoff is High, and < cutoff is Low. Moving right raises that point; it does not increase actual branches, the denominator or Demand. The same rate 0.5 is High at cutoff 0.3 and Low at cutoff 0.8, in the same displayed unit. Preserve interval bounds and possible patterns; no inversion or preset-threshold reseeding while dragging.
 
@@ -91,7 +135,7 @@ The [Supply semantics receipt](evidence/supply-cutoff-semantics-v1.7.4.json) cov
 
 Supply rate slider endpoints and steps use the role calibration threshold (fallback team criteria), not the current draft thumb value. Keep the scale stable across rerenders, language and route changes. Exact-number inputs retain values outside the slider range with the existing warning. Refresh cached broad navigation hit accessible labels on language change; preserve geometry, map instance, formulas, draft and preset.
 
-## Active context-aware CRUD extension · 1.7.5
+### Historical context-aware CRUD extension · 1.7.5
 
 Read docs/BRANCH_CONTEXT_v1.7.5.md and contracts/branch-context.v1.7.5.json. This controls source-first editor suggestions, contextual new-branch defaults, dropdown filtering, canonical brand identity, unresolved notes/photos, scoped new-photo drafts and view-only coordinate filtering. Unique strict-interior display matches may fill editor drafts; manual/saved assignments win and conflicts require explicit choice. Do not change original source membership, legal/operating status or aggregate Supply. Current map context seeds NEW records only; never stale Y.selected or forced Bangkok. Unknown brand remains unknown. All async hints must retain form/context/route/revision/coordinates, no camera move/event.
 

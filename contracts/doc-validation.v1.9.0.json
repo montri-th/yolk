@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "yolk.document_validation/1.9",
+  "version": "1.9.0",
+  "recordedAt": "2026-10-07T09:20:58Z",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 3,
+  "checks": [
+    {
+      "name": "All three embedded JSON blocks parse",
+      "passed": true
+    },
+    {
+      "name": "The full embedded blueprint equals the current machine contract",
+      "passed": true
+    },
+    {
+      "name": "Current blueprint version, three industries,25metrics and fixed7954UUIDs match the source scope",
+      "passed": true
+    },
+    {
+      "name": "Twenty-five step tasks have unique T00–T24 IDs and explicit inputs/outputs/steps/acceptance/prompts",
+      "passed": true
+    },
+    {
+      "name": "Factor-family,distinct-metric and joint-path caps are three; national parity mandatory",
+      "passed": true
+    },
+    {
+      "name": "Responsive camera rule preserves the same scope and explicitly protects open popup anchors",
+      "passed": true
+    },
+    {
+      "name": "Actual pinned baseDS document bytes match their authority",
+      "passed": true
+    },
+    {
+      "name": "Actual pinned locationProfile document bytes match their authority",
+      "passed": true
+    },
+    {
+      "name": "All nine referenced public source snapshots match the recorded source SHA256",
+      "passed": true
+    },
+    {
+      "name": "Actual39glyph icon subset remains declared WOFF2 bytes/hash",
+      "passed": true
+    },
+    {
+      "name": "Profile registry contains37brands/103scope presets/43source references",
+      "passed": true
+    }
+  ],
+  "checkCount": 11,
+  "metrics": 25,
+  "industries": 3,
+  "brandBindings": 37,
+  "profileScopePresets": 103,
+  "researchSourceReferences": 43,
+  "tasks": 25,
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.0.md",
+    "sha256": "fc7e69bed6cd25fbd7c061ad7ce6fce76dd4ef88f3053df018270e48e5c74d3b"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.0.json",
+    "sha256": "8d51b4e1bfe3dfc5e2e74f0fa73482546c56104fb16fecbbd8330fb406ff2811"
+  },
+  "coverageBoundary": "Embedded JSON/source/asset consistency only. Runtime460checks and bounded14native-browser checks are recorded separately in evidence/qa-v1.9.0.json. No production/physical-device/full-language-theme/130%-200%zoom or provider/live-byte certification.",
+  "currentQAReceipt": "evidence/qa-v1.9.0.json"
+}

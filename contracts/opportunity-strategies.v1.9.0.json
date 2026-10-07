@@ -1,0 +1,346 @@
+{
+  "schemaVersion": "yolk.opportunity-strategies/1.0",
+  "releaseVersion": "1.9.0",
+  "engineVersion": "1.9.0",
+  "authority": "Owner-authorized extension; supplied proposal is reference, not an implementation or deployment instruction",
+  "flow": [
+    "confirm_Demand",
+    "compare_Supply_and_competition",
+    "choose_brand_strategy"
+  ],
+  "maximumJointFactorsPerChoice": 3,
+  "maximumSelectedStrategies": 3,
+  "defaultStrategyIds": [
+    "underserved_market",
+    "competitive_entry",
+    "network_infill"
+  ],
+  "eligibilityContract": "Read current evaluate(criteria) rows only. currentYolk = eligible === true AND demand === true AND qualifyingTier in [1,2,3] AND qualifyingTier <= maxDemandTier. Strategy selection cannot change Demand/Tier/eligible IDs.",
+  "oldEightPatterns": {
+    "active": false,
+    "mustNotMapToNewStrategies": true,
+    "historicalDataPreserved": true
+  },
+  "counterContract": {
+    "demandEligibleCount": "All current Yolk rows before strategy view; reporting UUID unique",
+    "opportunityViewCount": "Eligible rows having at least one selected candidate_to_check strategy",
+    "evidenceIncompleteCount": "Eligible rows having no selected candidate and at least one evidence_incomplete assessment",
+    "shortlistedCount": "Saved targets; belongs to workspace storage, not engine",
+    "scope": "The caller filters administrative scope explicitly; never label a camera viewport count a national count"
+  },
+  "states": [
+    "candidate_to_check",
+    "evidence_incomplete",
+    "not_supported_by_current_evidence",
+    "not_current_yolk",
+    "demand_evidence_incomplete"
+  ],
+  "candidateMeaning": "Survey cue, never confirmed gap, measured customer demand, market share, winning probability, parcel feasibility or permit",
+  "api": {
+    "global": "YolkOpportunity",
+    "files": [
+      "prototype/opportunity-engine.js",
+      "scripts/check-opportunity-strategies.cjs"
+    ],
+    "methods": {
+      "strategies()": "Bilingual metadata array; eight strategy IDs, summaries, icons, dataPhase, factor labels",
+      "assess(row, criteria, context, profile, opts)": "Assessment root with assessments[], reasons[], evidenceRefs[], missingEvidence[], nextAction and observational sortTuple",
+      "view(rows, criteria, context, profile, opts)": "Counters and separate candidates / incomplete / notSupported / demandReview queues; rows aliases candidates",
+      "selectedStrategyIds(profile, opts)": "Canonical unique strategy IDs; >3 and unknown ID reject"
+    },
+    "contextFields": [
+      "industryId",
+      "ownBrandId",
+      "supplyScope",
+      "reportingGrain",
+      "submarketComparable",
+      "metricCatalog",
+      "sourcePeriod",
+      "supplyPeriod",
+      "sourceRelease"
+    ],
+    "profileFields": [
+      "defaultStrategyIds",
+      "complementaryMetricIds",
+      "id",
+      "profileVersion",
+      "perScopeProfiles",
+      "complementaryAnchors"
+    ],
+    "optionFields": [
+      "strategyIds",
+      "anchorMetricIds",
+      "anchorPercentile"
+    ],
+    "assessmentTraceFields": [
+      "engineVersion",
+      "strategyContractVersion",
+      "sourceRelease",
+      "criteriaRevision",
+      "profileId",
+      "profileVersion",
+      "areaId",
+      "scope"
+    ]
+  },
+  "supplySemantics": {
+    "scope": "Use existing source-format or active company-license family filters. These are comparable source submarkets, not verified price/consumer segments or branch product availability.",
+    "sameSubmarketRequirement": "context.submarketComparable=false makes all supply-based queues evidence_incomplete",
+    "countBounds": "own=[ownLower,ownUpper+U], competitor=[competitorLower,competitorUpper+U]. Fallback lower/upper=count. total=[ownLower+competitorLower, ownUpper+competitorUpper+U]; U added once. Known nonbank bounds remain bounds.",
+    "missing": "Unknown U, invalid/negative/noninteger counts or ownScopeUnavailable never become zero",
+    "relativeReference": "count_equivalent_own = ownRateHigh * raw_positive_denominator / normalization_unit; competitor similarly",
+    "normalizationUnits": {
+      "gfa": 100000,
+      "population": 10000,
+      "working_age_15_64": 10000,
+      "adult_population_20_64": 10000,
+      "factory_workers": 10000,
+      "hotel_rooms": 1000
+    },
+    "thresholdCrossing": "Supply interval crossing a low-supply cutoff = evidence_incomplete",
+    "referenceLimit": "Adjustable exploratory reference, not investment cutoff or measured capacity",
+    "assignmentBoundsAvailability": "boundsKnown === false means unavailable upper bounds, never exact zero; all supply strategies incomplete"
+  },
+  "complementaryP0": {
+    "availableActivityMetrics": [
+      "factory_count",
+      "factory_workers",
+      "hotel_rooms"
+    ],
+    "defaultActivityMetricIds": [
+      "factory_workers",
+      "hotel_rooms"
+    ],
+    "maximumSelectedActivityMetrics": 3,
+    "defaultMidrankReference": 95,
+    "benchmark": "Existing selected criteria cohort midrank; national default, same-grain explicit alternative. This is not an INC cutoff test and does not change Demand.",
+    "limit": "Area activity cue only. Current P0 has no hospital/school/anchor-coordinate proximity rule, no flow or purchases. Rooms are catalogue capacity; workers registry context.",
+    "sourcePeriods": {
+      "factory": "2025-04 ACTIVE",
+      "hotel": null
+    },
+    "profileRelevance": "Use at most3 factory_count/factory_workers/hotel_rooms metrics declared in profile.complementaryAnchors[].metricIds; population alone cannot support Complementary location. Empty supported activity set remains incomplete."
+  },
+  "ordering": {
+    "type": "lexicographic_survey_queue",
+    "fields": [
+      "candidateStrategyIds.length DESC",
+      "qualifyingTier ASC",
+      "index_of_first_candidate_strategy_in_selected_order ASC",
+      "first_candidate_observed_sort_value DESC within_same_strategy",
+      "reporting_uuid ASC"
+    ],
+    "sortValues": {
+      "underserved_market": "1-total_upper/(own_ref+competitor_ref)",
+      "competitive_entry": "competitor_lower/competitor_ref; 0 if market comparison unavailable",
+      "complementary_location": "largest passing selected-activity midrank",
+      "network_infill": "1-own_upper/own_ref"
+    },
+    "noNegativeWeightHack": true,
+    "mutatesExistingRank": false,
+    "scoreNotProduced": true
+  },
+  "phases": {
+    "P0": "Existing CityMETER area metrics and scope-aware supply: candidate queues 1,3,5,7; transparent unsupported views for others; capped choice and evidence tasks",
+    "P1": "Structured offering/hour/customer occasion/anchor/site surveys; verified hospital/school POIs and spatial crosswalk; physical cluster evidence",
+    "P2": "Directed routing/access/daypart stop-buy studies; future milestone watchlist separate from current Yolks",
+    "P3": "Private brand sales/customer/capacity/cost data, network displacement and holdout calibration"
+  },
+  "strategies": [
+    {
+      "id": "underserved_market",
+      "number": 1,
+      "name": {
+        "th": "เติมช่องว่างตลาด",
+        "en": "Underserved market"
+      },
+      "dataPhase": "P0",
+      "icon": "store",
+      "candidateRule": "current_yolk && total_supply_upper < own_reference_count + competitor_reference_count",
+      "jointFactors": [
+        "Demand",
+        "comparable_total_supply",
+        "market_reference"
+      ],
+      "missingEvidenceBeforeDecision": [
+        "omitted_providers",
+        "hours_and_access",
+        "actual_unmet_service"
+      ],
+      "p0CandidateSupported": true,
+      "confirmedBusinessOpportunity": false
+    },
+    {
+      "id": "segment_gap",
+      "number": 2,
+      "name": {
+        "th": "เติมช่องว่างของกลุ่มลูกค้า",
+        "en": "Segment gap"
+      },
+      "dataPhase": "P1",
+      "icon": "groups",
+      "candidateRule": "requires_verified_segment_occasions_and_branch_offerings",
+      "jointFactors": [
+        "customer_group",
+        "offering",
+        "occasion_and_time"
+      ],
+      "missingEvidenceBeforeDecision": [
+        "actual_customer_group",
+        "branch_offering_price_hours"
+      ],
+      "p0CandidateSupported": false,
+      "confirmedBusinessOpportunity": false
+    },
+    {
+      "id": "competitive_entry",
+      "number": 3,
+      "name": {
+        "th": "ชิงลูกค้าจากคู่แข่ง",
+        "en": "Competitive entry"
+      },
+      "dataPhase": "P0",
+      "icon": "swords",
+      "candidateRule": "current_yolk && competitor_supply_lower > 0",
+      "jointFactors": [
+        "Demand",
+        "competitor_presence",
+        "advantage_hypothesis"
+      ],
+      "missingEvidenceBeforeDecision": [
+        "branch_products_and_operations",
+        "customer_switching",
+        "brand_advantage"
+      ],
+      "p0CandidateSupported": true,
+      "confirmedBusinessOpportunity": false
+    },
+    {
+      "id": "cluster_participation",
+      "number": 4,
+      "name": {
+        "th": "เข้าร่วมย่านที่ดึงลูกค้า",
+        "en": "Cluster participation"
+      },
+      "dataPhase": "P1",
+      "icon": "layers",
+      "candidateRule": "requires_physical_cluster_and_shared_visits_evidence",
+      "jointFactors": [
+        "nearby_positions",
+        "shared_visits",
+        "location_costs"
+      ],
+      "missingEvidenceBeforeDecision": [
+        "verified_physical_cluster",
+        "comparison_shopping_or_shared_visits",
+        "costs"
+      ],
+      "p0CandidateSupported": false,
+      "confirmedBusinessOpportunity": false
+    },
+    {
+      "id": "complementary_location",
+      "number": 5,
+      "name": {
+        "th": "เกาะกิจกรรมที่ส่งลูกค้าให้กัน",
+        "en": "Complementary location"
+      },
+      "dataPhase": "P0",
+      "icon": "location_on",
+      "candidateRule": "current_yolk && any(selected_activity_value > 0 && selected_activity_midrank >= activity_reference)",
+      "jointFactors": [
+        "Demand",
+        "source_activity",
+        "exits_and_purchase_time"
+      ],
+      "missingEvidenceBeforeDecision": [
+        "verified_anchor_positions",
+        "exits_and_dayparts",
+        "actual_purchase_flows"
+      ],
+      "p0CandidateSupported": true,
+      "confirmedBusinessOpportunity": false
+    },
+    {
+      "id": "route_capture",
+      "number": 6,
+      "name": {
+        "th": "รับลูกค้าบนเส้นทาง",
+        "en": "Route capture"
+      },
+      "dataPhase": "P2",
+      "icon": "explore",
+      "candidateRule": "requires_directed_network_access_and_stop_buy_evidence",
+      "jointFactors": [
+        "route_and_direction",
+        "practical_access",
+        "stop_and_buy"
+      ],
+      "missingEvidenceBeforeDecision": [
+        "directed_network",
+        "access_constraints",
+        "passing_stopping_buying"
+      ],
+      "p0CandidateSupported": false,
+      "confirmedBusinessOpportunity": false
+    },
+    {
+      "id": "network_infill",
+      "number": 7,
+      "name": {
+        "th": "เติมเครือข่ายของเรา",
+        "en": "Network infill"
+      },
+      "dataPhase": "P0",
+      "icon": "shield",
+      "candidateRule": "current_yolk && own_supply_upper < own_reference_count",
+      "jointFactors": [
+        "Demand",
+        "own_provision",
+        "coverage_and_displacement"
+      ],
+      "missingEvidenceBeforeDecision": [
+        "travel_time_coverage",
+        "own_capacity",
+        "own_displacement"
+      ],
+      "p0CandidateSupported": true,
+      "confirmedBusinessOpportunity": false
+    },
+    {
+      "id": "future_entry",
+      "number": 8,
+      "name": {
+        "th": "เปิดก่อนเพื่อได้พื้นที่ก่อน",
+        "en": "Future entry"
+      },
+      "dataPhase": "P2",
+      "icon": "flag",
+      "candidateRule": "separate_future_watchlist_requires_project_milestones",
+      "jointFactors": [
+        "milestones",
+        "site_availability",
+        "holding_costs_and_triggers"
+      ],
+      "missingEvidenceBeforeDecision": [
+        "verified_future_milestones",
+        "site_option",
+        "holding_costs_and_stopping_trigger"
+      ],
+      "p0CandidateSupported": false,
+      "confirmedBusinessOpportunity": false
+    }
+  ],
+  "acceptance": [
+    "Demand/Tier/current eligible IDs unchanged under every strategy view",
+    "At most three unique strategies and three activity factors",
+    "Missing/zero/interval/nonpositive denominator remain distinct",
+    "Unresolved supply is not a measured absence",
+    "Within-source-scope comparisons preserve active format/license filters",
+    "Strategies 2/4/6/8 produce explicit data-incomplete states in P0",
+    "Future evidence never promotes a non-current area to Yolk",
+    "Evidence refs retain values/units/periods/source field/reporting UUID/scope",
+    "Each candidate has concrete missing evidence and first field task",
+    "No source/criteria/event mutation; deterministic order; no mixed-unit strategy sorting"
+  ]
+}

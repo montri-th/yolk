@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "yolk.developer_handoff/1.9",
+  "version": "1.9.0",
+  "date": "2026-10-07",
+  "status": "locally_verified_pending_publication",
+  "startHere": "START_HERE.md",
+  "fullDocument": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.0.md",
+  "quickPlan": "IMPLEMENTATION_PLAN_v1.9.0.md",
+  "humanHandoff": "HANDOFF.md",
+  "assetIndex": "ASSET_INDEX_v1.9.0.md",
+  "machineBlueprint": "contracts/full-product.v1.9.0.json",
+  "activeCriteria": "contracts/full-product.v1.9.0.json",
+  "releaseAuthority": "contracts/release.v1.9.0.json",
+  "runtimeRoot": "prototype/",
+  "normativeRoot": "reference/lds-0.9.7/",
+  "brandGraphics": "prototype/data/brand-logos.v1.7.json",
+  "icons": "contracts/icons.v1.8.0.json",
+  "requiredExternalServices": {
+    "production": "CityMETER stack mapping/auth/datastore/server RBAC/private media/outbox/email/LINE remain tasks",
+    "mapTiles": "Provider URLs and attribution are required; no tile cache is packaged"
+  },
+  "assetPolicy": "Use supplied original assets and current sealed hashes. DS base/profile/icons are pinned; no logo frames or motifs.",
+  "sourcePolicy": "Public compact adapters/provenance only; sources and private acquisition archives remain immutable/excluded.",
+  "experienceInvariants": [
+    "Demand/Tier alone determine active membership",
+    "Supply and weights can reorder, never add or remove confirmed Demand IDs",
+    "legacy patterns/demandMode remain inactive history",
+    "shield identifies own network; swords identifies comparator network",
+    "local paired-bar scale within a location does not compare length across locations",
+    "actual POI keeps true square brand graphic + name + role badge",
+    "map camera changes for explicit navigation/focus/fit or substantial responsive width/breakpoint changes at the same geographic scope; open popup anchors are preserved",
+    "source-first form hints preserve manual choices and do not allocate aggregates",
+    "Strategies are a post-Demand projection with distinct candidate, incomplete and unsupported states",
+    "At most three factor families and three metrics per joint rule; at most three selected strategies",
+    "Current profiles seed only unseen brand/scope context; saved applied criteria/drafts win",
+    "Supply defaults to choropleth; optional coordinate POIs at all four drilldown levels without automatic camera changes",
+    "Coordinate groups preserve all available records and never rewrite administrative counts or certify a customer-attraction cluster"
+  ],
+  "packageEvidence": {
+    "zip": "Prepared by release owner after final source/asset selection and current QA",
+    "currentQA": {
+      "status": "locally_verified_pending_publication",
+      "receipt": "evidence/qa-v1.9.0.json",
+      "automatedReceipt": "evidence/automated-v1.9.0.json",
+      "releaseChecksReceipt": "evidence/release-checks-v1.9.0.json",
+      "nativeBrowserReceipt": "evidence/browser-v1.9.0/native-browser-review.json",
+      "physicalDevices": "unverified",
+      "fullLanguageThemeMatrix": false,
+      "automatedChecks": 460,
+      "automatedSuites": 26,
+      "browserReview": "bounded_native_pass",
+      "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "browserChecks": 14,
+      "snapshots": [
+        "evidence/browser-v1.9.0/desktop-th-dark-strategy.jpg",
+        "evidence/browser-v1.9.0/desktop-en-light-strategy.jpg",
+        "evidence/browser-v1.9.0/mobile-th-dark-strategy.jpg",
+        "evidence/browser-v1.9.0/mobile-en-light-criteria.jpg",
+        "evidence/browser-v1.9.0/supply-country-points.jpg",
+        "evidence/browser-v1.9.0/supply-fine-points.jpg"
+      ],
+      "productionBackend": "not_implemented_in_static_preview"
+    },
+    "provider": "Pending external source-bound attestation",
+    "liveBytes": "Pending external emitted-route MIME/hash attestation",
+    "physicalDevices": "Unverified",
+    "localQAReceipt": "evidence/qa-v1.9.0.json",
+    "automatedReceipt": "evidence/automated-v1.9.0.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.0/native-browser-review.json",
+    "snapshotsActual": [
+      "evidence/browser-v1.9.0/desktop-th-dark-strategy.jpg",
+      "evidence/browser-v1.9.0/desktop-en-light-strategy.jpg",
+      "evidence/browser-v1.9.0/mobile-th-dark-strategy.jpg",
+      "evidence/browser-v1.9.0/mobile-en-light-criteria.jpg",
+      "evidence/browser-v1.9.0/supply-country-points.jpg",
+      "evidence/browser-v1.9.0/supply-fine-points.jpg"
+    ]
+  },
+  "strategyContract": "contracts/opportunity-strategies.v1.9.0.json",
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json"
+}

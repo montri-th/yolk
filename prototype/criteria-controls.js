@@ -2,7 +2,7 @@
 (function (global) {
   'use strict';
 
-  const selector = 'input[type="number"][data-criterion], input[type="number"][data-path-percentile], input[type="number"][data-weight-scope]';
+  const selector = 'input[type="number"][data-criterion], input[type="number"][data-path-percentile]:not([data-factor-number]), input[type="number"][data-weight-scope]';
   const instances = new WeakMap();
 
   function copy(th, en) {

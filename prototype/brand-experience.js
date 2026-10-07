@@ -9,7 +9,7 @@
  function visibleBrands(industry,brands){return brands.filter(b=>b.id!=='unknown').slice(0,industry==='nonbank'?10:Infinity)}
  function familyFor(industry,id,scope){const b=record(id);return families.get(b?.perScopeFamily?.[scope]||registry.fallbackPerScope?.[industry]?.[scope]||b?.defaultFamilyId||registry.fallback[industry])||null}
  function scopeFor(industry,id){return record(id)?.defaultScope||PROFILE_BY_ID[industry].defaultScope}
- function seed(base,industry,id,scope){const family=familyFor(industry,id,scope);return normalizeCriteria({...base,...structuredClone(family?.criteriaOverrides||{}),seedPresetId:family?.id||null,seedVersion:registry.version},{existing:false})}
+ function seed(base,industry,id,scope){const family=familyFor(industry,id,scope);const brandProfile=root.YOLK_RUNTIME.strategyProfiles?.brands.find(b=>b.industryId===industry&&b.brandId===id),scopeProfile=brandProfile?.perScopeProfiles?.[scope];const initial={...base,...structuredClone(family?.criteriaOverrides||{})},enriched=root.YolkDemandFactors?.seed(initial,scopeProfile)||initial;return normalizeCriteria({...enriched,seedPresetId:family?.id||null,seedVersion:registry.version,strategyProfileVersion:root.YOLK_RUNTIME.strategyProfiles?.version||null},{existing:false})}
  function logo(id){const entry=marks.get(id);if(!entry?.localPath||entry.verifiedSquareGraphic!==true)return `<span class="brand-logo-fallback" aria-hidden="true">${uiIcon('store')}</span>`;
   const support=entry.themeSupport||'both',forTheme=theme=>entry.variants?.[theme]||(support==='both'||support===(theme+'Only')?entry:null);
   return `<span class="brand-logo">${['light','dark'].map(theme=>{const asset=forTheme(theme);return asset?`<img class="brand-logo-${theme}" src="${escapeHTML(asset.localPath)}?v=${escapeHTML((asset.sha256||'').slice(0,12))}" alt="" loading="lazy" decoding="async">`:`<span class="brand-logo-fallback-${theme}" aria-hidden="true">${uiIcon('store')}</span>`}).join('')}</span>`;
@@ -29,7 +29,7 @@
  document.addEventListener('click',async event=>{const button=event.target.closest('[data-brand-action]');if(!button||button.disabled)return;const action=button.dataset.brandAction;
   if(action==='open')open();else if(action==='close')document.getElementById('brand-dialog')?.close();
   else if(action==='choose'){const id=button.dataset.brandId;document.getElementById('brand-dialog')?.close();if(id===Y.ownBrandId)return;await selectIndustryContext(Y.industry,id);document.getElementById('brand-picker')?.focus();}
-  else if(action==='try-preset'){if(!canEdit())return;draft=seed(presetCriteria(Y.industry),Y.industry,Y.ownBrandId,Y.supplyScope);draft.version=Y.criteria.version;draftBase=Y.criteria.version;stashContext();render();notify(tr('โหลดเกณฑ์ให้ลองแล้ว ดูผลบนแผนที่ก่อนบันทึกใช้ทั้งทีม','Preset ready to try. Review the map before applying it to the team.'));}
+  else if(action==='try-preset'){if(!canEdit())return;draft=seed(presetCriteria(Y.industry),Y.industry,Y.ownBrandId,Y.supplyScope);if(draft.supplyMode==='relative')draft=YolkRelativeSupply.seedCriteria(draft);draft.version=Y.criteria.version;draftBase=Y.criteria.version;stashContext();render();notify(tr('โหลดเกณฑ์ให้ลองแล้ว ดูผลบนแผนที่ก่อนบันทึกใช้ทั้งทีม','Preset ready to try. Review the map before applying it to the team.'));}
  });
  root.YolkBrands=Object.freeze({record,displayName,visibleBrands,familyFor,scopeFor,seed,logo,picker,presetSummary,version:registry.version});
 })(window);

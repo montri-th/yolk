@@ -84,3 +84,22 @@ html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .lea
  .yolk-map-workspace .criteria-workspace-head .version-tag{justify-self:start}
  .yolk-map-workspace .criteria-workspace-head h1{font-size:26px;line-height:1.4}
 }
+
+/* Supply coordinates are a separate view: neutral groups and exact role inks. */
+.workspace-supply-view{display:flex;gap:5px;padding:0 16px 7px;flex-shrink:0;align-items:center}
+.workspace-supply-view[hidden]{display:none}
+.workspace-supply-view button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:5px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--muted);font:500 13px/1.3 'Bai Jamjuree',sans-serif}
+.workspace-supply-view button[aria-pressed=true]{background:var(--soft);color:var(--ink);font-weight:600}
+.workspace-supply-view .yl-icon{font-size:19px;margin:0}
+.workspace-cluster-marker{background:transparent;border:0}
+.workspace-poi-cluster{display:grid;place-items:center;min-width:48px;min-height:46px;border:1px solid var(--yl-border-strong);border-radius:12px;background:var(--paper);color:var(--ink);padding:3px 5px;box-sizing:border-box}
+.workspace-poi-cluster strong{font:600 16px/1.25 'Bai Jamjuree',sans-serif}
+.workspace-poi-cluster>span{display:flex;gap:1px;justify-content:center}
+.workspace-poi-cluster i{display:inline-flex;font-style:normal}
+.workspace-poi-cluster .yl-icon{font-size:15px;margin:0}
+.workspace-cluster-own{color:var(--workspace-own)}
+.workspace-cluster-competitor{color:var(--workspace-competitor)}
+.workspace-cluster-unverified{color:var(--workspace-unverified)}
+.workspace-cluster-list{display:grid;gap:5px;margin-top:8px}
+.workspace-cluster-list button{display:flex;align-items:center;gap:7px;text-align:start;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--ink);padding:7px;font:500 13px/1.45 'Bai Jamjuree',sans-serif}
+@media(max-width:1099px){.workspace-supply-view{padding:0 10px 4px;gap:5px}.workspace-supply-view button{min-height:36px;font-size:12px;padding:4px 8px}.workspace-map-panel[data-workspace-supply-view=points] .workspace-map-stats{white-space:normal;flex-wrap:wrap}}

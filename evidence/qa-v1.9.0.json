@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "yolk.current_qa/1.9",
+  "version": "1.9.0",
+  "recordedAt": "2026-10-07T09:18:19Z",
+  "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "automated": {
+    "suites": 26,
+    "checks": 460,
+    "status": "PASS",
+    "receipt": "evidence/automated-v1.9.0.json",
+    "scope": "Current source/model/VM/DOM-adapter checks; current profile numerical paths intentionally differ from legacy absent-profile fixtures. Native rendering and physical-device/production validation are separate."
+  },
+  "nativeBrowser": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "checks": 14,
+    "receipt": "evidence/browser-v1.9.0/native-browser-review.json",
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.0/desktop-th-dark-strategy.jpg",
+        "bytes": 282864,
+        "sha256": "0e01d2a43b31b79c0c5091dfa55c31d6a45e81288a01b03dfa3f689fdb3ffc5e",
+        "width": 1440,
+        "height": 1000,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.0/desktop-en-light-strategy.jpg",
+        "bytes": 251454,
+        "sha256": "e0eb1c99afa465fea76584e39f8984b7b83cab8ed78249d827e3dc1b001940f6",
+        "width": 1440,
+        "height": 1000,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.0/mobile-th-dark-strategy.jpg",
+        "bytes": 76430,
+        "sha256": "c3bcda134b9fccd0196f0181aeacf2fd91e997a9942993faa45d06cfe70afbcf",
+        "width": 390,
+        "height": 844,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.0/mobile-en-light-criteria.jpg",
+        "bytes": 70467,
+        "sha256": "b36fd72c2050518d89c8fdf9b18d70a250ce9c9fe4ec6de75613535319b134d3",
+        "width": 390,
+        "height": 844,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.0/supply-country-points.jpg",
+        "bytes": 239662,
+        "sha256": "61532a55e9a4c070f3c7e2bb54f5912cc1fb822c5006fbcacb187a880bfcb9f5",
+        "width": 1440,
+        "height": 1000,
+        "format": "JPEG"
+      },
+      {
+        "path": "evidence/browser-v1.9.0/supply-fine-points.jpg",
+        "bytes": 234815,
+        "sha256": "f617b65ca9c63dfaf58770ba701b7cc487f9d5133163abdd65745da15cf573b8",
+        "width": 1440,
+        "height": 1000,
+        "format": "JPEG"
+      }
+    ],
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "scope": "Bounded local native rendering and actual UI interactions only. Province/district POI modes are covered by VM/controller checks, not claimed as native browser drilldown proof. Screen groups are display aggregation, not customer-attraction evidence.",
+    "notVerified": [
+      "physical iPhone/Android touch",
+      "130%/200% browser zoom",
+      "complete language/theme/device matrix",
+      "production auth/RBAC/outbox/email/LINE/private media",
+      "external tile/Street View/AI provider results",
+      "native province/district POI drilldown"
+    ]
+  },
+  "designSystemPackage": {
+    "release": "v0.9.7-owner.1",
+    "version": "0.9.7",
+    "packageVerifierStatus": "PASS",
+    "packageChecks": 9768,
+    "retainedWarnings": 65,
+    "receipt": "evidence/lds-package-verification.json",
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim."
+  },
+  "sourceAndSemantics": {
+    "nationalReportingUUIDs": 7954,
+    "nationalNativeDistricts": 928,
+    "metrics": 25,
+    "industries": [
+      "fuel",
+      "grocery",
+      "nonbank"
+    ],
+    "quantitativeLUTSamples": 41,
+    "unseenContextNumericDefaultsIntentionallyChanged": true,
+    "savedCriteriaAndDraftsPreserved": true,
+    "strategySelectionMutatesDemand": false,
+    "coordinateGroupsMutateNativeSupply": false
+  },
+  "physicalDevices": "unverified",
+  "fullLanguageThemeMatrix": false,
+  "productionBackend": "not_implemented_in_static_preview",
+  "providerEvidence": "pending_external_attestation",
+  "liveByteEvidence": "pending_external_attestation"
+}

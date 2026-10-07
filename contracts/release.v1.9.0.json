@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "yolk.public_release/1.9",
+  "version": "1.9.0",
+  "approvedSourcePreview": "1.9.0-demand-supply-strategy",
+  "date": "2026-10-07",
+  "status": "locally_verified_pending_publication",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "productAuthority": "contracts/product.v1.7.json",
+  "featureExtension": "contracts/opportunity-strategies.v1.9.0.json",
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "nationalDemandCutoffsUnchanged": false,
+  "fineModelSemanticsUnchanged": false,
+  "modelChange": "New profile Demand paths and at most three factor families / three joint metrics intentionally revise initial unseen-context presets. Existing saved applied criteria and drafts win. Supply/ranking/strategy selection never change confirmed Demand IDs. Strategies are evidence-limited survey queues, not the retired D/C/B patterns.",
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "publicationDelta": [
+    "Three steps: confirm high Demand, compare scope-aware Supply and choose up to three brand strategies.",
+    "Eight strategy evidence queues distinguish current-supported candidates from missing data and later-phase studies.",
+    "Primary-source offering/positioning profiles for 37 selectable identities across three industries; actual consumer perception remains unmeasured.",
+    "Brand/format-specific adjustable initial Demand presets; saved applied criteria and drafts remain authoritative.",
+    "Supply region colours default; optional coordinate POIs at country/province/district/fine scope with bounded display groups.",
+    "Strategy map keeps Demand-tier colours only on candidate areas; candidate and Demand counters stay separate."
+  ],
+  "shareImage": {
+    "asset": "prototype/assets/identity/yolk-share-v1.7.png",
+    "family": "1.7",
+    "changedInThisRelease": false,
+    "meaning": "Retained approved1.7family asset; no new1.9render claimed."
+  },
+  "sourceEvidenceBoundary": "Compact public adapters and provenance only; private source acquisition/customer data excluded.",
+  "localVerification": {
+    "status": "locally_verified_pending_publication",
+    "receipt": "evidence/qa-v1.9.0.json",
+    "automatedReceipt": "evidence/automated-v1.9.0.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.0.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.0/native-browser-review.json",
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "automatedChecks": 460,
+    "automatedSuites": 26,
+    "browserReview": "bounded_native_pass",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 14,
+    "snapshots": [
+      "evidence/browser-v1.9.0/desktop-th-dark-strategy.jpg",
+      "evidence/browser-v1.9.0/desktop-en-light-strategy.jpg",
+      "evidence/browser-v1.9.0/mobile-th-dark-strategy.jpg",
+      "evidence/browser-v1.9.0/mobile-en-light-criteria.jpg",
+      "evidence/browser-v1.9.0/supply-country-points.jpg",
+      "evidence/browser-v1.9.0/supply-fine-points.jpg"
+    ],
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "providerEvidence": "Pending terminal deployment success bound to final source SHA; external attestation separate from local QA.",
+  "liveByteEvidence": "Pending current public emitted-URL/hash/MIME checks in external attestation; not inferred from local QA.",
+  "limits": [
+    "Demand proxy is not observed traffic/purchases/borrowing or a revenueforecast",
+    "Static preview does not implement sharedbackend/serverRBAC/email/LINE/privateproductionmedia",
+    "Native viewport review is not physicaldevice certification",
+    "External provider availability/results need separate verification",
+    "Operator-stated positioning is not measured consumer perception or branch-level offering certification",
+    "Strategy candidates are survey cues, not measured unmet demand, market share, sales or winning probability",
+    "POI coordinate inventories and native choropleth counts have different coverage; screen groups are not a customer-attraction model"
+  ],
+  "retainedContracts": [
+    "contracts/workspace-map.v1.7.json",
+    "contracts/map-analysis.v1.7.2.json",
+    "contracts/location-review.v1.7.3.json",
+    "contracts/map-boundary-appearance.v1.7.4.json",
+    "contracts/branch-context.v1.7.5.json"
+  ],
+  "currentQAOnly": true,
+  "designSystemPackageVerification": {
+    "status": "retained_integrity_receipt_only_not_current_artifact_certification",
+    "receipt": "evidence/lds-package-verification.json",
+    "checks": 9768,
+    "warnings": 65,
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim."
+  },
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "fullProduct": "contracts/full-product.v1.9.0.json",
+  "responsiveCameraRule": "Substantial width change over100px or crossing1100px refits the same geographic navigation after invalidation; height-only/footer changes and ordinary route/criteria/mode changes do not fit. Open POI/group popup anchors suppress responsive fitting."
+}

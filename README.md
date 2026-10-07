@@ -1,21 +1,31 @@
-# CityMETER: Yolk · 1.8.0 · LDS 0.9.7
+# CityMETER: Yolk · 1.9.0 · LDS 0.9.7
 
 **หาไข่แดง ขยายตลาด — Find the yolk. Grow your market.**
 
-หา Demand ที่เข้มข้น เทียบสาขาเราและคู่แข่ง แล้วเล็งพื้นที่ที่ควรศึกษาต่อ บนแผนที่เดียว Demo รองรับ Fuel, Grocery และ Non-bank
+คัดพื้นที่ Demand เข้มข้น เทียบสาขาและการแข่งขัน แล้วเลือกวิธีขยายตลาดพร้อมแผนสำรวจ บนแผนที่เดียว รองรับ Fuel, Grocery และ Non-bank
 
-[Web preview](https://montri-th.github.io/yolk/) · [Product + implementation ฉบับเต็ม](CityMETER_Yolk_Full_Product_and_Implementation_v1.8.0.md) · [เริ่มพัฒนา](START_HERE.md) · [Handoff](HANDOFF.md) · [Assets](ASSET_INDEX_v1.8.0.md)
+[Web preview](https://montri-th.github.io/yolk/) · [Product + implementation ฉบับเต็มไฟล์เดียว](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.0.md) · [เริ่มพัฒนา](START_HERE.md) · [Handoff](HANDOFF.md) · [Assets](ASSET_INDEX_v1.9.0.md)
 
-รุ่น 1.8.0 ใช้สามขั้นตอน: **หาไข่แดง → ดูช่องว่างสาขา → เล็งทำเล** ระดับไข่แดงเข้ม/ไข่แดง/ไข่ขาวสื่อ Demand สูงมาก/สูง/ค่อนข้างสูง ส่วนโล่และดาบแยกสาขาเรา/คู่แข่ง ตัวเลขและแท่งเปรียบเทียบใช้หน่วยเดียวกัน
+## ทำงานอย่างไร
 
-Supply และน้ำหนักช่วยจัดอันดับพื้นที่ที่ผ่าน Demand การปรับสองส่วนนี้ไม่เพิ่มหรือลดจำนวนไข่แดง ไม่มีการเลือก 8 รูปแบบหรือดาวใน active flow สูตร Demand, source snapshots และ national cohort 7,954 reporting UUIDs คงเดิม อ่าน [experience contract](contracts/criteria-experience.v1.8.0.json)
+1. **หาไข่แดง:** เลือกธุรกิจ แบรนด์ และรูปแบบ ได้เกณฑ์ตั้งต้นจากข้อมูล CityMETER จริง ปรับได้ไม่เกิน 3 ปัจจัยร่วมกันในแต่ละจุด สีไข่แดงเข้ม/ไข่แดง/ไข่ขาวบอก Demand สูงมาก/สูง/ค่อนข้างสูง
+2. **ดู Supply และการแข่งขัน:** เทียบโล่ของเราและดาบของคู่แข่งในตลาดที่เกี่ยวข้อง ดูจำนวนหรือสาขาเทียบฐานตลาด เปลี่ยนจาก choropleth เป็นจุดสาขาได้ทุกระดับ
+3. **เลือก Strategy:** เลือก 1–3 วิธีขยายตลาด อ่าน “พบแล้ว / ยังไม่รู้ / งานแรก” แล้วเล็งทำเลพร้อมผู้รับผิดชอบและ snapshot ของเกณฑ์/ข้อมูลรุ่นที่ใช้
 
-Demo เป็น browser-local simulation: ยังไม่มี shared backend/server RBAC/email/LINE/private production media ไม่รับรอง traffic จริง capacity market share หรือยอดขายจากผลคัด
+8 Strategy เป็นวิธีสร้างคิวสำรวจชุดใหม่ แยกจาก 8 รูปแบบ Demand/Competitor/Own เดิม P0 มีเบาะแสสำหรับวิธี 01/03/05/07 ส่วนวิธีอื่นระบุข้อมูลที่ต้องเพิ่ม การคัดผ่านยังไม่ใช่การอนุมัติเปิดสาขาหรือการรับประกันยอดขาย อ่าน [Strategy experience](docs/STRATEGY_EXPERIENCE_v1.9.0.md)
 
-ใช้ exact LDS 0.9.7 base + Location Intelligence Profile, official unframed Landometer logo, verified square brand graphics และ Material Symbols extension ไม่มี motif/colored selected rail/logo frame
+## ข้อมูลและ preset
 
-ผลตรวจรุ่นนี้และสถานะเผยแพร่อ่าน [release contract](contracts/release.v1.8.0.json) Local QA, native browser, provider และ live-byte evidence แยกกัน ผล hash ไม่แทนการตรวจ UI หรือ physical device
+ฐานทั่วประเทศมี **7,954 reporting UUIDs และ 25 metrics** กทม. ใช้แขวง ต่างจังหวัดใช้ อปท. การซูมหรือกรองจังหวัดไม่เปลี่ยน national benchmark โปรไฟล์ 37 แบรนด์/นิติบุคคลมีที่มาและข้อจำกัดใน [brand research](docs/BRAND_RESEARCH_v1.9.0.md) และ [runtime registry](prototype/data/brand-strategy-profiles.v1.9.0.json)
 
-## ผลตรวจปัจจุบัน
+รุ่น 1.9.0 ปรับ initial Demand paths ให้จำกัดไม่เกิน 3 ปัจจัยและเหมาะกับแต่ละ profile รวมถึง Fuel ที่เปลี่ยนจาก activity vote เดิม ค่าใหม่เป็นสมมติฐานของ Yolk แสดง diff ก่อนใช้ และไม่เขียนทับเกณฑ์หรือแบบร่างที่เคยบันทึก Supply, weights และ Strategy เปลี่ยนลำดับหรือมุมมองได้ แต่ไม่เปลี่ยนชุดพื้นที่ผ่าน Demand ภายใต้เกณฑ์เดิม
 
-Local QA ผ่าน 21 suites / 354 checks และ bounded native browser 11 checks มีภาพจริง 5 ภาพ ไม่ใช่ full language/theme matrix, physical-device หรือ backend pass Provider/live-byte proof ยังรอ external attestation อ่าน [release contract](contracts/release.v1.8.0.json) และ [native receipt](evidence/browser-v1.8.0/native-browser-review.json)
+ใช้ exact LDS 0.9.7 base + Location Intelligence Profile, official unframed Landometer logo, square brand graphics และ Material Symbols extension ไม่มี motif, selected left rail หรือกรอบตกแต่งโลโก้
+
+## สถานะ preview และการตรวจรับ
+
+Demo เป็น browser-local simulation ยังไม่มี shared backend/server RBAC/email/LINE/private production media ข้อมูลบริบทและบัญชีสาขาไม่ยืนยัน traffic, การเปิดจริง, capacity, market share หรือยอดขาย ส่วน brand positioning ที่อ้างจากผู้ประกอบการไม่ใช่ผลสำรวจการรับรู้ของลูกค้า
+
+อ่านผลตรวจและสถานะเผยแพร่ปัจจุบันที่ [release contract 1.9.0](contracts/release.v1.9.0.json) แยก local QA, native browser, provider และ live-byte evidence การพัฒนาใน checkout ไม่ใช่หลักฐานว่าเว็บสาธารณะเปลี่ยนแล้ว และ hash checks ไม่แทนการตรวจ UI หรืออุปกรณ์จริง
+
+ผลรุ่น 1.8.0 และเก่ากว่าเก็บเป็นประวัติใน contracts/evidence ของรุ่นนั้น ไม่ใช่ผลตรวจผ่านของ 1.9.0 เริ่มพัฒนาจากศูนย์ได้ที่ [เอกสารเต็ม](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.0.md) พร้อม [machine blueprint](contracts/full-product.v1.9.0.json)
