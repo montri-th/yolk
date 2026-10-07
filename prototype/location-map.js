@@ -153,7 +153,7 @@
       else if(button.hasAttribute('data-map-retry'))setBasemap(activeStyle);
       else if(button.hasAttribute('data-map-poi')){
         const i=Number(button.dataset.mapPoi),p=c.pois[i],marker=markers[i];
-        if(p&&marker){map.setView([p.lat,p.lng],Math.max(map.getZoom(),15),{animate:!global.matchMedia?.('(prefers-reduced-motion: reduce)').matches});marker.openPopup();canvas.focus({preventScroll:true});}
+        if(p&&marker){map.setView([p.lat,p.lng],Math.max(map.getZoom(),15),{animate:!(global.YolkActionGuidance?.isReduced?.()||global.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});marker.openPopup();canvas.focus({preventScroll:true});}
       }
     };
     const onChange=event=>{

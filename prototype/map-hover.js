@@ -1,7 +1,7 @@
 /* Show the source boundary of the actual drill-down target, independent of fill grain.
  * const hover = YolkMapHover.create({map, L, token:()=>YOLK_HOVER_TOKEN});
  * const unbind = hover.bind(layer, event=>({level:'province'|'district'|'location',
- *   id, feature:EXACT_SOURCE_FEATURE, label:'Click to explore …'}));
+ *   id, feature:EXACT_SOURCE_FEATURE, label:'Click to explore …', title, detail}));
  * hover.show(target,event.latlng); hover.clear(); hover.destroy();
  * Caller owns target lookup/click/navigation. No inferred parent, centroid or extent.
  * Clear on navigation/context changes; rebinding is needed only for a new Leaflet layer.
@@ -26,19 +26,27 @@
     let active = null, outline = null, tooltip = null, destroyed = false;
     const bindings = new Set();
     const colour = () => String(typeof options.token === 'function' ? options.token() || '' : options.token || '').trim();
-    function remove(layer) { if (layer?.remove) layer.remove(); else if (layer && map.removeLayer) map.removeLayer(layer); }
+    function remove(layer, immediate = false) {
+      const element = immediate ? layer?.getElement?.() : null;
+      if (layer?.remove) layer.remove(); else if (layer && map.removeLayer) map.removeLayer(layer);
+      // Leaflet can retain a closed tooltip for its fade-out. Its content must not
+      // coexist with the next scope tooltip during pointer/keyboard transitions.
+      if (element?.remove) element.remove();
+    }
     function clear(expected) {
       if (expected && active?.key !== (typeof expected === 'string' ? expected : targetKey(expected))) return false;
-      remove(outline); remove(tooltip); outline = null; tooltip = null; active = null;
+      remove(outline); remove(tooltip,true); outline = null; tooltip = null; active = null;
       return true;
     }
     function show(target, latlng) {
       if (destroyed) return false;
       const key = targetKey(target), color = colour();
       if (!key || !usableFeature(target.feature) || !String(target.label || '').trim() || !color) { clear(); return false; }
-      const label = String(target.label);
+      const label = String(target.label), title = String(target.title || label), detail = String(target.detail || '');
+      const content = detail ? `<strong class="workspace-hover-title">${esc(title)}</strong><span class="workspace-hover-detail">${esc(detail)}</span>` : esc(label);
       if (!active || active.key !== key || active.feature !== target.feature) {
-        clear();
+        // Keep the single tooltip instance while only replacing its exact outline.
+        remove(outline); outline = null; active = null;
         try {
           outline = L.geoJSON(target.feature, {interactive:false, bubblingMouseEvents:false, ...(options.pane ? {pane:options.pane} : {}), style:{color, weight:2, opacity:1, fill:false, dashArray:null, interactive:false, lineCap:'round', lineJoin:'round'}}).addTo(map);
           outline.bringToFront?.();
@@ -47,9 +55,9 @@
       } else if (active.color !== color) { outline.setStyle?.({color}); active.color = color; }
       active.label = label;
       if (latlng && L.tooltip) {
-        if (!tooltip) tooltip = L.tooltip({direction:'auto', offset:[12,0], opacity:1, interactive:false, className:'workspace-map-hover-tooltip'}).setLatLng(latlng).setContent(esc(label)).addTo(map);
-        else { tooltip.setLatLng(latlng); tooltip.setContent(esc(label)); }
-      } else if (tooltip) { remove(tooltip); tooltip = null; }
+        if (!tooltip) tooltip = L.tooltip({direction:'auto', offset:[12,0], opacity:1, interactive:false, className:'workspace-map-hover-tooltip'}).setLatLng(latlng).setContent(content).addTo(map);
+        else { tooltip.setLatLng(latlng); tooltip.setContent(content); }
+      } else if (tooltip) { remove(tooltip,true); tooltip = null; }
       return true;
     }
     function bind(layer, getTarget) {
@@ -59,7 +67,10 @@
         let target;
         try { target = getTarget(event); } catch (_) { clear(lastTarget); return; }
         if (!target) { clear(lastTarget); return; }
-        lastTarget = target; show(target,event?.latlng);
+        lastTarget = target;
+        layer.getElement?.()?.setAttribute?.('aria-label',String(target.label || ''));
+        const anchor = event?.latlng || (event?.type === 'focus' ? layer.getBounds?.()?.getCenter?.() : null);
+        show(target,anchor);
       };
       const leave = () => { if (lastTarget) clear(lastTarget); lastTarget = null; };
       const focus = event => enter({...event, type:'focus'});
@@ -81,5 +92,5 @@
     function destroy() { if (destroyed) return; for (const unbind of [...bindings]) unbind(); clear(); destroyed = true; }
     return Object.freeze({show,clear,bind,destroy,getState:()=>({active:!!active,level:active?.level || null,id:active?.id ?? null,label:active?.label || '',key:active?.key || '',bindingCount:bindings.size})});
   }
-  root.YolkMapHover = Object.freeze({create,usableFeature,version:'1.7.1'});
+  root.YolkMapHover = Object.freeze({create,usableFeature,version:'1.9.1'});
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "yolk.document_validation/1.9",
+  "version": "1.9.1",
+  "recordedAt": "2026-10-07T12:04:40.528855+00:00",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 3,
+  "checks": [
+    {
+      "name": "All three embedded JSON blocks parse",
+      "passed": true
+    },
+    {
+      "name": "Full embedded blueprint exactly equals current machine contract",
+      "passed": true
+    },
+    {
+      "name": "Twenty-five unique T00–T24 tasks retain dependencies/inputs/outputs/steps/acceptance/prompts",
+      "passed": true
+    },
+    {
+      "name": "Source/profiles/Demand/Supply/ranking/opportunity/API/production/schema content equals retained1.9.0",
+      "passed": true
+    },
+    {
+      "name": "Semantic criteria/profile/engine versions remain1.9.0",
+      "passed": true
+    },
+    {
+      "name": "Tooltip cardinality/owner/transition/accessibility and measured widths match final interaction contract",
+      "passed": true
+    },
+    {
+      "name": "Point stroke schedule preserves click/hover and transparent interiors",
+      "passed": true
+    },
+    {
+      "name": "Functional motion records exact durations, real-count authority and OS OR personal reduction",
+      "passed": true
+    },
+    {
+      "name": "Actual new source receipts report28suites497checks and bounded22native",
+      "passed": true
+    },
+    {
+      "name": "All six current screenshots have verified JPEG bytes/hashes and1440x1000/390x844dimensions",
+      "passed": true
+    },
+    {
+      "name": "PinnedbaseDSdocument bytes match declared source",
+      "passed": true
+    },
+    {
+      "name": "PinnedlocationProfiledocument bytes match declared source",
+      "passed": true
+    },
+    {
+      "name": "Fresh LDS package receipt passed9768checks with65warnings; scope is package-only",
+      "passed": true
+    },
+    {
+      "name": "All current document Markdown links resolve locally",
+      "passed": true
+    },
+    {
+      "name": "Full machine interaction projection equals separate interaction contract",
+      "passed": true
+    }
+  ],
+  "checkCount": 15,
+  "metrics": 25,
+  "industries": 3,
+  "brandBindings": 37,
+  "tasks": 25,
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.1.md",
+    "sha256": "2cae122f72a4aa6af5e4452d87fe5b315cb7027fcc4fee78c2104f3f95e1b2c3"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.1.json",
+    "sha256": "dc4efd0d86bf532f39a64fc050d7eeefa657c3c1d227294f8f86a84d5f7bc211"
+  },
+  "coverageBoundary": "Document/contract/source/receipt/snapshot consistency only. Runtime497checks/native22checks are separate bounded receipts. No physical-device/full-language-theme/actual-screen-reader/OSsetting/provider/backend certification.",
+  "currentQAReceipt": "evidence/qa-v1.9.1.json"
+}

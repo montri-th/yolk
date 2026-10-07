@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "yolk.public_release/1.9",
+  "version": "1.9.1",
+  "approvedSourcePreview": "1.9.1-map-clarity-action-guidance",
+  "date": "2026-10-07",
+  "status": "locally_verified_pending_publication",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "productAuthority": "contracts/product.v1.7.json",
+  "featureExtension": "contracts/interaction-guidance.v1.9.1.json",
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "nationalDemandCutoffsUnchanged": true,
+  "fineModelSemanticsUnchanged": true,
+  "modelChange": "None from 1.9.0: same formulas, 7,954 reporting UUIDs, 25 metrics, profile/criteria/engine/strategy versions. Presentation and action feedback only.",
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "publicationDelta": [
+    "Single scope-owned hover tooltip with area name and important current-view value/unit.",
+    "Quiet contextual outlines in optional Supply point view, preserving hover, transparent interiors and all coordinate records.",
+    "Shortlist success points to destination and updates its true count once; duplicate/failure has no false +1.",
+    "Finite functional motion with immediate final-state reduced-motion/interruption fallback; no identity or evidence animation."
+  ],
+  "shareImage": {
+    "asset": "prototype/assets/identity/yolk-share-v1.7.png",
+    "family": "1.7",
+    "changedInThisRelease": false,
+    "meaning": "Retained approved1.7family asset; no new1.9render claimed."
+  },
+  "sourceEvidenceBoundary": "Compact public adapters and provenance only; private source acquisition/customer data excluded.",
+  "localVerification": {
+    "status": "locally_verified_pending_publication",
+    "receipt": "evidence/qa-v1.9.1.json",
+    "automatedReceipt": "evidence/automated-v1.9.1.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.1.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.1/native-browser-review.json",
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "automatedChecks": 497,
+    "automatedSuites": 28,
+    "browserReview": "bounded_native_pass",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 22,
+    "snapshots": [
+      "evidence/browser-v1.9.1/desktop-en-light-hover-regions.jpg",
+      "evidence/browser-v1.9.1/desktop-th-dark-shortlist-feedback.jpg",
+      "evidence/browser-v1.9.1/desktop-th-dark-supply-country.jpg",
+      "evidence/browser-v1.9.1/desktop-th-dark-supply-fine.jpg",
+      "evidence/browser-v1.9.1/desktop-th-dark-supply-province.jpg",
+      "evidence/browser-v1.9.1/mobile-th-dark-shortlist.jpg"
+    ],
+    "notVerified": [
+      "actual pointer-hover across every boundary (native keyboard focus + automated pointer-event adapters used)",
+      "physical iPhone/Android touch",
+      "130%/200% browserzoom",
+      "OS-reduced-motion setting itself (personal setting native; OS OR behavior automated)",
+      "complete industry/brand/language/theme/device matrix",
+      "actual screen-reader speech",
+      "production backend/RBAC/sharedpersist/outbox/email/LINE",
+      "external tile/StreetView/AIprovider availability"
+    ],
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "providerEvidence": "Pending terminal deployment success bound to final source SHA; external attestation separate from local QA.",
+  "liveByteEvidence": "Pending current public emitted-URL/hash/MIME checks in external attestation; not inferred from local QA.",
+  "limits": [
+    "Demand proxy is not observed traffic/purchases/borrowing or a revenueforecast",
+    "Static preview does not implement sharedbackend/serverRBAC/email/LINE/privateproductionmedia",
+    "Native viewport review is not physicaldevice certification",
+    "External provider availability/results need separate verification",
+    "Operator-stated positioning is not measured consumer perception or branch-level offering certification",
+    "Strategy candidates are survey cues, not measured unmet demand, market share, sales or winning probability",
+    "POI coordinate inventories and native choropleth counts have different coverage; screen groups are not a customer-attraction model"
+  ],
+  "retainedContracts": [
+    "contracts/workspace-map.v1.7.json",
+    "contracts/map-analysis.v1.7.2.json",
+    "contracts/location-review.v1.7.3.json",
+    "contracts/map-boundary-appearance.v1.7.4.json",
+    "contracts/branch-context.v1.7.5.json",
+    "contracts/opportunity-strategies.v1.9.0.json",
+    "contracts/full-product.v1.9.0.json"
+  ],
+  "currentQAOnly": true,
+  "designSystemPackageVerification": {
+    "status": "PASS_CURRENT_PACKAGE_ONLY",
+    "receipt": "evidence/lds-package-verification.json",
+    "checks": 9768,
+    "warnings": 65,
+    "scope": "Fresh package integrity/parity, signed base/profile, analytical math, theme-invariant scale values and standalone schema checks only. Not full product/device/AT conformance, account activation or team installation."
+  },
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "fullProduct": "contracts/full-product.v1.9.1.json",
+  "responsiveCameraRule": "Substantial width change over100px or crossing1100px refits the same geographic navigation after invalidation; height-only/footer changes and ordinary route/criteria/mode changes do not fit. Open POI/group popup anchors suppress responsive fitting.",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  }
+}

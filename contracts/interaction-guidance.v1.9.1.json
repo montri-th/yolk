@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "yolk.interaction-guidance/1.9.1",
+  "version": "1.9.1",
+  "date": "2026-10-07",
+  "status": "locally_verified_preview_production_plan",
+  "extends": [
+    "contracts/map-boundary-appearance.v1.7.4.json",
+    "contracts/workspace-map.v1.7.json",
+    "contracts/full-product.v1.9.0.json"
+  ],
+  "scope": "Presentation and functional feedback only; retain criteria/profile/engine/strategy version 1.9.0.",
+  "invariants": {
+    "demandMembershipUnchanged": true,
+    "sourceCountsUnchanged": true,
+    "fixedNationalCohort": 7954,
+    "metricCount": 25,
+    "ordinaryRouteCameraUnchanged": true,
+    "noLogoOrEvidenceAnimation": true,
+    "noMotifs": true
+  },
+  "hover": {
+    "maxVisibleAreaTooltips": 1,
+    "owner": "clickable_navigation_scope",
+    "paintLayerTooltipAtBroaderScope": false,
+    "countryScope": "province",
+    "provinceScope": "district",
+    "districtScope": "fine_reporting_area",
+    "fineScope": "selected_fine",
+    "content": [
+      "escaped clickable scope type and human-readable name",
+      "important view value and explicit unit",
+      "aggregation or coordinate-coverage label",
+      "pending/review/missing/interval state when applicable"
+    ],
+    "aggregation": {
+      "countrySupplyRegion": "Maximum known native district current-view metric inside hovered province; explicitly not a province total.",
+      "provinceOrDistrictSupplyRegion": "Maximum known fine current-view metric; explicitly not a parent total.",
+      "demandTier": "Best known confirmed fine Demand tier within scope, with unresolved evidence kept separate.",
+      "supplyPoints": "Exact count of currently filtered coordinate records inside hovered source-display boundary, not the viewport count or full branch inventory.",
+      "missing": "Pending and missing are distinct from known zero; intervals remain intervals."
+    },
+    "lifecycle": [
+      "replace current scope tooltip on new hover",
+      "remove on pointer leave/navigation/mode/context change",
+      "restore white outline on leave"
+    ],
+    "focusAndTouch": "Keyboard focus opens the same single tooltip at source bounds centre; touch selection retains detail. Actual screen-reader/physical-device certification remains unverified.",
+    "tooltipTransition": "Reuse one Leaflet tooltip across target changes; final clear immediately detaches prior tooltip DOM after removal, preventing overlapping fade-out remnants.",
+    "accessibleGeometry": "Only navigation hit geometries expose button/tabindex/area labels; analytical paint paths aria-hidden, without button role or tabindex. Keyboard focus uses the same name/value tooltip.",
+    "tooltipPresentation": {
+      "desktopWidthPx": 280,
+      "mobileWidthPx": 240,
+      "maxWidth": "viewport minus40px",
+      "boxSizing": "border-box",
+      "meaning": "Readable name/value rows; preserves source boundaries and map camera."
+    }
+  },
+  "supplyPoints": {
+    "defaultSupplyView": "regions",
+    "optionalPointLevels": [
+      "country",
+      "province",
+      "district",
+      "fine"
+    ],
+    "fill": false,
+    "boundaryPolicy": "Quiet contextual parent outlines; omit unnecessary child outline networks at broad scopes, preserve yellow clickable hover and white selected outline.",
+    "geometryUnchanged": true,
+    "coordinateCountNotNativeSupply": true,
+    "screenBinsNotPhysicalClusters": true,
+    "cameraOnModeChange": "retain",
+    "strokeSchedulePx": {
+      "country": {
+        "province": 1.2,
+        "districtVisible": false
+      },
+      "province": {
+        "province": 1.2,
+        "district": 0.65,
+        "fineVisible": false
+      },
+      "district": {
+        "chosenParentDistrict": 1.1,
+        "fineVisible": false,
+        "fineClickTargets": "transparent hit geometry retained"
+      },
+      "fine": {
+        "selectedFine": 0.8,
+        "fill": false
+      },
+      "hover": {
+        "hex": "#FFBC1F",
+        "width": 2
+      }
+    }
+  },
+  "actionGuidance": {
+    "subject": "a separate pointer-inert shortlist-success cue; not the actual logo, area geometry, evidence or map layer",
+    "userBenefit": "Show that a successful save went to Shortlist and increment its visible count by one.",
+    "trigger": "successful committed target state change, receipt-deduped; +1 for new/unarchived active target, -1 for removal, no +1 for an existing plan update",
+    "countAuthority": "actual current-context active shortlist records after successful save, never an animation counter",
+    "duplicate": "No duplicate target/event or false +1; say already shortlisted.",
+    "failure": "No success cue or +1; retain usable retry/error state.",
+    "destination": [
+      "desktop shortlist navigation",
+      "mobile shortlist navigation or visible menu fallback"
+    ],
+    "motionDecision": "functional source-to-destination and finite success feedback, no decorative reveal",
+    "focusPolicy": "Retain source control focus and do not auto-navigate or scroll the user.",
+    "reducedMotion": "final-state-first: immediate real count/delta/plaintext/link; no spatial flight or moving pulse. Personal preference never emits team events.",
+    "hiddenDestination": "Missing/offscreen source or destination skips surrogate and still exposes saved count/status/destination link.",
+    "interruption": "Hidden document or pagehide cancels effects/timers and leaves real committed records/count; never performs a delayed mutation.",
+    "accessibility": {
+      "liveRegion": "Persistent empty role=status / aria-live=polite / aria-atomic=true created at initialization; update plaintext exactly once after successful receipt.",
+      "visibleConfirmation": "role=group with linked destination; source focus retained.",
+      "surrogate": "aria-hidden and pointer-inert",
+      "physicalAT": "unverified"
+    },
+    "maximumConcurrentCues": 1,
+    "durations": {
+      "stateFeedbackMs": 200,
+      "interactionFeedbackMs": 120,
+      "interactionDistancePx": 2,
+      "easing": "cubic-bezier(.2,0,0,1)",
+      "deltaBadgeMs": 2400,
+      "linkedConfirmationMs": 7000,
+      "confirmationPause": "pointer hover or keyboard focus"
+    },
+    "runtime": {
+      "js": "prototype/action-guidance.js",
+      "css": "prototype/action-guidance.css",
+      "loadingOrder": "module before bootstrap"
+    },
+    "personalPreference": {
+      "controlId": "yolk-reduce-motion",
+      "captions": {
+        "th": "ลดการเคลื่อนไหว",
+        "en": "Reduce motion"
+      },
+      "scope": "personal_local_setting",
+      "localStorageKey": "citymeter-yolk-personal-reduce-motion-v1",
+      "effectiveRule": "OS prefers-reduced-motion OR personal checkbox",
+      "workspaceEvent": false,
+      "teamRevision": false,
+      "onEnable": "cancel in-flight spatial guidance immediately and expose final count/status",
+      "respectsIn": "action guidance, settled result/nav feedback, app smooth scroll and retained location-map focus"
+    }
+  },
+  "otherGuidance": {
+    "loading": "Keep existing map visible with readable pending/error state; animation never substitutes status.",
+    "navigation": "Finite selected-navigation icon feedback 120ms / 2px; no auto-navigation from save. Explicit navigation/focus/fit may move map under retained camera policy; no camera change for ordinary route sync.",
+    "criteria": "A settled result count change has finite 120ms feedback, never rerender replay. Applying team criteria gives a next-step link to Demand; count is calculated, not animated into a false result.",
+    "sourceAndDestination": "Only animate where it clarifies the action; no perpetual attention, identity animation or reveal-hidden primary content."
+  },
+  "verification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "commands": [
+      "node scripts/check-map-clarity.cjs",
+      "node scripts/check-action-guidance.cjs"
+    ],
+    "nativeStates": [
+      "hover boundary has one tooltip, correct name/value and yellow outline",
+      "country/province/district/fine branch-point view remains readable",
+      "new shortlist action shows destination and actual count +1",
+      "duplicate/save failure does not show false success",
+      "reduced-motion has immediate usable count/status without flight",
+      "keyboard focus and narrow/desktop TH/EN light/dark content review"
+    ],
+    "physicalDevices": "unverified",
+    "fullAccessibilityCertification": false,
+    "automatedReceipt": "evidence/automated-v1.9.1.json",
+    "nativeReceipt": "evidence/browser-v1.9.1/native-browser-review.json",
+    "nativeChecks": 22,
+    "nativeCoverage": "Bounded native states, not full accessibility/device/language certification; automated timing/pointer event/failure tests are separate.",
+    "notVerified": [
+      "actual pointer-hover across every boundary (native keyboard focus + automated pointer-event adapters used)",
+      "physical iPhone/Android touch",
+      "130%/200% browserzoom",
+      "OS-reduced-motion setting itself (personal setting native; OS OR behavior automated)",
+      "complete industry/brand/language/theme/device matrix",
+      "actual screen-reader speech",
+      "production backend/RBAC/sharedpersist/outbox/email/LINE",
+      "external tile/StreetView/AIprovider availability"
+    ]
+  }
+}

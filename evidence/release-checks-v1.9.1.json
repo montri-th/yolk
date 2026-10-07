@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "yolk.local_release_checks/1.9",
+  "version": "1.9.1",
+  "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "recordedAt": "2026-10-07T12:04:40.528855+00:00",
+  "automatedSuites": 28,
+  "automatedChecks": 497,
+  "automatedReceipt": "evidence/automated-v1.9.1.json",
+  "browserReceipt": "evidence/browser-v1.9.1/native-browser-review.json",
+  "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "browserChecks": 22,
+  "snapshotFiles": [
+    {
+      "path": "evidence/browser-v1.9.1/desktop-en-light-hover-regions.jpg",
+      "bytes": 229834,
+      "sha256": "7875fa6131331623fd2224b4d13f6536dd5bfa399d287856aceaff97af9b5927",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.1/desktop-th-dark-shortlist-feedback.jpg",
+      "bytes": 210031,
+      "sha256": "23b069aa33e97083994bc0d8dc5746741a51456689f683ee89eb587b0d73566b",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.1/desktop-th-dark-supply-country.jpg",
+      "bytes": 234863,
+      "sha256": "c25215a21711a70ae0c2e173871cf52e95be1506278b878b730752216941c2e3",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.1/desktop-th-dark-supply-fine.jpg",
+      "bytes": 216171,
+      "sha256": "fe89c45971c398acf4a08e5c29d8c67f1932449c90e4afac6cb357388a4a15c9",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.1/desktop-th-dark-supply-province.jpg",
+      "bytes": 246129,
+      "sha256": "fb3850062915d216d3613657f6fde05642f435e77abb958fb0bba33d5dd7c7ab",
+      "width": 1440,
+      "height": 1000,
+      "format": "JPEG"
+    },
+    {
+      "path": "evidence/browser-v1.9.1/mobile-th-dark-shortlist.jpg",
+      "bytes": 65043,
+      "sha256": "4873b8e3b9a96f12ace65d40070a9914ff9e83fa4122cff0dc17edf4bac08d75",
+      "width": 390,
+      "height": 844,
+      "format": "JPEG"
+    }
+  ],
+  "DS": {
+    "release": "v0.9.7-owner.1",
+    "version": "0.9.7",
+    "packageVerifierStatus": "PASS_CURRENT_PACKAGE_ONLY",
+    "packageChecks": 9768,
+    "warnings": 65,
+    "receipt": "evidence/lds-package-verification.json",
+    "receiptSha256": "a396dd0d02244cb2b68fd3a0a8b725bafcb6b9fc43d0dddac68a253791e0cb86",
+    "recordedAt": "2026-10-07T12:04:40.528855+00:00",
+    "scope": "Fresh package integrity/parity, signed base/profile, analytical math, theme-invariant scale values and standalone schema checks only. Not full product/device/AT conformance, account activation or team installation."
+  },
+  "diffCheck": {
+    "status": "PASS",
+    "evidence": "Root observed git diff --check empty after final runtime edits; document consistency review rechecks scoped files before seal."
+  },
+  "physicalDevice": "unverified",
+  "fullLanguageThemeMatrix": false,
+  "browserZoom130And200Percent": "unverified",
+  "publication": "not_performed_at_source_seal",
+  "artifactByteVerification": "Run after final QA/seal with scripts/verify-pages-v1.9.1.py; result external to sealed source avoids self-reference.",
+  "sourceModel": "Same1.9.0 semantic criteria/profile/engine,7954UUIDs/25metrics/3industries; interaction presentation only, source geography/totals/DS assets unchanged.",
+  "productionServices": "Browser-local simulation only; sharedbackend/serverRBAC/outbox/private production media remain implementation tasks."
+}

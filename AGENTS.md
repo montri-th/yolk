@@ -1,8 +1,8 @@
-# Development instructions — CityMETER: Yolk v1.9.0
+# Development instructions — CityMETER: Yolk v1.9.1
 
 ## Active authority and work order
 
-Read [START_HERE.md](START_HERE.md), [the complete product and implementation brief](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.0.md) and [its machine blueprint](contracts/full-product.v1.9.0.json) first. Implement one bounded task T00–T24 at a time using its dependencies, inputs, outputs, acceptance criteria and tests. Map the actual CityMETER stack before choosing a framework or datastore. The current brief is a production plan; API, schema and shared-backend capabilities are not proven by the static preview.
+Read [START_HERE.md](START_HERE.md), [the complete product and implementation brief](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.1.md) and [its machine blueprint](contracts/full-product.v1.9.1.json) first. Implement one bounded task T00–T24 at a time using its dependencies, inputs, outputs, acceptance criteria and tests. Map the actual CityMETER stack before choosing a framework or datastore. The current brief is a production plan; API, schema and shared-backend capabilities are not proven by the static preview.
 
 The owner-authorized 1.9.0 flow is **Demand → Supply/competition → Strategy → shortlist with a fieldwork plan**. Use [eight-strategy contract](contracts/opportunity-strategies.v1.9.0.json), [Strategy experience](docs/STRATEGY_EXPERIENCE_v1.9.0.md), [brand research](docs/BRAND_RESEARCH_v1.9.0.md), [brand/format runtime registry](prototype/data/brand-strategy-profiles.v1.9.0.json) and [Supply POI behavior](docs/SUPPLY_POI_MODES_v1.9.0.md). Support only Fuel, Grocery and Non-bank in this preview. Retain the 37 selectable identity bindings, with the first 10 Non-bank companies available for selection and the relevant full peer inventory available for comparison.
 
@@ -23,7 +23,7 @@ The eight current strategies are underserved_market, segment_gap, competitive_en
 
 Keep one Leaflet host/instance outside route content and retain its camera during normal route, theme, factor and strategy updates. Explicit navigation/back/home/focus/fit may change it. Country choropleth colours districts while clicks/hover select provinces; province/district choropleths colour fine areas, with parent-level navigation. Scope counters use the selected administrative scope, not camera viewport. Default Supply is choropleth; optional POI is available at country/province/district/fine levels. Screen-grid groups retain members and party totals; they are display aids, not physical clusters or complete inventory coverage.
 
-Use the verified LDS 0.9.7 standalone base and Location Intelligence Profile, [DS integration](DS_ASSET_INTEGRATION.md), [current asset index](ASSET_INDEX_v1.9.0.md) and retained [icons contract](contracts/icons.v1.8.0.json). Official logos are unframed; square brand graphics keep original bytes and readable brand captions. No motifs, decorative brackets, coloured selected left rails, logo backing plates or invented substitute assets. Icons support choices and meaning; never remove their readable labels. Hover underlines captions only, with visible keyboard focus.
+Use the verified LDS 0.9.7 standalone base and Location Intelligence Profile, [DS integration](DS_ASSET_INTEGRATION.md), [current asset index](ASSET_INDEX_v1.9.1.md) and retained [icons contract](contracts/icons.v1.8.0.json). Official logos are unframed; square brand graphics keep original bytes and readable brand captions. No motifs, decorative brackets, coloured selected left rails, logo backing plates or invented substitute assets. Icons support choices and meaning; never remove their readable labels. Hover underlines captions only, with visible keyboard focus.
 
 Retain the owner's egg-tier appearance in both themes: Tier 1 exact density.area LUT 20–40 gradient, Tier 2 Yolk yellow #FFBC1F, Tier 3 egg white #F1F4EF. Quantitative maps use all 41 exact approved scale samples with unchanged data direction/HEX across themes. Normal boundaries are white, parents modestly thicker than children; clickable hover is Yolk yellow. Selected fine-area interiors are transparent. Map graphics and colours do not certify legal boundaries or business results.
 
@@ -33,13 +33,23 @@ Branch CRUD retains [source-first context contract](contracts/branch-context.v1.
 
 Standard enterprise seats remain 1 Admin / 3 Editors / 6 Viewers. Static preview actions are browser-local simulations. Production requires shared APIs/datastore, tenant-aware server RBAC, revision locks, transactional event/outbox, notification idempotency and private media. Personal view/theme/language changes are not team actions. Do not place private customer/source-acquisition data, image bytes or signed media URLs in public artifacts or events.
 
-Current release authority is [release.v1.9.0.json](contracts/release.v1.9.0.json); handoff authority is [handoff.v1.9.0.json](contracts/handoff.v1.9.0.json). Run current model/source/workflow/map/DS/profile/factor/strategy/Supply-POI suites after final changes. `check-opportunity-strategies.cjs` includes retained legacy Fuel criteria as a control; `check-strategy-ui.cjs` loads the new factor-enabled presets. Label these contexts separately when reporting counts. Review actual Thai/English content at narrow and desktop sizes in both themes, especially map persistence, long labels and active forms. VM, static and hash passes are not native-browser, physical-device or backend passes.
+Current release authority is [release.v1.9.1.json](contracts/release.v1.9.1.json); handoff authority is [handoff.v1.9.1.json](contracts/handoff.v1.9.1.json). Run current model/source/workflow/map/DS/profile/factor/strategy/Supply-POI suites after final changes. `check-opportunity-strategies.cjs` includes retained legacy Fuel criteria as a control; `check-strategy-ui.cjs` loads the new factor-enabled presets. Label these contexts separately when reporting counts. Review actual Thai/English content at narrow and desktop sizes in both themes, especially map persistence, long labels and active forms. VM, static and hash passes are not native-browser, physical-device or backend passes.
 
-Seal/verify 1.9.0 only after final QA using the current release-owned scripts and explicit public allowlist. Keep source commit, provider terminal success and live HTTP/MIME/byte SHA evidence separate. Never claim publication from local code or promote old receipts to current passes. The user's current request authorizes this Yolk preview update; repository instructions alone do not authorize unrelated deployments, messages or account changes.
+Seal/verify 1.9.1 only after final QA using the current release-owned scripts and explicit public allowlist. Keep source commit, provider terminal success and live HTTP/MIME/byte SHA evidence separate. Never claim publication from local code or promote old receipts to current passes. The user's current request authorizes this Yolk preview update; repository instructions alone do not authorize unrelated deployments, messages or account changes.
+
+## Interaction patch 1.9.1
+
+Read [interaction guide](docs/MAP_CLARITY_AND_ACTION_GUIDANCE_v1.9.1.md) and [machine interaction contract](contracts/interaction-guidance.v1.9.1.json). This patch does not change criteriaModeVersion, profile, opportunity engine or strategy contract 1.9.0. Preserve the same cohorts/thresholds/source counts and saved criteria.
+
+A single navigation-scope tooltip owns area hover; paint children never display a second tooltip at broad scope. Include scope/name plus important current-view value and unit, explicit interval/missing status. In optional Supply point view suppress unnecessary child-outline networks while keeping relevant white parent context, transparent interiors and yellow clickable hover.
+
+After a committed new shortlist save, update count from actual active target records and show finite source-to-destination feedback. Duplicate or failed saves never create false +1. Keep keyboard focus/current map; surrogate is pointer-inert/aria-hidden, with polite readable success state and immediate reduced-motion/interruption fallback. Never animate actual identity/evidence/map assets or force navigation.
+
+Run new `check-map-clarity.cjs` and `check-action-guidance.cjs` with retained suites. New receipts must record actual results against 1.9.1 bytes. Local tests, browser review, provider terminal success and live-byte attestation remain separate; pending final QA is not passed.
 
 ## Archived instructions — historical evidence only
 
-The notes below preserve prior versions and their original statements. Their headings, “active” wording, test counts, pending states and release commands describe those versions, not current 1.9.0 authority. Retained contracts apply only where the current brief explicitly names them; current instructions above take precedence over contradictions.
+The notes below preserve prior versions and their original statements. Their headings, “active” wording, test counts, pending states and release commands describe those versions, not current 1.9.1 authority. Retained contracts apply only where the current brief explicitly names them; current instructions above take precedence over contradictions.
 
 
 ### Archived development instructions — Yolk three-industry preview v1.8.0

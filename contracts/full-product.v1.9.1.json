@@ -1,0 +1,4087 @@
+{
+  "schemaVersion": "yolk.full-product-and-implementation/1.9.1",
+  "version": "1.9.1",
+  "date": "2026-10-07",
+  "status": "production_plan_preview_locally_verified_pending_publication",
+  "humanDocument": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.1.md",
+  "product": {
+    "name": "CityMETER: Yolk",
+    "tagline": {
+      "en": "Find the yolk. Grow your market.",
+      "th": "หาไข่แดง ขยายตลาด"
+    },
+    "statement": {
+      "who": "Expansion, strategy, brand and field teams in multi-branch businesses. Initial supported industries: fuel, grocery and Nonbank.",
+      "what": "Find areas with high proxy Demand, compare relevant source-scope Supply, choose a brand-relevant expansion strategy and save a transparent fieldwork plan.",
+      "why": "Start from CityMETER national data and researched starter profiles; invest verified team data to improve decisions and reproducibility.",
+      "which": "The same expansion job is currently done across Google Maps/Street View + Excel/Sheets + official locators + local field knowledge + LINE/email coordination. These competing workflows lack one shared versioned decision context.",
+      "how": [
+        "Choose industry / brand / important format or product scope",
+        "1 Confirm high Demand",
+        "2 Compare Supply and source-scope competition",
+        "3 Choose at most3 strategies",
+        "Shortlist with evidence, missing facts, next task and owner",
+        "Validate sites before investment"
+      ],
+      "success": "Time to an explained shortlist and an owned field task; reproduction of decisions; fewer conclusions reversed after field evidence. Pilot baseline needed before numeric success promises."
+    }
+  },
+  "scope": {
+    "industries": [
+      "fuel",
+      "grocery",
+      "nonbank"
+    ],
+    "selectableBrands": 37,
+    "presetFamilies": 9,
+    "nonbankSelectable": 10,
+    "workspaceSeats": {
+      "admin": 1,
+      "editor": 3,
+      "viewer": 6
+    },
+    "maximumJointChoices": {
+      "enabledDemandFactorFamilies": 3,
+      "distinctMetricsPerFactor": 3,
+      "conditionsPerJointPath": 3,
+      "selectedStrategies": 3,
+      "rankingWeights": 3
+    },
+    "phases": [
+      {
+        "id": "P0",
+        "dataReadiness": "existing_CityMETER",
+        "scope": "Three-industry Demand paths, current source-scope Supply, strategy survey queues 1/3/5/7, unresolved guides 2/4/6/8, shortlist and evidence tasks",
+        "productionDependency": "Shared workspace still requires auth/datastore/revision/outbox implementations; static browser-local preview does not prove these."
+      },
+      {
+        "id": "P1",
+        "dataReadiness": "additional_verified_anchor_and_field_evidence",
+        "scope": "Hospital/school/other anchor POI adapters, rights and crosswalk; branch offerings/prices/hours/customer occasions; candidate-site records and physical-cluster studies",
+        "productionDependency": "Evidence schema, field collection and governed source reconciliation."
+      },
+      {
+        "id": "P2",
+        "dataReadiness": "directed_network_and_future_evidence",
+        "scope": "Routes/daypart/access/pass-stop-buy, verified future milestones and holding-cost watchlist separate from current Yolks",
+        "productionDependency": "Versioned routing service and future project evidence."
+      },
+      {
+        "id": "P3",
+        "dataReadiness": "private_brand_operational_data",
+        "scope": "Sales by branch/transaction, customer occasions, capacity/costs, own-network displacement, outcome calibration",
+        "productionDependency": "Private connectors, minimization/permissions, restricted access, holdout validation."
+      }
+    ],
+    "separateDeliveryAxis": "Data P0–P3 is not shared-backend implementation maturity. Browser-local preview never proves authenticated multi-user production."
+  },
+  "authority": {
+    "currentSource": "Owner instructions + current source implementation + referenced contracts. Attached proposal is evidence only.",
+    "baseDS": {
+      "path": "reference/lds-0.9.7/Landometer-Design-System-v0.9.7.md",
+      "documentId": "lds-0.9.7-landometer-standalone-r1",
+      "sha256": "d3085cbc0a50195f1cbf0c77b1d77c0d19b84364daf2948eb367348d65432d96"
+    },
+    "locationProfile": {
+      "path": "reference/lds-0.9.7/Location-Intelligence-Profile-for-LDS-v0.9.7.md",
+      "documentId": "location-intelligence-profile-lds-0.9.7-r1",
+      "sha256": "5d4856041709735d3a04d4a510a88b551df86c211fdcab8a0707e8fe7c9efc3b"
+    },
+    "retainedHistorical": "1.8.0 source contracts/formulas only where named. Old8patterns are inert, not eightnewstrategies. Legacy fuel6activityvotes are not equivalent to1.9factorpaths.",
+    "assetIntegration": "DS_ASSET_INTEGRATION.md; actual release asset index and runtime hash manifest. Do not invent replacements.",
+    "semanticBaseline": {
+      "criteriaModeVersion": "1.9.0",
+      "profileVersion": "1.9.0",
+      "engineVersion": "1.9.0",
+      "strategyContract": "contracts/opportunity-strategies.v1.9.0.json",
+      "runtimeProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+      "meaning": "1.9.1 is an interaction/readability patch; no calculation or profile migration."
+    },
+    "interactionExtension": "contracts/interaction-guidance.v1.9.1.json"
+  },
+  "source": {
+    "fixedUniverse": 7954,
+    "bkkKhwaeng": 180,
+    "upcountryReportingLAO": 7774,
+    "nativeDistricts": 928,
+    "displayMultiDistrictLinks": 45,
+    "uuidJoin": "Exact reporting UUID only; no name or extent allocation; display crosswalk is not statutory membership.",
+    "areaDenominator": "Raw source areaSqm /1e6; never simplified display polygon area.",
+    "metrics": [
+      {
+        "id": "population",
+        "name": {
+          "th": "ประชากรรวม",
+          "en": "Total population"
+        },
+        "datasetId": "population",
+        "unit": "persons",
+        "formula": "sum(ms)+sum(fs)",
+        "formulaAST": {
+          "op": "add",
+          "args": [
+            {
+              "op": "sum",
+              "field": "ms"
+            },
+            {
+              "op": "sum",
+              "field": "fs"
+            }
+          ]
+        },
+        "sourceFields": [
+          "population.ms",
+          "population.fs"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "population.ms",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].ms",
+              "value.municipalityDatas[area_uuid].rows[].ms"
+            ]
+          },
+          {
+            "qualifiedField": "population.fs",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].fs",
+              "value.municipalityDatas[area_uuid].rows[].fs"
+            ]
+          }
+        ],
+        "sourcePeriod": "2026-08",
+        "measurement": "reported_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7830,
+          "nUnknown": 124,
+          "nNotApplicable": 0,
+          "nExplicitZero": 2
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "population_per_km2",
+        "name": {
+          "th": "ความหนาแน่นประชากร",
+          "en": "Population density"
+        },
+        "datasetId": "population",
+        "unit": "persons/km2",
+        "formula": "numerator / land_area_km2",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "population_count"
+            },
+            {
+              "op": "divide",
+              "args": [
+                {
+                  "field": "base.areaSqm"
+                },
+                {
+                  "const": 1000000
+                }
+              ]
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "population.ms",
+          "population.fs",
+          "base.areaSqm"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "population.ms",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].ms",
+              "value.municipalityDatas[area_uuid].rows[].ms"
+            ]
+          },
+          {
+            "qualifiedField": "population.fs",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].fs",
+              "value.municipalityDatas[area_uuid].rows[].fs"
+            ]
+          },
+          {
+            "qualifiedField": "base.areaSqm",
+            "paths": [
+              "value.subdistrictInfos[id=area_uuid].areaSqm",
+              "value.municipalityInfos[id=area_uuid].areaSqm"
+            ]
+          }
+        ],
+        "sourcePeriod": "2026-08",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7830,
+          "nUnknown": 124,
+          "nNotApplicable": 0,
+          "nExplicitZero": 2
+        },
+        "denominator": "base.areaSqm / 1000000",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "working_age_15_64",
+        "name": {
+          "th": "ประชากรอายุ 15–64 ปี",
+          "en": "Population aged 15–64"
+        },
+        "datasetId": "population",
+        "unit": "persons",
+        "formula": "sum(ms[15:65])+sum(fs[15:65])",
+        "formulaAST": {
+          "op": "add",
+          "args": [
+            {
+              "op": "sum",
+              "arg": {
+                "op": "slice",
+                "field": "ms",
+                "start": 15,
+                "endExclusive": 65
+              }
+            },
+            {
+              "op": "sum",
+              "arg": {
+                "op": "slice",
+                "field": "fs",
+                "start": 15,
+                "endExclusive": 65
+              }
+            }
+          ]
+        },
+        "sourceFields": [
+          "population.ms",
+          "population.fs"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "population.ms",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].ms",
+              "value.municipalityDatas[area_uuid].rows[].ms"
+            ]
+          },
+          {
+            "qualifiedField": "population.fs",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].fs",
+              "value.municipalityDatas[area_uuid].rows[].fs"
+            ]
+          }
+        ],
+        "sourcePeriod": "2026-08",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7830,
+          "nUnknown": 124,
+          "nNotApplicable": 0,
+          "nExplicitZero": 2
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "working_age_15_64_per_km2",
+        "name": {
+          "th": "ความหนาแน่นประชากรอายุ 15–64 ปี",
+          "en": "Density of population aged 15–64"
+        },
+        "datasetId": "population",
+        "unit": "persons/km2",
+        "formula": "numerator / land_area_km2",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "working_age_15_64"
+            },
+            {
+              "op": "divide",
+              "args": [
+                {
+                  "field": "base.areaSqm"
+                },
+                {
+                  "const": 1000000
+                }
+              ]
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "population.ms",
+          "population.fs",
+          "base.areaSqm"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "population.ms",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].ms",
+              "value.municipalityDatas[area_uuid].rows[].ms"
+            ]
+          },
+          {
+            "qualifiedField": "population.fs",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].fs",
+              "value.municipalityDatas[area_uuid].rows[].fs"
+            ]
+          },
+          {
+            "qualifiedField": "base.areaSqm",
+            "paths": [
+              "value.subdistrictInfos[id=area_uuid].areaSqm",
+              "value.municipalityInfos[id=area_uuid].areaSqm"
+            ]
+          }
+        ],
+        "sourcePeriod": "2026-08",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7830,
+          "nUnknown": 124,
+          "nNotApplicable": 0,
+          "nExplicitZero": 2
+        },
+        "denominator": "base.areaSqm / 1000000",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "adult_population_20_64",
+        "name": {
+          "th": "ประชากรอายุ 20–64 ปี",
+          "en": "Population aged 20–64"
+        },
+        "datasetId": "population",
+        "unit": "persons",
+        "formula": "sum(ms[20:65])+sum(fs[20:65])",
+        "formulaAST": {
+          "op": "add",
+          "args": [
+            {
+              "op": "sum",
+              "arg": {
+                "op": "slice",
+                "field": "ms",
+                "start": 20,
+                "endExclusive": 65
+              }
+            },
+            {
+              "op": "sum",
+              "arg": {
+                "op": "slice",
+                "field": "fs",
+                "start": 20,
+                "endExclusive": 65
+              }
+            }
+          ]
+        },
+        "sourceFields": [
+          "population.ms",
+          "population.fs"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "population.ms",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].ms",
+              "value.municipalityDatas[area_uuid].rows[].ms"
+            ]
+          },
+          {
+            "qualifiedField": "population.fs",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].fs",
+              "value.municipalityDatas[area_uuid].rows[].fs"
+            ]
+          }
+        ],
+        "sourcePeriod": "2026-08",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7830,
+          "nUnknown": 124,
+          "nNotApplicable": 0,
+          "nExplicitZero": 2
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "adult_population_20_64_per_km2",
+        "name": {
+          "th": "ความหนาแน่นประชากรอายุ 20–64 ปี",
+          "en": "Density of population aged 20–64"
+        },
+        "datasetId": "population",
+        "unit": "persons/km2",
+        "formula": "numerator / land_area_km2",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "adult_population_20_64"
+            },
+            {
+              "op": "divide",
+              "args": [
+                {
+                  "field": "base.areaSqm"
+                },
+                {
+                  "const": 1000000
+                }
+              ]
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "population.ms",
+          "population.fs",
+          "base.areaSqm"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "population.ms",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].ms",
+              "value.municipalityDatas[area_uuid].rows[].ms"
+            ]
+          },
+          {
+            "qualifiedField": "population.fs",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].fs",
+              "value.municipalityDatas[area_uuid].rows[].fs"
+            ]
+          },
+          {
+            "qualifiedField": "base.areaSqm",
+            "paths": [
+              "value.subdistrictInfos[id=area_uuid].areaSqm",
+              "value.municipalityInfos[id=area_uuid].areaSqm"
+            ]
+          }
+        ],
+        "sourcePeriod": "2026-08",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7830,
+          "nUnknown": 124,
+          "nNotApplicable": 0,
+          "nExplicitZero": 2
+        },
+        "denominator": "base.areaSqm / 1000000",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "children_0_14",
+        "name": {
+          "th": "ประชากรอายุ 0–14 ปี",
+          "en": "Population aged 0–14"
+        },
+        "datasetId": "population",
+        "unit": "persons",
+        "formula": "sum(ms[0:15])+sum(fs[0:15])",
+        "formulaAST": {
+          "op": "add",
+          "args": [
+            {
+              "op": "sum",
+              "arg": {
+                "op": "slice",
+                "field": "ms",
+                "start": 0,
+                "endExclusive": 15
+              }
+            },
+            {
+              "op": "sum",
+              "arg": {
+                "op": "slice",
+                "field": "fs",
+                "start": 0,
+                "endExclusive": 15
+              }
+            }
+          ]
+        },
+        "sourceFields": [
+          "population.ms",
+          "population.fs"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "population.ms",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].ms",
+              "value.municipalityDatas[area_uuid].rows[].ms"
+            ]
+          },
+          {
+            "qualifiedField": "population.fs",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].fs",
+              "value.municipalityDatas[area_uuid].rows[].fs"
+            ]
+          }
+        ],
+        "sourcePeriod": "2026-08",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7830,
+          "nUnknown": 124,
+          "nNotApplicable": 0,
+          "nExplicitZero": 2
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "population_65_plus",
+        "name": {
+          "th": "ประชากรอายุ 65 ปีขึ้นไป",
+          "en": "Population aged 65 and over"
+        },
+        "datasetId": "population",
+        "unit": "persons",
+        "formula": "sum(ms[65:])+sum(fs[65:])",
+        "formulaAST": {
+          "op": "add",
+          "args": [
+            {
+              "op": "sum",
+              "arg": {
+                "op": "slice",
+                "field": "ms",
+                "start": 65
+              }
+            },
+            {
+              "op": "sum",
+              "arg": {
+                "op": "slice",
+                "field": "fs",
+                "start": 65
+              }
+            }
+          ]
+        },
+        "sourceFields": [
+          "population.ms",
+          "population.fs"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "population.ms",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].ms",
+              "value.municipalityDatas[area_uuid].rows[].ms"
+            ]
+          },
+          {
+            "qualifiedField": "population.fs",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].fs",
+              "value.municipalityDatas[area_uuid].rows[].fs"
+            ]
+          }
+        ],
+        "sourcePeriod": "2026-08",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7830,
+          "nUnknown": 124,
+          "nNotApplicable": 0,
+          "nExplicitZero": 4
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "gfa",
+        "name": {
+          "th": "พื้นที่อาคารรวมประมาณ (GFA)",
+          "en": "Estimated gross floor area (GFA)"
+        },
+        "datasetId": "building",
+        "unit": "estimated m2 GFA",
+        "formula": "area",
+        "formulaAST": {
+          "field": "area",
+          "selector": {
+            "v": "V4"
+          }
+        },
+        "sourceFields": [
+          "building.area"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "building.area",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].area",
+              "value.municipalityDatas[area_uuid].rows[].area"
+            ]
+          }
+        ],
+        "sourcePeriod": "V4 / published UI label 2024-12",
+        "measurement": "model_estimate",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7939,
+          "nUnknown": 15,
+          "nNotApplicable": 0,
+          "nExplicitZero": 0
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "building_count",
+        "name": {
+          "th": "จำนวนรายการอาคารจากแบบจำลอง",
+          "en": "Modeled building record count"
+        },
+        "datasetId": "building",
+        "unit": "modeled building records",
+        "formula": "count",
+        "formulaAST": {
+          "field": "count",
+          "selector": {
+            "v": "V4"
+          }
+        },
+        "sourceFields": [
+          "building.count"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "building.count",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].count",
+              "value.municipalityDatas[area_uuid].rows[].count"
+            ]
+          }
+        ],
+        "sourcePeriod": "V4 / published UI label 2024-12",
+        "measurement": "model_estimate",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7939,
+          "nUnknown": 15,
+          "nNotApplicable": 0,
+          "nExplicitZero": 0
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "gfa_per_km2",
+        "name": {
+          "th": "ความหนาแน่นพื้นที่อาคารรวมประมาณ",
+          "en": "Estimated GFA density"
+        },
+        "datasetId": "building",
+        "unit": "estimated m2 GFA/km2",
+        "formula": "numerator / land_area_km2",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "building_gfa_m2"
+            },
+            {
+              "op": "divide",
+              "args": [
+                {
+                  "field": "base.areaSqm"
+                },
+                {
+                  "const": 1000000
+                }
+              ]
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "building.area",
+          "base.areaSqm"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "building.area",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].area",
+              "value.municipalityDatas[area_uuid].rows[].area"
+            ]
+          },
+          {
+            "qualifiedField": "base.areaSqm",
+            "paths": [
+              "value.subdistrictInfos[id=area_uuid].areaSqm",
+              "value.municipalityInfos[id=area_uuid].areaSqm"
+            ]
+          }
+        ],
+        "sourcePeriod": "V4 / published UI label 2024-12",
+        "measurement": "derived_model_estimate",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7939,
+          "nUnknown": 15,
+          "nNotApplicable": 0,
+          "nExplicitZero": 0
+        },
+        "denominator": "base.areaSqm / 1000000",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "gfa_per_person",
+        "name": {
+          "th": "พื้นที่อาคารรวมประมาณต่อประชากร",
+          "en": "Estimated GFA per person"
+        },
+        "datasetId": "building",
+        "unit": "estimated m2 GFA/person",
+        "formula": "building.area / (sum(population.ms)+sum(population.fs))",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "building_gfa_m2"
+            },
+            {
+              "metric": "population_count"
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "building.area",
+          "population.ms",
+          "population.fs"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "building.area",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].area",
+              "value.municipalityDatas[area_uuid].rows[].area"
+            ]
+          },
+          {
+            "qualifiedField": "population.ms",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].ms",
+              "value.municipalityDatas[area_uuid].rows[].ms"
+            ]
+          },
+          {
+            "qualifiedField": "population.fs",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].fs",
+              "value.municipalityDatas[area_uuid].rows[].fs"
+            ]
+          }
+        ],
+        "sourcePeriod": "V4 / published UI label 2024-12",
+        "measurement": "derived_model_estimate",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7828,
+          "nUnknown": 126,
+          "nNotApplicable": 0,
+          "nExplicitZero": 0
+        },
+        "denominator": "population_count",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "factory_count",
+        "name": {
+          "th": "จำนวนโรงงานในทะเบียน ACTIVE",
+          "en": "ACTIVE registry factory count"
+        },
+        "datasetId": "factory",
+        "unit": "registered factory records",
+        "formula": "totalFactory",
+        "formulaAST": {
+          "field": "totalFactory",
+          "selector": {
+            "y": 2025,
+            "m": 4,
+            "factory_status": "ACTIVE"
+          }
+        },
+        "sourceFields": [
+          "factory.active.totalFactory"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "factory.active.totalFactory",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].totalFactory",
+              "value.municipalityDatas[area_uuid].rows[].totalFactory"
+            ]
+          }
+        ],
+        "sourcePeriod": "2025-04 ACTIVE",
+        "measurement": "reported_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 5822,
+          "nUnknown": 2132,
+          "nNotApplicable": 0,
+          "nExplicitZero": 0
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "factory_count_per_km2",
+        "name": {
+          "th": "ความหนาแน่นโรงงานในทะเบียน ACTIVE",
+          "en": "ACTIVE registry factory density"
+        },
+        "datasetId": "factory",
+        "unit": "factory records/km2",
+        "formula": "numerator / land_area_km2",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "factory_count"
+            },
+            {
+              "op": "divide",
+              "args": [
+                {
+                  "field": "base.areaSqm"
+                },
+                {
+                  "const": 1000000
+                }
+              ]
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "factory.active.totalFactory",
+          "base.areaSqm"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "factory.active.totalFactory",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].totalFactory",
+              "value.municipalityDatas[area_uuid].rows[].totalFactory"
+            ]
+          },
+          {
+            "qualifiedField": "base.areaSqm",
+            "paths": [
+              "value.subdistrictInfos[id=area_uuid].areaSqm",
+              "value.municipalityInfos[id=area_uuid].areaSqm"
+            ]
+          }
+        ],
+        "sourcePeriod": "2025-04 ACTIVE",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 5822,
+          "nUnknown": 2132,
+          "nNotApplicable": 0,
+          "nExplicitZero": 0
+        },
+        "denominator": "base.areaSqm / 1000000",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "factory_workers",
+        "name": {
+          "th": "คนงานโรงงานที่ต้นทางรายงาน",
+          "en": "Source-reported factory workers"
+        },
+        "datasetId": "factory",
+        "unit": "reported workers",
+        "formula": "totalWorker",
+        "formulaAST": {
+          "field": "totalWorker",
+          "selector": {
+            "y": 2025,
+            "m": 4,
+            "factory_status": "ACTIVE"
+          }
+        },
+        "sourceFields": [
+          "factory.active.totalWorker"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "factory.active.totalWorker",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].totalWorker",
+              "value.municipalityDatas[area_uuid].rows[].totalWorker"
+            ]
+          }
+        ],
+        "sourcePeriod": "2025-04 ACTIVE",
+        "measurement": "reported_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 5822,
+          "nUnknown": 2132,
+          "nNotApplicable": 0,
+          "nExplicitZero": 13
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "factory_workers_per_km2",
+        "name": {
+          "th": "ความหนาแน่นคนงานโรงงานที่รายงาน",
+          "en": "Density of reported factory workers"
+        },
+        "datasetId": "factory",
+        "unit": "reported workers/km2",
+        "formula": "numerator / land_area_km2",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "factory_workers"
+            },
+            {
+              "op": "divide",
+              "args": [
+                {
+                  "field": "base.areaSqm"
+                },
+                {
+                  "const": 1000000
+                }
+              ]
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "factory.active.totalWorker",
+          "base.areaSqm"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "factory.active.totalWorker",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].totalWorker",
+              "value.municipalityDatas[area_uuid].rows[].totalWorker"
+            ]
+          },
+          {
+            "qualifiedField": "base.areaSqm",
+            "paths": [
+              "value.subdistrictInfos[id=area_uuid].areaSqm",
+              "value.municipalityInfos[id=area_uuid].areaSqm"
+            ]
+          }
+        ],
+        "sourcePeriod": "2025-04 ACTIVE",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 5822,
+          "nUnknown": 2132,
+          "nNotApplicable": 0,
+          "nExplicitZero": 13
+        },
+        "denominator": "base.areaSqm / 1000000",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "hotel_count",
+        "name": {
+          "th": "จำนวนรายการโรงแรม",
+          "en": "Hotel catalogue count"
+        },
+        "datasetId": "hotel",
+        "unit": "catalog hotel records",
+        "formula": "hotelCount",
+        "formulaAST": {
+          "field": "hotelCount"
+        },
+        "sourceFields": [
+          "hotel.hotelCount"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "hotel.hotelCount",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].hotelCount",
+              "value.municipalityDatas[area_uuid].rows[].hotelCount"
+            ]
+          }
+        ],
+        "sourcePeriod": null,
+        "measurement": "reported_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7506,
+          "nUnknown": 448,
+          "nNotApplicable": 0,
+          "nExplicitZero": 3494
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "hotel_rooms",
+        "name": {
+          "th": "จำนวนห้องพักในรายการโรงแรม",
+          "en": "Rooms in hotel catalogue"
+        },
+        "datasetId": "hotel",
+        "unit": "catalog rooms",
+        "formula": "roomCount",
+        "formulaAST": {
+          "field": "roomCount"
+        },
+        "sourceFields": [
+          "hotel.roomCount"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "hotel.roomCount",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].roomCount",
+              "value.municipalityDatas[area_uuid].rows[].roomCount"
+            ]
+          }
+        ],
+        "sourcePeriod": null,
+        "measurement": "reported_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7506,
+          "nUnknown": 448,
+          "nNotApplicable": 0,
+          "nExplicitZero": 3494
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "hotel_rooms_per_km2",
+        "name": {
+          "th": "ความหนาแน่นห้องพักในรายการ",
+          "en": "Catalogue room density"
+        },
+        "datasetId": "hotel",
+        "unit": "catalog rooms/km2",
+        "formula": "numerator / land_area_km2",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "hotel_rooms"
+            },
+            {
+              "op": "divide",
+              "args": [
+                {
+                  "field": "base.areaSqm"
+                },
+                {
+                  "const": 1000000
+                }
+              ]
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "hotel.roomCount",
+          "base.areaSqm"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "hotel.roomCount",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].roomCount",
+              "value.municipalityDatas[area_uuid].rows[].roomCount"
+            ]
+          },
+          {
+            "qualifiedField": "base.areaSqm",
+            "paths": [
+              "value.subdistrictInfos[id=area_uuid].areaSqm",
+              "value.municipalityInfos[id=area_uuid].areaSqm"
+            ]
+          }
+        ],
+        "sourcePeriod": null,
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7506,
+          "nUnknown": 448,
+          "nNotApplicable": 0,
+          "nExplicitZero": 3494
+        },
+        "denominator": "base.areaSqm / 1000000",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "office_count",
+        "name": {
+          "th": "จำนวนรายการอาคารสำนักงาน",
+          "en": "Office building catalogue count"
+        },
+        "datasetId": "office",
+        "unit": "catalog office buildings",
+        "formula": "officeCount",
+        "formulaAST": {
+          "field": "officeCount",
+          "selector": {
+            "v": "V3"
+          }
+        },
+        "sourceFields": [
+          "office.officeCount"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "office.officeCount",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].officeCount",
+              "value.municipalityDatas[area_uuid].rows[].officeCount"
+            ]
+          }
+        ],
+        "sourcePeriod": "V3 / published UI label 2025-05",
+        "measurement": "reported_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 45,
+          "nUnknown": 7909,
+          "nNotApplicable": 0,
+          "nExplicitZero": 0
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "office_count_per_km2",
+        "name": {
+          "th": "ความหนาแน่นรายการอาคารสำนักงาน",
+          "en": "Office catalogue density"
+        },
+        "datasetId": "office",
+        "unit": "catalog buildings/km2",
+        "formula": "numerator / land_area_km2",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "office_count"
+            },
+            {
+              "op": "divide",
+              "args": [
+                {
+                  "field": "base.areaSqm"
+                },
+                {
+                  "const": 1000000
+                }
+              ]
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "office.officeCount",
+          "base.areaSqm"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "office.officeCount",
+            "paths": [
+              "value.subdistrictDatas[area_uuid].rows[].officeCount",
+              "value.municipalityDatas[area_uuid].rows[].officeCount"
+            ]
+          },
+          {
+            "qualifiedField": "base.areaSqm",
+            "paths": [
+              "value.subdistrictInfos[id=area_uuid].areaSqm",
+              "value.municipalityInfos[id=area_uuid].areaSqm"
+            ]
+          }
+        ],
+        "sourcePeriod": "V3 / published UI label 2025-05",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 45,
+          "nUnknown": 7909,
+          "nNotApplicable": 0,
+          "nExplicitZero": 0
+        },
+        "denominator": "base.areaSqm / 1000000",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "fiscal_total_thb",
+        "name": {
+          "th": "รายได้รวมของ อปท. ที่รายงาน",
+          "en": "Reported total local authority revenue"
+        },
+        "datasetId": "fiscal",
+        "unit": "THB/year",
+        "formula": "total * 1000000",
+        "formulaAST": {
+          "op": "multiply",
+          "args": [
+            {
+              "field": "total"
+            },
+            {
+              "const": 1000000
+            }
+          ]
+        },
+        "sourceFields": [
+          "municipality.income.total"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "municipality.income.total",
+            "paths": [
+              "value.municipalityDatas[area_uuid].rows[].total"
+            ]
+          }
+        ],
+        "sourcePeriod": "2024",
+        "measurement": "reported_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7751,
+          "nUnknown": 23,
+          "nNotApplicable": 180,
+          "nExplicitZero": 0
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "fiscal_ex_grants_thb",
+        "name": {
+          "th": "รายได้ อปท. ไม่รวมเงินอุดหนุน",
+          "en": "Local authority revenue excluding grants"
+        },
+        "datasetId": "fiscal",
+        "unit": "THB/year",
+        "formula": "(selfCollected+stateAllocated)*1000000",
+        "formulaAST": {
+          "op": "multiply",
+          "args": [
+            {
+              "op": "add",
+              "args": [
+                {
+                  "field": "selfCollected"
+                },
+                {
+                  "field": "stateAllocated"
+                }
+              ]
+            },
+            {
+              "const": 1000000
+            }
+          ]
+        },
+        "sourceFields": [
+          "municipality.income.selfCollected",
+          "municipality.income.stateAllocated"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "municipality.income.selfCollected",
+            "paths": [
+              "value.municipalityDatas[area_uuid].rows[].selfCollected"
+            ]
+          },
+          {
+            "qualifiedField": "municipality.income.stateAllocated",
+            "paths": [
+              "value.municipalityDatas[area_uuid].rows[].stateAllocated"
+            ]
+          }
+        ],
+        "sourcePeriod": "2024",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7751,
+          "nUnknown": 23,
+          "nNotApplicable": 180,
+          "nExplicitZero": 0
+        },
+        "denominator": null,
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "fiscal_ex_grants_per_km2",
+        "name": {
+          "th": "รายได้ อปท. ไม่รวมเงินอุดหนุนต่อพื้นที่",
+          "en": "Local revenue excluding grants per area"
+        },
+        "datasetId": "fiscal",
+        "unit": "THB/km2/year",
+        "formula": "numerator / land_area_km2",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "fiscal_ex_grants_thb"
+            },
+            {
+              "op": "divide",
+              "args": [
+                {
+                  "field": "base.areaSqm"
+                },
+                {
+                  "const": 1000000
+                }
+              ]
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "municipality.income.selfCollected",
+          "municipality.income.stateAllocated",
+          "base.areaSqm"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "municipality.income.selfCollected",
+            "paths": [
+              "value.municipalityDatas[area_uuid].rows[].selfCollected"
+            ]
+          },
+          {
+            "qualifiedField": "municipality.income.stateAllocated",
+            "paths": [
+              "value.municipalityDatas[area_uuid].rows[].stateAllocated"
+            ]
+          },
+          {
+            "qualifiedField": "base.areaSqm",
+            "paths": [
+              "value.subdistrictInfos[id=area_uuid].areaSqm",
+              "value.municipalityInfos[id=area_uuid].areaSqm"
+            ]
+          }
+        ],
+        "sourcePeriod": "2024",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7751,
+          "nUnknown": 23,
+          "nNotApplicable": 180,
+          "nExplicitZero": 0
+        },
+        "denominator": "base.areaSqm / 1000000",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      },
+      {
+        "id": "fiscal_ex_grants_per_person",
+        "name": {
+          "th": "รายได้ อปท. ไม่รวมเงินอุดหนุนต่อประชากรอ้างอิง",
+          "en": "Local revenue excluding grants per reference person"
+        },
+        "datasetId": "fiscal",
+        "unit": "THB/person/year",
+        "formula": "(selfCollected+stateAllocated)*1000000 / fiscal.population",
+        "formulaAST": {
+          "op": "divide",
+          "args": [
+            {
+              "metric": "fiscal_ex_grants_thb"
+            },
+            {
+              "field": "fiscal.population"
+            }
+          ],
+          "denominator_must_be_positive": true,
+          "invalid_result": "unknown"
+        },
+        "sourceFields": [
+          "municipality.income.selfCollected",
+          "municipality.income.stateAllocated",
+          "municipality.income.population"
+        ],
+        "sourceRowPaths": [
+          {
+            "qualifiedField": "municipality.income.selfCollected",
+            "paths": [
+              "value.municipalityDatas[area_uuid].rows[].selfCollected"
+            ]
+          },
+          {
+            "qualifiedField": "municipality.income.stateAllocated",
+            "paths": [
+              "value.municipalityDatas[area_uuid].rows[].stateAllocated"
+            ]
+          },
+          {
+            "qualifiedField": "municipality.income.population",
+            "paths": [
+              "value.municipalityDatas[area_uuid].rows[].population"
+            ]
+          }
+        ],
+        "sourcePeriod": "2024",
+        "measurement": "derived_context",
+        "coverage": {
+          "cohortId": "national_7954",
+          "nTotal": 7954,
+          "nValid": 7717,
+          "nUnknown": 57,
+          "nNotApplicable": 180,
+          "nExplicitZero": 0
+        },
+        "denominator": "fiscal.population",
+        "missingPolicy": "null; absent is not zero; use exactly selected source period"
+      }
+    ],
+    "refs": [
+      {
+        "path": "prototype/data/real/area-context.json",
+        "sha256": "c0386d1314efd06cd3d67970d08c7cf182ac9e40be0875a7bd177cc91edb6528"
+      },
+      {
+        "path": "prototype/data/real/fuel-supply.json",
+        "sha256": "1cbe85c16bfe81f5ae577b9d3021e83bfd9efadda5d53064f0b5ce58f6574a4c"
+      },
+      {
+        "path": "prototype/data/real/grocery-supply.json",
+        "sha256": "1ba2b27cf247cbfb11214a3e3a007393b863e3a37aab0809f0a5e1ef813865ff"
+      },
+      {
+        "path": "prototype/data/real/nonbank-supply.json",
+        "sha256": "6474915e47611b97b931454ee33ff5a9126e9b45b458ee943036e5611d9c4c0b"
+      },
+      {
+        "path": "prototype/data/real/fuel-points.json",
+        "sha256": "94b4d6798f366546a17a88d8b8ab102d338c2c8a22709768296e86255338b923"
+      },
+      {
+        "path": "prototype/data/real/grocery-points.json",
+        "sha256": "093d00e10fcc320f79f85ddf1ff76c387634879cf8682aa42344bcfff0373cac"
+      },
+      {
+        "path": "prototype/data/real/nonbank-points.json",
+        "sha256": "a18e6ce7619ee9becfbe3e8ca018212811ac9f12bdf7a5f66c54bd3d4d785909"
+      },
+      {
+        "path": "prototype/data/real/nonbank-company-scopes.json",
+        "sha256": "e37d82157f8ec5e24dc6771f3c6d901fa6d1d15e1384f9b0dcd1837b3d912a7d"
+      },
+      {
+        "path": "prototype/data/real/nonbank-assignment-bounds.json",
+        "sha256": "8f66548ef51ed3791d36d84755c7ea94e4e95264dc780c332c7b25b2f6705905"
+      }
+    ],
+    "coordinateRecords": {
+      "fuel": 4363,
+      "grocery": 27457,
+      "groceryAggregateRows": 27458,
+      "groceryPharmacyExcluded": 150,
+      "nonbankOfficeRecords": 23524,
+      "nonbankAssigned": 17990,
+      "nonbankMapped": 17752,
+      "nonbankAssignmentResidual": 5534,
+      "nonbankAllUnmappedDifference": 5772
+    },
+    "truthLimit": "Source reported/modelled evidence; not live operation, verified legal boundary, visits, purchases, borrower counts or creditworthiness. LocaleInsight contextual prior only after explicit crosswalk."
+  },
+  "profiles": {
+    "runtimeRegistry": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+    "baselineFamilyRegistry": "prototype/data/brand-presets.v1.7.json",
+    "industryMetricRegistry": "contracts/industry-profiles.json",
+    "profileHashAuthority": "Current release manifest emitted after final QA; never cache unstated source versions.",
+    "hierarchy": [
+      "industryId",
+      "segmentId",
+      "brandId",
+      "supplyScope",
+      "profileVersion"
+    ],
+    "brandProfileFields": [
+      "offerings",
+      "positioning.operatorClaim",
+      "positioning.consumerPerceptionStatus",
+      "sourceIds",
+      "researchStatus",
+      "perScopeProfiles",
+      "defaultStrategyIds",
+      "complementaryAnchors",
+      "limitations"
+    ],
+    "numericPresetAuthority": "Adjustable Yolk hypotheses; operator research supports offering/mission, not numeric cutoff validity.",
+    "savedWins": "Existing saved criteria/drafts win. Explicit Try preset writes private draft; Apply creates team revision.",
+    "sameSubmarket": {
+      "fuel": "Broad all_fuel category; LPG/fueltype/localservices not yet known per POI",
+      "grocery": "Exact source format C_STORE/SUPERMARKET/HYPERMARKET/WHOLESALE; branch assortment and price segment not independently verified",
+      "nonbank": "Company active-license-family proxy; legal office function/localproduct uncertain. Compare fullscope inventory, not top10picker only."
+    },
+    "researchLimits": [
+      "Consumerbrandperceptionnotmeasured",
+      "COSMO currentidentityunresolved",
+      "PURE/Caltexrebrandnotautomaticallymerged",
+      "Nonbanklegalgroup/displaybrandnevermergescompanieswithoutverifiedidentity"
+    ]
+  },
+  "demand": {
+    "schema": "factor-path-v1.9.0",
+    "factorFields": [
+      "id",
+      "label",
+      "enabled",
+      "tierPaths"
+    ],
+    "pathFields": [
+      "id",
+      "factorId",
+      "tier",
+      "all"
+    ],
+    "conditionFields": [
+      "metric",
+      "op",
+      "percentile",
+      "positive_presence"
+    ],
+    "allowedConditionOp": "gte_percentile",
+    "maxEnabledFactors": 3,
+    "maxDistinctMetricsPerFactor": 3,
+    "maxConditionsPerPath": 3,
+    "withinPath": "AND",
+    "acrossPaths": "OR",
+    "confirmedTier": "Minimum numbered confirmed tier across enabled paths",
+    "eligibility": "row.demand === true && row.qualifyingTier in [1,2,3] && row.qualifyingTier <= maxDemandTier",
+    "maxDemandTierDefault": 3,
+    "missing": "Unknown condition yields unknown path unless another condition makes it false; unresolved cannot create confirmed Demand.",
+    "percentile": "In 1.9 factor mode, use INC cutoffs from fixed nationwide valid values including measured zero. National parity is mandatory; view and brand filters cannot rebuild the cohort. same_grain remains historical engine compatibility only and is not an available 1.9 factor-mode option.",
+    "midrank": "Display/supporting strategy ranking separate from INC cutoff. Equal values/ties may place cutoff-qualified values below matching midrank.",
+    "fuelMigration": "New built_form/workplace/hospitality max3factorhypothesis. Historical5/3/1of6activityvotecriteria retained as history/savedlegacy; explicitpreset adoption required.",
+    "serverValidation": "Reject>3enabledfamilies,>3distinctmetricsperfactor,>3ANDconditions, unknownmetrics/ops, invalidpercentiles, zeroactivefactors orweighttotal. Do nottrust UI disabledcontrols."
+  },
+  "supply": {
+    "scope": "Use existing source-format or active company-license family filters. These are comparable source submarkets, not verified price/consumer segments or branch product availability.",
+    "sameSubmarketRequirement": "context.submarketComparable=false makes all supply-based queues evidence_incomplete",
+    "countBounds": "own=[ownLower,ownUpper+U], competitor=[competitorLower,competitorUpper+U]. Fallback lower/upper=count. total=[ownLower+competitorLower, ownUpper+competitorUpper+U]; U added once. Known nonbank bounds remain bounds.",
+    "missing": "Unknown U, invalid/negative/noninteger counts or ownScopeUnavailable never become zero",
+    "relativeReference": "count_equivalent_own = ownRateHigh * raw_positive_denominator / normalization_unit; competitor similarly",
+    "normalizationUnits": {
+      "gfa": 100000,
+      "population": 10000,
+      "working_age_15_64": 10000,
+      "adult_population_20_64": 10000,
+      "factory_workers": 10000,
+      "hotel_rooms": 1000
+    },
+    "thresholdCrossing": "Supply interval crossing a low-supply cutoff = evidence_incomplete",
+    "referenceLimit": "Adjustable exploratory reference, not investment cutoff or measured capacity",
+    "assignmentBoundsAvailability": "boundsKnown === false means unavailable upper bounds, never exact zero; all supply strategies incomplete"
+  },
+  "ranking": {
+    "modes": [
+      "context",
+      "weighted"
+    ],
+    "context": "Demandeligible first, Tierascending, confirmedpathstrengthdescending, stableUUID. Supply doesnot change order incontextmode.",
+    "gap": "100/(1+observed_count/count_equivalent_reference)",
+    "weighted": "(Wd*DemandScore + Wo*OwnGap + Wc*CompetitorGap)/(Wd+Wo+Wc)",
+    "weights": "At most3nonnegativeweights; positivesum; noeligibilitychange.",
+    "uncertainty": "Conservativeadmissiblejointbound; missingweightcontributesrange not0; interval/coverage are notstatisticalconfidence.",
+    "strategyOrdering": {
+      "type": "lexicographic_survey_queue",
+      "fields": [
+        "candidateStrategyIds.length DESC",
+        "qualifyingTier ASC",
+        "index_of_first_candidate_strategy_in_selected_order ASC",
+        "first_candidate_observed_sort_value DESC within_same_strategy",
+        "reporting_uuid ASC"
+      ],
+      "sortValues": {
+        "underserved_market": "1-total_upper/(own_ref+competitor_ref)",
+        "competitive_entry": "competitor_lower/competitor_ref; 0 if market comparison unavailable",
+        "complementary_location": "largest passing selected-activity midrank",
+        "network_infill": "1-own_upper/own_ref"
+      },
+      "noNegativeWeightHack": true,
+      "mutatesExistingRank": false,
+      "scoreNotProduced": true
+    }
+  },
+  "opportunity": {
+    "contract": "contracts/opportunity-strategies.v1.9.0.json",
+    "runtime": "prototype/opportunity-engine.js",
+    "ui": "prototype/strategy-ui.js",
+    "ids": [
+      "underserved_market",
+      "segment_gap",
+      "competitive_entry",
+      "cluster_participation",
+      "complementary_location",
+      "route_capture",
+      "network_infill",
+      "future_entry"
+    ],
+    "statuses": [
+      "candidate_to_check",
+      "evidence_incomplete",
+      "not_supported_by_current_evidence",
+      "not_current_yolk",
+      "demand_evidence_incomplete"
+    ],
+    "candidateMeaning": "Survey cue, never confirmed gap, measured customer demand, market share, winning probability, parcel feasibility or permit",
+    "P0CandidateSupported": [
+      "underserved_market",
+      "competitive_entry",
+      "complementary_location",
+      "network_infill"
+    ],
+    "maxSelected": 3,
+    "counterContract": {
+      "demandEligibleCount": "All current Yolk rows before strategy view; reporting UUID unique",
+      "opportunityViewCount": "Eligible rows having at least one selected candidate_to_check strategy",
+      "evidenceIncompleteCount": "Eligible rows having no selected candidate and at least one evidence_incomplete assessment",
+      "shortlistedCount": "Saved targets; belongs to workspace storage, not engine",
+      "scope": "The caller filters administrative scope explicitly; never label a camera viewport count a national count"
+    },
+    "assessmentTraceFields": [
+      "engineVersion",
+      "strategyContractVersion",
+      "sourceRelease",
+      "criteriaRevision",
+      "profileId",
+      "profileVersion",
+      "areaId",
+      "scope"
+    ],
+    "timestampActor": "Capture by server/session mutation, not clock in pureengine.",
+    "sourcePeriods": "Use actual inventory effective period or null; retrievedAt is not effectivePeriod."
+  },
+  "experience": {
+    "routes": [
+      "market",
+      "demand",
+      "supply",
+      "strategy",
+      "criteria",
+      "targets",
+      "place/:uuid",
+      "poi/:id",
+      "feed",
+      "team",
+      "inbox"
+    ],
+    "persistentMap": true,
+    "camera": "Explicit navigation, focus, fit and cluster click move the camera. Meaningful viewport-width changes may refit the same geographic scope for responsive visibility. Route changes, criteria previews, mode changes and Strategy selection retain the camera; an open POI popup retains its anchor.",
+    "geography": {
+      "country": {
+        "paint": "native district",
+        "click": "province"
+      },
+      "province": {
+        "paint": "fine reporting area",
+        "click": "district"
+      },
+      "district": {
+        "paint": "fine reporting area",
+        "click": "fine area"
+      },
+      "fine": {
+        "interior": "transparent",
+        "details": "source POIs/evidence"
+      }
+    },
+    "supplyMap": {
+      "default": "regions",
+      "optional": "points",
+      "pointLevels": [
+        "country",
+        "province",
+        "district",
+        "fine"
+      ],
+      "gridCellPixels": 56,
+      "markBudget": 1000,
+      "truncateRecords": false,
+      "screenGroupMeaning": "Rendering only, not physical clustering or attractiveness",
+      "boundaryPolicy": "Quiet contextual parent outlines; omit unnecessary child outline networks at broad scopes, preserve yellow clickable hover and white selected outline.",
+      "pointStrokeSchedule": {
+        "country": {
+          "province": 1.2,
+          "districtVisible": false
+        },
+        "province": {
+          "province": 1.2,
+          "district": 0.65,
+          "fineVisible": false
+        },
+        "district": {
+          "chosenParentDistrict": 1.1,
+          "fineVisible": false,
+          "fineClickTargets": "transparent hit geometry retained"
+        },
+        "fine": {
+          "selectedFine": 0.8,
+          "fill": false
+        },
+        "hover": {
+          "hex": "#FFBC1F",
+          "width": 2
+        }
+      }
+    },
+    "strategyMap": {
+      "paint": "Candidateareas only, retainingDemandtiercolors",
+      "nonmatch": "Transparent, not lowDemand",
+      "broaderClickHits": "Preservedhierarchy",
+      "selection": "Transparentselectedfine",
+      "counts": "CurrentDemandeligibility and strategyviewcounts separate"
+    },
+    "mapAppearance": {
+      "ordinaryOutline": "#FFFFFF",
+      "parentRelativeThicker": true,
+      "hoverOutline": "#FFBC1F",
+      "hoverWidthPixels": 2,
+      "selectedFineFill": false,
+      "tier1": "Exact density.area LUT20–40 gradient #E6AB30→#D6600C",
+      "tier2": "#FFBC1F",
+      "tier3": "#F1F4EF",
+      "nonTierAnalytical": "Exact original41LUTvalues selectedbyunit/denominator, sameboththemes, full analytical opacity; missing neutraldistinct",
+      "pointModeOverrides": "Use the pointStrokeSchedule only when Supply view=points; normal region appearance stays retained1.7.4."
+    },
+    "symbols": {
+      "own": "shield",
+      "competitor": "swords",
+      "unknown": "fact_check",
+      "yolk": "egg_alt",
+      "actualPOI": "Verifiedsquarebrandgraphic+caption+partybadge"
+    },
+    "reviewCopy": "Found / Stillunknown / Firstfieldtask; share whatwasobserved and whatcouldchange decision.",
+    "responsiveCameraRule": {
+      "trigger": "substantial viewport width change >100px or crossing 1100px breakpoint",
+      "action": "refit same geographic navigation after invalidation",
+      "exceptions": [
+        "open individual or group POI popup preserves anchor"
+      ],
+      "heightOnly": "retain camera",
+      "criteriaOrMenuChange": "retain camera"
+    },
+    "interactionGuidance": {
+      "schemaVersion": "yolk.interaction-guidance/1.9.1",
+      "version": "1.9.1",
+      "date": "2026-10-07",
+      "status": "locally_verified_preview_production_plan",
+      "extends": [
+        "contracts/map-boundary-appearance.v1.7.4.json",
+        "contracts/workspace-map.v1.7.json",
+        "contracts/full-product.v1.9.0.json"
+      ],
+      "scope": "Presentation and functional feedback only; retain criteria/profile/engine/strategy version 1.9.0.",
+      "invariants": {
+        "demandMembershipUnchanged": true,
+        "sourceCountsUnchanged": true,
+        "fixedNationalCohort": 7954,
+        "metricCount": 25,
+        "ordinaryRouteCameraUnchanged": true,
+        "noLogoOrEvidenceAnimation": true,
+        "noMotifs": true
+      },
+      "hover": {
+        "maxVisibleAreaTooltips": 1,
+        "owner": "clickable_navigation_scope",
+        "paintLayerTooltipAtBroaderScope": false,
+        "countryScope": "province",
+        "provinceScope": "district",
+        "districtScope": "fine_reporting_area",
+        "fineScope": "selected_fine",
+        "content": [
+          "escaped clickable scope type and human-readable name",
+          "important view value and explicit unit",
+          "aggregation or coordinate-coverage label",
+          "pending/review/missing/interval state when applicable"
+        ],
+        "aggregation": {
+          "countrySupplyRegion": "Maximum known native district current-view metric inside hovered province; explicitly not a province total.",
+          "provinceOrDistrictSupplyRegion": "Maximum known fine current-view metric; explicitly not a parent total.",
+          "demandTier": "Best known confirmed fine Demand tier within scope, with unresolved evidence kept separate.",
+          "supplyPoints": "Exact count of currently filtered coordinate records inside hovered source-display boundary, not the viewport count or full branch inventory.",
+          "missing": "Pending and missing are distinct from known zero; intervals remain intervals."
+        },
+        "lifecycle": [
+          "replace current scope tooltip on new hover",
+          "remove on pointer leave/navigation/mode/context change",
+          "restore white outline on leave"
+        ],
+        "focusAndTouch": "Keyboard focus opens the same single tooltip at source bounds centre; touch selection retains detail. Actual screen-reader/physical-device certification remains unverified.",
+        "tooltipTransition": "Reuse one Leaflet tooltip across target changes; final clear immediately detaches prior tooltip DOM after removal, preventing overlapping fade-out remnants.",
+        "accessibleGeometry": "Only navigation hit geometries expose button/tabindex/area labels; analytical paint paths aria-hidden, without button role or tabindex. Keyboard focus uses the same name/value tooltip.",
+        "tooltipPresentation": {
+          "desktopWidthPx": 280,
+          "mobileWidthPx": 240,
+          "maxWidth": "viewport minus40px",
+          "boxSizing": "border-box",
+          "meaning": "Readable name/value rows; preserves source boundaries and map camera."
+        }
+      },
+      "supplyPoints": {
+        "defaultSupplyView": "regions",
+        "optionalPointLevels": [
+          "country",
+          "province",
+          "district",
+          "fine"
+        ],
+        "fill": false,
+        "boundaryPolicy": "Quiet contextual parent outlines; omit unnecessary child outline networks at broad scopes, preserve yellow clickable hover and white selected outline.",
+        "geometryUnchanged": true,
+        "coordinateCountNotNativeSupply": true,
+        "screenBinsNotPhysicalClusters": true,
+        "cameraOnModeChange": "retain",
+        "strokeSchedulePx": {
+          "country": {
+            "province": 1.2,
+            "districtVisible": false
+          },
+          "province": {
+            "province": 1.2,
+            "district": 0.65,
+            "fineVisible": false
+          },
+          "district": {
+            "chosenParentDistrict": 1.1,
+            "fineVisible": false,
+            "fineClickTargets": "transparent hit geometry retained"
+          },
+          "fine": {
+            "selectedFine": 0.8,
+            "fill": false
+          },
+          "hover": {
+            "hex": "#FFBC1F",
+            "width": 2
+          }
+        }
+      },
+      "actionGuidance": {
+        "subject": "a separate pointer-inert shortlist-success cue; not the actual logo, area geometry, evidence or map layer",
+        "userBenefit": "Show that a successful save went to Shortlist and increment its visible count by one.",
+        "trigger": "successful committed target state change, receipt-deduped; +1 for new/unarchived active target, -1 for removal, no +1 for an existing plan update",
+        "countAuthority": "actual current-context active shortlist records after successful save, never an animation counter",
+        "duplicate": "No duplicate target/event or false +1; say already shortlisted.",
+        "failure": "No success cue or +1; retain usable retry/error state.",
+        "destination": [
+          "desktop shortlist navigation",
+          "mobile shortlist navigation or visible menu fallback"
+        ],
+        "motionDecision": "functional source-to-destination and finite success feedback, no decorative reveal",
+        "focusPolicy": "Retain source control focus and do not auto-navigate or scroll the user.",
+        "reducedMotion": "final-state-first: immediate real count/delta/plaintext/link; no spatial flight or moving pulse. Personal preference never emits team events.",
+        "hiddenDestination": "Missing/offscreen source or destination skips surrogate and still exposes saved count/status/destination link.",
+        "interruption": "Hidden document or pagehide cancels effects/timers and leaves real committed records/count; never performs a delayed mutation.",
+        "accessibility": {
+          "liveRegion": "Persistent empty role=status / aria-live=polite / aria-atomic=true created at initialization; update plaintext exactly once after successful receipt.",
+          "visibleConfirmation": "role=group with linked destination; source focus retained.",
+          "surrogate": "aria-hidden and pointer-inert",
+          "physicalAT": "unverified"
+        },
+        "maximumConcurrentCues": 1,
+        "durations": {
+          "stateFeedbackMs": 200,
+          "interactionFeedbackMs": 120,
+          "interactionDistancePx": 2,
+          "easing": "cubic-bezier(.2,0,0,1)",
+          "deltaBadgeMs": 2400,
+          "linkedConfirmationMs": 7000,
+          "confirmationPause": "pointer hover or keyboard focus"
+        },
+        "runtime": {
+          "js": "prototype/action-guidance.js",
+          "css": "prototype/action-guidance.css",
+          "loadingOrder": "module before bootstrap"
+        },
+        "personalPreference": {
+          "controlId": "yolk-reduce-motion",
+          "captions": {
+            "th": "ลดการเคลื่อนไหว",
+            "en": "Reduce motion"
+          },
+          "scope": "personal_local_setting",
+          "localStorageKey": "citymeter-yolk-personal-reduce-motion-v1",
+          "effectiveRule": "OS prefers-reduced-motion OR personal checkbox",
+          "workspaceEvent": false,
+          "teamRevision": false,
+          "onEnable": "cancel in-flight spatial guidance immediately and expose final count/status",
+          "respectsIn": "action guidance, settled result/nav feedback, app smooth scroll and retained location-map focus"
+        }
+      },
+      "otherGuidance": {
+        "loading": "Keep existing map visible with readable pending/error state; animation never substitutes status.",
+        "navigation": "Finite selected-navigation icon feedback 120ms / 2px; no auto-navigation from save. Explicit navigation/focus/fit may move map under retained camera policy; no camera change for ordinary route sync.",
+        "criteria": "A settled result count change has finite 120ms feedback, never rerender replay. Applying team criteria gives a next-step link to Demand; count is calculated, not animated into a false result.",
+        "sourceAndDestination": "Only animate where it clarifies the action; no perpetual attention, identity animation or reveal-hidden primary content."
+      },
+      "verification": {
+        "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+        "commands": [
+          "node scripts/check-map-clarity.cjs",
+          "node scripts/check-action-guidance.cjs"
+        ],
+        "nativeStates": [
+          "hover boundary has one tooltip, correct name/value and yellow outline",
+          "country/province/district/fine branch-point view remains readable",
+          "new shortlist action shows destination and actual count +1",
+          "duplicate/save failure does not show false success",
+          "reduced-motion has immediate usable count/status without flight",
+          "keyboard focus and narrow/desktop TH/EN light/dark content review"
+        ],
+        "physicalDevices": "unverified",
+        "fullAccessibilityCertification": false,
+        "automatedReceipt": "evidence/automated-v1.9.1.json",
+        "nativeReceipt": "evidence/browser-v1.9.1/native-browser-review.json",
+        "nativeChecks": 22,
+        "nativeCoverage": "Bounded native states, not full accessibility/device/language certification; automated timing/pointer event/failure tests are separate.",
+        "notVerified": [
+          "actual pointer-hover across every boundary (native keyboard focus + automated pointer-event adapters used)",
+          "physical iPhone/Android touch",
+          "130%/200% browserzoom",
+          "OS-reduced-motion setting itself (personal setting native; OS OR behavior automated)",
+          "complete industry/brand/language/theme/device matrix",
+          "actual screen-reader speech",
+          "production backend/RBAC/sharedpersist/outbox/email/LINE",
+          "external tile/StreetView/AIprovider availability"
+        ]
+      }
+    }
+  },
+  "production": {
+    "stackPolicy": "Reuse realCityMETERstack afterT00; no framework/datastore presumption.",
+    "moduleBoundaries": [
+      "SourceAdapters",
+      "MetricAST+Benchmark",
+      "IndustryBrandScopeProfiles",
+      "PureDemandSupplyRanking",
+      "PureOpportunityEngine",
+      "CalculationService",
+      "ContextRevisionService",
+      "SpatialMapController",
+      "TargetBranchEvidenceMediaServices",
+      "EventOutboxDelivery"
+    ],
+    "contextKey": [
+      "workspaceId",
+      "industryId",
+      "ownEntityId",
+      "supplyScope",
+      "profileVersion"
+    ],
+    "additionalResultIdentity": [
+      "sourceReleaseId",
+      "benchmarkReleaseId",
+      "criteriaHash",
+      "engineVersion",
+      "strategyContractVersion"
+    ],
+    "entities": [
+      {
+        "entity": "Workspace",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "name",
+          "defaultLocale",
+          "defaultIndustryId",
+          "createdAt",
+          "revision"
+        ],
+        "invariants": "Tenant root; all private records must have workspaceId."
+      },
+      {
+        "entity": "Membership",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "workspaceId",
+          "userId",
+          "role",
+          "status",
+          "joinedAt",
+          "revision"
+        ],
+        "invariants": "Unique workspace/user; active seat limits 1 admin + 3 editors + 6 viewers; preserve a last admin."
+      },
+      {
+        "entity": "IndustryProfile",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "industryId",
+          "profileVersion",
+          "factorPresets",
+          "defaultParameters",
+          "sourceRefs",
+          "status"
+        ],
+        "invariants": "Versioned immutable preset template, adjustable copied workspace criteria."
+      },
+      {
+        "entity": "Entity",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "industryId",
+          "kind",
+          "legalCompanyId?",
+          "names",
+          "brandAliases",
+          "formatIds",
+          "logoAssetRefs"
+        ],
+        "invariants": "Identity and aliases are explicit, never name-only joins; a company license does not prove a branch product."
+      },
+      {
+        "entity": "CriteriaScope",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "industryId",
+          "ownEntityId",
+          "supplyScope",
+          "formatId?",
+          "productId?",
+          "profileVersion",
+          "acceptedRevisionId"
+        ],
+        "invariants": "Unique workspaceId/industryId/ownEntityId/supplyScope/profileVersion; explicit validated formatId/productId mapping, not ambiguous concatenation."
+      },
+      {
+        "entity": "CriteriaRevision",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "scopeId",
+          "revision",
+          "criteriaJson",
+          "sourceReleaseId",
+          "benchmarkReleaseId",
+          "actorId",
+          "createdAt",
+          "criteriaHash"
+        ],
+        "invariants": "Immutable accepted max3-factor revision; baseRevision and idempotency key at Apply; strategy view personal until target assessment save."
+      },
+      {
+        "entity": "CriteriaDraft",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "scopeId",
+          "userId",
+          "baseRevision",
+          "draftJson",
+          "updatedAt"
+        ],
+        "invariants": "Private user draft; preview never writes team feed/outbox."
+      },
+      {
+        "entity": "SourceRelease",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "datasetId",
+          "schemaVersion",
+          "sourceUrl",
+          "retrievedAt",
+          "sourcePeriod",
+          "contentHash",
+          "coverage",
+          "rightsRef"
+        ],
+        "invariants": "Immutable provenance/version; source correction creates a new release, not in-place silent change."
+      },
+      {
+        "entity": "Area",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "reportingUUID",
+          "grain",
+          "names",
+          "provinceId",
+          "sourceReleaseId",
+          "sourceAreaSqm",
+          "geometryRef",
+          "geometryVersion"
+        ],
+        "invariants": "Source reporting UUID is identity; source area denominator stays separate from simplified display area."
+      },
+      {
+        "entity": "AreaCrosswalk",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "fineUUID",
+          "parentDistrictId",
+          "method",
+          "overlapShare",
+          "sourceReleaseId",
+          "geometryVersion",
+          "displayOnly"
+        ],
+        "invariants": "Versioned many-to-many display relationships, dedupe UUIDs for national/province counts; not statutory affiliation."
+      },
+      {
+        "entity": "MetricObservation",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "areaId",
+          "grain",
+          "reportingUUID?",
+          "metricId",
+          "sourceReleaseId",
+          "value?",
+          "evidenceState",
+          "unit",
+          "sourcePeriod",
+          "sourceFields"
+        ],
+        "invariants": "Unique release/UUID/metric; null unknown remains distinct from observed zero. Fine reportingUUID is present only at fine grain; native district area IDs are a separate namespace. Compare/aggregate at matching grain."
+      },
+      {
+        "entity": "SupplyObservation",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "areaId",
+          "grain",
+          "reportingUUID?",
+          "industryId",
+          "entityId",
+          "formatId?",
+          "productScope?",
+          "sourceReleaseId",
+          "assignedCount?",
+          "lower?",
+          "upper?",
+          "evidenceState",
+          "supplyScope",
+          "jointConstraint?",
+          "adapterVersion",
+          "reconciliationReleaseId?"
+        ],
+        "invariants": "Immutable source inventory; role classification derives from selected own/comparator identities and scope. Fine reportingUUID is present only at fine grain; native district area IDs are a separate namespace. Compare/aggregate at matching grain. Preserve joint admissible allocations where counts share the same unknown pool; marginal bounds alone cannot certify feasibility."
+      },
+      {
+        "entity": "BranchOverlay",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "industryId",
+          "sourceRecordId?",
+          "entityId?",
+          "reportingUUID?",
+          "lat?",
+          "lng?",
+          "name?",
+          "verificationStatus",
+          "operatingStatus",
+          "evidenceRef?",
+          "customFields",
+          "archivedAt?",
+          "revision",
+          "assignmentState",
+          "coordinateEvidence",
+          "formatId?",
+          "productId?",
+          "createdBy",
+          "createdAt",
+          "provinceId?",
+          "coordinateAssignmentProvenance?",
+          "fieldOrigins?",
+          "assignmentGeometryReleaseId?"
+        ],
+        "invariants": "Private team overlay; archive preserves history; source aggregates do not change until governed reconciliation. Existing unresolved records may save valid notes/evidence/photos without a reporting UUID. New record requires name && (valid coordinate pair || valid reporting area); partial/invalid supplied pair is rejected. Coordinate proposals never verify operation or source membership."
+      },
+      {
+        "entity": "LocationTarget",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "scopeId",
+          "reportingUUID?",
+          "geometryRef?",
+          "geometryKind",
+          "ownerId",
+          "workflowStatus",
+          "note",
+          "customFields",
+          "archivedAt?",
+          "revision",
+          "title",
+          "priority",
+          "rationale",
+          "criteriaRevisionId",
+          "sourceReleaseId",
+          "geometryReleaseId",
+          "createdBy",
+          "createdAt"
+        ],
+        "invariants": "Current launch targets use source areas. Custom polygon/corridor work is a separately approved extension with explicit grain/cohort."
+      },
+      {
+        "entity": "CustomFieldDefinition",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "entityType",
+          "key",
+          "labelTH",
+          "labelEN",
+          "type",
+          "required",
+          "options?",
+          "validation",
+          "revision"
+        ],
+        "invariants": "PROPOSED generic typed extension, not implemented in current fixed-field editor; do not execute formulas from these values."
+      },
+      {
+        "entity": "Event",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "scopeId?",
+          "entityType",
+          "entityId",
+          "eventType",
+          "actorId",
+          "occurredAt",
+          "beforeAfterDiff",
+          "revision",
+          "idempotencyKey"
+        ],
+        "invariants": "Immutable record after successful shared mutation; no image bytes, credentials or unnecessary personal data."
+      },
+      {
+        "entity": "Outbox",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "eventId",
+          "channel",
+          "recipientId",
+          "state",
+          "attempts",
+          "nextAttemptAt",
+          "dedupeKey"
+        ],
+        "invariants": "Created transactionally with event/mutation; delivery dedupe event+recipient+channel; actual external delivery remains proposed."
+      },
+      {
+        "entity": "Media",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "branchId?",
+          "privateObjectKey",
+          "mime",
+          "byteSize",
+          "width",
+          "height",
+          "contentHash",
+          "caption",
+          "cover",
+          "createdBy",
+          "revision",
+          "state",
+          "stagedForEntityId?",
+          "expiresAt?",
+          "committedAt?",
+          "draftContextId?",
+          "draftRecordKey?"
+        ],
+        "invariants": "Private object storage; max five current photos per branch enforced by server, scoped signed access. State=staged|committed|expired; commit checks record/context/revision, count cap, tenant permission; clean unused staged objects. Staged new-record media is scoped to context/draft key before a branch ID exists; committed media requires branchId. No cross-context carryover."
+      },
+      {
+        "entity": "ReviewEvidence",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "scopeId",
+          "reportingUUID",
+          "issueType",
+          "sourceReleaseId",
+          "evidenceRef",
+          "observedAt",
+          "reviewerId",
+          "state",
+          "resolutionDiff?",
+          "revision",
+          "sourceRecordId",
+          "proposedPatch",
+          "reconciliationReleaseId?",
+          "recordVersion"
+        ],
+        "invariants": "PROPOSED documented evidence/reconciliation workflow; no generic approve button that removes uncertainty without corrected inputs."
+      },
+      {
+        "entity": "AnalysisRun",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "scopeId",
+          "sourceReleaseId",
+          "benchmarkReleaseId",
+          "criteriaHash",
+          "requestId",
+          "engineVersion",
+          "createdAt",
+          "diagnostics"
+        ],
+        "invariants": "Immutable reproducibility identity and cache key; results are screening proxies, not sales predictions."
+      },
+      {
+        "entity": "GeographyRelease",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "sourceReleaseId",
+          "geometryVersion",
+          "grain",
+          "contentHash",
+          "crosswalkVersion",
+          "provenance",
+          "publishedAt"
+        ],
+        "invariants": "Immutable geometry and crosswalk provenance; administrative evidence and display context are distinguished."
+      },
+      {
+        "entity": "BranchSource",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "sourceReleaseId",
+          "sourceRecordId",
+          "industryId",
+          "entityId?",
+          "sourceAreaAssignment?",
+          "formatId?",
+          "productScope?",
+          "coordinates?",
+          "sourceFields",
+          "evidenceState"
+        ],
+        "invariants": "Immutable stable source identity. Team overlays never overwrite this record."
+      },
+      {
+        "entity": "BranchVerification",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "branchId",
+          "operatingStatus",
+          "verificationStatus",
+          "assignmentState",
+          "evidenceRefs",
+          "observedAt",
+          "reviewedBy",
+          "reviewedAt",
+          "revision"
+        ],
+        "invariants": "Audit each verification dimension separately; operating active is not a certified source assignment or brand identity. No automatic aggregate approval."
+      },
+      {
+        "entity": "WorkItem",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "entityType",
+          "entityId",
+          "ownerId",
+          "title",
+          "state",
+          "dueAt?",
+          "evidenceRefs",
+          "revision"
+        ],
+        "invariants": "Work belongs to a permitted location/branch. Successful mutation creates one scoped event."
+      },
+      {
+        "entity": "ReconciliationRelease",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "scopeId",
+          "sourceReleaseId",
+          "reviewEvidenceIds",
+          "adapterVersion",
+          "contentHash",
+          "diagnostics",
+          "createdBy",
+          "createdAt"
+        ],
+        "invariants": "Versioned effective correction layer, only after reviewed evidence and comparable-grain reconciliation; source remains immutable."
+      },
+      {
+        "entity": "Notification",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "eventId",
+          "recipientId",
+          "channel",
+          "deliveryState",
+          "readAt?",
+          "deepLink",
+          "createdAt"
+        ],
+        "invariants": "Recipient-only read/update; access rechecked at delivery and deep-link opening; unique event/recipient/channel."
+      },
+      {
+        "entity": "NotificationPreference",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "workspaceId",
+          "userId",
+          "channels",
+          "eventTypes",
+          "digestMode",
+          "revision"
+        ],
+        "invariants": "Self-only updates within workspace policy; preferences do not grant access."
+      },
+      {
+        "entity": "ShareGrant",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "resourceType",
+          "resourceId",
+          "snapshotRefs",
+          "recipientIds",
+          "permissions",
+          "expiresAt?",
+          "revokedAt?",
+          "createdBy",
+          "revision"
+        ],
+        "invariants": "No public visibility by default; authorization for both link creation and reading including media/private fields."
+      },
+      {
+        "entity": "BrandProfile",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "industryId",
+          "brandId",
+          "profileVersion",
+          "segmentId",
+          "defaultScope",
+          "perScopeProfiles",
+          "offerings",
+          "positioning",
+          "researchStatus",
+          "sourceIds",
+          "limitations"
+        ],
+        "invariants": "Versioned corporate offering evidence separate from operator claim/inference; consumer perception unknown until survey."
+      },
+      {
+        "entity": "SegmentProfile",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "industryId",
+          "scopeId",
+          "mission",
+          "offeringDimensions",
+          "evidenceStatus",
+          "sourceRefs"
+        ],
+        "invariants": "Source format/license family is comparable scope; actual branch product/price/customer segment requires evidence."
+      },
+      {
+        "entity": "StrategyAssessment",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "scopeId",
+          "reportingAreaId",
+          "strategyIds",
+          "criteriaRevisionId?",
+          "privateDraftHash?",
+          "criteriaSnapshot",
+          "sourceReleaseId",
+          "benchmarkReleaseId",
+          "profileVersion",
+          "engineVersion",
+          "strategyContractVersion",
+          "status",
+          "assessments",
+          "actorId",
+          "assessedAt",
+          "revision"
+        ],
+        "invariants": "Immutable captured assessment; maximum3strategies; older plan is retained when criteria/source changes."
+      },
+      {
+        "entity": "EvidenceRecord",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "subjectType",
+          "subjectId",
+          "question",
+          "value",
+          "unit",
+          "sourcePeriod",
+          "observedAt",
+          "sourceRef",
+          "geographicScope",
+          "productScope",
+          "evidenceState",
+          "verifier",
+          "rightsRef",
+          "limitations",
+          "revision"
+        ],
+        "invariants": "Keep observed zero/no data/out of scope/unresolved/confirmed distinct; confirmed evidence does not mean confirmed investment outcome."
+      },
+      {
+        "entity": "FieldAction",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "assessmentId?",
+          "siteId?",
+          "question",
+          "ownerId",
+          "dueAt",
+          "status",
+          "result",
+          "evidenceRefs",
+          "closedAt",
+          "revision"
+        ],
+        "invariants": "Task closed with evidence/result; own actor/clock/server permission, not generated engine date."
+      },
+      {
+        "entity": "CandidateSite",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "relatedAreaIds",
+          "entranceLocation",
+          "coordinateMethod",
+          "accessConstraints",
+          "usableAreaSqm",
+          "rentQuote",
+          "quoteDate",
+          "availableFrom",
+          "landlordEvidence",
+          "assessmentRefs",
+          "ownerId",
+          "status",
+          "revision"
+        ],
+        "invariants": "P1 lease/site evidence separate from existing operating Supply records."
+      },
+      {
+        "entity": "AnchorPOI",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "datasetId",
+          "sourceReleaseId",
+          "names",
+          "type",
+          "coordinates",
+          "coordinateMethod",
+          "operatingState",
+          "sourcePeriod",
+          "observedAt",
+          "sourceRefs",
+          "areaCrosswalk",
+          "rightsRef"
+        ],
+        "invariants": "P1 verified spatial reference; presence alone does not establish sent customer flow."
+      },
+      {
+        "entity": "FutureProject",
+        "status": "PROPOSED_PRODUCTION",
+        "fields": [
+          "id",
+          "workspaceId",
+          "geometryRef",
+          "milestones",
+          "status",
+          "evidenceRefs",
+          "holdingCost",
+          "stoppingTrigger",
+          "ownerId",
+          "revision"
+        ],
+        "invariants": "P2 separatewatchlist, never currentDemand membership."
+      }
+    ],
+    "indexes": [
+      "Membership(workspaceId,userId) unique",
+      "CriteriaScope(workspaceId,industryId,ownEntityId,supplyScope,profileVersion) unique",
+      "CriteriaDraft(scopeId,userId) unique",
+      "MetricObservation(sourceReleaseId,reportingUUID,metricId) unique",
+      "LocationTarget active(workspaceId,scopeId,reportingUUID/customLocationId) unique",
+      "Event(workspaceId,entityType,entityId,occurredAt)",
+      "Outbox(eventId,recipientId,channel) unique",
+      "Outbox(state,nextAttemptAt)",
+      "spatial geometry/points when datastore supports it",
+      "unique(workspaceId, scopeId, reportingAreaId) on activeTarget",
+      "unique(workspaceId, idempotencyKey) on mutations",
+      "unique(eventId, recipientId, channel) on outboxDelivery",
+      "index(workspaceId, assessmentId, status) on fieldActions",
+      "index(sourceReleaseId, metricId, reportingUUID) on observations"
+    ],
+    "rbac": {
+      "status": "PROPOSED_SERVER_ENFORCED",
+      "admin": "Manage workspace/members/custom field definitions plus editor actions",
+      "editor": "Branch/target/evidence/media CRUD and scoped criteria Apply; permitted sharing",
+      "viewer": "Read permitted data, maps/details/feed; personal filters/theme/locale and notification read state; no shared writes",
+      "seats": {
+        "admin": 1,
+        "editor": 3,
+        "viewer": 6
+      },
+      "checks": "Tenant+role+entity scope at every API/storage/signed URL/share path; do not trust actor selectors or client canEdit",
+      "viewerPrivateDraft": "Permitted self-only preview/draft, never Apply/shared mutation",
+      "reviewer": "Assigned capability within editor/admin, not an extra seat role",
+      "viewerForwarding": "May copy/forward an existing link only within its authorized audience. Cannot create a new ShareGrant or grant new access."
+    },
+    "transaction": "authorize→validate/max3/baseRevision→writeentity+revision+event+outbox atomically→acknowledge→asyncdelivery; idempotencykey dedupesretry",
+    "media": {
+      "maxCount": 5,
+      "maxBytesPerFile": 10485760,
+      "mimeAllowlist": [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+      ],
+      "verify": "Content sniffing plus permission/revision/cap validation; strip unnecessary EXIF; private signed reads"
+    },
+    "privacy": "Publicpreview only approvedsource snapshots andmockmedia. Privatecustomerdata/photos/evidence/signedURLsneverpublicmanifest. P3minimize/aggregate andsetretentionpurpose/access. Nonbankproxiesneverborrowereligibility/creditdetermination.",
+    "errors": {
+      "409": "Revisionconflict; preserve draft and returncurrentrevision/diff",
+      "422": "Field/metric/op/max3validation stablecode+path",
+      "401/403": "Existingauthpolicy, no tenantdata disclosure"
+    },
+    "migration": [
+      "Pincriteria/profile/source versions; never overwriteacceptedhistory",
+      "Keep legacy8patternfields inert; no mapping to8strategies",
+      "Historicalfuelvotes notsilentlyrewritten tofactorpaths",
+      "Seedunseenbrand/scope or explicitpresetdraft only",
+      "No event/revision fromopeningpage/migration/personalview",
+      "Savedstrategyassessment retains exactoldcriteria/sourceversions"
+    ]
+  },
+  "api": {
+    "status": "PROPOSED_PRODUCTION_NOT_IMPLEMENTED_BY_STATIC_PREVIEW",
+    "requestEnvelope": {
+      "workspaceId": "server-authorized tenant",
+      "context": {
+        "industryId": "fuel|grocery|nonbank",
+        "ownEntityId": "stable entity ID",
+        "formatId": "optional explicit grocery format",
+        "productId": "optional explicit Non-bank product/license scope",
+        "profileVersion": "pinned profile version",
+        "supplyScope": "stable validated Supply scope; formatId/productId mapping required"
+      },
+      "sourceReleaseId": "immutable release",
+      "benchmarkReleaseId": "pinned national distribution",
+      "criteriaHash": "canonical JSON hash",
+      "requestId": "unique request/ticket",
+      "baseRevision": "required accepted revision for mutation",
+      "idempotencyKey": "required for retryable shared mutation",
+      "scopeId": "authorized CriteriaScope ID matching complete context tuple",
+      "criteria": "validated criteria payload for private preview/Apply; server verifies or derives criteriaHash"
+    },
+    "responseEnvelope": {
+      "requestId": "echo",
+      "contextKey": "echo stable full tuple",
+      "sourceReleaseId": "exact",
+      "benchmarkReleaseId": "exact",
+      "criteriaHash": "exact",
+      "engineVersion": "exact",
+      "rows": "DTO by reporting UUID: raw metrics/units/evidence states/Demand tier/eligible/Supply bounds/rank; historical patterns optional and inactive.",
+      "diagnostics": "validN/missingN/zeroN/coverage/denominator/errors",
+      "revision": "new immutable accepted revision after mutation only"
+    },
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/v1/workspaces/:id/analyses/preview",
+        "meaning": "PrivateDemand/Supply/Strategycalculation; no sharedevent"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/workspaces/:id/scopes/:scopeId/criteria/apply",
+        "meaning": "Acceptedrevision/baseRevision/idempotency+event/outbox"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/workspaces/:id/targets",
+        "meaning": "SaveareawithStrategyAssessmentsnapshot+owner/action"
+      },
+      {
+        "method": "PATCH",
+        "path": "/v1/workspaces/:id/targets/:targetId",
+        "meaning": "Update/archive/restorewithrevision"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/workspaces/:id/branches",
+        "meaning": "Teamoverlay; immutableSupplyaggregateuntouched"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/workspaces/:id/branches/:branchId/media-intents",
+        "meaning": "Privatevalidateduploadandfinalize"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/workspaces/:id/evidence",
+        "meaning": "Purpose/source/scope/statevalidatedevidence"
+      },
+      {
+        "method": "GET",
+        "path": "/v1/workspaces/:id/events",
+        "meaning": "Authorizedentity/contextfeed"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/workspaces/:id/shares",
+        "meaning": "Editor/adminpermissionedgrant, expiry/revoke"
+      }
+    ],
+    "decisionDTO": {
+      "areaId": "reportingUUIDatfine; nativeIDsseparatenamespace",
+      "demand": "boolean|null",
+      "qualifyingTier": "1|2|3|null",
+      "eligible": "boolean",
+      "rawMetrics": "metricId→numeric|null +states/units/periods",
+      "supply": "own/competitor/total bounds +unknownstate/referenceunit",
+      "rank": "lower/upper/coverage +mode, notconfidence",
+      "opportunity": "perselectedstrategyassessmentwithsource/criteria/profile/engineversions",
+      "counters": "Demand beforeview, candidatesafterview, shortlistindependent"
+    }
+  },
+  "tasks": [
+    {
+      "id": "T00",
+      "title": "ตรวจ stack และ source ที่ทีมใช้จริง",
+      "dependsOn": [],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "This full document",
+        "Current CityMETER source/auth/spatial/media/queue repositories",
+        "DS integration"
+      ],
+      "outputs": [
+        "Stack map",
+        "rights/source inventory",
+        "exact runtime-to-production field map"
+      ],
+      "steps": [
+        "Identify existing ownership, auth/tenant identifiers and storage boundaries.",
+        "Inventory source fields, periods, coverage, UUID grain, rights and missing states.",
+        "Map current runtime globals to typed services; retain immutable snapshots."
+      ],
+      "acceptance": [
+        "No new framework/datastore chosen before stack mapping.",
+        "25 metrics and fixed 7954 UUIDs accounted for; hospital/school adapters explicitly pending."
+      ],
+      "verification": [
+        "Source hash/catalog validation",
+        "Review source/permission registry"
+      ],
+      "codingPrompt": "Implement only T00: ตรวจ stack และ source ที่ทีมใช้จริง. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T01",
+      "title": "ตั้ง shell ตาม LDS และ responsive map layout",
+      "dependsOn": [
+        "T00"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Verified LDS0.9.7 base/profile",
+        "Current routes and UI assets"
+      ],
+      "outputs": [
+        "Accessible TH/EN light/dark shell",
+        "One persistent map host"
+      ],
+      "steps": [
+        "Use existing fonts/logos/icons with verified role/hash.",
+        "Build mobile-first content panels; desktop map remains large and visible.",
+        "Keep visible keyboard focus, captions and theme surfaces; no motifs/logo frames/left rails."
+      ],
+      "acceptance": [
+        "No map recreation on route change.",
+        "Rendered real Thai/English headings fit 390/1440px in both themes."
+      ],
+      "verification": [
+        "Font/logo network checks",
+        "Native visual review and keyboard navigation"
+      ],
+      "codingPrompt": "Implement only T01: ตั้ง shell ตาม LDS และ responsive map layout. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T02",
+      "title": "สร้าง workspace, auth, seats และ schema",
+      "dependsOn": [
+        "T00",
+        "T01"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Existing auth/datastore",
+        "Proposed entities/indexes/RBAC"
+      ],
+      "outputs": [
+        "Tenant-scoped database schema",
+        "Server-enforced role/seat checks"
+      ],
+      "steps": [
+        "Define full context tuple and tenant indexes.",
+        "Enforce 1 admin + 3 editors + 6 viewers, preserve last admin.",
+        "Authorize every API, storage read and share path; actor selectors are preview only."
+      ],
+      "acceptance": [
+        "Cross-tenant IDs are inaccessible.",
+        "Viewer can preview privately but cannot mutate shared criteria/records."
+      ],
+      "verification": [
+        "Two-tenant attack fixtures",
+        "Seat concurrent writes",
+        "RBAC service/API tests"
+      ],
+      "codingPrompt": "Implement only T02: สร้าง workspace, auth, seats และ schema. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T03",
+      "title": "นำเข้า snapshot และ geometry",
+      "dependsOn": [
+        "T00",
+        "T02"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Immutable source files",
+        "Source hashes/periods/rights",
+        "Display geometry/crosswalk"
+      ],
+      "outputs": [
+        "SourceRelease/Area/MetricObservation/SupplyObservation stores",
+        "Explicit many-to-many display crosswalk"
+      ],
+      "steps": [
+        "Import rows by exact source UUID, preserving raw states.",
+        "Keep native928district inventory independent from fine-area totals.",
+        "Keep source area denominator separate from simplified display geometry.",
+        "Validate geometry and state missing geometry as unfilled extent, not a fabricated polygon."
+      ],
+      "acceptance": [
+        "No name-only joins or allocation of residuals.",
+        "45 multi-district display links do not duplicate national/province fine UUID counts."
+      ],
+      "verification": [
+        "Hash and row uniqueness",
+        "Geometry/crosswalk counts",
+        "Native-vs-fine reconciliation fixtures"
+      ],
+      "codingPrompt": "Implement only T03: นำเข้า snapshot และ geometry. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T04",
+      "title": "ทำ metric registry และ safe formula evaluator",
+      "dependsOn": [
+        "T03"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "25 metric definitions/formula AST",
+        "Allowed source fields"
+      ],
+      "outputs": [
+        "Typed registry",
+        "Safe arithmetic evaluator with provenance"
+      ],
+      "steps": [
+        "Implement only allowlisted fields/operations, selectors and age slices.",
+        "Require positive extensive denominators; preserve no_data/zero/not_applicable/suppressed.",
+        "Attach unit/source period/measurement and lineage to each result."
+      ],
+      "acceptance": [
+        "No eval, arbitrary JS or request-provided SQL.",
+        "GFA per person uses population dataset; fiscal per person uses fiscal.population."
+      ],
+      "verification": [
+        "AST allowlist/injection rejection",
+        "Zero/missing denominator",
+        "Age20:65 slice endpoints"
+      ],
+      "codingPrompt": "Implement only T04: ทำ metric registry และ safe formula evaluator. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T05",
+      "title": "ตรึง benchmark ทั่วประเทศ",
+      "dependsOn": [
+        "T04"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Fixed7954UUID source release",
+        "Known values per metric"
+      ],
+      "outputs": [
+        "Immutable national distributions",
+        "Benchmark release/hash/cohort"
+      ],
+      "steps": [
+        "Build each metric distribution from valid comparable values including observed zero.",
+        "Use declared INC percentile cutoff; maintain rank-midrank as a distinct display statistic.",
+        "Do not recalculate benchmark by selected province, brand or map viewport."
+      ],
+      "acceptance": [
+        "Zoom/brand/province filters leave benchmark hashes/cutoffs unchanged.",
+        "Missing observations do not enter denominator or become zero."
+      ],
+      "verification": [
+        "INC/ties fixtures",
+        "Known-zero fixture",
+        "Cohort isolation"
+      ],
+      "codingPrompt": "Implement only T05: ตรึง benchmark ทั่วประเทศ. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T06",
+      "title": "ทำ Industry→Segment→Brand→Scope profiles",
+      "dependsOn": [
+        "T00",
+        "T04",
+        "T05"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "37-brand researched registry",
+        "9 preset families",
+        "Current source format/license scopes"
+      ],
+      "outputs": [
+        "Versioned IndustryProfile/SegmentProfile/BrandProfile registry",
+        "Per-scope starter criteria"
+      ],
+      "steps": [
+        "Separate official offering/positioning, Yolk inference and unresolved consumer perception.",
+        "Bind grocery important/source-supported default format, preserving alternatives.",
+        "Keep only10selectableNonbankcompanies but compare the full compatible source inventory.",
+        "Treat COSMO/current identity, PURE rebrand and legal-company/office capability as explicit verification topics.",
+        "Seed only unseen context or explicit Try preset; saved draft/revision wins."
+      ],
+      "acceptance": [
+        "No company/group marketing auto-merges distinct IDs.",
+        "Numeric presets are labeled Yolk hypotheses, not operator-endorsed thresholds."
+      ],
+      "verification": [
+        "37 bindings/9 families validation",
+        "Official source links and profile status",
+        "Context restore and brand switch tests"
+      ],
+      "codingPrompt": "Implement only T06: ทำ Industry→Segment→Brand→Scope profiles. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T07",
+      "title": "คำนวณ Demand ด้วย factor paths จำกัด 3",
+      "dependsOn": [
+        "T04",
+        "T05",
+        "T06"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Brand per-scope factorPresets/criteriaOverrides",
+        "National benchmark"
+      ],
+      "outputs": [
+        "Pure Demand/Tier engine",
+        "Maximum-three factor validators"
+      ],
+      "steps": [
+        "Allow at most3enabledfactor families and at most3distinct metrics within each.",
+        "AND within path; OR across alternative paths; choose best confirmed tier.",
+        "Require known positive value when positive_presence is enabled.",
+        "Retain interval/unknown possibility separately from confirmed result.",
+        "Declare new fuel path hypothesis explicitly; do not equate it with historical6-activity5/3/1 votes."
+      ],
+      "acceptance": [
+        "eligible = demand===true AND Tier1..3 AND tier<=maxDemandTier.",
+        "Unknown does not qualify; disabled factors do not affect result; a fourth factor/metric is rejected server-side."
+      ],
+      "verification": [
+        "Pure fixture per family",
+        "No-data path logic",
+        "Max3 enforcement",
+        "Saved historical criteria migration"
+      ],
+      "codingPrompt": "Implement only T07: คำนวณ Demand ด้วย factor paths จำกัด 3. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T08",
+      "title": "ทำ Supply adapters และตัวหาร",
+      "dependsOn": [
+        "T03",
+        "T06",
+        "T07"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Native/fine source inventory",
+        "Selected source scope",
+        "Raw extensive denominator"
+      ],
+      "outputs": [
+        "Own/competitor/unresolved bounds",
+        "Count/rate comparisons and exploratory references"
+      ],
+      "steps": [
+        "Filter grocery by source format; Nonbank by declared company-license scope.",
+        "Preserve unknown brand, unknown operations and Nonbank assignment intervals.",
+        "Relative mode divides count by one selected positive raw market base; default fuelGFA100000m², Grocery/Nonbankpopulation10000persons.",
+        "Seed per-role national positive exact medians with N>=5; exclude intervals/nonzero-or-unknown U.",
+        "If boundsKnown=false, no upper-bound certainty is assumed."
+      ],
+      "acceptance": [
+        "Missing denominator or assignment bounds remain unresolved.",
+        "Do not classify registered adult population as borrowers or all fuel stations as identical fuel offerings."
+      ],
+      "verification": [
+        "Joint-U/interval tests",
+        "Scope identity/licence fixtures",
+        "Relative median exclusion",
+        "Count/rate units"
+      ],
+      "codingPrompt": "Implement only T08: ทำ Supply adapters และตัวหาร. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T09",
+      "title": "แยก eligibility จาก ranking",
+      "dependsOn": [
+        "T07",
+        "T08"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Demand results",
+        "Supply gap references",
+        "At most3weights"
+      ],
+      "outputs": [
+        "Stable context and weighted comparators",
+        "Rank bounds and coverage"
+      ],
+      "steps": [
+        "Context ordering uses Demand tier/path strength; weighted ordering uses Demand/ownGap/competitorGap.",
+        "Use nonnegative weights, positive weight sum and retained gap100/(1+N/T).",
+        "Compute conservative bounds for valid joint uncertainty allocations.",
+        "Keep historical pattern fields inert and preserve history."
+      ],
+      "acceptance": [
+        "Supply modes/references/weights change order only, never Demand/Tier/eligible IDs.",
+        "No negative-weight hack for competitive-entry or cluster strategy."
+      ],
+      "verification": [
+        "Membership invariants",
+        "Allzero weights rejection",
+        "Joint allocation admissibility",
+        "Deterministic ties"
+      ],
+      "codingPrompt": "Implement only T09: แยก eligibility จาก ranking. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T10",
+      "title": "เพิ่ม 8 Strategy เป็นชั้นคิวสำรวจ",
+      "dependsOn": [
+        "T07",
+        "T08",
+        "T09"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "opportunity-strategies.v1.9.0.json",
+        "Evaluated rows",
+        "Brand/scope profile"
+      ],
+      "outputs": [
+        "Pure OpportunityEngine",
+        "Separate candidate/incomplete/unsupported queues"
+      ],
+      "steps": [
+        "Call assess/view after Demand evaluation.",
+        "Limit selected strategies to3; current market candidates require confirmed eligible Demand.",
+        "Implement supported cue rules1/3/5/7 with bounds and relevant actual area metrics.",
+        "Show2/4/6/8missing-data guides without artificial scores.",
+        "Return reasons/evidenceRefs/missingEvidence/nextAction and source/criteria/profile versions."
+      ],
+      "acceptance": [
+        "Every candidate has an explicit first field task.",
+        "Future areas cannot enter current Yolk counts.",
+        "Population alone is not a Complementary anchor."
+      ],
+      "verification": [
+        "check-opportunity-strategies.cjs",
+        "Real national membership invariants",
+        "KhanHamworkers49339 example"
+      ],
+      "codingPrompt": "Implement only T10: เพิ่ม 8 Strategy เป็นชั้นคิวสำรวจ. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T11",
+      "title": "ทำ calculation API/worker และ cancellation",
+      "dependsOn": [
+        "T02",
+        "T05",
+        "T07",
+        "T08",
+        "T09",
+        "T10"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Request/response envelopes",
+        "Pure engines"
+      ],
+      "outputs": [
+        "Calculation endpoints",
+        "Content-addressed cache",
+        "Latest-request guard"
+      ],
+      "steps": [
+        "Send full context/source/benchmark/profile/criteria hash/requestId.",
+        "Compute in worker/service appropriate to real stack; reject stale context/route tickets.",
+        "Return added/removed IDs separately even when net count is unchanged.",
+        "Return validation state, not stale results, for invalid input."
+      ],
+      "acceptance": [
+        "Race brand/route/source changes cannot publish old result.",
+        "Preview does not create shared events."
+      ],
+      "verification": [
+        "Deferred reversed responses",
+        "Same-countdifferentIDs",
+        "Cache version invalidation"
+      ],
+      "codingPrompt": "Implement only T11: ทำ calculation API/worker และ cancellation. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T12",
+      "title": "ทำ persistent maps และ POIทุกdrilldown",
+      "dependsOn": [
+        "T01",
+        "T03",
+        "T11"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Map semantics/DS scales",
+        "Native district and fine geometry",
+        "Source coordinate adapters"
+      ],
+      "outputs": [
+        "One map controller",
+        "Demand/Supply/Strategy layers",
+        "Supply optional point mode"
+      ],
+      "steps": [
+        "Country paintdistrict/clickprovince; provincepaintfine/clickdistrict; districtpaintfine/clickfine.",
+        "Supplydefaultsregions; pointview optional country/province/district/fine withsamecamera.",
+        "Group screen coordinates with56pxgrid and1000markbudget; retain every record in cluster membership.",
+        "Keep selectedfine/point interiors transparent, relativewhiteboundary hierarchy and yellowclickablehover.",
+        "Reuse exact41LUTcolors; retain egg-tier recipe separately.",
+        "Make one escaped name/value/unit hover tooltip owned by clickable scope; label native/fine maximum as not a parent total; use exact filtered in-boundary coordinate count in point mode. Keyboard focus opens the same tooltip at bounds centre.",
+        "Apply quiet point-only stroke schedule: country provinces1.2px; province districts0.65px; district chosen parent1.1px with transparent fine hit targets; fine selection0.8px. Retain yellow2px hover and all geometry/data."
+      ],
+      "acceptance": [
+        "Camera changes only explicit navigation/focus/fit/clusterclick.",
+        "Screen bins are not physical market-cluster evidence.",
+        "Source coordinates and native supply counts never conflated.",
+        "No duplicate paint/navigation tooltips.",
+        "POI view remains readable at all four administrative scopes."
+      ],
+      "verification": [
+        "check-workspace-map.cjs",
+        "check-supply-poi-modes.cjs",
+        "Paint/click boundaries",
+        "Real light/dark narrow/desktop",
+        "check-map-clarity.cjs",
+        "Native hover name/value and point-boundary review"
+      ],
+      "codingPrompt": "Implement only T12: ทำ persistent maps และ POIทุกdrilldown. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T13",
+      "title": "ทำ criteria drafts และ Apply แบบตรวจ diff",
+      "dependsOn": [
+        "T02",
+        "T07",
+        "T08",
+        "T09",
+        "T11",
+        "T12"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Scoped CriteriaRevision",
+        "Factor controls and defaults"
+      ],
+      "outputs": [
+        "Private draft editor",
+        "Revision/event/outbox Apply transaction"
+      ],
+      "steps": [
+        "Separate Demand, Supply and ranking controls; all numeric thresholds have slider+exact input.",
+        "Validate max3choices at UIandserver.",
+        "Apply withbaseRevision/idempotencykey and full diff; reject stale409whilepreservingdraft.",
+        "Try preset seeds private draft only; migration creates no team revision on load."
+      ],
+      "acceptance": [
+        "No-op and retries emit at mostone event; fourthfactor/strategy rejected.",
+        "Saved criteria are not overwritten by registry update."
+      ],
+      "verification": [
+        "Concurrent editors/no-op/retry",
+        "Draft context isolation",
+        "Range+number/focus retention"
+      ],
+      "codingPrompt": "Implement only T13: ทำ criteria drafts และ Apply แบบตรวจ diff. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T14",
+      "title": "ทำ Strategy UI พร้อมแผนที่และคำอธิบาย",
+      "dependsOn": [
+        "T06",
+        "T10",
+        "T11",
+        "T12",
+        "T13"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Brand profiles",
+        "Opportunity outputs",
+        "Source/criteria versions"
+      ],
+      "outputs": [
+        "Eight selectable strategy cards",
+        "Separate counters",
+        "Found/unknown/first-task results"
+      ],
+      "steps": [
+        "Show1–3selectedstrategies and scope counts per method.",
+        "Keep mapDemandtiercolors only on candidateareas; nonmatchtransparent doesnot mean lowDemand.",
+        "Display observedvalues/units/periods; unresolved methods explicitlyrequest evidence.",
+        "Show supplied sortdescription; never describe a different comparator."
+      ],
+      "acceptance": [
+        "Demand count, strategy candidate count and shortlisted count remain distinct.",
+        "Keyboard/touch choices work and max3states are explained."
+      ],
+      "verification": [
+        "Projection doesnotmutatebaseIDs",
+        "Card counter consistency",
+        "TH/EN actual UI review"
+      ],
+      "codingPrompt": "Implement only T14: ทำ Strategy UI พร้อมแผนที่และคำอธิบาย. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T15",
+      "title": "ทำ Target CRUD และ snapshotแผนสำรวจ",
+      "dependsOn": [
+        "T02",
+        "T10",
+        "T13",
+        "T14"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "ReportingUUID/fullcontext",
+        "Assessment result",
+        "Owner/status/custom fields"
+      ],
+      "outputs": [
+        "Targets",
+        "Immutable StrategyAssessment snapshots",
+        "FieldActions/EvidenceRecords"
+      ],
+      "steps": [
+        "Unique target percontext/area; retain archivedhistory.",
+        "Capture exactcriteria/source/benchmark/profile/engine/strategy versions and whetherprivateDraftoraccepted.",
+        "Save strategy evidence/missing data/next task withowner and actor/time.",
+        "Keep personalview selection outside sharedrevision untilexplicit targetsave.",
+        "After committed target state change derive count from actual active target records. New/unarchived +1 and removal -1; existing plan update no false +1. Dedupe receipt IDs and use the finite200ms pointer-inert surrogate only when endpoints are visible.",
+        "Preserve source focus and current map; duplicate/failure does not fly or increment.",
+        "Maintain persistent polite live region and linked7s confirmation; pause confirmation on focus/hover. Reduced motion/offscreen destination/hidden page/pagehide exposes final count/status without motion or delayed mutation."
+      ],
+      "acceptance": [
+        "Old assessment remains reproducible after threshold/source change.",
+        "Target status never means source verified or parcel approved.",
+        "New save increments once; duplicate/failure does not fabricate a +1.",
+        "Reduced-motion/failure/interruption final state remains usable."
+      ],
+      "verification": [
+        "CRUD/dedupe/archive/restore",
+        "Snapshot hash/version parity",
+        "Cross-brand isolation",
+        "check-action-guidance.cjs",
+        "Native new/duplicate save and reduced-motion review"
+      ],
+      "codingPrompt": "Implement only T15: ทำ Target CRUD และ snapshotแผนสำรวจ. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T16",
+      "title": "ทำ Branch CRUD รูป5รูปและ source-first autofill",
+      "dependsOn": [
+        "T02",
+        "T03",
+        "T12",
+        "T15"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Immutable source branch records",
+        "branch-context.v1.7.5.json",
+        "Private media policy"
+      ],
+      "outputs": [
+        "Team overlays",
+        "Context-safe editor",
+        "Private media finalize"
+      ],
+      "steps": [
+        "Source/manual/saved geography wins over coordinatehint; unique strict-interior suggestion can fill draft.",
+        "Filter dependent province/area options; expose ambiguous boundaries and conflicts.",
+        "Newrecord requires name plusvalidcoordinatesorvalidarea; unresolvedexisting permits notes/photos.",
+        "Capture context/route/form/revision/coordinate signatures across awaits; cancel stale lookup/photo completions.",
+        "Validate content/mime/size/dimensions/EXIF/cap<=5server-side."
+      ],
+      "acceptance": [
+        "LocalPOIedits never rewrite aggregateSupply.",
+        "Unknown/unbranded/closed/verified/assigned meanings remain separate."
+      ],
+      "verification": [
+        "check-branch-context.cjs",
+        "Photo-cap concurrency and rollback",
+        "Editor/popup parity",
+        "Tenant signed-media reads"
+      ],
+      "codingPrompt": "Implement only T16: ทำ Branch CRUD รูป5รูปและ source-first autofill. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T17",
+      "title": "ทำ Location detail และ governed review",
+      "dependsOn": [
+        "T10",
+        "T12",
+        "T15",
+        "T16"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Demand paths",
+        "Supply intervals",
+        "Strategy snapshots",
+        "Spatial source geometry"
+      ],
+      "outputs": [
+        "Market landscape detail",
+        "Review reason/action workflow",
+        "New correction releases"
+      ],
+      "steps": [
+        "Show relevant market values/tier/brand scope and mapped POIs without invented traffic.",
+        "Popup retains actualsquarebrandgraphic/name and partyshield/swords, StreetView/GoogleAIMode contextual questions.",
+        "Review unknown Demand/geometry/category/license evidence; corrections requireexactsourceIDandcrosswalk.",
+        "Publish accepted correction as newsource release and recompute; donot overwriteoldsource."
+      ],
+      "acceptance": [
+        "No bulkapprove button turning missing data into Yolk.",
+        "Correction can remove an area; nativecounts do not resolve fine residuals."
+      ],
+      "verification": [
+        "Reason/evidence acceptance",
+        "UNKNOWNvsunbranded",
+        "Read-onlysource",
+        "Externalquestion context privacy"
+      ],
+      "codingPrompt": "Implement only T17: ทำ Location detail และ governed review. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T18",
+      "title": "ทำ Feed Outbox Share และ leaderboard",
+      "dependsOn": [
+        "T02",
+        "T13",
+        "T15",
+        "T16",
+        "T17"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Immutable accepted mutation events",
+        "Existing channel integrations"
+      ],
+      "outputs": [
+        "Per-page/entity/global feeds",
+        "Retryable delivery adapters",
+        "Permissioned shares"
+      ],
+      "steps": [
+        "Entity/revision/Event/Outbox commit atomically.",
+        "Recipients must be authorized; email/LINE need configured productionprovidersanduserauthorizeddelivery.",
+        "Dedupe delivery byeventId+recipient+channel; recordretry/deadletter.",
+        "Leaderboard counts real successful sharedactions, excludesmap/drafts/theme/sample/retry."
+      ],
+      "acceptance": [
+        "One action creates oneauditevent, no repeated notification on retry.",
+        "Link permissions checked at everyopen; viewer cannot widen access."
+      ],
+      "verification": [
+        "Outbox failure/retry",
+        "Share expiry/revoke",
+        "Actor/actioncount filters"
+      ],
+      "codingPrompt": "Implement only T18: ทำ Feed Outbox Share และ leaderboard. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T19",
+      "title": "ทำ source refresh และ accepted adoption",
+      "dependsOn": [
+        "T03",
+        "T05",
+        "T11",
+        "T13",
+        "T17",
+        "T18"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Versioned source release",
+        "Coverage/state diff"
+      ],
+      "outputs": [
+        "Refresh pipeline",
+        "Preview/adoption diff",
+        "Reproducible historical runs"
+      ],
+      "steps": [
+        "Stagevalidate newsource/rights/schema/hash.",
+        "Show changedcoverage/metrics/eligibleIDsandsupply intervalsbefore accepted adoption.",
+        "Do not silently reseed edited criteria or defaultbrandprofile."
+      ],
+      "acceptance": [
+        "Old result/assessment remains available.",
+        "Source updates trigger only approvedteam events, not browsing actions."
+      ],
+      "verification": [
+        "Historicalreplay",
+        "ChangedUUIDandcoverage",
+        "Manualpresetpreservation"
+      ],
+      "codingPrompt": "Implement only T19: ทำ source refresh และ accepted adoption. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T20",
+      "title": "P1 เพิ่ม anchors offerings และจุดเช่าจริง",
+      "dependsOn": [
+        "T03",
+        "T15",
+        "T16",
+        "T17"
+      ],
+      "dataPhase": "P1",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Rights-approved hospital/school/other anchor sources",
+        "Fieldsurvey protocols"
+      ],
+      "outputs": [
+        "Verified AnchorPOI and spatial crosswalk",
+        "Offering/hour/occasion evidence",
+        "CandidateSite entity"
+      ],
+      "steps": [
+        "Audit CityMETER sourceavailability before externalacquisition.",
+        "Add actualanchorcoordinates/name/type/period/source/status; validate nearest/access relationships.",
+        "Survey branchformat/products/pricebands/hours and customeroccasionswithpurpose.",
+        "Store candidatelease sites separately fromoperatingbranches; support several sites perarea.",
+        "Test physicalclusters/visits/costs; screen markerbins alone do not qualify strategy4."
+      ],
+      "acceptance": [
+        "Hospitalnearpharmacy/schoolnearstationery remain hypotheses untilrelevantobservations.",
+        "CandidateSite doesnot increaseSupply counts."
+      ],
+      "verification": [
+        "Anchorcrosswalkandrights",
+        "Observedfieldstates",
+        "Cluster-versus-screenbins",
+        "Sitebranchseparation"
+      ],
+      "codingPrompt": "Implement only T20: P1 เพิ่ม anchors offerings และจุดเช่าจริง. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T21",
+      "title": "P2 เพิ่ม routes และ future watchlist",
+      "dependsOn": [
+        "T12",
+        "T15",
+        "T20"
+      ],
+      "dataPhase": "P2",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Directednetwork/version",
+        "Fieldaccess/daypartdata",
+        "Verifiedfutureprojects"
+      ],
+      "outputs": [
+        "Routecaptureresults",
+        "Separatefuturewatchlist"
+      ],
+      "steps": [
+        "Modeldirection/turnrestrictions/access/mode/daypart.",
+        "Countpass/stop/buy separately; validate stoppingfeasibility.",
+        "Trackmilestones/open/occupied dates andholdingcosts/stoppingtriggers.",
+        "Futurewatchlist maycontain noncurrentDemandareas buthasseparatecounts."
+      ],
+      "acceptance": [
+        "Roadrankortrafficdoesnotprovemeasuredstorebuying.",
+        "Futureevidence doesnotpromote currentYolk eligibility."
+      ],
+      "verification": [
+        "Directedreachabilityfixtures",
+        "Roadside/turnbarriers",
+        "Noncurrentfutureentrycount"
+      ],
+      "codingPrompt": "Implement only T21: P2 เพิ่ม routes และ future watchlist. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T22",
+      "title": "P3 เพิ่มข้อมูลผลธุรกิจเพื่อ calibration",
+      "dependsOn": [
+        "T02",
+        "T15",
+        "T17",
+        "T19"
+      ],
+      "dataPhase": "P3",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Privatebrand POS/branchperformance/cost/capacity",
+        "Purposeandpermission-reviewed customerdata"
+      ],
+      "outputs": [
+        "Restricted operational connector",
+        "Holdout outcome models",
+        "Networkdisplacement estimates"
+      ],
+      "steps": [
+        "Minimizepersonaldata; aggregate/spatiallyprotect customerlocationsanddayparts.",
+        "Separatetransferredsales fromnewnetworksales.",
+        "Useholdout/temporaltests andassumptionintervals; versioncalibratedprofile separately.",
+        "Retain humanreview andclearlimits fornonbank financialbehavior."
+      ],
+      "acceptance": [
+        "Noborrowingneed/creditworthiness inferredfrompublicpopulation alone.",
+        "Calibration doesnotclaimbusinesssuccesswithout observedvalidation."
+      ],
+      "verification": [
+        "Connectorpermission/delete",
+        "Holdoutleakage",
+        "Netincrementversuscannibalization"
+      ],
+      "codingPrompt": "Implement only T22: P3 เพิ่มข้อมูลผลธุรกิจเพื่อ calibration. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T23",
+      "title": "ตรวจรับ end-to-end และ production",
+      "dependsOn": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T15",
+        "T16",
+        "T17",
+        "T18",
+        "T19"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Currentcontracts",
+        "RealTH/ENcontent",
+        "Two-tenantsfixtures"
+      ],
+      "outputs": [
+        "CurrentQAreceipt",
+        "Nativevisualevidence",
+        "Remaininggates"
+      ],
+      "steps": [
+        "Runmodel/workflowtests fromcurrentfiles.",
+        "Inspectallnewsections actualrenderedTH/EN at390and1440inlight/dark.",
+        "Exercisecontextswitch/loadsave races,RBAC,transactions,outboxprivateuploads.",
+        "Keep browser/nativeviewport/physicaldevice/backend outcomesseparate.",
+        "Review tooltip cardinality, scope/value labels, quiet POI boundaries, shortlist destination/count, reduced motion and interruption against the interaction extension."
+      ],
+      "acceptance": [
+        "AllrequiredtaskAC passed; unresolvedgates named.",
+        "Noimportedoldreleasepassesclaimedcurrent."
+      ],
+      "verification": [
+        "Suitesinventory+actualresults",
+        "Visualsnapshots",
+        "Security/failureflow tests",
+        "check-map-clarity.cjs",
+        "check-action-guidance.cjs"
+      ],
+      "codingPrompt": "Implement only T23: ตรวจรับ end-to-end และ production. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    },
+    {
+      "id": "T24",
+      "title": "Seal publish และส่ง handoff",
+      "dependsOn": [
+        "T23"
+      ],
+      "dataPhase": "P0",
+      "status": "PLANNED_PRODUCTION",
+      "inputs": [
+        "Approvedoutputscope",
+        "Exactsourcecommit",
+        "CurrentQAandpublicallowlist"
+      ],
+      "outputs": [
+        "Publishedpreview",
+        "SinglefullMD",
+        "Machinecontracts/assets",
+        "VerifiedZIPandattestation"
+      ],
+      "steps": [
+        "Sealonlyexplicitapprovedpaths afterfinalQA.",
+        "Verifyassetreferences/bytes andsourcehashes, pushauthorizedcommit, awaitterminalproviderresult.",
+        "VerifylivecriticalfilesHTTP/MIME/bytes/SHAatpublishedURL.",
+        "Packageexactsource plusseparateexternalpostpublishreceipts/checksum; no secrets/rawpersonaldata."
+      ],
+      "acceptance": [
+        "Releaseclaims pin exactsourceSHA/provider/livebytes.",
+        "ArtifactZIPdownloadhashverified; historicalmanifestsnot overwritten."
+      ],
+      "verification": [
+        "Currentsealer/verifier",
+        "ProviderterminalSHA",
+        "Live-byteverification",
+        "ZIP/APIassetdigest"
+      ],
+      "codingPrompt": "Implement only T24: Seal publish และส่ง handoff. Read the named contracts and existing stack map. Preserve all invariants and source snapshots. Write a pure or bounded module, run the listed acceptance checks, and report changed files, evidence, open gates. Do not implement a dependent task, change thresholds silently, deploy, or claim backend completion without evidence."
+    }
+  ],
+  "acceptance": [
+    "SupplyweightsandstrategiespreserveDemand/Tier/eligibleIDs",
+    "Atmost3choicesperdeclaredpoint, serverandclient",
+    "Savedcriteria/preset/sourceversionsisolatecontext",
+    "Zero/missing/interval/outofscope distinct",
+    "FuturewatchlistnotcurrentYolk",
+    "Nativecountsnotcoordinatecoverage",
+    "Markerbinnotphysicalcluster",
+    "NoPOIedit/sourcecountmutation",
+    "Oneacceptedmutation→oneEvent+Outbox",
+    "No private data in public handoff",
+    "ActualTH/ENnarrowdesktopreview required",
+    "Provider/live-byteproofseparatefromlocalQA",
+    "One scope-owned area tooltip at a time with name, key value and unit",
+    "Branch points keep quiet boundary context without opaque interiors",
+    "Only a successful new target produces actual shortlist count +1",
+    "Reduced motion, interruption and unavailable destination preserve final saved state and readable status"
+  ],
+  "verification": {
+    "currentRelease": {
+      "status": "locally_verified_pending_publication",
+      "sourceQA": "evidence/qa-v1.9.1.json",
+      "automated": "evidence/automated-v1.9.1.json",
+      "nativeBrowser": "evidence/browser-v1.9.1/native-browser-review.json",
+      "providerAndLive": "Separate final source-bound external attestation, pending",
+      "automatedStatus": "PASS",
+      "automatedSuites": 28,
+      "automatedChecks": 497,
+      "nativeStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "nativeChecks": 22,
+      "nativeScope": "Bounded native states, not full accessibility/device/language certification; automated timing/pointer event/failure tests are separate.",
+      "notVerified": [
+        "actual pointer-hover across every boundary (native keyboard focus + automated pointer-event adapters used)",
+        "physical iPhone/Android touch",
+        "130%/200% browserzoom",
+        "OS-reduced-motion setting itself (personal setting native; OS OR behavior automated)",
+        "complete industry/brand/language/theme/device matrix",
+        "actual screen-reader speech",
+        "production backend/RBAC/sharedpersist/outbox/email/LINE",
+        "external tile/StreetView/AIprovider availability"
+      ]
+    },
+    "semanticBaseline": "1.9.0 receipts are retained history only; run retained suites against 1.9.1 bytes.",
+    "newRegressionCommands": [
+      "node scripts/check-map-clarity.cjs",
+      "node scripts/check-action-guidance.cjs"
+    ],
+    "productionBackend": "not_implemented_in_static_preview",
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "newInteractionRegression": {
+      "mapClarity": {
+        "checks": 10,
+        "status": "PASS_VM_DOM_SOURCE",
+        "command": "node scripts/check-map-clarity.cjs"
+      },
+      "actionGuidance": {
+        "checks": 26,
+        "status": "PASS_VM_DOM_TRANSACTION",
+        "command": "node scripts/check-action-guidance.cjs"
+      },
+      "retainedMapHover": {
+        "checks": 14,
+        "status": "PASS_VM_DOM",
+        "command": "node scripts/check-map-hover.cjs"
+      },
+      "scope": "Actual current automated receipt only; native/device/AT checks recorded separately."
+    },
+    "designSystemPackage": {
+      "release": "v0.9.7-owner.1",
+      "version": "0.9.7",
+      "packageVerifierStatus": "PASS_CURRENT_PACKAGE_ONLY",
+      "packageChecks": 9768,
+      "warnings": 65,
+      "receipt": "evidence/lds-package-verification.json",
+      "receiptSha256": "a396dd0d02244cb2b68fd3a0a8b725bafcb6b9fc43d0dddac68a253791e0cb86",
+      "recordedAt": "2026-10-07T12:04:40.528855+00:00",
+      "scope": "Fresh package integrity/parity, signed base/profile, analytical math, theme-invariant scale values and standalone schema checks only. Not full product/device/AT conformance, account activation or team installation."
+    }
+  },
+  "schemas": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+      "Condition": {
+        "type": "object",
+        "required": [
+          "metric",
+          "percentile"
+        ],
+        "properties": {
+          "metric": {
+            "enum": [
+              "population",
+              "population_per_km2",
+              "working_age_15_64",
+              "working_age_15_64_per_km2",
+              "adult_population_20_64",
+              "adult_population_20_64_per_km2",
+              "children_0_14",
+              "population_65_plus",
+              "gfa",
+              "building_count",
+              "gfa_per_km2",
+              "gfa_per_person",
+              "factory_count",
+              "factory_count_per_km2",
+              "factory_workers",
+              "factory_workers_per_km2",
+              "hotel_count",
+              "hotel_rooms",
+              "hotel_rooms_per_km2",
+              "office_count",
+              "office_count_per_km2",
+              "fiscal_total_thb",
+              "fiscal_ex_grants_thb",
+              "fiscal_ex_grants_per_km2",
+              "fiscal_ex_grants_per_person"
+            ]
+          },
+          "op": {
+            "enum": [
+              "gte_percentile"
+            ]
+          },
+          "percentile": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "positive_presence": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TierPath": {
+        "type": "object",
+        "required": [
+          "tier",
+          "all"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "factorId": {
+            "type": "string"
+          },
+          "tier": {
+            "enum": [
+              1,
+              2,
+              3
+            ]
+          },
+          "all": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "$ref": "#/$defs/Condition"
+            }
+          },
+          "label_th": {
+            "type": "string"
+          },
+          "label_en": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DemandFactor": {
+        "type": "object",
+        "required": [
+          "id",
+          "enabled",
+          "tierPaths"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "label": {
+            "type": "object",
+            "required": [
+              "th",
+              "en"
+            ],
+            "properties": {
+              "th": {
+                "type": "string"
+              },
+              "en": {
+                "type": "string"
+              }
+            }
+          },
+          "tierPaths": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/TierPath"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "SelectedStrategies": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "uniqueItems": true,
+        "items": {
+          "enum": [
+            "underserved_market",
+            "segment_gap",
+            "competitive_entry",
+            "cluster_participation",
+            "complementary_location",
+            "route_capture",
+            "network_infill",
+            "future_entry"
+          ]
+        }
+      },
+      "RankingWeights": {
+        "type": "object",
+        "required": [
+          "demand",
+          "ownGap",
+          "competitorGap"
+        ],
+        "properties": {
+          "demand": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "ownGap": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "competitorGap": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalSemanticValidation": [
+      "At most3 enabled Demand factors; each factor uses at most3 distinct metric IDs across all its paths",
+      "Factor IDs unique; condition metric IDs in same AND path unique; no contradictory silent deduping",
+      "Compile enabled factor paths only; path factorId matches owner factor ID",
+      "Positive sum of ranking weights; positive raw extensive denominator; invalid source state not coerced",
+      "Server tenant/context/source/profile/baseRevision/idempotency authorization and validation",
+      "JSON Schema fragments are in schemas.$defs with local #/$defs refs; compile the registry with a $ref to the chosen definition plus semantic validators."
+    ],
+    "compilePolicy": "Compile {$schema, $defs, $ref: #/$defs/<definition>} for the chosen DTO plus the listed semantic validators."
+  }
+}

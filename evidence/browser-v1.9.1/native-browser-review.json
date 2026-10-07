@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.9",
+  "version": "1.9.1",
+  "recordedAt": "2026-10-07T12:01:39.233945+00:00",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "checks": 22,
+  "results": [
+    {
+      "id": "single-tooltip-country",
+      "status": "PASS",
+      "observation": "Rapid keyboard focus across province hit targets leaves exactly one tooltip; VM pointer-event parity is covered separately."
+    },
+    {
+      "id": "single-tooltip-province",
+      "status": "PASS",
+      "observation": "District navigation focus presents one tooltip, naming the clickable parent."
+    },
+    {
+      "id": "poi-scope-value",
+      "status": "PASS",
+      "observation": "Nong Bua Lam Phu tip shows20filtered coordinate records; Na Klang shows3; neither says native branch total."
+    },
+    {
+      "id": "regional-supply-semantics",
+      "status": "PASS",
+      "observation": "EN/Light country tooltip shows0.07322branch records per100,000m², maximum known native district value, explicitly not province total."
+    },
+    {
+      "id": "tooltip-readable-desktop",
+      "status": "PASS",
+      "observation": "Final tooltip has actual280px bounding width; TH/EN name and value rows visible."
+    },
+    {
+      "id": "tooltip-readable-mobile",
+      "status": "PASS",
+      "observation": "Final tooltip actual240px at390pxviewport; no horizontal overflow."
+    },
+    {
+      "id": "accessible-hit-ownership",
+      "status": "PASS",
+      "observation": "Native district selection resolves to one button; decorative analytical paths absent from rolebutton navigation."
+    },
+    {
+      "id": "poi-country-outline",
+      "status": "PASS",
+      "observation": "CountryPOIview has77province white outlines1.2px; no district mesh; hoveryellow2px."
+    },
+    {
+      "id": "poi-province-outline",
+      "status": "PASS",
+      "observation": "Provinceview retains province1.2px/district0.65px and yellowhover; fine mesh absent."
+    },
+    {
+      "id": "poi-district-outline",
+      "status": "PASS",
+      "observation": "Districtview keeps parent1.1px/outerprovince1.2px; fine-area targets transparent/no visible mesh."
+    },
+    {
+      "id": "poi-fine-outline",
+      "status": "PASS",
+      "observation": "Selectedfine0.8pxwhite/fillnone;2pins/groups represent3coordinate records; no opaque fill."
+    },
+    {
+      "id": "shortlist-add",
+      "status": "PASS",
+      "observation": "Native add changes real workspace count0→1 and shows+1 plus flight element."
+    },
+    {
+      "id": "shortlist-remove",
+      "status": "PASS",
+      "observation": "Native remove changes count1→0 and announces removal; reduced version shows−1."
+    },
+    {
+      "id": "linked-feedback",
+      "status": "PASS",
+      "observation": "Visible successgroup includes destinationlink to Shortlist."
+    },
+    {
+      "id": "single-live-announcement",
+      "status": "PASS",
+      "observation": "Exactly one persistent role=status node announces successful save once."
+    },
+    {
+      "id": "shortlist-focus",
+      "status": "PASS",
+      "observation": "Re-render restores focus on originating button, now labelledเล็งไว้แล้ว."
+    },
+    {
+      "id": "camera-retained",
+      "status": "PASS",
+      "observation": "Shortlist add leaves map-pane transform unchanged; current fine breadcrumb retained across Demand/Shortlist routes."
+    },
+    {
+      "id": "personal-reduce-motion",
+      "status": "PASS",
+      "observation": "Nativecheckbox setshtmlreduce=true; successfulmobileactionstillupdatescount/status/delta with0flight elements."
+    },
+    {
+      "id": "thai-dark-desktop",
+      "status": "PASS",
+      "observation": "ActualTH/dark at1440×1000 reviewed; final map/cue screenshots stored."
+    },
+    {
+      "id": "english-light-desktop",
+      "status": "PASS",
+      "observation": "ActualEN/light at1440×1000 reviewed; singletooltip has names/units/context and no pageoverflow."
+    },
+    {
+      "id": "thai-dark-mobile",
+      "status": "PASS",
+      "observation": "ActualTH/dark390×844 reviewed; bottomnavigation shows actualcount1/+1; no pagehorizontaloverflow."
+    },
+    {
+      "id": "console-errors",
+      "status": "PASS",
+      "observation": "Native localbrowsercaptured errorlogs[] after currentcore interactions."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.9.1/desktop-en-light-hover-regions.jpg",
+      "bytes": 229834,
+      "sha256": "7875fa6131331623fd2224b4d13f6536dd5bfa399d287856aceaff97af9b5927"
+    },
+    {
+      "path": "evidence/browser-v1.9.1/desktop-th-dark-shortlist-feedback.jpg",
+      "bytes": 210031,
+      "sha256": "23b069aa33e97083994bc0d8dc5746741a51456689f683ee89eb587b0d73566b"
+    },
+    {
+      "path": "evidence/browser-v1.9.1/desktop-th-dark-supply-country.jpg",
+      "bytes": 234863,
+      "sha256": "c25215a21711a70ae0c2e173871cf52e95be1506278b878b730752216941c2e3"
+    },
+    {
+      "path": "evidence/browser-v1.9.1/desktop-th-dark-supply-fine.jpg",
+      "bytes": 216171,
+      "sha256": "fe89c45971c398acf4a08e5c29d8c67f1932449c90e4afac6cb357388a4a15c9"
+    },
+    {
+      "path": "evidence/browser-v1.9.1/desktop-th-dark-supply-province.jpg",
+      "bytes": 246129,
+      "sha256": "fb3850062915d216d3613657f6fde05642f435e77abb958fb0bba33d5dd7c7ab"
+    },
+    {
+      "path": "evidence/browser-v1.9.1/mobile-th-dark-shortlist.jpg",
+      "bytes": 65043,
+      "sha256": "4873b8e3b9a96f12ace65d40070a9914ff9e83fa4122cff0dc17edf4bac08d75"
+    }
+  ],
+  "testedSource": "Currentlocalcandidatebeforeseal",
+  "browser": "CodexInAppBrowser/nativeDOMkeyboard+locatorcontrols",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "scope": "Bounded native states, not full accessibility/device/language certification; automated timing/pointer event/failure tests are separate.",
+  "notVerified": [
+    "actual pointer-hover across every boundary (native keyboard focus + automated pointer-event adapters used)",
+    "physical iPhone/Android touch",
+    "130%/200% browserzoom",
+    "OS-reduced-motion setting itself (personal setting native; OS OR behavior automated)",
+    "complete industry/brand/language/theme/device matrix",
+    "actual screen-reader speech",
+    "production backend/RBAC/sharedpersist/outbox/email/LINE",
+    "external tile/StreetView/AIprovider availability"
+  ]
+}

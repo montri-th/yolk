@@ -19,10 +19,11 @@ const countScale = readJSON('reference/lds-0.9.7/color-srgb-10.scales.json').sca
 assert.equal(countScale.lut.length,41);
 const sourcePaints = [0,20,40].map((index,i)=>Object.freeze({feature:districts[i],style:Object.freeze({fill:true,fillColor:countScale.lut[index],fillOpacity:1,color:'#FFFFFF',weight:0.45}),nativeClass:index}));
 const map = {layers:new Set(),renderOrder:[...sourcePaints],fitBounds(){throw Error('Hover must not refit the map');},setView(){throw Error('Hover must not alter viewport');},removeLayer(layer){this.layers.delete(layer);this.renderOrder=this.renderOrder.filter(x=>x!==layer);}};
-const shapes = [], tips = [];
+const shapes = [], tips = [], tooltipDOM = new Set();
 const L = {
   geoJSON(feature, options) { const layer = {feature, options, styles:[], addTo(m){m.layers.add(this);if(!m.renderOrder.includes(this))m.renderOrder.push(this);return this;},remove(){map.removeLayer(this);},setStyle(style){this.styles.push(style);},bringToFront(){map.renderOrder=map.renderOrder.filter(x=>x!==this);map.renderOrder.push(this);}}; shapes.push(layer); return layer; },
-  tooltip(options) { const tip = {options, setLatLng(v){this.latlng=v;return this;},setContent(v){this.content=v;return this;},addTo(m){m.layers.add(this);return this;},remove(){map.layers.delete(this);}};tips.push(tip);return tip; }
+  // Match Leaflet's fade-out: closing removes the layer but can leave old DOM briefly.
+  tooltip(options) { const element={remove(){tooltipDOM.delete(this);}}, tip = {options, setLatLng(v){this.latlng=v;return this;},setContent(v){this.content=v;return this;},addTo(m){m.layers.add(this);tooltipDOM.add(element);return this;},getElement(){return element;},remove(){map.layers.delete(this);}};tips.push(tip);return tip; }
 };
 const sandbox = {};
 vm.runInNewContext(fs.readFileSync(path.join(root,'prototype/map-hover.js'),'utf8'),sandbox);
@@ -47,6 +48,11 @@ check('same target mouse movement reuses outline and tooltip rather than re-rend
 });
 check('replacement removes the old outline; stale mouseout cannot erase newer hover',()=>{
   helper.show(b,{lat:13,lng:100});assert.equal(map.layers.size,2);assert(!helper.clear(a));assert.equal(helper.getState().level,'district');assert(helper.clear(b));assert.equal(map.layers.size,0);
+});
+check('rapid scope changes reuse one tooltip and immediate clear removes Leaflet fade-out DOM',()=>{
+  helper.clear();helper.show(a,{lat:13,lng:100});const n=tips.length,tip=tips.at(-1);assert.equal(tooltipDOM.size,1);
+  for(const t of [b,c,a,b]){helper.show(t,{lat:14,lng:101});assert.equal(tips.length,n);assert.equal(tips.at(-1),tip);assert.equal(tooltipDOM.size,1);assert.equal(map.layers.size,2);assert(tip.content.includes(t.label));}
+  assert(!helper.clear(a));assert.equal(tooltipDOM.size,1);assert(helper.clear(b));assert.equal(tooltipDOM.size,0);assert.equal(map.layers.size,0);
 });
 check('outline refreshes the caller hover token without changing source geometry or analytical fill',()=>{
   helper.show(c);const n=shapes.length;color='#FFBC1F';helper.show(c);assert.equal(shapes.length,n);assert.equal(shapes.at(-1).styles.at(-1).color,color);assert.equal(shapes.at(-1).options.style.fill,false);
