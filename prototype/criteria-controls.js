@@ -39,13 +39,15 @@
     return { min: Number(input.min) || 1, max: Number(input.max) || 100, step: 1 };
   }
 
+  const formattedNumber = (value, digits = 20) => new Intl.NumberFormat(document.documentElement.lang === 'en' ? 'en-US' : 'th-TH', {maximumFractionDigits: digits}).format(value);
+
   function display(value, type, input) {
     if (!Number.isFinite(value)) return '—';
-    const number = String(value);
+    const number = formattedNumber(value);
     if (type === 'percentile') return 'P' + number;
     if (type === 'hits') return number + copy(' ข้อ', ' hits');
     if (type === 'supply') return number + copy(' รายการ', ' records');
-    if (type === 'rate') return Number(value.toFixed(4)) + ' ' + (input?.dataset.rateUnit || copy('สาขา / หน่วยตลาด', 'branches / market unit'));
+    if (type === 'rate') return formattedNumber(value, 4) + ' ' + (input?.dataset.rateUnit || copy('สาขา / หน่วยตลาด', 'branches / market unit'));
     return copy('น้ำหนัก ', 'Weight ') + number;
   }
 
@@ -80,8 +82,8 @@
     state.range.setAttribute('aria-invalid', String(!Number.isFinite(value) || value < bounds.min || value > bounds.max));
     if (Number.isFinite(value)) state.range.value = String(Math.max(bounds.min, Math.min(bounds.max, value)));
     state.output.textContent = display(value, type, input);
-    state.start.textContent = type === 'percentile' ? 'P' + bounds.min : String(bounds.min);
-    state.end.textContent = type === 'percentile' ? 'P' + bounds.max : String(bounds.max);
+    state.start.textContent = type === 'percentile' ? 'P' + bounds.min : formattedNumber(bounds.min);
+    state.end.textContent = type === 'percentile' ? 'P' + bounds.max : formattedNumber(bounds.max);
     state.exact.textContent = copy('กรอกค่า', 'Exact value');
     state.direction.hidden = !supplyDirection(input);
     state.directionLeft.textContent = copy('← จุดเทียบต่ำ', '← Lower reference');
@@ -93,7 +95,7 @@
     input.title = copy('กรอกค่าที่ต้องการได้โดยตรง', 'Enter an exact value');
     const outside = Number.isFinite(value) && (value < bounds.min || value > bounds.max);
     state.note.hidden = !outside;
-    state.note.textContent = copy('ค่าที่กรอกอยู่นอกช่วงแถบเลื่อน ', 'Entered value is outside slider range ') + bounds.min + '–' + bounds.max;
+    state.note.textContent = copy('ค่าที่กรอกอยู่นอกช่วงแถบเลื่อน ', 'Entered value is outside slider range ') + formattedNumber(bounds.min) + '–' + formattedNumber(bounds.max);
     state.wrapper.classList.toggle('is-disabled', disabled);
   }
 

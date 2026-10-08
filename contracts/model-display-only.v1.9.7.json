@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "yolk.display_only_source_guard/1.0",
+  "version": "1.9.7",
+  "baselineSourceSha": "bfc36dd561031736953f596dcef53488951b9ab3",
+  "path": "prototype/model.js",
+  "excludedLinePrefixes": [
+    "function formatDisplayNumber(",
+    "function supplyCountText(",
+    "function displayValue(",
+    "// Display formatting only: source values, coordinates and input values remain numeric."
+  ],
+  "normalization": "splitlines; omit only exact named display helper definitions and exact display comment; join with newline plus final newline",
+  "unchangedNormalizedSha256": "2d8e39d312349525b6a2265d6581629653b17644605327a7cd35d2d5c2ccaa14",
+  "baselineModelSha256": "5db827769bf28c964198582f8645525711a2026831e75601df5f9d4462436fe2",
+  "meaning": "Source guard for retained analytical/storage code outside explicitly changed display functions. Named display functions and other UI modules still require fresh regression/native review; this is not current QA."
+}

@@ -87,7 +87,7 @@ async function check(name,fn){try{await fn();checks.push({name,passed:true})}cat
  });
  await check('Collapsed mobile popup permits page scroll chaining while expanded and desktop retain useful bounded internal scrolling',()=>{
   const css=fs.readFileSync(path.join(root,'prototype/workspace-map.css'),'utf8'),poi=fs.readFileSync(path.join(root,'prototype/poi-popup.css'),'utf8'),rule='.workspace-map-panel:not([data-workspace-map-expanded=true]) .leaflet-popup:has(.yolk-poi-popup) .leaflet-popup-content{overscroll-behavior:auto}';
-  assert(css.slice(css.lastIndexOf('@media(max-width:1099px){')).includes(rule));assert(poi.includes('overflow:auto;overscroll-behavior:contain'));assert(!css.includes('.leaflet-popup-content{overscroll-behavior:auto} }'));assert(!css.includes('.leaflet-popup-content{overflow:visible'));
+  assert(css.includes('@media(max-width:1099px){\n .workspace-map-panel:not([data-workspace-map-expanded=true]) #workspace-map{touch-action:pan-y pinch-zoom}\n '+rule));assert(poi.includes('overflow:auto;overscroll-behavior:contain'));assert(!css.includes('.leaflet-popup-content{overscroll-behavior:auto} }'));assert(!css.includes('.leaflet-popup-content{overflow:visible'));
  });
  await check('Personal navigation overlay updates accessible state and Escape restores focus without shared or map mutation',()=>{
   const app=fs.readFileSync(path.join(root,'prototype/app.js'),'utf8'),start=app.indexOf('let sidebarExpanded=false;'),end=app.indexOf('const compactNavLabels=',start);

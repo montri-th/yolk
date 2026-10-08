@@ -1,0 +1,573 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.9",
+  "version": "1.9.7",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "reviewedAt": "2026-10-08T15:29:52.050Z",
+  "scope": "Bounded current review of allfive requested refinements. Actual final runtime screenshots cover TH/EN,light/dark,desktop/narrow; not a complete matrix, physical-device or every-brand/boundary certification. Baseline1.9.6 user-reported tile gap did not reproduce in one expansion; resize reconstruction verified against repeated final Expand/Collapse and host reflow.",
+  "browser": "Native Chrome extension, 1440×900 and390×844 responsive viewport overrides",
+  "checks": 10,
+  "results": [
+    {
+      "id": "fuel-comma-counts",
+      "passed": true,
+      "detail": "Actual country source total5,606, own1,561 and excluded unknown3,130 use commas; percent27.8% retains decimal.",
+      "status": "PASS"
+    },
+    {
+      "id": "grocery-brand-colors-dark",
+      "passed": true,
+      "detail": "Visually reviewed TH dark7-Eleven source chart: logo-related DS red, CJyellow,Lotuscyan,BigCgreen; readable counts/names and swatch symbols/list preserve identity for same hue.",
+      "status": "PASS"
+    },
+    {
+      "id": "nonbank-brand-colors-dark",
+      "passed": true,
+      "detail": "Visually reviewed actual EN dark office-context treemap: Muangthai cyan, Srisawad/AutoXgold, Tidlorred, Saksayamblue; green cell text backed neutrally, long legal Thai names wrapped; 10 rectangles/40 named rows plus More.",
+      "status": "PASS"
+    },
+    {
+      "id": "nonbank-comma-and-pagination",
+      "passed": true,
+      "detail": "Actual Alloffice total23,524, own8,738, grouped1,224 competitors and40/1,233 paging use commas; denominator remains all1233companies.",
+      "status": "PASS"
+    },
+    {
+      "id": "dynamic-map-envelope",
+      "passed": true,
+      "observation": "Final dynamic zoom floor disables zoom-out near Thailand; two native 590px eastward drags return to the same Thailand context. All sampled basemap positions remain covered.",
+      "status": "PASS"
+    },
+    {
+      "id": "final-desktop-expand-recovery",
+      "passed": true,
+      "observation": "Final map expanded 1002→1342px and rapidly collapsed/expanded/collapsed; 160/160 sampled positions covered by loaded tiles, four 44px controls remain in one row.",
+      "status": "PASS"
+    },
+    {
+      "id": "final-brand-treemap-hover",
+      "passed": true,
+      "observation": "Thai light Bangkok map: one Lat Krabang tooltip, source total175 and123 own=70.3%; ≤5 tiles with stable red/cyan/yellow/green DS brand colors plus neutral Other, bounded inside map. Province side panel remains direct4,982/77.4%.",
+      "status": "PASS"
+    },
+    {
+      "id": "final-mobile-map-and-details",
+      "passed": true,
+      "observation": "390×844 Thai dark: four44px buttons stay one row without horizontal overflow; native Expand grows host457.8→560.6px with160/160 covered samples. Collapse then swipe moves map top to−1095px and reveals full details/treemap4,982/77.4%, confirming natural page flow.",
+      "status": "PASS"
+    },
+    {
+      "id": "native-criteria-comma-machine-values",
+      "passed": true,
+      "observation": "390×844 ENlight private count draft: entered12345 displays12,345 records, numeric input remains12345, slider bounds1/100 unchanged and out-of-range note visible; no overlap/horizontal overflow. No team Apply performed.",
+      "status": "PASS"
+    },
+    {
+      "id": "current-native-console",
+      "passed": true,
+      "observation": "No captured browser error entries in this native local session after final reload, resize cycles, brand/theme/language changes, count/share hover and criteria private-draft input/reset.",
+      "status": "PASS"
+    }
+  ],
+  "measurements": {
+    "fuelSummary": "Branches in this area\n\nNationwide\n\nIdentified total\n5,606\nbranches\nOur branch share\n27.8%\nOwn ÷ (own + competitors)\nPTT\n2,418 · 43.1%\nOwn Bangchak\n1,561 · 27.8%\n689\n527\n216\n\nIdentified branch share\n\nOther identified competitors groups 2 brands · individual counts listed below\n\n+\nBangchak\nOur stores\n1,561 branches\n27.8%\n★\nPTT\n2,418 branches\n43.1%\n▲\nShell\n689 branches\n12.3%\n●\nCaltex\n527 branches\n9.4%\n◆\nPT\n216 branches\n3.9%\n●\nSUSCO\n79 branches\n1.4%\n▲\nCOSMO\n42 branches\n0.7%\n○\nWORLD_GAS\n29 branches\n0.5%\n○\nSIAM_GAS\n20 branches\n0.4%\n★\nUNIQUE_GAS\n14 branches\n0.2%\n○\nPURE\n11 branches\n0.2%\n\nUnknown brand 3,130 branches · excluded from denominator\n\nCityMETER branch counts for the selected format; not sales market share.",
+    "nonbankSummary": "Branches in this area\n\nNationwide\n\nIdentified total\n23,524\nbranches\nOur branch share\n37.1%\nOwn ÷ (own + competitors)\nOwn บริษัท เมืองไทย แคปปิตอล จำกัด (มหาชน)\n8,738 · 37.1%\nบริษัท ศรีสวัสดิ์ พาวเวอร์ 2014 จำกัด\n5,657 · 24%\n2,107\n1,993\n1,952\n1,116\n1,001\n\nIdentified branch share\n\nOther identified competitors groups 1,224 brands · individual counts listed below\n\n★\nบริษัท เมืองไทย แคปปิตอล จำกัด (มหาชน)\nOur stores\n8,738 branches\n37.1%\n▲\nบริษัท ศรีสวัสดิ์ พาวเวอร์ 2014 จำกัด\n5,657 branches\n24%\n▲\nบริษัท ออโต้ เอกซ์ จำกัด\n1,993 branches\n8.5%\n●\nบริษัท เงินติดล้อ จำกัด (มหาชน)\n1,952 branches\n8.3%\n○\nบริษัท ศักดิ์สยามลิสซิ่ง จำกัด (มหาชน)\n1,116 branches\n4.7%\n●\nบริษัท เงินเทอร์โบ จำกัด (มหาชน)\n1,001 branches\n4.3%\n+\nบริษัท เฮงลิสซิ่ง แอนด์ แคปปิตอล จำกัด (มหาชน)\n459 branches\n2%\n●\nบริษัท นิ่มลีสซิ่ง จำกัด\n451 branches\n1.9%\n—\nบริษัท อยุธยา แคปปิตอล ออโต้ ลีส จำกัด (มหาชน)\n50 branches\n0.2%\n●\nบริษัท ยูโอบี แคปปิตอล เซอร์วิสเซส จำกัด\n44 branches\n0.2%\n■\nบริษัท เงินตามใจ เชียงใหม่ จำกัด\n35 branches\n0.1%\n⬡\nบริษัท ซีไอเอ็มบี ไทย ออโต้ จำกัด\n26 branches\n0.1%\n■\nบริษัท พรอมิส (ประเทศไทย) จำกัด\n24 branches\n0.1%\n×\nบริษัท บ้านทะเบียนนคร จำกัด\n24 branches\n0.1%\n■\nบริษัท สินธานีเชียงรายพิโก จำกัด\n23 branches\n0.1%\n★\nบริษัท อยุธยา แคปปิตอล เซอร์วิสเซส จำกัด\n19 branches\n0.1%\n—\nบริษัท เอเซียเสริมกิจลีสซิ่ง จำกัด (มหาชน)\n19 branches\n0.1%\n—\nบริษัท สบาย สบาย ลิสซิ่ง พิษณุโลก จำกัด\n18 branches\n0.1%\n×\nบริษัท บัตรกรุงไทย จำกัด (มหาชน)\n17 branches\n0.1%\n+\nบริษัท โตโยต้า ลีสซิ่ง (ประเทศไทย) จำกัด\n15 branches\n0.1%\n◆\nบริษัท สยามคูโบต้า ลีสซิ่ง จำกัด\n15 branches\n0.1%\n○\nบริษัท แสงทะเล สงขลา จำกัด\n15 branches\n0.1%\n■\nบริษัท อีซี่ บาย จำกัด (มหาชน)\n12 branches\n0.1%\n▲\nบริษัท เคเจพลัสมันนี่ จำกัด\n12 branches\n0.1%\n⬡\nห้างหุ้นส่วนจำกัด มิตรศิลป์ ออโต้\n12 branches\n0.1%\n+\nบริษัท รัตนกิจ พิโก พะเยา จำกัด\n12 branches\n0.1%\n×\nบริษัท อรุณ พัทลุง จำกัด\n12 branches\n0.1%\n+\nบริษัท ราชธานี ลิสซิ่ง จำกัด (มหาชน)\n11 branches\n0%\n○\nบริษัท เงินตามใจ ลำพูน จำกัด\n11 branches\n0%\n◆\nบริษัท โลตัสส์ มันนี่ เซอร์วิสเซส จำกัด\n10 branches\n0%\n★\nบริษัท ซิมเปิล แคช(อุดรธานี) จำกัด\n10 branches\n0%\n—\nบริษัท เจเอสมันนี่ นครสวรรค์ พิโกพลัส จำกัด\n10 branches\n0%\n■\nบริษัท ลีสซิ่งไอซีบีซี (ไทย) จำกัด\n9 branches\n0%\n—\nบริษัท ฮอตลิสซิ่ง จำกัด\n9 branches\n0%\n■\nบริษัท ศุภมิตรลิสซิ่ง(พิโก) จำกัด\n9 branches\n0%\n★\nบริษัท เงินตามใจ ลำปาง จำกัด\n9 branches\n0%\n—\nบริษัท เงินตามใจ พะเยา จำกัด\n9 branches\n0%\n⬡\nบริษัท เงินตามใจ เชียงราย จำกัด\n9 branches\n0%\n—\nบริษัท เจเอสมันนี่ พิษณุโลก พิโกพลัส จำกัด\n9 branches\n0%\n⬡\nห้างหุ้นส่วนจำกัด โสธรธุรกิจ\n9 branches\n0%\nShow 40 more brands · 40/1,233\n\nCityMETER branch counts for the selected format; not sales market share.",
+    "desktopFinalCycles": {
+      "controls": [
+        {
+          "h": 44,
+          "name": "Map options",
+          "w": 84.8671875,
+          "x": 650.140625,
+          "y": 83
+        },
+        {
+          "h": 44,
+          "name": "Expand map",
+          "w": 82.4921875,
+          "x": 740.0078125,
+          "y": 83
+        },
+        {
+          "h": 44,
+          "name": "Region colours",
+          "w": 127,
+          "x": 836.5,
+          "y": 83
+        },
+        {
+          "h": 44,
+          "name": "Branch points",
+          "w": 118.5,
+          "x": 968.5,
+          "y": 83
+        },
+        {
+          "h": 0,
+          "name": "Reload the basemap, keeping this view",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "Show nationwide",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "shieldOur stores",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "swordsCompetitors",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "fact_checkTo verify",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "covered": 160,
+      "host": {
+        "h": 621.203125,
+        "w": 1002,
+        "x": 97,
+        "y": 169
+      },
+      "loaded": 12,
+      "overflow": false,
+      "tileSample": [
+        {
+          "h": 304.43701171875,
+          "loaded": true,
+          "src": "https://tile.openstreetmap.org/5/24/14.png",
+          "w": 304.43701171875,
+          "x": 286.59625244140625,
+          "y": 229.37841796875
+        },
+        {
+          "h": 304.43701171875,
+          "loaded": true,
+          "src": "https://tile.openstreetmap.org/5/25/14.png",
+          "w": 304.43701171875,
+          "x": 591.0332641601562,
+          "y": 229.37841796875
+        }
+      ],
+      "tiles": 12,
+      "toolbars": [
+        "<section id=\"workspace-map-panel\" class=\"workspace-map-panel\" aria-label=\"แผนที่พื้นที่ทำงาน · Workspace map\" data-works",
+        "<div class=\"workspace-supply-view\" data-workspace-supply-view=\"\" role=\"group\" aria-label=\"Supply view\"><button type=\"but"
+      ],
+      "totalSamples": 160
+    },
+    "finalBoundedCamera": {
+      "controls": [
+        {
+          "h": 44,
+          "name": "Map options",
+          "w": 84.8671875,
+          "x": 650.140625,
+          "y": 83
+        },
+        {
+          "h": 44,
+          "name": "Expand map",
+          "w": 82.4921875,
+          "x": 740.0078125,
+          "y": 83
+        },
+        {
+          "h": 44,
+          "name": "Region colours",
+          "w": 127,
+          "x": 836.5,
+          "y": 83
+        },
+        {
+          "h": 44,
+          "name": "Branch points",
+          "w": 118.5,
+          "x": 968.5,
+          "y": 83
+        },
+        {
+          "h": 0,
+          "name": "Reload the basemap, keeping this view",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "Show nationwide",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "shieldOur stores",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "swordsCompetitors",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "fact_checkTo verify",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "covered": 160,
+      "host": {
+        "h": 621.203125,
+        "w": 1002,
+        "x": 97,
+        "y": 169
+      },
+      "loaded": 15,
+      "overflow": false,
+      "tileSample": [
+        {
+          "h": 304.43701171875,
+          "loaded": true,
+          "src": "https://tile.openstreetmap.org/5/24/14.png",
+          "w": 304.43701171875,
+          "x": 349.0694580078125,
+          "y": 229.37841796875
+        },
+        {
+          "h": 304.43701171875,
+          "loaded": true,
+          "src": "https://tile.openstreetmap.org/5/25/14.png",
+          "w": 304.43701171875,
+          "x": 653.5064697265625,
+          "y": 229.37841796875
+        }
+      ],
+      "tiles": 15,
+      "toolbars": [
+        "<section id=\"workspace-map-panel\" class=\"workspace-map-panel\" aria-label=\"แผนที่พื้นที่ทำงาน · Workspace map\" data-works",
+        "<div class=\"workspace-supply-view\" data-workspace-supply-view=\"\" role=\"group\" aria-label=\"Supply view\"><button type=\"but"
+      ],
+      "totalSamples": 160
+    },
+    "finalGroceryHover": {
+      "count": 1,
+      "text": "ลาดกระบัง\nส่วนแบ่งสาขาเรา · 70.29 % ของสาขาที่ทราบแบรนด์\nยอดต้นทางตามขอบเขตที่เลือก ไม่บวกจากทำเลย่อย\nรวมสาขา\n175\nสาขาเรา (%)\n70.3%\n123\n17\n13\n12\n10\n●\n7-Eleven เรา\n123 · 70.3%\n⬡\nLotus's\n17 · 9.7%\n▲\nCJ More\n12 · 6.9%\n◆\nBig C\n10 · 5.7%\n—\nคู่แข่งอื่นที่ทราบแบรนด์\n13 · 7.4%\n\nCityMETER · ส่วนแบ่งสาขา ไม่ใช่ยอดขาย"
+    },
+    "mobileFinal": {
+      "controls": [
+        {
+          "h": 44,
+          "name": "ตั้งค่าแผนที่",
+          "w": 87.75,
+          "x": 11,
+          "y": 138.1953125
+        },
+        {
+          "h": 44,
+          "name": "ขยายแผนที่",
+          "w": 87.75,
+          "x": 102.75,
+          "y": 138.1953125
+        },
+        {
+          "h": 44,
+          "name": "สีพื้นที่",
+          "w": 87.75,
+          "x": 200.5,
+          "y": 138.1953125
+        },
+        {
+          "h": 44,
+          "name": "จุดสาขา",
+          "w": 87.75,
+          "x": 292.25,
+          "y": 138.1953125
+        },
+        {
+          "h": 0,
+          "name": "โหลดแผนที่พื้นหลังใหม่ โดยคงจุดที่ดูอยู่",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "กลับระดับก่อนหน้า",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "ดูทั้งประเทศ",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "shieldสาขาเรา",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "swordsคู่แข่ง",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "h": 0,
+          "name": "fact_checkรอตรวจ",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "covered": 160,
+      "host": {
+        "h": 457.796875,
+        "w": 389,
+        "x": 1,
+        "y": 220.1953125
+      },
+      "loaded": 9,
+      "overflow": false,
+      "tileSample": [
+        {
+          "h": 181.01934814453125,
+          "loaded": true,
+          "src": "https://tile.openstreetmap.org/10/798/472.png",
+          "w": 181.01934814453125,
+          "x": 151.61373901367188,
+          "y": 343.23187255859375
+        },
+        {
+          "h": 181.01931762695312,
+          "loaded": true,
+          "src": "https://tile.openstreetmap.org/10/798/471.png",
+          "w": 181.01934814453125,
+          "x": 151.61373901367188,
+          "y": 162.21255493164062
+        }
+      ],
+      "tiles": 9,
+      "toolbars": [
+        "<section id=\"workspace-map-panel\" class=\"workspace-map-panel\" aria-label=\"แผนที่พื้นที่ทำงาน · Workspace map\" data-works",
+        "<div class=\"workspace-supply-view\" data-workspace-supply-view=\"\" role=\"group\" aria-label=\"มุมมอง Supply\"><button type=\"b"
+      ],
+      "totalSamples": 160
+    },
+    "criteriaNumeric": {
+      "display": "12,345 records\nExact value\n1\n100\n← Lower reference\nHigher reference →\nEntered value is outside slider range 1–100",
+      "value": "12345"
+    }
+  },
+  "supplyInventoryReview": {
+    "passed": true,
+    "checkIds": [
+      "fuel-comma-counts",
+      "grocery-brand-colors-dark",
+      "nonbank-brand-colors-dark",
+      "nonbank-comma-and-pagination",
+      "final-brand-treemap-hover"
+    ]
+  },
+  "visualRefinementReview": {
+    "passed": true,
+    "checkIds": [
+      "dynamic-map-envelope",
+      "final-desktop-expand-recovery",
+      "final-brand-treemap-hover",
+      "final-mobile-map-and-details",
+      "native-criteria-comma-machine-values",
+      "current-native-console"
+    ]
+  },
+  "reviewedRegistries": [
+    {
+      "path": "prototype/supply-treemap.js",
+      "bytes": 22806,
+      "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+    }
+  ],
+  "manualGates": [
+    "Physical iPhone/Android touch and Safari",
+    "Complete brand/language/theme/device matrix",
+    "Actual screen-reader speech and all-boundary pointer hover",
+    "OS reduced-motion setting and 130%/200% browser zoom"
+  ],
+  "publication": "not_performed_by_this_receipt",
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.9.7/desktop-en-light-fuel.jpg",
+      "bytes": 131072,
+      "sha256": "4c4a29aff7dd001b97a95add85f2ca9ead2b9c36f9a5c68a4687d603e0d8e589",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "Final runtime EN light Fuel count map, paired four-control row and brand-colored treemap with1,561/2,418."
+    },
+    {
+      "path": "evidence/browser-v1.9.7/desktop-th-dark-grocery.jpg",
+      "bytes": 133295,
+      "sha256": "b3696c94e2f221794d538a4a1c9d13022e40fdcba878eb6fc73e11b214dbb5d1",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "Final runtime TH dark Grocery C_STORE country map,26,337/16,488 and red/yellow/cyan/green DS brand treemap."
+    },
+    {
+      "path": "evidence/browser-v1.9.7/desktop-th-light-grocery-hover.jpg",
+      "bytes": 148265,
+      "sha256": "265b1943ceb8c9e3d3173f6b1cd392875f7d1b3c581dae40e4b24f3acf02d673",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "Final runtime TH light Bangkok share: single LatKrabang175/70.3% tooltip with brand treemap; side direct4,982/77.4%."
+    },
+    {
+      "path": "evidence/browser-v1.9.7/desktop-en-dark-nonbank.jpg",
+      "bytes": 147308,
+      "sha256": "abbe0eda8ceb7ef327b5e6291a5eaeae373743776be864c03e0f9670879c5efa",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "Final runtime EN dark nationwide Non-bank office share,23,524/8,738/37.1%; brand-related DS colors and neutral Other."
+    },
+    {
+      "path": "evidence/browser-v1.9.7/mobile-th-dark-supply.jpg",
+      "bytes": 54827,
+      "sha256": "437b6667eba26055f0d450528a80be5eb3b6699da61c92c576476679473721c0",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "description": "Final runtime TH dark Bangkok branch points: four44px controls one row, grouped count1,208 and original7-Eleven logo."
+    },
+    {
+      "path": "evidence/browser-v1.9.7/mobile-en-light-criteria.jpg",
+      "bytes": 41802,
+      "sha256": "b3e4d5c750ec96d383b329462868128110e6b8b74f0dd6a7df94141f16749583",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "description": "Final runtime EN light private count draft12,345 readout and raw12345 input; range bounds remain1/100, clear out-of-range cue."
+    }
+  ],
+  "reviewedRuntime": [
+    {
+      "path": "prototype/app.js",
+      "bytes": 79122,
+      "sha256": "69d1851f169f5d42f39580d3a6ba47005665d0042f7a3082331aa45b51751222"
+    },
+    {
+      "path": "prototype/criteria-controls.js",
+      "bytes": 8747,
+      "sha256": "2d9168a9ee0c1a0aba051974bd8ae018fff64e7a05c4397377754265a5b63f42"
+    },
+    {
+      "path": "prototype/criteria-map.js",
+      "bytes": 19142,
+      "sha256": "30c38bf0586e8e5f0ae784980813ed102d205387faaa9cf61ffb236816d98e64"
+    },
+    {
+      "path": "prototype/location-map.js",
+      "bytes": 22852,
+      "sha256": "cb6fdf93021fa76c9f1ea47403ae28ea3c723d21876eec88140886bb886f39e8"
+    },
+    {
+      "path": "prototype/location-review.js",
+      "bytes": 15381,
+      "sha256": "f53dea80589afe4ee862fa347decebdc40d402510aab070952bdf415935514d9"
+    },
+    {
+      "path": "prototype/model.js",
+      "bytes": 35276,
+      "sha256": "9c4d4c4e220de261592e529798647a19d4fdae781ed67e70a8a8745c762b7dbe"
+    },
+    {
+      "path": "prototype/supply-treemap.css",
+      "bytes": 8019,
+      "sha256": "098a9af81f52fb1f3888f5d7c0ab66bf3f8bdc6d823a7851e295d8636996726e"
+    },
+    {
+      "path": "prototype/supply-treemap.js",
+      "bytes": 22806,
+      "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+    },
+    {
+      "path": "prototype/supply-ui.js",
+      "bytes": 20423,
+      "sha256": "58f0fcee96fb9f7c1f76d990f6e38d88a16889e96e007a6dffaae14ff14ddc7e"
+    },
+    {
+      "path": "prototype/workspace-map.css",
+      "bytes": 25809,
+      "sha256": "396e53544c32353237e9363634f14a7349793f9c59749b7177f49d2616ef05c5"
+    },
+    {
+      "path": "prototype/workspace-map.js",
+      "bytes": 113529,
+      "sha256": "e6d5c873358934f045679312b2b5377cb05716c404c701e3985176e1d9fca69d"
+    }
+  ],
+  "sourceObservation": {
+    "sha256": "3b4ef12fc5feef3f4a68f2e829f903a25a827b623e3fe0203877756f4aaf023f",
+    "capturedAt": "2026-10-08T15:29:52.050Z",
+    "meaning": "Lossless projection of release owner’s actual frozen current native checks/measurements; not another native execution."
+  }
+}

@@ -197,3 +197,33 @@ html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .lea
 
 /* Boundary-only support. These pointer-inert paths never contain analytical fill. */
 .workspace-map-panel .workspace-boundary-keyline,.workspace-map-panel .workspace-boundary-white{pointer-events:none;filter:none}
+
+/* Keep all four labelled controls on one line, with spacing between the two pairs. */
+.workspace-map-toolbar{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title tools";gap:6px 12px;min-height:60px;padding:6px 12px 2px}
+.workspace-map-tools{grid-area:tools;display:flex;align-items:center;gap:14px;min-width:0;max-width:100%}
+.workspace-map-display-tools,.workspace-map-tools .workspace-supply-view{display:flex;align-items:center;gap:5px;min-width:0;padding:0;flex:0 0 auto}
+.workspace-map-tools .workspace-supply-view[hidden]{display:none}
+.workspace-map-tools button{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:44px;padding:5px 8px;white-space:nowrap;font-size:12px;line-height:1.4}
+.workspace-map-tools .yl-icon{font-size:19px;margin:0;flex-shrink:0}
+.workspace-map-tools [data-workspace-map-expand-icon]{display:inline-flex;align-items:center}
+.workspace-map-context-row{padding-bottom:2px}
+.workspace-map-context-row .workspace-map-breadcrumbs{min-height:34px}
+.workspace-map-context-row .workspace-map-breadcrumbs button{min-height:34px}
+@media(min-width:1100px) and (max-width:1350px){
+ .workspace-map-toolbar{grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "tools"}
+ .workspace-map-tools{justify-self:end}
+}
+@media(max-width:1099px){
+ .workspace-map-toolbar{grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "tools";padding:5px 10px 2px;min-height:0;gap:3px}
+ .workspace-map-tools{justify-self:end;gap:10px}
+ .workspace-map-tools button{font-size:12px;padding:5px 7px}
+ .workspace-map-context-row{padding-bottom:2px}
+}
+@media(max-width:479px){
+ .workspace-map-tools{width:100%;justify-content:flex-end;gap:10px}
+ .workspace-map-tools:has(.workspace-supply-view:not([hidden])){justify-content:space-between}
+ .workspace-map-tools:has(.workspace-supply-view:not([hidden])) .workspace-map-display-tools,.workspace-map-tools .workspace-supply-view:not([hidden]){flex:1 1 0;gap:4px}
+ .workspace-map-tools:has(.workspace-supply-view:not([hidden])) button{flex:1 1 0;min-width:0;flex-direction:column;gap:1px;padding:3px 1px;font-size:11px;white-space:normal;text-align:center}
+ .workspace-map-tools:has(.workspace-supply-view:not([hidden])) .yl-icon{font-size:18px}
+ .workspace-map-tools [data-workspace-supply-view-caption]{overflow-wrap:anywhere}
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "yolk.package_verification_projection/1.0",
+  "version": "1.9.7",
+  "recordedAt": "2026-10-08T14:42:52.275829+00:00",
+  "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+  "dsVersion": "0.9.7",
+  "releaseRef": "v0.9.7-owner.1",
+  "checks": 9768,
+  "passed": 9768,
+  "failed": 0,
+  "warnings": 65,
+  "sourceReceiptSha256": "a396dd0d02244cb2b68fd3a0a8b725bafcb6b9fc43d0dddac68a253791e0cb86",
+  "signatureStatus": "unsigned-owner-approved",
+  "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+  "artifactAndAccountTeamCertification": false,
+  "warningMeaning": "Advisory package color-window warnings retained; no rendered artifact/accessibility/account/team certificate."
+}

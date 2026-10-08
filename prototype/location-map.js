@@ -20,6 +20,7 @@
   const txt=(lang,th,en)=>lang==='en'?en:th;
   const uiIcon=name=>global.YolkIcons?.icon(name)||'';
   const categoryCue=key=>categories[key]?.glyph?uiIcon(categories[key].glyph):esc(categories[key]?.symbol||'•');
+  const number=v=>new Intl.NumberFormat(instance?.lang==='en'?'en-US':'th-TH').format(v);
   const numeric=v=>typeof v==='number'&&Number.isFinite(v);
   const safePoint=p=>numeric(p?.lat)&&numeric(p?.lng)&&Math.abs(p.lat)<=85&&Math.abs(p.lng)<=180;
   const label=(key,lang)=>categories[key]?.[lang==='en'?'en':'th']||categories.other[lang==='en'?'en':'th'];
@@ -61,13 +62,13 @@
       </div><button type="button" class="yl-map-fit" data-map-fit>${uiIcon('location_on')}${txt(lang,'ดูทั้งทำเล','Fit location')}</button></div>
       <div class="yl-map-surface" data-basemap="simplified"><div class="yl-map-canvas" id="yl-location-map" role="region" aria-label="${txt(lang,'แผนที่โต้ตอบ เลื่อนและซูมได้','Interactive map: pan and zoom')}"></div><div class="yl-map-loading" data-map-loading>${txt(lang,'กำลังเตรียมแผนที่…','Preparing map…')}</div></div>
       <div class="yl-map-network" role="status" aria-live="polite" data-map-network hidden><span></span><button type="button" data-map-retry>${txt(lang,'ลองอีกครั้ง','Retry')}</button></div>
-      <div class="yl-map-underlay"><div class="yl-map-layers" role="group" aria-label="${txt(lang,'ชั้นข้อมูล','Map layers')}">${c.boundary?`<label><input type="checkbox" data-map-layer="boundary" checked><span class="yl-boundary-key" aria-hidden="true"></span>${txt(lang,'ขอบเขต','Boundary')}</label>`:''}${available.map(k=>`<label><input type="checkbox" data-map-layer="${k}" checked><span class="yl-map-key yl-key-${k}" aria-hidden="true">${categoryCue(k)}</span>${esc(label(k,lang))} <b>${c.pois.filter(p=>p.category===k).length}</b></label>`).join('')}</div>
+      <div class="yl-map-underlay"><div class="yl-map-layers" role="group" aria-label="${txt(lang,'ชั้นข้อมูล','Map layers')}">${c.boundary?`<label><input type="checkbox" data-map-layer="boundary" checked><span class="yl-boundary-key" aria-hidden="true"></span>${txt(lang,'ขอบเขต','Boundary')}</label>`:''}${available.map(k=>`<label><input type="checkbox" data-map-layer="${k}" checked><span class="yl-map-key yl-key-${k}" aria-hidden="true">${categoryCue(k)}</span>${esc(label(k,lang))} <b>${number(c.pois.filter(p=>p.category===k).length)}</b></label>`).join('')}</div>
       <p class="yl-map-basemap-note" data-map-basemap-note>${txt(lang,'เรียบง่าย: ลดสีแผนที่ถนน เพื่อให้เห็นจุดและขอบเขตชัด','Simplified: subdued street-map colours keep pins and boundaries clear.')}</p>
       <p class="yl-map-disclosure">${esc(note)}</p>
       ${synthetic?`<p class="yl-map-secondary-note">${txt(lang,'จุดบนแผนที่ใช้สาธิตการใช้งาน ไม่ได้นำไปคำนวณ Supply','Map pins demonstrate the interface and are excluded from Supply calculations.')}</p>`:`<p class="yl-map-secondary-note">${txt(lang,'แสดงเฉพาะรายการที่มีพิกัดในชุดข้อมูลนี้ ยังไม่ใช่รายการครบทุกสาขาหรือทุกกิจกรรม','Only available coordinate records are shown. This is not a complete inventory of branches or activities.')}</p>`}
       ${c.sourceLabel?`<p class="yl-map-secondary-note">${txt(lang,'แหล่งขอบเขตและจุด: ','Boundary & pin source: ')}${esc(c.sourceLabel)}${c.observedAt?' · '+esc(c.observedAt):''}</p>`:''}
       ${c.missingCoordinateCount?`<p class="yl-map-secondary-note">${c.missingCoordinateCount} ${txt(lang,'รายการยังไม่มีพิกัด จึงไม่แสดงบนแผนที่','records have no coordinates and are not mapped.')}</p>`:''}
-      <details class="yl-map-poi-details"><summary>${txt(lang,'จุดที่แสดงบนแผนที่','Places on this map')} <span data-map-visible-count>${c.pois.length}</span></summary><ul class="yl-map-poi-list">${c.pois.map((p,i)=>`<li data-map-list-item="${esc(p.category)}"><button type="button" data-map-poi="${i}"><span class="yl-map-key yl-key-${esc(p.category)}" aria-hidden="true">${categoryCue(p.category)}</span><span><strong>${esc(p.name||p.name_th||p.name_en||label(p.category,lang))}</strong><small>${esc(label(p.category,lang))}${p.brand?' · '+esc(p.brand):''}</small></span><span class="yl-map-list-arrow" aria-hidden="true">↗</span></button></li>`).join('')}</ul>${!c.pois.length?`<p>${txt(lang,'ยังไม่มีรายการที่มีพิกัดในทำเลนี้','No coordinate records for this location yet.')}</p>`:''}</details>
+      <details class="yl-map-poi-details"><summary>${txt(lang,'จุดที่แสดงบนแผนที่','Places on this map')} <span data-map-visible-count>${number(c.pois.length)}</span></summary><ul class="yl-map-poi-list">${c.pois.map((p,i)=>`<li data-map-list-item="${esc(p.category)}"><button type="button" data-map-poi="${i}"><span class="yl-map-key yl-key-${esc(p.category)}" aria-hidden="true">${categoryCue(p.category)}</span><span><strong>${esc(p.name||p.name_th||p.name_en||label(p.category,lang))}</strong><small>${esc(label(p.category,lang))}${p.brand?' · '+esc(p.brand):''}</small></span><span class="yl-map-list-arrow" aria-hidden="true">↗</span></button></li>`).join('')}</ul>${!c.pois.length?`<p>${txt(lang,'ยังไม่มีรายการที่มีพิกัดในทำเลนี้','No coordinate records for this location yet.')}</p>`:''}</details>
       </div></section>`;
   }
   function destroy(){
@@ -163,7 +164,7 @@
       if(k!=='boundary'){
         if(input.checked)selected.add(k);else selected.delete(k);
         root.querySelectorAll('[data-map-list-item]').forEach(row=>row.hidden=!selected.has(row.dataset.mapListItem));
-        root.querySelector('[data-map-visible-count]').textContent=c.pois.filter(p=>selected.has(p.category)).length;
+        root.querySelector('[data-map-visible-count]').textContent=number(c.pois.filter(p=>selected.has(p.category)).length);
       }
     };
     root.addEventListener('click',onClick);root.addEventListener('change',onChange);

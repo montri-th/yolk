@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "yolk.integrated_qa/1.9",
+  "version": "1.9.7",
+  "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "reviewedAt": "2026-10-08T15:30:18.664500+00:00",
+  "automated": {
+    "status": "PASS",
+    "suites": 34,
+    "reportedPassedCases": 600,
+    "receipt": "evidence/automated-v1.9.7.json",
+    "receiptSha256": "aeb26e0e2fdf1d5675e68fdd4d13f6dd9f1d1386bf2ba1cabfe23f997cf32e20",
+    "meaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.7; no imported prior results."
+  },
+  "nativeBrowser": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "checks": 10,
+    "receipt": "evidence/browser-v1.9.7/native-browser-review.json",
+    "receiptSha256": "eefbf8dd6c35e9ff3a5f0cdf58f6d425bb878a0b327fbb184dfe24d567029636",
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.7/desktop-en-light-fuel.jpg",
+        "bytes": 131072,
+        "sha256": "4c4a29aff7dd001b97a95add85f2ca9ead2b9c36f9a5c68a4687d603e0d8e589",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime EN light Fuel count map, paired four-control row and brand-colored treemap with1,561/2,418."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/desktop-th-dark-grocery.jpg",
+        "bytes": 133295,
+        "sha256": "b3696c94e2f221794d538a4a1c9d13022e40fdcba878eb6fc73e11b214dbb5d1",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime TH dark Grocery C_STORE country map,26,337/16,488 and red/yellow/cyan/green DS brand treemap."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/desktop-th-light-grocery-hover.jpg",
+        "bytes": 148265,
+        "sha256": "265b1943ceb8c9e3d3173f6b1cd392875f7d1b3c581dae40e4b24f3acf02d673",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime TH light Bangkok share: single LatKrabang175/70.3% tooltip with brand treemap; side direct4,982/77.4%."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/desktop-en-dark-nonbank.jpg",
+        "bytes": 147308,
+        "sha256": "abbe0eda8ceb7ef327b5e6291a5eaeae373743776be864c03e0f9670879c5efa",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime EN dark nationwide Non-bank office share,23,524/8,738/37.1%; brand-related DS colors and neutral Other."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/mobile-th-dark-supply.jpg",
+        "bytes": 54827,
+        "sha256": "437b6667eba26055f0d450528a80be5eb3b6699da61c92c576476679473721c0",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Final runtime TH dark Bangkok branch points: four44px controls one row, grouped count1,208 and original7-Eleven logo."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/mobile-en-light-criteria.jpg",
+        "bytes": 41802,
+        "sha256": "b3e4d5c750ec96d383b329462868128110e6b8b74f0dd6a7df94141f16749583",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Final runtime EN light private count draft12,345 readout and raw12345 input; range bounds remain1/100, clear out-of-range cue."
+      }
+    ],
+    "fullLanguageThemeDeviceMatrix": false,
+    "physicalDevices": "unverified"
+  },
+  "designSystemPackage": {
+    "version": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "checks": 9768,
+    "warnings": 65,
+    "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+    "receipt": "evidence/lds-package-verification.v1.9.7.json",
+    "receiptSha256": "1af018c334f65030ad97ec7b99a88464b5866a092320c85c8bd39629cf4234be",
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+    "artifactAndAccountTeamCertification": false
+  },
+  "semanticBoundary": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0",
+    "analyticalPaint": "Existing analytical colors/opacity/Tiers retained; retained identified own branch-share display uses exact LDS li.market_share41 with fixed0..100 domain. Count maps keep original national quantiles. Contrast is stroke-only underlay; Demand/Opportunity icons are mnemonics. Source counts, screening and ranking are unchanged.",
+    "supplyInventoryReview": {
+      "passed": true,
+      "checkIds": [
+        "fuel-comma-counts",
+        "grocery-brand-colors-dark",
+        "nonbank-brand-colors-dark",
+        "nonbank-comma-and-pagination",
+        "final-brand-treemap-hover"
+      ]
+    },
+    "visualRefinementReview": {
+      "passed": true,
+      "checkIds": [
+        "dynamic-map-envelope",
+        "final-desktop-expand-recovery",
+        "final-brand-treemap-hover",
+        "final-mobile-map-and-details",
+        "native-criteria-comma-machine-values",
+        "current-native-console"
+      ]
+    }
+  },
+  "publication": "not_performed_by_this_local_QA_receipt",
+  "limits": [
+    "Physical iPhone/Android touch and Safari unverified",
+    "Complete brand/language/theme/device matrix unverified",
+    "Actual screen-reader speech, zoom and all-boundary hover coverage unverified",
+    "Provider/tile/StreetView/Google AI availability requires separate current evidence",
+    "Shared backend/auth/RBAC/outbox/private media not implemented in static preview"
+  ],
+  "scope": "Fresh complete current workflow suites and lossless root-owned current boundary/icon plus Supply count/share/treemap observations and their exact actual JPEG list. One tested boundary hover does not prove all-boundary coverage. Package parity remains separate from rendered artifact/account/team certification."
+}

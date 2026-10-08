@@ -1,4 +1,4 @@
-/* Exact LDS series-10-v8 soft categorical fills; identity is also named and shaped. */
+/* Exact LDS series-10-v8 soft fills, assigned by reviewed logo hue and stable brand ID. */
 .supply-treemap-section{display:grid;gap:12px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);min-width:0;margin-block:16px;font-family:'Bai Jamjuree',sans-serif}
 .supply-treemap-header h3{font-size:19px;line-height:1.45;margin:0}.supply-treemap-header p{font-size:14px;line-height:1.5;color:var(--muted);margin:4px 0 0;overflow-wrap:anywhere}
 .supply-treemap-totals{display:grid;grid-template-columns:1fr 1fr;gap:12px}.supply-treemap-totals>div{display:grid;gap:3px;min-width:0}.supply-treemap-totals span{font-size:14px}.supply-treemap-totals strong{font:600 27px/1.3 'JetBrains Mono',monospace}.supply-treemap-totals small{font-size:12px;color:var(--muted);line-height:1.5}
@@ -16,4 +16,8 @@
 
 /* Compact boundary hover owns its outer title; keep inventory summary within the map. */
 .supply-treemap-cell.is-narrow{padding:4px}.supply-treemap-cell.is-narrow .supply-treemap-cell-name,.supply-treemap-cell.is-narrow .supply-treemap-logo{display:none}.supply-treemap-cell.is-narrow .supply-treemap-cell-count{font-size:11px;white-space:nowrap}
+.supply-treemap-cell-name,.supply-treemap-cell-count{background:var(--treemap-label-bg,transparent)}.supply-treemap-cue{display:inline-grid;place-items:center;width:12px;height:12px;background:var(--treemap-label-bg,transparent)}
+/* Dark category 10 retains its exact fill. Its small text/cue needs a neutral ink surface. */
+:root[data-theme="dark"] .supply-treemap-section [data-series="10"]{--treemap-label-bg:var(--ldm-foundation-surface-canvas-light)}
+:root[data-theme="dark"] .supply-treemap-cell[data-series="10"] .supply-treemap-cell-name,:root[data-theme="dark"] .supply-treemap-cell[data-series="10"] .supply-treemap-cell-count{padding-inline:2px}
 .supply-treemap-section.is-compact{gap:6px;padding:8px}.is-compact .supply-treemap-chart{height:135px}.is-compact .supply-treemap-totals{gap:8px}.is-compact .supply-treemap-totals>div{gap:1px}.is-compact .supply-treemap-totals strong{font-size:20px;line-height:1.2}.is-compact .supply-treemap-totals span{font-size:11px;line-height:1.3}.is-compact .supply-treemap-list{max-height:none;overflow:visible}.is-compact .supply-treemap-row{grid-template-columns:16px minmax(0,1fr) auto;gap:6px;padding-block:3px;font-size:11px;line-height:1.3;min-height:22px;box-sizing:border-box}.is-compact .supply-treemap-brand{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.is-compact .supply-treemap-own-caption{display:inline;font-size:10px;line-height:1.3}.is-compact .supply-treemap-row-count{font-size:11px;line-height:1.3}.is-compact .supply-treemap-basis,.is-compact .supply-treemap-coverage,.is-compact .supply-treemap-foot{font-size:10px;line-height:1.4}

@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "yolk.public_release/1.9",
+  "version": "1.9.7",
+  "approvedSourcePreview": "1.9.7-visual-refinement",
+  "date": "2026-10-08",
+  "status": "locally_verified_pending_publication",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "productAuthority": "contracts/product.v1.7.json",
+  "featureExtension": "contracts/visual-refinement.v1.9.7.json",
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "nationalDemandCutoffsUnchanged": true,
+  "fineModelSemanticsUnchanged": true,
+  "modelChange": "Display/navigation refinement only: exact brand-related categorical DS treemap colors, near-Thailand camera envelope, settled-host basemap resizing, one-row paired controls and comma-grouped quantities. Retain arithmetic, source and production blueprint semantics.",
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "publicationDelta": [
+    "Each verified brand has a stable exact approved DS categorical swatch chosen near its original artwork primary color; names/counts remain readable in both themes; no artwork mutation.",
+    "Near-Thailand envelope blocks unrelated distant panning/zooming without changing administrative scope or Demand membership.",
+    "Expand/Compact settles the existing host and refreshes visible tiles while preserving map instance, permitted camera and unsaved work; clamp only out-of-envelope zoom/center; sampled native tiles visibly load after repeated cycles.",
+    "Options/Expand and areas/points remain four usable, labeled, meaningful-icon buttons in one compact row at recorded narrow and desktop widths.",
+    "All visible numerical quantities consistently use comma grouping and preserve precision/units/no-data/bounds, while calculation/storage/input values stay numerical."
+  ],
+  "shareImage": {
+    "asset": "prototype/assets/identity/yolk-share-v1.7.png",
+    "family": "1.7",
+    "changedInThisRelease": false,
+    "meaning": "Retained approved1.7family asset; no new1.9render claimed."
+  },
+  "sourceEvidenceBoundary": "Compact public adapters and provenance only; private source acquisition/customer data excluded.",
+  "localVerification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "receipt": "evidence/qa-v1.9.7.json",
+    "automatedReceipt": "evidence/automated-v1.9.7.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.7.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.7/native-browser-review.json",
+    "receiptSha256": "cb94463ff088627cb25054a6656d1c5809d4bc1d44d79c0d7cef044406e8b3cd",
+    "automatedReceiptSha256": "aeb26e0e2fdf1d5675e68fdd4d13f6dd9f1d1386bf2ba1cabfe23f997cf32e20",
+    "releaseChecksReceiptSha256": "763351024632603b7a70625a9f6b0fd6b52004adecb72f5f93fb5c4644f68e2a",
+    "nativeBrowserReceiptSha256": "eefbf8dd6c35e9ff3a5f0cdf58f6d425bb878a0b327fbb184dfe24d567029636",
+    "automatedSuites": 34,
+    "automatedChecks": 600,
+    "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.7; no imported prior results.",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 10,
+    "snapshots": [
+      "evidence/browser-v1.9.7/desktop-en-light-fuel.jpg",
+      "evidence/browser-v1.9.7/desktop-th-dark-grocery.jpg",
+      "evidence/browser-v1.9.7/desktop-th-light-grocery-hover.jpg",
+      "evidence/browser-v1.9.7/desktop-en-dark-nonbank.jpg",
+      "evidence/browser-v1.9.7/mobile-th-dark-supply.jpg",
+      "evidence/browser-v1.9.7/mobile-en-light-criteria.jpg"
+    ],
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.7/desktop-en-light-fuel.jpg",
+        "bytes": 131072,
+        "sha256": "4c4a29aff7dd001b97a95add85f2ca9ead2b9c36f9a5c68a4687d603e0d8e589",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime EN light Fuel count map, paired four-control row and brand-colored treemap with1,561/2,418."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/desktop-th-dark-grocery.jpg",
+        "bytes": 133295,
+        "sha256": "b3696c94e2f221794d538a4a1c9d13022e40fdcba878eb6fc73e11b214dbb5d1",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime TH dark Grocery C_STORE country map,26,337/16,488 and red/yellow/cyan/green DS brand treemap."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/desktop-th-light-grocery-hover.jpg",
+        "bytes": 148265,
+        "sha256": "265b1943ceb8c9e3d3173f6b1cd392875f7d1b3c581dae40e4b24f3acf02d673",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime TH light Bangkok share: single LatKrabang175/70.3% tooltip with brand treemap; side direct4,982/77.4%."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/desktop-en-dark-nonbank.jpg",
+        "bytes": 147308,
+        "sha256": "abbe0eda8ceb7ef327b5e6291a5eaeae373743776be864c03e0f9670879c5efa",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime EN dark nationwide Non-bank office share,23,524/8,738/37.1%; brand-related DS colors and neutral Other."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/mobile-th-dark-supply.jpg",
+        "bytes": 54827,
+        "sha256": "437b6667eba26055f0d450528a80be5eb3b6699da61c92c576476679473721c0",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Final runtime TH dark Bangkok branch points: four44px controls one row, grouped count1,208 and original7-Eleven logo."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/mobile-en-light-criteria.jpg",
+        "bytes": 41802,
+        "sha256": "b3e4d5c750ec96d383b329462868128110e6b8b74f0dd6a7df94141f16749583",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Final runtime EN light private count draft12,345 readout and raw12345 input; range bounds remain1/100, clear out-of-range cue."
+      }
+    ],
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "scope": "Bounded current review of allfive requested refinements. Actual final runtime screenshots cover TH/EN,light/dark,desktop/narrow; not a complete matrix, physical-device or every-brand/boundary certification. Baseline1.9.6 user-reported tile gap did not reproduce in one expansion; resize reconstruction verified against repeated final Expand/Collapse and host reflow.",
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "providerEvidence": "Pending terminal deployment success bound to final source SHA; external attestation separate from local QA.",
+  "liveByteEvidence": "Pending current public emitted-URL/hash/MIME checks in external attestation; not inferred from local QA.",
+  "limits": [
+    "Demand proxy is not observed traffic/purchases/borrowing or a revenueforecast",
+    "Static preview does not implement sharedbackend/serverRBAC/email/LINE/privateproductionmedia",
+    "Native viewport review is not physicaldevice certification",
+    "External provider availability/results need separate verification",
+    "Operator-stated positioning is not measured consumer perception or branch-level offering certification",
+    "Strategy candidates are survey cues, not measured unmet demand, market share, sales or winning probability",
+    "POI coordinate inventories and native choropleth counts have different coverage; screen groups are not a customer-attraction model"
+  ],
+  "retainedContracts": [
+    "contracts/workspace-map.v1.7.json",
+    "contracts/map-analysis.v1.7.2.json",
+    "contracts/location-review.v1.7.3.json",
+    "contracts/map-boundary-appearance.v1.7.4.json",
+    "contracts/branch-context.v1.7.5.json",
+    "contracts/opportunity-strategies.v1.9.0.json",
+    "contracts/full-product.v1.9.0.json",
+    "contracts/interaction-guidance.v1.9.1.json",
+    "contracts/full-product.v1.9.1.json",
+    "contracts/brand-identity-ui.v1.9.2.json",
+    "contracts/full-product.v1.9.2.json",
+    "contracts/full-product.v1.9.3.json",
+    "contracts/expansion-experience.v1.9.3.json",
+    "contracts/full-product.v1.9.4.json",
+    "contracts/map-space.v1.9.4.json",
+    "contracts/full-product.v1.9.5.json",
+    "contracts/mobile-flow.v1.9.5.json",
+    "contracts/full-product.v1.9.6.json",
+    "contracts/map-readability.v1.9.6.json",
+    "contracts/supply-inventory.v1.9.6.json"
+  ],
+  "currentQAOnly": true,
+  "designSystemPackageVerification": {
+    "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+    "version": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "receipt": "evidence/lds-package-verification.v1.9.7.json",
+    "receiptSha256": "1af018c334f65030ad97ec7b99a88464b5866a092320c85c8bd39629cf4234be",
+    "checks": 9768,
+    "warnings": 65,
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+    "artifactAndAccountTeamCertification": false
+  },
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "fullProduct": "contracts/full-product.v1.9.7.json",
+  "responsiveCameraRule": "Explicit Expand/Compact preserves the same map/navigation/context and camera within current geographic zoom/center envelope. Clamp only out-of-envelope camera after host-size changes; ordinary scope-fit and popup safeguards remain.",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  },
+  "tileRecoveryStatus": "current1_9_7_settled_host_resize_fresh_native_evidence_required",
+  "strategyGuide": "prototype/data/strategy-guide.v1.9.3.json",
+  "previousPublishedSource": {
+    "version": "1.9.6",
+    "sourceSha": "bfc36dd561031736953f596dcef53488951b9ab3",
+    "meaning": "Current clean published 1.9.6 historical baseline; not 1.9.7 publication proof."
+  },
+  "supplyInventoryExtension": "contracts/supply-inventory.v1.9.7.json",
+  "visualRefinementExtension": "contracts/visual-refinement.v1.9.7.json"
+}

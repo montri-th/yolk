@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "yolk.developer_handoff/1.9",
+  "version": "1.9.7",
+  "date": "2026-10-08",
+  "status": "locally_verified_pending_publication",
+  "startHere": "START_HERE.md",
+  "fullDocument": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.7.md",
+  "quickPlan": "IMPLEMENTATION_PLAN_v1.9.7.md",
+  "humanHandoff": "HANDOFF_v1.9.7.md",
+  "assetIndex": "ASSET_INDEX_v1.9.7.md",
+  "machineBlueprint": "contracts/full-product.v1.9.7.json",
+  "activeCriteria": "contracts/full-product.v1.9.7.json",
+  "releaseAuthority": "contracts/release.v1.9.7.json",
+  "runtimeRoot": "prototype/",
+  "normativeRoot": "reference/lds-0.9.7/",
+  "brandGraphics": "prototype/data/brand-logos.v1.7.json",
+  "icons": "contracts/icons.v1.8.0.json",
+  "requiredExternalServices": {
+    "production": "CityMETER stack mapping/auth/datastore/server RBAC/private media/outbox/email/LINE remain tasks",
+    "mapTiles": "Provider URLs and attribution are required; no tile cache is packaged"
+  },
+  "assetPolicy": "Use supplied original assets and current sealed hashes. DS base/profile/icons are pinned; no logo frames or motifs.",
+  "sourcePolicy": "Public compact adapters/provenance only; sources and private acquisition archives remain immutable/excluded.",
+  "experienceInvariants": [
+    "Demand/Tier alone determine active membership",
+    "Supply and weights can reorder, never add or remove confirmed Demand IDs",
+    "legacy patterns/demandMode remain inactive history",
+    "shield identifies own network; swords identifies comparator network",
+    "local paired-bar scale within a location does not compare length across locations",
+    "actual POI keeps source artwork contained in a compact square slot or explicit named theme fallback + name + role badge",
+    "Explicit map expansion/collapse preserves camera within the current geographic zoom/center envelope, including desktop host width; only an out-of-envelope camera may be clamped; ordinary responsive width/breakpoint fitting retains scope and popup anchors.",
+    "source-first form hints preserve manual choices and do not allocate aggregates",
+    "Strategies are a post-Demand projection with distinct candidate, incomplete and unsupported states",
+    "At most three factor families and three metrics per joint rule; at most three selected strategies",
+    "Current profiles seed only unseen brand/scope context; saved applied criteria/drafts win",
+    "Supply defaults to choropleth; optional coordinate POIs at all four drilldown levels without automatic camera changes",
+    "Coordinate groups preserve all available records and never rewrite administrative counts or certify a customer-attraction cluster",
+    "One scope-owned area tooltip; readable scope name, current value and unit",
+    "Optional point view suppresses unnecessary child boundary networks, retaining clickable scope and yellow hover",
+    "Successful new save updates real shortlist count exactly once; duplicate/failure does not",
+    "Finite motion is optional; reduced-motion/interruption final state remains visible and operable",
+    "Three supplied brand graphics bind to stable existing IDs without preset/profile changes",
+    "Supply icons have their own verified icon font and readable separate caption; no raw ligature text or layout overlap",
+    "First page is Expansion opportunities with inline maximum3-of8strategies; Demand/Supply remain supporting pages.",
+    "Legacy#strategy is an alias preserving context/camera/drafts; no duplicate map or team event.",
+    "Paired neutral stroke-only keylines beneath currently visible white source outlines, including POI/fine context; original hierarchy and quiet geometry stay.",
+    "Expanded mode is personal display state; current source/native tile recovery must be verified before a retry/availability claim.",
+    "Read-only bilingual guide explains all eight current strategies with hypothetical examples and accessible illustrations; opening/closing never changes strategy selection or criteria.",
+    "Native parent vectors supply parent totals/distribution; no LAO crosswalk or POI-marker rollup.",
+    "Unknown U and unresolved licence evidence never silently become own/competitor exact counts.",
+    "O+C count0 stays known while0/0 share remains undefined; valid0/100 ratios retain percentage domain.",
+    "Each verified brand has a stable exact approved DS categorical swatch chosen near its original artwork primary color; names/counts remain readable in both themes; no artwork mutation.",
+    "Near-Thailand envelope blocks unrelated distant panning/zooming without changing administrative scope or Demand membership.",
+    "Expand/Compact settles the existing host and refreshes visible tiles while preserving map instance, permitted camera and unsaved work; clamp only out-of-envelope zoom/center; sampled native tiles visibly load after repeated cycles.",
+    "Options/Expand and areas/points remain four usable, labeled, meaningful-icon buttons in one compact row at recorded narrow and desktop widths.",
+    "All visible numerical quantities consistently use comma grouping and preserve precision/units/no-data/bounds, while calculation/storage/input values stay numerical.",
+    "Actual TH/EN narrow/desktop and both themes are reviewed; per-state observed checks are not a physical-device/full-matrix certificate."
+  ],
+  "packageEvidence": {
+    "zip": "CityMETER_Yolk_Handoff_v1.9.7.zip — generation/source-bound external attestation pending",
+    "currentQA": {
+      "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+      "receipt": "evidence/qa-v1.9.7.json",
+      "automatedReceipt": "evidence/automated-v1.9.7.json",
+      "releaseChecksReceipt": "evidence/release-checks-v1.9.7.json",
+      "nativeBrowserReceipt": "evidence/browser-v1.9.7/native-browser-review.json",
+      "receiptSha256": "cb94463ff088627cb25054a6656d1c5809d4bc1d44d79c0d7cef044406e8b3cd",
+      "automatedReceiptSha256": "aeb26e0e2fdf1d5675e68fdd4d13f6dd9f1d1386bf2ba1cabfe23f997cf32e20",
+      "releaseChecksReceiptSha256": "763351024632603b7a70625a9f6b0fd6b52004adecb72f5f93fb5c4644f68e2a",
+      "nativeBrowserReceiptSha256": "eefbf8dd6c35e9ff3a5f0cdf58f6d425bb878a0b327fbb184dfe24d567029636",
+      "automatedSuites": 34,
+      "automatedChecks": 600,
+      "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.7; no imported prior results.",
+      "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "browserChecks": 10,
+      "snapshots": [
+        "evidence/browser-v1.9.7/desktop-en-light-fuel.jpg",
+        "evidence/browser-v1.9.7/desktop-th-dark-grocery.jpg",
+        "evidence/browser-v1.9.7/desktop-th-light-grocery-hover.jpg",
+        "evidence/browser-v1.9.7/desktop-en-dark-nonbank.jpg",
+        "evidence/browser-v1.9.7/mobile-th-dark-supply.jpg",
+        "evidence/browser-v1.9.7/mobile-en-light-criteria.jpg"
+      ],
+      "snapshotFiles": [
+        {
+          "path": "evidence/browser-v1.9.7/desktop-en-light-fuel.jpg",
+          "bytes": 131072,
+          "sha256": "4c4a29aff7dd001b97a95add85f2ca9ead2b9c36f9a5c68a4687d603e0d8e589",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "description": "Final runtime EN light Fuel count map, paired four-control row and brand-colored treemap with1,561/2,418."
+        },
+        {
+          "path": "evidence/browser-v1.9.7/desktop-th-dark-grocery.jpg",
+          "bytes": 133295,
+          "sha256": "b3696c94e2f221794d538a4a1c9d13022e40fdcba878eb6fc73e11b214dbb5d1",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "description": "Final runtime TH dark Grocery C_STORE country map,26,337/16,488 and red/yellow/cyan/green DS brand treemap."
+        },
+        {
+          "path": "evidence/browser-v1.9.7/desktop-th-light-grocery-hover.jpg",
+          "bytes": 148265,
+          "sha256": "265b1943ceb8c9e3d3173f6b1cd392875f7d1b3c581dae40e4b24f3acf02d673",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "description": "Final runtime TH light Bangkok share: single LatKrabang175/70.3% tooltip with brand treemap; side direct4,982/77.4%."
+        },
+        {
+          "path": "evidence/browser-v1.9.7/desktop-en-dark-nonbank.jpg",
+          "bytes": 147308,
+          "sha256": "abbe0eda8ceb7ef327b5e6291a5eaeae373743776be864c03e0f9670879c5efa",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "description": "Final runtime EN dark nationwide Non-bank office share,23,524/8,738/37.1%; brand-related DS colors and neutral Other."
+        },
+        {
+          "path": "evidence/browser-v1.9.7/mobile-th-dark-supply.jpg",
+          "bytes": 54827,
+          "sha256": "437b6667eba26055f0d450528a80be5eb3b6699da61c92c576476679473721c0",
+          "imagePixels": {
+            "width": 390,
+            "height": 844
+          },
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "description": "Final runtime TH dark Bangkok branch points: four44px controls one row, grouped count1,208 and original7-Eleven logo."
+        },
+        {
+          "path": "evidence/browser-v1.9.7/mobile-en-light-criteria.jpg",
+          "bytes": 41802,
+          "sha256": "b3e4d5c750ec96d383b329462868128110e6b8b74f0dd6a7df94141f16749583",
+          "imagePixels": {
+            "width": 390,
+            "height": 844
+          },
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "description": "Final runtime EN light private count draft12,345 readout and raw12345 input; range bounds remain1/100, clear out-of-range cue."
+        }
+      ],
+      "physicalDevices": "unverified",
+      "fullLanguageThemeMatrix": false,
+      "scope": "Bounded current review of allfive requested refinements. Actual final runtime screenshots cover TH/EN,light/dark,desktop/narrow; not a complete matrix, physical-device or every-brand/boundary certification. Baseline1.9.6 user-reported tile gap did not reproduce in one expansion; resize reconstruction verified against repeated final Expand/Collapse and host reflow.",
+      "productionBackend": "not_implemented_in_static_preview"
+    },
+    "retainedBaseline": "evidence/qa-v1.9.6.json — historical only",
+    "provider": "pending_terminal_success_for_final_source",
+    "liveBytes": "pending_current_emitted_url_checks"
+  },
+  "strategyContract": "contracts/opportunity-strategies.v1.9.0.json",
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "interactionExtension": "contracts/interaction-guidance.v1.9.1.json",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  },
+  "brandIdentityUIExtension": "contracts/brand-identity-ui.v1.9.2.json",
+  "expansionExperience": "contracts/expansion-experience.v1.9.3.json",
+  "strategyGuide": "prototype/data/strategy-guide.v1.9.3.json",
+  "mapSpace": "contracts/map-space.v1.9.4.json",
+  "localVerification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "receipt": "evidence/qa-v1.9.7.json",
+    "automatedReceipt": "evidence/automated-v1.9.7.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.7.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.7/native-browser-review.json",
+    "receiptSha256": "cb94463ff088627cb25054a6656d1c5809d4bc1d44d79c0d7cef044406e8b3cd",
+    "automatedReceiptSha256": "aeb26e0e2fdf1d5675e68fdd4d13f6dd9f1d1386bf2ba1cabfe23f997cf32e20",
+    "releaseChecksReceiptSha256": "763351024632603b7a70625a9f6b0fd6b52004adecb72f5f93fb5c4644f68e2a",
+    "nativeBrowserReceiptSha256": "eefbf8dd6c35e9ff3a5f0cdf58f6d425bb878a0b327fbb184dfe24d567029636",
+    "automatedSuites": 34,
+    "automatedChecks": 600,
+    "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.7; no imported prior results.",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 10,
+    "snapshots": [
+      "evidence/browser-v1.9.7/desktop-en-light-fuel.jpg",
+      "evidence/browser-v1.9.7/desktop-th-dark-grocery.jpg",
+      "evidence/browser-v1.9.7/desktop-th-light-grocery-hover.jpg",
+      "evidence/browser-v1.9.7/desktop-en-dark-nonbank.jpg",
+      "evidence/browser-v1.9.7/mobile-th-dark-supply.jpg",
+      "evidence/browser-v1.9.7/mobile-en-light-criteria.jpg"
+    ],
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.7/desktop-en-light-fuel.jpg",
+        "bytes": 131072,
+        "sha256": "4c4a29aff7dd001b97a95add85f2ca9ead2b9c36f9a5c68a4687d603e0d8e589",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime EN light Fuel count map, paired four-control row and brand-colored treemap with1,561/2,418."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/desktop-th-dark-grocery.jpg",
+        "bytes": 133295,
+        "sha256": "b3696c94e2f221794d538a4a1c9d13022e40fdcba878eb6fc73e11b214dbb5d1",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime TH dark Grocery C_STORE country map,26,337/16,488 and red/yellow/cyan/green DS brand treemap."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/desktop-th-light-grocery-hover.jpg",
+        "bytes": 148265,
+        "sha256": "265b1943ceb8c9e3d3173f6b1cd392875f7d1b3c581dae40e4b24f3acf02d673",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime TH light Bangkok share: single LatKrabang175/70.3% tooltip with brand treemap; side direct4,982/77.4%."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/desktop-en-dark-nonbank.jpg",
+        "bytes": 147308,
+        "sha256": "abbe0eda8ceb7ef327b5e6291a5eaeae373743776be864c03e0f9670879c5efa",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Final runtime EN dark nationwide Non-bank office share,23,524/8,738/37.1%; brand-related DS colors and neutral Other."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/mobile-th-dark-supply.jpg",
+        "bytes": 54827,
+        "sha256": "437b6667eba26055f0d450528a80be5eb3b6699da61c92c576476679473721c0",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Final runtime TH dark Bangkok branch points: four44px controls one row, grouped count1,208 and original7-Eleven logo."
+      },
+      {
+        "path": "evidence/browser-v1.9.7/mobile-en-light-criteria.jpg",
+        "bytes": 41802,
+        "sha256": "b3e4d5c750ec96d383b329462868128110e6b8b74f0dd6a7df94141f16749583",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Final runtime EN light private count draft12,345 readout and raw12345 input; range bounds remain1/100, clear out-of-range cue."
+      }
+    ],
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "scope": "Bounded current review of allfive requested refinements. Actual final runtime screenshots cover TH/EN,light/dark,desktop/narrow; not a complete matrix, physical-device or every-brand/boundary certification. Baseline1.9.6 user-reported tile gap did not reproduce in one expansion; resize reconstruction verified against repeated final Expand/Collapse and host reflow.",
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "mobileFlow": "contracts/mobile-flow.v1.9.5.json",
+  "mapReadability": "contracts/map-readability.v1.9.6.json",
+  "supplyInventoryDisplay": "contracts/supply-inventory.v1.9.7.json",
+  "visualRefinement": "contracts/visual-refinement.v1.9.7.json"
+}

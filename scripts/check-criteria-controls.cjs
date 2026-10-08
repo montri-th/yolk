@@ -178,4 +178,19 @@ check('Relative supply slider carries decimal precision and explicit denominator
   rate.value='';inputEvent(rate);assert.equal(reading(rate).textContent,'—');assert.equal(slider(rate).getAttribute('aria-invalid'),'true');
 });
 
+
+check('Display commas never enter number-input or slider machine values, including rate precision', () => {
+  const count=field(form,'large-count','Branch count',{'data-criterion':'ownMany',min:'1',max:'100000',step:'1'},'12345');
+  const rate=field(form,'large-rate','Branch rate',{'data-criterion':'ownRateHigh','data-supply-rate':'','data-rate-unit':'branches per 100,000 m²',min:'0.001',max:'100000',step:'any'},'12345.678912');
+  for (const lang of ['th','en']) {
+    document.documentElement.lang=lang;api.mount(count);api.mount(rate);api.sync(form);
+    assert(reading(count).textContent.includes('12,345'));assert(reading(rate).textContent.includes('12,345.6789'));
+    assert.equal(count.value,'12345');assert.equal(rate.value,'12345.678912');
+    assert.equal(slider(count).max,'100000');assert.equal(slider(rate).max,'100000');
+    assert(wrapper(count).querySelectorAll('.criteria-range-ends')[0].children[1].textContent.includes('100,000'));
+    assert.equal(slider(rate).getAttribute('aria-invalid'),'false');
+  }
+  slider(count).value='54321';inputEvent(slider(count));assert.equal(count.value,'54321');assert.equal(routed.values['large-count'],54321);
+});
+
 console.log(JSON.stringify({ passed: checks.length, checks, limits: 'DOM contract tests only. Native drag/touch, focus behavior under real rendering and theme/layout are covered separately by browser QA.' }, null, 2));

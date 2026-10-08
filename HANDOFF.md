@@ -1,6 +1,6 @@
-# Current handoff · Yolk 1.9.6 · review pending
+# Current handoff · Yolk1.9.7 · current bounded local review complete
 
-Read [current handoff](HANDOFF_v1.9.6.md), [full product + plan](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.6.md), [readability extension](contracts/map-readability.v1.9.6.json), [Supply display](contracts/supply-inventory.v1.9.6.json) and [release state](contracts/release.v1.9.6.json). Fresh expanded Supply QA/native passed within the current bounded receipt; one actual hover is not all-boundary coverage. Provider/live/publication remains separate. Prior text below is historical.
+Read [current handoff](HANDOFF_v1.9.7.md), [full product/from-scratch implementation](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.7.md), [visual refinement](contracts/visual-refinement.v1.9.7.json) and [release](contracts/release.v1.9.7.json). Current bounded1.9.7 QA/native passed; publication/provider/live pending. Historical text below is reference only.
 
 ---
 
