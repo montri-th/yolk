@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Verify public 1.9.7 artifact, source grains and DS assets
-        run: python3 scripts/verify-pages-v1.9.7.py
+        run: python3 scripts/verify-pages-v1.9.8.py
       - name: Check current boundary/Demand/Opportunity-icon readability and retained mobile flow and retained opportunities, guide, recovery and analytical invariants
         run: |
           node scripts/check-three-industry.cjs
@@ -46,6 +46,9 @@ jobs:
           node scripts/check-supply-symbols.cjs
           node scripts/check-opportunity-strategies.cjs
           node scripts/check-supply-poi-modes.cjs
+          node scripts/check-unclustered-poi.cjs
+          node scripts/check-workspace-transactions.cjs
+          node scripts/check-bootstrap-loader.cjs
           node scripts/check-strategy-ui.cjs
           node scripts/check-demand-factors.cjs
           node scripts/check-map-clarity.cjs

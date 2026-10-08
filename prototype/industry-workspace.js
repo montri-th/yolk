@@ -65,7 +65,7 @@ function refreshPointRelations(){
  const byArea=new Map();for(const p of Y.pois){if(!p.area||p.archived||p.status==='closed')continue;if(!byArea.has(p.area))byArea.set(p.area,[]);byArea.get(p.area).push({...p,category:p.relation})}for(const area of AREAS)area.mapContext.pois=byArea.get(area.id)||[];
 }
 let industryRequest=0;
-async function fetchRuntime(name){let response=await fetch('data/real/'+name,{cache:'no-store'});if(!response.ok)throw new Error(name+' HTTP '+response.status);return response.json()}
+async function fetchRuntime(name){if(window.YOLK_RUNTIME.fetchPublicJson)return window.YOLK_RUNTIME.fetchPublicJson('data/real/'+name);let response=await fetch('data/real/'+name);if(!response.ok)throw new Error(name+' HTTP '+response.status);return response.json()}
 async function selectIndustryContext(industry,brand=null,scope=null){
  if(!Y.loading)stashContext();const ticket=++industryRequest;Y.loading=true;Y.loadError=null;Y.pointError=null;Y.industry=industry;const profile=PROFILE_BY_ID[industry];Y.ownBrandId=brand||profile.defaultOwnBrandId;Y.supplyScope=scope||Y.brandScopes?.[industry+'|'+Y.ownBrandId]||(window.YolkBrands?YolkBrands.scopeFor(industry,Y.ownBrandId):profile.defaultScope);Y.pointState='not_loaded';Y.province='';Y.poiArea='';Y.poiQuery='';Y.brandFilter='';Y.marketPage=0;Y.page=0;
  if(typeof render==='function')render();

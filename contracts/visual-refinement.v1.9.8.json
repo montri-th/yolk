@@ -1,0 +1,696 @@
+{
+  "schemaVersion": "yolk.visual_refinement/1.9.8",
+  "version": "1.9.8",
+  "date": "2026-10-08",
+  "status": "final_runtime_values_current_QA_bound",
+  "scope": "Retained v1.9.7 visual/display rules with fresh v1.9.8 acceptance; Branch points behavior is superseded only by contracts/branch-points.v1.9.8.json.",
+  "extends": [
+    "contracts/supply-inventory.v1.9.6.json",
+    "contracts/map-readability.v1.9.6.json",
+    "contracts/mobile-flow.v1.9.5.json",
+    "contracts/map-space.v1.9.4.json",
+    "contracts/icons.v1.8.0.json"
+  ],
+  "retainedVersions": {
+    "criteria": "1.9.0",
+    "profiles": "1.9.0",
+    "engine": "1.9.0",
+    "strategies": "1.9.0",
+    "interaction": "1.9.1",
+    "brandArtwork": "1.9.2-owner2",
+    "strategyGuide": "1.9.3",
+    "desktopMapSpace": "1.9.4",
+    "mobileFlow": "1.9.5",
+    "boundaryAndEggIdentity": "1.9.6",
+    "DS": "0.9.7"
+  },
+  "invariants": {
+    "nationalBenchmarkUnchanged": true,
+    "demandTierAndEligibleIdsUnchanged": true,
+    "supplyCriteriaAndRankingUnchanged": true,
+    "sourceCountsAndCoverageUnchanged": true,
+    "savedCriteriaAndDraftsPreserved": true,
+    "samePersistentMap": true,
+    "ordinaryRouteAndDisplayUpdatesPreserveCamera": true,
+    "analyticalFillAndOpacityUnchanged": true,
+    "originalBrandArtworkBytesUnchanged": true,
+    "mobileDocumentFlowPreserved": true,
+    "noSourceWriteOrTeamEvent": true,
+    "readableCaptionAndFocusPreserved": true,
+    "cameraWithinPermittedEnvelopePreserved": true,
+    "geographicCameraConstraintExplicit": true
+  },
+  "treemapBrandColors": {
+    "status": "runtime_confirmed",
+    "policy": "Use exact approved categorical DS hue families near each verified original logo primary color; stable identity mapping. Explicit stable hash fallback for absent/unresolved identity; neutral09 for monochrome and exact Other. Original artwork and quantitative color/size meanings stay unchanged.",
+    "sourceContract": "contracts/supply-inventory.v1.9.8.json",
+    "mappingRegistry": "prototype/supply-treemap.js",
+    "originalLogoBytesUnchanged": true,
+    "mappingNotOfficialBrandColorClaim": true,
+    "exactDSValuesOnly": true,
+    "themePolicy": "Use exact original LDS separate light/dark categorical soft-fill/ink CSS token values (--ldm-series-NN-fill-light/dark); identity family stable across themes. These approved categorical theme tables are separate from unchanged quantitative/Story/Location data HEX.",
+    "mappingRegistrySha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c",
+    "mappingExport": "YolkSupplyTreemap.brandSeries",
+    "paletteId": "landometer-series-10-v8",
+    "mappingMethod": "Source-backed manual review of original logo primary hue → closest suitable existing DS categorical family; basis and original asset SHA recorded per identity. No numerical nearest-color guarantee or official corporate-color claim.",
+    "bindings": {
+      "cosmo": {
+        "seriesIndex": 2,
+        "basis": "Stable ID fallback: exact COSMO identity remains unresolved; no borrowed logo colour.",
+        "assetSha256": null
+      },
+      "pure": {
+        "seriesIndex": 7,
+        "basis": "Stable ID fallback: historical PURE versus current Purethai identity needs reconciliation.",
+        "assetSha256": null
+      },
+      "siam-gas": {
+        "seriesIndex": 7,
+        "basis": "Blue circular identity is primary; red flame is secondary.",
+        "assetSha256": "7e78a21eb9979a5e44b2cd83fcae2e32ce8ce79a6b5e96f38c1412e9392eb82e"
+      },
+      "susco": {
+        "seriesIndex": 0,
+        "basis": "Red outer identity ring is primary; blue droplet is secondary.",
+        "assetSha256": "c04da81207298b938b0ca6815def2cecde8dd232ee17fd84f28bb8b6aa90531c"
+      },
+      "unique-gas": {
+        "seriesIndex": 5,
+        "basis": "Cyan outer flame is primary; deep-blue U remains visible in the original logo.",
+        "assetSha256": "bece24c9f162440f8bb936684c9a2a9f14fbb9a3939eb9c22819dc92ca20eb70"
+      },
+      "world-gas": {
+        "seriesIndex": 7,
+        "basis": "Blue outer identity lettering/ring; green is a secondary ring colour.",
+        "assetSha256": "3f2d14b03c56bd74fd5f64ec10c35eb909f79602b02c5adf2d2180204bac5762"
+      },
+      "grocery-brand:TOOGDEE": {
+        "seriesIndex": 0,
+        "basis": "Red round badge.",
+        "assetSha256": "c8bbae16fde7b6e88fbb72926f72ae436d0b10622e0e2d6b2f10f5901fab725c"
+      },
+      "grocery-brand:CJ_MORE": {
+        "seriesIndex": 2,
+        "basis": "Yellow native badge field; green MORE strip and red/blue letters are secondary.",
+        "assetSha256": "5721f8ed58c750b9704bb6c3f301ec40830db1c7f5f454e0fc81c65259431ff7"
+      },
+      "grocery-brand:LAWSON108": {
+        "seriesIndex": 7,
+        "basis": "Blue shield and 108 wordmark in the owner-supplied original.",
+        "assetSha256": "0bcdc9944f0543ae6a04627892080615d510b1db46347b140e4c7890347a587b"
+      },
+      "grocery-brand:VILLA_MARKET": {
+        "seriesIndex": 7,
+        "basis": "Deep-blue wordmark and VL identity in the owner-supplied original; red is secondary.",
+        "assetSha256": "c29c85f0b251ddf12f57a59d283cab05a055ddeb35ccfa61b77458d0aa4eac8a"
+      },
+      "grocery-brand:MAXVALU": {
+        "seriesIndex": 0,
+        "basis": "Rose-red native MaxValu badge field.",
+        "assetSha256": "ad52ebb00a7f96482b44fdbe95fc6f264c0e33ad5fe6a863287b1d1314c1f1a7"
+      },
+      "grocery-brand:FOODLAND": {
+        "seriesIndex": 0,
+        "basis": "Red Foodland wordmark; deep-blue supporting text is secondary.",
+        "assetSha256": "60845cb0703e30f61a3e1a6d4fa72a568725760b86c21c7d6598c730bca35205"
+      },
+      "grocery-brand:GOURMET_MARKET": {
+        "seriesIndex": 0,
+        "basis": "Burgundy-red circular badge; gold lettering is secondary.",
+        "assetSha256": "42e85df78c3d4082cbd2f040bcd538d69554f323b29cbac75de56b721172d497"
+      },
+      "grocery-brand:GO_WHOLESALE": {
+        "seriesIndex": 0,
+        "basis": "Red native square badge field.",
+        "assetSha256": "1a9228b14421ea61265054cacd212bda88c38e78106f325a5b45df1c54cb07fb"
+      },
+      "grocery-brand:DONKI": {
+        "seriesIndex": 7,
+        "basis": "Blue native Donpen badge field; yellow bill is secondary.",
+        "assetSha256": "7cbee15a7bff4c1ce08b72b18e7c40685a9104c66291292495f8544fab6dcd9c"
+      },
+      "grocery-brand:RIMPING": {
+        "seriesIndex": 8,
+        "basis": "Monochrome original: neutral approved category, no inferred brand hue.",
+        "assetSha256": "fd9b37c27b8ba2fb8ccac75f057b0e7350bf4193077749762f5312c06f4e7695"
+      },
+      "grocery-brand:FUJI": {
+        "seriesIndex": 0,
+        "basis": "Red native Fuji Super badge field.",
+        "assetSha256": "8de7171d3351e9174f1c74f25b8376e1b418128172af3e62b6112051e7c7b026"
+      },
+      "bangchak": {
+        "seriesIndex": 9,
+        "basis": "Green leaf identity; orange upper segment is secondary.",
+        "assetSha256": "554c2f65ef51964e84b6cabc37827855b25cb6b99f9c05adf552bbfc3eb17d94"
+      },
+      "ptt": {
+        "seriesIndex": 5,
+        "basis": "Cyan outer flame is primary; deep-blue and red inner flame remain original.",
+        "assetSha256": "1ba7c6ebfaf3fc774c0fb327c3ca1409b78d7bfe3a4310df02abef8c38c9a741"
+      },
+      "shell": {
+        "seriesIndex": 2,
+        "basis": "Yellow pecten shell interior; red outline is secondary.",
+        "assetSha256": "55bbd2451ebd8327271311ef92e65c766854602ced336d7d9677acc84607a8e7"
+      },
+      "caltex": {
+        "seriesIndex": 0,
+        "basis": "Red star badge is primary; deep teal is secondary.",
+        "assetSha256": "b85bc225fc93e10182211c9f04da5bf43a8a795dfcb6ba91066f93cbfbda95ef"
+      },
+      "grocery-brand:SEVEN_ELEVEN": {
+        "seriesIndex": 0,
+        "basis": "Red 7 is the principal identifying numeral; orange and green remain original.",
+        "assetSha256": "704286f27b063dcd83f934a20211615b4f63f5072d31e58edee18ec28e48bfda"
+      },
+      "grocery-brand:TOPS": {
+        "seriesIndex": 1,
+        "basis": "Orange-red owner-supplied Tops wordmark, nearest warm orange lane.",
+        "assetSha256": "dccbc2bbd05952420a2e782ef1dc2ae7ce6c5d8fffb70eb2772055df7e213458"
+      },
+      "grocery-brand:LOTUSS": {
+        "seriesIndex": 6,
+        "basis": "Teal native badge field; yellow pointer is secondary.",
+        "assetSha256": "a0dab79cec31c6636d3b64e204c6895fe2c720eca6f0f35a6feaa8220785687c"
+      },
+      "grocery-brand:MAKRO": {
+        "seriesIndex": 0,
+        "basis": "Red Makro m identity.",
+        "assetSha256": "cd7598334e124e7c5d0d63095628ef68065ef51e0560f04fc5a154f2b79543e0"
+      },
+      "legal:0107557000195": {
+        "seriesIndex": 5,
+        "basis": "Cyan Muangthai Capital round badge.",
+        "assetSha256": "dcb1fafe99bf30a65bfee6d0149e0df6a51d002c7091c83a5229742b43db3c13"
+      },
+      "legal:0105559126747": {
+        "seriesIndex": 2,
+        "basis": "Gold central Srisawad badge; blue outer edges are secondary.",
+        "assetSha256": "fc0168d628bad7638254199ad70be9677a04b61b6e692bada15f07f431e3b3aa"
+      },
+      "legal:0105564161598": {
+        "seriesIndex": 2,
+        "basis": "Yellow primary Ngern Chaiyo/AutoX wordmark; blue is secondary.",
+        "assetSha256": "88b0c4c1bff765346ca19728cc84f65f396ed9835e5bd05eb4d0529d2badda82"
+      },
+      "legal:0107563000355": {
+        "seriesIndex": 0,
+        "basis": "Red Ngern Tid Lor identity; blue segment is secondary.",
+        "assetSha256": "bc61d8b17ce2abfddeb4b90e90e566fbddf10b83f2d6e58c9000bdf4c5582423"
+      },
+      "legal:0107559000290": {
+        "seriesIndex": 7,
+        "basis": "Deep-blue Saksiam round identity.",
+        "assetSha256": "9f7f0b1d6483c33a130173658eb5af199dae381bcffba380f1fdc6dd6203dfac"
+      },
+      "legal:0107566000542": {
+        "seriesIndex": 0,
+        "basis": "Warm pink Ngern Turbo wordmark; deep-blue first line is secondary.",
+        "assetSha256": "0cd582a66c0dc9ce403fa102bebc4c5d3ad90937141f5428d99d4e549b79ba3b"
+      },
+      "legal:0107564000120": {
+        "seriesIndex": 9,
+        "basis": "Deep-green Heng Leasing wordmark and identity.",
+        "assetSha256": "f0d2343cb89399b4ca68293a147bdaed2a92bf2de73712cc800a3c228c616a2f"
+      },
+      "legal:0505560008015": {
+        "seriesIndex": 0,
+        "basis": "Red Nim Leasing tiger identity.",
+        "assetSha256": "b3b0106d7ead5de652235517c21a3a2ef8e81e843195f73166682f30f9436502"
+      },
+      "pt": {
+        "seriesIndex": 3,
+        "basis": "Lime-green outer PT identity ring; red lettering and deeper green are secondary.",
+        "assetSha256": "b2c25e8e53186da95c400f7c7a2019c71a85b72a874036251cea819525970757"
+      },
+      "grocery-brand:BIG_C": {
+        "seriesIndex": 3,
+        "basis": "Lime-green native badge field; red C is secondary.",
+        "assetSha256": "f76f25886c649dfa3b87fd4b26ab8495dc417acaccf7e164f33b3a605e21208c"
+      },
+      "legal:0107538000690": {
+        "seriesIndex": 8,
+        "basis": "Exact Krungsri Auto original is monochrome: neutral approved category, no inferred group-brand yellow.",
+        "assetSha256": "8d4e21f521c2fd5b12213a1670c4d9f203cb980aa59b86a5d6cc664e232f738e"
+      },
+      "legal:0105528033194": {
+        "seriesIndex": 0,
+        "basis": "Red official UOB five-bar symbol.",
+        "assetSha256": "fc77b3048c4ec868be11f0a37e9ff201102c3556cb3610c16b749792b80c44f7"
+      }
+    },
+    "brandBindings": 37,
+    "verifiedArtworkBindings": 35,
+    "fallbackBindings": [
+      "cosmo",
+      "pure"
+    ],
+    "fallbackPolicy": "COSMO/PURE identity unresolved: retain FNV-1a stable brand-ID categorical slot. Unknown/nonselectable source legal IDs use the same stable hash fallback; no identity inferred from brand text.",
+    "monochromePolicy": "Rimping/Krungsri Auto monochrome originals use neutral category09 without inferred family/owner hue.",
+    "otherPolicy": "Exact Other identified competitor sum uses neutral category09 with inspectable named membership.",
+    "tokens": {
+      "fill": "--ldm-series-NN-fill-light/dark",
+      "ink": "Exact existing per-theme categorical ink roles",
+      "smallDarkCategory10Labels": "Exact neutral light-canvas backdrop behind small labels/cue, preserving original category10 fill and original artwork"
+    },
+    "cuePolicy": "Original ten category shape cues retained; same hue may identify multiple brands, therefore labels/original artwork/counts remain necessary.",
+    "evidenceLimit": "Original graphic byte binding and observed hue rationale, not an official brand-guideline endorsement or all-brand rendered accessibility certificate."
+  },
+  "mapCameraEnvelope": {
+    "status": "runtime_confirmed",
+    "meaning": "Constrain viewing near Thailand with a padded display envelope; navigation aid, not statutory national boundary or data scope. Preserve saved/context camera where inside envelope; clamp only out-of-envelope camera.",
+    "boundsLatLng": [
+      [
+        4.5,
+        96.3
+      ],
+      [
+        21.5,
+        106.7
+      ]
+    ],
+    "administrativeTotalsFollowScopeNotViewport": true,
+    "maximumBoundsViscosity": 1,
+    "tileNoWrap": true,
+    "zoomSnap": 0.25,
+    "zoomDelta": 0.5,
+    "implementation": "countryContextZoomFloor calculates whole-context fit from actual current host/projected corners without feedback from current minZoom. applyMapZoomFloor clamps zoom only if below floor, then sets the host-dependent map minZoom. Apply on initial map/actual host resize.",
+    "cameraRule": "Preserve same map and camera when zoom/center are within current host-dependent near-Thailand envelope. Only an out-of-envelope camera may be clamped after resize; no unconditional country fit or analytical/data-scope mutation.",
+    "minimumZoomPolicy": "Host-dependent whole-Thailand context zoom floor, computed independently of the current minZoom.",
+    "absoluteBaseMinimumZoom": 3,
+    "maximumZoom": 19,
+    "minimumZoomFormula": {
+      "projection": "Project context north-west/south-east corners at zoom0 via map.project",
+      "hostPaddingPixels": 36,
+      "scale": "min((hostWidth - 36)/(SE.x - NW.x), (hostHeight - 36)/(SE.y - NW.y))",
+      "fitZoom": "map.getScaleZoom(scale, 0)",
+      "floor": "max(3, min(19, floor(4 * (fitZoom - 0.25)) / 4))",
+      "quantum": 0.25,
+      "maximumContextZoomOutAllowance": 0.5,
+      "allowanceScope": "Before absolute3..19 provider/base caps; round-down adds less than0.25 to0.25 initial margin.",
+      "fallback": "3 for width or height <=36, unavailable projection/getScaleZoom, or nonfinite/nonpositive scale/zoom. Larger valid hosts use the dynamic floor."
+    },
+    "runtimeSource": {
+      "path": "prototype/workspace-map.js",
+      "sha256": "cd237b72cb73804aa684525972a92ac72d7d6e8e6e7caff735ad0b0f8a852bbe"
+    }
+  },
+  "expandedBasemapResize": {
+    "status": "runtime_confirmed",
+    "policy": "Invalidate Leaflet after the map host has settled at its current size; retain the same map/camera/scope/criteria/forms. Existing integer-tile-zoom layer recreation remains the explicit provider retry path. Never infer provider availability from CSS or mocks.",
+    "sequence": [
+      "Observe actual host width/height via ResizeObserver and existing explicit Expand/Compact path",
+      "Immediately invalidate map with pan:true,animate:false; preserve view for explicit expansion",
+      "Coalesce imagery resize in requestAnimationFrame until host dimensions are stable for one frame",
+      "Recheck same map/current tile layer and nonzero settled size; ignore canceled/outdated work",
+      "Invalidate final size with preserveView:true,refreshBasemap:false, then recreate only current same-style TileLayer via setBasemap(S.basemap) at integer provider tile zoom"
+    ],
+    "tileProviderAvailability": "requires_actual_current_native_and_live_evidence",
+    "cancellation": "Style change cancels queued old-layer work; zero-size/no-imagery hosts cannot initiate stale work.",
+    "retainedCamera": "Permitted fractional camera zoom/center remain; clamp only out-of-envelope zoom/center. Leaflet TileLayer owns integer tile coordinates. No map remount or unconditional country fit for explicit expansion.",
+    "diagnosis": "User-reported gaps were not reproduced during the root native baseline; current settled-host reconstruction hardens imagery resize without asserting a proven root cause.",
+    "providerRule": "Source adapter tests do not prove provider availability. Sampled actual native tile completion after repeated cycles is required.",
+    "samePersistentMap": true,
+    "cameraPreservedWithinEnvelope": true,
+    "geographicConstraintMayClamp": true,
+    "cameraConstraintException": "Host-dependent geographic floor/bounds may clamp only an out-of-envelope zoom/center after resize; preserve permitted fractional camera exactly."
+  },
+  "compactMapControls": {
+    "status": "runtime_confirmed",
+    "layout": "One compact .workspace-map-tools row with two pairs: Options/Expand and Region colours/Branch points. Supply count/share remains in supporting analysis controls.",
+    "representationOptions": [
+      "regions",
+      "points"
+    ],
+    "wrapAtNarrowWidths": false,
+    "icons": {
+      "options": "tune",
+      "expand": "open_in_new",
+      "collapse": "close",
+      "regions": "layers",
+      "points": "location_on"
+    },
+    "noDecorativeBracketOrColoredLeftRail": true,
+    "displayOptions": [
+      "options",
+      "expand"
+    ],
+    "captionTH": [
+      "ตั้งค่า",
+      "ขยาย",
+      "สีพื้นที่",
+      "จุดสาขา"
+    ],
+    "captionEN": [
+      "Options",
+      "Expand",
+      "Region colours",
+      "Branch points"
+    ],
+    "groupHooks": [
+      ".workspace-map-display-tools",
+      ".workspace-supply-view"
+    ],
+    "fontAuthority": "contracts/icons.v1.8.0.json; retained original glyph font/axes",
+    "responsive": "Row stays together at narrow/desktop widths; actual label/control geometry remains a native acceptance gate."
+  },
+  "numberDisplay": {
+    "status": "runtime_confirmed",
+    "thousandsSeparator": ",",
+    "grouping": true,
+    "locales": [
+      "th",
+      "en"
+    ],
+    "policy": "Format finite displayed numerical quantities with comma grouping while preserving existing precision, units, sign, interval/missing states and raw numerical calculation values. No compact K/M abbreviation that conceals a requested exact count.",
+    "boundaries": [
+      "Source counts, ratios, percentages, labels, lists, legends, tooltips and read-only numerical summaries",
+      "Editable raw numeric inputs, IDs, version/date codes, coordinates and formula/source syntax retain their parsing/identity meaning; do not introduce grouped input strings"
+    ],
+    "calculationOrStoredValuesChanged": false,
+    "formatter": "formatDisplayNumber(value) in prototype/model.js using Intl.NumberFormat(th-TH/en-US,{maximumFractionDigits:20}); retained per-surface precision formatters use grouping too.",
+    "rawInputPolicy": "criteria-controls readout/ARIA/grouped labels change only; raw range min/max/value and number input values remain unchanged including rate precision.",
+    "sourceGuard": "contracts/model-display-only.v1.9.8.json",
+    "surfaces": [
+      "model supply bounds and calibration/history display",
+      "app draft impact/counts/pending states",
+      "Supply tabs/page quantities",
+      "criteria-map badges/ranks",
+      "location-review row indices",
+      "retained location-map counts",
+      "criteria-controls slider readout/ARIA/endpoints",
+      "retained grouped analytical map/strategy/treemap formatters"
+    ]
+  },
+  "requiredSuites": [
+    "scripts/check-map-recovery.cjs",
+    "scripts/check-workspace-map.cjs",
+    "scripts/check-supply-treemap.cjs",
+    "scripts/check-supply-market-share.cjs",
+    "scripts/check-map-responsiveness.cjs",
+    "scripts/check-criteria-controls.cjs"
+  ],
+  "runtimeFiles": [
+    "prototype/workspace-map.js",
+    "prototype/workspace-map.css",
+    "prototype/bootstrap.js",
+    "prototype/industry-workspace.js",
+    "prototype/model.js",
+    "prototype/app.js",
+    "prototype/supply-treemap.js",
+    "prototype/supply-treemap.css"
+  ],
+  "acceptance": [
+    "Each verified brand has a stable exact approved DS categorical swatch chosen near its original artwork primary color; names/counts remain readable in both themes; no artwork mutation.",
+    "Near-Thailand envelope blocks unrelated distant panning/zooming without changing administrative scope or Demand membership.",
+    "Expand/Compact waits for a settled host then recreates only same-style imagery at integer tile zoom, preserving map instance, permitted fractional camera and unsaved work; clamp only out-of-envelope zoom/center. Actual sampled native tiles load after repeated cycles.",
+    "Options/Expand and Region colours/Branch points remain four labeled meaningful-icon buttons in one compact row/two pairs at recorded narrow/desktop widths. Count/share controls retain their supporting-analysis meanings.",
+    "All visible numerical quantities consistently use comma grouping and preserve precision/units/no-data/bounds, while calculation/storage/input values stay numerical.",
+    "Actual TH/EN narrow/desktop and both themes are reviewed; per-state observed checks are not a physical-device/full-matrix certificate."
+  ],
+  "verification": {
+    "integrated": {
+      "status": "PASS",
+      "receipt": "evidence/automated-v1.9.8.json",
+      "receiptSha256": "9656df9e62c20ca69c39c81b54092bc550c8ed9651d3cf2d96ab7a7543959daf",
+      "suites": 37,
+      "reportedPassedCases": 627,
+      "requiredSuiteResults": [
+        {
+          "suite": "scripts/check-criteria-controls.cjs",
+          "testedAt": "2026-10-08T17:00:32.354458+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "9407a4e6e0596335ef9724f9acc1534a14b743d25b31a642f0d41d8a538a5ec5",
+          "outputSha256": "396dfd91ef0e0a657a268ca27cab9cc6a589f0704874b72c334bc40d326025ef",
+          "passLines": 0,
+          "checks": 15,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-criteria-controls.log"
+        },
+        {
+          "suite": "scripts/check-map-recovery.cjs",
+          "testedAt": "2026-10-08T17:01:19.671203+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "48befad8b97a3541a1d9d66cd6a80361c68812f0d780d9467123804f742cab1d",
+          "outputSha256": "567cf265118d8283568981b2965f885b942a7a063c762e4e9f2c4976878cadce",
+          "passLines": 16,
+          "checks": 16,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-map-recovery.log"
+        },
+        {
+          "suite": "scripts/check-map-responsiveness.cjs",
+          "testedAt": "2026-10-08T17:00:37.695923+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "86aa0d48eab20cb15658e093d65d3d1cab9c0d152332ea6eef6882b9d15006ef",
+          "outputSha256": "a11c3bd242728496213e13dbe6927e0f0f1faa64a2762ab35b5d531128590b22",
+          "passLines": 20,
+          "checks": 20,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-map-responsiveness.log"
+        },
+        {
+          "suite": "scripts/check-supply-market-share.cjs",
+          "testedAt": "2026-10-08T17:01:20.086328+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "b50c020b75c4be4105b86e60220f9e2788fc0fb75f6a55b197b48900dde5861b",
+          "outputSha256": "5b0f4a5493d2fd99338999c996642a3d01394a2a053c9dab09f108b21be2cc23",
+          "passLines": 8,
+          "checks": 8,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-supply-market-share.log"
+        },
+        {
+          "suite": "scripts/check-supply-treemap.cjs",
+          "testedAt": "2026-10-08T17:01:21.121845+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "32a6af61c64e8724dfa0cabbaaf11c39e2409b056f2b1ba541fd0709030b9e09",
+          "outputSha256": "358f50ba133725a2d6bc4191a36686e44a1ae4856368621aa5fdeb11e8c718da",
+          "passLines": 24,
+          "checks": 24,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-supply-treemap.log"
+        },
+        {
+          "suite": "scripts/check-workspace-map.cjs",
+          "testedAt": "2026-10-08T17:00:32.086542+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "a9b7c5ca511b71f590cad431f9ce05962a89659ceebd32409a096a9839aa0f06",
+          "outputSha256": "f1ab6c324ef3bf251bc77bb5f7cc8fcbe0ba985395f66edb6898b481f9a40e0c",
+          "passLines": 28,
+          "checks": 28,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-workspace-map.log"
+        }
+      ]
+    },
+    "native": {
+      "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "receipt": "evidence/browser-v1.9.8/native-browser-review.json",
+      "receiptSha256": "23a6c1e2a85d9e03290f87478c6d49a68a62645ba10a5138cb3a1a0cbd27a06b",
+      "review": {
+        "passed": true,
+        "checkIds": [
+          "th-en-theme-review",
+          "mobile-flow",
+          "expanded-tile-coverage"
+        ]
+      },
+      "actualSnapshotFiles": 6,
+      "scope": "Bounded native core journeys on final source: all-points/grouped modes, three industry switches, original logo popup pointer actions, known-point editor prefill, count/share treemap and one keyboard boundary tooltip, country-to-province drill-down, expand tile coverage, TH/EN and dark/light screenshots, shortlist/save/draft flows. Mobile viewport tests do not certify physical phones; keyboard tooltip is not an all-boundary pointer-hover certification. Startup excludes deferred boundaries, basemap and on-demand POI."
+    },
+    "publication": "not_performed_by_contract"
+  },
+  "nativeEvidence": {
+    "review": {
+      "passed": true,
+      "checkIds": [
+        "th-en-theme-review",
+        "mobile-flow",
+        "expanded-tile-coverage"
+      ]
+    },
+    "renderedChecks": [
+      {
+        "id": "expanded-tile-coverage",
+        "passed": true,
+        "observation": "Native expand/collapse retained camera and all13,564coordinate representation; expanded1342×685host had40loaded tiles covering160/160 sampled screen positions without gaps.",
+        "status": "PASS"
+      },
+      {
+        "id": "mobile-flow",
+        "passed": true,
+        "observation": "390×844THdark shows4compactcontrols, normal map positionrelative and no horizontal overflow. Native scroll moved map fully above viewport(top−758px) so Supply details/treemap read normally; map is not fixed.",
+        "status": "PASS"
+      },
+      {
+        "id": "th-en-theme-review",
+        "passed": true,
+        "observation": "Actual6screenshots reviewed: darkENNonbank all/grouped, darkTHGrocerylogoPopup, darkTHmobile, lightENFuelall, lightENmobile core. Labels/icons clear with no overlap in these recorded states; not a full brand/theme/language matrix.",
+        "status": "PASS"
+      }
+    ],
+    "measurements": {
+      "nonbankAll": {
+        "canvas": {
+          "frameCount": "4",
+          "lastDrawMs": "30.9",
+          "markCount": "13564",
+          "recordCount": "13564",
+          "spriteCount": "3",
+          "workspacePointCanvas": "true"
+        },
+        "markers": 0,
+        "overflow": false,
+        "panel": {
+          "analysisKind": "supply",
+          "workspaceBasemap": "simplified",
+          "workspaceControlsOpen": "false",
+          "workspaceMapExpanded": "false",
+          "workspaceMapInteraction": "explore",
+          "workspacePointMode": "all",
+          "workspacePointRenderer": "canvas",
+          "workspacePointRepresented": "13564",
+          "workspacePopupOpen": "false",
+          "workspaceSupplyView": "points"
+        },
+        "startup": "883.3",
+        "toolbar": [
+          {
+            "label": "Map options",
+            "top": 83
+          },
+          {
+            "label": "Expand map",
+            "top": 83
+          },
+          {
+            "label": "Region colours",
+            "top": 83
+          },
+          {
+            "label": "Branch points",
+            "top": 83
+          }
+        ]
+      },
+      "expandedTiles": {
+        "covered": 160,
+        "host": {
+          "bottom": 854,
+          "height": 685,
+          "left": 97,
+          "right": 1439,
+          "top": 169,
+          "width": 1342,
+          "x": 97,
+          "y": 169
+        },
+        "tiles": 40,
+        "total": 160
+      },
+      "mobile": {
+        "canvas": {
+          "frameCount": "24",
+          "lastDrawMs": "49.3",
+          "markCount": "13564",
+          "recordCount": "13564",
+          "spriteCount": "3",
+          "workspacePointCanvas": "true"
+        },
+        "overflow": false,
+        "panel": {
+          "bottom": 760.9921875,
+          "height": 675.1953125,
+          "left": 0,
+          "right": 390,
+          "top": 85.796875,
+          "width": 390,
+          "x": 0,
+          "y": 85.796875
+        },
+        "position": "relative"
+      },
+      "groceryAll": {
+        "canvas": {
+          "frameCount": "35",
+          "lastDrawMs": "51",
+          "markCount": "26336",
+          "recordCount": "26336",
+          "spriteCount": "3",
+          "workspacePointCanvas": "true"
+        },
+        "markers": 0
+      },
+      "fuelAll": {
+        "canvas": {
+          "frameCount": "39",
+          "lastDrawMs": "5.2",
+          "markCount": "4363",
+          "recordCount": "4363",
+          "spriteCount": "3",
+          "workspacePointCanvas": "true"
+        },
+        "overflow": false,
+        "unloadedTiles": 0
+      }
+    },
+    "runtimeFiles": [
+      {
+        "path": "prototype/app.js",
+        "bytes": 79408,
+        "sha256": "a858b5c1352660281c0a9c9f39d93dc2fdb70e967d554504f261a9b00a0c82df"
+      },
+      {
+        "path": "prototype/bootstrap.js",
+        "bytes": 5708,
+        "sha256": "827466d8b7a5e0e44541820574c90fa5fad0a84c1a25f557a225327daff22abe"
+      },
+      {
+        "path": "prototype/industry-workspace.js",
+        "bytes": 24058,
+        "sha256": "780ead7ae7b39c9ec6eed717adcb6977d43468958e776ca7d6522d9435cfae7a"
+      },
+      {
+        "path": "prototype/model.js",
+        "bytes": 35348,
+        "sha256": "c12257c611cd73f86c9212679cbe5081a6431be5a1c28c6081d293e063438094"
+      },
+      {
+        "path": "prototype/supply-treemap.css",
+        "bytes": 8019,
+        "sha256": "098a9af81f52fb1f3888f5d7c0ab66bf3f8bdc6d823a7851e295d8636996726e"
+      },
+      {
+        "path": "prototype/supply-treemap.js",
+        "bytes": 22806,
+        "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+      },
+      {
+        "path": "prototype/workspace-map.css",
+        "bytes": 27363,
+        "sha256": "6deb8c1a01392a444deeade0ed8f9163906f66df8980cc2c2f0e1da932061590"
+      },
+      {
+        "path": "prototype/workspace-map.js",
+        "bytes": 134580,
+        "sha256": "cd237b72cb73804aa684525972a92ac72d7d6e8e6e7caff735ad0b0f8a852bbe"
+      }
+    ],
+    "reviewedRegistries": [
+      {
+        "path": "prototype/supply-treemap.js",
+        "bytes": 22806,
+        "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+      }
+    ],
+    "scope": "Actual bounded current checks only; physical devices, all brands/boundaries, full language/theme matrix and production services are separate."
+  }
+}

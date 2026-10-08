@@ -1,0 +1,443 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.9",
+  "version": "1.9.8",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "reviewedAt": "2026-10-08T17:11:33.806Z",
+  "scope": "Bounded native core journeys on final source: all-points/grouped modes, three industry switches, original logo popup pointer actions, known-point editor prefill, count/share treemap and one keyboard boundary tooltip, country-to-province drill-down, expand tile coverage, TH/EN and dark/light screenshots, shortlist/save/draft flows. Mobile viewport tests do not certify physical phones; keyboard tooltip is not an all-boundary pointer-hover certification. Startup excludes deferred boundaries, basemap and on-demand POI.",
+  "browser": "Native Chrome extension, user computer; 1440×900 desktop and 390×844 mobile viewport override",
+  "checks": 17,
+  "results": [
+    {
+      "id": "startup-cache",
+      "passed": true,
+      "observation": "Final release-scoped runtime bootstrap reached rendered app with recorded body startup883.3ms; no startup console errors. Scope excludes deferred boundary/tiles/POI.",
+      "status": "PASS"
+    },
+    {
+      "id": "nonbank-all-points",
+      "passed": true,
+      "observation": "Final sprite Canvas represented every13,564 filtered visible Nonbank point, markCount=recordCount13564,3role sprites,0DOMmarkers, no screen groups.",
+      "status": "PASS"
+    },
+    {
+      "id": "optional-groups",
+      "passed": true,
+      "observation": "Native Map Options all→groups→all preserved13,564 coordinate records; grouping rendered33screen marks and remained opt-in.",
+      "status": "PASS"
+    },
+    {
+      "id": "popup-pane-pointer",
+      "passed": true,
+      "observation": "Final pane450 and8px host fit: real native pointer clicked a nearby Muangthai record, opened original logo/research/editor actions; popup top177 within map host top169, Canvas no longer overlays controls.",
+      "status": "PASS"
+    },
+    {
+      "id": "nearby-chooser",
+      "passed": true,
+      "observation": "Native Home/Enter exposed nearby records with12 visible rows and pagination, preserving original coordinates; Grocery chooser6070 candidates opened first7-Eleven by pointer. Complete241duplicate-page conservation separately covered by automated suite.",
+      "status": "PASS"
+    },
+    {
+      "id": "grocery-all-points",
+      "passed": true,
+      "observation": "Grocery C_STORE source switch completed; every26,336 filtered visible record drawn on one Canvas, markCount=recordCount26336,0DOMmarkers; real7-Eleven popup original logo/actions worked.",
+      "status": "PASS"
+    },
+    {
+      "id": "editor-prefill",
+      "passed": true,
+      "observation": "Real7-Eleven popup View branch opened editor and detailed19nearby pins at original coordinate; province automaticallyBangkok(10), localityDaokanong(UUID4cf483fe-c2d0-442a-8546-2c60a126c1f0), no manual province start.",
+      "status": "PASS"
+    },
+    {
+      "id": "fuel-all-points",
+      "passed": true,
+      "observation": "Fuel switch completed, stale Grocery popup cleared, Country reset represented4363valid points individually; light theme loaded all observed basemap tiles,0missing.",
+      "status": "PASS"
+    },
+    {
+      "id": "supply-share-treemap",
+      "passed": true,
+      "observation": "Count→share preserved source inventory; Bangchak own1561/identified5606=27.8%, unknown3130excluded; exact41-step0..100legend and per-brand treemap/list displayed counts and DS categorical identity colors.",
+      "status": "PASS"
+    },
+    {
+      "id": "boundary-tooltip-keyboard",
+      "passed": true,
+      "observation": "Native Tab selected Chai Nat boundary; exactly1Leaflettooltip gave name, source branch share55.17%, count29, own16 and named treemap brands with6unknown excluded. This is a keyboard interaction, not all-boundary hover coverage.",
+      "status": "PASS"
+    },
+    {
+      "id": "province-drill",
+      "passed": true,
+      "observation": "Native Bangkok boundary click retained map and drilled Country→Bangkok, local-authority choropleth caption; no viewport overflow.",
+      "status": "PASS"
+    },
+    {
+      "id": "expanded-tile-coverage",
+      "passed": true,
+      "observation": "Native expand/collapse retained camera and all13,564coordinate representation; expanded1342×685host had40loaded tiles covering160/160 sampled screen positions without gaps.",
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-flow",
+      "passed": true,
+      "observation": "390×844THdark shows4compactcontrols, normal map positionrelative and no horizontal overflow. Native scroll moved map fully above viewport(top−758px) so Supply details/treemap read normally; map is not fixed.",
+      "status": "PASS"
+    },
+    {
+      "id": "th-en-theme-review",
+      "passed": true,
+      "observation": "Actual6screenshots reviewed: darkENNonbank all/grouped, darkTHGrocerylogoPopup, darkTHmobile, lightENFuelall, lightENmobile core. Labels/icons clear with no overlap in these recorded states; not a full brand/theme/language matrix.",
+      "status": "PASS"
+    },
+    {
+      "id": "shortlist-guidance",
+      "passed": true,
+      "observation": "Native Nonbank and Fuel shortlist actions each incremented saved count by1; Fuel mobile count2 +1motion and View shortlist toast visible; duplicate action became Save survey plan.",
+      "status": "PASS"
+    },
+    {
+      "id": "target-save-draft",
+      "passed": true,
+      "observation": "Native target note saved QA access-survey note successfully with local history/toast. Criteria own-rate sliderEnd3.991draft survived Supply→Criteria navigation without implicit apply. Quota-failure state rollback validated by separate actual-handler suite.",
+      "status": "PASS"
+    },
+    {
+      "id": "console-clean",
+      "passed": true,
+      "observation": "Native localtab warning/error logs empty after whole tested journey.",
+      "status": "PASS"
+    }
+  ],
+  "measurements": {
+    "nonbankAll": {
+      "canvas": {
+        "frameCount": "4",
+        "lastDrawMs": "30.9",
+        "markCount": "13564",
+        "recordCount": "13564",
+        "spriteCount": "3",
+        "workspacePointCanvas": "true"
+      },
+      "markers": 0,
+      "overflow": false,
+      "panel": {
+        "analysisKind": "supply",
+        "workspaceBasemap": "simplified",
+        "workspaceControlsOpen": "false",
+        "workspaceMapExpanded": "false",
+        "workspaceMapInteraction": "explore",
+        "workspacePointMode": "all",
+        "workspacePointRenderer": "canvas",
+        "workspacePointRepresented": "13564",
+        "workspacePopupOpen": "false",
+        "workspaceSupplyView": "points"
+      },
+      "startup": "883.3",
+      "toolbar": [
+        {
+          "label": "Map options",
+          "top": 83
+        },
+        {
+          "label": "Expand map",
+          "top": 83
+        },
+        {
+          "label": "Region colours",
+          "top": 83
+        },
+        {
+          "label": "Branch points",
+          "top": 83
+        }
+      ]
+    },
+    "expandedTiles": {
+      "covered": 160,
+      "host": {
+        "bottom": 854,
+        "height": 685,
+        "left": 97,
+        "right": 1439,
+        "top": 169,
+        "width": 1342,
+        "x": 97,
+        "y": 169
+      },
+      "tiles": 40,
+      "total": 160
+    },
+    "mobile": {
+      "canvas": {
+        "frameCount": "24",
+        "lastDrawMs": "49.3",
+        "markCount": "13564",
+        "recordCount": "13564",
+        "spriteCount": "3",
+        "workspacePointCanvas": "true"
+      },
+      "overflow": false,
+      "panel": {
+        "bottom": 760.9921875,
+        "height": 675.1953125,
+        "left": 0,
+        "right": 390,
+        "top": 85.796875,
+        "width": 390,
+        "x": 0,
+        "y": 85.796875
+      },
+      "position": "relative"
+    },
+    "groceryAll": {
+      "canvas": {
+        "frameCount": "35",
+        "lastDrawMs": "51",
+        "markCount": "26336",
+        "recordCount": "26336",
+        "spriteCount": "3",
+        "workspacePointCanvas": "true"
+      },
+      "markers": 0
+    },
+    "fuelAll": {
+      "canvas": {
+        "frameCount": "39",
+        "lastDrawMs": "5.2",
+        "markCount": "4363",
+        "recordCount": "4363",
+        "spriteCount": "3",
+        "workspacePointCanvas": "true"
+      },
+      "overflow": false,
+      "unloadedTiles": 0
+    }
+  },
+  "performanceBenchmarks": [
+    {
+      "name": "Startup to initial app render",
+      "durationMs": 883.3,
+      "environment": "Native Chrome on user computer, localhost,1440×900; recorded release-scoped public dataset state",
+      "scope": "Bootstrap begin→initial application render; excludes deferred boundaries, tileprovider latency and on-demandPOI."
+    },
+    {
+      "name": "Nonbank all-points Canvas paint",
+      "durationMs": 30.9,
+      "environment": "Native Chrome1440×900 on user computer; finalcd237 sprite renderer",
+      "scope": "One completed Canvas redraw of13,564filtered visible original coordinates;3cached sprites, noDOMmarkers. Not total interaction latency/FPS/SLA."
+    },
+    {
+      "name": "Grocery all-points Canvas paint",
+      "durationMs": 51,
+      "environment": "Native Chrome1440×900 on user computer; finalcd237 sprite renderer",
+      "scope": "One completed Canvas redraw of26,336filtered visible original coordinates; noDOMmarkers. Not entire source27,457valid coordinates because selectedscope/viewport applies."
+    },
+    {
+      "name": "Fuel all-points Canvas paint",
+      "durationMs": 5.2,
+      "environment": "Native Chrome1440×900 light on user computer",
+      "scope": "One completed Canvas redraw of4363valid filtered visible fuel coordinates."
+    },
+    {
+      "name": "Mobile viewport Nonbank Canvas paint",
+      "durationMs": 49.3,
+      "environment": "Native Chrome390×844 viewport override on same desktop computer",
+      "scope": "One completed redraw of13,564points; does not measure physicaliPhone/Android hardware or touchFPS."
+    }
+  ],
+  "branchPointsReview": {
+    "passed": true,
+    "checkIds": [
+      "nonbank-all-points",
+      "optional-groups",
+      "popup-pane-pointer",
+      "nearby-chooser",
+      "grocery-all-points",
+      "fuel-all-points"
+    ]
+  },
+  "wholeSiteReview": {
+    "passed": true,
+    "checkIds": [
+      "editor-prefill",
+      "shortlist-guidance",
+      "target-save-draft",
+      "province-drill",
+      "console-clean"
+    ]
+  },
+  "performanceReview": {
+    "passed": true,
+    "checkIds": [
+      "startup-cache",
+      "nonbank-all-points",
+      "grocery-all-points",
+      "expanded-tile-coverage"
+    ]
+  },
+  "supplyInventoryReview": {
+    "passed": true,
+    "checkIds": [
+      "supply-share-treemap",
+      "boundary-tooltip-keyboard",
+      "province-drill"
+    ]
+  },
+  "visualRefinementReview": {
+    "passed": true,
+    "checkIds": [
+      "th-en-theme-review",
+      "mobile-flow",
+      "expanded-tile-coverage"
+    ]
+  },
+  "reviewedRegistries": [
+    {
+      "path": "prototype/supply-treemap.js",
+      "bytes": 22806,
+      "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+    }
+  ],
+  "manualGates": [
+    "Physical iPhone/Android touch and Safari",
+    "Complete brand/language/theme/device matrix",
+    "Actual screen-reader speech and all-boundary pointer hover",
+    "OS reduced-motion setting and 130%/200% browser zoom"
+  ],
+  "publication": "not_performed_by_this_receipt",
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.9.8/desktop-en-dark-nonbank-all.jpg",
+      "bytes": 145853,
+      "sha256": "3b1ac99775452edb39c169c52de323671a93581438f0a651e01ead7e5b182bbe",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "description": "13,564 original coordinate positions individually rendered on one Canvas; no screen groups or DOM logo flood, English dark1440x900."
+    },
+    {
+      "path": "evidence/browser-v1.9.8/desktop-en-dark-nonbank-grouped.jpg",
+      "bytes": 124337,
+      "sha256": "74a22eea59ba7a9a549441436b26fd7231e999b6f0f9b3e17bff339c8ea562a5",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "description": "Optional grouping conserves13,564 source coordinates while showing33screen marks; expanded map and pairedtoolbar."
+    },
+    {
+      "path": "evidence/browser-v1.9.8/mobile-th-dark-all-points.jpg",
+      "bytes": 53091,
+      "sha256": "d54626db2ba2e76119019b73fe354b3aca1cfaa33c3b1d21b363e80b0adc118d",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "description": "Thai dark390x844; all filtered Nonbank coordinates, normal document flow and compact four controls."
+    },
+    {
+      "path": "evidence/browser-v1.9.8/desktop-th-dark-grocery-popup.jpg",
+      "bytes": 130459,
+      "sha256": "cfe9d33fda2302a2f7a4df887b714adeea2049ad858aa02d199c62d8acc9b1ca",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "description": "Thai dark desktop, all 26,336 Grocery point coordinates represented and native pointer selected a real 7-Eleven record with original logo and research/editor actions."
+    },
+    {
+      "path": "evidence/browser-v1.9.8/desktop-en-light-fuel-all.jpg",
+      "bytes": 144183,
+      "sha256": "036233aac8d9d8dd6488a5db163dd5c89c014b8af9861b67fd5aebceb7c5050a",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "description": "English light desktop shows all 4,363 valid fuel source points individually, quieter administrative context, exact own/competitor role colors, and intact paired toolbar."
+    },
+    {
+      "path": "evidence/browser-v1.9.8/mobile-en-light-core-flow.jpg",
+      "bytes": 42045,
+      "sha256": "37815984a4b77d69a64bc3777514611adc914fa0fa62c893e1e9b2dd33e5e319",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "description": "English light mobile viewport: successful native shortlist action, +1 guidance and bottom navigation; normal document flow retains access to opportunity details."
+    }
+  ],
+  "reviewedRuntime": [
+    {
+      "path": "prototype/app.js",
+      "bytes": 79408,
+      "sha256": "a858b5c1352660281c0a9c9f39d93dc2fdb70e967d554504f261a9b00a0c82df"
+    },
+    {
+      "path": "prototype/bootstrap.js",
+      "bytes": 5708,
+      "sha256": "827466d8b7a5e0e44541820574c90fa5fad0a84c1a25f557a225327daff22abe"
+    },
+    {
+      "path": "prototype/industry-workspace.js",
+      "bytes": 24058,
+      "sha256": "780ead7ae7b39c9ec6eed717adcb6977d43468958e776ca7d6522d9435cfae7a"
+    },
+    {
+      "path": "prototype/model.js",
+      "bytes": 35348,
+      "sha256": "c12257c611cd73f86c9212679cbe5081a6431be5a1c28c6081d293e063438094"
+    },
+    {
+      "path": "prototype/supply-treemap.css",
+      "bytes": 8019,
+      "sha256": "098a9af81f52fb1f3888f5d7c0ab66bf3f8bdc6d823a7851e295d8636996726e"
+    },
+    {
+      "path": "prototype/supply-treemap.js",
+      "bytes": 22806,
+      "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+    },
+    {
+      "path": "prototype/workspace-map.css",
+      "bytes": 27363,
+      "sha256": "6deb8c1a01392a444deeade0ed8f9163906f66df8980cc2c2f0e1da932061590"
+    },
+    {
+      "path": "prototype/workspace-map.js",
+      "bytes": 134580,
+      "sha256": "cd237b72cb73804aa684525972a92ac72d7d6e8e6e7caff735ad0b0f8a852bbe"
+    }
+  ],
+  "sourceObservation": {
+    "sha256": "eb6fd65f67ce7becc85da212c1e57567cc60a48f8a9b3bb41fd01ceca8c905ec",
+    "capturedAt": "2026-10-08T17:11:33.806Z",
+    "meaning": "Lossless projection of release owner’s actual frozen current native checks/measurements; not another native execution."
+  }
+}

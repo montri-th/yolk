@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "yolk.release_script_guards/1.0",
+  "version": "1.9.8",
+  "recordedAt": "2026-10-08T17:14:15.336438+00:00",
+  "status": "PASS_BOUNDED_RELEASE_SCRIPT_GUARDS",
+  "checks": 11,
+  "results": [
+    {
+      "id": "release_utility_syntax",
+      "status": "PASS",
+      "details": {
+        "scripts": 10,
+        "interface": "No main function invoked; syntax checks only."
+      }
+    },
+    {
+      "id": "sealer_path_guards",
+      "status": "PASS",
+      "details": {
+        "validPathsAccepted": 1,
+        "invalidPathsRejected": 10,
+        "cases": "empty/root/noncanonical/absolute/traversal/private/backslash paths"
+      }
+    },
+    {
+      "id": "explicit_selection_guards",
+      "status": "PASS",
+      "details": {
+        "selectedFiles": 789,
+        "historicalExplicitPathsPreserved": 758,
+        "selfHashManifestsSelected": 0,
+        "generatedAtSeal": [
+          "contracts/assets.v1.9.8.json"
+        ]
+      }
+    },
+    {
+      "id": "public_runtime_inventory",
+      "status": "PASS",
+      "details": {
+        "runtimeFiles": 319,
+        "unapprovedRuntimePaths": 0,
+        "unusedSyntheticRuntimeFeeds": 0
+      }
+    },
+    {
+      "id": "current_all_point_contract_and_suite_guards",
+      "status": "PASS",
+      "details": {
+        "contract": "contracts/branch-points.v1.9.8.json",
+        "requiredSuites": [
+          "scripts/check-supply-poi-modes.cjs",
+          "scripts/check-unclustered-poi.cjs",
+          "scripts/check-workspace-map.cjs",
+          "scripts/check-map-recovery.cjs",
+          "scripts/check-map-responsiveness.cjs",
+          "scripts/check-workspace-transactions.cjs",
+          "scripts/check-bootstrap-loader.cjs"
+        ],
+        "scope": "Declaration and default policy only; actual rendering/native performance acceptance remains separate."
+      }
+    },
+    {
+      "id": "workflow_current_verifier_and_suites",
+      "status": "PASS",
+      "details": {
+        "verifier": "scripts/verify-pages-v1.9.8.py",
+        "declaredSuites": 37,
+        "retainedSuites": 34,
+        "newSuites": [
+          "scripts/check-bootstrap-loader.cjs",
+          "scripts/check-unclustered-poi.cjs",
+          "scripts/check-workspace-transactions.cjs"
+        ],
+        "artifactPath": "prototype",
+        "scope": "Declaration and path checks only; no workflow/provider execution."
+      }
+    },
+    {
+      "id": "canonical_route_and_counter_guards",
+      "status": "PASS",
+      "details": {
+        "canonicalRoute": "#market",
+        "compatibilityAlias": "#strategy",
+        "primaryCounters": 2,
+        "counterBasis": [
+          "confirmed Demand eligible in administrative scope",
+          "strategy candidates in administrative scope"
+        ],
+        "scope": "Source predicates only; no fresh native rendering claim."
+      }
+    },
+    {
+      "id": "retained_semantic_bytes",
+      "status": "PASS",
+      "details": {
+        "filesCompared": 8,
+        "sameAsRetainedSealed1_9_2": true,
+        "semanticAuthority": "criteria/profile/engine 1.9.0"
+      }
+    },
+    {
+      "id": "retained_analytical_model_outside_display_helpers",
+      "status": "PASS",
+      "details": {
+        "guard": "contracts/model-display-only.v1.9.8.json",
+        "excludedDisplayFunctions": 3,
+        "scope": "Named display and save rollback helpers require fresh current regression/native review; other analytical/storage lines unchanged."
+      }
+    },
+    {
+      "id": "actual_release_query_public_json_emitter",
+      "status": "PASS",
+      "details": {
+        "requests": 24,
+        "source": "Exact current publicJson source executed with recording fetch stub and actual bootstrap/industry/map/hierarchy path declarations",
+        "cacheScope": "Tiny runtime hash manifest no-store; other public JSON browser cache default",
+        "scope": "Source-emitted request inventory only; no HTTP fetch or native-browser request assertion."
+      }
+    },
+    {
+      "id": "retained_registry_and_actual_artwork_urls",
+      "status": "PASS",
+      "details": {
+        "artworkRevision": "1.9.2-owner2",
+        "exactBootstrapRequest": "data/brand-logos.v1.7.json?v=1.9.2-owner2",
+        "distinctActualOwnerPNGRequests": 3,
+        "scope": "Actual retained renderer HTML src/path/hash verification only, not visual/theme certification."
+      }
+    }
+  ],
+  "reviewedFiles": [
+    {
+      "path": "scripts/seal-pages-v1.9.8.py",
+      "bytes": 19966,
+      "sha256": "c9cee7633e9a11473db989ab90fd1b0d4e330a40020f57753beab624487e31ac"
+    },
+    {
+      "path": "scripts/verify-pages-v1.9.8.py",
+      "bytes": 61071,
+      "sha256": "dd7111fc416446bdd6d70bdf27be050c6c1bd1a3c097f00012182d2af6b47265"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.8/release/prepare-live-checks.py",
+      "bytes": 17919,
+      "sha256": "60a4dd1cc623b2e542aeab83ed70b820acecbf6883349b48884ede134fb65f50"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.8/release/run-live-checks.py",
+      "bytes": 1304,
+      "sha256": "9240f3506ac749aa288b1bd713d5dcf93a1540f194f83cbeef811809dbcd3843"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.8/release/package-handoff.py",
+      "bytes": 6722,
+      "sha256": "78f416a6679c74758cf5de982617c7a996fa4bb52d5a4fa9795de6fcbbde6e3e"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.8/release/check-release-guards.py",
+      "bytes": 9689,
+      "sha256": "385b5b7ac163f513a5229deeafb15a6ceededdbae28d50a4aaa3a9211bcf2284"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.8/release/bind-runtime-contract.py",
+      "bytes": 6631,
+      "sha256": "c7028f017518f2ff11b57d9db81bef2736990b2e7869bced9293f34d59cc8cb8"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.8/release/prepare-current-qa.py",
+      "bytes": 12738,
+      "sha256": "3285e5f7f26a68bf0455fdd9fdaf091c0318adc21ff9ef8fef33daff48cf9ab1"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.8/release/run-current-suites.py",
+      "bytes": 4456,
+      "sha256": "f8294bd45ff6dbd720e1caa0e4b6244be704fed0bf3a72b2afde59ce19b6a549"
+    },
+    {
+      "path": "../deliverables/yolk-v1.9.8/release/finalize-docs.py",
+      "bytes": 20213,
+      "sha256": "726e92b8b8a9187bc9c3de29cffdae3b5fa96e370ad5fc3470fdb78f126b3f77"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "bytes": 2768,
+      "sha256": "26880b835beb2dc25dd6fcc926f394d461fafe3ad53964fda497564eb705aeea"
+    }
+  ],
+  "selection": {
+    "path": "contracts/public-copy-selection.v1.9.8.json",
+    "sha256": "c306b8221543abc4dc7c972b3f15177d0548c2d4af43de2d6c5dcb2f71142754"
+  },
+  "scope": "Read-only syntax, explicit-public inventory, current workflow verifier/suite declarations and sealer guard checks, current route/two-counter source predicates, retained semantic byte hashes and actual emitted artwork URL extraction. No sealed artifact verification, workflow/provider/live fetch, native-browser or deployment assertion.",
+  "notVerified": [
+    "Final full-document consistency",
+    "Final integrated/native receipts",
+    "Actual current sealed public manifest",
+    "Actual workflow/provider execution and live bytes",
+    "ZIP package and attachment"
+  ],
+  "publication": "not_performed"
+}

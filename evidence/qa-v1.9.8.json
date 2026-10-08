@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "yolk.integrated_qa/1.9",
+  "version": "1.9.8",
+  "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "reviewedAt": "2026-10-08T17:11:49.018046+00:00",
+  "automated": {
+    "status": "PASS",
+    "suites": 37,
+    "reportedPassedCases": 627,
+    "receipt": "evidence/automated-v1.9.8.json",
+    "receiptSha256": "9656df9e62c20ca69c39c81b54092bc550c8ed9651d3cf2d96ab7a7543959daf",
+    "meaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.8; no imported prior results."
+  },
+  "nativeBrowser": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "checks": 17,
+    "receipt": "evidence/browser-v1.9.8/native-browser-review.json",
+    "receiptSha256": "23a6c1e2a85d9e03290f87478c6d49a68a62645ba10a5138cb3a1a0cbd27a06b",
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.8/desktop-en-dark-nonbank-all.jpg",
+        "bytes": 145853,
+        "sha256": "3b1ac99775452edb39c169c52de323671a93581438f0a651e01ead7e5b182bbe",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        },
+        "description": "13,564 original coordinate positions individually rendered on one Canvas; no screen groups or DOM logo flood, English dark1440x900."
+      },
+      {
+        "path": "evidence/browser-v1.9.8/desktop-en-dark-nonbank-grouped.jpg",
+        "bytes": 124337,
+        "sha256": "74a22eea59ba7a9a549441436b26fd7231e999b6f0f9b3e17bff339c8ea562a5",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        },
+        "description": "Optional grouping conserves13,564 source coordinates while showing33screen marks; expanded map and pairedtoolbar."
+      },
+      {
+        "path": "evidence/browser-v1.9.8/mobile-th-dark-all-points.jpg",
+        "bytes": 53091,
+        "sha256": "d54626db2ba2e76119019b73fe354b3aca1cfaa33c3b1d21b363e80b0adc118d",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "height": 844,
+          "width": 390
+        },
+        "description": "Thai dark390x844; all filtered Nonbank coordinates, normal document flow and compact four controls."
+      },
+      {
+        "path": "evidence/browser-v1.9.8/desktop-th-dark-grocery-popup.jpg",
+        "bytes": 130459,
+        "sha256": "cfe9d33fda2302a2f7a4df887b714adeea2049ad858aa02d199c62d8acc9b1ca",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        },
+        "description": "Thai dark desktop, all 26,336 Grocery point coordinates represented and native pointer selected a real 7-Eleven record with original logo and research/editor actions."
+      },
+      {
+        "path": "evidence/browser-v1.9.8/desktop-en-light-fuel-all.jpg",
+        "bytes": 144183,
+        "sha256": "036233aac8d9d8dd6488a5db163dd5c89c014b8af9861b67fd5aebceb7c5050a",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        },
+        "description": "English light desktop shows all 4,363 valid fuel source points individually, quieter administrative context, exact own/competitor role colors, and intact paired toolbar."
+      },
+      {
+        "path": "evidence/browser-v1.9.8/mobile-en-light-core-flow.jpg",
+        "bytes": 42045,
+        "sha256": "37815984a4b77d69a64bc3777514611adc914fa0fa62c893e1e9b2dd33e5e319",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "height": 844,
+          "width": 390
+        },
+        "description": "English light mobile viewport: successful native shortlist action, +1 guidance and bottom navigation; normal document flow retains access to opportunity details."
+      }
+    ],
+    "fullLanguageThemeDeviceMatrix": false,
+    "physicalDevices": "unverified"
+  },
+  "designSystemPackage": {
+    "version": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "checks": 9768,
+    "warnings": 65,
+    "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+    "receipt": "evidence/lds-package-verification.v1.9.8.json",
+    "receiptSha256": "318f7150f5de40d3d26bd0e1df2a7767fbb0e50189562597fddc01dc8a892f55",
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+    "artifactAndAccountTeamCertification": false
+  },
+  "semanticBoundary": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0",
+    "analyticalPaint": "Existing analytical colors/opacity/Tiers retained; retained identified own branch-share display uses exact LDS li.market_share41 with fixed0..100 domain. Count maps keep original national quantiles. Contrast is stroke-only underlay; Demand/Opportunity icons are mnemonics. Source counts, screening and ranking are unchanged.",
+    "supplyInventoryReview": {
+      "passed": true,
+      "checkIds": [
+        "supply-share-treemap",
+        "boundary-tooltip-keyboard",
+        "province-drill"
+      ]
+    },
+    "visualRefinementReview": {
+      "passed": true,
+      "checkIds": [
+        "th-en-theme-review",
+        "mobile-flow",
+        "expanded-tile-coverage"
+      ]
+    }
+  },
+  "publication": "not_performed_by_this_local_QA_receipt",
+  "limits": [
+    "Physical iPhone/Android touch and Safari unverified",
+    "Complete brand/language/theme/device matrix unverified",
+    "Actual screen-reader speech, zoom and all-boundary hover coverage unverified",
+    "Provider/tile/StreetView/Google AI availability requires separate current evidence",
+    "Shared backend/auth/RBAC/outbox/private media not implemented in static preview"
+  ],
+  "scope": "Fresh complete current workflow suites and lossless root-owned current boundary/icon plus Supply count/share/treemap observations and their exact actual JPEG list. One tested boundary hover does not prove all-boundary coverage. Package parity remains separate from rendered artifact/account/team certification."
+}

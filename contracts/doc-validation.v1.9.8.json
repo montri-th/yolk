@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "yolk.document_validation/1.9",
+  "version": "1.9.8",
+  "recordedAt": "2026-10-08T17:14:27.941302+00:00",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 3,
+  "tasks": 25,
+  "metrics": 25,
+  "brandBindings": 37,
+  "guideStrategies": 8,
+  "checks": [
+    {
+      "name": "Three complete JSON blocks parse; embedded current full blueprint exactly matches standalone",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: source",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: profiles",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: demand",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: supply",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: ranking",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: opportunity",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: production",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: api",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: schemas",
+      "passed": true
+    },
+    {
+      "name": "Retained boundary/egg identity, desktop/mobile flow, guide/expansion projections remain unchanged",
+      "passed": true
+    },
+    {
+      "name": "Current Supply source arithmetic/coverage/palette unchanged",
+      "passed": true
+    },
+    {
+      "name": "Current Supply and visual-refinement full projections match standalone",
+      "passed": true
+    },
+    {
+      "name": "Exact original DS quantitative map palette remains41 fixed0..100",
+      "passed": true
+    },
+    {
+      "name": "Current brand-color registry and runtime SHA bound to actual native review",
+      "passed": true
+    },
+    {
+      "name": "25 bounded complete tasks and ordered dependencies retained",
+      "passed": true
+    },
+    {
+      "name": "Current actual suite/native totals reconcile",
+      "passed": true
+    },
+    {
+      "name": "Current QA projection exactly matches full/release/handoff",
+      "passed": true
+    },
+    {
+      "name": "Publication remains pending after local QA",
+      "passed": true
+    },
+    {
+      "name": "Actual full-document local links resolve",
+      "passed": true
+    },
+    {
+      "name": "Current package-only evidence remains actual/bounded/SHA-bound",
+      "passed": true
+    },
+    {
+      "name": "Current all-point/default/group/performance contract is final and source/native bound",
+      "passed": true
+    },
+    {
+      "name": "Current patch contracts are final with actual native check-ID references",
+      "passed": true
+    }
+  ],
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.8.md",
+    "sha256": "046c1fdaba7dea6e426f251b6086252367cd011ddc267ed3b46bf0ceaf362ee2"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.8.json",
+    "sha256": "76f0db18f9e84ee31e9c8fea4de6f81d36b7c08adbb9a932fc23a4e2c144f42d"
+  },
+  "narrativeRegistry": {
+    "path": "prototype/data/strategy-guide.v1.9.3.json",
+    "sha256": "04aad69b6b3ec79cfae0923a6b743ce9807c1ce63798d04a15e58ec7775ad080"
+  },
+  "mapReadabilityContract": {
+    "path": "contracts/map-readability.v1.9.6.json",
+    "sha256": "89553b810dd166ff0ce21e30cdabe4b241597f2bf3154201dc6f3b881c89e161"
+  },
+  "supplyInventoryContract": {
+    "path": "contracts/supply-inventory.v1.9.8.json",
+    "sha256": "a8f655b0203832da1921319d7706fe953bd0e48b9b3c144406fe18c81cadea66"
+  },
+  "visualRefinementContract": {
+    "path": "contracts/visual-refinement.v1.9.8.json",
+    "sha256": "dfb7eca9b8d2e99dddde6871f694f56a3cc62419cbf003807849233d0b92221f"
+  },
+  "brandColorRegistry": {
+    "path": "prototype/supply-treemap.js",
+    "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+  },
+  "currentRuntimeAcceptance": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "nativeAcceptance": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "branchPointsContract": {
+    "path": "contracts/branch-points.v1.9.8.json",
+    "sha256": "6af417c28dc165bf5d12510f80790688d1dc2db808be00f6830621c41f96ea50"
+  },
+  "sourceQAReceipt": {
+    "path": "evidence/qa-v1.9.8.json",
+    "sha256": "e0b9de130059631023efff3667846ccd8315cd6914c69abec3da90edcafb1884"
+  },
+  "nativeReceipt": {
+    "path": "evidence/browser-v1.9.8/native-browser-review.json",
+    "sha256": "23a6c1e2a85d9e03290f87478c6d49a68a62645ba10a5138cb3a1a0cbd27a06b"
+  },
+  "coverageBoundary": "Current complete document/contracts/refinement and actual fresh receipts only; package parity, prior history, provider/live/publication, ZIP, full matrix, physical devices and production backend remain separate."
+}

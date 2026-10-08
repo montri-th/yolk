@@ -1,0 +1,396 @@
+{
+  "schemaVersion": "yolk.branch_points/1.9.8",
+  "version": "1.9.8",
+  "date": "2026-10-08",
+  "status": "final_runtime_values_current_QA_bound",
+  "scope": "Display all filtered valid branch coordinates by default, optional screen grouping, efficient rendering and bounded whole-site usability/performance review. Source and analytical semantics unchanged.",
+  "extends": [
+    "contracts/visual-refinement.v1.9.7.json",
+    "contracts/supply-inventory.v1.9.7.json",
+    "contracts/mobile-flow.v1.9.5.json",
+    "contracts/interaction-guidance.v1.9.1.json"
+  ],
+  "retainedVersions": {
+    "criteria": "1.9.0",
+    "profiles": "1.9.0",
+    "engine": "1.9.0",
+    "strategies": "1.9.0",
+    "DS": "0.9.7"
+  },
+  "invariants": {
+    "nationalBenchmarkUnchanged": true,
+    "demandTierAndEligibleIdsUnchanged": true,
+    "supplyCriteriaAndRankingUnchanged": true,
+    "sourceCountsAndCoverageUnchanged": true,
+    "nativeAdministrativeTotalsSeparateFromViewportPoints": true,
+    "sourceCoordinatesUnchanged": true,
+    "samePersistentMap": true,
+    "permittedCameraAndNavigationPreserved": true,
+    "savedCriteriaAndDraftsPreserved": true,
+    "originalBrandArtworkBytesUnchanged": true,
+    "mobileDocumentFlowPreserved": true,
+    "noSourceWriteOrTeamEvent": true
+  },
+  "defaultView": {
+    "supply": "regions",
+    "branchPoints": "all_filtered_valid_coordinates",
+    "screenGrouping": false,
+    "pointTruncation": false,
+    "scope": "All applicable coordinate records after current administrative/brand/format/relation/source status filters; offscreen culling is rendering only, not inventory truncation."
+  },
+  "rendering": {
+    "status": "runtime_confirmed",
+    "implementation": "One DOM Canvas and three offscreen12px role sprites at DPR clamped1..2, keyed by DPR and exact theme paper/own/competitor/unverified tokens. Every original coordinate uses cached drawImage; per-point WeakMap projection cache tracks lat/lng/zoom, current filters/viewport culling and requestAnimationFrame redraw coalescing. Lazy native popup retains existing actions.",
+    "canvasAtCountry": true,
+    "detailedBrandLogosAndPopupActionsPreserved": true,
+    "stableSourceCoordinates": true,
+    "duplicateDiscovery": "20px screen-hit bins with9px nearby selection; exact/near-screen overlaps use12-row paged chooser at actual coordinates, preserving every source member without spread/jitter. Optional groups at maximum zoom/coincident positions also expose all members through this chooser.",
+    "stateDiagnostics": "Panel DOM point mode/renderer/represented and Canvas records/draw milliseconds/sprite count/frame count are source diagnostics; actual performance claims require current measured receipt.",
+    "contextGuards": "Context/filter/loading/stale guards reset represented/display summaries to explicit zeros; popup source filter/language/revision is refreshed before actions.",
+    "detailPolicy": "Detailed original DOM logo pins only when zoom >=13 and visible records <=120; all applicable records remain represented. This detail threshold is not an inventory/point truncation cap.",
+    "popupPolicy": "Lazy native popup retains original artwork/name/role and StreetView/Google AI/branch actions under existing context guards. Once-per-popup-element capture delegation handles page/back/detail/View branch actions despite Leaflet event propagation; panel fallback supports adapters.",
+    "coordinateFilter": "Retain existing industry, administrative scope, party, source status and viewport predicates; viewport is visual only, native administrative vectors remain independent.",
+    "popupPlacement": "Dedicated Leaflet workspaceBranchPoints pane450 below markers600/tooltip650/popup700; each draw uses public containerPointToLayerPoint([0,0]) and DomUtil.setPosition to cancel pane translation. Native popup autoPan:false; maxHeight=max(140,min(360,hostHeight-72)); next animation frame fits8px host margins using public popup.options.offset and popup.update. Chooser list maxHeight260px scrolls while page footer remains outside. UI box offset only: source coordinates/camera unchanged."
+  },
+  "optionalGrouping": {
+    "status": "runtime_confirmed",
+    "controlLocation": "Map Options",
+    "default": false,
+    "meaning": "Optional screen-space display grouping only; preserve all members and party counts. Never infer physical clusters, market demand or attraction from screen groups.",
+    "api": "setPointMode('groups')",
+    "selection": "Map Options select with all as default; personal display state only",
+    "gridCellPixels": 56,
+    "memberConservation": true
+  },
+  "performance": {
+    "status": "bounded_current_measured_evidence",
+    "scope": "Fresh workflow regressions plus actual native load/render/interaction timings and core journeys under recorded browser, viewport and dataset. Separate measurements from guarantees and browser/device/network limits.",
+    "coreJourneys": [
+      "Expansion opportunities and reasons/guide",
+      "Demand and criteria draft/apply",
+      "Supply regions/all points/grouped points/filter/popup",
+      "Shortlist save/duplicate handling",
+      "Theme/language/navigation",
+      "Normal mobile page scroll and map Expand/Compact/retry"
+    ],
+    "benchmarks": [
+      {
+        "name": "Startup to initial app render",
+        "durationMs": 883.3,
+        "environment": "Native Chrome on user computer, localhost,1440×900; recorded release-scoped public dataset state",
+        "scope": "Bootstrap begin→initial application render; excludes deferred boundaries, tileprovider latency and on-demandPOI."
+      },
+      {
+        "name": "Nonbank all-points Canvas paint",
+        "durationMs": 30.9,
+        "environment": "Native Chrome1440×900 on user computer; finalcd237 sprite renderer",
+        "scope": "One completed Canvas redraw of13,564filtered visible original coordinates;3cached sprites, noDOMmarkers. Not total interaction latency/FPS/SLA."
+      },
+      {
+        "name": "Grocery all-points Canvas paint",
+        "durationMs": 51,
+        "environment": "Native Chrome1440×900 on user computer; finalcd237 sprite renderer",
+        "scope": "One completed Canvas redraw of26,336filtered visible original coordinates; noDOMmarkers. Not entire source27,457valid coordinates because selectedscope/viewport applies."
+      },
+      {
+        "name": "Fuel all-points Canvas paint",
+        "durationMs": 5.2,
+        "environment": "Native Chrome1440×900 light on user computer",
+        "scope": "One completed Canvas redraw of4363valid filtered visible fuel coordinates."
+      },
+      {
+        "name": "Mobile viewport Nonbank Canvas paint",
+        "durationMs": 49.3,
+        "environment": "Native Chrome390×844 viewport override on same desktop computer",
+        "scope": "One completed redraw of13,564points; does not measure physicaliPhone/Android hardware or touchFPS."
+      }
+    ],
+    "deviceAndBrowserLimits": "Physical devices, Safari, complete matrix, all providers and production backend remain separate unverified gates.",
+    "loadPolicy": "Release-query-scoped public JSON cache; download runtime scripts concurrently but execute in declared dependency order. Verify actual load behavior/timings rather than promise network-independent speed.",
+    "wholeSiteReview": {
+      "passed": true,
+      "checkIds": [
+        "editor-prefill",
+        "shortlist-guidance",
+        "target-save-draft",
+        "province-drill",
+        "console-clean"
+      ]
+    },
+    "review": {
+      "passed": true,
+      "checkIds": [
+        "startup-cache",
+        "nonbank-all-points",
+        "grocery-all-points",
+        "expanded-tile-coverage"
+      ]
+    }
+  },
+  "runtimeFiles": [
+    "prototype/workspace-map.js",
+    "prototype/workspace-map.css",
+    "prototype/bootstrap.js",
+    "prototype/industry-workspace.js",
+    "prototype/model.js",
+    "prototype/app.js"
+  ],
+  "runtimeSources": [
+    {
+      "path": "prototype/workspace-map.js",
+      "bytes": 134580,
+      "sha256": "cd237b72cb73804aa684525972a92ac72d7d6e8e6e7caff735ad0b0f8a852bbe"
+    },
+    {
+      "path": "prototype/workspace-map.css",
+      "bytes": 27363,
+      "sha256": "6deb8c1a01392a444deeade0ed8f9163906f66df8980cc2c2f0e1da932061590"
+    },
+    {
+      "path": "prototype/bootstrap.js",
+      "bytes": 5708,
+      "sha256": "827466d8b7a5e0e44541820574c90fa5fad0a84c1a25f557a225327daff22abe"
+    },
+    {
+      "path": "prototype/industry-workspace.js",
+      "bytes": 24058,
+      "sha256": "780ead7ae7b39c9ec6eed717adcb6977d43468958e776ca7d6522d9435cfae7a"
+    },
+    {
+      "path": "prototype/model.js",
+      "bytes": 35348,
+      "sha256": "c12257c611cd73f86c9212679cbe5081a6431be5a1c28c6081d293e063438094"
+    },
+    {
+      "path": "prototype/app.js",
+      "bytes": 79408,
+      "sha256": "a858b5c1352660281c0a9c9f39d93dc2fdb70e967d554504f261a9b00a0c82df"
+    }
+  ],
+  "requiredSuites": [
+    "scripts/check-supply-poi-modes.cjs",
+    "scripts/check-unclustered-poi.cjs",
+    "scripts/check-workspace-map.cjs",
+    "scripts/check-map-recovery.cjs",
+    "scripts/check-map-responsiveness.cjs",
+    "scripts/check-workspace-transactions.cjs",
+    "scripts/check-bootstrap-loader.cjs"
+  ],
+  "acceptance": [
+    "Supply opens in Region colours; Branch points defaults to every filtered valid source coordinate without screen clustering or an arbitrary marker cap.",
+    "Optional screen grouping lives in Map Options, preserves every member/count and never changes source coordinates or native administrative totals.",
+    "Country point rendering is efficient; detailed original logos, readable names, role cues and existing popup actions remain available where appropriate.",
+    "Coincident/overlapping records remain discoverable without moving their source coordinates.",
+    "Filter/context/theme/route/resize updates retain map instance, permitted camera, drafts and source semantics; stale draw or popup work cannot overwrite a newer context.",
+    "Actual core journeys and load/render/interaction timings are recorded with environment, dataset and limits; no zero-bug, all-device, all-network or backend guarantee.",
+    "Actual TH/EN, light/dark, desktop/narrow all/grouped points and popup content are reviewed; old screenshots and test counts are not current acceptance.",
+    "Release-query public JSON caching and concurrent script download preserve declared execution order, late-context guards and source-byte semantics.",
+    "Failed browser-local persistence restores prior overlays/target/event state, keeps editable drafts and emits no false save success.",
+    "Actual native pointer clicks operate close/page/back/detail/View branch controls inside the visible popup; Canvas must remain below popupPane and popup content must fit or scroll within the actual host. Keyboard-only or Node click dispatch is not pointer/placement acceptance."
+  ],
+  "verification": {
+    "integrated": {
+      "status": "PASS",
+      "receipt": "evidence/automated-v1.9.8.json",
+      "receiptSha256": "9656df9e62c20ca69c39c81b54092bc550c8ed9651d3cf2d96ab7a7543959daf",
+      "requiredSuiteResults": [
+        {
+          "suite": "scripts/check-bootstrap-loader.cjs",
+          "testedAt": "2026-10-08T17:01:01.282854+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "e4ce7dd3e76d74f1f926dfb0c85acf7a7adb81d69c90e974ee00884114bac9df",
+          "outputSha256": "175872f82f49f44616f0a1195f3535fc95bcffe17c6c82bf53755e38d15e9809",
+          "passLines": 7,
+          "checks": 7,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-bootstrap-loader.log"
+        },
+        {
+          "suite": "scripts/check-map-recovery.cjs",
+          "testedAt": "2026-10-08T17:01:19.671203+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "48befad8b97a3541a1d9d66cd6a80361c68812f0d780d9467123804f742cab1d",
+          "outputSha256": "567cf265118d8283568981b2965f885b942a7a063c762e4e9f2c4976878cadce",
+          "passLines": 16,
+          "checks": 16,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-map-recovery.log"
+        },
+        {
+          "suite": "scripts/check-map-responsiveness.cjs",
+          "testedAt": "2026-10-08T17:00:37.695923+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "86aa0d48eab20cb15658e093d65d3d1cab9c0d152332ea6eef6882b9d15006ef",
+          "outputSha256": "a11c3bd242728496213e13dbe6927e0f0f1faa64a2762ab35b5d531128590b22",
+          "passLines": 20,
+          "checks": 20,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-map-responsiveness.log"
+        },
+        {
+          "suite": "scripts/check-supply-poi-modes.cjs",
+          "testedAt": "2026-10-08T17:00:51.353486+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "f38b8ce314f8c30afb6cfd531aeef7367bedf7dde35e6cbaf8bd64f8c00c1d1c",
+          "outputSha256": "cda18a628e95a10fb5da907c71b471cdd8971513c5c74d836cf58e08336ef648",
+          "passLines": 9,
+          "checks": 9,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-supply-poi-modes.log"
+        },
+        {
+          "suite": "scripts/check-unclustered-poi.cjs",
+          "testedAt": "2026-10-08T17:00:54.318753+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "57d5cb8805bf08964a8a6b6c313ad1b787557eac9cdc4dbd2172d6cdb07a29c9",
+          "outputSha256": "ff1a34da0f1e77741e8016ebf266364e781c0f7da3e553f06d6897470ee40731",
+          "passLines": 12,
+          "checks": 12,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-unclustered-poi.log"
+        },
+        {
+          "suite": "scripts/check-workspace-map.cjs",
+          "testedAt": "2026-10-08T17:00:32.086542+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "a9b7c5ca511b71f590cad431f9ce05962a89659ceebd32409a096a9839aa0f06",
+          "outputSha256": "f1ab6c324ef3bf251bc77bb5f7cc8fcbe0ba985395f66edb6898b481f9a40e0c",
+          "passLines": 28,
+          "checks": 28,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-workspace-map.log"
+        },
+        {
+          "suite": "scripts/check-workspace-transactions.cjs",
+          "testedAt": "2026-10-08T17:00:59.320463+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "ffe17b522258f1ebb89110b3eae39401638eb88824f587e0928d88909fbe1f6f",
+          "outputSha256": "7e5e42311c2e7c710827220ca9a5bd7edb078284e7e2d61fe2699fe1c3321a83",
+          "passLines": 8,
+          "checks": 8,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "../deliverables/yolk-v1.9.8/automated/check-workspace-transactions.log"
+        }
+      ]
+    },
+    "native": {
+      "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "receipt": "evidence/browser-v1.9.8/native-browser-review.json",
+      "receiptSha256": "23a6c1e2a85d9e03290f87478c6d49a68a62645ba10a5138cb3a1a0cbd27a06b",
+      "review": {
+        "passed": true,
+        "checkIds": [
+          "nonbank-all-points",
+          "optional-groups",
+          "popup-pane-pointer",
+          "nearby-chooser",
+          "grocery-all-points",
+          "fuel-all-points"
+        ]
+      }
+    },
+    "publication": "not_performed_by_contract"
+  },
+  "failureHandling": {
+    "status": "current_QA_bound",
+    "scope": "Browser-local persistence failures",
+    "policy": "Failed writes restore prior local overlays/target/event state, retain editable draft and show readable failure without success notification. This is static preview failure handling, not shared backend transactions."
+  },
+  "api": {
+    "setPointMode": "setPointMode('all'|'groups')",
+    "getPointMode": "getPointMode() defaults all",
+    "state": "getState().pointMode; pointLimit(null in all,1000 in groups), groupPointLimit1000, detailPointLimit120; pointCanvas {records,lastDrawMs,frames,pending,epoch}; overlap {total,page,pageSize12}; points {total,shown,represented,clusters,coordinateState,cellPx,mode,renderer,detailMarks,canvasMarks,overlapGroups}",
+    "modeMeaning": "all = all filtered valid coordinates; groups = explicit optional screen-space groups"
+  },
+  "nativeEvidence": {
+    "review": {
+      "passed": true,
+      "checkIds": [
+        "nonbank-all-points",
+        "optional-groups",
+        "popup-pane-pointer",
+        "nearby-chooser",
+        "grocery-all-points",
+        "fuel-all-points"
+      ]
+    },
+    "checks": [
+      {
+        "id": "nonbank-all-points",
+        "passed": true,
+        "observation": "Final sprite Canvas represented every13,564 filtered visible Nonbank point, markCount=recordCount13564,3role sprites,0DOMmarkers, no screen groups.",
+        "status": "PASS"
+      },
+      {
+        "id": "optional-groups",
+        "passed": true,
+        "observation": "Native Map Options all→groups→all preserved13,564 coordinate records; grouping rendered33screen marks and remained opt-in.",
+        "status": "PASS"
+      },
+      {
+        "id": "popup-pane-pointer",
+        "passed": true,
+        "observation": "Final pane450 and8px host fit: real native pointer clicked a nearby Muangthai record, opened original logo/research/editor actions; popup top177 within map host top169, Canvas no longer overlays controls.",
+        "status": "PASS"
+      },
+      {
+        "id": "nearby-chooser",
+        "passed": true,
+        "observation": "Native Home/Enter exposed nearby records with12 visible rows and pagination, preserving original coordinates; Grocery chooser6070 candidates opened first7-Eleven by pointer. Complete241duplicate-page conservation separately covered by automated suite.",
+        "status": "PASS"
+      },
+      {
+        "id": "grocery-all-points",
+        "passed": true,
+        "observation": "Grocery C_STORE source switch completed; every26,336 filtered visible record drawn on one Canvas, markCount=recordCount26336,0DOMmarkers; real7-Eleven popup original logo/actions worked.",
+        "status": "PASS"
+      },
+      {
+        "id": "fuel-all-points",
+        "passed": true,
+        "observation": "Fuel switch completed, stale Grocery popup cleared, Country reset represented4363valid points individually; light theme loaded all observed basemap tiles,0missing.",
+        "status": "PASS"
+      }
+    ],
+    "runtimeFiles": [
+      {
+        "path": "prototype/app.js",
+        "bytes": 79408,
+        "sha256": "a858b5c1352660281c0a9c9f39d93dc2fdb70e967d554504f261a9b00a0c82df"
+      },
+      {
+        "path": "prototype/bootstrap.js",
+        "bytes": 5708,
+        "sha256": "827466d8b7a5e0e44541820574c90fa5fad0a84c1a25f557a225327daff22abe"
+      },
+      {
+        "path": "prototype/industry-workspace.js",
+        "bytes": 24058,
+        "sha256": "780ead7ae7b39c9ec6eed717adcb6977d43468958e776ca7d6522d9435cfae7a"
+      },
+      {
+        "path": "prototype/model.js",
+        "bytes": 35348,
+        "sha256": "c12257c611cd73f86c9212679cbe5081a6431be5a1c28c6081d293e063438094"
+      },
+      {
+        "path": "prototype/workspace-map.css",
+        "bytes": 27363,
+        "sha256": "6deb8c1a01392a444deeade0ed8f9163906f66df8980cc2c2f0e1da932061590"
+      },
+      {
+        "path": "prototype/workspace-map.js",
+        "bytes": 134580,
+        "sha256": "cd237b72cb73804aa684525972a92ac72d7d6e8e6e7caff735ad0b0f8a852bbe"
+      }
+    ],
+    "coverageBoundary": "Observed current browser/viewport/dataset only; no all-device, all-provider, universal performance or zero-bug guarantee."
+  }
+}

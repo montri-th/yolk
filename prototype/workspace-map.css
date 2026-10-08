@@ -227,3 +227,19 @@ html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .lea
  .workspace-map-tools:has(.workspace-supply-view:not([hidden])) .yl-icon{font-size:18px}
  .workspace-map-tools [data-workspace-supply-view-caption]{overflow-wrap:anywhere}
 }
+
+/* One shared Canvas paints every original coordinate. Shapes supplement party color;
+ * source counts and quantitative choropleth colors are independent of these marks. */
+.workspace-point-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;touch-action:auto;background:transparent}
+.workspace-point-canvas[hidden]{display:none}
+.workspace-point-canvas:focus-visible{outline:3px solid var(--yl-focus);outline-offset:-3px}
+.workspace-map-legend .workspace-point-cue{width:8px;height:8px;flex:0 0 8px;border:1px solid var(--paper);background:var(--workspace-own);border-radius:50%}
+.workspace-map-legend .workspace-point-cue-competitor{background:var(--workspace-competitor);border-radius:0;transform:rotate(45deg)}
+.workspace-map-legend .workspace-point-cue-unverified{background:var(--workspace-unverified);border-radius:0}
+.workspace-overlap-pages{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;font-size:12px;flex-wrap:wrap}
+.workspace-overlap-pages button,.workspace-overlap-back{min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--ink);padding:6px 9px;font:500 13px/1.45 'Bai Jamjuree',sans-serif}
+.workspace-overlap-pages button:disabled{color:var(--muted);cursor:default}
+.workspace-overlap-back{width:100%;margin-bottom:8px;text-align:start}
+.workspace-map-options [data-workspace-point-mode-label][hidden]{display:none}
+
+.workspace-map-panel .workspace-overlap-popup .workspace-cluster-list{max-height:260px;overflow:auto;overscroll-behavior:auto}

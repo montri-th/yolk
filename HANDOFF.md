@@ -1,6 +1,8 @@
-# Current handoff · Yolk1.9.7 · current bounded local review complete
+# Current handoff · Yolk1.9.8 · current bounded local review complete
 
-Read [current handoff](HANDOFF_v1.9.7.md), [full product/from-scratch implementation](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.7.md), [visual refinement](contracts/visual-refinement.v1.9.7.json) and [release](contracts/release.v1.9.7.json). Current bounded1.9.7 QA/native passed; publication/provider/live pending. Historical text below is reference only.
+Current v1.9.8 makes Branch points show every filtered valid coordinate by default, with optional screen grouping in Map Options. It also prepares efficient rendering/load and failed local-save rollback; current bounded core-journey and performance evidence is recorded. Read [the current contract](contracts/branch-points.v1.9.8.json).
+
+Read [current handoff](HANDOFF_v1.9.8.md), [full product/from-scratch implementation](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.8.md), [visual refinement](contracts/visual-refinement.v1.9.8.json) and [release](contracts/release.v1.9.8.json). Current bounded v1.9.8 QA/native/core-journey/performance evidence recorded; provider/live/ZIP evidence pending.
 
 ---
 
@@ -52,3 +54,7 @@ QA รุ่น1.9.2 ผ่าน 29 suites / 506 checks และ native review
 ## Mobile document flow 1.9.5
 
 Read [mobile-flow contract](contracts/mobile-flow.v1.9.5.json). Narrow-screen page scroll must reveal the work panel after the map in normal document flow; keep the same map/camera/drafts and desktop map-space1.9.4. Fresh 1.9.5 QA/native/provider/live receipts are required; historical passes are not current acceptance.
+
+## Current Branch points and performance v1.9.8
+
+Read [branch-points.v1.9.8.json](contracts/branch-points.v1.9.8.json). Branch points defaults to all filtered valid coordinates without automatic groups/caps; optional grouping lives in Map Options and preserves every source member. Native administrative totals remain direct-source, independent of viewport markers. Retain Canvas efficiency, detailed original artwork/popups, duplicate discovery, saved work, permitted camera and mobile flow. Fresh core journeys and environment-bound load/render timings are required; record observed limits without universal smoothness or no-bug claims. Current bounded QA/native/performance acceptance is source-bound; provider/live/ZIP acceptance remains pending.
