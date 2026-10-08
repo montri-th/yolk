@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "yolk.map_space/1.9.4",
+  "version": "1.9.4",
+  "date": "2026-10-08",
+  "status": "final_runtime_values_current_QA_bound",
+  "scope": "Bounded presentation patch for more visible map space; no criteria, sources, strategy, artwork or analytical-color migration.",
+  "extends": [
+    "contracts/expansion-experience.v1.9.3.json",
+    "contracts/workspace-map.v1.7.json"
+  ],
+  "retainedVersions": {
+    "criteria": "1.9.0",
+    "profiles": "1.9.0",
+    "strategyEngine": "1.9.0",
+    "interaction": "1.9.1",
+    "brandIdentityUI": "1.9.2",
+    "strategyGuide": "1.9.3",
+    "DS": "0.9.7"
+  },
+  "invariants": {
+    "nationalBenchmarkUnchanged": true,
+    "demandMembershipUnchanged": true,
+    "supplyTotalsUnchanged": true,
+    "savedCriteriaAndDraftsPreserved": true,
+    "samePersistentMap": true,
+    "analyticalColorAndOpacityUnchanged": true,
+    "originalBrandAssetsUnchanged": true,
+    "guideRegistryUnchanged": true,
+    "personalDisplayOnly": true
+  },
+  "layout": {
+    "desktopBreakpointMinPx": 1100,
+    "sidebar": {
+      "collapsedWidthPx": 96,
+      "expandedWidthPx": 248,
+      "expandedMode": "overlay; shell and map host width unchanged",
+      "captions": "short visible caption plus full accessible label",
+      "toggle": "explicit toggle and Escape focus restoration"
+    },
+    "workPane": {
+      "desktopWidthPx": 340,
+      "mobile": "below persistent map",
+      "headingPolicy": "Page and criteria headings occupy the full340px pane column before action controls; actual sampled title width304px."
+    },
+    "globalHeader": {
+      "desktopHeightPx": 72,
+      "officialIdentity": {
+        "desktopOnlyWidthPx": 148,
+        "mobileHeaderDuplicate": false,
+        "mobileIdentityLocation": "Existing settings menu; original logo and proportions retained."
+      }
+    },
+    "mapHeader": {
+      "desktopToolbarMinHeightPx": 64,
+      "mobileToolbarMinHeightPx": 60,
+      "navigationRowMinHeightPx": 44,
+      "mobileSupplyModeExtraRowMinHeightPx": 44,
+      "auxiliaryControls": "Map options disclosure retains caption, party toggles, views and basemap"
+    },
+    "mapFooter": {
+      "minHeightPx": 44,
+      "desktopMaxHeightPx": 200,
+      "mobileMaxHeightPx": 180,
+      "units": "dataset metric unit and denominator remain visible; quantitative legends naturally wrap",
+      "evidence": "44px info disclosure retains source counts, notes and coverage",
+      "evidenceIcon": {
+        "glyph": "help",
+        "retainedSubset": "contracts/icons.v1.8.0.json",
+        "fallback": "?",
+        "meaning": "Source, coverage and notes disclosure; not a new DS glyph"
+      }
+    },
+    "mobile": {
+      "panelHeight": "clamp(420px,80svh,800px)",
+      "allRoutesSamePanelHeight": true,
+      "expandedOverrideRetained": "min(760px,calc(100svh - 88px - env(safe-area-inset-bottom,0px)))"
+    }
+  },
+  "acceptance": [
+    "More actual basemap canvas at desktop and narrow widths, measured in native browser against retained1.9.3 reference.",
+    "Readable semantic icons and captions with keyboard focus and 44px interaction targets.",
+    "Expanding/compacting navigation or map does not recreate map, mutate source/criteria, lose unsaved forms or emit team events.",
+    "Map controls and disclosures remain operable in TH/EN and both themes; no page overflow.",
+    "Tile load/retry/resize lifecycle remains intact."
+  ],
+  "verification": {
+    "automated": {
+      "receipt": "evidence/automated-v1.9.4.json",
+      "suites": 32,
+      "reportedPassedCases": 539
+    },
+    "native": {
+      "receipt": "evidence/browser-v1.9.4/native-browser-review.json",
+      "boundedChecks": 20,
+      "actualSnapshotFiles": 4
+    },
+    "publication": "not_performed_by_contract"
+  },
+  "nativeMeasurements": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "receipt": "evidence/browser-v1.9.4/native-browser-review.json",
+    "receiptSha256": "f84573fc797513d1ac3347f174629794773ad924545e5051f6615ca6cbfcfe9a",
+    "measurements": {
+      "desktopBefore1440x900": {
+        "sidebarWidth": 256,
+        "poiMapWidth": 742,
+        "poiMapHeight": 498.2578125,
+        "reference": "Published1.9.3 country POI view measured in this review"
+      },
+      "desktopAfter1440x900": {
+        "sidebarWidth": 96,
+        "workPaneWidth": 340,
+        "poiMapWidth": 1002,
+        "poiMapHeight": 669,
+        "mapHeaderHeight": 108,
+        "mapFooterHeight": 45
+      },
+      "mobileAfter390x844": {
+        "poiMapWidth": 389,
+        "poiMapHeight": 461.1953125,
+        "panelHeight": 675.1953125
+      },
+      "widthIncreasePercent": 35.04043126684635
+    },
+    "scope": "Bounded Chrome native viewport review for compact navigation, map chrome, layout, controls and Thai/English/theme readability; source calculations and full physical-device matrix are separate.",
+    "meaning": "These are actual recorded Chrome viewport measurements, distinct from CSS minimum/target values; not physical-device or complete brand/theme/language certification."
+  }
+}

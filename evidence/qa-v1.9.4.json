@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "yolk.integrated_qa/1.9",
+  "version": "1.9.4",
+  "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "reviewedAt": "2026-10-08T00:58:14.476528+00:00",
+  "automated": {
+    "status": "PASS",
+    "suites": 32,
+    "reportedPassedCases": 539,
+    "receipt": "evidence/automated-v1.9.4.json",
+    "meaning": "Reported named cases/summary checks/PASS lines; not assertion count."
+  },
+  "nativeBrowser": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "checks": 20,
+    "receipt": "evidence/browser-v1.9.4/native-browser-review.json",
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.4/desktop-th-dark-supply.jpg",
+        "bytes": 151515,
+        "sha256": "361a0651aae7e387044163720e7a6a21a06f7ecb46be9c5dc84e751bbe678d27",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.4/desktop-th-menu-overlay.jpg",
+        "bytes": 142125,
+        "sha256": "b24bb2ef52be58e2e139db841e47fab15197909aeb56fac2f9214d0820635662",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.4/mobile-th-dark-poi.jpg",
+        "bytes": 53576,
+        "sha256": "4ff6e19f6bff1e01df877887567117544094e793eaf7687412f56723bd0f8caf",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.4/desktop-en-light-criteria.jpg",
+        "bytes": 146166,
+        "sha256": "72ad91ca1cb2dd5ef081dbab6e3ccb489c41f7ca775029605450582f126166a9",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      }
+    ],
+    "fullLanguageThemeDeviceMatrix": false,
+    "physicalDevices": "unverified"
+  },
+  "designSystemPackage": {
+    "version": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "checks": 9768,
+    "warnings": 65,
+    "status": "RETAINED_PACKAGE_PARITY_REFERENCE_ONLY",
+    "receipt": "evidence/lds-package-verification.v1.9.3.json",
+    "scope": "Unchanged0.9.7 package verification retained from1.9.3; not a fresh1.9.4 package/account/team certificate."
+  },
+  "semanticBoundary": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0",
+    "analyticalPaint": "Retained exact colors, opacity and41-valueLUT; layout/header/nav only."
+  },
+  "publication": "not performed by this local QA receipt",
+  "limits": [
+    "physical iPhone/Android unverified",
+    "complete brand-language-theme-device matrix unverified",
+    "actual all-boundary pointer-hover and screen-reader speech unverified",
+    "external tile/StreetView/Google AI availability not guaranteed",
+    "shared backend/auth/outbox not implemented in static preview"
+  ],
+  "scope": "Bounded1.9.4 map-space presentation, current32suites and20native checks; four current actual snapshots."
+}

@@ -106,10 +106,10 @@ html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .lea
 
 /* Map-first workspace: two compact task controls and one shared options disclosure.
  * Preserve labels, units and accessible evidence; only auxiliary detail is collapsed. */
-.workspace-map-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"title options expand" "stats stats stats";align-items:center;column-gap:8px;row-gap:0;padding:8px 12px 6px;min-height:64px}
-.workspace-map-toolbar>.workspace-map-heading{display:contents}
-.workspace-map-toolbar h2{grid-area:title;min-width:0;font-size:18px;line-height:1.4;overflow-wrap:anywhere}
-.workspace-map-toolbar .workspace-map-stats{grid-area:stats;min-width:0;flex-wrap:wrap;white-space:normal;font-size:12px;line-height:1.5;gap:3px 8px}
+.workspace-map-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"title options expand";align-items:center;column-gap:8px;row-gap:0;padding:8px 12px 6px;min-height:64px}
+.workspace-map-toolbar>.workspace-map-heading{display:flex;flex-direction:column;grid-area:title;min-width:0}
+.workspace-map-toolbar h2{min-width:0;font-size:18px;line-height:1.4;overflow-wrap:anywhere}
+.workspace-map-toolbar .workspace-map-stats{min-width:0;flex-wrap:wrap;white-space:normal;font-size:12px;line-height:1.5;gap:3px 8px}
 .workspace-map-stats strong{font-size:17px;line-height:1.4}
 .workspace-map-stats .workspace-demand-count{flex-basis:auto;font-size:12px}
 .workspace-map-controls-toggle,.workspace-map-expand{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:44px;min-width:44px;max-width:100%;padding:6px 9px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--ink);font:500 13px/1.4 'Bai Jamjuree',sans-serif;white-space:nowrap}
@@ -146,5 +146,49 @@ html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .lea
  .workspace-map-evidence[open] summary{right:4px;top:0}
  .workspace-map-evidence[open] [data-workspace-map-counts]{max-height:64px}
  .workspace-map-footer [data-workspace-map-status]{max-height:52px;overflow:auto}
- .workspace-map-panel .leaflet-bottom{bottom:0}
+.workspace-map-panel .leaflet-bottom{bottom:0}
+}
+
+/* Map-space refinement: keep the decision cues visible while auxiliary controls
+ * share the existing options disclosure. The same Leaflet host keeps its camera. */
+.workspace-map-toolbar{position:relative}
+.workspace-map-context-row{display:flex;align-items:center;gap:10px;padding:0 12px 4px;min-width:0;flex-shrink:0}
+.workspace-map-context-row .workspace-map-breadcrumbs{flex:1 1 0;min-width:0;min-height:44px;padding:0;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.workspace-map-context-row .workspace-map-breadcrumbs>*{flex-shrink:0}
+.workspace-map-context-row .workspace-map-breadcrumbs button{min-height:44px;padding:3px 2px}
+.workspace-map-context-row .workspace-supply-view{flex:0 0 auto;padding:0;gap:6px}
+.workspace-map-context-row .workspace-supply-view button{min-height:44px;padding:5px 9px}
+.workspace-map-options .workspace-map-option-explanation{flex:1 1 100%;min-width:0}
+.workspace-map-options .workspace-analysis-caption{padding:0;font-size:13px;line-height:1.5;white-space:normal;overflow:visible;flex-wrap:wrap}
+.workspace-map-options .workspace-map-option-explanation:has(.workspace-analysis-caption:empty){display:none}
+.workspace-map-options .workspace-map-poi-layers{flex:1 1 100%;padding:0;overflow:visible;flex-wrap:wrap}
+.workspace-map-options .workspace-map-poi-layers button{min-height:44px;font-size:13px;padding:5px 9px}
+.workspace-map-footer{position:relative;inset:auto;min-height:44px;max-height:200px;overflow:auto;padding:4px 58px 4px 12px}
+.workspace-map-footer .workspace-map-legend{min-height:36px;font-size:12px;line-height:1.5;gap:4px 12px}
+.workspace-map-footer .workspace-map-evidence{position:absolute;right:6px;top:0}
+.workspace-map-footer .workspace-map-evidence summary{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;list-style:none}
+.workspace-map-footer .workspace-map-evidence summary::-webkit-details-marker{display:none}
+.workspace-map-footer .workspace-map-evidence-full{display:none}
+.workspace-map-footer .workspace-map-evidence-compact{display:inline-flex}
+.workspace-map-footer .workspace-map-evidence-compact .yl-icon{font-size:21px;margin:0}
+.workspace-map-evidence-fallback{font:600 19px/1 'Bai Jamjuree',sans-serif}
+.yolk-icons-ready .workspace-map-evidence-fallback{display:none}
+.workspace-map-footer .workspace-map-evidence[open]{position:static}
+.workspace-map-footer .workspace-map-evidence[open] summary{position:absolute;right:6px;top:0}
+.workspace-map-footer .workspace-map-evidence[open] p{font-size:12px;line-height:1.5;max-height:96px;overflow:auto}
+.workspace-map-legend-unit{font-size:12px;line-height:1.5;color:var(--muted);margin-bottom:4px;overflow-wrap:anywhere}
+.workspace-map-legend-unit:empty{display:none}
+.workspace-map-footer .workspace-lut-legend{gap:3px;margin-bottom:3px}
+.workspace-map-footer [data-workspace-map-status]:not(:empty){font-size:12px;line-height:1.5;max-height:48px;overflow:auto}
+@media(max-width:1099px){
+ .workspace-map-context-row{flex-wrap:wrap;gap:0 8px;padding:0 10px 4px}
+ .workspace-map-context-row .workspace-map-breadcrumbs{flex:1 1 100%;font-size:12px}
+ .workspace-map-context-row .workspace-supply-view{flex:1 1 100%;gap:6px}
+ .workspace-map-context-row .workspace-supply-view button{flex:1 1 0;font-size:13px}
+ .workspace-map-toolbar{min-height:60px}
+ .workspace-map-toolbar .workspace-map-stats{line-height:1.5}
+ .workspace-map-footer{padding:4px 54px 4px 10px;min-height:44px;max-height:180px}
+ .workspace-map-footer .workspace-map-legend,.workspace-map-panel[data-analysis-kind] .workspace-map-footer .workspace-map-legend{white-space:normal;flex-wrap:wrap;overflow:visible;gap:3px 10px}
+ .workspace-map-footer .workspace-lut-labels{font-size:11px}
+ .workspace-map-footer .workspace-map-evidence[open] [data-workspace-map-counts]{max-height:72px}
 }

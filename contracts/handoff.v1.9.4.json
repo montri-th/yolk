@@ -1,0 +1,197 @@
+{
+  "schemaVersion": "yolk.developer_handoff/1.9",
+  "version": "1.9.4",
+  "date": "2026-10-08",
+  "status": "locally_verified_pending_publication",
+  "startHere": "START_HERE.md",
+  "fullDocument": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.4.md",
+  "quickPlan": "IMPLEMENTATION_PLAN_v1.9.4.md",
+  "humanHandoff": "HANDOFF_v1.9.4.md",
+  "assetIndex": "ASSET_INDEX_v1.9.4.md",
+  "machineBlueprint": "contracts/full-product.v1.9.4.json",
+  "activeCriteria": "contracts/full-product.v1.9.4.json",
+  "releaseAuthority": "contracts/release.v1.9.4.json",
+  "runtimeRoot": "prototype/",
+  "normativeRoot": "reference/lds-0.9.7/",
+  "brandGraphics": "prototype/data/brand-logos.v1.7.json",
+  "icons": "contracts/icons.v1.8.0.json",
+  "requiredExternalServices": {
+    "production": "CityMETER stack mapping/auth/datastore/server RBAC/private media/outbox/email/LINE remain tasks",
+    "mapTiles": "Provider URLs and attribution are required; no tile cache is packaged"
+  },
+  "assetPolicy": "Use supplied original assets and current sealed hashes. DS base/profile/icons are pinned; no logo frames or motifs.",
+  "sourcePolicy": "Public compact adapters/provenance only; sources and private acquisition archives remain immutable/excluded.",
+  "experienceInvariants": [
+    "Demand/Tier alone determine active membership",
+    "Supply and weights can reorder, never add or remove confirmed Demand IDs",
+    "legacy patterns/demandMode remain inactive history",
+    "shield identifies own network; swords identifies comparator network",
+    "local paired-bar scale within a location does not compare length across locations",
+    "actual POI keeps source artwork contained in a compact square slot or explicit named theme fallback + name + role badge",
+    "Explicit map expansion/collapse preserves camera including desktop host width; ordinary responsive width/breakpoint fitting retains scope and popup anchors.",
+    "source-first form hints preserve manual choices and do not allocate aggregates",
+    "Strategies are a post-Demand projection with distinct candidate, incomplete and unsupported states",
+    "At most three factor families and three metrics per joint rule; at most three selected strategies",
+    "Current profiles seed only unseen brand/scope context; saved applied criteria/drafts win",
+    "Supply defaults to choropleth; optional coordinate POIs at all four drilldown levels without automatic camera changes",
+    "Coordinate groups preserve all available records and never rewrite administrative counts or certify a customer-attraction cluster",
+    "One scope-owned area tooltip; readable scope name, current value and unit",
+    "Optional point view suppresses unnecessary child boundary networks, retaining clickable scope and yellow hover",
+    "Successful new save updates real shortlist count exactly once; duplicate/failure does not",
+    "Finite motion is optional; reduced-motion/interruption final state remains visible and operable",
+    "Three supplied brand graphics bind to stable existing IDs without preset/profile changes",
+    "Supply icons have their own verified icon font and readable separate caption; no raw ligature text or layout overlap",
+    "First page is Expansion opportunities with inline maximum3-of8strategies; Demand/Supply remain supporting pages.",
+    "Legacy#strategy is an alias preserving context/camera/drafts; no duplicate map or team event.",
+    "Only unfilled choropleth parent stroke gets neutral halo; child0.30px and POI quiet hierarchy retain actual source geography.",
+    "Expanded mode is personal display state; current source/native tile recovery must be verified before a retry/availability claim.",
+    "Read-only bilingual guide explains all eight current strategies with hypothetical examples and accessible illustrations; opening/closing never changes strategy selection or criteria."
+  ],
+  "packageEvidence": {
+    "zip": "CityMETER_Yolk_Handoff_v1.9.4.zip — generation and source-bound external attestation pending",
+    "currentQA": {
+      "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+      "receipt": "evidence/qa-v1.9.4.json",
+      "automatedReceipt": "evidence/automated-v1.9.4.json",
+      "releaseChecksReceipt": "evidence/release-checks-v1.9.4.json",
+      "nativeBrowserReceipt": "evidence/browser-v1.9.4/native-browser-review.json",
+      "receiptSha256": "b32165a28b2e1082b42e0297530377314b72c6bb5f8a343827d08ec15d3a23d2",
+      "automatedReceiptSha256": "49f51c32ea0c085622aec5db5f767e702afae01ae45804928d50d26e11c667e7",
+      "releaseChecksReceiptSha256": "0b39fb5e539a81639f9f42af1fa0e14873bc1188a6e703300099151d583f5565",
+      "nativeBrowserReceiptSha256": "f84573fc797513d1ac3347f174629794773ad924545e5051f6615ca6cbfcfe9a",
+      "automatedSuites": 32,
+      "automatedChecks": 539,
+      "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.4; workspace suite rerun after approved help glyph/fallback correction. Other31 fresh results retain actual original timestamps/output bytes.",
+      "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "browserChecks": 20,
+      "snapshots": [
+        "evidence/browser-v1.9.4/desktop-th-dark-supply.jpg",
+        "evidence/browser-v1.9.4/desktop-th-menu-overlay.jpg",
+        "evidence/browser-v1.9.4/mobile-th-dark-poi.jpg",
+        "evidence/browser-v1.9.4/desktop-en-light-criteria.jpg"
+      ],
+      "snapshotFiles": [
+        {
+          "path": "evidence/browser-v1.9.4/desktop-th-dark-supply.jpg",
+          "bytes": 151515,
+          "sha256": "361a0651aae7e387044163720e7a6a21a06f7ecb46be9c5dc84e751bbe678d27",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.4/desktop-th-menu-overlay.jpg",
+          "bytes": 142125,
+          "sha256": "b24bb2ef52be58e2e139db841e47fab15197909aeb56fac2f9214d0820635662",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.4/mobile-th-dark-poi.jpg",
+          "bytes": 53576,
+          "sha256": "4ff6e19f6bff1e01df877887567117544094e793eaf7687412f56723bd0f8caf",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.4/desktop-en-light-criteria.jpg",
+          "bytes": 146166,
+          "sha256": "72ad91ca1cb2dd5ef081dbab6e3ccb489c41f7ca775029605450582f126166a9",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        }
+      ],
+      "physicalDevices": "unverified",
+      "fullLanguageThemeMatrix": false,
+      "scope": "Bounded Chrome native viewport review for compact navigation, map chrome, layout, controls and Thai/English/theme readability; source calculations and full physical-device matrix are separate.",
+      "productionBackend": "not_implemented_in_static_preview"
+    },
+    "retainedBaseline": "evidence/qa-v1.9.3.json — historical only",
+    "provider": "pending_terminal_success_for_final_source",
+    "liveBytes": "pending_current_emitted_url_checks"
+  },
+  "strategyContract": "contracts/opportunity-strategies.v1.9.0.json",
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "interactionExtension": "contracts/interaction-guidance.v1.9.1.json",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  },
+  "brandIdentityUIExtension": "contracts/brand-identity-ui.v1.9.2.json",
+  "expansionExperience": "contracts/expansion-experience.v1.9.3.json",
+  "strategyGuide": "prototype/data/strategy-guide.v1.9.3.json",
+  "mapSpace": "contracts/map-space.v1.9.4.json",
+  "localVerification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "receipt": "evidence/qa-v1.9.4.json",
+    "automatedReceipt": "evidence/automated-v1.9.4.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.4.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.4/native-browser-review.json",
+    "receiptSha256": "b32165a28b2e1082b42e0297530377314b72c6bb5f8a343827d08ec15d3a23d2",
+    "automatedReceiptSha256": "49f51c32ea0c085622aec5db5f767e702afae01ae45804928d50d26e11c667e7",
+    "releaseChecksReceiptSha256": "0b39fb5e539a81639f9f42af1fa0e14873bc1188a6e703300099151d583f5565",
+    "nativeBrowserReceiptSha256": "f84573fc797513d1ac3347f174629794773ad924545e5051f6615ca6cbfcfe9a",
+    "automatedSuites": 32,
+    "automatedChecks": 539,
+    "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.4; workspace suite rerun after approved help glyph/fallback correction. Other31 fresh results retain actual original timestamps/output bytes.",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 20,
+    "snapshots": [
+      "evidence/browser-v1.9.4/desktop-th-dark-supply.jpg",
+      "evidence/browser-v1.9.4/desktop-th-menu-overlay.jpg",
+      "evidence/browser-v1.9.4/mobile-th-dark-poi.jpg",
+      "evidence/browser-v1.9.4/desktop-en-light-criteria.jpg"
+    ],
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.4/desktop-th-dark-supply.jpg",
+        "bytes": 151515,
+        "sha256": "361a0651aae7e387044163720e7a6a21a06f7ecb46be9c5dc84e751bbe678d27",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.4/desktop-th-menu-overlay.jpg",
+        "bytes": 142125,
+        "sha256": "b24bb2ef52be58e2e139db841e47fab15197909aeb56fac2f9214d0820635662",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.4/mobile-th-dark-poi.jpg",
+        "bytes": 53576,
+        "sha256": "4ff6e19f6bff1e01df877887567117544094e793eaf7687412f56723bd0f8caf",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.4/desktop-en-light-criteria.jpg",
+        "bytes": 146166,
+        "sha256": "72ad91ca1cb2dd5ef081dbab6e3ccb489c41f7ca775029605450582f126166a9",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      }
+    ],
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "scope": "Bounded Chrome native viewport review for compact navigation, map chrome, layout, controls and Thai/English/theme readability; source calculations and full physical-device matrix are separate.",
+    "productionBackend": "not_implemented_in_static_preview"
+  }
+}

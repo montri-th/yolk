@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.9",
+  "version": "1.9.4",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "reviewedAt": "2026-10-08T00:57:42.477Z",
+  "scope": "Bounded Chrome native viewport review for compact navigation, map chrome, layout, controls and Thai/English/theme readability; source calculations and full physical-device matrix are separate.",
+  "checks": 20,
+  "results": [
+    {
+      "id": "desktop-drawable-map",
+      "status": "PASS",
+      "viewport": [
+        1440,
+        900
+      ],
+      "map": {
+        "width": 1002,
+        "height": 669
+      },
+      "sidebar": 96,
+      "toolbar": 64,
+      "footer": 45,
+      "overflow": false
+    },
+    {
+      "id": "desktop-navigation-overlay",
+      "status": "PASS",
+      "collapsedWidth": 96,
+      "expandedWidth": 248,
+      "mapWidthUnchanged": 1002,
+      "cameraTransformUnchanged": true,
+      "escapeRestoresFocus": true
+    },
+    {
+      "id": "desktop-options-preserve-controls",
+      "status": "PASS",
+      "observed": [
+        "basemap",
+        "tile reload",
+        "country fit",
+        "party toggles",
+        "POI source note"
+      ]
+    },
+    {
+      "id": "desktop-poi-basemap",
+      "status": "PASS",
+      "loadedTiles": 16,
+      "totalTiles": 16
+    },
+    {
+      "id": "mobile-th-dark-supply",
+      "status": "PASS",
+      "desktopLogoDisplay": "none",
+      "loaded": 6,
+      "map": {
+        "bottom": 654.09375,
+        "height": 415.296875,
+        "left": 1,
+        "right": 390,
+        "top": 238.796875,
+        "width": 389,
+        "x": 1,
+        "y": 238.796875
+      },
+      "overflow": false,
+      "panel": {
+        "bottom": 760.9921875,
+        "height": 675.1953125,
+        "left": 0,
+        "right": 390,
+        "top": 85.796875,
+        "width": 390,
+        "x": 0,
+        "y": 85.796875
+      },
+      "total": 6,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "id": "mobile-options-overlay",
+      "status": "PASS",
+      "controlsReadable": true,
+      "drawableMapUnchanged": true,
+      "focusVisible": true
+    },
+    {
+      "id": "mobile-th-dark-POI",
+      "status": "PASS",
+      "map": {
+        "bottom": 699.9921875,
+        "height": 461.1953125,
+        "left": 1,
+        "right": 390,
+        "top": 238.796875,
+        "width": 389,
+        "x": 1,
+        "y": 238.796875
+      },
+      "overflow": false,
+      "panel": {
+        "bottom": 760.9921875,
+        "height": 675.1953125,
+        "left": 0,
+        "right": 390,
+        "top": 85.796875,
+        "width": 390,
+        "x": 0,
+        "y": 85.796875
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "id": "mobile-th-dark-criteria",
+      "status": "PASS",
+      "mapHeight": 479.3984375,
+      "overflow": false,
+      "panelHeight": 675.1953125
+    },
+    {
+      "id": "mobile-th-dark-demand",
+      "status": "PASS",
+      "mapHeight": 495.1953125,
+      "overflow": false
+    },
+    {
+      "id": "mobile-en-light-demand",
+      "status": "PASS",
+      "logoHidden": "none",
+      "mapHeight": 483.546875,
+      "overflow": false,
+      "theme": "light"
+    },
+    {
+      "id": "desktop-en-light-opportunities",
+      "status": "PASS",
+      "logoWidth": 148,
+      "mapHeight": 669,
+      "mapWidth": 1002,
+      "overflow": false
+    },
+    {
+      "id": "desktop-en-light-criteria-readable-title",
+      "status": "PASS",
+      "mapHeight": 669,
+      "mapWidth": 1002,
+      "overflow": false,
+      "titleText": "Find Yolks, then compare supply",
+      "titleWidth": 304
+    },
+    {
+      "id": "desktop-shortlist-retains-map",
+      "status": "PASS",
+      "mapWidth": 1002,
+      "overflow": false
+    },
+    {
+      "id": "desktop-activity-retains-map",
+      "status": "PASS",
+      "mapWidth": 1002,
+      "overflow": false
+    },
+    {
+      "id": "desktop-breakpoint-1100",
+      "status": "PASS",
+      "mapWidth": 662,
+      "overflow": false,
+      "toolbarHeight": 88.890625
+    },
+    {
+      "id": "tablet-768",
+      "status": "PASS",
+      "mapHeight": 642,
+      "mapWidth": 767,
+      "overflow": false
+    },
+    {
+      "id": "narrow-320-en-light",
+      "status": "PASS",
+      "mapHeight": 334.703125,
+      "mapWidth": 319,
+      "overflow": false,
+      "viewport": [
+        320,
+        740
+      ]
+    },
+    {
+      "id": "evidence-disclosure-visible-operable",
+      "status": "PASS",
+      "glyph": "help",
+      "label": "พิกัดและขอบเขตที่แสดง",
+      "openedWithKeyboard": true
+    },
+    {
+      "id": "desktop-expand-map-and-escape",
+      "status": "PASS",
+      "expanded": {
+        "expanded": "true",
+        "mapWidth": 1342
+      },
+      "compactMapWidth": 1002,
+      "expandedAfterEscape": "false"
+    },
+    {
+      "id": "mobile-resized-basemap-settles",
+      "status": "PASS",
+      "loadedTiles": 12,
+      "totalTiles": 12,
+      "visibleRoadLabels": true
+    }
+  ],
+  "measurements": {
+    "desktopBefore1440x900": {
+      "sidebarWidth": 256,
+      "poiMapWidth": 742,
+      "poiMapHeight": 498.2578125,
+      "reference": "Published1.9.3 country POI view measured in this review"
+    },
+    "desktopAfter1440x900": {
+      "sidebarWidth": 96,
+      "workPaneWidth": 340,
+      "poiMapWidth": 1002,
+      "poiMapHeight": 669,
+      "mapHeaderHeight": 108,
+      "mapFooterHeight": 45
+    },
+    "mobileAfter390x844": {
+      "poiMapWidth": 389,
+      "poiMapHeight": 461.1953125,
+      "panelHeight": 675.1953125
+    },
+    "widthIncreasePercent": 35.04043126684635
+  },
+  "manualGates": [
+    "physical iPhone/Android",
+    "full brand-language-theme-device matrix",
+    "all-boundary hover and screen-reader speech",
+    "OS reduced-motion matrix"
+  ],
+  "publication": "not_performed_by_this_receipt",
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.9.4/desktop-th-dark-supply.jpg",
+      "bytes": 151515,
+      "sha256": "361a0651aae7e387044163720e7a6a21a06f7ecb46be9c5dc84e751bbe678d27",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.4/desktop-th-menu-overlay.jpg",
+      "bytes": 142125,
+      "sha256": "b24bb2ef52be58e2e139db841e47fab15197909aeb56fac2f9214d0820635662",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.4/mobile-th-dark-poi.jpg",
+      "bytes": 53576,
+      "sha256": "4ff6e19f6bff1e01df877887567117544094e793eaf7687412f56723bd0f8caf",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.4/desktop-en-light-criteria.jpg",
+      "bytes": 146166,
+      "sha256": "72ad91ca1cb2dd5ef081dbab6e3ccb489c41f7ca775029605450582f126166a9",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    }
+  ],
+  "reviewedRuntime": [
+    {
+      "path": "prototype/app.js",
+      "sha256": "28075f0e6da2d9f4ad22fd3256b3d96e380d926ccb2098782793876409a8c965"
+    },
+    {
+      "path": "prototype/map-space.css",
+      "sha256": "726c95863206e4ad9295d5ca3f832bc1da81b6af2983ecafeb90515c2c544396"
+    },
+    {
+      "path": "prototype/workspace-layout.css",
+      "sha256": "2d86f5d147c033840272df6b26a567285e250292b4d3d2d15d05781d93e8f823"
+    },
+    {
+      "path": "prototype/workspace-map.js",
+      "sha256": "8ba7fa89e51b8d8d235201e7feeaf7761126d3008f92c9478be0fa6b0d6d9f20"
+    },
+    {
+      "path": "prototype/workspace-map.css",
+      "sha256": "bbabfdefc47dce34616c14db5fd029d082e82192ebdbd2c5d333034814ffef9c"
+    }
+  ]
+}

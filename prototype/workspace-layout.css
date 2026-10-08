@@ -1,5 +1,5 @@
 /* One map, one viewport, across every workspace menu. */
-.yolk-map-workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(380px,440px);height:calc(100dvh - 72px);min-height:400px;gap:0;overflow:hidden}
+.yolk-map-workspace{display:grid;grid-template-columns:minmax(0,1fr) 340px;height:calc(100dvh - 72px);min-height:400px;gap:0;overflow:hidden}
 .workspace-map-panel{min-width:0;min-height:0;position:relative;background:var(--canvas);border-right:1px solid var(--line)}
 .yolk-map-workspace #content{min-width:0;overflow:auto;overscroll-behavior:contain;padding:20px 18px 100px;scrollbar-gutter:stable}
 .yolk-map-workspace .national-layout,.yolk-map-workspace .detail-grid{display:block}
@@ -28,11 +28,11 @@
 .yolk-map-workspace .supply-tools{flex-wrap:wrap}.yolk-map-workspace .supply-tabs{flex-wrap:wrap}.yolk-map-workspace .supply-tabs button{font-size:13px}.yolk-map-workspace .supply-table-wrap{overflow:visible}
 .yolk-map-workspace .evidence-grid,.yolk-map-workspace .criteria-pair{grid-template-columns:1fr}.yolk-map-workspace .leaderboard-grid{grid-template-columns:1fr}
 @media(min-width:1100px){.yolk-shell{height:100dvh;overflow:hidden}#header{height:72px;min-height:72px!important}.yolk-map-workspace .criteria-control-scroll .metric-picker{grid-template-columns:1fr}}
-@media(max-width:1099px){.yolk-map-workspace{display:block;height:auto;min-height:0;overflow:visible}.workspace-map-panel{height:clamp(360px,58svh,560px);position:sticky;top:0;z-index:6;border-right:0;border-bottom:1px solid var(--line)}.yolk-map-workspace #content{overflow:visible;padding:18px 16px 110px}.yolk-map-workspace .criteria-tabs{position:static}.yolk-map-workspace .page-head h1{font-size:26px}.yolk-map-workspace .national-layout{display:block}.yolk-map-workspace .workspace-context-disclosure>summary{font-size:14px}}
+@media(max-width:1099px){.yolk-map-workspace{display:block;height:auto;min-height:0;overflow:visible}.workspace-map-panel{height:clamp(420px,80svh,800px);position:sticky;top:0;z-index:6;border-right:0;border-bottom:1px solid var(--line)}.yolk-map-workspace #content{overflow:visible;padding:18px 16px 110px}.yolk-map-workspace .criteria-tabs{position:static}.yolk-map-workspace .page-head h1{font-size:26px}.yolk-map-workspace .national-layout{display:block}.yolk-map-workspace .workspace-context-disclosure>summary{font-size:14px}}
 @media(max-width:400px){.yolk-map-workspace #content{padding-inline:12px}.yolk-map-workspace .criteria-control-scroll{padding:12px}}
 /* Supply needs room for its view and relationship controls without shrinking the
  * drawable map. The explicit expansion rule below still takes precedence. */
-@media(max-width:1099px){.yolk-map-workspace .workspace-map-panel[data-analysis-kind=supply]{height:clamp(480px,74svh,680px)}}
+@media(max-width:1099px){.yolk-map-workspace .workspace-map-panel[data-analysis-kind=supply]{height:clamp(420px,80svh,800px)}}
 /* Personal map expansion uses the same host. Mobile keeps the work pane below;
  * desktop temporarily gives that pane's width to the map, with a visible close action. */
 @media(max-width:1099px){.yolk-map-workspace .workspace-map-panel[data-workspace-map-expanded=true]{height:min(760px,calc(100svh - 88px - env(safe-area-inset-bottom,0px)))}body:has(.workspace-map-panel[data-workspace-map-expanded=true]) #mobile-nav{display:none}}

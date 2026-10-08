@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "yolk.document_validation/1.9",
+  "version": "1.9.4",
+  "recordedAt": "2026-10-08T01:00:44.989801+00:00",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 3,
+  "tasks": 25,
+  "metrics": 25,
+  "brandBindings": 37,
+  "guideStrategies": 8,
+  "checks": [
+    {
+      "name": "Three embedded JSON blocks parse and full blueprint exactly matches standalone",
+      "passed": true
+    },
+    {
+      "name": "Retained complete section unchanged: source",
+      "passed": true
+    },
+    {
+      "name": "Retained complete section unchanged: profiles",
+      "passed": true
+    },
+    {
+      "name": "Retained complete section unchanged: demand",
+      "passed": true
+    },
+    {
+      "name": "Retained complete section unchanged: supply",
+      "passed": true
+    },
+    {
+      "name": "Retained complete section unchanged: ranking",
+      "passed": true
+    },
+    {
+      "name": "Retained complete section unchanged: opportunity",
+      "passed": true
+    },
+    {
+      "name": "Retained complete section unchanged: production",
+      "passed": true
+    },
+    {
+      "name": "Retained complete section unchanged: api",
+      "passed": true
+    },
+    {
+      "name": "Retained complete section unchanged: schemas",
+      "passed": true
+    },
+    {
+      "name": "Retained guide registry and expansion-experience projections unchanged",
+      "passed": true
+    },
+    {
+      "name": "Current map-space projection matches standalone",
+      "passed": true
+    },
+    {
+      "name": "25 complete bounded production tasks retained",
+      "passed": true
+    },
+    {
+      "name": "Task dependencies are ordered and declared",
+      "passed": true
+    },
+    {
+      "name": "Current QA counts reconcile",
+      "passed": true
+    },
+    {
+      "name": "Current receipts are SHA-bound in full/release/handoff",
+      "passed": true
+    },
+    {
+      "name": "No current publication upgrade from local QA",
+      "passed": true
+    },
+    {
+      "name": "Actual local full-document links resolve",
+      "passed": true
+    }
+  ],
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.4.md",
+    "sha256": "0811b8a0520b23fb48a64841387a3ec71008ed92c715326c25ba509969acd3c4"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.4.json",
+    "sha256": "69009cec397715ebe8bc02fa8640c4afe6cfa886def82bcccb7ba96f0eba9f72"
+  },
+  "narrativeRegistry": {
+    "path": "prototype/data/strategy-guide.v1.9.3.json",
+    "sha256": "04aad69b6b3ec79cfae0923a6b743ce9807c1ce63798d04a15e58ec7775ad080"
+  },
+  "mapSpaceContract": {
+    "path": "contracts/map-space.v1.9.4.json",
+    "sha256": "3a7febe1608d0bb451fb8cadc9d8f32566a84d11e91ffd983910e672d522de21"
+  },
+  "currentRuntimeAcceptance": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "nativeAcceptance": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "sourceQAReceipt": {
+    "path": "evidence/qa-v1.9.4.json",
+    "sha256": "b32165a28b2e1082b42e0297530377314b72c6bb5f8a343827d08ec15d3a23d2"
+  },
+  "nativeReceipt": {
+    "path": "evidence/browser-v1.9.4/native-browser-review.json",
+    "sha256": "f84573fc797513d1ac3347f174629794773ad924545e5051f6615ca6cbfcfe9a"
+  },
+  "coverageBoundary": "Current document/embedded contracts/layout consistency and actual current receipt bindings only; native review bounded to receipt. Historical guide/DSpackage/analytical receipts are references. Provider/live/publication/ZIP, physical devices, full matrix and production backend remain separate."
+}
