@@ -72,8 +72,6 @@ html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .lea
 .workspace-map-panel{--yl-map-boundary:var(--ldm-map-marker-halo-light);--yl-map-hover:var(--ldm-energy-yellow)}
 .workspace-map-legend .workspace-selected-outline{background:var(--ldm-foundation-border-emphasis-dark)}
 
-/* Neutral edge halo preserves the white stroke on a pale basemap; never applied to data fills. */
-.workspace-map-panel .leaflet-overlay-pane svg path[fill="none"][stroke="#FFFFFF"][stroke-opacity="1"]{filter:drop-shadow(0 0 .35px var(--yl-border-strong))}
 
 .workspace-map-stats .workspace-demand-count{display:inline-flex;gap:6px;align-items:baseline;white-space:nowrap}
 
@@ -196,3 +194,6 @@ html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .lea
  .workspace-map-footer .workspace-lut-labels{font-size:11px}
  .workspace-map-footer .workspace-map-evidence[open] [data-workspace-map-counts]{max-height:72px}
 }
+
+/* Boundary-only support. These pointer-inert paths never contain analytical fill. */
+.workspace-map-panel .workspace-boundary-keyline,.workspace-map-panel .workspace-boundary-white{pointer-events:none;filter:none}

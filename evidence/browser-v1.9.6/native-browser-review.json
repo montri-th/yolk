@@ -1,0 +1,296 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.9",
+  "version": "1.9.6",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "reviewedAt": "2026-10-08T11:59:03.286Z",
+  "scope": "Current frozen 1.9.6 bounded native review of paired map outlines, one-egg Demand/three-egg Opportunity, Supply count/share and source-brand treemaps in the recorded desktop/mobile/theme/language states. One actual boundary hover; physical devices/full matrix remain unverified.",
+  "browser": "Chrome native extension viewport",
+  "checks": 10,
+  "results": [
+    {
+      "id": "desktop-th-light-default-count-source-breakdown",
+      "passed": true,
+      "details": "Default count/total; Bangchak direct country identified5606/own1561=27.8%, unknown3130 separately excluded; source totals are not POI count.",
+      "status": "PASS"
+    },
+    {
+      "id": "desktop-light-boundary-and-one-three-egg-icons",
+      "passed": true,
+      "details": "1005 paired source paths; unchanged white hierarchy supported by fill-free #101318 keylines; Demand original one egg and Opportunity three distinct original eggs visibly reviewed.",
+      "status": "PASS"
+    },
+    {
+      "id": "supply-fixed-share-and-source-treemap",
+      "passed": true,
+      "observation": "Fixed 0/25/50/75/100% legend; Bangchak country own1,561 of5,606 identified=27.8%;3,130 unknown explicitly excluded. Native Prachinburi hover own14 of55=25.5%,14unknown excluded; exactlyone tooltip,5rectangle compact treemap with readable name/count/share. Tooltip top208,bottom699.781 fits map.",
+      "status": "PASS"
+    },
+    {
+      "id": "province-parent-and-theme-language",
+      "passed": true,
+      "observation": "Bangkok source parent identified591, own184=31.1%,82unknown. District Bang Kapi hover independently14identified/5own=35.7%,2unknown. Legend anchors unchanged across light/dark; boundary halo#101318; no horizontal overflow.",
+      "status": "PASS"
+    },
+    {
+      "id": "poi-context-source-count-separation",
+      "passed": true,
+      "observation": "Bangkok POI view retains direct source591identified/184own/31.1%; grouped pins remain coordinate records; fine child mesh removed; source treemap does not use marker count.",
+      "status": "PASS"
+    },
+    {
+      "id": "nonbank-scoped-review-all-operators",
+      "passed": true,
+      "observation": "Native Non-bank potential_retail_branch_service country treemap observed17,812known records, own8,738,1,210other legal brands in grouped disclosure. Exact percent withheld pending scope/license review;10own-brandchoices do not cap competitor denominator. Mainchart<=10cells, initially<=40brandrows, no overflow.",
+      "status": "PASS"
+    },
+    {
+      "id": "grocery-format-country-and-mobile-treemap",
+      "passed": true,
+      "observation": "Grocery C_STORE countryidentified26,337,7-Eleven16,488=62.6%; previouslyBangkok4,982/3,857=77.4%. Narrow390x844 ownlogo/count/share and competitor rows readable, overflow0. Maprelative normalflow; nativepagewheel reaches treemap belowmap.4nativeOSMtilescomplete256px.",
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-demand-original-icons-normal-flow",
+      "passed": true,
+      "observation": "Native390x844 Demandglyphtext egg_alt uses Yolk MaterialSymbols; Opportunitywrapper3children. Maprelative675.195px panel scrolls out ofview, Demandcards and shortlistbuttons reachable, overflow0.",
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-expand-collapse-restores-flow",
+      "passed": true,
+      "observation": "Expand to756px then collapse to675.195px, country navigation retained, maprelative, no overflow.",
+      "status": "PASS"
+    },
+    {
+      "id": "native-console-errors",
+      "passed": true,
+      "observation": "NativeChrome captured error-level logs empty in reviewed final-runtime local session.",
+      "status": "PASS"
+    }
+  ],
+  "measurements": {
+    "countryCount": {
+      "basis": "รวมที่ทราบแบรนด์\n5,606\nสาขา\nส่วนแบ่งสาขาเรา\n27.8%\nเรา ÷ (เรา + คู่แข่ง)",
+      "demandGlyph": "egg_alt",
+      "keylineCount": 1005,
+      "keylineSample": [
+        {
+          "fill": "none",
+          "pointer": "none",
+          "stroke": "#101318",
+          "width": "2"
+        },
+        {
+          "fill": "none",
+          "pointer": "none",
+          "stroke": "#101318",
+          "width": "2"
+        },
+        {
+          "fill": "none",
+          "pointer": "none",
+          "stroke": "#101318",
+          "width": "2"
+        }
+      ],
+      "legendCount": 41,
+      "metric": "count",
+      "opportunityGlyphs": 0,
+      "overflow": 0,
+      "relation": [
+        "total"
+      ],
+      "unknown": "ไม่ทราบแบรนด์ 3,130 สาขา · ไม่รวมในฐาน"
+    }
+  },
+  "supplyInventoryReview": {
+    "passed": true,
+    "checkIds": [
+      "supply-fixed-share-and-source-treemap",
+      "province-parent-and-theme-language",
+      "poi-context-source-count-separation",
+      "nonbank-scoped-review-all-operators",
+      "grocery-format-country-and-mobile-treemap"
+    ],
+    "scope": "Frozen1.9.6 actual Chrome native viewport review of fuel country/province, Grocery C_STORE country/province and mobile treemap, Non-bank review state; one actual province hover in Supply share. Physical devices and full matrix unverified."
+  },
+  "manualGates": [
+    "Physical iPhone/Android touch and Safari",
+    "Complete brand/language/theme/device matrix",
+    "Actual screen-reader speech and all-boundary pointer hover",
+    "OS reduced-motion setting and 130%/200% browser zoom"
+  ],
+  "publication": "not_performed_by_this_receipt",
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.9.6/desktop-th-light-country.jpg",
+      "bytes": 133515,
+      "sha256": "035c885fd4dc637552d62fdc295242a211f1372ee38d28ee7e56cb8c1b171bf8",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.6/desktop-th-light-supply-hover.jpg",
+      "bytes": 128100,
+      "sha256": "dd5b8c1d22475d9ad5e967e5243f06f6ed81e89053c7379323d9aa2e909cf147",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.6/desktop-en-dark-province.jpg",
+      "bytes": 158666,
+      "sha256": "aa17320e1451f171b1c61362fe5e20861688cef3382de21ddf3ec873cfa09369",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.6/desktop-th-light-poi.jpg",
+      "bytes": 165542,
+      "sha256": "617d496cf8d92ee45deab58befc8fc47d1030d3961076ba8d92000dd916314b6",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.6/mobile-th-light-supply-share.jpg",
+      "bytes": 35380,
+      "sha256": "11c49f84a8d4b6cec7514ea80244c900bec249b98c63cfae2a052c029b0dc647",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.6/mobile-th-light-demand.jpg",
+      "bytes": 53968,
+      "sha256": "fdac8b47b11dff5471e60b6f742485f0aeca97c0b6e3336e932462f1481600f5",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  ],
+  "reviewedRuntime": [
+    {
+      "path": "prototype/analysis-ui.css",
+      "bytes": 4669,
+      "sha256": "0184e3b4f845195e8a8f6812ee1f5c079390e3cd3dc28b865a6689e6fa897ce7"
+    },
+    {
+      "path": "prototype/analysis-ui.js",
+      "bytes": 13927,
+      "sha256": "447ebca601b9a589d1d79ecd217bda5401e9de1a887b53804320dd199722bea7"
+    },
+    {
+      "path": "prototype/app.js",
+      "bytes": 79064,
+      "sha256": "d92d3ced0b2398319013ad42c04f8a68bcbfabbda5a9eb3e09ad1e77dfa5f0cd"
+    },
+    {
+      "path": "prototype/bootstrap.js",
+      "bytes": 4693,
+      "sha256": "ec6f0b1e20b96a79bb702a4d08b87cd35f032bd83a49bd33355ddca85dfda0d6"
+    },
+    {
+      "path": "prototype/criteria-map.js",
+      "bytes": 19113,
+      "sha256": "d672a4f095d54227187c1c72d5d841e6f07757af53b749bab2ea16b9a3458330"
+    },
+    {
+      "path": "prototype/decision-ui.js",
+      "bytes": 21607,
+      "sha256": "dda3cbcd329360aadce16218af4c0a6f17f5b9207626901f2a503217b039aee1"
+    },
+    {
+      "path": "prototype/icons.css",
+      "bytes": 5410,
+      "sha256": "4e5abd91d0c49cda61b247b17592b2dc7d02ef5593454fa9210e98def0ab17b0"
+    },
+    {
+      "path": "prototype/icons.js",
+      "bytes": 4191,
+      "sha256": "fd6a091015d75d07d43e3fd907d76831a87a7e6e7b7afbc1d15e5b5d436ed90d"
+    },
+    {
+      "path": "prototype/location-map.js",
+      "bytes": 22738,
+      "sha256": "70b2195ee24d56ff0ec2b6289352efe2373dd95276be3a8c2ade48e237dc6862"
+    },
+    {
+      "path": "prototype/map-analysis.js",
+      "bytes": 30553,
+      "sha256": "f02c3c4835a357e2856c871cec9f4ac3321214dd1e7fc05d53e31ce279e76900"
+    },
+    {
+      "path": "prototype/map-hover.js",
+      "bytes": 8779,
+      "sha256": "a2b472968b259bc07e31eefc41068de3a4953b5be93472563bbca62a872d865c"
+    },
+    {
+      "path": "prototype/simple-criteria.js",
+      "bytes": 4320,
+      "sha256": "f45719cb0da3cef5bfe36e0878d2411792653dea58646a74caa8b9f39cd61a9b"
+    },
+    {
+      "path": "prototype/strategy-ui.js",
+      "bytes": 23292,
+      "sha256": "c9e5c08ab02f9d9de9296189535b39634d5fe215c12182087bafc7192c468f51"
+    },
+    {
+      "path": "prototype/supply-treemap.css",
+      "bytes": 7358,
+      "sha256": "baa5d28654047645041a1c0019e55c3e5b320cb61cc93d86b5d993e6e87906f9"
+    },
+    {
+      "path": "prototype/supply-treemap.js",
+      "bytes": 14510,
+      "sha256": "fe5ee2b8e691a5a2c8f6073269896a78ff1901fe4842e2f44b150cfbb008dfee"
+    },
+    {
+      "path": "prototype/workspace-map.css",
+      "bytes": 23471,
+      "sha256": "fd9cd7d7f24b1dbd3d92c721ee5a2f84859a2791da0ddfa9c8e70027f4eef563"
+    },
+    {
+      "path": "prototype/workspace-map.js",
+      "bytes": 109649,
+      "sha256": "36bd38b2a3d5907d3c9c571b06243f5208b4853b7f1b76cd3be50802b3d166cd"
+    }
+  ],
+  "sourceObservation": {
+    "sha256": "22b40c9161d12619b000c94586d9ba4739e78773ca1ff66cd7873b6f4939306e",
+    "capturedAt": "2026-10-08T11:59:03.286Z",
+    "meaning": "Lossless projection of release owner’s actual frozen current native checks/measurements; not another native execution."
+  }
+}

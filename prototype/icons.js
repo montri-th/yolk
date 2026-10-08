@@ -9,6 +9,11 @@
   const patternGlyphs = Object.freeze({'Crowded':'groups','FOMO':'flag','Our Farm':'potted_plant','Pioneer':'explore','Quiet':'bedtime','Their War':'swords','Our Island':'beach_access','Winter War':'ac_unit'});
   function patternIcon(name) { return Object.prototype.hasOwnProperty.call(patternGlyphs,name) ? icon(patternGlyphs[name]) : ''; }
   function yolkIcon() { return icon('egg_alt'); }
+  // Demand uses the very same fried-egg graphic as the retained Yolk letter O.
+  // This only adds a semantic hook; glyph artwork, font bytes and axes stay intact.
+  function demandIcon() { return yolkIcon().replace('class="yl-icon"', 'class="yl-icon yolk-demand-icon" data-yolk-semantic="demand"'); }
+  // Three retained eggs distinguish the opportunity collection from one Demand egg.
+  function opportunityIcon() { return '<span class="yl-icon yolk-opportunity-icon" data-yolk-semantic="opportunity" aria-hidden="true">'+yolkIcon()+yolkIcon()+yolkIcon()+'</span>'; }
   function yolkWordmark() { return '<span class="yolk-wordmark" role="img" aria-label="Yolk"><b aria-hidden="true">Y</b><i class="yolk-letter-o" aria-hidden="true">'+yolkIcon()+'</i><b aria-hidden="true">lk</b></span>'; }
   // Optional explicit enhancement only. Existing labels, children and handlers remain intact.
   function decorate(root) {
@@ -43,7 +48,7 @@
       return false;
     });
   }
-  global.YolkIcons = Object.freeze({ icon: icon, decorate: decorate, captionControls: captionControls, load: load, glyphs: glyphs, patternGlyphs: patternGlyphs, patternIcon: patternIcon, yolkIcon: yolkIcon, yolkWordmark: yolkWordmark });
+  global.YolkIcons = Object.freeze({ icon: icon, decorate: decorate, captionControls: captionControls, load: load, glyphs: glyphs, patternGlyphs: patternGlyphs, patternIcon: patternIcon, yolkIcon: yolkIcon, demandIcon: demandIcon, opportunityIcon: opportunityIcon, yolkWordmark: yolkWordmark });
   // Failed fonts leave readable labels; no raw ligature names or fallback emoji appear.
   load();
 })(typeof window !== 'undefined' ? window : globalThis);

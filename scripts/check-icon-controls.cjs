@@ -82,6 +82,38 @@ function iconLoader(mode) {
   const sandbox = {document, Promise}; vm.runInNewContext(read('prototype/icons.js'), sandbox); return {api: sandbox.YolkIcons, classes, requests};
 }
 
+function actualSemanticNavigation(api, lang, route = 'demand') {
+  const app = read('prototype/app.js'), elements = new Map();
+  const $ = key => {if (!elements.has(key)) elements.set(key, {querySelector: () => null}); return elements.get(key);};
+  const sandbox = {document: {documentElement: {}, activeElement: null}, $, Y: {lang, route, pois: []},
+    window: {YolkIcons: api}, YolkIcons: api, YolkBrands: {displayName: (id, name) => name}, ownBrandName: () => 'Brand',
+    escapeHTML: s => String(s), tr: (th, en) => lang === 'th' ? th : en, YolkTheme: {renderControl: () => ''},
+    unreadCount: () => 0, pendingSupplyBadge: () => '', PEOPLE: [{id: 'm', role: 'admin'}], person: () => 'Manee',
+    sidebarExpanded: false, setSidebarExpanded() {}};
+  const declarations = ['const uiIcon=', 'const navIcon=', 'const navItems=', 'const tabTitle=', 'const compactNavLabels=']
+    .map(prefix => {const line = app.split('\n').find(line => line.startsWith(prefix)); assert(line); return line;}).join('\n');
+  const start = app.indexOf('function header()'), end = app.indexOf('\nfunction ', start + 1);
+  vm.runInNewContext(declarations + '\n' + app.slice(start, end) + '\nheader()', sandbox);
+  const controls = ['#sidebar', '#mobile-nav'].map(id => {
+    const dom = parse($(id).innerHTML); api.captionControls(dom);
+    return dom.querySelectorAll('a').find(a => a.attrs.href === '#' + route && (route !== 'market' || !a.className.includes('yolk-brand')));
+  });
+  if (route === 'market') {const dom = parse($('#header').innerHTML); api.captionControls(dom); controls.push(dom.querySelectorAll('a').find(a => a.attrs.href === '#market' && a.className.includes('header-team-link')));}
+  return controls;
+}
+
+async function actualDemandUI(lang) {
+  const h = makeHarness(); h.sandbox.num = n => String(n); h.sandbox.inMapArea = () => true;
+  h.sandbox.window.document = h.sandbox.document;
+  h.sandbox.mapNavigation = () => ({level: 'country'}); h.sandbox.mapNavigationTitle = () => 'Country';
+  for (const name of ['relative-supply.js', 'decision-ui.js', 'supply-compare.js', 'simple-criteria.js', 'analysis-ui.js'])
+    vm.runInContext(read('prototype/' + name), h.sandbox, {filename: 'actual-' + name});
+  await h.select('grocery', 'grocery-brand:SEVEN_ELEVEN', 'C_STORE'); h.sandbox.langFixture = lang;
+  h.evaluate('Y.lang=langFixture;draft=structuredClone(Y.criteria)');
+  return {h, page: h.sandbox.window.YolkAnalysisUI.demandPage(), criteria: h.sandbox.window.YolkSimpleCriteria.demand(''),
+    detail: h.sandbox.window.YolkDecisions.detail(h.evaluate('evaluate().find(a=>a.eligible)'))};
+}
+
 (async () => {
   const th = await actualSupply('th'), en = await actualSupply('en');
   await check('Actual Thai and English Supply filter controls preserve five visible captions and their real count role', () => {
@@ -113,6 +145,72 @@ function iconLoader(mode) {
   await check('Counter formatting no longer globally targets every Supply span, including icons and Thai captions', () => {
     const genericNumberRules = rules.filter(rule => rule.selector === '.supply-tabs button span' && rule.declarations.some(([name]) => ['font-family', 'font', 'font-size', 'margin-left'].includes(name))); assert.equal(genericNumberRules.length, 0);
   });
-  console.log(JSON.stringify({suite: 'icon-controls', version: '1.9.2', checks: checks.length, passed: checks.filter(c => c.passed).length, failures: checks.filter(c => !c.passed), evidence: 'Actual Supply renderer, caption enhancer, declared font/namespace and scoped resting-state CSS cascade fixture. Native font shaping, geometry, themes and device rendering remain separate.'}, null, 2));
+  await check('Demand graphic reuses the exact original Yolk O glyph without changing identity or font bytes', () => {
+    const api = iconLoader('loaded').api, demand = api.demandIcon(), egg = api.yolkIcon();
+    assert.equal(demand.replace('class="yl-icon yolk-demand-icon" data-yolk-semantic="demand"', 'class="yl-icon"'), egg);
+    assert(api.yolkWordmark().includes(egg)); assert(!api.yolkWordmark().includes('data-yolk-semantic="demand"'));
+    assert(demand.includes('aria-hidden="true"')); assert(demand.includes('data-yolk-glyph="egg_alt"'));
+    const asset = JSON.parse(read('contracts/icons.v1.8.0.json')).assets[0], bytes = fs.readFileSync(path.join(root, asset.path));
+    assert.equal(bytes.length, asset.bytes); assert.equal(require('node:crypto').createHash('sha256').update(bytes).digest('hex'), asset.sha256);
+  });
+  await check('Actual Thai and English desktop/mobile Demand navigation uses the fried egg with one readable caption and current state', () => {
+    const api = iconLoader('loaded').api;
+    for (const lang of ['th', 'en']) for (const control of actualSemanticNavigation(api, lang)) {
+      assert(control); assert.equal(control.attrs['aria-current'], 'page');
+      const glyph = control.querySelector('.yl-icon'); assert(glyph); assert.equal(glyph.attrs['data-yolk-glyph'], 'egg_alt');
+      assert.equal(glyph.attrs['data-yolk-semantic'], 'demand'); assert.equal(glyph.textContent, 'egg_alt');
+      assert(control.querySelector('.control-caption')?.textContent.includes('Demand'));
+      assert(!control.querySelectorAll('.yl-icon').some(icon => icon.attrs['data-yolk-glyph'] === 'location_on'));
+      const count = control.querySelectorAll('.control-caption').length; api.captionControls({querySelectorAll: () => [control]});
+      assert.equal(control.querySelectorAll('.control-caption').length, count);
+    }
+  });
+  await check('Actual Demand headings, map-analysis controls, simple criteria and location verdict reuse the same labelled egg in both languages', async () => {
+    for (const lang of ['th', 'en']) {
+      const fixture = await actualDemandUI(lang);
+      for (const html of [fixture.page, fixture.criteria, fixture.detail]) {
+        const dom = parse(html), eggs = dom.querySelectorAll('.yolk-demand-icon'); assert(eggs.length > 0);
+        assert(eggs.every(egg => egg.attrs['data-yolk-glyph'] === 'egg_alt' && egg.attrs['aria-hidden'] === 'true'));
+        assert(!dom.querySelectorAll('.yl-icon').some(icon => icon.attrs['data-yolk-glyph'] === 'location_on'));
+      }
+      assert.equal(parse(fixture.page).querySelectorAll('.yolk-demand-icon').length, 2);
+    }
+  });
+  await check('Demand semantic styling retains the Material namespace, theme-aware product accent and caption-only hover rules', () => {
+    const api = iconLoader('loaded').api, dom = parse('<a href="#demand">' + api.demandIcon() + 'Demand</a>'); api.captionControls(dom);
+    assert.equal(family(dom.querySelector('.yl-icon')), 'Yolk Material Symbols');
+    const style = read('prototype/icons.css'); assert(style.includes('.yl-icon.yolk-demand-icon{color:var(--yl-yolk-accent,var(--accent));text-decoration:none}'));
+    assert(style.includes('.has-caption-icon .yl-icon{text-decoration:none}'));
+    assert(style.includes('a.has-caption-icon:hover .control-caption'));
+    assert(!/\.yolk-demand-icon[^}]*\b(?:filter|transform|opacity|background|font-variation-settings)\s*:/s.test(style));
+  });
+  await check('Opportunity collection composes exactly three original Yolk egg graphics with no alternate glyph or changed identity', () => {
+    const api = iconLoader('loaded').api, graphic = parse(api.opportunityIcon()).querySelector('.yolk-opportunity-icon'); assert(graphic);
+    assert.equal(graphic.attrs['data-yolk-semantic'], 'opportunity'); assert.equal(graphic.attrs['aria-hidden'], 'true');
+    assert.equal(graphic.childNodes.length, 3); assert(graphic.childNodes.every(egg => egg.attrs['data-yolk-glyph'] === 'egg_alt' && egg.attrs['aria-hidden'] === 'true' && egg.textContent === 'egg_alt'));
+    assert.equal(api.opportunityIcon().split(api.yolkIcon()).length - 1, 3);
+    assert(!api.yolkWordmark().includes('yolk-opportunity-icon')); assert.equal(parse(api.demandIcon()).querySelectorAll('[data-yolk-glyph]').length, 1);
+  });
+  await check('Actual Thai and English Opportunity navigation and menu use the three-egg graphic with preserved captions and state', () => {
+    const api = iconLoader('loaded').api;
+    for (const lang of ['th', 'en']) for (const [i, control] of actualSemanticNavigation(api, lang, 'market').entries()) {
+      assert(control); if (i < 2) assert.equal(control.attrs['aria-current'], 'page');
+      const graphic = control.querySelector('.yolk-opportunity-icon'); assert(graphic); assert.equal(graphic.childNodes.length, 3);
+      assert(control.querySelector('.control-caption')?.textContent.trim()); assert(graphic.childNodes.every(egg => family(egg) === 'Yolk Material Symbols'));
+      assert(!graphic.querySelectorAll('.control-caption').length); const captions = control.querySelectorAll('.control-caption').length;
+      api.captionControls({querySelectorAll: () => [control]}); assert.equal(control.querySelectorAll('.control-caption').length, captions);
+    }
+  });
+  await check('Three-egg opportunity layout stays in one unframed icon slot; strategy-specific and field-navigation compass glyphs stay unchanged', () => {
+    const style = read('prototype/icons.css'), app = read('prototype/app.js'), strategy = read('prototype/strategy-ui.js');
+    assert(style.includes('.yolk-opportunity-icon>.yl-icon[data-yolk-glyph]{position:absolute;font-size:.64em!important;line-height:1;width:1em;height:1em;margin:0'));
+    for (const position of ['nth-child(1){top:0;left:0}', 'nth-child(2){top:0;right:0}', 'nth-child(3){bottom:0;left:18%}']) assert(style.includes(position));
+    assert(!/\.yolk-opportunity-icon[^}]*\b(?:filter|transform|opacity|background|border|font-variation-settings)\s*:/s.test(style));
+    assert(app.includes("market:'opportunity'")); assert(app.includes("['market',tr('เลือกโอกาส','Explore opportunities'),'opportunity']"));
+    assert(strategy.includes("${global.YolkIcons?.opportunityIcon()||''}${t('โอกาสขยาย'"));
+    assert(strategy.includes("const glyphs={underserved_market:'explore',segment_gap:'groups',competitive_entry:'swords',cluster_participation:'store',complementary_location:'layers',route_capture:'arrow_forward',network_infill:'shield',future_entry:'flag'};"));
+    assert(strategy.includes("${icon('explore')}${t('งานแรก','First field task')}"));
+  });
+  console.log(JSON.stringify({suite: 'icon-controls', version: '1.9.6', checks: checks.length, passed: checks.filter(c => c.passed).length, failures: checks.filter(c => !c.passed), evidence: 'Actual Supply/Demand renderers, navigation, caption enhancer, retained font/identity bytes and scoped resting-state CSS cascade fixture. Native font shaping, geometry, themes and device rendering remain separate.'}, null, 2));
   if (checks.some(c => !c.passed)) process.exitCode = 1;
 })();

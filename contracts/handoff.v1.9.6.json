@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "yolk.developer_handoff/1.9",
+  "version": "1.9.6",
+  "date": "2026-10-08",
+  "status": "locally_verified_pending_publication",
+  "startHere": "START_HERE.md",
+  "fullDocument": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.6.md",
+  "quickPlan": "IMPLEMENTATION_PLAN_v1.9.6.md",
+  "humanHandoff": "HANDOFF_v1.9.6.md",
+  "assetIndex": "ASSET_INDEX_v1.9.6.md",
+  "machineBlueprint": "contracts/full-product.v1.9.6.json",
+  "activeCriteria": "contracts/full-product.v1.9.6.json",
+  "releaseAuthority": "contracts/release.v1.9.6.json",
+  "runtimeRoot": "prototype/",
+  "normativeRoot": "reference/lds-0.9.7/",
+  "brandGraphics": "prototype/data/brand-logos.v1.7.json",
+  "icons": "contracts/icons.v1.8.0.json",
+  "requiredExternalServices": {
+    "production": "CityMETER stack mapping/auth/datastore/server RBAC/private media/outbox/email/LINE remain tasks",
+    "mapTiles": "Provider URLs and attribution are required; no tile cache is packaged"
+  },
+  "assetPolicy": "Use supplied original assets and current sealed hashes. DS base/profile/icons are pinned; no logo frames or motifs.",
+  "sourcePolicy": "Public compact adapters/provenance only; sources and private acquisition archives remain immutable/excluded.",
+  "experienceInvariants": [
+    "Demand/Tier alone determine active membership",
+    "Supply and weights can reorder, never add or remove confirmed Demand IDs",
+    "legacy patterns/demandMode remain inactive history",
+    "shield identifies own network; swords identifies comparator network",
+    "local paired-bar scale within a location does not compare length across locations",
+    "actual POI keeps source artwork contained in a compact square slot or explicit named theme fallback + name + role badge",
+    "Explicit map expansion/collapse preserves camera including desktop host width; ordinary responsive width/breakpoint fitting retains scope and popup anchors.",
+    "source-first form hints preserve manual choices and do not allocate aggregates",
+    "Strategies are a post-Demand projection with distinct candidate, incomplete and unsupported states",
+    "At most three factor families and three metrics per joint rule; at most three selected strategies",
+    "Current profiles seed only unseen brand/scope context; saved applied criteria/drafts win",
+    "Supply defaults to choropleth; optional coordinate POIs at all four drilldown levels without automatic camera changes",
+    "Coordinate groups preserve all available records and never rewrite administrative counts or certify a customer-attraction cluster",
+    "One scope-owned area tooltip; readable scope name, current value and unit",
+    "Optional point view suppresses unnecessary child boundary networks, retaining clickable scope and yellow hover",
+    "Successful new save updates real shortlist count exactly once; duplicate/failure does not",
+    "Finite motion is optional; reduced-motion/interruption final state remains visible and operable",
+    "Three supplied brand graphics bind to stable existing IDs without preset/profile changes",
+    "Supply icons have their own verified icon font and readable separate caption; no raw ligature text or layout overlap",
+    "First page is Expansion opportunities with inline maximum3-of8strategies; Demand/Supply remain supporting pages.",
+    "Legacy#strategy is an alias preserving context/camera/drafts; no duplicate map or team event.",
+    "Paired neutral stroke-only keylines beneath currently visible white source outlines, including POI/fine context; original hierarchy and quiet geometry stay.",
+    "Expanded mode is personal display state; current source/native tile recovery must be verified before a retry/availability claim.",
+    "Read-only bilingual guide explains all eight current strategies with hypothetical examples and accessible illustrations; opening/closing never changes strategy selection or criteria.",
+    "Native parent vectors supply parent totals/distribution; no LAO crosswalk or POI-marker rollup.",
+    "Unknown U and unresolved licence evidence never silently become own/competitor exact counts.",
+    "O+C count0 stays known while0/0 share remains undefined; valid0/100 ratios retain percentage domain."
+  ],
+  "packageEvidence": {
+    "zip": "CityMETER_Yolk_Handoff_v1.9.6.zip — generation and source-bound external attestation pending",
+    "currentQA": {
+      "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+      "receipt": "evidence/qa-v1.9.6.json",
+      "automatedReceipt": "evidence/automated-v1.9.6.json",
+      "releaseChecksReceipt": "evidence/release-checks-v1.9.6.json",
+      "nativeBrowserReceipt": "evidence/browser-v1.9.6/native-browser-review.json",
+      "receiptSha256": "63e714d2982b88bea8579364ab437741bc35bd6d25bc5f19c673b664108e28ab",
+      "automatedReceiptSha256": "1d27331eb2e79d2aa6c7afb2f07cf29ac875fd97226b5e86259308a6439c1144",
+      "releaseChecksReceiptSha256": "5f1ba52e4419a409ffef91cdcf69bc4a5d693652906b6043170f0f72bda7157d",
+      "nativeBrowserReceiptSha256": "1ed291cef83d13d04e91c5d7ca28a2b5d028ee2bdc5fc20851509423f1b26815",
+      "automatedSuites": 34,
+      "automatedChecks": 589,
+      "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.6; no imported prior results.",
+      "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "browserChecks": 10,
+      "snapshots": [
+        "evidence/browser-v1.9.6/desktop-th-light-country.jpg",
+        "evidence/browser-v1.9.6/desktop-th-light-supply-hover.jpg",
+        "evidence/browser-v1.9.6/desktop-en-dark-province.jpg",
+        "evidence/browser-v1.9.6/desktop-th-light-poi.jpg",
+        "evidence/browser-v1.9.6/mobile-th-light-supply-share.jpg",
+        "evidence/browser-v1.9.6/mobile-th-light-demand.jpg"
+      ],
+      "snapshotFiles": [
+        {
+          "path": "evidence/browser-v1.9.6/desktop-th-light-country.jpg",
+          "bytes": 133515,
+          "sha256": "035c885fd4dc637552d62fdc295242a211f1372ee38d28ee7e56cb8c1b171bf8",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.6/desktop-th-light-supply-hover.jpg",
+          "bytes": 128100,
+          "sha256": "dd5b8c1d22475d9ad5e967e5243f06f6ed81e89053c7379323d9aa2e909cf147",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.6/desktop-en-dark-province.jpg",
+          "bytes": 158666,
+          "sha256": "aa17320e1451f171b1c61362fe5e20861688cef3382de21ddf3ec873cfa09369",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.6/desktop-th-light-poi.jpg",
+          "bytes": 165542,
+          "sha256": "617d496cf8d92ee45deab58befc8fc47d1030d3961076ba8d92000dd916314b6",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.6/mobile-th-light-supply-share.jpg",
+          "bytes": 35380,
+          "sha256": "11c49f84a8d4b6cec7514ea80244c900bec249b98c63cfae2a052c029b0dc647",
+          "imagePixels": {
+            "width": 390,
+            "height": 844
+          },
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "path": "evidence/browser-v1.9.6/mobile-th-light-demand.jpg",
+          "bytes": 53968,
+          "sha256": "fdac8b47b11dff5471e60b6f742485f0aeca97c0b6e3336e932462f1481600f5",
+          "imagePixels": {
+            "width": 390,
+            "height": 844
+          },
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      ],
+      "physicalDevices": "unverified",
+      "fullLanguageThemeMatrix": false,
+      "scope": "Current frozen 1.9.6 bounded native review of paired map outlines, one-egg Demand/three-egg Opportunity, Supply count/share and source-brand treemaps in the recorded desktop/mobile/theme/language states. One actual boundary hover; physical devices/full matrix remain unverified.",
+      "productionBackend": "not_implemented_in_static_preview"
+    },
+    "retainedBaseline": "evidence/qa-v1.9.5.json — historical only",
+    "provider": "pending_terminal_success_for_final_source",
+    "liveBytes": "pending_current_emitted_url_checks"
+  },
+  "strategyContract": "contracts/opportunity-strategies.v1.9.0.json",
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "interactionExtension": "contracts/interaction-guidance.v1.9.1.json",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  },
+  "brandIdentityUIExtension": "contracts/brand-identity-ui.v1.9.2.json",
+  "expansionExperience": "contracts/expansion-experience.v1.9.3.json",
+  "strategyGuide": "prototype/data/strategy-guide.v1.9.3.json",
+  "mapSpace": "contracts/map-space.v1.9.4.json",
+  "localVerification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "receipt": "evidence/qa-v1.9.6.json",
+    "automatedReceipt": "evidence/automated-v1.9.6.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.6.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.6/native-browser-review.json",
+    "receiptSha256": "63e714d2982b88bea8579364ab437741bc35bd6d25bc5f19c673b664108e28ab",
+    "automatedReceiptSha256": "1d27331eb2e79d2aa6c7afb2f07cf29ac875fd97226b5e86259308a6439c1144",
+    "releaseChecksReceiptSha256": "5f1ba52e4419a409ffef91cdcf69bc4a5d693652906b6043170f0f72bda7157d",
+    "nativeBrowserReceiptSha256": "1ed291cef83d13d04e91c5d7ca28a2b5d028ee2bdc5fc20851509423f1b26815",
+    "automatedSuites": 34,
+    "automatedChecks": 589,
+    "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.6; no imported prior results.",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 10,
+    "snapshots": [
+      "evidence/browser-v1.9.6/desktop-th-light-country.jpg",
+      "evidence/browser-v1.9.6/desktop-th-light-supply-hover.jpg",
+      "evidence/browser-v1.9.6/desktop-en-dark-province.jpg",
+      "evidence/browser-v1.9.6/desktop-th-light-poi.jpg",
+      "evidence/browser-v1.9.6/mobile-th-light-supply-share.jpg",
+      "evidence/browser-v1.9.6/mobile-th-light-demand.jpg"
+    ],
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.6/desktop-th-light-country.jpg",
+        "bytes": 133515,
+        "sha256": "035c885fd4dc637552d62fdc295242a211f1372ee38d28ee7e56cb8c1b171bf8",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/desktop-th-light-supply-hover.jpg",
+        "bytes": 128100,
+        "sha256": "dd5b8c1d22475d9ad5e967e5243f06f6ed81e89053c7379323d9aa2e909cf147",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/desktop-en-dark-province.jpg",
+        "bytes": 158666,
+        "sha256": "aa17320e1451f171b1c61362fe5e20861688cef3382de21ddf3ec873cfa09369",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/desktop-th-light-poi.jpg",
+        "bytes": 165542,
+        "sha256": "617d496cf8d92ee45deab58befc8fc47d1030d3961076ba8d92000dd916314b6",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/mobile-th-light-supply-share.jpg",
+        "bytes": 35380,
+        "sha256": "11c49f84a8d4b6cec7514ea80244c900bec249b98c63cfae2a052c029b0dc647",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/mobile-th-light-demand.jpg",
+        "bytes": 53968,
+        "sha256": "fdac8b47b11dff5471e60b6f742485f0aeca97c0b6e3336e932462f1481600f5",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    ],
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "scope": "Current frozen 1.9.6 bounded native review of paired map outlines, one-egg Demand/three-egg Opportunity, Supply count/share and source-brand treemaps in the recorded desktop/mobile/theme/language states. One actual boundary hover; physical devices/full matrix remain unverified.",
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "mobileFlow": "contracts/mobile-flow.v1.9.5.json",
+  "mapReadability": "contracts/map-readability.v1.9.6.json",
+  "supplyInventoryDisplay": "contracts/supply-inventory.v1.9.6.json"
+}

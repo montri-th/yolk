@@ -16,7 +16,7 @@ async function check(name,test){const start=Date.now();try{await test();checks.p
   const story=JSON.parse(fs.readFileSync(path.join(root,'reference/lds-0.9.7/color-srgb-10.scales.json'),'utf8'));
   const location=JSON.parse(fs.readFileSync(path.join(root,'reference/lds-0.9.7/location-intelligence-0.9.7.json'),'utf8'));
   for(const [id,palette]of Object.entries(A.palettes))for(const theme of ['light','dark']){
-   assert.equal(palette.length,41);assert.deepEqual(plain(palette),story.scales.find(s=>s.scaleId===id&&s.theme===theme).lut);
+   assert.equal(palette.length,41);assert.deepEqual(plain(palette),(id==='li.market_share'?location:story).scales.find(s=>s.scaleId===id&&s.theme===theme).lut);
   }
   assert.equal(A.scaleSource.fillOpacity,1);assert.equal(A.scaleSource.themePolicy,'identical-light-values-on-both-themes');
   for(const [file,expected]of [['Landometer-Design-System-v0.9.7.md',A.scaleSource.baseDocumentSha256],['Location-Intelligence-Profile-for-LDS-v0.9.7.md',A.scaleSource.profileSha256]])assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'reference/lds-0.9.7',file))).digest('hex'),expected);

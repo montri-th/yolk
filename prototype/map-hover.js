@@ -24,7 +24,8 @@
     const map = options.map, L = options.L || root.L;
     if (!map || !L?.geoJSON) throw new TypeError('YolkMapHover requires the existing Leaflet map and L');
     let active = null, outline = null, tooltip = null, destroyed = false;
-    const bindings = new Set();
+    const bindings = new Set(), brandContent = new WeakMap();
+    let tooltipContent = null;
     const colour = () => String(typeof options.token === 'function' ? options.token() || '' : options.token || '').trim();
     function remove(layer, immediate = false) {
       const element = immediate ? layer?.getElement?.() : null;
@@ -35,15 +36,30 @@
     }
     function clear(expected) {
       if (expected && active?.key !== (typeof expected === 'string' ? expected : targetKey(expected))) return false;
-      remove(outline); remove(tooltip,true); outline = null; tooltip = null; active = null;
+      remove(outline); remove(tooltip,true); outline = null; tooltip = null; tooltipContent = null; active = null;
       return true;
+    }
+    function fitTooltip(latlng) {
+      const container=map.getContainer?.(),element=tooltip?.getElement?.();
+      if(!container?.getBoundingClientRect||!element?.getBoundingClientRect||!map.latLngToContainerPoint||!map.containerPointToLatLng)return;
+      const frame=container.getBoundingClientRect(),box=element.getBoundingClientRect(),top=frame.top+8,bottom=frame.bottom-8;
+      if(!Number.isFinite(frame.top)||!Number.isFinite(frame.bottom)||!Number.isFinite(box.top)||!Number.isFinite(box.bottom)||bottom<=top)return;
+      // Leaflet centres its tooltip around the geographic anchor. Move that
+      // presentation anchor inward; the source target, camera and data stay fixed.
+      const delta=box.top<top?top-box.top:box.bottom>bottom?bottom-box.bottom:0;
+      if(!delta)return;
+      const point=map.latLngToContainerPoint(latlng),scale=container.clientHeight>0?(frame.bottom-frame.top)/container.clientHeight:1;
+      if(!Number.isFinite(point?.x)||!Number.isFinite(point?.y)||!Number.isFinite(scale)||scale<=0)return;
+      tooltip.setLatLng(map.containerPointToLatLng([point.x,point.y+delta/scale]));
     }
     function show(target, latlng) {
       if (destroyed) return false;
       const key = targetKey(target), color = colour();
       if (!key || !usableFeature(target.feature) || !String(target.label || '').trim() || !color) { clear(); return false; }
       const label = String(target.label), title = String(target.title || label), detail = String(target.detail || '');
-      const content = detail ? `<strong class="workspace-hover-title">${esc(title)}</strong><span class="workspace-hover-detail">${esc(detail)}</span>` : esc(label);
+      const locale=target.lang||root.document?.documentElement?.lang;let brandHTML='';
+      if(target.brandBreakdown&&root.YolkSupplyTreemap?.render){const cached=brandContent.get(target.brandBreakdown);if(cached?.lang===locale)brandHTML=cached.html;else {brandHTML=root.YolkSupplyTreemap.render(target.brandBreakdown,{compact:true,lang:locale,id:'supply-hover-brand-breakdown'});brandContent.set(target.brandBreakdown,{lang:locale,html:brandHTML});}}
+      const content = brandHTML ? `<strong class="workspace-hover-title">${esc(title)}</strong><span class="workspace-hover-detail">${esc(detail)}</span>${brandHTML}` : detail ? `<strong class="workspace-hover-title">${esc(title)}</strong><span class="workspace-hover-detail">${esc(detail)}</span>` : esc(label);
       if (!active || active.key !== key || active.feature !== target.feature) {
         // Keep the single tooltip instance while only replacing its exact outline.
         remove(outline); outline = null; active = null;
@@ -55,9 +71,10 @@
       } else if (active.color !== color) { outline.setStyle?.({color}); active.color = color; }
       active.label = label;
       if (latlng && L.tooltip) {
-        if (!tooltip) tooltip = L.tooltip({direction:'auto', offset:[12,0], opacity:1, interactive:false, className:'workspace-map-hover-tooltip'}).setLatLng(latlng).setContent(content).addTo(map);
-        else { tooltip.setLatLng(latlng); tooltip.setContent(content); }
-      } else if (tooltip) { remove(tooltip,true); tooltip = null; }
+        if (!tooltip) {tooltip = L.tooltip({direction:'auto', offset:[12,0], opacity:1, interactive:false, className:'workspace-map-hover-tooltip'}).setLatLng(latlng).setContent(content).addTo(map);tooltipContent=content;}
+        else {tooltip.setLatLng(latlng);if(tooltipContent!==content){tooltip.setContent(content);tooltipContent=content;}}
+        fitTooltip(latlng);
+      } else if (tooltip) { remove(tooltip,true); tooltip = null; tooltipContent = null; }
       return true;
     }
     function bind(layer, getTarget) {

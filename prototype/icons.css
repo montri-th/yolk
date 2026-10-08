@@ -60,6 +60,17 @@
 button.has-caption-icon:hover:not(:disabled),a.has-caption-icon:hover,summary.has-caption-icon:hover{text-decoration:none}
 button.has-caption-icon:hover:not(:disabled) .control-caption,a.has-caption-icon:hover .control-caption,summary.has-caption-icon:hover .control-caption{text-decoration:underline;text-underline-offset:4px}
 .has-caption-icon .yl-icon{text-decoration:none}
+/* Retain the original Yolk O graphic for Demand without changing its outline axes.
+ * Product accent is theme-aware; analytical tier and metric paints are separate. */
+.yl-icon.yolk-demand-icon{color:var(--yl-yolk-accent,var(--accent));text-decoration:none}
+/* Two eggs above, one below: each is the original mark at a uniform smaller size.
+ * The compound occupies one normal icon slot and has no backing shape. */
+.yl-icon.yolk-opportunity-icon{position:relative;color:var(--yl-yolk-accent,var(--accent));text-decoration:none}
+.yolk-opportunity-icon>.yl-icon[data-yolk-glyph]{position:absolute;font-size:.64em!important;line-height:1;width:1em;height:1em;margin:0;vertical-align:0;color:inherit;text-decoration:none}
+.yolk-opportunity-icon>.yl-icon:nth-child(1){top:0;left:0}
+.yolk-opportunity-icon>.yl-icon:nth-child(2){top:0;right:0}
+.yolk-opportunity-icon>.yl-icon:nth-child(3){bottom:0;left:18%}
+.opportunity-head h1>.yolk-opportunity-icon{font-size:32px}
 /* The glyph namespace must outrank text/number span selectors inside labelled controls.
  * Geometry can still use each component's deliberate icon size; face and axes never change.
  */

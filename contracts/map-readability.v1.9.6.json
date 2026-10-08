@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "yolk.map_readability/1.9.6",
+  "version": "1.9.6",
+  "date": "2026-10-08",
+  "status": "final_runtime_values_current_QA_bound",
+  "scope": "Boundary contrast underlays plus approved egg mnemonics: Demand one fried egg and Expansion opportunities three reused fried eggs. No data paint/model/source/mobile-flow/original-artwork migration.",
+  "extends": [
+    "contracts/map-boundary-appearance.v1.7.4.json",
+    "contracts/expansion-experience.v1.9.3.json",
+    "contracts/map-space.v1.9.4.json",
+    "contracts/mobile-flow.v1.9.5.json",
+    "contracts/icons.v1.8.0.json"
+  ],
+  "retainedVersions": {
+    "criteria": "1.9.0",
+    "profiles": "1.9.0",
+    "strategyEngine": "1.9.0",
+    "interaction": "1.9.1",
+    "brandIdentityUI": "1.9.2",
+    "artwork": "1.9.2-owner2",
+    "strategyGuide": "1.9.3",
+    "desktopMapSpace": "1.9.4",
+    "mobileFlow": "1.9.5",
+    "DS": "0.9.7"
+  },
+  "invariants": {
+    "nationalBenchmarkUnchanged": true,
+    "demandMembershipUnchanged": true,
+    "supplyTotalsUnchanged": true,
+    "savedCriteriaAndDraftsPreserved": true,
+    "samePersistentMap": true,
+    "cameraAndNavigationUnchanged": true,
+    "analyticalFillColorAndOpacityUnchanged": true,
+    "originalBrandAssetsUnchanged": true,
+    "guideRegistryUnchanged": true,
+    "parentChildHierarchyPreserved": true,
+    "whiteOutlineAndYellowHoverPreserved": true,
+    "mobileDocumentFlowPreserved": true,
+    "readableCaptionsPreserved": true,
+    "personalDisplayOnly": true
+  },
+  "boundaryContrast": {
+    "implementationStatus": "runtime_confirmed",
+    "kind": "Stroke-only paired neutral keyline beneath existing ordinary white boundary outlines",
+    "panes": {
+      "analyticalPaint": 400,
+      "neutralKeyline": 410,
+      "whiteForeground": 411,
+      "yellowHover": 412,
+      "markers": 600
+    },
+    "contrastPanesPointerInert": true,
+    "neutralToken": {
+      "name": "--ldm-map-marker-halo-dark",
+      "hex": "#101318",
+      "sameAcrossThemes": true,
+      "meaning": "UI contrast support, not a data color or magnitude"
+    },
+    "whiteWidthsPx": {
+      "fineAndCountryDistrict": 0.3,
+      "selectedFine": 0.8,
+      "province": 1.2,
+      "ordinaryDrilldownDistrict": 1.05,
+      "selectedDistrict": 1.1,
+      "quietPoiDistrict": 0.65
+    },
+    "underlayWidth": "Existing ordinary white foreground width + 0.80px",
+    "keylineFill": false,
+    "keylineFillOpacity": 0,
+    "geometryAndVisibility": "Pairs mirror only the currently visible source outlines; no new child mesh in quiet POI view, no geometric join or new affiliation",
+    "dashStates": "Retain existing missing/extent/zero-state dash meaning",
+    "dataPaint": "Analytical fills, original colors, Tier gradient, LUT41, opacity and source geometry unchanged; no SVG filter on ordinary analytical paint",
+    "hover": "Retain original Yolk yellow #FFBC1F hover outline above ordinary paired strokes",
+    "retiredAppearanceSupport": [
+      "Prior parent-only halo attribute",
+      "Generic ordinary white-stroke SVG drop-shadow"
+    ],
+    "legacySelector": "Retained historical map-hover stylesheet selector matches no currently emitted ordinary path; generic neutral keyline is the sole active contrast support",
+    "supersedes": "Appearance support in retained expansion-experience1.9.3 only; no source, analytical, layout, camera, tooltip or navigational semantics changed"
+  },
+  "demandIdentity": {
+    "semantic": "Demand uses the approved Yolk fried-egg symbol, not the generic place pin",
+    "renderer": "YolkIcons.demandIcon() reuses existing YolkIcons.yolkIcon()",
+    "approvedGraphic": "egg_alt glyph used by the O in YolkIcons.yolkWordmark()",
+    "retainedFont": {
+      "path": "prototype/assets/material-symbols-rounded-yolk-300-v1.8.0.woff2",
+      "bytes": 6820,
+      "sha256": "2998791392b42334dbff07b513d28b794462db6392885dfb0fd0968e90919187"
+    },
+    "newArtworkOrFont": false,
+    "readableCaptionRequired": true,
+    "affectedSurfaces": [
+      "Sidebar/compact/mobile Demand navigation",
+      "Criteria Demand tab/jump/three-step flow and Yolk badges",
+      "Demand analysis heading/map-analysis controls",
+      "Simple criteria Demand heading",
+      "Decision level explainer/location verdict",
+      "Criteria-map preview heading",
+      "Retained location-map Demand title",
+      "Strategy empty-state Explore Demand link",
+      "Persistent Demand map heading"
+    ],
+    "implementationStatus": "runtime_confirmed",
+    "eggCount": 1,
+    "semanticHook": "data-yolk-semantic=\"demand\"",
+    "classHook": "yl-icon yolk-demand-icon",
+    "accent": "Existing --yl-yolk-accent token per theme",
+    "ariaHidden": true,
+    "geography": "Keep location_on for genuine coordinate/place actions",
+    "graphicPolicy": "Reuse yolkIcon()/egg_alt exactly; no font/shape/axes/filter/background change; Yolk wordmark remains original"
+  },
+  "acceptance": [
+    "Ordinary white boundaries remain recognizable over bright and dark basemaps/choropleths without changing their data paint or parent-child hierarchy.",
+    "Clickable hover remains Yolk yellow and relevant point-view boundaries stay quiet.",
+    "Demand uses one approved reused fried egg; Expansion opportunities uses three approved reused eggs with readable captions. Their mnemonics never represent measured values; geographic/coordinate controls and the eight named Strategy icons retain their meanings.",
+    "No hidden analytical change, map remount, camera move, source mutation, criteria Apply or team event.",
+    "Check actual TH/EN and both themes at narrow and desktop sizes; keep 1.9.5 page scrolling/expanded interaction and bounded accessibility."
+  ],
+  "verification": {
+    "automated": {
+      "receipt": "evidence/automated-v1.9.6.json",
+      "suites": 34,
+      "reportedPassedCases": 589
+    },
+    "native": {
+      "receipt": "evidence/browser-v1.9.6/native-browser-review.json",
+      "boundedChecks": 10,
+      "actualSnapshotFiles": 6
+    },
+    "publication": "not_performed_by_contract"
+  },
+  "nativeEvidence": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "receipt": "evidence/browser-v1.9.6/native-browser-review.json",
+    "receiptSha256": "1ed291cef83d13d04e91c5d7ca28a2b5d028ee2bdc5fc20851509423f1b26815",
+    "measurements": {
+      "countryCount": {
+        "basis": "รวมที่ทราบแบรนด์\n5,606\nสาขา\nส่วนแบ่งสาขาเรา\n27.8%\nเรา ÷ (เรา + คู่แข่ง)",
+        "demandGlyph": "egg_alt",
+        "keylineCount": 1005,
+        "keylineSample": [
+          {
+            "fill": "none",
+            "pointer": "none",
+            "stroke": "#101318",
+            "width": "2"
+          },
+          {
+            "fill": "none",
+            "pointer": "none",
+            "stroke": "#101318",
+            "width": "2"
+          },
+          {
+            "fill": "none",
+            "pointer": "none",
+            "stroke": "#101318",
+            "width": "2"
+          }
+        ],
+        "legendCount": 41,
+        "metric": "count",
+        "opportunityGlyphs": 0,
+        "overflow": 0,
+        "relation": [
+          "total"
+        ],
+        "unknown": "ไม่ทราบแบรนด์ 3,130 สาขา · ไม่รวมในฐาน"
+      }
+    },
+    "renderedChecks": [
+      {
+        "id": "desktop-th-light-default-count-source-breakdown",
+        "passed": true,
+        "details": "Default count/total; Bangchak direct country identified5606/own1561=27.8%, unknown3130 separately excluded; source totals are not POI count.",
+        "status": "PASS"
+      },
+      {
+        "id": "desktop-light-boundary-and-one-three-egg-icons",
+        "passed": true,
+        "details": "1005 paired source paths; unchanged white hierarchy supported by fill-free #101318 keylines; Demand original one egg and Opportunity three distinct original eggs visibly reviewed.",
+        "status": "PASS"
+      },
+      {
+        "id": "supply-fixed-share-and-source-treemap",
+        "passed": true,
+        "observation": "Fixed 0/25/50/75/100% legend; Bangchak country own1,561 of5,606 identified=27.8%;3,130 unknown explicitly excluded. Native Prachinburi hover own14 of55=25.5%,14unknown excluded; exactlyone tooltip,5rectangle compact treemap with readable name/count/share. Tooltip top208,bottom699.781 fits map.",
+        "status": "PASS"
+      },
+      {
+        "id": "province-parent-and-theme-language",
+        "passed": true,
+        "observation": "Bangkok source parent identified591, own184=31.1%,82unknown. District Bang Kapi hover independently14identified/5own=35.7%,2unknown. Legend anchors unchanged across light/dark; boundary halo#101318; no horizontal overflow.",
+        "status": "PASS"
+      },
+      {
+        "id": "poi-context-source-count-separation",
+        "passed": true,
+        "observation": "Bangkok POI view retains direct source591identified/184own/31.1%; grouped pins remain coordinate records; fine child mesh removed; source treemap does not use marker count.",
+        "status": "PASS"
+      },
+      {
+        "id": "nonbank-scoped-review-all-operators",
+        "passed": true,
+        "observation": "Native Non-bank potential_retail_branch_service country treemap observed17,812known records, own8,738,1,210other legal brands in grouped disclosure. Exact percent withheld pending scope/license review;10own-brandchoices do not cap competitor denominator. Mainchart<=10cells, initially<=40brandrows, no overflow.",
+        "status": "PASS"
+      },
+      {
+        "id": "grocery-format-country-and-mobile-treemap",
+        "passed": true,
+        "observation": "Grocery C_STORE countryidentified26,337,7-Eleven16,488=62.6%; previouslyBangkok4,982/3,857=77.4%. Narrow390x844 ownlogo/count/share and competitor rows readable, overflow0. Maprelative normalflow; nativepagewheel reaches treemap belowmap.4nativeOSMtilescomplete256px.",
+        "status": "PASS"
+      },
+      {
+        "id": "mobile-demand-original-icons-normal-flow",
+        "passed": true,
+        "observation": "Native390x844 Demandglyphtext egg_alt uses Yolk MaterialSymbols; Opportunitywrapper3children. Maprelative675.195px panel scrolls out ofview, Demandcards and shortlistbuttons reachable, overflow0.",
+        "status": "PASS"
+      },
+      {
+        "id": "mobile-expand-collapse-restores-flow",
+        "passed": true,
+        "observation": "Expand to756px then collapse to675.195px, country navigation retained, maprelative, no overflow.",
+        "status": "PASS"
+      },
+      {
+        "id": "native-console-errors",
+        "passed": true,
+        "observation": "NativeChrome captured error-level logs empty in reviewed final-runtime local session.",
+        "status": "PASS"
+      }
+    ],
+    "scope": "Current frozen 1.9.6 bounded native review of paired map outlines, one-egg Demand/three-egg Opportunity, Supply count/share and source-brand treemaps in the recorded desktop/mobile/theme/language states. One actual boundary hover; physical devices/full matrix remain unverified.",
+    "meaning": "Actual recorded current boundary/icon evidence, distinct from CSS declarations and package parity. Not physical-device/full-matrix or universal contrast/accessibility certification."
+  },
+  "opportunityIdentity": {
+    "implementationStatus": "runtime_confirmed",
+    "semantic": "Expansion opportunities uses three approved reused fried-egg marks; Demand uses one",
+    "renderer": "YolkIcons.opportunityIcon()",
+    "eggCount": 3,
+    "layout": "Two eggs above, one below; outer 1em slot, three unchanged glyphs at uniform 0.64em; top-left, top-right, bottom at left18%",
+    "semanticHook": "data-yolk-semantic=\"opportunity\"",
+    "classHook": "yl-icon yolk-opportunity-icon",
+    "accent": "Existing --yl-yolk-accent token per theme",
+    "approvedGraphic": "Three unchanged yolkIcon()/egg_alt glyph instances from the same retained font as Demand",
+    "newArtworkOrFont": false,
+    "readableCaptionRequired": true,
+    "ariaHidden": true,
+    "affectedSurfaces": [
+      "Canonical #market and retained #strategy sidebar/compact/mobile/menu navigation",
+      "Three-step flow opportunity control",
+      "Criteria Strategy tab/heading and Explore Strategies link",
+      "Opportunity page heading, location Strategy heading and Choose Strategies link",
+      "Persistent opportunity map heading"
+    ],
+    "retainedOtherIcons": "Eight named Strategy icons and geographic compass retain their existing meanings",
+    "meaningBoundary": "Three eggs are a mnemonic for a queue of opportunities, not a data count, eligibility threshold, measured opportunity or new strategy-selection rule"
+  }
+}

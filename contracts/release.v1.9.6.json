@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "yolk.public_release/1.9",
+  "version": "1.9.6",
+  "approvedSourcePreview": "1.9.6-map-readability",
+  "date": "2026-10-08",
+  "status": "locally_verified_pending_publication",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "productAuthority": "contracts/product.v1.7.json",
+  "featureExtension": "contracts/map-readability.v1.9.6.json",
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "nationalDemandCutoffsUnchanged": true,
+  "fineModelSemanticsUnchanged": true,
+  "modelChange": "Read-only identified Supply total/share and brand composition display added; core criteria/profile/ranking/source data unchanged. Boundary contrast, Demand1/Opportunity3 egg mnemonics and retained mobile/desktop behavior remain.",
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "publicationDelta": [
+    "Improve boundary readability with neutral underlays behind original white outlines; retain hierarchy, yellow hover and exact data fills.",
+    "Use one approved reused Yolk egg for Demand and three for Expansion opportunities, retaining readable captions and geographic/Strategy icon meanings.",
+    "Supply opens with own + identified competitors count; optional own branch share is fixed0..100 with exact LDS li.market_share41 colors.",
+    "Panel and single boundary-hover treemaps summarize direct-source brand counts with unknown/review/empty coverage and inspectable Other/list disclosure."
+  ],
+  "shareImage": {
+    "asset": "prototype/assets/identity/yolk-share-v1.7.png",
+    "family": "1.7",
+    "changedInThisRelease": false,
+    "meaning": "Retained approved1.7family asset; no new1.9render claimed."
+  },
+  "sourceEvidenceBoundary": "Compact public adapters and provenance only; private source acquisition/customer data excluded.",
+  "localVerification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "receipt": "evidence/qa-v1.9.6.json",
+    "automatedReceipt": "evidence/automated-v1.9.6.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.6.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.6/native-browser-review.json",
+    "receiptSha256": "63e714d2982b88bea8579364ab437741bc35bd6d25bc5f19c673b664108e28ab",
+    "automatedReceiptSha256": "1d27331eb2e79d2aa6c7afb2f07cf29ac875fd97226b5e86259308a6439c1144",
+    "releaseChecksReceiptSha256": "5f1ba52e4419a409ffef91cdcf69bc4a5d693652906b6043170f0f72bda7157d",
+    "nativeBrowserReceiptSha256": "1ed291cef83d13d04e91c5d7ca28a2b5d028ee2bdc5fc20851509423f1b26815",
+    "automatedSuites": 34,
+    "automatedChecks": 589,
+    "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.6; no imported prior results.",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 10,
+    "snapshots": [
+      "evidence/browser-v1.9.6/desktop-th-light-country.jpg",
+      "evidence/browser-v1.9.6/desktop-th-light-supply-hover.jpg",
+      "evidence/browser-v1.9.6/desktop-en-dark-province.jpg",
+      "evidence/browser-v1.9.6/desktop-th-light-poi.jpg",
+      "evidence/browser-v1.9.6/mobile-th-light-supply-share.jpg",
+      "evidence/browser-v1.9.6/mobile-th-light-demand.jpg"
+    ],
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.6/desktop-th-light-country.jpg",
+        "bytes": 133515,
+        "sha256": "035c885fd4dc637552d62fdc295242a211f1372ee38d28ee7e56cb8c1b171bf8",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/desktop-th-light-supply-hover.jpg",
+        "bytes": 128100,
+        "sha256": "dd5b8c1d22475d9ad5e967e5243f06f6ed81e89053c7379323d9aa2e909cf147",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/desktop-en-dark-province.jpg",
+        "bytes": 158666,
+        "sha256": "aa17320e1451f171b1c61362fe5e20861688cef3382de21ddf3ec873cfa09369",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/desktop-th-light-poi.jpg",
+        "bytes": 165542,
+        "sha256": "617d496cf8d92ee45deab58befc8fc47d1030d3961076ba8d92000dd916314b6",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/mobile-th-light-supply-share.jpg",
+        "bytes": 35380,
+        "sha256": "11c49f84a8d4b6cec7514ea80244c900bec249b98c63cfae2a052c029b0dc647",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/mobile-th-light-demand.jpg",
+        "bytes": 53968,
+        "sha256": "fdac8b47b11dff5471e60b6f742485f0aeca97c0b6e3336e932462f1481600f5",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    ],
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "scope": "Current frozen 1.9.6 bounded native review of paired map outlines, one-egg Demand/three-egg Opportunity, Supply count/share and source-brand treemaps in the recorded desktop/mobile/theme/language states. One actual boundary hover; physical devices/full matrix remain unverified.",
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "providerEvidence": "Pending terminal deployment success bound to final source SHA; external attestation separate from local QA.",
+  "liveByteEvidence": "Pending current public emitted-URL/hash/MIME checks in external attestation; not inferred from local QA.",
+  "limits": [
+    "Demand proxy is not observed traffic/purchases/borrowing or a revenueforecast",
+    "Static preview does not implement sharedbackend/serverRBAC/email/LINE/privateproductionmedia",
+    "Native viewport review is not physicaldevice certification",
+    "External provider availability/results need separate verification",
+    "Operator-stated positioning is not measured consumer perception or branch-level offering certification",
+    "Strategy candidates are survey cues, not measured unmet demand, market share, sales or winning probability",
+    "POI coordinate inventories and native choropleth counts have different coverage; screen groups are not a customer-attraction model"
+  ],
+  "retainedContracts": [
+    "contracts/workspace-map.v1.7.json",
+    "contracts/map-analysis.v1.7.2.json",
+    "contracts/location-review.v1.7.3.json",
+    "contracts/map-boundary-appearance.v1.7.4.json",
+    "contracts/branch-context.v1.7.5.json",
+    "contracts/opportunity-strategies.v1.9.0.json",
+    "contracts/full-product.v1.9.0.json",
+    "contracts/interaction-guidance.v1.9.1.json",
+    "contracts/full-product.v1.9.1.json",
+    "contracts/brand-identity-ui.v1.9.2.json",
+    "contracts/full-product.v1.9.2.json",
+    "contracts/full-product.v1.9.3.json",
+    "contracts/expansion-experience.v1.9.3.json",
+    "contracts/full-product.v1.9.4.json",
+    "contracts/map-space.v1.9.4.json",
+    "contracts/full-product.v1.9.5.json",
+    "contracts/mobile-flow.v1.9.5.json"
+  ],
+  "currentQAOnly": true,
+  "designSystemPackageVerification": {
+    "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+    "version": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "receipt": "evidence/lds-package-verification.v1.9.6.json",
+    "receiptSha256": "6ff01e1dfccd6b03187430197aa956b3ccb0a4f4b48903ba57d9f80322c76fb0",
+    "checks": 9768,
+    "warnings": 65,
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+    "artifactAndAccountTeamCertification": false
+  },
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "fullProduct": "contracts/full-product.v1.9.6.json",
+  "responsiveCameraRule": "Explicit Expand/Compact preserves same camera/navigation/map, including host width change; ordinary responsive significant-width fitting retains existing rule and popup guard.",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  },
+  "tileRecoveryStatus": "retained1_9_3_recovery_implementation_current_retest_required",
+  "strategyGuide": "prototype/data/strategy-guide.v1.9.3.json",
+  "previousPublishedSource": {
+    "version": "1.9.5",
+    "sourceSha": "46e1d7d91eb7fbcfde00b163ffa470e28c2e4107",
+    "treeSha": "ec60e2b8c6f5380e811ebe62a26a283356718b8f",
+    "meaning": "Published historical baseline; not current 1.9.6 proof."
+  },
+  "supplyInventoryExtension": "contracts/supply-inventory.v1.9.6.json"
+}

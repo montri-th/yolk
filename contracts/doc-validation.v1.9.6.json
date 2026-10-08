@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "yolk.document_validation/1.9",
+  "version": "1.9.6",
+  "recordedAt": "2026-10-08T12:27:44.788009+00:00",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 3,
+  "tasks": 25,
+  "metrics": 25,
+  "brandBindings": 37,
+  "guideStrategies": 8,
+  "checks": [
+    {
+      "name": "Three embedded JSON blocks parse and current full blueprint exactly matches standalone",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: source",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: profiles",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: demand",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: supply",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: ranking",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: opportunity",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: production",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: api",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: schemas",
+      "passed": true
+    },
+    {
+      "name": "Retained desktop/mobile flow, guide and expansion-experience projections unchanged",
+      "passed": true
+    },
+    {
+      "name": "Current map-readability projection matches standalone",
+      "passed": true
+    },
+    {
+      "name": "Current Supply inventory display exactly matches standalone and fresh QA",
+      "passed": true
+    },
+    {
+      "name": "Supply fixed-domain41 original LDS palette and source SHA are exact",
+      "passed": true
+    },
+    {
+      "name": "Supply share count scope and no-data rules remain explicit",
+      "passed": true
+    },
+    {
+      "name": "Supply renderer/list caps and new suite/runtime bindings are current",
+      "passed": true
+    },
+    {
+      "name": "Active machine appearance uses current paired keyline without retired parent halo",
+      "passed": true
+    },
+    {
+      "name": "Active human presentation instructions use current mobile size and keyline",
+      "passed": true
+    },
+    {
+      "name": "25 complete bounded production tasks retained",
+      "passed": true
+    },
+    {
+      "name": "Task dependencies are ordered and declared",
+      "passed": true
+    },
+    {
+      "name": "Current suite and native result counts reconcile",
+      "passed": true
+    },
+    {
+      "name": "Current QA receipts exactly match in full/release/handoff",
+      "passed": true
+    },
+    {
+      "name": "No publication upgrade from local QA",
+      "passed": true
+    },
+    {
+      "name": "Actual local full-document links resolve",
+      "passed": true
+    },
+    {
+      "name": "Fresh package-only evidence remains bounded and SHA-bound",
+      "passed": true
+    },
+    {
+      "name": "Current entry/asset instructions contain no retired expanded-Supply pending claim",
+      "passed": true
+    },
+    {
+      "name": "Current human and T12 hover instructions use direct Supply vectors",
+      "passed": true
+    }
+  ],
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.6.md",
+    "sha256": "068c0423ed2b70b3685ae975e5acca84e9287b10b190021e40320a35a1e0f717"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.6.json",
+    "sha256": "35a762cc0e30e5b303b366cd26569f9863bda1678724c4b29a5bb2d830c501c1"
+  },
+  "narrativeRegistry": {
+    "path": "prototype/data/strategy-guide.v1.9.3.json",
+    "sha256": "04aad69b6b3ec79cfae0923a6b743ce9807c1ce63798d04a15e58ec7775ad080"
+  },
+  "mapReadabilityContract": {
+    "path": "contracts/map-readability.v1.9.6.json",
+    "sha256": "89553b810dd166ff0ce21e30cdabe4b241597f2bf3154201dc6f3b881c89e161"
+  },
+  "supplyInventoryContract": {
+    "path": "contracts/supply-inventory.v1.9.6.json",
+    "sha256": "2a0b997d29d16acad6ea7227f4755a2fb11ad8798b941692c1223f6e714b434e"
+  },
+  "currentRuntimeAcceptance": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "nativeAcceptance": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "sourceQAReceipt": {
+    "path": "evidence/qa-v1.9.6.json",
+    "sha256": "63e714d2982b88bea8579364ab437741bc35bd6d25bc5f19c673b664108e28ab"
+  },
+  "nativeReceipt": {
+    "path": "evidence/browser-v1.9.6/native-browser-review.json",
+    "sha256": "1ed291cef83d13d04e91c5d7ca28a2b5d028ee2bdc5fc20851509423f1b26815"
+  },
+  "coverageBoundary": "Current complete document/embedded contracts/boundary, semantic icon and Supply count/share/treemap consistency plus actual fresh receipt bindings only. One actual boundary hover is not all-boundary coverage. Package parity is not artifact/account/team certification. Historical guide/map-space/analytical evidence remains reference-only. Provider/live/publication/ZIP, physical devices/full matrix and production backend are separate."
+}

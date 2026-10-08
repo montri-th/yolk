@@ -3,8 +3,8 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),vm=require('node:vm');
 const root=path.resolve(__dirname,'..');
 const prefix=fs.readFileSync(path.join(__dirname,'check-workspace-map.cjs'),'utf8').split('(async()=>{')[0];
-const env=Function('require','__dirname',prefix+'\nreturn {h,run,api,maps,document,provincePaths,districtPaths,finePaths,hitPaths,camera,tick};')(require,__dirname);
-const {h,run,api,maps,document,provincePaths,districtPaths,finePaths,hitPaths,camera,tick}=env;
+const env=Function('require','__dirname',prefix+'\nreturn {h,run,api,maps,document,boundaryPaths,provincePaths,districtPaths,finePaths,hitPaths,camera,tick};')(require,__dirname);
+const {h,run,api,maps,document,boundaryPaths,provincePaths,districtPaths,finePaths,hitPaths,camera,tick}=env;
 const checks=[],index=JSON.parse(fs.readFileSync(path.join(root,'prototype/data/real/hierarchy-index.json'),'utf8'));
 const halo=p=>p.element.getAttribute('data-workspace-boundary-halo')==='parent';
 const paintSignature=()=>JSON.stringify(maps[0].renderOrder.filter(p=>p.style.fill).map(p=>({id:p.feature?.properties?.areaId||p.feature?.properties?.id||p.feature?.properties?.code,fill:p.style.fillColor,opacity:p.style.fillOpacity})).sort((a,b)=>String(a.id).localeCompare(String(b.id))));
@@ -33,18 +33,18 @@ function boundaryFilterCascade(attrs,reverse=false){
  api.mount();await tick();await tick();run('Y.route="market";Y.loading=false;Y.loadError=null');
  const id=run('AREAS.find(a=>a.province==="10").id'),district=index.areas[id].districtIds[0];
  const source=run('JSON.stringify(AREAS.map(a=>({id:a.id,metrics:a.metrics,supply:a.supply})))');
- await check('Country shows thin white analytical children with contrast only on exact unfilled province parents',async()=>{
+ await check('Country keeps ordinary thin white analytical strokes and province hierarchy without legacy shadow treatment',async()=>{
   await navigate({level:'country'});assert.equal(districtPaths().length,928);assert.equal(provincePaths().length,77);
   assert(districtPaths().every(p=>p.style.color==='#FFFFFF'&&p.style.weight===.30&&p.style.fillOpacity===1&&!halo(p)));
-  assert(provincePaths().every(p=>p.style.color==='#FFFFFF'&&p.style.weight===1.2&&p.style.fill===false&&halo(p)&&p.element.getAttribute('data-workspace-boundary-role')==='province'));
+  assert(provincePaths().every(p=>p.style.color==='#FFFFFF'&&p.style.weight===1.2&&p.style.fill===false&&!halo(p)&&p.element.getAttribute('data-workspace-boundary-role')==='province'));
   assert(maps[0].renderOrder.filter(halo).every(p=>p.style.fill===false),'No analytical fill may receive boundary contrast treatment');
  });
  await check('Province and district views support white parent context above thinner original fine-area fills',async()=>{
   for(const nav of [{level:'province',provinceCode:'10'},{level:'district',provinceCode:'10',districtId:district}]){
    await navigate(nav);assert(finePaths().length>0);
    assert(finePaths().every(p=>p.style.weight===.30&&p.style.fillOpacity===1&&!halo(p)));
-   assert(districtPaths().every(p=>p.style.fill===false&&p.style.weight>.30&&halo(p)));
-   assert(provincePaths().every(p=>p.style.fill===false&&p.style.weight>Math.max(...districtPaths().map(d=>d.style.weight))&&halo(p)));
+   assert(districtPaths().every(p=>p.style.fill===false&&p.style.weight>.30&&!halo(p)));
+   assert(provincePaths().every(p=>p.style.fill===false&&p.style.weight>Math.max(...districtPaths().map(d=>d.style.weight))&&!halo(p)));
   }
  });
  await check('Theme, criteria and repeated sync preserve actual fills, source values, camera and a single target per scope',()=>{
@@ -71,14 +71,36 @@ function boundaryFilterCascade(attrs,reverse=false){
   const before=run('JSON.stringify(Y.pois)');await navigate({level:'location',provinceCode:'10',districtId:district,areaId:id});
   assert.equal(finePaths().length,1);assert(finePaths().every(p=>p.style.fill===false&&p.style.color==='#FFFFFF'&&p.style.weight===.8&&!halo(p)));assert(maps[0].renderOrder.every(p=>!halo(p)));assert.equal(run('JSON.stringify(Y.pois)'),before);
  });
- await check('Contrast CSS is scoped to nonfilled parent paths using the actual DS neutral, never tiles, markers or data colours',()=>{
-  const css=fs.readFileSync(path.join(root,'prototype/map-hover.css'),'utf8'),rules=[...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].filter(m=>m[2].includes('drop-shadow'));
-  assert.equal(rules.length,1);assert(rules[0][1].includes('[data-workspace-boundary-halo="parent"][fill="none"]'));assert(rules[0][2].includes('var(--ldm-foundation-surface-canvas-dark)'));assert(!/brightness|grayscale|invert|hue-rotate|opacity\s*:/.test(rules[0][2]));
-  const tokens=fs.readFileSync(path.join(root,'prototype/vendor/lds-0.9.7/color-srgb-10.production.css'),'utf8');assert(tokens.includes('--ldm-foundation-surface-canvas-dark: #11191D;'));
+ await check('Ordinary analytical paths have no remaining drop-shadow; contrast does not filter tiles, markers or data fields',()=>{
+  const css=fs.readFileSync(path.join(root,'prototype/workspace-map.css'),'utf8');assert(!css.includes('drop-shadow'));
+  assert(maps[0].renderOrder.every(p=>!halo(p)),'The historical parent-shadow selector must match no live path');
  });
- await check('Actual CSS cascade gives parent contrast precedence over the generic unfilled white-stroke rule',()=>{
-  const parent={'data-workspace-boundary-halo':'parent',fill:'none',stroke:'#FFFFFF','stroke-opacity':'1'},child={fill:'none',stroke:'#FFFFFF','stroke-opacity':'1'},data={fill:'#FFBC1F',stroke:'#FFFFFF','stroke-opacity':'1'};
-  for(const reverse of [false,true]){assert.equal(boundaryFilterCascade(parent,reverse),'drop-shadow(0 0 .65px var(--ldm-foundation-surface-canvas-dark))');assert.equal(boundaryFilterCascade(child,reverse),'drop-shadow(0 0 .35px var(--yl-border-strong))');assert.equal(boundaryFilterCascade(data,reverse),null);assert.equal(boundaryFilterCascade({...parent,fill:'#FFBC1F'},reverse),null);}
+ await check('Actual emitted stylesheet cascade leaves ordinary filled and unfilled white source paths unfiltered',()=>{
+  const parent={'data-workspace-boundary-role':'province',fill:'none',stroke:'#FFFFFF','stroke-opacity':'1'},child={'data-workspace-boundary-role':'district',fill:'none',stroke:'#FFFFFF','stroke-opacity':'1'},data={fill:'#FFBC1F',stroke:'#FFFFFF','stroke-opacity':'1'};
+  for(const reverse of [false,true])for(const attrs of [parent,child,data])assert.equal(boundaryFilterCascade(attrs,reverse),null);
+ });
+ const overlay=pane=>maps[0].renderOrder.filter(p=>p.options.pane===pane);
+ await check('Stroke-only public panes place a neutral keyline under white boundaries and hover above both but below branch markers',()=>{
+  for(const [name,zIndex]of [['workspaceBoundaryKeyline','410'],['workspaceBoundaryWhite','411'],['workspaceBoundaryHover','412']]){const pane=maps[0].getPane(name);assert(pane);assert.equal(pane.style.zIndex,zIndex);assert.equal(pane.style.pointerEvents,'none');}
+  const css=fs.readFileSync(path.join(root,'prototype/workspace-map.css'),'utf8');assert(css.includes('.workspace-map-panel .workspace-boundary-keyline,.workspace-map-panel .workspace-boundary-white{pointer-events:none;filter:none}'));
+  const tokens=fs.readFileSync(path.join(root,'prototype/vendor/lds-0.9.7/color-srgb-10.production.css'),'utf8');assert(tokens.includes('--ldm-map-marker-halo-dark: #101318;'));assert(+maps[0].getPane('workspaceBoundaryHover').style.zIndex<600);
+ });
+ await check('Country, province, district and selected location keylines reuse exact visible source geometry and ordinary white widths',async()=>{
+  run('Y.route="supply"');api.setSupplyView('regions');
+  for(const nav of [{level:'country'},{level:'province',provinceCode:'10'},{level:'district',provinceCode:'10',districtId:district},{level:'location',provinceCode:'10',districtId:district,areaId:id}]){
+   await navigate(nav);const ordinary=boundaryPaths(),keylines=overlay('workspaceBoundaryKeyline'),white=overlay('workspaceBoundaryWhite');assert.equal(keylines.length,ordinary.length);assert.equal(white.length,ordinary.length);
+   for(const p of ordinary){const k=keylines.find(x=>x.feature===p.feature),w=white.find(x=>x.feature===p.feature);assert(k&&w);assert.equal(w.style.color,'#FFFFFF');assert.equal(w.style.weight,p.style.weight);assert.equal(k.style.color,'#101318');assert(Math.abs(k.style.weight-p.style.weight-.80)<1e-10);assert.equal(k.style.dashArray,p.style.dashArray||null);assert.equal(w.style.dashArray,p.style.dashArray||null);for(const path of [k,w]){assert.equal(path.style.fill,false);assert.equal(path.style.fillOpacity,0);assert.equal(path.style.opacity,1);assert.equal(path.options.interactive,false);assert.equal(path.options.bubblingMouseEvents,false);assert.equal(path.element.getAttribute('aria-hidden'),'true');assert(!path.element.hasAttribute('role'));assert(!path.element.hasAttribute('tabindex'));}}
+  }
+ });
+ await check('Theme, basemap and repeated sync keep keyline geometry cached, exact analytical fills and the current camera',async()=>{
+  await navigate({level:'country'});const paths=overlay('workspaceBoundaryKeyline'),white=overlay('workspaceBoundaryWhite'),paint=paintSignature(),before=camera();
+  for(const theme of ['light','dark'])for(const basemap of ['simplified','satellite','detailed']){document.documentElement.dataset.theme=theme;api.setBasemap(basemap);api.sync();assert.equal(paintSignature(),paint);assert.deepEqual(camera(),before);assert.equal(overlay('workspaceBoundaryKeyline').length,paths.length);assert(overlay('workspaceBoundaryKeyline').every(p=>paths.includes(p)&&p.style.color==='#101318'));assert(overlay('workspaceBoundaryWhite').every(p=>white.includes(p)));}
+  const hit=hitPaths().find(p=>p.feature.properties.code==='10');hit.handlers.mouseover({latlng:{lat:13.75,lng:100.5}});const hover=maps[0].renderOrder.at(-1);assert.equal(hover.options.pane,'workspaceBoundaryHover');assert.equal(hover.style.color,'#FFBC1F');assert.equal(hover.style.fill,false);assert.equal(paintSignature(),paint);hit.handlers.mouseout();assert.equal(run('JSON.stringify(AREAS.map(a=>({id:a.id,metrics:a.metrics,supply:a.supply})))'),source);
+ });
+ await check('Point view supports only its existing quiet outline set and loading removes stale boundary pairs',async()=>{
+  api.setSupplyView('points');
+  for(const nav of [{level:'country'},{level:'province',provinceCode:'10'},{level:'district',provinceCode:'10',districtId:district}]){await navigate(nav);assert.equal(overlay('workspaceBoundaryKeyline').length,boundaryPaths().length);assert.equal(overlay('workspaceBoundaryWhite').length,boundaryPaths().length);assert.equal(finePaths().length,0);if(nav.level==='country')assert.equal(districtPaths().length,0);if(nav.level==='district')assert.equal(districtPaths().length,1);}
+  const before=camera();run('Y.loading=true');api.sync();assert.equal(overlay('workspaceBoundaryKeyline').length,0);assert.equal(overlay('workspaceBoundaryWhite').length,0);run('Y.loading=false');api.sync();assert.equal(overlay('workspaceBoundaryKeyline').length,boundaryPaths().length);assert.deepEqual(camera(),before);
  });
  const report={schemaVersion:1,version:'1.9.3',test:'check-map-hierarchy',passed:checks.every(c=>c.passed),checks,scope:'Current real controller, source snapshots and SVG-shaped adapter; actual halo contrast, layout and basemap appearance require native review.'};
  const out=path.join(root,'../deliverables/yolk-v1.9.3/map-hierarchy-regression-results.json');fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(report,null,2)+'\n');

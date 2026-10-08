@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "yolk.integrated_qa/1.9",
+  "version": "1.9.6",
+  "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "reviewedAt": "2026-10-08T12:17:56.069979+00:00",
+  "automated": {
+    "status": "PASS",
+    "suites": 34,
+    "reportedPassedCases": 589,
+    "receipt": "evidence/automated-v1.9.6.json",
+    "receiptSha256": "1d27331eb2e79d2aa6c7afb2f07cf29ac875fd97226b5e86259308a6439c1144",
+    "meaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.6; no imported prior results."
+  },
+  "nativeBrowser": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "checks": 10,
+    "receipt": "evidence/browser-v1.9.6/native-browser-review.json",
+    "receiptSha256": "1ed291cef83d13d04e91c5d7ca28a2b5d028ee2bdc5fc20851509423f1b26815",
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.6/desktop-th-light-country.jpg",
+        "bytes": 133515,
+        "sha256": "035c885fd4dc637552d62fdc295242a211f1372ee38d28ee7e56cb8c1b171bf8",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/desktop-th-light-supply-hover.jpg",
+        "bytes": 128100,
+        "sha256": "dd5b8c1d22475d9ad5e967e5243f06f6ed81e89053c7379323d9aa2e909cf147",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/desktop-en-dark-province.jpg",
+        "bytes": 158666,
+        "sha256": "aa17320e1451f171b1c61362fe5e20861688cef3382de21ddf3ec873cfa09369",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/desktop-th-light-poi.jpg",
+        "bytes": 165542,
+        "sha256": "617d496cf8d92ee45deab58befc8fc47d1030d3961076ba8d92000dd916314b6",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/mobile-th-light-supply-share.jpg",
+        "bytes": 35380,
+        "sha256": "11c49f84a8d4b6cec7514ea80244c900bec249b98c63cfae2a052c029b0dc647",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.6/mobile-th-light-demand.jpg",
+        "bytes": 53968,
+        "sha256": "fdac8b47b11dff5471e60b6f742485f0aeca97c0b6e3336e932462f1481600f5",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    ],
+    "fullLanguageThemeDeviceMatrix": false,
+    "physicalDevices": "unverified"
+  },
+  "designSystemPackage": {
+    "version": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "checks": 9768,
+    "warnings": 65,
+    "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+    "receipt": "evidence/lds-package-verification.v1.9.6.json",
+    "receiptSha256": "6ff01e1dfccd6b03187430197aa956b3ccb0a4f4b48903ba57d9f80322c76fb0",
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+    "artifactAndAccountTeamCertification": false
+  },
+  "semanticBoundary": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0",
+    "analyticalPaint": "Existing analytical colors/opacity/Tiers retained; new identified own branch-share display uses exact LDS li.market_share41 with fixed0..100 domain. Count maps keep original national quantiles. Contrast is stroke-only underlay; Demand/Opportunity icons are mnemonics. Source counts, screening and ranking are unchanged.",
+    "supplyInventoryReview": {
+      "passed": true,
+      "checkIds": [
+        "supply-fixed-share-and-source-treemap",
+        "province-parent-and-theme-language",
+        "poi-context-source-count-separation",
+        "nonbank-scoped-review-all-operators",
+        "grocery-format-country-and-mobile-treemap"
+      ],
+      "scope": "Frozen1.9.6 actual Chrome native viewport review of fuel country/province, Grocery C_STORE country/province and mobile treemap, Non-bank review state; one actual province hover in Supply share. Physical devices and full matrix unverified."
+    }
+  },
+  "publication": "not_performed_by_this_local_QA_receipt",
+  "limits": [
+    "Physical iPhone/Android touch and Safari unverified",
+    "Complete brand/language/theme/device matrix unverified",
+    "Actual screen-reader speech, zoom and all-boundary hover coverage unverified",
+    "Provider/tile/StreetView/Google AI availability requires separate current evidence",
+    "Shared backend/auth/RBAC/outbox/private media not implemented in static preview"
+  ],
+  "scope": "Fresh complete current workflow suites and lossless root-owned current boundary/icon plus Supply count/share/treemap observations and their exact actual JPEG list. One tested boundary hover does not prove all-boundary coverage. Package parity remains separate from rendered artifact/account/team certification."
+}

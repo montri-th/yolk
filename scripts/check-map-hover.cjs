@@ -23,7 +23,7 @@ const shapes = [], tips = [], tooltipDOM = new Set();
 const L = {
   geoJSON(feature, options) { const layer = {feature, options, styles:[], addTo(m){m.layers.add(this);if(!m.renderOrder.includes(this))m.renderOrder.push(this);return this;},remove(){map.removeLayer(this);},setStyle(style){this.styles.push(style);},bringToFront(){map.renderOrder=map.renderOrder.filter(x=>x!==this);map.renderOrder.push(this);}}; shapes.push(layer); return layer; },
   // Match Leaflet's fade-out: closing removes the layer but can leave old DOM briefly.
-  tooltip(options) { const element={remove(){tooltipDOM.delete(this);}}, tip = {options, setLatLng(v){this.latlng=v;return this;},setContent(v){this.content=v;return this;},addTo(m){m.layers.add(this);tooltipDOM.add(element);return this;},getElement(){return element;},remove(){map.layers.delete(this);}};tips.push(tip);return tip; }
+  tooltip(options) { const element={remove(){tooltipDOM.delete(this);}}, tip = {options, setLatLng(v){this.latlng=v;return this;},setContent(v){this.content=v;this.contentWrites=(this.contentWrites||0)+1;return this;},addTo(m){m.layers.add(this);tooltipDOM.add(element);return this;},getElement(){return element;},remove(){map.layers.delete(this);}};tips.push(tip);return tip; }
 };
 const sandbox = {};
 vm.runInNewContext(fs.readFileSync(path.join(root,'prototype/map-hover.js'),'utf8'),sandbox);
@@ -45,6 +45,22 @@ check('hover adds only an unfilled non-interactive outline with an exact caller-
 });
 check('same target mouse movement reuses outline and tooltip rather than re-rendering data',()=>{
   helper.clear();helper.show(a,{lat:13,lng:100});const n=shapes.length,t=tips.length;helper.show(a,{lat:13.1,lng:100.1});assert.equal(shapes.length,n);assert.equal(tips.length,t);assert.equal(tips.at(-1).latlng.lat,13.1);assert.equal(map.layers.size,2);
+});
+check('Compact brand hover renders once per source summary/language and mousemove changes only position',()=>{
+ helper.clear();let renders=0;sandbox.YolkSupplyTreemap={render(summary,options){renders++;return '<section>SAFE '+summary.identifiedTotal+' '+options.lang+'</section>';}};
+ const summary={identifiedTotal:12},branded={...a,title:'<Source>',detail:'Direct source value',brandBreakdown:summary,lang:'en'};helper.show(branded,{lat:13,lng:100});const tip=tips.at(-1),writes=tip.contentWrites;assert.equal(renders,1);assert(tip.content.includes('&lt;Source&gt;'));assert(tip.content.includes('SAFE 12 en'));
+ for(let i=0;i<10;i++)helper.show(branded,{lat:13+i/100,lng:100});assert.equal(renders,1);assert.equal(tip.contentWrites,writes);assert.equal(tooltipDOM.size,1);assert.equal(map.layers.size,2);
+ helper.show({...branded,lang:'th'},{lat:13,lng:100});assert.equal(renders,2);assert(tip.content.includes('SAFE 12 th'));assert.equal(tooltipDOM.size,1);helper.clear();delete sandbox.YolkSupplyTreemap;
+});
+check('Measured tooltip anchors fit the map top/bottom inset without camera movement, extra rendering or duplicate hover instances',()=>{
+ const frame={top:185,bottom:791},container={clientHeight:606,getBoundingClientRect:()=>frame};let renders=0,rectHeight=420,scale=1;
+ const geometryMap={layers:new Set(),getContainer:()=>container,latLngToContainerPoint:v=>({x:v.lng,y:v.lat}),containerPointToLatLng:p=>({lat:p[1],lng:p[0]}),removeLayer(l){this.layers.delete(l);},fitBounds(){throw Error('Tooltip fitting cannot move camera');},setView(){throw Error('Tooltip fitting cannot move camera');}};
+ const generatedTips=[];const geometryL={geoJSON:()=>({addTo(m){m.layers.add(this);return this;},bringToFront(){},remove(){geometryMap.removeLayer(this);}}),tooltip:()=>{const tip={writes:0,setLatLng(v){this.anchor=v;return this;},setContent(v){this.content=v;this.writes++;return this;},addTo(m){m.layers.add(this);return this;},getElement(){return {getBoundingClientRect:()=>({top:frame.top+this.anchor.lat*scale-rectHeight/2,bottom:frame.top+this.anchor.lat*scale+rectHeight/2}),remove(){}};},remove(){geometryMap.removeLayer(this);}};generatedTips.push(tip);return tip;}};
+ sandbox.YolkSupplyTreemap={render(){renders++;return '<section>Compact source chart</section>';}};const fitting=sandbox.YolkMapHover.create({map:geometryMap,L:geometryL,token:'#FFBC1F'}),branded={...a,brandBreakdown:{identifiedTotal:12},lang:'en'};
+ for(const y of [2,604,303,15,590]){assert(fitting.show(branded,{lat:y,lng:100}));const box=generatedTips[0].getElement().getBoundingClientRect();assert(box.top>=frame.top+8);assert(box.bottom<=frame.bottom-8);assert.equal(geometryMap.layers.size,2);assert.equal(generatedTips.length,1);}
+ assert.equal(renders,1);assert.equal(generatedTips[0].writes,1);scale=2;container.clientHeight=303;
+ for(const y of [1,302]){fitting.show(branded,{lat:y,lng:100});const box=generatedTips[0].getElement().getBoundingClientRect();assert(box.top>=193);assert(box.bottom<=783);}
+ fitting.destroy();assert.equal(geometryMap.layers.size,0);delete sandbox.YolkSupplyTreemap;
 });
 check('replacement removes the old outline; stale mouseout cannot erase newer hover',()=>{
   helper.show(b,{lat:13,lng:100});assert.equal(map.layers.size,2);assert(!helper.clear(a));assert.equal(helper.getState().level,'district');assert(helper.clear(b));assert.equal(map.layers.size,0);

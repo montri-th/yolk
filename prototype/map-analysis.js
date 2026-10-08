@@ -1,4 +1,4 @@
-/* Analytical map values only. No geography aggregation, criteria mutation or viewport cohort. */
+/* Analytical map values and direct source brand composition. No child-grain aggregation, criteria mutation or viewport cohort. */
 (function(global){
  'use strict';
  // Exact native LDS 0.9.7 projections; checked against the pinned reference bytes.
@@ -7,13 +7,14 @@
   "density.area":Object.freeze(["#FFF1D9","#FEEED2","#FDEACA","#FCE7C3","#FAE3BC","#F9E0B5","#F8DCAD","#F7D9A6","#F6D59E","#F4D297","#F3CF8F","#F2CB87","#F1C87F","#EFC477","#EEC06F","#EDBD66","#EBB95D","#EAB653","#E9B249","#E7AF3D","#E6AB30","#E5A72E","#E5A42D","#E4A02B","#E49D2A","#E39928","#E29526","#E29225","#E18E23","#E08A21","#DF8720","#DF831E","#DE7F1C","#DD7B1A","#DC7818","#DB7417","#DA7015","#D96C13","#D86811","#D7640E","#D6600C"]),
   "density.capita":Object.freeze(["#FFF0ED","#FFECE7","#FEE8E1","#FEE4DB","#FEE0D5","#FDDCCF","#FDD8CA","#FCD4C4","#FCD0BE","#FBCCB8","#FBC8B2","#FAC4AC","#F9C0A6","#F9BCA0","#F8B89A","#F7B494","#F6B08E","#F6AC88","#F5A882","#F4A47C","#F3A076","#F09B75","#ED9575","#EB9074","#E88B73","#E58572","#E28072","#DF7A71","#DC7570","#D96F6F","#D66A6E","#D3646D","#D05F6C","#CD596B","#CA536A","#C74D69","#C44768","#C14167","#BD3A65","#BA3364","#B72B63"]),
   "built":Object.freeze(["#FFF5D8","#FFF2D5","#FEEFD1","#FEECCE","#FDEACA","#FDE7C7","#FCE4C3","#FBE1C0","#FBDEBC","#FADBB9","#FAD8B5","#F9D6B2","#F9D3AF","#F8D0AB","#F7CDA8","#F7CAA4","#F6C7A1","#F5C59D","#F4C29A","#F4BF96","#F3BC93","#F0BB8E","#EEB989","#EBB884","#E8B77F","#E6B57A","#E3B475","#E0B370","#DEB16A","#DBB065","#D9AE5F","#D6AD59","#D3AC53","#D1AA4D","#CEA946","#CCA73F","#C9A638","#C7A42F","#C4A325","#C2A118","#BFA000"]),
+  "li.market_share":Object.freeze(["#F0F4F9","#ECF1F5","#E7EEF0","#E3EBEC","#DFE8E8","#DAE6E4","#D6E3E0","#D2E0DB","#CEDDD7","#C9DAD3","#C5D7CF","#C1D4CB","#BDD2C7","#B8CFC2","#B4CCBE","#B0C9BA","#ACC6B6","#A8C3B2","#A3C1AE","#9FBEAA","#9BBBA6","#97B9A9","#93B7AC","#8FB5AF","#8BB3B2","#87B1B4","#83AFB7","#7FADBA","#7BABBC","#78A9BF","#74A6C1","#70A4C4","#6CA2C6","#68A0C9","#649DCB","#609BCD","#5B99CF","#5796D2","#5394D4","#4F92D6","#4B8FD8"]),
   "price":Object.freeze(["#F4F4DD","#EEF2DC","#E8EFDA","#E2EDD9","#DCEBD8","#D6E8D6","#D0E6D5","#C9E3D4","#C3E1D2","#BDDFD1","#B7DCD0","#B0DACE","#AAD7CD","#A4D5CC","#9DD3CA","#97D0C9","#90CEC8","#89CBC6","#82C9C5","#7BC6C3","#74C4C2","#70BFBC","#6CBBB7","#68B6B1","#63B2AC","#5FADA6","#5BA9A1","#57A59B","#53A096","#4F9C91","#4B978B","#479386","#438F81","#3F8B7C","#3B8676","#368271","#327E6C","#2E7A67","#2A7562","#25715D","#216D58"])
  });
  const scaleSource=Object.freeze({dsVersion:'0.9.7',releaseRef:'v0.9.7-owner.1',colorSetId:'color-srgb-10',themePolicy:'identical-light-values-on-both-themes',fillOpacity:1,baseDocumentSha256:'d3085cbc0a50195f1cbf0c77b1d77c0d19b84364daf2948eb367348d65432d96',profileSha256:'5d4856041709735d3a04d4a510a88b551df86c211fdcab8a0707e8fe7c9efc3b',lutSource:'reference/lds-0.9.7/color-srgb-10.scales.json',lutSourceSha256:'dc804436c080b5be9125417cacb258b898a679c31f1481973a61f8e8cca4e305',lutSampleCount:41,consumption:'exact native 41-sample LUT; no interpolation, recolouring or inversion'});
  // Forty fixed national boundaries produce all41 native LUT classes.
  const percentilePoints=Object.freeze(Array.from({length:40},(_,i)=>(i+1)*100/41));
  const tierScaleId='yolk.owner-fried-egg-tiers.v1.7.3';
- const normalState=s=>({kind:s?.kind==='supply'?'supply':'demand',metric:s?.metric||(s?.kind==='supply'?'count':'tier'),relation:['own','competitor','total'].includes(s?.relation)?s.relation:'own'});
+ const normalState=s=>({kind:s?.kind==='supply'?'supply':'demand',metric:s?.metric||(s?.kind==='supply'?'count':'tier'),relation:s?.metric==='share'?'own':['own','competitor','total'].includes(s?.relation)?s.relation:'own'});
  const validCount=n=>Number.isInteger(n)&&n>=0;
  const finiteValue=n=>Number.isFinite(n)&&n>=0;
  const catalog=()=>typeof METRIC_INDEX==='undefined'?{}:METRIC_INDEX;
@@ -34,6 +35,7 @@
    const m=catalog()[s.metric],d=m?.display||{},scaleId=metricScale(m);
    return {...base,metricLabelTh:m?.th||s.metric,metricLabelEn:m?.en||s.metric,unitTh:m?.unitTh||'',unitEn:m?.unitEn||'',numeratorUnitTh:null,numeratorUnitEn:null,denominatorId:d.denominator||null,scaleId,sourcePeriod:d.sourcePeriod??null,metricDefinition:m||null,meaningTh:d.meaningTH||'บริบทต้นทาง ไม่ใช่ยอดซื้อที่วัดจริง',meaningEn:d.meaningEN||'Source context, not measured purchases'};
   }
+  if(s.metric==='share')return {...base,metricLabelTh:'สัดส่วนสาขาเราในแบรนด์ที่ทราบ',metricLabelEn:'Our share of identified branch inventory',unitTh:'% ของสาขาที่ทราบแบรนด์',unitEn:'% of identified branch inventory',numeratorUnitTh:'สาขาเรา',numeratorUnitEn:'our branches',denominatorId:'identified_branch_inventory',denominatorUnit:'branch records',denominatorUnitTh:'สาขาเรา + คู่แข่งที่ทราบแบรนด์',denominatorUnitEn:'our + identified competitor branches',normalization:100,scaleId:'li.market_share',scaleReuse:true,identifiedOnly:true,meaningTh:'สาขาเรา ÷ (สาขาเรา + คู่แข่งที่ทราบแบรนด์) × 100 ไม่รวม U ไม่ใช่ส่วนแบ่งยอดขาย; ข้อมูลขอบเขตหรือใบอนุญาตไม่ชัดจะแสดงช่วงรอตรวจ',meaningEn:'Own / (own + identified competitors) × 100, excluding U; an outlet-inventory proxy, not sales market share. Assignment or scope uncertainty remains a review interval.'};
   const label=roles[s.relation],excluded=s.relation==='total';
   const meaning={meaningTh:excluded?'รวมเฉพาะเราและคู่แข่งที่ระบุผู้ให้บริการได้ ไม่รวม U ที่ยังไม่ทราบผู้ให้บริการ ไม่ยืนยันการเปิดบริการ':'แสดงช่วงความเป็นไปได้เมื่อ U หรือการผูกพื้นที่ยังไม่ชัด ไม่ยืนยันการเปิดบริการ',meaningEn:excluded?'Own plus identified competitors, excluding unidentified U; operations unverified':'Bounds retain unknown providers and assignment uncertainty; operations unverified',identifiedOnly:excluded};
   if(s.metric==='area')return {...base,...meaning,metricLabelTh:label[0]+' ต่อพื้นที่',metricLabelEn:label[1]+' per land area',unitTh:'รายการสาขา/ตร.กม.',unitEn:'branch records/km²',denominatorId:'areaKm2',denominatorUnit:'km²',denominatorUnitTh:'ตร.กม.',denominatorUnitEn:'km²',scaleId:'density.area'};
@@ -45,7 +47,7 @@
  }
  function result(meta,row,patch){return {...meta,id:row?.id??null,lo:null,hi:null,value:null,state:'missing',evidenceState:'missing',exact:false,zero:false,upperOpen:false,percentile:null,denominatorValue:null,unverified:null,sourceState:row?.supply?.state??null,...patch};}
  function supplyInterval(sp,relation){
-  if(!sp||['missing','invalid'].includes(sp.state))return {state:'missing',reason:sp?.state||'missing_supply'};
+  if(!sp||['missing','invalid','suppressed','withheld','not_applicable','source_row_missing'].includes(sp.state))return {state:'missing',reason:sp?.state||'missing_supply'};
   if(relation==='own'&&sp.ownScopeUnavailable)return {state:'missing',reason:'own_scope_unavailable',evidenceState:'not_applicable'};
   function roleBounds(role){
    if(role==='own'&&sp.ownScopeUnavailable)return null;
@@ -67,6 +69,71 @@
   const hi=bounds.hi+u;if(!Number.isSafeInteger(hi))return {state:'missing',reason:'invalid_supply_sum'};
   return {lo:bounds.lo,hi,state:bounds.lo===hi?'known':'review',reason:u>0?'unverified_provider_allocation':bounds.lo===hi?'source_role_count':'source_assignment_or_reconciliation_bounds'};
  }
+ // Identified outlet share never allocates U to either network. Scope/assignment
+ // intervals retain conservative ratio bounds; an exact empty denominator is undefined.
+ function shareInterval(sp){
+  if(!sp||['missing','invalid','suppressed','withheld','not_applicable','source_row_missing'].includes(sp.state))return {state:'missing',reason:sp?.state||'missing_supply',evidenceState:sp?.state||'missing'};
+  if(sp.ownScopeUnavailable)return {state:'missing',reason:'own_scope_unavailable',evidenceState:'not_applicable'};
+  const bound=role=>{const bounded=sp[role+'Lower']!==undefined||sp[role+'Upper']!==undefined,lo=bounded?sp[role+'Lower']:sp[role],hi=bounded?sp[role+'Upper']:sp[role];return validCount(lo)&&validCount(hi)&&hi>=lo?{lo,hi}:null;};
+  const own=bound('own'),competitor=bound('competitor');if(!own||!competitor)return {state:'missing',reason:'identified_supply_incomplete'};
+  if(sp.boundsKnown===false)return {state:'review',lo:0,hi:100,reason:'assignment_bound_missing',denominatorValue:null};
+  const maximum=own.hi+competitor.hi;if(!Number.isSafeInteger(maximum))return {state:'missing',reason:'invalid_supply_sum'};
+  if(maximum===0)return {state:'missing',reason:'zero_identified_denominator',evidenceState:'undefined_ratio',denominatorValue:0};
+  const exact=own.lo===own.hi&&competitor.lo===competitor.hi;
+  if(exact){const total=own.lo+competitor.lo,n=100*own.lo/total;return {state:'known',lo:n,hi:n,value:n,exact:true,zero:n===0,denominatorValue:total,reason:'identified_outlet_share'};}
+  const lowTotal=own.lo+competitor.hi,highTotal=own.hi+competitor.lo;
+  return {state:'review',lo:lowTotal>0?100*own.lo/lowTotal:0,hi:highTotal>0?100*own.hi/highTotal:own.hi===0?0:100,denominatorValue:null,reason:'identified_share_bounds'};
+ }
+ const sourceIndexes=new WeakMap();
+ function sourceIndex(data){if(!data||typeof data!=='object')return null;if(!sourceIndexes.has(data))sourceIndexes.set(data,{rows:new Map((data.rows||[]).map(r=>[r[0],r])),provinces:new Map((data.provinceRows||[]).map(r=>[r[0],r])),provinceIds:new Map(Object.entries(data.provinceContextsById||{}).map(([id,ctx])=>[String(ctx.provinceCode??ctx.code),id]))});return sourceIndexes.get(data);}
+ function rawBrandId(id,industry){return industry==='fuel'?String(id||'').toUpperCase().replaceAll('-','_'):String(id||'').split(':').slice(1).join(':')||String(id||'');}
+ function brandId(raw,industry){return industry==='fuel'?raw.toLowerCase().replaceAll('_','-'):industry==='grocery'?'grocery-brand:'+raw:'legal:'+raw;}
+ function brandBreakdown(scope={},options={}){
+  const level=scope.level==='fine'?'location':scope.level||'country',industry=options.industryId,native=options.nativeData,fine=options.fineData,index=sourceIndex(level==='location'?fine:native),ownKey=rawBrandId(options.ownBrandId,industry),scopeId=options.supplyScope||'',grain={country:'COUNTRY',province:'PROVINCE',district:'DISTRICT',location:'SOURCE_REPORTING_UUID'}[level]||null;
+  const summary={state:'missing',status:'missing',scope:{...scope,level},geography:{...scope,level},grain,industryId:industry,supplyScope:scopeId,ownBrandId:options.ownBrandId,sourceRows:0,rows:[],own:null,competitor:null,identifiedTotal:null,unknown:null,unclassified:null,sharePercent:null,shareLower:null,shareUpper:null,coverage:{complete:false,basis:'identified_branch_inventory',allProvidersComplete:false,unknownExcluded:true,sourceState:null,assignmentOrReconciliationReview:false},reason:'source_unavailable',sourceMetadata:(level==='location'?fine:native)?.metadata||null};
+  if(!grain||!['fuel','grocery','nonbank'].includes(industry)||!ownKey)return {...summary,reason:'unsupported_context'};
+  let raw,context={};
+  if(level==='country'&&native?.countryDimensionCounts&&native.metadata?.coverage?.missing===0)raw=['country','source_row_present',native.countryDimensionCounts,native.countryTotal,'native_country_dimension_counts'];
+  else if(level==='province'){const id=index?.provinceIds.get(String(scope.provinceCode));raw=index?.provinces.get(id);context=native?.provinceContextsById?.[id]||{};}
+  else if(level==='district'){raw=index?.rows.get(scope.districtId);context=native?.contextsById?.[scope.districtId]||{};}
+  else if(level==='location'){raw=index?.rows.get(scope.areaId);context={provinceCode:scope.provinceCode};}
+  if(!raw)return summary;
+  summary.sourceRows=1;summary.coverage.sourceState=raw[1];summary.sourceKey=raw[4];summary.sourceRowId=raw[0];summary.sourceContext=context;
+  if(raw[1]!=='source_row_present'||!raw[2]||Array.isArray(raw[2]))return {...summary,state:raw[1]==='suppressed'||raw[1]==='withheld'?'suppressed':'missing',status:raw[1]||'missing',reason:raw[1]||'missing_dimensions'};
+  const brands=new Map((fine?.brands||options.brands||[]).map(b=>[b.rawId||rawBrandId(b.id,industry),b]));
+  let own=0,competitor=0,unknown=0,unclassified=0,excluded=0;
+  for(const [dimension,count]of Object.entries(raw[2])){
+   if(!Number.isSafeInteger(count)||count<0)return {...summary,reason:'invalid_dimension_count'};
+   let key=dimension;
+   if(industry==='grocery'){const split=dimension.indexOf(':');if(split<0||dimension.slice(0,split)!==scopeId){excluded+=count;continue;}key=dimension.slice(split+1);}
+   if(key==='UNKNOWN'){unknown+=count;continue;}
+   const membership=industry==='nonbank'&&scopeId!=='office_context'?options.scopeIncludes?.(key)??null:true;
+   if(membership===false){excluded+=count;continue;}
+   if(membership===null){unclassified+=count;continue;}
+   const party=key===ownKey?'own':'competitor',brand=brands.get(key);
+   if(party==='own')own+=count;else competitor+=count;
+   if(count>0)summary.rows.push({brandId:brand?.id||brandId(key,industry),name:brand?.name||key,count,party,sharePercent:null});
+  }
+  if(![own,competitor,unknown,unclassified,excluded,own+competitor].every(Number.isSafeInteger))return {...summary,rows:[],reason:'invalid_dimension_sum'};
+  summary.rows.sort((a,b)=>b.count-a.count||a.brandId.localeCompare(b.brandId));
+  let supply={own,competitor,unverified:unknown,ownLower:own,ownUpper:own,competitorLower:competitor,competitorUpper:competitor+unclassified,state:'direct_source_inventory',boundsKnown:true};
+  if(level==='location'){
+   const supplied=options.fineRows?.get?.(scope.areaId)||options.fineRows?.find?.(a=>a.id===scope.areaId);
+   if(supplied?.supply)supply={...supply,...supplied.supply};
+   else if(options.supplyForRow)supply=options.supplyForRow(raw,{province:scope.provinceCode});
+   else if(industry==='nonbank'||industry==='grocery'&&scopeId==='C_STORE'&&['30','84'].includes(String(scope.provinceCode)))supply.boundsKnown=false;
+  }else if(level==='district'&&native.assignmentBoundsById?.[raw[0]]){
+   for(const [key,n]of Object.entries(native.assignmentBoundsById[raw[0]])){if(!Number.isSafeInteger(n)||n<0){supply.boundsKnown=false;continue;}if(key===ownKey)supply.ownUpper+=n;else if(options.scopeIncludes?.(key)!==false)supply.competitorUpper+=n;}
+  }
+  if(options.ownScopeAvailable!==undefined&&options.ownScopeAvailable!==true||industry==='nonbank'&&scopeId!=='office_context'&&options.scopeIncludes?.(ownKey)!==true)supply.ownScopeUnavailable=true;
+  const ratio=shareInterval(supply),countRange=supplyInterval(supply,'total');
+  const review=ratio.state==='review',exactCounts=countRange.state==='known';
+  summary.own=own;summary.competitor=competitor;summary.identifiedTotal=own+competitor;summary.unknown=unknown;summary.unclassified=unclassified;summary.excluded=excluded;summary.sourceTotal=raw[3];summary.supply=supply;summary.contextMetrics=context.metrics||{};
+  summary.state=ratio.evidenceState==='not_applicable'?'not_applicable':ratio.state==='missing'&&ratio.reason==='zero_identified_denominator'&&exactCounts?'known':ratio.state;summary.status=ratio.reason==='zero_identified_denominator'?'empty':summary.state;summary.reason=ratio.reason;summary.sharePercent=ratio.exact?ratio.value:null;summary.shareLower=ratio.lo??null;summary.shareUpper=ratio.hi??null;
+  summary.coverage={...summary.coverage,complete:exactCounts&&!review&&!supply.ownScopeUnavailable,allProvidersComplete:unknown===0&&unclassified===0&&exactCounts,assignmentOrReconciliationReview:review,unclassifiedScopeCount:unclassified};
+  if(summary.coverage.complete&&summary.identifiedTotal>0)for(const r of summary.rows)r.sharePercent=100*r.count/summary.identifiedTotal;
+  return summary;
+ }
  function percentile(v,sorted){
   if(!finiteValue(v)||!sorted?.length)return null;if(sorted.length===1)return 50;
   let lo=0,hi=sorted.length;while(lo<hi){const mid=(lo+hi)>>1;if(sorted[mid]<v)lo=mid+1;else hi=mid;}const lower=lo;
@@ -87,6 +154,7 @@
    if(typeof AREA_INDEX!=='undefined'&&AREA_INDEX.has(row?.id)&&typeof DISTRIBUTIONS!=='undefined')nationalPercentile=percentile(n,DISTRIBUTIONS[s.metric]);
    return result(meta,row,{lo:n,hi:n,value:n,state:'known',evidenceState:n===0?'observed_zero':metric.measurement||'source_context',exact:true,zero:n===0,percentile:nationalPercentile,sourceState:sourceState||null,reason:n===0?'observed_zero':'source_metric'});
   }
+  if(s.metric==='share'){const ratio=shareInterval(row?.supply),u=row?.supply?.unverified;return result(meta,row,{...ratio,unverified:validCount(u)?u:null,evidenceState:ratio.state==='review'?'unverified':ratio.evidenceState||ratio.state,sourceState:row?.supply?.state??null});}
   if(!['count','area','market'].includes(s.metric))return result(meta,row,{reason:'unsupported_supply_metric'});
   const counts=supplyInterval(row?.supply,s.relation),u=row?.supply?.unverified;
   let r=result(meta,row,{...counts,unverified:validCount(u)?u:null,evidenceState:counts.state==='review'?'unverified':counts.evidenceState||counts.state});
@@ -111,20 +179,20 @@
   const national=Array.isArray(options.cohortRows)?options.cohortRows:allFine?(input.length===fine.length?input:fine):[];
   const cohortId=options.cohortId||(allFine?'national_7954':'national_cohort_unavailable');
   const values=national===input?[...records.values()]:national.map(row=>rowValue(row,s,criteria,meta)),known=values.filter(r=>r.exact&&finiteValue(r.value)).map(r=>r.value).sort((a,b)=>a-b);
-  const tier=s.kind==='demand'&&s.metric==='tier',cuts=tier?[]:percentilePoints.map(p=>quantile(known,p));
-  const palette=tier?[3,2,1].map(t=>global.YolkTierStyle?.color(t)||null):palettes[meta.scaleId],available=tier?!!global.YolkTierStyle:(known.length>0&&national.length>0);
+  const tier=s.kind==='demand'&&s.metric==='tier',share=s.kind==='supply'&&s.metric==='share',cuts=tier?[]:share?percentilePoints.slice():percentilePoints.map(p=>quantile(known,p));
+  const palette=tier?[3,2,1].map(t=>global.YolkTierStyle?.color(t)||null):palettes[meta.scaleId],available=tier?!!global.YolkTierStyle:share?true:(known.length>0&&national.length>0);
   for(const r of records.values()){
    let index=null;
-   if(r.exact&&available){if(tier)index=3-r.value;else index=r.zero?0:cuts.reduce((n,cut)=>n+(r.value>=cut?1:0),0);}
+   if(r.exact&&available){if(tier)index=3-r.value;else index=share?Math.min(40,Math.floor(r.value*41/100)):r.zero?0:cuts.reduce((n,cut)=>n+(r.value>=cut?1:0),0);}
    r.classIndex=index;r.color=index===null?null:palette[index];r.fillOpacity=index===null?null:1;
    if(tier&&index!==null){r.paint=global.YolkTierStyle.paint(r.value);r.css=global.YolkTierStyle.css(r.value);r.labelTh=global.YolkTierStyle.label?.(r.value,'th')||global.YolkTierStyle.definition(r.value)?.labelTh||'Tier '+r.value;r.labelEn=global.YolkTierStyle.label?.(r.value,'en')||global.YolkTierStyle.definition(r.value)?.labelEn||'Tier '+r.value;}
-   if(!tier&&r.exact&&available)r.percentile=percentile(r.value,known);
+   if(!tier&&!share&&r.exact&&available)r.percentile=percentile(r.value,known);
    r.classificationState=index!==null?'classified':r.state==='review'?'review':r.exact&&!available?'missing_national_cohort':r.evidenceState;
   }
   const legend=tier?[3,2,1].map((n,i)=>({classIndex:i,color:palette[i],paint:global.YolkTierStyle?.paint(n)||null,css:global.YolkTierStyle?.css(n)||null,tier:n,labelTh:global.YolkTierStyle?.label?.(n,'th')||global.YolkTierStyle?.definition(n)?.labelTh||'Tier '+n,labelEn:global.YolkTierStyle?.label?.(n,'en')||global.YolkTierStyle?.definition(n)?.labelEn||'Tier '+n,unitTh:meta.unitTh,unitEn:meta.unitEn,fillOpacity:1})):
-   palette.map((color,i)=>{const last=i===palette.length-1,lower=i===0?0:cuts[i-1],upper=last?null:cuts[i],zeroOnly=available&&i===0&&upper===0,excludeZero=i>0&&lower===0,range=available?(zeroOnly?'0':last?(excludeZero?'> 0':'≥ '+format(lower)):(excludeZero?'> 0':'≥ '+format(lower))+' – < '+format(upper)):'—';return {classIndex:i,color,lower,upper,lowerInclusive:!excludeZero,upperInclusive:false,zeroIncluded:i===0,zeroOnly,zeroCue:i===0?'observed_zero':null,empty:available&&!last&&lower===upper&&!zeroOnly,labelTh:range+(i===0?' · รวมค่าศูนย์ที่ทราบ':''),labelEn:range+(i===0?' · includes known zero':''),unitTh:meta.unitTh,unitEn:meta.unitEn,percentileLower:i===0?0:percentilePoints[i-1],percentileUpper:last?100:percentilePoints[i],fillOpacity:1};});
-  return {records,palette,legend,cutoffs:cuts,percentilePoints:tier?[]:percentilePoints.slice(),cohort:{id:cohortId,total:national.length,exact:known.length,review:values.filter(r=>r.state==='review').length,missing:values.filter(r=>r.state==='missing').length,zero:values.filter(r=>r.zero).length,state:available?'available':'missing',scope:'fixed_national_same_geographic_grain',viewportRecalibration:false},metadata:{...meta,...scaleSource,classCount:tier?3:41,lutSampleCount:tier?null:41,quantileBoundaryCount:tier?0:40,classificationMethod:tier?'confirmed_proxy_tier_owner_categories':'national_exact_comparable_41_quantile_classes',quantileFormula:tier?null:'P(i*100/41), i=1…40; linear empirical quantiles of all known exact comparable national values including zero',intervalPolicy:'lower inclusive, upper exclusive; tied cuts can create empty bins; final end-bin; observed zero always class0 with an explicit cue',uncertainColorPolicy:'neutral; expose range, never colour an interval as exact',outlierPolicy:tier?'not applicable to named categories':'declared end-bin at or above national P(4000/41) ≈ P97.560976',sourceTruth:'Source-reported inventory and demand proxies; no measured purchases, legal boundary or operating-status certification'}};
+   palette.map((color,i)=>{const last=i===palette.length-1,lower=i===0?0:cuts[i-1],upper=last?(share?100:null):cuts[i],zeroOnly=available&&i===0&&upper===0,excludeZero=i>0&&lower===0,range=available?(zeroOnly?'0':last?(share?'≥ '+format(lower)+' – ≤ 100':excludeZero?'> 0':'≥ '+format(lower)):(excludeZero?'> 0':'≥ '+format(lower))+' – < '+format(upper)):'—';return {classIndex:i,color,lower,upper,lowerInclusive:!excludeZero,upperInclusive:share&&last,zeroIncluded:i===0,zeroOnly,zeroCue:i===0?'observed_zero':null,empty:available&&!last&&lower===upper&&!zeroOnly,labelTh:range+(i===0?' · รวมค่าศูนย์ที่ทราบ':''),labelEn:range+(i===0?' · includes known zero':''),unitTh:meta.unitTh,unitEn:meta.unitEn,percentileLower:share?null:i===0?0:percentilePoints[i-1],percentileUpper:share?null:last?100:percentilePoints[i],fillOpacity:1};});
+  return {records,palette,legend,cutoffs:cuts,percentilePoints:tier||share?[]:percentilePoints.slice(),cohort:{id:cohortId,total:national.length,exact:known.length,review:values.filter(r=>r.state==='review').length,missing:values.filter(r=>r.state==='missing').length,zero:values.filter(r=>r.zero).length,state:available?'available':'missing',scope:share?'fixed_percent_domain':'fixed_national_same_geographic_grain',viewportRecalibration:false},metadata:{...meta,...scaleSource,...(share?{lutSource:'reference/lds-0.9.7/location-intelligence-0.9.7.json',lutSourceSha256:'2940c5aac3eef1242e501492b5315048c6b5f138496e8139cc116bfbba945e57',scaleVersion:'e18af290eee81d42e63269c261628f0fa108fcd48e5cbff02b407af95a712e51',domain:[0,100]}:{}),classCount:tier?3:41,lutSampleCount:tier?null:41,quantileBoundaryCount:tier||share?0:40,classificationMethod:tier?'confirmed_proxy_tier_owner_categories':share?'fixed_0_100_percent_41_equal_width_classes':'national_exact_comparable_41_quantile_classes',quantileFormula:tier||share?null:'P(i*100/41), i=1…40; linear empirical quantiles of all known exact comparable national values including zero',intervalPolicy:share?'41 equal-width percentage bins; lower inclusive, upper exclusive except 100 inclusive in final bin; known zero class0':'lower inclusive, upper exclusive; tied cuts can create empty bins; final end-bin; observed zero always class0 with an explicit cue',uncertainColorPolicy:'neutral; expose range, never colour an interval as exact',outlierPolicy:tier?'not applicable to named categories':share?'bounded percentage domain 0–100; no quantile clipping':'declared end-bin at or above national P(4000/41) ≈ P97.560976',sourceTruth:'Source-reported inventory and demand proxies; no measured purchases, legal boundary or operating-status certification'}};
  }
 
- global.YolkMapAnalysis=Object.freeze({value,prepare,metadata,palettes,scaleSource,percentilePoints,percentile});
+ global.YolkMapAnalysis=Object.freeze({value,prepare,metadata,brandBreakdown,palettes,scaleSource,percentilePoints,percentile});
 })(window);

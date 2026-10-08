@@ -1,6 +1,6 @@
-# Current handoff - Yolk 1.9.5 candidate
+# Current handoff · Yolk 1.9.6 · review pending
 
-Read [handoff 1.9.5](HANDOFF_v1.9.5.md), [complete product and plan](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.5.md), [map-space contract](contracts/map-space.v1.9.4.json) and [release state](contracts/release.v1.9.5.json). Current bounded 1.9.5 local/native receipts passed; provider/live/publication remains separate. Prior text below is historical.
+Read [current handoff](HANDOFF_v1.9.6.md), [full product + plan](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.6.md), [readability extension](contracts/map-readability.v1.9.6.json), [Supply display](contracts/supply-inventory.v1.9.6.json) and [release state](contracts/release.v1.9.6.json). Fresh expanded Supply QA/native passed within the current bounded receipt; one actual hover is not all-boundary coverage. Provider/live/publication remains separate. Prior text below is historical.
 
 ---
 
