@@ -42,6 +42,53 @@ async function check(name,fn){try{await fn();checks.push({name,passed:true})}cat
  });
  await check('Native popup events expose the mobile expansion state and close restores its normal map height',()=>{maps[0].handlers.popupopen();assert.equal(h.sandbox.window.document.getElementById('workspace-map-panel').dataset.workspacePopupOpen,'true');maps[0].handlers.popupclose();assert.equal(h.sandbox.window.document.getElementById('workspace-map-panel').dataset.workspacePopupOpen,'false');});
  await check('Application source guards delayed searches/event navigation and shows pending Supply as U, never inventory zero',()=>{const app=fs.readFileSync(path.join(root,'prototype/app.js'),'utf8');assert(app.includes('contextAtSearch!==criteriaContextKey()||routeAtSearch!==location.hash'));assert(app.includes('location.hash!==requestedHash'));assert(app.includes('pendingSupplyBadge()'));assert(app.includes("if(!n)return ''"));assert(!app.includes('}});YolkWorkspaceMap.sync();const focusKey='))});
+ await check('Collapsed mobile gives gestures to page scrolling while every route retains the same map and source data',()=>{
+  const map=maps[0],panel=fixture.panel,hint=fixture.controls.get('[data-workspace-map-scroll-hint]'),names=['dragging','touchZoom','scrollWheelZoom','doubleClickZoom'];
+  const previousRoute=run('Y.route'),before=run('JSON.stringify({criteria:Y.criteria,draft,targets:Y.targets,events:Y.events,rows:AREAS.map(a=>({id:a.id,metrics:a.metrics,supply:a.supply}))})');
+  h.sandbox.window.innerWidth=1099;h.sandbox.window.listeners.resize();assert.equal(panel.dataset.workspaceMapInteraction,'page-scroll');
+  assert.equal(fixture.host.getAttribute('aria-label'),'แผนที่ทำเล ปัดขึ้นดูรายละเอียด หรือกดขยายเพื่อสำรวจ');
+  assert(names.every(name=>map[name].enabled()===false));const camera=JSON.stringify({center:map.center,zoom:map.zoom,fits:map.fits,views:map.views,nav:api.getNavigation()});
+  for(const route of ['market','demand','supply','targets','criteria','feed']){h.sandbox.mobileRoute=route;run('Y.route=mobileRoute');api.sync();assert(names.every(name=>map[name].enabled()===false));assert.equal(JSON.stringify({center:map.center,zoom:map.zoom,fits:map.fits,views:map.views,nav:api.getNavigation()}),camera);assert.equal(maps.length,1);}
+  run('Y.lang="en"');api.sync();assert.equal(hint.textContent,'Swipe up for details · Expand to explore');assert.equal(fixture.host.getAttribute('aria-label'),'Location map. Swipe up for details, or expand to explore.');run('Y.lang="th"');api.sync();assert.equal(hint.textContent,'ปัดขึ้นดูรายละเอียด · ขยายเพื่อสำรวจแผนที่');
+  assert.equal(run('JSON.stringify({criteria:Y.criteria,draft,targets:Y.targets,events:Y.events,rows:AREAS.map(a=>({id:a.id,metrics:a.metrics,supply:a.supply}))})'),before);h.sandbox.mobileRoute=previousRoute;run('Y.route=mobileRoute');h.sandbox.window.innerWidth=1440;h.sandbox.window.listeners.resize();
+ });
+ await check('Mobile Expand enables deliberate map gestures and Escape restores page scroll and focus without a camera jump',()=>{
+  const map=maps[0],names=['dragging','touchZoom','scrollWheelZoom','doubleClickZoom'];h.sandbox.window.innerWidth=390;h.sandbox.window.listeners.resize();const before=JSON.stringify({center:map.center,zoom:map.zoom,fits:map.fits,views:map.views,nav:api.getNavigation()});
+  api.setMapExpanded(true);flushFrames();assert.equal(fixture.panel.dataset.workspaceMapInteraction,'explore');assert(names.every(name=>map[name].enabled()));assert.equal(fixture.host.getAttribute('aria-label'),'แผนที่โต้ตอบ เลื่อนและซูมเพื่อสำรวจทำเล');
+  fixture.panel.listeners.keydown({key:'Escape',preventDefault(){}});flushFrames();assert.equal(api.getState().mapExpanded,false);assert.equal(fixture.panel.dataset.workspaceMapInteraction,'page-scroll');assert(names.every(name=>!map[name].enabled()));
+  assert.equal(fixture.controls.get('[data-workspace-map-expand]').focusOptions.preventScroll,true);assert.equal(JSON.stringify({center:map.center,zoom:map.zoom,fits:map.fits,views:map.views,nav:api.getNavigation()}),before);
+  h.sandbox.window.innerWidth=1440;h.sandbox.window.listeners.resize();
+ });
+ await check('Breakpoint rotation restores original desktop handlers and repeated updates are idempotent',()=>{
+  const map=maps[0],initial={dragging:true,touchZoom:false,scrollWheelZoom:true,doubleClickZoom:true};h.sandbox.window.innerWidth=390;h.sandbox.window.listeners.resize();api.setMapExpanded(true);flushFrames();
+  h.sandbox.window.innerWidth=1100;h.sandbox.window.listeners.resize();assert.equal(fixture.panel.dataset.workspaceMapInteraction,'explore');for(const [name,expected]of Object.entries(initial))assert.equal(map[name].enabled(),expected);
+  const calls=JSON.stringify(Object.keys(initial).map(name=>[name,map[name].enableCalls,map[name].disableCalls]));h.sandbox.window.listeners.resize();api.sync();assert.equal(JSON.stringify(Object.keys(initial).map(name=>[name,map[name].enableCalls,map[name].disableCalls])),calls);
+  h.sandbox.window.innerWidth=1099;h.sandbox.window.listeners.resize();assert(Object.keys(initial).every(name=>map[name].enabled()));api.setMapExpanded(false);flushFrames();assert(Object.keys(initial).every(name=>!map[name].enabled()));h.sandbox.window.innerWidth=1440;h.sandbox.window.listeners.resize();for(const [name,expected]of Object.entries(initial))assert.equal(map[name].enabled(),expected);assert.equal(maps.length,1);
+ });
+ await check('Narrow detail entry leaves a deep list scroll for the new heading once, without smooth motion or form/state mutation',()=>{
+  const app=fs.readFileSync(path.join(root,'prototype/app.js'),'utf8'),start=app.indexOf('let mobileDetailEntry=null;'),end=app.indexOf('function workingForm()',start),vm=require('node:vm');assert(start>=0&&end>start);
+  const frames=[],calls=[],state={loading:false,draft:{buildingP2:87},criteria:{version:7},form:{name:'Unsaved branch',photos:['kept']},targets:{},events:[]},before=JSON.stringify(state);
+  const heading={scrollIntoView(options){calls.push(options);context.window.scrollY=1000}},content={querySelector:selector=>selector==='.page-head'?heading:null};
+  const context={window:{innerWidth:390,scrollY:5011.5,requestAnimationFrame:fn=>frames.push(fn)},location:{hash:'#place/new-location'},Y:state,criteriaContextKey:()=> 'grocery:7eleven',$:()=>content};vm.createContext(context);vm.runInContext(app.slice(start,end),context);
+  context.queueMobileDetailEntry('#demand');context.queueMobileDetailEntry('#place/new-location');assert.equal(frames.length,1);assert.equal(context.window.scrollY,5011.5);frames.shift()();assert.equal(context.window.scrollY,1000);assert.equal(calls.length,1);assert.equal(calls[0].behavior,'instant');assert.equal(calls[0].block,'start');
+  context.window.scrollY=2100;context.queueMobileDetailEntry('#place/new-location');assert.equal(frames.length,0);assert.equal(context.window.scrollY,2100);assert.equal(JSON.stringify(state),before);
+  context.location.hash='#poi/branch-id';context.queueMobileDetailEntry('#place/new-location');frames.shift()();assert.equal(calls.length,2);context.queueMobileDetailEntry('#poi/branch-id');assert.equal(frames.length,0);
+  context.window.innerWidth=1100;context.location.hash='#place/desktop-id';context.queueMobileDetailEntry('#poi/branch-id');assert.equal(frames.length,0);assert.equal(calls.length,2);
+  assert(app.includes('const previousHash=renderedHash;'));assert(app.includes('queueMobileDetailEntry(previousHash)'));assert(app.includes("if(window.innerWidth>=1100||!['place','poi'].includes(Y.route))window.scrollTo(0,0)"));
+ });
+ await check('Detail entry waits for available content and rejects queued work after navigation, brand changes or rotation',()=>{
+  const app=fs.readFileSync(path.join(root,'prototype/app.js'),'utf8'),start=app.indexOf('let mobileDetailEntry=null;'),end=app.indexOf('function workingForm()',start),vm=require('node:vm'),frames=[],calls=[];let heading=null,key='fuel:ptt';
+  const context={window:{innerWidth:1099,requestAnimationFrame:fn=>frames.push(fn)},location:{hash:'#poi/loading-id'},Y:{loading:true},criteriaContextKey:()=>key,$:()=>({querySelector:()=>heading})};vm.createContext(context);vm.runInContext(app.slice(start,end),context);
+  context.queueMobileDetailEntry('#supply');assert.equal(frames.length,0);context.Y.loading=false;context.queueMobileDetailEntry('#poi/loading-id');assert.equal(frames.length,0);heading={scrollIntoView:options=>calls.push(options)};context.queueMobileDetailEntry('#poi/loading-id');assert.equal(frames.length,1);
+  context.location.hash='#demand';frames.shift()();assert.equal(calls.length,0);
+  context.location.hash='#place/location-id';context.queueMobileDetailEntry('#demand');key='grocery:tops';frames.shift()();assert.equal(calls.length,0);context.queueMobileDetailEntry('#place/location-id');assert.equal(frames.length,0);
+  context.location.hash='#poi/new';context.queueMobileDetailEntry('#place/location-id');context.window.innerWidth=1100;frames.shift()();assert.equal(calls.length,0);
+  context.window.innerWidth=390;context.location.hash='#place/final-id';context.queueMobileDetailEntry('#poi/new');frames.shift()();assert.equal(calls.length,1);
+ });
+ await check('Collapsed mobile popup permits page scroll chaining while expanded and desktop retain useful bounded internal scrolling',()=>{
+  const css=fs.readFileSync(path.join(root,'prototype/workspace-map.css'),'utf8'),poi=fs.readFileSync(path.join(root,'prototype/poi-popup.css'),'utf8'),rule='.workspace-map-panel:not([data-workspace-map-expanded=true]) .leaflet-popup:has(.yolk-poi-popup) .leaflet-popup-content{overscroll-behavior:auto}';
+  assert(css.slice(css.lastIndexOf('@media(max-width:1099px){')).includes(rule));assert(poi.includes('overflow:auto;overscroll-behavior:contain'));assert(!css.includes('.leaflet-popup-content{overscroll-behavior:auto} }'));assert(!css.includes('.leaflet-popup-content{overflow:visible'));
+ });
  await check('Personal navigation overlay updates accessible state and Escape restores focus without shared or map mutation',()=>{
   const app=fs.readFileSync(path.join(root,'prototype/app.js'),'utf8'),start=app.indexOf('let sidebarExpanded=false;'),end=app.indexOf('const compactNavLabels=',start);
   assert(start>=0&&end>start);const attrs={},focusCalls=[],handlers={},state={criteria:{version:7},draft:{buildingP2:87},selectedArea:'kept-area',events:[],camera:{lat:13,lng:100,zoom:10}},before=JSON.stringify(state);

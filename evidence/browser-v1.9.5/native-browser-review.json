@@ -1,0 +1,332 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.9",
+  "version": "1.9.5",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "reviewedAt": "2026-10-08T02:54:35.126Z",
+  "scope": "Bounded native Chrome desktop and mobile/tablet viewport checks: ordinary page scroll, expanded map interaction, detail entry, popup edge chaining, unsaved branch draft and readable TH/dark + EN/light states. Mouse/wheel/native viewport evidence is not physical iPhone/Android touch certification or the full brand/language/theme/device matrix.",
+  "checks": 14,
+  "results": [
+    {
+      "id": "mobile-detail-entry-starts-at-heading",
+      "passed": true,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "place",
+      "observed": {
+        "heading": "ช่องนนทรี",
+        "headingTop": 23.78125,
+        "hostLabel": "แผนที่ทำเล ปัดขึ้นดูรายละเอียด หรือกดขยายเพื่อสำรวจ",
+        "interaction": "page-scroll",
+        "mapBottom": -125.5078125,
+        "overflow": false,
+        "position": "relative",
+        "scrollY": 886.5
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-th-dark-map-wheel-scrolls-page",
+      "passed": true,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "observed": {
+        "contentTop": -12.5078125,
+        "interaction": "page-scroll",
+        "mapBottom": -12.5078125,
+        "mapTop": -687.703125,
+        "overflow": false,
+        "position": "relative",
+        "scrollY": 773.5
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-explicit-expand-enables-pan",
+      "passed": true,
+      "observed": {
+        "before": "transform: translate3d(0px, 43px, 0px);",
+        "after": {
+          "dragClass": true,
+          "mode": "explore",
+          "scrollY": 0,
+          "transform": "translate3d(32px, 22px, 0px)"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-escape-restores-page-scroll-and-focus",
+      "passed": true,
+      "observed": {
+        "dragClass": false,
+        "expanded": "false",
+        "focus": true,
+        "mode": "page-scroll",
+        "scrollY": 43,
+        "transform": "translate3d(32px, -30px, 0px)"
+      },
+      "note": "Leaflet projected pane offset changes with panel height; camera preservation is covered by controller regression.",
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-demand-card-opens-heading",
+      "passed": true,
+      "observed": {
+        "heading": "ช่องนนทรี",
+        "headingTop": 23.78125,
+        "scrollY": 886.5
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-scroll-over-poi-marker",
+      "passed": true,
+      "observed": {
+        "mapBottom": -83.0078125,
+        "scrollY": 844
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-popup-edge-scroll-chains-page",
+      "passed": true,
+      "observed": {
+        "mapBottom": -238.203125,
+        "overscroll": "auto",
+        "popupScroll": 25.5,
+        "scrollY": 844
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-branch-entry-at-heading",
+      "passed": true,
+      "observed": {
+        "headingTop": 34.1796875,
+        "scrollY": 717.5
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-expand-options-two-escape-preserves-unsaved-branch",
+      "passed": true,
+      "observed": {
+        "expanded": "false",
+        "interaction": "page-scroll",
+        "photoInput": true,
+        "value": "QA unsaved mobile draft"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "mobile-en-light-details-full-page",
+      "passed": true,
+      "observed": {
+        "hint": "Swipe up for details · Expand to explore",
+        "lang": "en",
+        "mapBottom": -83.0078125,
+        "overflow": false,
+        "position": "relative",
+        "scrollY": 844,
+        "theme": "light"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "narrow-320-normal-flow",
+      "passed": true,
+      "observed": {
+        "mode": "page-scroll",
+        "overflow": false,
+        "position": "relative",
+        "width": 320
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "tablet-768-normal-flow",
+      "passed": true,
+      "observed": {
+        "mode": "page-scroll",
+        "overflow": false,
+        "position": "relative",
+        "width": 768
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "desktop-th-dark-explore-restored",
+      "passed": true,
+      "observed": {
+        "dragClass": true,
+        "height": 900,
+        "hostLabel": "แผนที่โต้ตอบ เลื่อนและซูมเพื่อสำรวจทำเล",
+        "interaction": "explore",
+        "overflow": false,
+        "width": 1440
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "observed-console-errors-zero",
+      "passed": true,
+      "observed": {
+        "errors": 0
+      },
+      "status": "PASS"
+    }
+  ],
+  "measurements": {
+    "pageScrollProof": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "normalFlowInitial": {
+        "mapTop": 85.796875,
+        "panelHeight": 675.1953125,
+        "source": "Root-observed current frozen runtime before page scroll"
+      },
+      "normalFlowAfterScroll": {
+        "contentTop": -12.5078125,
+        "interaction": "page-scroll",
+        "mapBottom": -12.5078125,
+        "mapTop": -687.703125,
+        "overflow": false,
+        "position": "relative",
+        "scrollY": 773.5
+      },
+      "detailEntry": {
+        "heading": "ช่องนนทรี",
+        "headingTop": 23.78125,
+        "hostLabel": "แผนที่ทำเล ปัดขึ้นดูรายละเอียด หรือกดขยายเพื่อสำรวจ",
+        "interaction": "page-scroll",
+        "mapBottom": -125.5078125,
+        "overflow": false,
+        "position": "relative",
+        "scrollY": 886.5
+      },
+      "popupEdgeChaining": {
+        "mapBottom": -238.203125,
+        "overscroll": "auto",
+        "popupScroll": 25.5,
+        "scrollY": 844
+      }
+    },
+    "historicalPublishedBaseline": {
+      "version": "1.9.4",
+      "sourceSha": "3f94a154a43a61fd400f918e017ca5f677343892",
+      "initial": {
+        "scrollY": 0,
+        "panelPosition": "sticky",
+        "mapTop": 85.796875,
+        "contentTop": 760.9921875
+      },
+      "afterNativeScroll": {
+        "scrollY": 844,
+        "panelPosition": "sticky",
+        "mapTop": 0,
+        "mapBottom": 675.1953125,
+        "contentTop": -83.0078125
+      },
+      "receiptSha256": "97dc9072b38f76111483bcb89129eeb3bc63fe83a75661b7b81f738c8179e60c",
+      "meaning": "Published current map remains over content after page scroll; measured native Chrome viewport, not physical phone."
+    },
+    "narrow320": {
+      "mode": "page-scroll",
+      "overflow": false,
+      "position": "relative",
+      "width": 320
+    },
+    "tablet768": {
+      "mode": "page-scroll",
+      "overflow": false,
+      "position": "relative",
+      "width": 768
+    },
+    "desktop1440x900": {
+      "dragClass": true,
+      "height": 900,
+      "hostLabel": "แผนที่โต้ตอบ เลื่อนและซูมเพื่อสำรวจทำเล",
+      "interaction": "explore",
+      "overflow": false,
+      "width": 1440
+    }
+  },
+  "manualGates": [
+    "Physical iPhone/Android touch and Safari",
+    "Complete brand/language/theme/device matrix",
+    "Actual screen-reader speech and full boundary hover coverage",
+    "OS reduced-motion setting and 130%/200% browser zoom"
+  ],
+  "publication": "not_performed_by_this_receipt",
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.9.5/mobile-en-light-details.jpg",
+      "bytes": 42834,
+      "sha256": "3ebcc13429f1cd86a74ddb7092faf574742ffc2e392b73fe862bee1f2c194866",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.5/mobile-th-dark-details.jpg",
+      "bytes": 41700,
+      "sha256": "fc7de594f71e30f7cdfa2e7aeb6d0ddc5305a2c9ce49d2cebe3fe4968e058dcc",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.5/mobile-th-dark-place.jpg",
+      "bytes": 46268,
+      "sha256": "dc22253a5b757771e40b3bea61276229a7fd1dbe4936c1408ede4312f1cf8c94",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "path": "evidence/browser-v1.9.5/desktop-th-dark-supply.jpg",
+      "bytes": 179090,
+      "sha256": "c25565a8b5f3d9fd5781fbcf5eb0bf0a683717b71d272cafa8ad4bd49c343465",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    }
+  ],
+  "reviewedRuntime": [
+    {
+      "path": "prototype/app.js",
+      "bytes": 78857,
+      "sha256": "07f31b393cc12960ca25e698d4e7daea6d130c29a061519a7b8c21fd6e4426b4"
+    },
+    {
+      "path": "prototype/workspace-layout.css",
+      "bytes": 8607,
+      "sha256": "47a92fa138c3f1835ae8bfdff1e1e7fb38ec4e2fd3c312e166cf661c67ca23a7"
+    },
+    {
+      "path": "prototype/workspace-map.css",
+      "bytes": 23512,
+      "sha256": "dda9e077ce92725545a03aa1982e5db9e1a1efb6dcc1ef1b4590ea6de552a311"
+    },
+    {
+      "path": "prototype/workspace-map.js",
+      "bytes": 102514,
+      "sha256": "e3fe627c0953d1b744f9e966ef5ed76fbbbd233a954b0aacaae46ecda3f5cc8a"
+    }
+  ],
+  "sourceObservation": {
+    "sha256": "9c56f08b7086960b06eeaad72ae30b6f0933363bc604e41e7eb94963fda85b9d",
+    "capturedAt": "2026-10-08T02:54:35.126Z",
+    "meaning": "Projection of the release owner’s frozen current native observations; not another independent native execution."
+  }
+}

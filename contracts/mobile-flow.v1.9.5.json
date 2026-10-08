@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "yolk.mobile_map_flow/1.9.5",
+  "version": "1.9.5",
+  "date": "2026-10-08",
+  "status": "final_runtime_values_current_QA_bound",
+  "scope": "Mobile/tablet map stays in normal document flow so page scrolling reveals the work panel. Desktop map-space and analytical behavior are retained.",
+  "extends": [
+    "contracts/map-space.v1.9.4.json",
+    "contracts/expansion-experience.v1.9.3.json",
+    "contracts/workspace-map.v1.7.json"
+  ],
+  "retainedVersions": {
+    "criteria": "1.9.0",
+    "profiles": "1.9.0",
+    "strategyEngine": "1.9.0",
+    "interaction": "1.9.1",
+    "brandIdentityUI": "1.9.2",
+    "artwork": "1.9.2-owner2",
+    "strategyGuide": "1.9.3",
+    "desktopMapSpace": "1.9.4",
+    "DS": "0.9.7"
+  },
+  "invariants": {
+    "normalDocumentFlowAtNarrowWidths": true,
+    "workPaneReachableByPageScroll": true,
+    "desktopLayoutUnchanged": true,
+    "samePersistentMap": true,
+    "routeAndCriteriaPreserveCamera": true,
+    "savedCriteriaAndDraftsPreserved": true,
+    "nationalBenchmarkUnchanged": true,
+    "demandMembershipUnchanged": true,
+    "supplyTotalsUnchanged": true,
+    "analyticalColorAndOpacityUnchanged": true,
+    "originalBrandAssetsUnchanged": true,
+    "guideRegistryUnchanged": true,
+    "personalDisplayOnly": true
+  },
+  "layout": {
+    "narrowBreakpointMaxPx": 1099,
+    "ordinaryMapPosition": "relative; normal document flow, no ordinary sticky map",
+    "ordinaryPanelHeight": "clamp(420px,80svh,800px)",
+    "pageScroll": "Map then work panel; ordinary swipe and browser pinch operate on the page",
+    "gestureModes": {
+      "ordinaryNarrow": {
+        "mapDragging": false,
+        "mapTouchZoom": false,
+        "mapScrollWheelZoom": false,
+        "mapDoubleClickZoom": false,
+        "touchAction": "pan-y pinch-zoom",
+        "directClickAndControls": "Existing tap/click, drilldown and explicit zoom controls remain available"
+      },
+      "expandedNarrow": {
+        "mapDragging": true,
+        "mapTouchZoom": true,
+        "mapScrollWheelZoom": true,
+        "mapDoubleClickZoom": true,
+        "touchAction": "Map exploration enabled deliberately by Expand"
+      },
+      "restore": "Collapse/Escape returns page-scroll mode; widening to desktop restores each original public handler.enabled() snapshot; repeat sync is idempotent"
+    },
+    "visibleHint": {
+      "th": "ปัดขึ้นดูรายละเอียด · ขยายเพื่อสำรวจแผนที่",
+      "en": "Swipe up for details · Expand to explore"
+    },
+    "desktop": {
+      "breakpointMinPx": 1100,
+      "baseline": "contracts/map-space.v1.9.4.json",
+      "layoutUnchanged": true,
+      "handlers": "Original handler defaults restored; not forcibly set to one universal value"
+    },
+    "explicitExpand": {
+      "height": "min(760px,calc(100svh - 88px - env(safe-area-inset-bottom,0px)))",
+      "mobileNavigationHidden": true,
+      "close": "Collapse button or Escape with focus restoration"
+    },
+    "routeAndScroll": {
+      "ordinaryUpdates": "No forced scroll on same-route rerenders, theme/display/criteria updates or normal map synchronization",
+      "newDetailRoute": "At <=1099px, a new #place/:id or #poi/:id queues one instant scroll to the newly rendered detail heading",
+      "asyncGuards": "Wait for loading/heading; reject stale hash, brand context, or widening to desktop",
+      "focusAndData": "Do not recreate map, move camera, discard drafts/photos, Apply criteria or emit a team event"
+    },
+    "legendAndEvidence": "Existing metric legend, unit, denominator and source/coverage disclosure remain available; hint adds readable lines",
+    "poiPopupScroll": {
+      "ordinaryNarrow": "Internal popup scroll remains available; at its edge allow overscroll/page chaining",
+      "desktopOrExpanded": "Retain contained popup scrolling"
+    },
+    "accessibleMapLabel": {
+      "ordinaryNarrow": "TH/EN label describes page scrolling and explicit Expand",
+      "expandedOrDesktop": "TH/EN label describes interactive map exploration"
+    }
+  },
+  "acceptance": [
+    "Scroll normally from the map to all work-panel controls on narrow screens without first expanding or hiding the map.",
+    "Keep the ordinary map host outside route content; scroll/route/criteria changes retain its instance, camera, context and drafts.",
+    "Explicit map expansion/collapse remains a personal display action with a reachable close control and focus restoration.",
+    "Check actual TH/EN, both themes, 320/390/tablet/desktop viewports, overflow, controls and tile resize lifecycle.",
+    "Desktop dimensions and map-space behavior remain unchanged from 1.9.4."
+  ],
+  "verification": {
+    "automated": {
+      "receipt": "evidence/automated-v1.9.5.json",
+      "suites": 32,
+      "reportedPassedCases": 545
+    },
+    "native": {
+      "receipt": "evidence/browser-v1.9.5/native-browser-review.json",
+      "boundedChecks": 14,
+      "actualSnapshotFiles": 4
+    },
+    "publication": "not_performed_by_contract"
+  },
+  "nativeMeasurements": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "receipt": "evidence/browser-v1.9.5/native-browser-review.json",
+    "receiptSha256": "5113d43ffa698e2ead9901001ff86e2a20f0ee52d8a2b6a47aa0126bffd969b0",
+    "measurements": {
+      "pageScrollProof": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "normalFlowInitial": {
+          "mapTop": 85.796875,
+          "panelHeight": 675.1953125,
+          "source": "Root-observed current frozen runtime before page scroll"
+        },
+        "normalFlowAfterScroll": {
+          "contentTop": -12.5078125,
+          "interaction": "page-scroll",
+          "mapBottom": -12.5078125,
+          "mapTop": -687.703125,
+          "overflow": false,
+          "position": "relative",
+          "scrollY": 773.5
+        },
+        "detailEntry": {
+          "heading": "ช่องนนทรี",
+          "headingTop": 23.78125,
+          "hostLabel": "แผนที่ทำเล ปัดขึ้นดูรายละเอียด หรือกดขยายเพื่อสำรวจ",
+          "interaction": "page-scroll",
+          "mapBottom": -125.5078125,
+          "overflow": false,
+          "position": "relative",
+          "scrollY": 886.5
+        },
+        "popupEdgeChaining": {
+          "mapBottom": -238.203125,
+          "overscroll": "auto",
+          "popupScroll": 25.5,
+          "scrollY": 844
+        }
+      },
+      "historicalPublishedBaseline": {
+        "version": "1.9.4",
+        "sourceSha": "3f94a154a43a61fd400f918e017ca5f677343892",
+        "initial": {
+          "scrollY": 0,
+          "panelPosition": "sticky",
+          "mapTop": 85.796875,
+          "contentTop": 760.9921875
+        },
+        "afterNativeScroll": {
+          "scrollY": 844,
+          "panelPosition": "sticky",
+          "mapTop": 0,
+          "mapBottom": 675.1953125,
+          "contentTop": -83.0078125
+        },
+        "receiptSha256": "97dc9072b38f76111483bcb89129eeb3bc63fe83a75661b7b81f738c8179e60c",
+        "meaning": "Published current map remains over content after page scroll; measured native Chrome viewport, not physical phone."
+      },
+      "narrow320": {
+        "mode": "page-scroll",
+        "overflow": false,
+        "position": "relative",
+        "width": 320
+      },
+      "tablet768": {
+        "mode": "page-scroll",
+        "overflow": false,
+        "position": "relative",
+        "width": 768
+      },
+      "desktop1440x900": {
+        "dragClass": true,
+        "height": 900,
+        "hostLabel": "แผนที่โต้ตอบ เลื่อนและซูมเพื่อสำรวจทำเล",
+        "interaction": "explore",
+        "overflow": false,
+        "width": 1440
+      }
+    },
+    "scope": "Bounded native Chrome desktop and mobile/tablet viewport checks: ordinary page scroll, expanded map interaction, detail entry, popup edge chaining, unsaved branch draft and readable TH/dark + EN/light states. Mouse/wheel/native viewport evidence is not physical iPhone/Android touch certification or the full brand/language/theme/device matrix.",
+    "meaning": "Actual recorded current geometry and scroll observations are distinct from CSS declarations and historical 1.9.4 dimensions. Physical-device/full-matrix certification is not implied."
+  }
+}

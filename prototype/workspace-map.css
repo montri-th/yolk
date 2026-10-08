@@ -178,9 +178,13 @@ html[data-theme=dark] .workspace-map-panel[data-workspace-basemap=detailed] .lea
 .workspace-map-footer .workspace-map-evidence[open] p{font-size:12px;line-height:1.5;max-height:96px;overflow:auto}
 .workspace-map-legend-unit{font-size:12px;line-height:1.5;color:var(--muted);margin-bottom:4px;overflow-wrap:anywhere}
 .workspace-map-legend-unit:empty{display:none}
+.workspace-map-scroll-hint{display:none}
 .workspace-map-footer .workspace-lut-legend{gap:3px;margin-bottom:3px}
 .workspace-map-footer [data-workspace-map-status]:not(:empty){font-size:12px;line-height:1.5;max-height:48px;overflow:auto}
 @media(max-width:1099px){
+ .workspace-map-panel:not([data-workspace-map-expanded=true]) #workspace-map{touch-action:pan-y pinch-zoom}
+ .workspace-map-panel:not([data-workspace-map-expanded=true]) .leaflet-popup:has(.yolk-poi-popup) .leaflet-popup-content{overscroll-behavior:auto}
+ .workspace-map-panel:not([data-workspace-map-expanded=true]) .workspace-map-scroll-hint{display:block;font-size:12px;line-height:1.5;margin:4px 0 0}
  .workspace-map-context-row{flex-wrap:wrap;gap:0 8px;padding:0 10px 4px}
  .workspace-map-context-row .workspace-map-breadcrumbs{flex:1 1 100%;font-size:12px}
  .workspace-map-context-row .workspace-supply-view{flex:1 1 100%;gap:6px}

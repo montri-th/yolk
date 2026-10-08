@@ -1,6 +1,6 @@
-# Current handoff - Yolk 1.9.4 candidate
+# Current handoff - Yolk 1.9.5 candidate
 
-Read [handoff 1.9.4](HANDOFF_v1.9.4.md), [complete product and plan](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.4.md), [map-space contract](contracts/map-space.v1.9.4.json) and [release state](contracts/release.v1.9.4.json). Current bounded local/native QA passed; publication/live bytes remain separate. Prior text below is historical.
+Read [handoff 1.9.5](HANDOFF_v1.9.5.md), [complete product and plan](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.5.md), [map-space contract](contracts/map-space.v1.9.4.json) and [release state](contracts/release.v1.9.5.json). Current bounded 1.9.5 local/native receipts passed; provider/live/publication remains separate. Prior text below is historical.
 
 ---
 
@@ -47,3 +47,8 @@ Preview เป็น browser-local simulation Shared datastore/auth/server RBAC/
 QA รุ่น1.9.2 ผ่าน 29 suites / 506 checks และ native review แบบจำกัด 12 ข้อ ภาพจริง 12 ภาพ ดู [QA](evidence/qa-v1.9.2.json). ผล1.9.1 เป็นประวัติ Provider/live bytes, physical device, screen reader และ full matrix แยกจากผลนี้
 
 รุ่น 1.9.2 ใช้ Villa Market/Lawson108/Tops artwork ที่เจ้าของส่ง และแก้ Supply icon/caption อ่าน [คู่มือ patch](docs/BRAND_IDENTITY_AND_SUPPLY_CHIPS_v1.9.2.md) ข้อมูลและ preset เดิมไม่เปลี่ยน
+
+
+## Mobile document flow 1.9.5
+
+Read [mobile-flow contract](contracts/mobile-flow.v1.9.5.json). Narrow-screen page scroll must reveal the work panel after the map in normal document flow; keep the same map/camera/drafts and desktop map-space1.9.4. Fresh 1.9.5 QA/native/provider/live receipts are required; historical passes are not current acceptance.

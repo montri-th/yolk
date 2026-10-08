@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify public 1.9.4 artifact, source grains and DS assets
-        run: python3 scripts/verify-pages-v1.9.4.py
-      - name: Check current map-space layout and retained opportunities, guide, recovery and analytical invariants
+      - name: Verify public 1.9.5 artifact, source grains and DS assets
+        run: python3 scripts/verify-pages-v1.9.5.py
+      - name: Check current mobile flow and retained map-space layout and retained opportunities, guide, recovery and analytical invariants
         run: |
           node scripts/check-three-industry.cjs
           node scripts/check-brand-presets.cjs

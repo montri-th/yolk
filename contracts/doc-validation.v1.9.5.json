@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "yolk.document_validation/1.9",
+  "version": "1.9.5",
+  "recordedAt": "2026-10-08T03:02:44.156624+00:00",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 3,
+  "tasks": 25,
+  "metrics": 25,
+  "brandBindings": 37,
+  "guideStrategies": 8,
+  "checks": [
+    {
+      "name": "Three embedded JSON blocks parse and current full blueprint exactly matches standalone",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: source",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: profiles",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: demand",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: supply",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: ranking",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: opportunity",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: production",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: api",
+      "passed": true
+    },
+    {
+      "name": "Complete production/analytical section unchanged: schemas",
+      "passed": true
+    },
+    {
+      "name": "Desktop map-space, guide and expansion-experience projections unchanged",
+      "passed": true
+    },
+    {
+      "name": "Current mobile-flow projection matches standalone",
+      "passed": true
+    },
+    {
+      "name": "25 complete bounded production tasks retained",
+      "passed": true
+    },
+    {
+      "name": "Task dependencies are ordered and declared",
+      "passed": true
+    },
+    {
+      "name": "Current suite and native result counts reconcile",
+      "passed": true
+    },
+    {
+      "name": "Current QA receipts exactly match in full/release/handoff",
+      "passed": true
+    },
+    {
+      "name": "No publication upgrade from local QA",
+      "passed": true
+    },
+    {
+      "name": "Actual local full-document links resolve",
+      "passed": true
+    },
+    {
+      "name": "Fresh package-only evidence remains bounded and SHA-bound",
+      "passed": true
+    }
+  ],
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.5.md",
+    "sha256": "1fafdb188d96eccdd366c0f6bed69387b3e4e76cfa8f811d58e0c91995e0448a"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.5.json",
+    "sha256": "1060837aa20636ddcdb86f3afe6ac4580180637efbe9a30294271f8a8e0a67e1"
+  },
+  "narrativeRegistry": {
+    "path": "prototype/data/strategy-guide.v1.9.3.json",
+    "sha256": "04aad69b6b3ec79cfae0923a6b743ce9807c1ce63798d04a15e58ec7775ad080"
+  },
+  "mobileFlowContract": {
+    "path": "contracts/mobile-flow.v1.9.5.json",
+    "sha256": "faf9f275045bf26d75d098c41706f7a7477b4c730a8e6fc23a29312f5b1a191c"
+  },
+  "currentRuntimeAcceptance": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "nativeAcceptance": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "sourceQAReceipt": {
+    "path": "evidence/qa-v1.9.5.json",
+    "sha256": "2efc05f64f7dad7d775601ac5529b89a3ffd08e7e7a3cdcd815ae51c343e46df"
+  },
+  "nativeReceipt": {
+    "path": "evidence/browser-v1.9.5/native-browser-review.json",
+    "sha256": "5113d43ffa698e2ead9901001ff86e2a20f0ee52d8a2b6a47aa0126bffd969b0"
+  },
+  "coverageBoundary": "Current document/embedded contracts/mobile layout consistency and actual fresh current receipt bindings only. Package parity is not artifact/account/team certification. Historical guide/map-space/analytical evidence remains reference-only. Provider/live/publication/ZIP, physical devices/full matrix and production backend are separate."
+}

@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "yolk.public_release/1.9",
+  "version": "1.9.5",
+  "approvedSourcePreview": "1.9.5-mobile-flow",
+  "date": "2026-10-08",
+  "status": "locally_verified_pending_publication",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "productAuthority": "contracts/product.v1.7.json",
+  "featureExtension": "contracts/mobile-flow.v1.9.5.json",
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "nationalDemandCutoffsUnchanged": true,
+  "fineModelSemanticsUnchanged": true,
+  "modelChange": "Mobile document flow presentation only. Complete 1.9.4 production blueprint/desktop layout, 1.9.3 guide/first page, 1.9.0 analytics/profiles and original identity/DS assets retained.",
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "publicationDelta": [
+    "Let ordinary mobile/tablet page scroll move past the persistent map to the work panel; preserve explicit expansion, desktop layout and analytics. Exact runtime values and current evidence bind to mobile-flow.v1.9.5.json."
+  ],
+  "shareImage": {
+    "asset": "prototype/assets/identity/yolk-share-v1.7.png",
+    "family": "1.7",
+    "changedInThisRelease": false,
+    "meaning": "Retained approved1.7family asset; no new1.9render claimed."
+  },
+  "sourceEvidenceBoundary": "Compact public adapters and provenance only; private source acquisition/customer data excluded.",
+  "localVerification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "receipt": "evidence/qa-v1.9.5.json",
+    "automatedReceipt": "evidence/automated-v1.9.5.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.5.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.5/native-browser-review.json",
+    "receiptSha256": "2efc05f64f7dad7d775601ac5529b89a3ffd08e7e7a3cdcd815ae51c343e46df",
+    "automatedReceiptSha256": "1b6f976024ea7a5dabd548de97d2163bc007eaba99788276d14e1984efa65f5d",
+    "releaseChecksReceiptSha256": "5dbd01113c1cab13b7360e31885886bd9dcd8abf55056f06eb75e8fc71bf8c2e",
+    "nativeBrowserReceiptSha256": "5113d43ffa698e2ead9901001ff86e2a20f0ee52d8a2b6a47aa0126bffd969b0",
+    "automatedSuites": 32,
+    "automatedChecks": 545,
+    "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.5; no imported prior results.",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 14,
+    "snapshots": [
+      "evidence/browser-v1.9.5/mobile-en-light-details.jpg",
+      "evidence/browser-v1.9.5/mobile-th-dark-details.jpg",
+      "evidence/browser-v1.9.5/mobile-th-dark-place.jpg",
+      "evidence/browser-v1.9.5/desktop-th-dark-supply.jpg"
+    ],
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.5/mobile-en-light-details.jpg",
+        "bytes": 42834,
+        "sha256": "3ebcc13429f1cd86a74ddb7092faf574742ffc2e392b73fe862bee1f2c194866",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.5/mobile-th-dark-details.jpg",
+        "bytes": 41700,
+        "sha256": "fc7de594f71e30f7cdfa2e7aeb6d0ddc5305a2c9ce49d2cebe3fe4968e058dcc",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.5/mobile-th-dark-place.jpg",
+        "bytes": 46268,
+        "sha256": "dc22253a5b757771e40b3bea61276229a7fd1dbe4936c1408ede4312f1cf8c94",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "path": "evidence/browser-v1.9.5/desktop-th-dark-supply.jpg",
+        "bytes": 179090,
+        "sha256": "c25565a8b5f3d9fd5781fbcf5eb0bf0a683717b71d272cafa8ad4bd49c343465",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      }
+    ],
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "scope": "Bounded native Chrome desktop and mobile/tablet viewport checks: ordinary page scroll, expanded map interaction, detail entry, popup edge chaining, unsaved branch draft and readable TH/dark + EN/light states. Mouse/wheel/native viewport evidence is not physical iPhone/Android touch certification or the full brand/language/theme/device matrix.",
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "providerEvidence": "Pending terminal deployment success bound to final source SHA; external attestation separate from local QA.",
+  "liveByteEvidence": "Pending current public emitted-URL/hash/MIME checks in external attestation; not inferred from local QA.",
+  "limits": [
+    "Demand proxy is not observed traffic/purchases/borrowing or a revenueforecast",
+    "Static preview does not implement sharedbackend/serverRBAC/email/LINE/privateproductionmedia",
+    "Native viewport review is not physicaldevice certification",
+    "External provider availability/results need separate verification",
+    "Operator-stated positioning is not measured consumer perception or branch-level offering certification",
+    "Strategy candidates are survey cues, not measured unmet demand, market share, sales or winning probability",
+    "POI coordinate inventories and native choropleth counts have different coverage; screen groups are not a customer-attraction model"
+  ],
+  "retainedContracts": [
+    "contracts/workspace-map.v1.7.json",
+    "contracts/map-analysis.v1.7.2.json",
+    "contracts/location-review.v1.7.3.json",
+    "contracts/map-boundary-appearance.v1.7.4.json",
+    "contracts/branch-context.v1.7.5.json",
+    "contracts/opportunity-strategies.v1.9.0.json",
+    "contracts/full-product.v1.9.0.json",
+    "contracts/interaction-guidance.v1.9.1.json",
+    "contracts/full-product.v1.9.1.json",
+    "contracts/brand-identity-ui.v1.9.2.json",
+    "contracts/full-product.v1.9.2.json",
+    "contracts/full-product.v1.9.3.json",
+    "contracts/expansion-experience.v1.9.3.json",
+    "contracts/full-product.v1.9.4.json",
+    "contracts/map-space.v1.9.4.json"
+  ],
+  "currentQAOnly": true,
+  "designSystemPackageVerification": {
+    "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+    "version": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "receipt": "evidence/lds-package-verification.v1.9.5.json",
+    "receiptSha256": "c08111c373a57f179eec98b82f15834ff9bed796ce6af562efa781904aefa7e9",
+    "checks": 9768,
+    "warnings": 65,
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+    "artifactAndAccountTeamCertification": false
+  },
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "fullProduct": "contracts/full-product.v1.9.5.json",
+  "responsiveCameraRule": "Explicit Expand/Compact preserves same camera/navigation/map, including host width change; ordinary responsive significant-width fitting retains existing rule and popup guard.",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  },
+  "tileRecoveryStatus": "retained1_9_3_recovery_implementation_current_retest_required",
+  "strategyGuide": "prototype/data/strategy-guide.v1.9.3.json",
+  "previousPublishedSource": {
+    "version": "1.9.4",
+    "sourceSha": "3f94a154a43a61fd400f918e017ca5f677343892",
+    "treeSha": "1128c2ab5a61a8ef683056a37e6b0e0b8cbda55b",
+    "meaning": "Published historical baseline; not current 1.9.5 proof."
+  }
+}
