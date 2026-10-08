@@ -3603,7 +3603,7 @@
       "nativeMeasurements": {
         "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
         "receipt": "evidence/browser-v1.9.4/native-browser-review.json",
-        "receiptSha256": "f84573fc797513d1ac3347f174629794773ad924545e5051f6615ca6cbfcfe9a",
+        "receiptSha256": "3d403aa9d78e2cb18d81178130a08487db7ac851ae52159bf9b69bc69105e888",
         "measurements": {
           "desktopBefore1440x900": {
             "sidebarWidth": 256,
@@ -3616,8 +3616,9 @@
             "workPaneWidth": 340,
             "poiMapWidth": 1002,
             "poiMapHeight": 669,
-            "mapHeaderHeight": 108,
-            "mapFooterHeight": 45
+            "mapHeaderHeight": 112,
+            "mapFooterHeight": 45,
+            "mapHeaderMeasurement": "toolbar64px + context48px; excludes1px panel border"
           },
           "mobileAfter390x844": {
             "poiMapWidth": 389,
@@ -5512,7 +5513,7 @@
       "receiptSha256": "b32165a28b2e1082b42e0297530377314b72c6bb5f8a343827d08ec15d3a23d2",
       "automatedReceiptSha256": "49f51c32ea0c085622aec5db5f767e702afae01ae45804928d50d26e11c667e7",
       "releaseChecksReceiptSha256": "0b39fb5e539a81639f9f42af1fa0e14873bc1188a6e703300099151d583f5565",
-      "nativeBrowserReceiptSha256": "f84573fc797513d1ac3347f174629794773ad924545e5051f6615ca6cbfcfe9a",
+      "nativeBrowserReceiptSha256": "3d403aa9d78e2cb18d81178130a08487db7ac851ae52159bf9b69bc69105e888",
       "automatedSuites": 32,
       "automatedChecks": 539,
       "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.4; workspace suite rerun after approved help glyph/fallback correction. Other31 fresh results retain actual original timestamps/output bytes.",

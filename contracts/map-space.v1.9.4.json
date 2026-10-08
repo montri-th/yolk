@@ -99,7 +99,7 @@
   "nativeMeasurements": {
     "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
     "receipt": "evidence/browser-v1.9.4/native-browser-review.json",
-    "receiptSha256": "f84573fc797513d1ac3347f174629794773ad924545e5051f6615ca6cbfcfe9a",
+    "receiptSha256": "3d403aa9d78e2cb18d81178130a08487db7ac851ae52159bf9b69bc69105e888",
     "measurements": {
       "desktopBefore1440x900": {
         "sidebarWidth": 256,
@@ -112,8 +112,9 @@
         "workPaneWidth": 340,
         "poiMapWidth": 1002,
         "poiMapHeight": 669,
-        "mapHeaderHeight": 108,
-        "mapFooterHeight": 45
+        "mapHeaderHeight": 112,
+        "mapFooterHeight": 45,
+        "mapHeaderMeasurement": "toolbar64px + context48px; excludes1px panel border"
       },
       "mobileAfter390x844": {
         "poiMapWidth": 389,

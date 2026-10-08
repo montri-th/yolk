@@ -1,7 +1,7 @@
 {
   "schemaVersion": "yolk.document_validation/1.9",
   "version": "1.9.4",
-  "recordedAt": "2026-10-08T01:00:44.989801+00:00",
+  "recordedAt": "2026-10-08T01:05:37.221852+00:00",
   "result": "bounded_document_consistency_pass",
   "machineBlocks": 3,
   "tasks": 25,
@@ -84,11 +84,11 @@
   ],
   "document": {
     "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.4.md",
-    "sha256": "0811b8a0520b23fb48a64841387a3ec71008ed92c715326c25ba509969acd3c4"
+    "sha256": "eda1fd1255f73490b69f16b1ef1ae2f4d54f2df12555df130d53680c7f62f445"
   },
   "machineContract": {
     "path": "contracts/full-product.v1.9.4.json",
-    "sha256": "69009cec397715ebe8bc02fa8640c4afe6cfa886def82bcccb7ba96f0eba9f72"
+    "sha256": "e9fe0c34a2dee203be94c5d5f17dce8519bf32e34636d581107799e09f154472"
   },
   "narrativeRegistry": {
     "path": "prototype/data/strategy-guide.v1.9.3.json",
@@ -96,7 +96,7 @@
   },
   "mapSpaceContract": {
     "path": "contracts/map-space.v1.9.4.json",
-    "sha256": "3a7febe1608d0bb451fb8cadc9d8f32566a84d11e91ffd983910e672d522de21"
+    "sha256": "e3455d68998a89e8d9fcebb32c138b66bfafdf1a3c74496e67e2472cfccf5934"
   },
   "currentRuntimeAcceptance": "PASS_BOUNDED_CURRENT_LOCAL_QA",
   "nativeAcceptance": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
@@ -106,7 +106,7 @@
   },
   "nativeReceipt": {
     "path": "evidence/browser-v1.9.4/native-browser-review.json",
-    "sha256": "f84573fc797513d1ac3347f174629794773ad924545e5051f6615ca6cbfcfe9a"
+    "sha256": "3d403aa9d78e2cb18d81178130a08487db7ac851ae52159bf9b69bc69105e888"
   },
   "coverageBoundary": "Current document/embedded contracts/layout consistency and actual current receipt bindings only; native review bounded to receipt. Historical guide/DSpackage/analytical receipts are references. Provider/live/publication/ZIP, physical devices, full matrix and production backend remain separate."
 }

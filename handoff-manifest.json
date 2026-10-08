@@ -93,8 +93,8 @@
     },
     {
       "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.4.md",
-      "bytes": 387750,
-      "sha256": "0811b8a0520b23fb48a64841387a3ec71008ed92c715326c25ba509969acd3c4"
+      "bytes": 387841,
+      "sha256": "eda1fd1255f73490b69f16b1ef1ae2f4d54f2df12555df130d53680c7f62f445"
     },
     {
       "path": "CityMETER_Yolk_Product_Statement_v1.6.md",
@@ -329,7 +329,7 @@
     {
       "path": "contracts/doc-validation.v1.9.4.json",
       "bytes": 3498,
-      "sha256": "932b92cd122b343d9e8d49b06cfbd6ab725621dd37981fcb5ec9d4fcc7449572"
+      "sha256": "74451708d78a3423e56af260e955edc40c3d54dfe7b889b8293d24e9cff793bf"
     },
     {
       "path": "contracts/ds-assets.v1.6.json",
@@ -368,8 +368,8 @@
     },
     {
       "path": "contracts/full-product.v1.9.4.json",
-      "bytes": 252299,
-      "sha256": "69009cec397715ebe8bc02fa8640c4afe6cfa886def82bcccb7ba96f0eba9f72"
+      "bytes": 252390,
+      "sha256": "e9fe0c34a2dee203be94c5d5f17dce8519bf32e34636d581107799e09f154472"
     },
     {
       "path": "contracts/handoff.v1.8.0.json",
@@ -399,7 +399,7 @@
     {
       "path": "contracts/handoff.v1.9.4.json",
       "bytes": 10819,
-      "sha256": "67eeb11f65423a6fbec4e3a01b6db80132756e4b1ef5be1b6c90211601c79273"
+      "sha256": "c7dcacb59fbc2144ee8cca8194a173f3958f68732cf34ced6a7b61bf7bf8e68b"
     },
     {
       "path": "contracts/icons.v1.8.0.json",
@@ -438,8 +438,8 @@
     },
     {
       "path": "contracts/map-space.v1.9.4.json",
-      "bytes": 5019,
-      "sha256": "3a7febe1608d0bb451fb8cadc9d8f32566a84d11e91ffd983910e672d522de21"
+      "bytes": 5106,
+      "sha256": "e3455d68998a89e8d9fcebb32c138b66bfafdf1a3c74496e67e2472cfccf5934"
     },
     {
       "path": "contracts/metric-display-copy.json",
@@ -564,7 +564,7 @@
     {
       "path": "contracts/release.v1.9.4.json",
       "bytes": 7499,
-      "sha256": "11944ae746956285d30508a624cf531f8b5cfa1a42ad66ffaa78903c02759098"
+      "sha256": "ae6d33e4ede90a190194d8a5f97aa1c7e593398ebf6975ee97ae936773b6565e"
     },
     {
       "path": "contracts/responsiveness.v1.7.1.json",
@@ -1228,8 +1228,8 @@
     },
     {
       "path": "evidence/browser-v1.9.4/native-browser-review.json",
-      "bytes": 7596,
-      "sha256": "f84573fc797513d1ac3347f174629794773ad924545e5051f6615ca6cbfcfe9a"
+      "bytes": 7681,
+      "sha256": "3d403aa9d78e2cb18d81178130a08487db7ac851ae52159bf9b69bc69105e888"
     },
     {
       "path": "evidence/compact-logo-verification.v1.7.json",

@@ -228,8 +228,9 @@
       "workPaneWidth": 340,
       "poiMapWidth": 1002,
       "poiMapHeight": 669,
-      "mapHeaderHeight": 108,
-      "mapFooterHeight": 45
+      "mapHeaderHeight": 112,
+      "mapFooterHeight": 45,
+      "mapHeaderMeasurement": "toolbar64px + context48px; excludes1px panel border"
     },
     "mobileAfter390x844": {
       "poiMapWidth": 389,
