@@ -1,0 +1,11 @@
+PASS All three native adapters have exactly the geometry/hierarchy 928 UUIDs and source periods, with verified provenance bytes
+PASS Native district brand/company dimensions reconcile to each province and country source totals, rather than fine crosswalk sums
+PASS Actual native district adapters honor all three industry defaults, alternate own identities and Grocery/Non-bank product scopes
+PASS Native Non-bank inventory retains all direct offices and never imports the 5,534 fine-area residual into a district
+PASS Native Grocery counts do not receive fine Nakhon Ratchasima/Surat Thani ±1 bounds and exclude PHARMACY from selected format
+PASS Every native district uses its direct same-grain land area, population and modeled GFA denominators
+PASS Personal Demand/Supply metric and relation handlers preserve full ordered fine results, criteria, drafts, events and storage for each industry
+PASS Personal Demand tier page includes every confirmed Demand level; active selection uses maximum tier and ignores legacy patterns
+PASS Demand and Supply personal states remain separate; province filters do not recalibrate either national cohort
+PASS Actual bootstrap preloads scripts together while executing analytical modules in dependency order, one script at a time
+{"passed":true,"checks":10,"receipt":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.0/analysis-integration-regression-results.json"}

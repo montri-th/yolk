@@ -1,0 +1,589 @@
+{
+  "schemaVersion": "yolk.red-team-remediation/1.0",
+  "version": "1.9.11",
+  "scope": "Retained red-team corrections from v1.9.9, rechecked in the current integrated suite; v1.9.11 current owner changes are separately specified by brand-demo-activity contract.",
+  "status": "implementation_scoped_resolution_bounded_local_acceptance_complete_publication_pending",
+  "invariants": [
+    "Demand alone gates eligibility; source cohort and numerical brand presets unchanged",
+    "Supply uncertainty is not an exact zero",
+    "All points remain default; no arbitrary POI cap",
+    "Source-first assignment, immutable saved decisions, one persistent map",
+    "No public production-backend or physical-device acceptance claim"
+  ],
+  "findings": [
+    {
+      "id": "SR-01",
+      "severity": "P1",
+      "title": "สองแท็บต่างแบรนด์เขียนทับงานที่บันทึกแล้ว",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_vm",
+      "change": "บันทึกผ่าน Web Lock เดียวกัน อ่านค่าล่าสุดและเทียบ revision ก่อน merge แต่ละ context; ร่างไม่เขียนทับงานยืนยัน",
+      "files": [
+        "prototype/model.js",
+        "prototype/industry-workspace.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-workspace-transactions.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-workspace-transactions.log"
+        ],
+        "acceptance": "สองแท็บต่าง context คงทั้งงานและ events; stale record ถูกปฏิเสธ",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "ยังเป็นข้อมูลในเบราว์เซอร์เดียว ไม่ใช่ shared server"
+    },
+    {
+      "id": "SR-02",
+      "severity": "P1",
+      "title": "แจ้งสำเร็จหลังการเขียนครั้งที่สองล้มเหลว; reload แล้ว shortlist หาย",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_vm",
+      "change": "เขียน entity, context และ event ครั้งเดียว แจ้งสำเร็จหลังเขียนสำเร็จเท่านั้น",
+      "files": [
+        "prototype/model.js",
+        "prototype/app.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-workspace-transactions.cjs",
+          "scripts/check-action-guidance.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-workspace-transactions.log",
+          "evidence/automated-v1.9.11/check-action-guidance.log"
+        ],
+        "acceptance": "quota failure ไม่เปลี่ยน disk/memory และไม่แจ้งสำเร็จ; retry เกิด event เดียว",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "ต้องมี Web Locks; เบราว์เซอร์ที่ไม่รองรับจะปฏิเสธการบันทึกพร้อมคำอธิบาย"
+    },
+    {
+      "id": "SR-05",
+      "severity": "P1",
+      "title": "แก้สาขาระหว่างรอรูปแล้ว event ไม่ตรงกับ record",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_vm",
+      "change": "หลังรอรูป resolve สาขาปัจจุบันใหม่ ตรวจ revision/context/actor/route แล้ว commit; conflict เก็บร่างรูปไว้",
+      "files": [
+        "prototype/app.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-save-context.cjs",
+          "scripts/check-workspace-transactions.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-save-context.log",
+          "evidence/automated-v1.9.11/check-workspace-transactions.log"
+        ],
+        "acceptance": "แทนที่หรือลบ record ระหว่าง await ไม่สร้าง event ผิดสาขาหรือ finalize รูป",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "ยังไม่ใช่ transaction รูปบน backend"
+    },
+    {
+      "id": "ANA-01",
+      "severity": "P1",
+      "title": "Shortlist บางปุ่มไม่เก็บเกณฑ์และเหตุผล ณ วันที่เลือก",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_vm",
+      "change": "ทุกทางเพิ่ม/คืน shortlist ใช้ immutable decision snapshot ร่วมกัน ก่อน atomic commit; ลบออกคงหลักฐานเดิม",
+      "files": [
+        "prototype/decision-snapshot.js",
+        "prototype/strategy-ui.js",
+        "prototype/app.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-decision-evidence.cjs",
+          "scripts/check-strategy-ui.cjs",
+          "scripts/check-workspace-transactions.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-decision-evidence.log",
+          "evidence/automated-v1.9.11/check-strategy-ui.log",
+          "evidence/automated-v1.9.11/check-workspace-transactions.log"
+        ],
+        "acceptance": "handler จริงเก็บ criteria/context/evidence; restore เก็บเหตุผลใหม่โดยคง owner/status/note",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "รายการเก่าที่ไม่มี snapshot ไม่ถูกเติมเหตุผลย้อนหลังเอง"
+    },
+    {
+      "id": "UX-01",
+      "severity": "P1",
+      "title": "ร่างสาขาหายเมื่อเปลี่ยนหน้า; Skip link เปลี่ยน route ผิด",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_native",
+      "change": "เก็บร่างแยก context+route; กลับหน้าเดิมกู้ค่าได้ ทิ้งร่างโดยชัดแจ้ง; skip link focus เนื้อหาโดยไม่เปลี่ยน route",
+      "files": [
+        "prototype/app.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-form-drafts.cjs",
+          "scripts/check-workspace-transactions.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-form-drafts.log",
+          "evidence/automated-v1.9.11/check-workspace-transactions.log"
+        ],
+        "acceptance": "journal/restore/tombstone และ skip handler ผ่าน DOM adapter; stale target draft ไม่ทับค่าล่าสุด",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "native acceptance รอบรวมยังต้องมี receipt แยก"
+    },
+    {
+      "id": "ANA-02",
+      "severity": "P2",
+      "title": "ผลแบบร่างกับหน้ารายละเอียดใช้คนละเกณฑ์",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_vm",
+      "change": "รายละเอียดและแผนที่ใช้เกณฑ์ที่ผู้ใช้เปิดมาจริง พร้อมแจ้งแบบร่างและปุ่มกลับเกณฑ์ทีม",
+      "files": [
+        "prototype/decision-snapshot.js",
+        "prototype/decision-ui.js",
+        "prototype/strategy-ui.js",
+        "prototype/app.js",
+        "prototype/workspace-map.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-decision-evidence.cjs",
+          "scripts/check-map-redteam.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-decision-evidence.log",
+          "evidence/automated-v1.9.11/check-map-redteam.log"
+        ],
+        "acceptance": "ทำเล Tier 2 ที่ผ่านแบบร่างยังผ่านใน detail และ snapshot; ต่างทำเล/แบรนด์กลับใช้เกณฑ์ทีม",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "อ่านและเล็งทำเลไม่ Apply แบบร่างโดยอัตโนมัติ"
+    },
+    {
+      "id": "SR-03",
+      "severity": "P2",
+      "title": "Cache JSON ผิด schema ทำให้แอปเปิดไม่ได้และไม่มีกู้คืน",
+      "status": "resolved",
+      "originalEvidenceType": "fault_injection",
+      "change": "ตรวจ schema ก่อนใช้ cache กักต้นฉบับดิบไว้กู้คืน แสดงข้อความและปุ่ม export; เก็บส่วนข้อมูลที่ยังใช้ได้",
+      "files": [
+        "prototype/model.js",
+        "prototype/app.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-workspace-transactions.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-workspace-transactions.log"
+        ],
+        "acceptance": "root/array/actor/criteria/event/snapshot ผิดรูปไม่ทำให้ประเมินพัง และเก็บ raw original",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "ถ้าพื้นที่เก็บเต็ม ต้องส่งออกสำเนาก่อนปิดหน้า"
+    },
+    {
+      "id": "SR-04",
+      "severity": "P2",
+      "title": "Popup เรียกสาขาที่ทีมยืนยันแล้วว่ายังไม่ตรวจ",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_vm",
+      "change": "popup แยกสถานะ source record, team-verified และ archived พร้อมข้อจำกัดของพิกัด/ขอบเขต",
+      "files": [
+        "prototype/poi-popup.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-poi-popup.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-poi-popup.log"
+        ],
+        "acceptance": "ข้อความตรงสถานะใน TH/EN โดยไม่แปลงการยืนยันของทีมเป็นการรับรองต้นทาง",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "ไม่ใช้คำว่า team-verified รับรองเขตกฎหมายหรือการเปิดจริงอิสระ"
+    },
+    {
+      "id": "SR-06",
+      "severity": "P2",
+      "title": "Supply source โหลดพลาดแล้ว retry ไม่ได้จน reload",
+      "status": "resolved",
+      "originalEvidenceType": "fault_injection",
+      "change": "เพิ่ม retry แหล่งข้อมูลที่ล้มเหลวโดยไม่ reload ทั้งหน้า ป้องกัน retry ซ้ำและผลเก่าเปลี่ยน context ใหม่",
+      "files": [
+        "prototype/workspace-map.js",
+        "prototype/industry-workspace.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-map-redteam.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-map-redteam.log"
+        ],
+        "acceptance": "HTTP/JSON/grain/boundary error กู้คืนได้ โดยคง map instance, camera, ร่างและ context",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "ความพร้อมของ provider ภายนอกยังเป็นข้อจำกัดเครือข่าย"
+    },
+    {
+      "id": "DR-02",
+      "severity": "P2",
+      "title": "Tooltip บังแผนที่ กด Escape ไม่หาย",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_native",
+      "change": "Escape ปิด tooltip และระงับการเปิดซ้ำจนออกจากขอบเขต hover เดิม; เลื่อนไปอ่านข้อความ tooltip ได้",
+      "files": [
+        "prototype/map-hover.js",
+        "prototype/map-hover.css"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-map-hover.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-map-hover.log"
+        ],
+        "acceptance": "Escape, pointer persistence และไม่แย่ง Escape จาก control ผ่าน handler/DOM adapter",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "physical keyboard/screen-reader matrix ยังอยู่ DR-05"
+    },
+    {
+      "id": "DR-06",
+      "severity": "P2",
+      "title": "เลือกจุดซ้อนเปิด 6,070 สาขา แต่มีเพียง Next/Previous",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_native_usability",
+      "change": "รายการจุดซ้อนค้นชื่อ/รหัสและกรองแบรนด์ได้ มีปุ่มซูม โดยไม่ลดจำนวนหรือย้ายพิกัด",
+      "files": [
+        "prototype/workspace-map.js",
+        "prototype/workspace-map.css"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-unclustered-poi.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-unclustered-poi.log"
+        ],
+        "acceptance": "ชุด 6,070 จุดค้น exact ID และ narrow brand ได้; เปิด ID ถูกและยอดไม่เปลี่ยน",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "Canvas/DOM tests ไม่ใช่ physical-device performance benchmark"
+    },
+    {
+      "id": "ANA-03",
+      "severity": "P2",
+      "title": "น้ำหนักมีผลต่ออันดับหน้า Demand แต่ไม่ต่ออันดับหน้าโอกาสขยาย",
+      "status": "resolved",
+      "originalEvidenceType": "design_risk",
+      "change": "ระบุชัดว่าน้ำหนักเรียงหน้า Demand ส่วนโอกาสขยายเรียงตาม Strategy พร้อมลิงก์ไปดู Demand",
+      "files": [
+        "prototype/decision-ui.js",
+        "prototype/strategy-ui.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-decision-evidence.cjs",
+          "scripts/check-strategy-ui.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-decision-evidence.log",
+          "evidence/automated-v1.9.11/check-strategy-ui.log"
+        ],
+        "acceptance": "weights ไม่เปลี่ยน eligibility หรือ Strategy order; มีคำอธิบาย TH/EN",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "คงสูตรจัดอันดับเดิม ไม่เพิ่ม score ยอดขาย"
+    },
+    {
+      "id": "ANA-04",
+      "severity": "P2",
+      "title": "Weighted ranking ยอมรับ bounds ที่ระบุว่ายังไม่ทราบ",
+      "status": "resolved",
+      "originalEvidenceType": "fault_injection",
+      "change": "ข้อมูล Supply ไม่พร้อม/suppressed/invalid และ unknown bounds ไม่ให้คะแนนช่องว่างแบบแน่นอน",
+      "files": [
+        "prototype/model.js",
+        "prototype/opportunity-engine.js",
+        "prototype/relative-supply.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-decision-evidence.cjs",
+          "scripts/check-relative-supply.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-decision-evidence.log",
+          "evidence/automated-v1.9.11/check-relative-supply.log"
+        ],
+        "acceptance": "fault injection ได้ช่วงคะแนน/coverage ไม่แน่นอน; measured zero ยังใช้ได้",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "การแก้นี้ไม่เพิ่มหลักฐาน Supply ที่ไม่มี"
+    },
+    {
+      "id": "ANA-05",
+      "severity": "P2",
+      "title": "Decision snapshot ยังตรึง dependency hashes ไม่ครบ",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_source",
+      "change": "ตรึง source/profile/license/bounds และ semantic runtime พร้อม canonical criteria SHA, manifest SHA และ evidence SHA",
+      "files": [
+        "prototype/decision-snapshot.js",
+        "prototype/strategy-ui.js",
+        "prototype/bootstrap.js",
+        "prototype/data/evaluation-manifest.json",
+        "scripts/build-evaluation-manifest.py"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-decision-evidence.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-decision-evidence.log"
+        ],
+        "acceptance": "ตรวจ raw bytes และ dependency ครบ; manifest ขาด/คนละ release ปฏิเสธ capture",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "source commit ผูกใน release attestation แยกหลัง commit เพื่อเลี่ยง hash วนตัวเอง"
+    },
+    {
+      "id": "ANA-06",
+      "severity": "P2",
+      "title": "Non-bank preset ยังไม่ calibrated และ incomplete count ไม่เด่น",
+      "status": "mitigated",
+      "originalEvidenceType": "data_readiness_risk",
+      "change": "แสดงคิวข้อมูลไม่พอ/ยังไม่พบสัญญาณ พร้อม sample n และคำว่า Supply reference ยังเป็นสมมติฐาน",
+      "files": [
+        "prototype/strategy-ui.js"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-decision-evidence.cjs",
+          "scripts/check-relative-supply.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-decision-evidence.log",
+          "evidence/automated-v1.9.11/check-relative-supply.log"
+        ],
+        "acceptance": "37 presets ถูกต้อง; Demand แบ่งครบสามคิว; 10 Non-bank ไม่ปลอม n=0 เป็น calibration",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "ยังไม่มี exact samples เพียงพอสำหรับ Non-bank หรือหลักฐานยอดขายเพื่อ calibrate"
+    },
+    {
+      "id": "DR-03",
+      "severity": "P2",
+      "title": "Handoff ZIP ขาด raw test logs 37 ไฟล์ที่ receipt อ้าง",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_archive",
+      "change": "เพิ่มตัวตรวจ evidence closure บังคับ raw log และ test source ทุกไฟล์อยู่ใน artifact พร้อม SHA และตรวจ extracted ZIP ได้",
+      "files": [
+        "scripts/check-evidence-closure.py",
+        "scripts/seal-pages-v1.9.11.py",
+        "scripts/verify-pages-v1.9.11.py",
+        ".github/workflows/pages.yml",
+        "HANDOFF_v1.9.11.md"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-evidence-closure.py"
+        ],
+        "currentLogPaths": [],
+        "acceptance": "ตรวจเส้นทางภายใน artifact, SHA, exitCode และยอดจาก logs จริง; ไม่เอาผลเก่ามาแทน",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "final integrated receipt และ final ZIP closure ยังรอการรันยืนยันของ release owner"
+    },
+    {
+      "id": "DR-04",
+      "severity": "P2",
+      "title": "เอกสารสถานะ release และ social metadata ยังขัดกับรุ่นจริง",
+      "status": "resolved",
+      "originalEvidenceType": "confirmed_source",
+      "change": "ตั้ง current index/handoff ชี้ 1.9.11 และแยก source seal จาก post-publication attestation; social metadata ระบุ release ปัจจุบัน",
+      "files": [
+        "START_HERE.md",
+        "AGENTS.md",
+        "README.md",
+        "HANDOFF.md",
+        "HANDOFF_v1.9.11.md",
+        "prototype/index.html"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/verify-pages-v1.9.11.py"
+        ],
+        "currentLogPaths": [],
+        "acceptance": "ตรวจเส้นทางอำนาจปัจจุบันและ OG/Twitter source; retained share image ระบุว่าเป็น asset เดิม",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "live/provider/ZIP final receipts ต้องยืนยันหลังเผยแพร่จริง"
+    },
+    {
+      "id": "DR-05",
+      "severity": "P2",
+      "title": "ยังไม่มีหลักฐาน acceptance บน physical mobile/Safari/screen reader/high zoom",
+      "status": "open",
+      "originalEvidenceType": "coverage_gap",
+      "change": "ยังไม่อ้างว่าตรวจอุปกรณ์และ assistive technology ครบ; รักษา gate แยกจาก VM/desktop viewport",
+      "files": [
+        "HANDOFF_v1.9.11.md"
+      ],
+      "verification": {
+        "kind": "coverage_gap",
+        "testSources": [],
+        "currentLogPaths": [],
+        "acceptance": "ไม่มีหลักฐานผ่าน matrix นี้ จึงไม่ปิดประเด็น",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "ต้องตรวจ physical iOS Safari, Android Chrome, keyboard/screen reader, high zoom/reflow และ reduced motion พร้อม TH/EN/light/dark"
+    },
+    {
+      "id": "DR-07",
+      "severity": "P3",
+      "title": "source บรรทัดยาวและเอกสารหลายรุ่นเพิ่มความเสี่ยงแก้ต่อ",
+      "status": "mitigated",
+      "originalEvidenceType": "maintainability_risk",
+      "change": "แยก decision snapshot เป็นโมดูล มี current index และ machine contract; คง regression ก่อนเปลี่ยนโครงสร้างใหญ่",
+      "files": [
+        "prototype/decision-snapshot.js",
+        "START_HERE.md",
+        "AGENTS.md",
+        "contracts/full-product.v1.9.11.json"
+      ],
+      "verification": {
+        "kind": "implementation_and_scoped_regression",
+        "testSources": [
+          "scripts/check-decision-evidence.cjs"
+        ],
+        "currentLogPaths": [
+          "evidence/automated-v1.9.11/check-decision-evidence.log"
+        ],
+        "acceptance": "โมดูลใหม่และ entrypoint ปัจจุบันตรวจตามไฟล์ได้; ไม่อ้างว่า refactor ทั้งระบบแล้ว",
+        "finalIntegratedStatus": "PASS_40_suites_663_reported_cases",
+        "manualAcceptance": "not_inferred_from_automated_tests"
+      },
+      "remaining": "source เดิมบรรทัดยาวและการแยกชั้นใหญ่ยังต้องทำเป็นงานถัดไป; full brief รุ่นนี้รวมเป็น narrative และ machine block เดียวแล้ว"
+    }
+  ],
+  "openGates": [
+    {
+      "id": "DR-05",
+      "gate": "Physical devices and assistive-technology matrix",
+      "status": "open"
+    },
+    {
+      "id": "ANA-06",
+      "gate": "Non-bank calibration and anchor/offering evidence",
+      "status": "mitigated_not_calibrated"
+    },
+    {
+      "id": "DR-07",
+      "gate": "Bounded legacy-source refactoring; single current full brief completed",
+      "status": "mitigated"
+    },
+    {
+      "id": "release_acceptance",
+      "gate": "Final ZIP closure and provider/live attestation; bounded local integrated/native checks passed",
+      "status": "pending"
+    },
+    {
+      "id": "production_backend",
+      "gate": "Authenticated tenant RBAC, server transactions/revisions/outbox/private media",
+      "status": "not_implemented_by_static_preview"
+    }
+  ],
+  "sourceReview": {
+    "version": "1.9.8",
+    "sourceCommit": "ee6eb51a16360458288f549c9d98ee22e8b0b2da",
+    "date": "2026-10-09",
+    "findingCount": 19,
+    "originalPriorities": {
+      "P0": 0,
+      "P1": 5,
+      "P2": 13,
+      "P3": 1
+    },
+    "priorityPolicy": "Preserve original report priority; resolved implementation does not erase original severity."
+  },
+  "statusDefinitions": {
+    "resolved": "The reported implementation/documentation cause has been addressed with the bounded evidence named here. This does not assert final integrated, live, archive or physical-device acceptance.",
+    "mitigated": "Useful risk reduction is implemented, but the original evidence/structural gap is not fully closed.",
+    "open": "Acceptance evidence is not available; do not claim this gate has passed."
+  },
+  "verification": {
+    "finalIntegrated": {
+      "status": "PASS",
+      "expectedReceipt": "evidence/automated-v1.9.11.json",
+      "expectedRawLogs": "evidence/automated-v1.9.11/",
+      "finalSuiteCount": 44,
+      "finalChecksPassed": 747,
+      "receiptSha256": "1a2eca9ad4b279a07effd260a9e161bbf12467b0e43a6358339052c807968fba"
+    },
+    "native": {
+      "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "expectedReceipt": "evidence/browser-v1.9.11/native-browser-review.json",
+      "checks": 10,
+      "receiptSha256": "2a150361635fc395c956f0237415c0cee57e827ab702eb64640ef6185687b84a",
+      "physicalDeviceAcceptance": "open_DR-05"
+    },
+    "archive": {
+      "status": "pending_final_archive_closure",
+      "command": "python3 scripts/check-evidence-closure.py --zip <final-handoff.zip>"
+    },
+    "publication": {
+      "status": "pending_provider_and_live_attestation",
+      "expectedArchiveReceipt": "release-evidence/RELEASE_ATTESTATION_v1.9.11.json"
+    },
+    "policy": "Only a current successful receipt can advance acceptance. Scripts and screenshots alone do not prove final release acceptance; historical counts are not reused."
+  },
+  "summary": {
+    "resolved": 16,
+    "mitigated": 2,
+    "open": 1,
+    "total": 19
+  }
+}

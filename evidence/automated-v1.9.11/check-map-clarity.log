@@ -1,0 +1,15 @@
+PASS Country hover keeps the map clear and puts exact province/source values in external dock with panel composition
+PASS Keyboard focus shows the same external inspection and exact source outline without changing camera
+PASS Province hover names the clickable district and reports its direct source value while fine colours remain independent
+PASS Exact zero remains zero and unresolved evidence is never formatted as zero
+PASS Country POI view removes the district mesh but retains exact province hover and filtered coordinate-record counts
+PASS Province POI view retains quiet district context and hides fine mesh without changing camera or data
+PASS District POI view has one parent outline and transparent fine hit areas; hover/click still drills into the source fine polygon
+PASS Switching back to choropleth restores child colours and original hierarchy without changing the camera
+PASS Language changes refresh the external title and metric text on cached navigation layers
+PASS Supply panel receives scoped native/fine brand totals after every navigation and never uses visible POI counts
+PASS Share metric preserves demand/source data, camera and white/yellow boundary hierarchy while using exact fixed profile41 bins
+PASS Optional rate views show actual native parent denominator rather than an unavailable row or a child maximum
+PASS Share heading names the selected metric and an exact empty identified denominator is explained rather than called missing inventory
+PASS Retained location-map focus honours personal or OS reduced motion without adding new map animations
+{"passed":true,"checks":14,"report":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.1/map-clarity-regression-results.json"}

@@ -1,0 +1,347 @@
+{
+  "schemaVersion": "yolk.integrated_qa/1.9",
+  "version": "1.9.11",
+  "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "reviewedAt": "2026-10-09T13:04:39.336477+00:00",
+  "automated": {
+    "status": "PASS",
+    "suites": 44,
+    "reportedPassedCases": 747,
+    "receipt": "evidence/automated-v1.9.11.json",
+    "receiptSha256": "1a2eca9ad4b279a07effd260a9e161bbf12467b0e43a6358339052c807968fba",
+    "meaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.11; no imported prior results."
+  },
+  "nativeBrowser": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "checks": 10,
+    "receipt": "evidence/browser-v1.9.11/native-browser-review.json",
+    "receiptSha256": "2a150361635fc395c956f0237415c0cee57e827ab702eb64640ef6185687b84a",
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.11/activity-en-dark-desktop-narrow-expanded.jpg",
+        "bytes": 105456,
+        "sha256": "fe41ad56ea259fdc3bd087a0ad5406ceaea8733c32997d4854e4e5c858eb28b3",
+        "imagePixels": {
+          "width": 1440,
+          "height": 1539
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual current native Chrome observation activity-en-dark-desktop-narrow-expanded; explicit read-only synthetic activity layout fixture"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/activity-en-light-320-collapsed.jpg",
+        "bytes": 36332,
+        "sha256": "a2ef57d2a01216c9825a2bd6926dec447adc310509e56937125639c18dfb263b",
+        "imagePixels": {
+          "width": 320,
+          "height": 995
+        },
+        "viewport": {
+          "width": 320,
+          "height": 740
+        },
+        "description": "Actual current native Chrome observation activity-en-light-320-collapsed; explicit read-only synthetic activity layout fixture"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/activity-en-light-320-expanded.jpg",
+        "bytes": 90993,
+        "sha256": "565255f653226416a85e8e05f787a2a8add1ba66c8760528b89e1249a6feb566",
+        "imagePixels": {
+          "width": 320,
+          "height": 1907
+        },
+        "viewport": {
+          "width": 320,
+          "height": 740
+        },
+        "description": "Actual current native Chrome observation activity-en-light-320-expanded; explicit read-only synthetic activity layout fixture"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/activity-th-dark-390-expanded.jpg",
+        "bytes": 92168,
+        "sha256": "a77ca8e140d3e292ed589f1f5f40bae137b5b86f03d7fca82e15040d7b3d1e7f",
+        "imagePixels": {
+          "width": 390,
+          "height": 1522
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Actual current native Chrome observation activity-th-dark-390-expanded; explicit read-only synthetic activity layout fixture"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/activity-th-light-desktop-wide-collapsed.jpg",
+        "bytes": 46588,
+        "sha256": "85fc9c84398be0121259552abf198fd262e3717e9cb9d88058440ac2e27181ea",
+        "imagePixels": {
+          "width": 1440,
+          "height": 923
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual current native Chrome observation activity-th-light-desktop-wide-collapsed; explicit read-only synthetic activity layout fixture"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/brand-catalog-en-390.jpg",
+        "bytes": 40837,
+        "sha256": "f7c2a3d0c529205874dfca24437bef90207207fed7350a3622b7611b2e42f310",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Actual current native Chrome observation brand-catalog-en-390"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/brand-catalog-en-light-390.jpg",
+        "bytes": 40367,
+        "sha256": "9259f736615fb026f8f134bbd13ddcba0fcb7ececeb92fb4407a3f662b2d8f20",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Actual current native Chrome observation brand-catalog-en-light-390"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/brand-catalog-th-320.jpg",
+        "bytes": 34211,
+        "sha256": "7ef42910bbfc08562b3fed8db4b25b9c358830c6cfe15f5ad2251e05e04c21f8",
+        "imagePixels": {
+          "width": 320,
+          "height": 800
+        },
+        "viewport": {
+          "width": 320,
+          "height": 800
+        },
+        "description": "Actual current native Chrome observation brand-catalog-th-320"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/brand-tops-desktop.jpg",
+        "bytes": 158219,
+        "sha256": "84a5c6c8bc077bf3003536d989b2271661b7c487ffe4b10d1e99d041d2fd8d97",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual current native Chrome observation brand-tops-desktop"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/brand-warm-draft-desktop.jpg",
+        "bytes": 158940,
+        "sha256": "7c81d4fdb4e4d5c68f23183dc520a2aa8ad90a315b8fa47e6ce446c52c5e8342",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual current native Chrome observation brand-warm-draft-desktop"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/complementary-tops-desktop.jpg",
+        "bytes": 164241,
+        "sha256": "76a6edf00dc4d03733c057e60ad0eae50a3066b8c525f0cb3ca61eb5ce26b814",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual current native Chrome observation complementary-tops-desktop"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/complementary-tops-light-390.jpg",
+        "bytes": 47498,
+        "sha256": "e9008575cbeeb1a257eafc18016fc9363342683ecd8122397f8bd1538a05b55d",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Actual current native Chrome observation complementary-tops-light-390"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/dense-expanded-desktop.jpg",
+        "bytes": 117834,
+        "sha256": "b4149a4e5670dd625d6db139a0c528c23e0c1eca59c49b80e495adc147bda9b2",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual current native Chrome observation dense-expanded-desktop"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/dense-nonbank-desktop.jpg",
+        "bytes": 110311,
+        "sha256": "bff27c715d9ea03dede43a529784b8c733aa9084fd823554b4da5b9b22ffd2d8",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual current native Chrome observation dense-nonbank-desktop"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/guide-05-light-390.jpg",
+        "bytes": 42576,
+        "sha256": "0e022da74f51a088d5e5b990853ee42162b21adbacc39cb2027aa180a1350dc9",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Actual current native Chrome observation guide-05-light-390"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/logos-235-desktop.jpg",
+        "bytes": 132517,
+        "sha256": "a28e4ef0c31bd58bf6ab91c278754cd808a928a20148e2d2f177b2fc418d78e6",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual current native Chrome observation logos-235-desktop"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/logos-235-narrow.jpg",
+        "bytes": 45085,
+        "sha256": "dc4b9cde1fc80244d581c98a3fb170f612f30b6dc022ed2aef82dff46762c5fa",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Actual current native Chrome observation logos-235-narrow"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/mobile-demand-details.jpg",
+        "bytes": 42466,
+        "sha256": "854ed8e373a55fd339df14e765a7119e638c838a51c28f294a880f0c08c28738",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Actual current native Chrome observation mobile-demand-details"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/supply-share-desktop.jpg",
+        "bytes": 142929,
+        "sha256": "38f55b7e913df467fdd0d2104b1349a23056a70e90c3cfe792b7f8f12d388b30",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual current native Chrome observation supply-share-desktop"
+      },
+      {
+        "path": "evidence/browser-v1.9.11/supply-treemap-light-desktop.jpg",
+        "bytes": 132890,
+        "sha256": "87dcafa7ed2eb598399c16b57e78c8bd89359612b61c593d582d8f182a2cc2fe",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual current native Chrome observation supply-treemap-light-desktop"
+      }
+    ],
+    "fullLanguageThemeDeviceMatrix": false,
+    "physicalDevices": "unverified"
+  },
+  "designSystemPackage": {
+    "version": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "checks": 9768,
+    "warnings": 65,
+    "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+    "receipt": "evidence/lds-package-verification.v1.9.11.json",
+    "receiptSha256": "6fde6d6e22211d3291bf41c2b8c6576f9fed8c18ae9991ef1904c6b596672840",
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+    "artifactAndAccountTeamCertification": false
+  },
+  "semanticBoundary": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0",
+    "analyticalPaint": "Existing analytical colors/opacity/Tiers retained; retained identified own branch-share display uses exact LDS li.market_share41 with fixed0..100 domain. Count maps keep original national quantiles. Contrast is stroke-only underlay; Demand/Opportunity icons are mnemonics. Source counts, numeric presets and Demand membership unchanged. Unknown/suppressed/unbounded Supply can no longer earn an exact weighted score; draft context and trace persistence corrected.",
+    "supplyInventoryReview": {
+      "passed": true,
+      "checkIds": [
+        "supply_source_share_and_treemap"
+      ],
+      "scope": "ActualBangchakcountry count/shareandtreemap only; direct-sourcevsPOI distinction retained"
+    },
+    "visualRefinementReview": {
+      "passed": true,
+      "checkIds": [
+        "supply_source_share_and_treemap",
+        "brand_catalog_responsive",
+        "dense_canvas_performance"
+      ],
+      "scope": "Observed themes,map/treemap,boundedexpand/catalogcontrast; retainedDS artwork/source binding,notallbrand/allboundarycertification"
+    }
+  },
+  "publication": "not_performed_by_this_local_QA_receipt",
+  "limits": [
+    "Physical iPhone/Android touch and Safari unverified",
+    "Complete brand/language/theme/device matrix unverified",
+    "Actual screen-reader speech, zoom and all-boundary hover coverage unverified",
+    "Provider/tile/StreetView/Google AI availability requires separate current evidence",
+    "Shared backend/auth/RBAC/outbox/private media not implemented in static preview"
+  ],
+  "scope": "Fresh complete current workflow suites and actual root-owned native observations of red-team remediation across workflows, selected languages/themes/widths and Supply views. One tested boundary hover does not prove all-boundary coverage. Package parity remains separate from rendered artifact/account/team certification."
+}

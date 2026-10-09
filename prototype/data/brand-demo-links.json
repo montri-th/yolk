@@ -1,0 +1,1067 @@
+{
+  "schemaVersion": "yolk.brand-demo-links/1",
+  "createdOn": "2026-10-09",
+  "publicBase": "https://montri-th.github.io/yolk/",
+  "defaultRoute": "market",
+  "supportedRoutes": [
+    "market",
+    "demand",
+    "supply",
+    "criteria",
+    "targets",
+    "feed"
+  ],
+  "parameter": "brand",
+  "optionalLanguageParameter": "lang",
+  "identityAuthority": "prototype/data/brand-presets.v1.7.json",
+  "presetAuthority": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "policy": {
+    "noReleaseVersionRequired": true,
+    "openingIsPersonalView": true,
+    "openingWritesWorkspace": false,
+    "openingEmitsTeamEvent": false,
+    "savedTargetBrandCriteriaAndDraftsWin": true,
+    "newTargetContextUsesBrandDefaultPreset": true,
+    "defaultScopeIsRetainedRegistryMostImportantFormat": true,
+    "invalidLink": "retain validated previous/default workspace context and show safe notice",
+    "noPrivateStateInLink": true,
+    "sourceInventoryNotCurrentOperatingVerification": true,
+    "sourceCountsNotSalesOrCustomers": true,
+    "nonbankSelectableFirst10Only": true
+  },
+  "sourceFiles": [
+    {
+      "path": "prototype/data/brand-presets.v1.7.json",
+      "sha256": "a20aeb4294a916d997b2105e3d6f69125743f66dfc920061f6e749a6617a896c"
+    },
+    {
+      "path": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+      "sha256": "dd72e9493afa3e595c4c1891b937a1f97212c3d54cb4ff62105e4d67607255f3"
+    },
+    {
+      "path": "prototype/data/real/fuel-district-supply.json",
+      "sha256": "9287d66febdbc56e21fc0767e740792116d29fece67f9a85d41daba47fd60be2"
+    },
+    {
+      "path": "prototype/data/real/fuel-points.json",
+      "sha256": "94b4d6798f366546a17a88d8b8ab102d338c2c8a22709768296e86255338b923"
+    },
+    {
+      "path": "prototype/data/real/grocery-district-supply.json",
+      "sha256": "5875be480c755022f535b7dbae2060e528ef392216892d9118e973d3f1583842"
+    },
+    {
+      "path": "prototype/data/real/grocery-points.json",
+      "sha256": "093d00e10fcc320f79f85ddf1ff76c387634879cf8682aa42344bcfff0373cac"
+    },
+    {
+      "path": "prototype/data/real/nonbank-district-supply.json",
+      "sha256": "517118c87cc4beff978730e7e05e7b4690633e382b7013934b64a6ad1b13420a"
+    },
+    {
+      "path": "prototype/data/real/nonbank-points.json",
+      "sha256": "a18e6ce7619ee9becfbe3e8ca018212811ac9f12bdf7a5f66c54bd3d4d785909"
+    }
+  ],
+  "brands": [
+    {
+      "slug": "ptt",
+      "brandId": "ptt",
+      "industryId": "fuel",
+      "name": {
+        "th": "PTT Station",
+        "en": "PTT Station"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=ptt#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 2418,
+      "sourceAllScopeCount": 2418,
+      "defaultScopePointRecords": 2418,
+      "defaultScopeValidCoordinates": 2418,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "shell",
+      "brandId": "shell",
+      "industryId": "fuel",
+      "name": {
+        "th": "เชลล์",
+        "en": "Shell"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=shell#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 689,
+      "sourceAllScopeCount": 689,
+      "defaultScopePointRecords": 683,
+      "defaultScopeValidCoordinates": 683,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "bangchak",
+      "brandId": "bangchak",
+      "industryId": "fuel",
+      "name": {
+        "th": "บางจาก",
+        "en": "Bangchak"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=bangchak#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 1561,
+      "sourceAllScopeCount": 1561,
+      "defaultScopePointRecords": 762,
+      "defaultScopeValidCoordinates": 762,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "caltex",
+      "brandId": "caltex",
+      "industryId": "fuel",
+      "name": {
+        "th": "คาลเท็กซ์",
+        "en": "Caltex"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=caltex#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 527,
+      "sourceAllScopeCount": 527,
+      "defaultScopePointRecords": 500,
+      "defaultScopeValidCoordinates": 500,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "cosmo",
+      "brandId": "cosmo",
+      "industryId": "fuel",
+      "name": {
+        "th": "COSMO",
+        "en": "COSMO"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=cosmo#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 42,
+      "sourceAllScopeCount": 42,
+      "defaultScopePointRecords": 0,
+      "defaultScopeValidCoordinates": 0,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "pt",
+      "brandId": "pt",
+      "industryId": "fuel",
+      "name": {
+        "th": "PT",
+        "en": "PT"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=pt#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 216,
+      "sourceAllScopeCount": 216,
+      "defaultScopePointRecords": 0,
+      "defaultScopeValidCoordinates": 0,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "pure",
+      "brandId": "pure",
+      "industryId": "fuel",
+      "name": {
+        "th": "PURE",
+        "en": "PURE"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=pure#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 11,
+      "sourceAllScopeCount": 11,
+      "defaultScopePointRecords": 0,
+      "defaultScopeValidCoordinates": 0,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "siam-gas",
+      "brandId": "siam-gas",
+      "industryId": "fuel",
+      "name": {
+        "th": "สยามแก๊ส",
+        "en": "Siam Gas"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=siam-gas#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 20,
+      "sourceAllScopeCount": 20,
+      "defaultScopePointRecords": 0,
+      "defaultScopeValidCoordinates": 0,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "susco",
+      "brandId": "susco",
+      "industryId": "fuel",
+      "name": {
+        "th": "ซัสโก้",
+        "en": "SUSCO"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=susco#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 79,
+      "sourceAllScopeCount": 79,
+      "defaultScopePointRecords": 0,
+      "defaultScopeValidCoordinates": 0,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "unique-gas",
+      "brandId": "unique-gas",
+      "industryId": "fuel",
+      "name": {
+        "th": "ยูนิคแก๊ส",
+        "en": "Unique Gas"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=unique-gas#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 14,
+      "sourceAllScopeCount": 14,
+      "defaultScopePointRecords": 0,
+      "defaultScopeValidCoordinates": 0,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "world-gas",
+      "brandId": "world-gas",
+      "industryId": "fuel",
+      "name": {
+        "th": "เวิลด์แก๊ส",
+        "en": "World Gas"
+      },
+      "defaultScope": "all_fuel",
+      "scopeLabel": {
+        "th": "สถานีในบัญชีต้นทางทั้งหมด",
+        "en": "All source fuel inventory"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=world-gas#market",
+      "presetFamilyId": "fuel-common",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 29,
+      "sourceAllScopeCount": 29,
+      "defaultScopePointRecords": 0,
+      "defaultScopeValidCoordinates": 0,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "บัญชีสถานีต้นทาง ไม่ยืนยันเปิดบริการหรือประเภทเชื้อเพลิง; COSMO/PURE ใช้ identity ตาม source ไม่ถือเป็นข้อมูล rebrand ที่ตรวจแล้ว",
+        "en": "Source station inventory does not verify current operations or fuel offering; COSMO/PURE retain source identities, not independently verified rebrand mappings."
+      }
+    },
+    {
+      "slug": "7-eleven",
+      "brandId": "grocery-brand:SEVEN_ELEVEN",
+      "industryId": "grocery",
+      "name": {
+        "th": "เซเว่น อีเลฟเว่น",
+        "en": "7-Eleven"
+      },
+      "defaultScope": "C_STORE",
+      "scopeLabel": {
+        "th": "ร้านสะดวกซื้อ / mini-format",
+        "en": "Convenience / mini-format"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=7-eleven#market",
+      "presetFamilyId": "grocery-convenience",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 16488,
+      "sourceAllScopeCount": 16488,
+      "defaultScopePointRecords": 16487,
+      "defaultScopeValidCoordinates": 16487,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "toogdee",
+      "brandId": "grocery-brand:TOOGDEE",
+      "industryId": "grocery",
+      "name": {
+        "th": "ถูกดี มีมาตรฐาน",
+        "en": "Toogdee"
+      },
+      "defaultScope": "C_STORE",
+      "scopeLabel": {
+        "th": "ร้านสะดวกซื้อ / mini-format",
+        "en": "Convenience / mini-format"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=toogdee#market",
+      "presetFamilyId": "grocery-community",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 3604,
+      "sourceAllScopeCount": 3604,
+      "defaultScopePointRecords": 3604,
+      "defaultScopeValidCoordinates": 3604,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "lotus",
+      "brandId": "grocery-brand:LOTUSS",
+      "industryId": "grocery",
+      "name": {
+        "th": "Lotus's",
+        "en": "Lotus's"
+      },
+      "defaultScope": "HYPERMARKET",
+      "scopeLabel": {
+        "th": "ไฮเปอร์มาร์เก็ต",
+        "en": "Hypermarket"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=lotus#market",
+      "presetFamilyId": "grocery-hypermarket",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 226,
+      "sourceAllScopeCount": 2287,
+      "defaultScopePointRecords": 226,
+      "defaultScopeValidCoordinates": 226,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "cj-more",
+      "brandId": "grocery-brand:CJ_MORE",
+      "industryId": "grocery",
+      "name": {
+        "th": "ซีเจ มอร์",
+        "en": "CJ More"
+      },
+      "defaultScope": "C_STORE",
+      "scopeLabel": {
+        "th": "ร้านสะดวกซื้อ / mini-format",
+        "en": "Convenience / mini-format"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=cj-more#market",
+      "presetFamilyId": "grocery-community",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 2207,
+      "sourceAllScopeCount": 2207,
+      "defaultScopePointRecords": 2207,
+      "defaultScopeValidCoordinates": 2207,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "big-c",
+      "brandId": "grocery-brand:BIG_C",
+      "industryId": "grocery",
+      "name": {
+        "th": "บิ๊กซี",
+        "en": "Big C"
+      },
+      "defaultScope": "HYPERMARKET",
+      "scopeLabel": {
+        "th": "ไฮเปอร์มาร์เก็ต",
+        "en": "Hypermarket"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=big-c#market",
+      "presetFamilyId": "grocery-hypermarket",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 151,
+      "sourceAllScopeCount": 1744,
+      "defaultScopePointRecords": 151,
+      "defaultScopeValidCoordinates": 151,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "tops",
+      "brandId": "grocery-brand:TOPS",
+      "industryId": "grocery",
+      "name": {
+        "th": "ท็อปส์",
+        "en": "Tops"
+      },
+      "defaultScope": "SUPERMARKET",
+      "scopeLabel": {
+        "th": "ซูเปอร์มาร์เก็ต",
+        "en": "Supermarket"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=tops#market",
+      "presetFamilyId": "grocery-visitor-context",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 172,
+      "sourceAllScopeCount": 725,
+      "defaultScopePointRecords": 172,
+      "defaultScopeValidCoordinates": 172,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "makro",
+      "brandId": "grocery-brand:MAKRO",
+      "industryId": "grocery",
+      "name": {
+        "th": "แม็คโคร",
+        "en": "Makro"
+      },
+      "defaultScope": "WHOLESALE",
+      "scopeLabel": {
+        "th": "ค้าส่ง",
+        "en": "Wholesale"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=makro#market",
+      "presetFamilyId": "grocery-wholesale",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 168,
+      "sourceAllScopeCount": 168,
+      "defaultScopePointRecords": 168,
+      "defaultScopeValidCoordinates": 168,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "lawson-108",
+      "brandId": "grocery-brand:LAWSON108",
+      "industryId": "grocery",
+      "name": {
+        "th": "ลอว์สัน 108",
+        "en": "Lawson 108"
+      },
+      "defaultScope": "C_STORE",
+      "scopeLabel": {
+        "th": "ร้านสะดวกซื้อ / mini-format",
+        "en": "Convenience / mini-format"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=lawson-108#market",
+      "presetFamilyId": "grocery-convenience",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 95,
+      "sourceAllScopeCount": 95,
+      "defaultScopePointRecords": 95,
+      "defaultScopeValidCoordinates": 95,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "villa-market",
+      "brandId": "grocery-brand:VILLA_MARKET",
+      "industryId": "grocery",
+      "name": {
+        "th": "วิลล่า มาร์เก็ต",
+        "en": "Villa Market"
+      },
+      "defaultScope": "SUPERMARKET",
+      "scopeLabel": {
+        "th": "ซูเปอร์มาร์เก็ต",
+        "en": "Supermarket"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=villa-market#market",
+      "presetFamilyId": "grocery-supermarket",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 35,
+      "sourceAllScopeCount": 35,
+      "defaultScopePointRecords": 35,
+      "defaultScopeValidCoordinates": 35,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "maxvalu",
+      "brandId": "grocery-brand:MAXVALU",
+      "industryId": "grocery",
+      "name": {
+        "th": "แม็กซ์แวลู",
+        "en": "MaxValu"
+      },
+      "defaultScope": "SUPERMARKET",
+      "scopeLabel": {
+        "th": "ซูเปอร์มาร์เก็ต",
+        "en": "Supermarket"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=maxvalu#market",
+      "presetFamilyId": "grocery-supermarket",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 26,
+      "sourceAllScopeCount": 26,
+      "defaultScopePointRecords": 26,
+      "defaultScopeValidCoordinates": 26,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "foodland",
+      "brandId": "grocery-brand:FOODLAND",
+      "industryId": "grocery",
+      "name": {
+        "th": "ฟู้ดแลนด์",
+        "en": "Foodland"
+      },
+      "defaultScope": "SUPERMARKET",
+      "scopeLabel": {
+        "th": "ซูเปอร์มาร์เก็ต",
+        "en": "Supermarket"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=foodland#market",
+      "presetFamilyId": "grocery-supermarket",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 26,
+      "sourceAllScopeCount": 26,
+      "defaultScopePointRecords": 26,
+      "defaultScopeValidCoordinates": 26,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "gourmet-market",
+      "brandId": "grocery-brand:GOURMET_MARKET",
+      "industryId": "grocery",
+      "name": {
+        "th": "กูร์เมต์ มาร์เก็ต",
+        "en": "Gourmet Market"
+      },
+      "defaultScope": "SUPERMARKET",
+      "scopeLabel": {
+        "th": "ซูเปอร์มาร์เก็ต",
+        "en": "Supermarket"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=gourmet-market#market",
+      "presetFamilyId": "grocery-supermarket",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 16,
+      "sourceAllScopeCount": 16,
+      "defaultScopePointRecords": 16,
+      "defaultScopeValidCoordinates": 16,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "go-wholesale",
+      "brandId": "grocery-brand:GO_WHOLESALE",
+      "industryId": "grocery",
+      "name": {
+        "th": "โก โฮลเซลล์",
+        "en": "GO Wholesale"
+      },
+      "defaultScope": "WHOLESALE",
+      "scopeLabel": {
+        "th": "ค้าส่ง",
+        "en": "Wholesale"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=go-wholesale#market",
+      "presetFamilyId": "grocery-wholesale",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 14,
+      "sourceAllScopeCount": 14,
+      "defaultScopePointRecords": 14,
+      "defaultScopeValidCoordinates": 14,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "donki",
+      "brandId": "grocery-brand:DONKI",
+      "industryId": "grocery",
+      "name": {
+        "th": "ดอง ดอง ดองกิ",
+        "en": "Don Don Donki"
+      },
+      "defaultScope": "SUPERMARKET",
+      "scopeLabel": {
+        "th": "ซูเปอร์มาร์เก็ต",
+        "en": "Supermarket"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=donki#market",
+      "presetFamilyId": "grocery-supermarket",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 9,
+      "sourceAllScopeCount": 9,
+      "defaultScopePointRecords": 9,
+      "defaultScopeValidCoordinates": 9,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "rimping",
+      "brandId": "grocery-brand:RIMPING",
+      "industryId": "grocery",
+      "name": {
+        "th": "ริมปิง",
+        "en": "Rimping"
+      },
+      "defaultScope": "SUPERMARKET",
+      "scopeLabel": {
+        "th": "ซูเปอร์มาร์เก็ต",
+        "en": "Supermarket"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=rimping#market",
+      "presetFamilyId": "grocery-supermarket",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 9,
+      "sourceAllScopeCount": 9,
+      "defaultScopePointRecords": 9,
+      "defaultScopeValidCoordinates": 9,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "ufm-fuji",
+      "brandId": "grocery-brand:FUJI",
+      "industryId": "grocery",
+      "name": {
+        "th": "ยูเอฟเอ็ม ฟูจิ ซูเปอร์",
+        "en": "UFM Fuji Super"
+      },
+      "defaultScope": "SUPERMARKET",
+      "scopeLabel": {
+        "th": "ซูเปอร์มาร์เก็ต",
+        "en": "Supermarket"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=ufm-fuji#market",
+      "presetFamilyId": "grocery-supermarket",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 5,
+      "sourceAllScopeCount": 5,
+      "defaultScopePointRecords": 5,
+      "defaultScopeValidCoordinates": 5,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "ยอดสาขาแยก format ตาม source; จุดพิกัดเป็นอีกชุดหลักฐานและอาจไม่ครบ ไม่ใช้จำนวนจุดแทนยอดพื้นที่",
+        "en": "Source counts are format-specific. Coordinate records are separate and may be incomplete; map points do not replace area inventory."
+      }
+    },
+    {
+      "slug": "muangthai-capital",
+      "brandId": "legal:0107557000195",
+      "industryId": "nonbank",
+      "name": {
+        "th": "เมืองไทย แคปปิตอล",
+        "en": "Muangthai Capital"
+      },
+      "defaultScope": "potential_retail_branch_service",
+      "scopeLabel": {
+        "th": "ครอบครัวใบอนุญาต retail ที่ active (potential)",
+        "en": "Active retail-license family (potential)"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=muangthai-capital#market",
+      "presetFamilyId": "nonbank-community",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 8738,
+      "sourceAllScopeCount": 8738,
+      "defaultScopePointRecords": 8738,
+      "defaultScopeValidCoordinates": 6364,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "นิติบุคคลและใบอนุญาตระดับบริษัท ไม่ยืนยันผลิตภัณฑ์ทุกสาขา; 5,534 สำนักงานยังไม่ผูก reporting UUID จาก 23,524 รายการ",
+        "en": "Legal-company and company-level licenses do not confirm every office offering; 5,534 of 23,524 offices lack a reporting-UUID assignment."
+      }
+    },
+    {
+      "slug": "srisawad-power-2014",
+      "brandId": "legal:0105559126747",
+      "industryId": "nonbank",
+      "name": {
+        "th": "ศรีสวัสดิ์ พาวเวอร์ 2014",
+        "en": "Srisawad Power 2014"
+      },
+      "defaultScope": "office_context",
+      "scopeLabel": {
+        "th": "บัญชีสำนักงานทุกประเภท",
+        "en": "All source-office context"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=srisawad-power-2014#market",
+      "presetFamilyId": "nonbank-community",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 5657,
+      "sourceAllScopeCount": 5657,
+      "defaultScopePointRecords": 5657,
+      "defaultScopeValidCoordinates": 4163,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "นิติบุคคลและใบอนุญาตระดับบริษัท ไม่ยืนยันผลิตภัณฑ์ทุกสาขา; 5,534 สำนักงานยังไม่ผูก reporting UUID จาก 23,524 รายการ",
+        "en": "Legal-company and company-level licenses do not confirm every office offering; 5,534 of 23,524 offices lack a reporting-UUID assignment."
+      }
+    },
+    {
+      "slug": "ngern-chaiyo",
+      "brandId": "legal:0105564161598",
+      "industryId": "nonbank",
+      "name": {
+        "th": "เงินไชโย · AutoX",
+        "en": "Ngern Chaiyo · AutoX"
+      },
+      "defaultScope": "vehicle_title",
+      "scopeLabel": {
+        "th": "ผู้มีใบอนุญาตสินเชื่อทะเบียนรถ (potential)",
+        "en": "Vehicle-title license holders (potential)"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=ngern-chaiyo#market",
+      "presetFamilyId": "nonbank-community",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 1993,
+      "sourceAllScopeCount": 1993,
+      "defaultScopePointRecords": 1993,
+      "defaultScopeValidCoordinates": 1532,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "นิติบุคคลและใบอนุญาตระดับบริษัท ไม่ยืนยันผลิตภัณฑ์ทุกสาขา; 5,534 สำนักงานยังไม่ผูก reporting UUID จาก 23,524 รายการ",
+        "en": "Legal-company and company-level licenses do not confirm every office offering; 5,534 of 23,524 offices lack a reporting-UUID assignment."
+      }
+    },
+    {
+      "slug": "ngern-tid-lor",
+      "brandId": "legal:0107563000355",
+      "industryId": "nonbank",
+      "name": {
+        "th": "เงินติดล้อ",
+        "en": "Ngern Tid Lor"
+      },
+      "defaultScope": "vehicle_title",
+      "scopeLabel": {
+        "th": "ผู้มีใบอนุญาตสินเชื่อทะเบียนรถ (potential)",
+        "en": "Vehicle-title license holders (potential)"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=ngern-tid-lor#market",
+      "presetFamilyId": "nonbank-concentrated",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 1952,
+      "sourceAllScopeCount": 1952,
+      "defaultScopePointRecords": 1952,
+      "defaultScopeValidCoordinates": 1587,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "นิติบุคคลและใบอนุญาตระดับบริษัท ไม่ยืนยันผลิตภัณฑ์ทุกสาขา; 5,534 สำนักงานยังไม่ผูก reporting UUID จาก 23,524 รายการ",
+        "en": "Legal-company and company-level licenses do not confirm every office offering; 5,534 of 23,524 offices lack a reporting-UUID assignment."
+      }
+    },
+    {
+      "slug": "saksiam",
+      "brandId": "legal:0107559000290",
+      "industryId": "nonbank",
+      "name": {
+        "th": "ศักดิ์สยาม",
+        "en": "Saksiam Leasing"
+      },
+      "defaultScope": "vehicle_title",
+      "scopeLabel": {
+        "th": "ผู้มีใบอนุญาตสินเชื่อทะเบียนรถ (potential)",
+        "en": "Vehicle-title license holders (potential)"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=saksiam#market",
+      "presetFamilyId": "nonbank-community",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 1116,
+      "sourceAllScopeCount": 1116,
+      "defaultScopePointRecords": 1116,
+      "defaultScopeValidCoordinates": 756,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "นิติบุคคลและใบอนุญาตระดับบริษัท ไม่ยืนยันผลิตภัณฑ์ทุกสาขา; 5,534 สำนักงานยังไม่ผูก reporting UUID จาก 23,524 รายการ",
+        "en": "Legal-company and company-level licenses do not confirm every office offering; 5,534 of 23,524 offices lack a reporting-UUID assignment."
+      }
+    },
+    {
+      "slug": "ngern-turbo",
+      "brandId": "legal:0107566000542",
+      "industryId": "nonbank",
+      "name": {
+        "th": "เงินเทอร์โบ",
+        "en": "Ngern Turbo"
+      },
+      "defaultScope": "vehicle_title",
+      "scopeLabel": {
+        "th": "ผู้มีใบอนุญาตสินเชื่อทะเบียนรถ (potential)",
+        "en": "Vehicle-title license holders (potential)"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=ngern-turbo#market",
+      "presetFamilyId": "nonbank-community",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 1001,
+      "sourceAllScopeCount": 1001,
+      "defaultScopePointRecords": 1001,
+      "defaultScopeValidCoordinates": 793,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "นิติบุคคลและใบอนุญาตระดับบริษัท ไม่ยืนยันผลิตภัณฑ์ทุกสาขา; 5,534 สำนักงานยังไม่ผูก reporting UUID จาก 23,524 รายการ",
+        "en": "Legal-company and company-level licenses do not confirm every office offering; 5,534 of 23,524 offices lack a reporting-UUID assignment."
+      }
+    },
+    {
+      "slug": "heng-leasing",
+      "brandId": "legal:0107564000120",
+      "industryId": "nonbank",
+      "name": {
+        "th": "เฮงลิสซิ่ง",
+        "en": "Heng Leasing"
+      },
+      "defaultScope": "potential_retail_branch_service",
+      "scopeLabel": {
+        "th": "ครอบครัวใบอนุญาต retail ที่ active (potential)",
+        "en": "Active retail-license family (potential)"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=heng-leasing#market",
+      "presetFamilyId": "nonbank-community",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 459,
+      "sourceAllScopeCount": 459,
+      "defaultScopePointRecords": 459,
+      "defaultScopeValidCoordinates": 346,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "นิติบุคคลและใบอนุญาตระดับบริษัท ไม่ยืนยันผลิตภัณฑ์ทุกสาขา; 5,534 สำนักงานยังไม่ผูก reporting UUID จาก 23,524 รายการ",
+        "en": "Legal-company and company-level licenses do not confirm every office offering; 5,534 of 23,524 offices lack a reporting-UUID assignment."
+      }
+    },
+    {
+      "slug": "nim-leasing",
+      "brandId": "legal:0505560008015",
+      "industryId": "nonbank",
+      "name": {
+        "th": "นิ่มลีสซิ่ง",
+        "en": "Nim Leasing"
+      },
+      "defaultScope": "potential_retail_branch_service",
+      "scopeLabel": {
+        "th": "ครอบครัวใบอนุญาต retail ที่ active (potential)",
+        "en": "Active retail-license family (potential)"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=nim-leasing#market",
+      "presetFamilyId": "nonbank-community",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 451,
+      "sourceAllScopeCount": 451,
+      "defaultScopePointRecords": 451,
+      "defaultScopeValidCoordinates": 343,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "นิติบุคคลและใบอนุญาตระดับบริษัท ไม่ยืนยันผลิตภัณฑ์ทุกสาขา; 5,534 สำนักงานยังไม่ผูก reporting UUID จาก 23,524 รายการ",
+        "en": "Legal-company and company-level licenses do not confirm every office offering; 5,534 of 23,524 offices lack a reporting-UUID assignment."
+      }
+    },
+    {
+      "slug": "krungsri-auto",
+      "brandId": "legal:0107538000690",
+      "industryId": "nonbank",
+      "name": {
+        "th": "กรุงศรี ออโต้ · อยุธยา แคปปิตอล ออโต้ ลีส",
+        "en": "Krungsri Auto · Ayudhya Capital Auto Lease"
+      },
+      "defaultScope": "vehicle_title",
+      "scopeLabel": {
+        "th": "ผู้มีใบอนุญาตสินเชื่อทะเบียนรถ (potential)",
+        "en": "Vehicle-title license holders (potential)"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=krungsri-auto#market",
+      "presetFamilyId": "nonbank-concentrated",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 50,
+      "sourceAllScopeCount": 50,
+      "defaultScopePointRecords": 50,
+      "defaultScopeValidCoordinates": 40,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "นิติบุคคลและใบอนุญาตระดับบริษัท ไม่ยืนยันผลิตภัณฑ์ทุกสาขา; 5,534 สำนักงานยังไม่ผูก reporting UUID จาก 23,524 รายการ",
+        "en": "Legal-company and company-level licenses do not confirm every office offering; 5,534 of 23,524 offices lack a reporting-UUID assignment."
+      }
+    },
+    {
+      "slug": "uob-capital-services",
+      "brandId": "legal:0105528033194",
+      "industryId": "nonbank",
+      "name": {
+        "th": "ยูโอบี แคปปิตอล เซอร์วิสเซส",
+        "en": "UOB Capital Services"
+      },
+      "defaultScope": "personal",
+      "scopeLabel": {
+        "th": "ผู้มีใบอนุญาตสินเชื่อส่วนบุคคล (potential)",
+        "en": "Personal-loan license holders (potential)"
+      },
+      "url": "https://montri-th.github.io/yolk/?brand=uob-capital-services#market",
+      "presetFamilyId": "nonbank-concentrated",
+      "sourceDataAvailable": true,
+      "sourceDefaultScopeCount": 44,
+      "sourceAllScopeCount": 44,
+      "defaultScopePointRecords": 44,
+      "defaultScopeValidCoordinates": 36,
+      "sourceCountBasis": "direct native countryDimensionCounts, not a sum of areas or POIs",
+      "sourceSnapshotCapturedAt": "2026-10-04T09:19:23.093099+00:00",
+      "sourceLimits": {
+        "th": "นิติบุคคลและใบอนุญาตระดับบริษัท ไม่ยืนยันผลิตภัณฑ์ทุกสาขา; 5,534 สำนักงานยังไม่ผูก reporting UUID จาก 23,524 รายการ",
+        "en": "Legal-company and company-level licenses do not confirm every office offering; 5,534 of 23,524 offices lack a reporting-UUID assignment."
+      }
+    }
+  ]
+}

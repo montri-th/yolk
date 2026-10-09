@@ -18,7 +18,7 @@ def validate(root,version):
     return {'status':'PASS','version':version,'suites':len(rows),'checks':len(rows)*3+2,'meaning':'Every current raw log and test source resolves inside the standalone artifact with matching SHA; historical receipts remain historical.'}
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--zip',type=Path);p.add_argument('--version',default='1.9.10');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--zip',type=Path);p.add_argument('--version',default='1.9.11');a=p.parse_args()
     if a.zip:
         with tempfile.TemporaryDirectory() as td,zipfile.ZipFile(a.zip) as z:
             for n in z.namelist():

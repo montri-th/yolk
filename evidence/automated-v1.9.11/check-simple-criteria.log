@@ -1,0 +1,48 @@
+PASS fuel: current membership is only confirmed Demand and selected maximum Tier
+PASS fuel: old saved pattern arrays and all-demand mode cannot silently filter or admit sites
+PASS fuel: count/relative Supply cutoffs, denominator and ranking weights preserve Yolk membership
+PASS fuel: stricter Demand Tier narrows membership while raw Demand remains constant
+PASS fuel: unresolved Supply is evidence, not a Demand rejection or a zero observation
+PASS fuel: evaluation and diagnostics do not alter source snapshots, national cutoffs or events
+PASS grocery: current membership is only confirmed Demand and selected maximum Tier
+PASS grocery: old saved pattern arrays and all-demand mode cannot silently filter or admit sites
+PASS grocery: count/relative Supply cutoffs, denominator and ranking weights preserve Yolk membership
+PASS grocery: stricter Demand Tier narrows membership while raw Demand remains constant
+PASS grocery: unresolved Supply is evidence, not a Demand rejection or a zero observation
+PASS grocery: evaluation and diagnostics do not alter source snapshots, national cutoffs or events
+PASS nonbank: current membership is only confirmed Demand and selected maximum Tier
+PASS nonbank: old saved pattern arrays and all-demand mode cannot silently filter or admit sites
+PASS nonbank: count/relative Supply cutoffs, denominator and ranking weights preserve Yolk membership
+PASS nonbank: stricter Demand Tier narrows membership while raw Demand remains constant
+PASS nonbank: unresolved Supply is evidence, not a Demand rejection or a zero observation
+PASS nonbank: evaluation and diagnostics do not alter source snapshots, national cutoffs or events
+PASS Unknown Demand never qualifies, and review does not turn it into an observed zero
+PASS Historical pattern fixtures require an explicit option and cannot share the current evaluation cache
+PASS Saved legacy ranking no longer uses pattern stars or Supply as invisible tie priorities
+PASS Current detail and level explainer do not render 8-pattern controls or classifications
+{
+  "suite": "simple-criteria",
+  "checks": 22,
+  "passed": 22,
+  "observations": {
+    "fuel": {
+      "nationalRows": 7954,
+      "high": 1067,
+      "eligible": 1067,
+      "demandReview": 2308
+    },
+    "grocery": {
+      "nationalRows": 7954,
+      "high": 2859,
+      "eligible": 2859,
+      "demandReview": 1930
+    },
+    "nonbank": {
+      "nationalRows": 7954,
+      "high": 2298,
+      "eligible": 2298,
+      "demandReview": 124
+    }
+  },
+  "evidence": "national source/VM model and markup checks; browser review separate"
+}

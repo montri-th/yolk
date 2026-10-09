@@ -1,0 +1,254 @@
+{
+  "schemaVersion": "yolk.brand_demo_activity_clarity/1",
+  "version": "1.9.11",
+  "date": "2026-10-09",
+  "status": "final_runtime_values_current_QA_bound",
+  "scope": "Four owner requests only; source inventories, numeric presets, analytical definitions and original artwork remain unchanged.",
+  "logos": {
+    "wideMaximum": 500,
+    "narrowMaximum": 250,
+    "narrowBelowCSSPx": 600,
+    "basis": "Filtered valid coordinate records visible in the actual map host, including coincident records",
+    "zoomAndDrilldownIndependent": true,
+    "aboveLimit": "One Canvas retains all visible valid POIs; optional grouping remains available",
+    "logoAvailability": "Original brand artwork when available; labelled role fallback otherwise"
+  },
+  "brandLinks": {
+    "catalog": "prototype/brands.html",
+    "registry": "prototype/data/brand-demo-links.json",
+    "brands": 37,
+    "defaultRoute": "#market",
+    "example": "https://montri-th.github.io/yolk/?brand=tops#market",
+    "freshVisitor": "Select validated industry, source-supported brand and dominant-format preset before first evaluation",
+    "warmVisitor": "Retain target brand saved criteria/draft/version/work; show explicit Try preset action",
+    "startupWrites": 0,
+    "privateWorkspaceDataInURL": false,
+    "validation": "Reject unknown, duplicate, malformed, contradictory or unsupported parameters; fixed escaped notice and safe route"
+  },
+  "activity": {
+    "layout": "Single full-width stacked Before/After cards, expandable long notes and secondary IDs",
+    "escapeAllUserText": true,
+    "fullNoteRetained": true,
+    "nativeEvidence": "Explicit synthetic read-only fixture uses actual production helpers and CSS; no real source events modified"
+  },
+  "complementary": {
+    "roles": {
+      "demand": "Screen eligibility and tiers",
+      "strategy05": "After confirmed Demand, activity context prioritizes a survey queue without changing Demand membership/Tier"
+    },
+    "metricsByIndustry": {
+      "fuel": [
+        "factory_count",
+        "factory_workers",
+        "hotel_rooms"
+      ],
+      "grocery": [
+        "factory_workers",
+        "hotel_rooms"
+      ],
+      "nonbank": []
+    },
+    "sharedEvidence": "The same dataset used in both roles is not independent corroboration",
+    "aggregation": "Highest passing activity midrank; no addition of factor scores",
+    "factoryEffectiveDate": "2025-04 ACTIVE registry context",
+    "hotelEffectiveDate": null,
+    "snapshotRetrievedAt": "2026-10-03",
+    "notMeasured": [
+      "Customer transfer",
+      "Proximity",
+      "Actual visits",
+      "Occupancy",
+      "Purchases"
+    ],
+    "futurePhase": [
+      "Verified hospital/school and other activity POIs",
+      "Doors/routes/operating times/observed customer transfer"
+    ]
+  },
+  "runtimeSources": [
+    {
+      "path": "prototype/workspace-map.js",
+      "bytes": 146177,
+      "sha256": "ce972a62aef80732460c8248cc35853965c08048e32d4df75eccfa5ca64bd06a"
+    },
+    {
+      "path": "prototype/app.js",
+      "bytes": 87946,
+      "sha256": "e2f32854e65ad67e150bd0fdade8b4dc1adaa5458cc3c9529620648b0e9f8bb7"
+    },
+    {
+      "path": "prototype/activity-ui.css",
+      "bytes": 3728,
+      "sha256": "68f0c55d38561d4a5960d37ec22955d110f6c80b4b4421e0ada21d8378a09dfc"
+    },
+    {
+      "path": "prototype/bootstrap.js",
+      "bytes": 5974,
+      "sha256": "af3f16d5de6d58a480260286ee1853da49f90821b5ebad0f22edd2896ccdb9fa"
+    },
+    {
+      "path": "prototype/industry-workspace.js",
+      "bytes": 24476,
+      "sha256": "39e1d2dba8e1212793dc13af6c298d2f2454f7cb75f10c17a8cfc669864acdba"
+    },
+    {
+      "path": "prototype/brand-experience.js",
+      "bytes": 8621,
+      "sha256": "4109e845448decfaa9511cd740631a253a92a1501040a0ba6aeda17e16be73d0"
+    },
+    {
+      "path": "prototype/brand-demo-links.js",
+      "bytes": 9107,
+      "sha256": "3591a6255ee58ebbee5c53ca4e06671d47b09d3f121e3f40ee5f67e6b24add41"
+    },
+    {
+      "path": "prototype/brand-demo-links.css",
+      "bytes": 3632,
+      "sha256": "535c2e7beb69092fa94a793749d073efca5a7e0c2fdc55991ff77b372b3e894a"
+    },
+    {
+      "path": "prototype/brand-demo-catalog.js",
+      "bytes": 44099,
+      "sha256": "b8444f381d5663d2f46c6cddf8f09e2f6a9ea84bc38a2cf1ff9449e4c453e31b"
+    },
+    {
+      "path": "prototype/brand-catalog-page.js",
+      "bytes": 5041,
+      "sha256": "00aa59bb74c652c08fbee877f4cb4a95ae739261c65ca9919718486d4f539ee1"
+    },
+    {
+      "path": "prototype/strategy-ui.js",
+      "bytes": 34454,
+      "sha256": "c065253f5658b18f7007482662ed0539e49e797477ac02906b8bae33969c027f"
+    },
+    {
+      "path": "prototype/strategy-ui.css",
+      "bytes": 8541,
+      "sha256": "344703e51914d0f70a2812594a0eceede7bc7a37a8294acb64dae4fdc4c662da"
+    },
+    {
+      "path": "prototype/strategy-guide.js",
+      "bytes": 8562,
+      "sha256": "a289b5ad5d1b468ee709033ac4aa0d06d0dbb315df69e7975691deea05445569"
+    }
+  ],
+  "requiredSuites": [
+    "scripts/check-unclustered-poi.cjs",
+    "scripts/check-brand-demo-links.cjs",
+    "scripts/check-activity-ui.cjs",
+    "scripts/check-complementary-clarity.cjs"
+  ],
+  "tasks": [
+    {
+      "id": "UX11A",
+      "title": "Set visible logo thresholds",
+      "steps": [
+        "Use actual host CSS width and visible filtered valid records",
+        "Use 500 at width>=600;250 below600 without drilldown gates",
+        "Keep every dense record on Canvas and existing overlap access"
+      ],
+      "verify": "check-unclustered-poi.cjs + actual235-record narrow/desktop checks"
+    },
+    {
+      "id": "UX11B",
+      "title": "Provide safe brand prospect links",
+      "steps": [
+        "Build37 records from public source inventories and unchanged brand profiles",
+        "Validate URL before first industry load and evaluation",
+        "Preserve saved target work, expose explicit Try preset and copy/search catalog"
+      ],
+      "verify": "check-brand-demo-links.cjs + native fresh/warm/copy/catalog"
+    },
+    {
+      "id": "UX11C",
+      "title": "Render long activity notes responsively",
+      "steps": [
+        "Keep immutable event values and escaped content",
+        "Stack Before/After across full panel width; disclosure for long values and IDs",
+        "Check actual Thai/English content at320/390 and narrow desktop panel"
+      ],
+      "verify": "check-activity-ui.cjs + bounded synthetic fixture native JPGs"
+    },
+    {
+      "id": "UX11D",
+      "title": "Explain complementary evidence roles",
+      "steps": [
+        "Read active brand scope for exact supported activity metrics",
+        "Show Demand screening vs activity survey queue and shared-source cue",
+        "Disclose source effective dates and actual evidence still required"
+      ],
+      "verify": "check-complementary-clarity.cjs + mobile/desktop guide05"
+    }
+  ],
+  "verification": {
+    "integrated": {
+      "receipt": "evidence/automated-v1.9.11.json",
+      "sha256": "1a2eca9ad4b279a07effd260a9e161bbf12467b0e43a6358339052c807968fba",
+      "requiredSuiteResults": [
+        {
+          "suite": "scripts/check-activity-ui.cjs",
+          "testedAt": "2026-10-09T12:54:32.657244+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "50c94fa47ff0b9ad8e52d579dab939736922bcc2c76d7914dd137d445e929cd4",
+          "outputSha256": "090c3ae0d3abbc51e04bdb124dd8d223ee3806bd3bf92f2594cbdc5b20003e92",
+          "passLines": 0,
+          "checks": 9,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "evidence/automated-v1.9.11/check-activity-ui.log"
+        },
+        {
+          "suite": "scripts/check-brand-demo-links.cjs",
+          "testedAt": "2026-10-09T12:54:32.708226+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "2b157fcc987f26419e2eb6e0193138f7b1c6986efdcf158c38ddd1dfaef37593",
+          "outputSha256": "ef7877cf71ffa6112556ba789c41b934b30dd44d5c10ec2ae27a2aea222355cd",
+          "passLines": 0,
+          "checks": 49,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "evidence/automated-v1.9.11/check-brand-demo-links.log"
+        },
+        {
+          "suite": "scripts/check-complementary-clarity.cjs",
+          "testedAt": "2026-10-09T12:54:34.710138+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "3a743fbdb9ac32123af3550bd3b187ec2d86e39336317bd50232ae2be0432e14",
+          "outputSha256": "3b2071c19e240c64a0da8ea00ea68fee39fadb594fbe315d4d649e019f79911f",
+          "passLines": 8,
+          "checks": 8,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "evidence/automated-v1.9.11/check-complementary-clarity.log"
+        },
+        {
+          "suite": "scripts/check-unclustered-poi.cjs",
+          "testedAt": "2026-10-09T12:53:56.018638+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "adaeca87495aeef3e43447a5c309954e06c88fb32688178bf690f2fac1d342a2",
+          "outputSha256": "32b2690a0789e34585b4a3c6027cb3cd3cb31e9d3c5252ee6cff1f5e49294e83",
+          "passLines": 16,
+          "checks": 16,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "evidence/automated-v1.9.11/check-unclustered-poi.log"
+        }
+      ]
+    },
+    "native": {
+      "receipt": "evidence/browser-v1.9.11/native-browser-review.json",
+      "sha256": "2a150361635fc395c956f0237415c0cee57e827ab702eb64640ef6185687b84a",
+      "checkIds": [
+        "brand_permalink_fresh",
+        "brand_permalink_warm",
+        "activity_responsive",
+        "complementary_role_clarity",
+        "sparse_any_zoom_logos",
+        "mobile_map_details",
+        "dense_canvas_performance",
+        "whole_site_navigation"
+      ]
+    },
+    "publication": "separate_provider_live_attestation"
+  }
+}

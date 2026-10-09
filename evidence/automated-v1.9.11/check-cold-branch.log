@@ -1,0 +1,13 @@
+PASS Cold existing-ID route shows loading and cannot become a blank new branch form
+PASS In-flight source inventory keeps the requested branch in a loading state
+PASS Source completion renders the requested real record identity, brand, name and coordinates
+PASS An absent ready record and a failed inventory remain status states, not editable new records
+PASS Only explicit #poi/new creates the new-branch form when the inventory is cold
+PASS Working form captures branch identity, expected revision, edits and text selection
+PASS Same-record rerender restores user edits, area, focus and cursor while retaining the expected revision
+PASS Snapshot from the former blank new form cannot overwrite a newly loaded existing record
+PASS Snapshot from another branch cannot restore values, expected revision or focus
+PASS Leaving a route journals its old form while another branch/context cannot read it; back restores the original draft
+PASS Restore leaves file inputs alone and safely ignores an absent form
+PASS Source assignment suggestions and manual choices survive same-record form replacement
+{"passed":true,"checks":12,"receipt":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.0/cold-branch-regression-results.json"}

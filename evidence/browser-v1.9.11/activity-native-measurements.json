@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "version": "1.9.11",
+  "kind": "native_chrome_actual_renderers_read_only_synthetic_fixture",
+  "reviewedAt": "2026-10-09T12:41:21.241Z",
+  "observations": [
+    {
+      "case": "th-dark-390-expanded",
+      "focused": "SUMMARY",
+      "opened": true,
+      "panelWidth": 366,
+      "rootOverflow": false,
+      "valueWidths": [
+        {
+          "length": 8,
+          "scrollWidth": 298,
+          "width": 298
+        },
+        {
+          "length": 724,
+          "scrollWidth": 298,
+          "width": 298
+        },
+        {
+          "length": 9,
+          "scrollWidth": 298,
+          "width": 298
+        },
+        {
+          "length": 7,
+          "scrollWidth": 298,
+          "width": 298
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "case": "en-light-320-expanded-identifiers",
+      "focused": "SUMMARY",
+      "idWidths": [
+        {
+          "scrollWidth": 0,
+          "width": 211.921875
+        },
+        {
+          "scrollWidth": 0,
+          "width": 178.8125
+        }
+      ],
+      "identifiersOpen": true,
+      "opened": true,
+      "panelWidth": 296,
+      "rootOverflow": false,
+      "valueWidths": [
+        {
+          "length": 7,
+          "scrollWidth": 228,
+          "width": 228
+        },
+        {
+          "length": 724,
+          "scrollWidth": 228,
+          "width": 228
+        },
+        {
+          "length": 10,
+          "scrollWidth": 228,
+          "width": 228
+        },
+        {
+          "length": 18,
+          "scrollWidth": 228,
+          "width": 228
+        }
+      ],
+      "viewport": {
+        "height": 740,
+        "width": 320
+      }
+    },
+    {
+      "case": "en-dark-desktop-390-panel-expanded",
+      "focused": "SUMMARY",
+      "opened": true,
+      "panelWidth": 390,
+      "rootOverflow": false,
+      "valueWidths": [
+        {
+          "length": 7,
+          "scrollWidth": 306,
+          "width": 306
+        },
+        {
+          "length": 724,
+          "scrollWidth": 306,
+          "width": 306
+        },
+        {
+          "length": 10,
+          "scrollWidth": 306,
+          "width": 306
+        },
+        {
+          "length": 18,
+          "scrollWidth": 306,
+          "width": 306
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "case": "th-light-desktop-560-panel-collapsed",
+      "opened": false,
+      "panelWidth": 560,
+      "rootOverflow": false,
+      "valueWidths": [
+        {
+          "length": 8,
+          "scrollWidth": 476,
+          "width": 476
+        },
+        {
+          "length": 724,
+          "scrollWidth": 476,
+          "width": 476
+        },
+        {
+          "length": 9,
+          "scrollWidth": 476,
+          "width": 476
+        },
+        {
+          "length": 7,
+          "scrollWidth": 476,
+          "width": 476
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    }
+  ],
+  "keyboard": {
+    "nativeSummaryEnterCollapse": true,
+    "focusRetainedOnSummary": true
+  },
+  "scope": "Four bounded Thai/English light/dark native Chrome renderer states at 320,390,1440 viewport widths; expanded long mixed-language note and IDs. This is not live deployed UI, physical-device, full accessibility or all-viewport certification.",
+  "fixture": "Explicit synthetic fieldwork note; actual bounded app feed renderers and linked production styles; no workspace/source mutation.",
+  "reviewedRendererSHA256": "4923ee1021c658481c5132d042a3669de2fc25c425c3732ed2d4e99d8b8f2b3c",
+  "reviewedActivityCssSHA256": "68f0c55d38561d4a5960d37ec22955d110f6c80b4b4421e0ada21d8378a09dfc",
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.9.11/activity-en-dark-desktop-narrow-expanded.jpg",
+      "bytes": 105456,
+      "sha256": "fe41ad56ea259fdc3bd087a0ad5406ceaea8733c32997d4854e4e5c858eb28b3"
+    },
+    {
+      "path": "evidence/browser-v1.9.11/activity-en-light-320-collapsed.jpg",
+      "bytes": 36332,
+      "sha256": "a2ef57d2a01216c9825a2bd6926dec447adc310509e56937125639c18dfb263b"
+    },
+    {
+      "path": "evidence/browser-v1.9.11/activity-en-light-320-expanded.jpg",
+      "bytes": 90993,
+      "sha256": "565255f653226416a85e8e05f787a2a8add1ba66c8760528b89e1249a6feb566"
+    },
+    {
+      "path": "evidence/browser-v1.9.11/activity-th-dark-390-expanded.jpg",
+      "bytes": 92168,
+      "sha256": "a77ca8e140d3e292ed589f1f5f40bae137b5b86f03d7fca82e15040d7b3d1e7f"
+    },
+    {
+      "path": "evidence/browser-v1.9.11/activity-th-light-desktop-wide-collapsed.jpg",
+      "bytes": 46588,
+      "sha256": "85fc9c84398be0121259552abf198fd262e3717e9cb9d88058440ac2e27181ea"
+    }
+  ],
+  "fixtures": [
+    {
+      "sha256": "8a50997063c94c4113e5bb9c33ede139118d04eb13414b8caa0110ca211a71c5",
+      "publicData": false,
+      "syntheticLayoutOnly": true,
+      "id": "activity-fixture-en-dark.html",
+      "distribution": "Excluded from public distribution; retained locally by release owner"
+    },
+    {
+      "sha256": "2333fdd03cfe92ca803699d28d197b37e95ff6d6945451473ec5a01eaab815d9",
+      "publicData": false,
+      "syntheticLayoutOnly": true,
+      "id": "activity-fixture-en-light.html",
+      "distribution": "Excluded from public distribution; retained locally by release owner"
+    },
+    {
+      "sha256": "0adf2a3674a0e54a316c78589551cabb9deece3f476b310d2826efbc00768ba9",
+      "publicData": false,
+      "syntheticLayoutOnly": true,
+      "id": "activity-fixture-th-dark.html",
+      "distribution": "Excluded from public distribution; retained locally by release owner"
+    },
+    {
+      "sha256": "6fddd6cc31efb9e3745c86159cf13990df8bce850a85fd7869e8e267730bf33e",
+      "publicData": false,
+      "syntheticLayoutOnly": true,
+      "id": "activity-fixture-th-light.html",
+      "distribution": "Excluded from public distribution; retained locally by release owner"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"suite":"demand-factors-v1.9.0","checks":12,"passed":12,"brands":37,"scopeBindings":103,"nationalAreas":7954,"totalEligibleAcrossContexts":186761,"realTryPresetContexts":[{"brandId":"bangchak","eligible":1264},{"brandId":"grocery-brand:SEVEN_ELEVEN","eligible":2859},{"brandId":"legal:0107557000195","eligible":2298}],"evidence":"Source/VM checks; not rendered browser QA"}

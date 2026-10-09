@@ -1,0 +1,35 @@
+/* Activity uses available panel width, independent of the outer viewport.
+   Complete immutable values remain readable through native disclosures. */
+.context-feed .feed-item{display:block;padding-block:20px;min-width:0}
+.context-feed .feed-body{min-width:0;max-width:100%}
+.context-feed .feed-event-header{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start}
+.context-feed .feed-avatar{width:32px;height:32px;font-size:16px;line-height:1}
+.context-feed .feed-byline{display:block;min-width:0;overflow-wrap:break-word}
+.context-feed .activity-event-action{font-size:14px;line-height:1.65;min-width:0}
+.context-feed .activity-event-action strong{font:inherit;font-weight:600;color:var(--ink)}
+.context-feed .feed-byline time{display:block;margin:4px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+.context-feed .unread-label{display:inline-block;margin-inline-start:8px;vertical-align:middle}
+.context-feed .feed-context{margin-block:12px;font-size:13px!important;line-height:1.65;overflow-wrap:break-word}
+.context-feed .activity-entity-name{color:var(--ink);font-weight:600}
+.context-feed .change-line.activity-change{display:block;min-width:0;margin-block:16px;padding-block:12px;border-block-start:1px solid var(--line)}
+.context-feed .activity-field-label{font-size:13px!important;font-weight:600;line-height:1.6;color:var(--ink);margin:0 0 10px}
+.context-feed .activity-change-values{display:grid;gap:12px;min-width:0;margin:0}
+.context-feed .activity-change-value{display:block;min-width:0;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--soft)}
+.context-feed .activity-change-value dt{font-size:12px;line-height:1.5;color:var(--muted);margin:0 0 6px}
+.context-feed .activity-change-value dd.activity-value-text{font-size:14px;font-weight:400;line-height:1.75;color:var(--ink);margin:0;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal}
+.context-feed .activity-before dd{color:var(--muted)}
+.context-feed .activity-change-preview{margin:0 0 8px;font-size:14px!important;line-height:1.75;color:var(--ink);white-space:pre-wrap;overflow-wrap:break-word}
+.context-feed .activity-change-preview>span{font-size:12px;color:var(--muted)}
+.context-feed .activity-change-detail,.context-feed .activity-event-ids{min-width:0}
+.context-feed .activity-change-detail>summary,.context-feed .activity-event-ids>summary{min-height:44px;padding-block:10px;font-size:13px;line-height:1.6;color:var(--accent);cursor:pointer;overflow-wrap:break-word}
+.context-feed details>summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.context-feed .activity-change-detail[open]>.activity-change-values{margin-block:8px}
+.context-feed .activity-event-ids>summary{color:var(--muted);font-size:12px}
+.context-feed .activity-event-ids dl{display:grid;gap:12px;margin:0 0 12px;min-width:0}
+.context-feed .activity-event-ids dt{font-size:12px;line-height:1.6;color:var(--muted)}
+.context-feed .activity-event-ids dd{margin:4px 0 0;min-width:0}
+.context-feed .activity-event-ids code{font-family:'JetBrains Mono','IBM Plex Sans Thai',monospace;font-size:11px;line-height:1.7;white-space:normal;overflow-wrap:anywhere;color:var(--muted)}
+.context-feed .feed-receipt{display:block;min-width:0;margin-block-start:8px;font-size:12px;line-height:1.65;overflow-wrap:break-word}
+.context-feed .feed-receipt>span{display:block}
+.context-feed .feed-receipt .quiet-link{display:inline-flex;max-width:100%;min-height:44px;align-items:center;margin-top:4px;padding-block:8px;font-size:13px;white-space:normal;text-align:start}
+.context-feed .feed-receipt .quiet-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}

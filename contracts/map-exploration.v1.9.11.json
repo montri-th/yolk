@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "yolk.map-exploration/1.0",
+  "version": "1.9.11",
+  "status": "final_runtime_values_current_QA_bound",
+  "extends": "contracts/full-product.v1.9.9.json",
+  "scope": "Four owner-requested map display refinements; exact data/presets/persistence and eligibility retained.",
+  "hover": {
+    "owner": "clickable_navigation_scope",
+    "surface": "compact text dock outside Leaflet canvas + existing Supply side-panel treemap",
+    "mapOverlayTooltips": 0,
+    "outline": "Exact source parent outline, Yolk yellow, noninteractive",
+    "pointerClicksRemainUnobstructed": true,
+    "escape": "Dismiss current scope without moving camera or dropping keyboard focus",
+    "clear": "Restore current selected scope breakdown on leave/navigation/context/close",
+    "dockHeightPx": 34
+  },
+  "logos": {
+    "basis": "visible filtered valid coordinate records",
+    "desktopMaximum": 500,
+    "narrowMaximum": 250,
+    "narrowBelowPx": 600,
+    "minimumZoom": null,
+    "drilldownIndependent": true,
+    "denseFallback": "One Canvas, every visible coordinate represented; exact overlap chooser remains; no arbitrary inventory truncation",
+    "missingArtwork": "Existing named brand fallback; no fabricated brand graphic",
+    "thresholdDimension": "current map host width in CSS pixels"
+  },
+  "satellite": {
+    "embedded": "ESA WorldCover Sentinel-2 RGB 2021,10m",
+    "maximumNativeZoom": 14,
+    "vintageShown": true,
+    "alternative": "External Google Maps satellite, centered on displayed geographic view",
+    "originalLandometer": "Historical Google hybrid endpoint found; original embedded provider not claimed restored without configured authorized API integration",
+    "scope": "Provider availability separately tested; historical imagery not operational verification",
+    "coverageFallback": "One Simplified road-tile underlay beneath provider-transparent image areas; accurate attribution and caption, no inference of water."
+  },
+  "evidenceStates": {
+    "authorityRule": "LDS0.9.7 EVID-05; machine.tokens.dataState.valueStates; Location Profile evidence state rules",
+    "measuredZero": "Exact lowest LUT fill unchanged in both themes + solid2px DS dataState.zero stroke + explicit0label",
+    "noData": "DS noData135deg hatch + emphasis border + dash label",
+    "belowDemandCriteria": "Transparent known belowcutoff; separate legend from noData",
+    "review": "Neutral surface + dotted boundary + question cue",
+    "suppressed": "Neutral surface + dashed border; no disclosed numerical value",
+    "outOfScope": "Bare basemap, explicit label",
+    "notYet": "Dotted boundary, pending surface, explicit label",
+    "zeroDenominator": "0/0 share remains undefined, never0%",
+    "aggregation": "Parent tiercategory remains classified as belowcriteria/review/missing without numerical childsum; exact bestconfirmedTier otherwise"
+  },
+  "protected": [
+    "source snapshot bytes",
+    "numerical brand presets",
+    "Demand eligible IDs",
+    "exact analytical LUTs",
+    "original brand artwork",
+    "source coordinates",
+    "persistent map camera/context",
+    "browser-local drafts and saved decision evidence"
+  ],
+  "requiredSuites": [
+    "scripts/check-map-hover.cjs",
+    "scripts/check-map-clarity.cjs",
+    "scripts/check-unclustered-poi.cjs",
+    "scripts/check-map-evidence-states.cjs",
+    "scripts/check-map-analysis.cjs",
+    "scripts/check-map-recovery.cjs"
+  ],
+  "runtimeFiles": [
+    "prototype/workspace-map.js",
+    "prototype/map-hover.js",
+    "prototype/map-hover.css",
+    "prototype/map-analysis.js",
+    "prototype/assets/yolk-analytical.css"
+  ],
+  "acceptance": [
+    "Hover an area and click the highlighted parent without crossing a covering tooltip. Read important value in external dock and full Supply breakdown in side panel.",
+    "Below threshold, original logos appear at any zoom/drilldown; dense point inventories remain uncapped.",
+    "Satellite selector works; actual imagery source/year and external Google option are explicit.",
+    "Light/dark distinguish knownzero/null/review/belowcutoff by source-based labels and noncolor cues without changing dataHEX.",
+    "Normal mobile flow and Expand/Compact preserve same map and permitted geographiccamera."
+  ],
+  "runtimeSources": [
+    {
+      "path": "prototype/assets/yolk-analytical.css",
+      "bytes": 2756,
+      "sha256": "4a0e4fbf6e7c23e5224c245997b7e2e182bce708dbb92b67ea3d3d003e3ef771"
+    },
+    {
+      "path": "prototype/map-analysis.js",
+      "bytes": 37861,
+      "sha256": "68d5228eaadea61c72553108591d0e7f7f4373bb975ee95411d680feec9ea1fb"
+    },
+    {
+      "path": "prototype/map-hover.css",
+      "bytes": 2762,
+      "sha256": "f098031141aee3f223d45d5b30ace89568f81f7ba8ce35dec9f61f26189e0c9c"
+    },
+    {
+      "path": "prototype/map-hover.js",
+      "bytes": 10313,
+      "sha256": "3ca02f07c0eb108174fb4843b356e05523e4267f18e27adb8b7407e02f2435ce"
+    },
+    {
+      "path": "prototype/workspace-map.js",
+      "bytes": 146177,
+      "sha256": "ce972a62aef80732460c8248cc35853965c08048e32d4df75eccfa5ca64bd06a"
+    }
+  ],
+  "verification": {
+    "integrated": {
+      "status": "PASS",
+      "receipt": "evidence/automated-v1.9.11.json",
+      "receiptSha256": "1a2eca9ad4b279a07effd260a9e161bbf12467b0e43a6358339052c807968fba"
+    },
+    "native": {
+      "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "receipt": "evidence/browser-v1.9.11/native-browser-review.json",
+      "receiptSha256": "2a150361635fc395c956f0237415c0cee57e827ab702eb64640ef6185687b84a",
+      "review": {
+        "passed": true,
+        "checkIds": [
+          "brand_permalink_fresh",
+          "brand_permalink_warm",
+          "activity_responsive",
+          "complementary_role_clarity",
+          "sparse_any_zoom_logos",
+          "mobile_map_details",
+          "dense_canvas_performance",
+          "whole_site_navigation"
+        ]
+      }
+    },
+    "publication": "not_performed_by_contract"
+  }
+}

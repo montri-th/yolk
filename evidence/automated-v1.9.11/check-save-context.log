@@ -1,0 +1,15 @@
+PASS Existing branch save aborts cleanly after brand changes during photo commit
+PASS Existing branch save aborts cleanly after industry changes during photo commit
+PASS New branch save aborts cleanly after brand changes during photo commit
+PASS New branch save aborts cleanly after industry changes during photo commit
+PASS Existing branch save aborts cleanly after actor changes during photo commit
+PASS Existing branch save aborts cleanly after route changes during photo commit
+PASS Existing branch save aborts cleanly after same-context-new-request changes during photo commit
+PASS Existing branch save succeeds once when context remains stable
+PASS New branch save succeeds once when context remains stable
+PASS An unassigned source record can save a note without inventing administrative membership
+PASS Saving a real area UUID derives its province rather than retaining a contradictory selector
+PASS A recognized alias submits with its canonical own identity and keeps the known brand ID
+PASS A canonical brand alias cannot bypass the duplicate branch guard
+PASS New photo drafts are scoped to brand/context, not the shared literal new record ID
+{"passed":true,"checks":14,"receipt":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.0/save-context-regression-results.json"}

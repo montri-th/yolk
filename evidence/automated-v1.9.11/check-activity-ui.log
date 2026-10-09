@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "suite": "activity-ui",
+  "kind": "actual_renderers_vm_and_source_checks_not_native",
+  "checks": [
+    {
+      "name": "Long Thai/English field notes preserve complete escaped old/new text in native disclosure",
+      "passed": true
+    },
+    {
+      "name": "Long values use bounded preview but retain all content exactly, without changing source event",
+      "passed": true
+    },
+    {
+      "name": "Short scalars keep measured zero, false and missing as distinct before/after labels",
+      "passed": true
+    },
+    {
+      "name": "Record identifiers are secondary disclosure rather than primary branch caption",
+      "passed": true
+    },
+    {
+      "name": "Branch name resolves from current record or immutable name change when source list is cold",
+      "passed": true
+    },
+    {
+      "name": "User text, unknown field/type, branch name, event ID and brand metadata are escaped",
+      "passed": true
+    },
+    {
+      "name": "Feed limit, unread state and explicit context links keep their retained behavior",
+      "passed": true
+    },
+    {
+      "name": "Context captions, event time and escaped action labels remain readable in both languages",
+      "passed": true
+    },
+    {
+      "name": "Activity layout is panel-width safe and has non-color labels plus native focusable disclosures",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "scope": "Real activity HTML renderers and display formatting, safe output and preservation. Actual Thai/English layout, fonts, focus, all viewports and physical devices require separate native evidence."
+}

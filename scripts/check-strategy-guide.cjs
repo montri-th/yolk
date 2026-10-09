@@ -72,6 +72,16 @@ const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve
  await check('Clicking a candidate strategy tag opens explanatory detail without selecting a different strategy or route',async()=>{
   const f=fixture();f.h.evaluate('Y.route="market";Y.lang="en"');const before=f.snapshot(),button=f.control({'data-guide-id':'competitive_entry','aria-label':'Read more: Competitive entry'});const ev=f.click(button);await new Promise(resolve=>setImmediate(resolve));assert(ev.prevented&&ev.stopped);assert(f.getDialog().innerHTML.includes(registry.strategies[2].name.en));assert.equal(f.snapshot(),before);
  });
+ await check('Complementary guide shows actual profile sources, source reuse and unknown dates without creating state or self-reloading links',async()=>{
+  const f=fixture();
+  for(const [industry,brand,scope,expected]of [['fuel','bangchak','all_fuel',3],['grocery','grocery-brand:SEVEN_ELEVEN','C_STORE',2],['nonbank','legal:0107557000195','vehicle_title',0]]){
+   await f.h.select(industry,brand,scope);f.h.evaluate('Y.route="market";Y.lang="en"');const before=f.snapshot();await f.api.open('complementary_location',f.outside);const html=f.getDialog().innerHTML;
+   assert(html.includes('data-complementary-explanation open'));assert.equal([...html.matchAll(/data-complementary-metric="/g)].length,expected);
+   assert(html.includes('never adds Yolks or changes tiers'));assert(!html.includes('data-guide-id="complementary_location"'),'Do not reload the current guide from its own explanation');
+   if(expected)assert(html.includes('Effective date not provided in the source snapshot'));else assert(html.includes('no supported activity metric'));
+   assert.equal(f.snapshot(),before);
+  }
+ });
  const result={schemaVersion:1,test:'check-strategy-guide',version:'1.9.3',testedAt:new Date().toISOString(),passed:checks.every(c=>c.passed),checks,scope:'Actual read-only guide loader/controller, source registries, approved glyph resolution, asynchronous recovery and model/context preservation through a native-dialog-shaped adapter. Native Escape behavior, text geometry, touch, visual diagrams and screen-reader speech remain separate.'};
  const out=path.resolve(root,'../deliverables/yolk-v1.9.3/evidence/strategy-guide-results.json');fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({passed:result.passed,checks:checks.length,receipt:out}));if(!result.passed)process.exitCode=1;
 })().catch(error=>{console.error(error);process.exitCode=1});

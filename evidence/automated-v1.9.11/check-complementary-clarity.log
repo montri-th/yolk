@@ -1,0 +1,15 @@
+PASS Explanations resolve every brand/scope activity set from the real profile exactly as the assessor does
+PASS Source dates are actual factory ACTIVE April2025 and explicitly unknown hotel effective date
+PASS A distinct Demand metric from the same factory source is visibly correlated; unrelated sources are not labeled shared
+PASS Nonbank profile renders no activity source or fabricated complementary candidate
+PASS fuel: opening TH/EN role details preserves criteria, source values, Demand IDs/tiers, ordering, local/team state
+PASS grocery: opening TH/EN role details preserves criteria, source values, Demand IDs/tiers, ordering, local/team state
+PASS nonbank: opening TH/EN role details preserves criteria, source values, Demand IDs/tiers, ordering, local/team state
+PASS Selected activity cues use largest passing midrank without a duplicate-metric score
+{
+  "suite": "complementary-clarity",
+  "checks": 8,
+  "passed": 8,
+  "failures": [],
+  "evidence": "Actual read-only UI helpers and strategy engine with all37 brand/scope profiles, source periods and model snapshots in VM. Native widths, touch, physical devices and outcomes remain separate."
+}

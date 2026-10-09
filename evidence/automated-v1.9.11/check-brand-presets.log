@@ -1,0 +1,14 @@
+PASS Registry and selectors expose exactly 11 Fuel, 16 Grocery and the ordered first 10 Non-bank IDs
+PASS Every family and every supported brand/scope seed is valid and references actual CityMETER metrics
+PASS First selection applies each brand default/family without recording a team change event
+PASS Legacy registry fallback keeps accepted numeric defaults when current strategy profiles are absent
+PASS Saved custom criteria, draft, versions, weights and targets survive brand visits and browser reload
+PASS Explicit Grocery format is remembered per brand; a new brand uses its own default
+PASS National cutoff distributions remain fixed across all brand seeds, formats and province filters
+PASS Missing demand, unavailable own format and unresolved licenses stay unknown rather than zero
+PASS Srisawad group logo and office context do not upgrade the selected legal company licenses
+PASS Own selector restriction leaves the full 1,233-company comparator inventory intact
+PASS Point loading uses a local response stub and canonical relation changes with selected own identity
+PASS Actual map render pairs DS shield/swords with own/competitor captions in both languages
+PASS Optional local logo registry uses exact known IDs and its bundled bytes match recorded hashes
+{"passed":true,"checks":13,"elapsedMs":8949,"report":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.0/brand-preset-regression-results.json"}

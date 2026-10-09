@@ -1,7 +1,7 @@
 /* One persistent Leaflet view. Colours express confirmed signal tiers, never measured customers. */
 (function (global) {
  'use strict';
- const MAX_POINTS=1000, MAX_AREAS=1500, POINT_GRID_PX=56, DETAIL_POINT_LIMIT=120, NARROW_DETAIL_POINT_LIMIT=60, POINT_HIT_PX=9;
+ const MAX_POINTS=1000, MAX_AREAS=1500, POINT_GRID_PX=56, DETAIL_POINT_LIMIT=500, NARROW_DETAIL_POINT_LIMIT=250, POINT_HIT_PX=9;
  // A navigational guard around Thailand, with room for border/coastal context.
  // This display extent is never an administrative boundary or a data filter.
  const THAILAND_VIEW_BOUNDS=[[4.5,96.3],[21.5,106.7]];

@@ -1,0 +1,18 @@
+PASS POI identity uses the actual competitor brand, not selected own brand
+PASS relationship has readable label plus shield/swords/review cue
+PASS source status stays visible, source date does not certify current operation
+PASS native map editor hook preserves exact POI ID
+PASS Street View uses the official Maps URL and original coordinates
+PASS missing/invalid coordinates never turn into a Street View zero-point
+PASS Google AI Mode and plain Search carry the same user-visible question
+PASS question uses branch, location and own-brand expansion context
+PASS each supported industry asks for relevant field-study evidence
+PASS public search context excludes notes, personal data, metrics and implicit outcomes
+PASS Thai copy is explicit and does not rely on raw ligature labels
+PASS unknown/missing marks keep brand text without inventing a brand graphic
+PASS historical wordmarks cannot bypass the verified compact-graphic gate
+PASS official theme-limited mark provides a neutral dark fallback
+PASS all external actions are user-activated links with safe new-tab semantics
+PASS source labels and IDs are escaped without changing the record
+PASS new popup CSS has no logo frame, crop or invented analytical colours
+POI POPUP REGRESSION: 17 PASS

@@ -1,0 +1,9 @@
+PASS Evidence neutral tokens match complete pinned LDS 0.9.7 machine contract exactly
+PASS Numeric zero keeps exact lowest LUT fill on both themes and distinct solid 2px outline
+PASS Null, suppression, out-of-scope and future-cycle values stay null with separate cues
+PASS 0/0 inventory share is undefined; zero own with positive competition is known 0 percent
+PASS Below Demand cutoff is known category with bare basemap, distinct from missing and review
+PASS Legend states are separate and fully localised; analytical LUT stays 41 samples
+PASS Suppressed Demand and denominator values never leak source amount into governed result
+PASS Map SVG installs source hatch defs once, and label text stays outside hatch swatches
+{"test":"check-map-evidence-states","passed":true,"checks":8,"scope":"Production helper and actual pinned DS machine contract; synthetic values and SVG mock; rendered both-theme QA separate"}

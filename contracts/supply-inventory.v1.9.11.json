@@ -1,0 +1,417 @@
+{
+  "schemaVersion": "yolk.supply_inventory_display/1.9.11",
+  "version": "1.9.11",
+  "date": "2026-10-09",
+  "status": "final_runtime_values_current_QA_bound",
+  "scope": "Retained direct-source count/share and brand composition, with current v1.9.11 source bindings and fresh QA pending. All-point rendering never replaces native administrative inventory. Weighted Supply uncertainty and decision-flow corrections are separately declared; no global ranking-invariance claim is made.",
+  "coreSemantics": {
+    "criteria": "1.9.0",
+    "profiles": "1.9.0",
+    "engine": "1.9.0",
+    "industryIds": [
+      "fuel",
+      "grocery",
+      "nonbank"
+    ],
+    "sourceMetricCatalogSize": 25,
+    "sourceReportingUUIDs": 7954,
+    "newDerivedDisplayMetricsNotNewSourceDatasets": true
+  },
+  "invariants": {
+    "demandTierAndEligibleIdsUnchanged": true,
+    "sourceVectorsAndPOICoverageSeparate": true,
+    "sameMapCameraAndNavigation": true,
+    "noTeamEventOrSourceMutation": true,
+    "unknownNotZeroOrCompetitor": true,
+    "originalLogosFontsAndLUTsUnchanged": true,
+    "parentClickChildPaintHierarchyPreserved": true,
+    "singleBoundaryHoverOwner": true,
+    "numericalSupplyPresetsUnchanged": true,
+    "displayDoesNotMutateAnalyticalInputs": true
+  },
+  "metrics": {
+    "identifiedTotal": {
+      "viewMetric": "count",
+      "relation": "total",
+      "formula": "own + identified competitors",
+      "unit": "source branch records",
+      "unknownExcluded": true,
+      "unclassifiedScopeEvidence": "Not silently classified; retain source count separately and comparison bounds/review",
+      "intervalPolicy": "Retain current own/competitor count bounds. No midpoint or upper bound is presented as an exact measured count."
+    },
+    "ownBranchShare": {
+      "viewMetric": "share",
+      "relation": "own_fixed_for_this_metric",
+      "labelMeaning": "Our share of identified source branch inventory; not sales market share, capacity, customers or verified operating branches",
+      "formula": "100 * own / (own + identified competitors)",
+      "formulaAST": {
+        "op": "multiply",
+        "args": [
+          100,
+          {
+            "op": "divide",
+            "numerator": {
+              "field": "own"
+            },
+            "denominator": {
+              "op": "add",
+              "args": [
+                {
+                  "field": "own"
+                },
+                {
+                  "field": "competitor"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "unit": "% of identified branch inventory",
+      "denominator": "Own + identified competitor branch records within the same selected industry/format/license scope, geography and source basis",
+      "unknownExcluded": true,
+      "exactZeroDenominator": "Count0 is known; share is null/undefined_ratio, not0%. The renderer uses an explicit empty-basis state.",
+      "validZeroPercent": "Own0 and competitor>0 means a measured0% proxy",
+      "validHundredPercent": "Own>0 and competitor0 means100% of the identified inventory only",
+      "intervalLower": "100*ownLower/(ownLower+competitorUpper) when the denominator is positive",
+      "intervalUpper": "100*ownUpper/(ownUpper+competitorLower) when the denominator is positive",
+      "uncertainty": "Scope/licence/allocation/reconciliation uncertainty stays review; expose conservative bounds with zero-denominator edge handling and never paint as an exact ratio. boundsKnown=false retains review0..100, not a guessed point.",
+      "aggregateRule": "Ratio from one compatible raw parent vector; never average local ratios, percentiles or sum ambiguous fine display links."
+    }
+  },
+  "mapPalette": {
+    "scaleId": "li.market_share",
+    "semanticReuse": "Renamed outlet-inventory proxy allowed by Location Profile evidence boundary; do not inherit the sales-share claim",
+    "source": "reference/lds-0.9.7/location-intelligence-0.9.7.json",
+    "sourceSha256": "2940c5aac3eef1242e501492b5315048c6b5f138496e8139cc116bfbba945e57",
+    "profileDocument": "reference/lds-0.9.7/Location-Intelligence-Profile-for-LDS-v0.9.7.md",
+    "profileDocumentSha256": "5d4856041709735d3a04d4a510a88b551df86c211fdcab8a0707e8fe7c9efc3b",
+    "scaleVersion": "e18af290eee81d42e63269c261628f0fa108fcd48e5cbff02b407af95a712e51",
+    "anchors": [
+      "#F0F4F9",
+      "#9BBBA6",
+      "#4B8FD8"
+    ],
+    "lut": [
+      "#F0F4F9",
+      "#ECF1F5",
+      "#E7EEF0",
+      "#E3EBEC",
+      "#DFE8E8",
+      "#DAE6E4",
+      "#D6E3E0",
+      "#D2E0DB",
+      "#CEDDD7",
+      "#C9DAD3",
+      "#C5D7CF",
+      "#C1D4CB",
+      "#BDD2C7",
+      "#B8CFC2",
+      "#B4CCBE",
+      "#B0C9BA",
+      "#ACC6B6",
+      "#A8C3B2",
+      "#A3C1AE",
+      "#9FBEAA",
+      "#9BBBA6",
+      "#97B9A9",
+      "#93B7AC",
+      "#8FB5AF",
+      "#8BB3B2",
+      "#87B1B4",
+      "#83AFB7",
+      "#7FADBA",
+      "#7BABBC",
+      "#78A9BF",
+      "#74A6C1",
+      "#70A4C4",
+      "#6CA2C6",
+      "#68A0C9",
+      "#649DCB",
+      "#609BCD",
+      "#5B99CF",
+      "#5796D2",
+      "#5394D4",
+      "#4F92D6",
+      "#4B8FD8"
+    ],
+    "samples": 41,
+    "domain": [
+      0,
+      100
+    ],
+    "classification": "41 equal-width percent bins",
+    "classIndex": "min(40,floor(value*41/100)) for valid exact0..100 percentages",
+    "intervalEdges": "Lower inclusive, upper exclusive;100 inclusive in the final bin",
+    "themePolicy": "Same exact original light LUT/HEX/direction in both themes; full analytical opacity",
+    "knownZeroCue": "Class0 with an explicit measured-zero cue; undefined/missing/review remain neutral",
+    "existingCountScale": "Original count41 LUT and fixed national same-grain quantile boundaries retained",
+    "countReference": "contracts/map-lut41.v1.7.3.json"
+  },
+  "sourceAPI": {
+    "rendererAPI": "YolkMapAnalysis.brandBreakdown(scope,options)",
+    "workspaceAPI": "YolkWorkspaceMap.supplyBreakdown()",
+    "scopeFields": [
+      "level",
+      "provinceCode",
+      "districtId",
+      "areaId"
+    ],
+    "levelAliases": {
+      "fine": "location"
+    },
+    "requiredOptions": [
+      "nativeData",
+      "fineData",
+      "industryId",
+      "ownBrandId",
+      "supplyScope"
+    ],
+    "contextOptions": [
+      "scopeIncludes",
+      "ownScopeAvailable",
+      "fineRows",
+      "supplyForRow"
+    ],
+    "geographyAdapters": {
+      "country": "nativeData.countryDimensionCounts only when native coverage.missing===0",
+      "province": "Single nativeData.provinceRows vector selected by province code via provinceContextsById",
+      "district": "Single nativeData.rows vector selected by exact native districtId",
+      "location": "Single fineData.rows vector selected by exact reporting UUID; preserve runtime fine supply bounds"
+    },
+    "returns": {
+      "rows": [
+        "brandId",
+        "name",
+        "count",
+        "party",
+        "sharePercent"
+      ],
+      "totals": [
+        "own",
+        "competitor",
+        "identifiedTotal",
+        "unknown",
+        "unclassified",
+        "excluded",
+        "sourceTotal"
+      ],
+      "ratio": [
+        "sharePercent",
+        "shareLower",
+        "shareUpper"
+      ],
+      "evidence": [
+        "state",
+        "status",
+        "reason",
+        "coverage",
+        "grain",
+        "sourceRows",
+        "sourceRowId",
+        "sourceKey",
+        "sourceMetadata",
+        "sourceContext"
+      ]
+    },
+    "indexing": "Source-object indexes/cache do not rewrite native geography, counts or affiliation"
+  },
+  "coverage": {
+    "complete": "Identified comparison counts have exact compatible source/scope/assignment evidence; does not certify complete all-provider inventory or live operations",
+    "allProvidersComplete": "Separate flag requiring no unknown or unclassified counts plus exact source comparison counts; not proof that the source has captured every operating branch",
+    "unknown": "Unidentified U remains separate and is excluded from O+C and all share denominators",
+    "unclassified": "Non-bank licence/scope evidence not yet resolved; keep separate and conservative comparison bounds",
+    "excluded": "Exact known source dimensions outside selected format/license scope; not missing evidence",
+    "missingPolicy": "Missing/failed/invalid/suppressed/out-of-scope/not-yet sources do not become0 or stale exact shares",
+    "treemapInReview": "Observed source count rectangles may remain with visible incomplete/review caption; percentages withheld. No residual, upper-bound allocation or inferred branch is plotted."
+  },
+  "industryEvidence": {
+    "fuel": {
+      "dimension": "source brand key",
+      "nativeAllInventory": 8736,
+      "nativeUnknownU": 3130,
+      "nativeIdentifiedBeforeNarrowerScope": 5606,
+      "limit": "UNKNOWN is not unbranded or a competitor; merged source inventory does not certify current fuel types or operations"
+    },
+    "grocery": {
+      "dimension": "format:trade-brand key; filter exact selected format first",
+      "nativeAllCategoryInventory": 27608,
+      "limit": "PHARMACY and other formats are excluded when out of selected scope; do not infer current format/offerings from brand identity. Preserve known reconciliation bounds."
+    },
+    "nonbank": {
+      "dimension": "Exact legal-company ID and source-supported licence scope; office_context is direct office inventory",
+      "nativeAllOfficeInventory": 23524,
+      "legalCompanyDimensions": 1233,
+      "limit": "Top10 selectable identities do not truncate competitors. Licence family is potential company scope, not branch-level offering; preserve assignment residual and licence uncertainty."
+    },
+    "sourceFiles": [
+      "prototype/data/real/fuel-district-supply.json",
+      "prototype/data/real/grocery-district-supply.json",
+      "prototype/data/real/nonbank-district-supply.json",
+      "prototype/data/real/fuel-supply.json",
+      "prototype/data/real/grocery-supply.json",
+      "prototype/data/real/nonbank-supply.json"
+    ],
+    "commonLimits": "Source inventory, source time and display geometry remain evidence-specific; coordinates and team POI edits never substitute for native area totals."
+  },
+  "treemap": {
+    "runtimeFiles": [
+      "prototype/supply-treemap.js",
+      "prototype/supply-treemap.css"
+    ],
+    "renderer": "YolkSupplyTreemap",
+    "areaMeaning": "Each rectangle area represents its observed source branch-count fraction; not sales/physical capacity or uncertain upper-bound share",
+    "panelMaximumRectangles": 10,
+    "panelGrouping": "Keep positive own row +8 largest identified competitors + Other when needed; Other is an exact sum with inspectable named members",
+    "hoverMaximumRectangles": 5,
+    "hoverGrouping": "Compact count composition with exact Other aggregation and own row retained when positive",
+    "brandListInitialRows": 40,
+    "brandListMoreStep": 40,
+    "brandListCompleteness": "A readable nonspatial list explicitly reveals additional40-row batches; no silent record truncation",
+    "identity": "Original verified brand graphic and readable name where supported; theme fallback is retained, never crop/recolor/frame",
+    "palette": "Exact retained landometer-series-10-v8 separate light/dark categorical soft-fill/ink token values. Frozen source-logo-hue→family mapping in YolkSupplyTreemap.brandSeries; 37 identity rows/35 original artwork SHA bindings, explicit COSMO/PURE and unknown-ID hash fallback; monochrome and exact Other neutral09. No synthesized HEX or logo recolor.",
+    "scopeOwner": "Panel follows current navigation unless actively inspecting hover; country hover uses province vector, province hover uses district vector, district hover uses fine reporting row. Clear/Escape restores selected navigation scope. Child paint is not a parent total.",
+    "accessibility": "Decorative rectangle layer aria-hidden; named numeric nonspatial list and disclosure remain accessible. Missing/empty/review/loading have explicit captions.",
+    "interaction": "Read-only composition and More disclosure; no criterion Apply, source write, team event or forced navigation",
+    "UIRuntimeStatus": "Frozen1.9.11 colors/number display with actual current bounded automated/native bindings. One actual hover is not all-boundary coverage.",
+    "colorAuthority": "contracts/visual-refinement.v1.9.11.json",
+    "colorMapping": {
+      "path": "prototype/supply-treemap.js",
+      "export": "YolkSupplyTreemap.brandSeries",
+      "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c",
+      "brandBindings": 37,
+      "verifiedArtworkBindings": 35,
+      "themePolicy": "Use exact original LDS separate light/dark categorical soft-fill/ink CSS token values (--ldm-series-NN-fill-light/dark); identity family stable across themes. These approved categorical theme tables are separate from unchanged quantitative/Story/Location data HEX."
+    },
+    "hoverDisplaySurface": "Full chart moves to existing side-panel breakdown; only compact textual metric lives in dock outside Leaflet. No chart/tooltip blocks map clicks."
+  },
+  "implementationSteps": [
+    "Read the pinned source dimensions/scope adapters and test exact0/100/undefined ratios and unknown coverage first.",
+    "Implement the pure direct-vector count/share API with source rows, bounds and explicit flags. Preserve source inputs and numerical presets; honor v1.9.11 weighted unknown-supply handling rather than asserting unchanged rankings.",
+    "Add fixed0..10041-LUT share alongside existing count/rate maps; totalcount uses relationtotal.",
+    "Reuse one treemap renderer in panel and the single boundary-hover owner, with compact/full limits and named list disclosure.",
+    "Test current raw-source/format/licence/geography/interval cases and all new renderer cases; inspect actual TH/EN narrow/desktop and theme contrast.",
+    "Bind fresh current suites/native screenshots/runtime SHA, update the full document, then allow release owner to reseal/source/provider/live/package."
+  ],
+  "productionPlan": {
+    "readOnlyAdapter": "Reproduce the same source/scope/preset/version keyed derived projection in the production analysis service; preserve tenant-authorized source access. The browser API is not proof of a shared server endpoint.",
+    "outputContract": "Source metadata, direct grain/UUID, counts/ratios/bounds, coverage and named brand list must travel together. Cache by source hash/industry/own brand/scope/geography; reject stale context work.",
+    "laterEvidence": "Sales share, capacity, traffic, customer capture and branch-level offerings need later verified evidence and independent metric names."
+  },
+  "acceptance": [
+    "Native parent vectors supply parent totals/distribution; no LAO crosswalk or POI-marker rollup.",
+    "Unknown U and unresolved licence evidence never silently become own/competitor exact counts.",
+    "O+C count0 stays known while0/0 share remains undefined; valid0/100 ratios retain percentage domain.",
+    "Exact fixed-domain41 share LUT matches pinned LDS bytes in both themes; no percentile stretch/opacity or color transformation.",
+    "Every plotted rectangle equals observed count fraction; Other preserves total and own remains inspectable.",
+    "Compact/full/list limits are explicit and actual labels remain readable; one actual hover is bounded evidence, not all-boundary coverage.",
+    "The inventory display does not mutate Demand thresholds, numerical Supply presets, saved criteria, source vectors, map scope or team records. Retained1.9.9 weighted-model and captured-decision safeguards remain governed separately."
+  ],
+  "verification": {
+    "requiredSuites": [
+      "scripts/check-supply-market-share.cjs",
+      "scripts/check-supply-treemap.cjs"
+    ],
+    "status": "pending_current_verification",
+    "integrated": {
+      "status": "PASS",
+      "receipt": "evidence/automated-v1.9.11.json",
+      "receiptSha256": "1a2eca9ad4b279a07effd260a9e161bbf12467b0e43a6358339052c807968fba",
+      "suites": 44,
+      "reportedPassedCases": 747,
+      "requiredSuiteResults": [
+        {
+          "suite": "scripts/check-supply-market-share.cjs",
+          "testedAt": "2026-10-09T12:54:31.589839+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "b50c020b75c4be4105b86e60220f9e2788fc0fb75f6a55b197b48900dde5861b",
+          "outputSha256": "5b0f4a5493d2fd99338999c996642a3d01394a2a053c9dab09f108b21be2cc23",
+          "passLines": 8,
+          "checks": 8,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "evidence/automated-v1.9.11/check-supply-market-share.log"
+        },
+        {
+          "suite": "scripts/check-supply-treemap.cjs",
+          "testedAt": "2026-10-09T12:54:32.602715+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "32a6af61c64e8724dfa0cabbaaf11c39e2409b056f2b1ba541fd0709030b9e09",
+          "outputSha256": "358f50ba133725a2d6bc4191a36686e44a1ae4856368621aa5fdeb11e8c718da",
+          "passLines": 24,
+          "checks": 24,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "evidence/automated-v1.9.11/check-supply-treemap.log"
+        }
+      ]
+    },
+    "native": {
+      "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "receipt": "evidence/browser-v1.9.11/native-browser-review.json",
+      "receiptSha256": "2a150361635fc395c956f0237415c0cee57e827ab702eb64640ef6185687b84a",
+      "review": {
+        "passed": true,
+        "checkIds": [
+          "supply_source_share_and_treemap"
+        ],
+        "scope": "ActualBangchakcountry count/shareandtreemap only; direct-sourcevsPOI distinction retained"
+      },
+      "actualSnapshotFiles": 20,
+      "scope": "Actual bounded local Chrome UI observations of the current four-request patch, selected desktop/narrow Thai/English and themes. Activity long-note evidence is explicitly synthetic/read-only through exact production renderers. Screenshots after catalog contrast fix only. Not all-brand/device/screen-reader/business-effect certification."
+    },
+    "publication": "not_performed_by_contract"
+  },
+  "nativeEvidence": {
+    "review": {
+      "passed": true,
+      "checkIds": [
+        "supply_source_share_and_treemap"
+      ],
+      "scope": "ActualBangchakcountry count/shareandtreemap only; direct-sourcevsPOI distinction retained"
+    },
+    "renderedChecks": [
+      {
+        "id": "supply_source_share_and_treemap",
+        "passed": true,
+        "details": "Bangchak nativecount source identified5606,own1561,ownshare27.8%;10treemapcellswithretainedDS mapping. Sharemetricselect displayedfixed0..100legend; mapexternalhoverdock remainsoutsideLeaflet. Actual1440light/darkcount/share andtreemap screenshots; noallboundaryhover claim.",
+        "status": "PASS"
+      }
+    ],
+    "reviewedRegistries": [
+      {
+        "path": "prototype/supply-treemap.js",
+        "bytes": 22806,
+        "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+      },
+      {
+        "path": "prototype/data/brand-demo-links.json",
+        "bytes": 52446,
+        "sha256": "85fa56e15873a5687515fbe79625bc4656e60f4032daaa7a799d2cc29360ba73"
+      }
+    ],
+    "scope": "Actual bounded source count/share/brand-color composition checks; no all-brand/all-boundary/physical-device or production certificate."
+  },
+  "semanticChangeBoundary": {
+    "protected": "Demand definitions and eligibility thresholds, numerical industry/brand presets, source dataset bytes, original artwork and exact LDS values are retained.",
+    "corrected": "The retained v1.9.9 weighted model handles missing/suppressed/invalid Supply and unknown-supply bounds explicitly. Captured decision criteria and incomplete/unsupported Strategy queues also change behavior; analytical outputs are not globally asserted unchanged.",
+    "authority": "contracts/red-team-remediation.v1.9.11.json"
+  },
+  "runtimeSources": [
+    {
+      "path": "prototype/supply-treemap.js",
+      "bytes": 22806,
+      "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+    },
+    {
+      "path": "prototype/supply-treemap.css",
+      "bytes": 8019,
+      "sha256": "098a9af81f52fb1f3888f5d7c0ab66bf3f8bdc6d823a7851e295d8636996726e"
+    },
+    {
+      "path": "prototype/map-hover.js",
+      "bytes": 10421,
+      "sha256": "cb1578b82452cd33007a32dd7394bf02d074484a35843a95b7199a23c5ab910f"
+    }
+  ]
+}

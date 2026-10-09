@@ -26,3 +26,16 @@
 .strategy-flow a:where(:link,:visited){color:var(--accent);text-decoration:none}
 .strategy-flow a:hover .control-caption{text-decoration:underline;text-underline-offset:4px}
 .strategy-flow a .yl-icon{text-decoration:none}
+/* Keep role/source explanations read-only and progressive at any work-panel width. */
+.strategy-role-explanation{margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);min-width:0;container-type:inline-size}
+.strategy-role-explanation>summary{display:flex;align-items:center;gap:8px;min-height:44px;cursor:pointer;font-size:15px;line-height:1.6;color:var(--accent)}
+.strategy-role-explanation>summary span{min-width:0;overflow-wrap:anywhere}
+.strategy-role-comparison{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
+.strategy-role-comparison>div{border:1px solid var(--line);border-radius:8px;padding:12px;min-width:0;background:var(--canvas)}
+.strategy-role-comparison strong{display:flex;align-items:flex-start;gap:6px;font-size:16px;line-height:1.6}
+.strategy-role-explanation p{font-size:15px;line-height:1.7;overflow-wrap:anywhere}
+.strategy-source-list{list-style:none;padding:0;margin:12px 0;display:grid;gap:8px}
+.strategy-source-list li{display:grid;gap:3px;min-width:0;overflow-wrap:anywhere;font-size:15px;line-height:1.65}
+.strategy-source-list span,.strategy-source-list small,.strategy-role-cue{font-size:14px;color:var(--muted);line-height:1.65}
+.strategy-role-comparison .yl-icon{flex:0 0 24px}.strategy-role-comparison .yolk-demand-icon{flex:0 0 auto}
+@container(min-width:600px){.strategy-role-comparison{grid-template-columns:repeat(2,minmax(0,1fr))}}

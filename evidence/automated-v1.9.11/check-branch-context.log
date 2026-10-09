@@ -1,0 +1,180 @@
+{
+  "checks": [
+    {
+      "name": "Required reusable context APIs are available",
+      "passed": true
+    },
+    {
+      "name": "Blank, partial and invalid coordinates remain missing instead of becoming zero",
+      "passed": true
+    },
+    {
+      "name": "Valid numeric zero and source decimal coordinates remain exact",
+      "passed": true
+    },
+    {
+      "name": "Strict interior is distinct from exterior",
+      "passed": true
+    },
+    {
+      "name": "Every square edge and vertex is a boundary, never an automatic interior assignment",
+      "passed": true
+    },
+    {
+      "name": "Polygon holes exclude their interior and retain the hole-edge boundary",
+      "passed": true
+    },
+    {
+      "name": "MultiPolygon includes either component without filling the gap",
+      "passed": true
+    },
+    {
+      "name": "Invalid points and unsupported/malformed geometry never become candidates",
+      "passed": true
+    },
+    {
+      "name": "Overlapping polygons retain both candidates rather than claiming a unique assignment",
+      "passed": true
+    },
+    {
+      "name": "A shared polygon edge retains boundary candidates on both sides",
+      "passed": true
+    },
+    {
+      "name": "The reported source coordinate has exactly one strict province match across all 77 provinces",
+      "passed": true
+    },
+    {
+      "name": "The source coordinate has exactly one strict native district match across 928 districts",
+      "passed": true
+    },
+    {
+      "name": "All 7,954 fine source polygons produce one strict Suwannaphum local-authority candidate",
+      "passed": true
+    },
+    {
+      "name": "A new nationwide record never inherits an old selected sample area or forced Bangkok",
+      "passed": true
+    },
+    {
+      "name": "A new record uses the current province but does not invent its fine location",
+      "passed": true
+    },
+    {
+      "name": "A district context narrows geography without choosing an arbitrary fine location",
+      "passed": true
+    },
+    {
+      "name": "A current fine-location context seeds its real reporting UUID and parent province",
+      "passed": true
+    },
+    {
+      "name": "Existing source fields override unrelated map/filter defaults without mutating the record",
+      "passed": true
+    },
+    {
+      "name": "A known source province is retained even when fine membership is unresolved",
+      "passed": true
+    },
+    {
+      "name": "An unknown source province does not inherit unrelated current map geography",
+      "passed": true
+    },
+    {
+      "name": "Explicit Our stores context seeds the canonical selected identity while remaining pending",
+      "passed": true
+    },
+    {
+      "name": "Cold Fuel suggestions contain every known source brand despite an empty point cache",
+      "passed": true
+    },
+    {
+      "name": "Canonical identity accepts actual aliases and registry display names without fuzzy invention",
+      "passed": true
+    },
+    {
+      "name": "An existing identity remains usable when the source label is absent",
+      "passed": true
+    },
+    {
+      "name": "A recognized new identity is not overwritten by an unrelated previous brand ID",
+      "passed": true
+    },
+    {
+      "name": "Industry changes refresh cold suggestions and do not resolve an unrelated industry alias",
+      "passed": true
+    },
+    {
+      "name": "Non-bank source identity resolves despite harmless whitespace differences",
+      "passed": true
+    },
+    {
+      "name": "Context suggestions and classification never write records, criteria or aggregate supply",
+      "passed": true
+    },
+    {
+      "name": "An automatic coordinate hint fills the actual candidate and records its spatial evidence",
+      "passed": true
+    },
+    {
+      "name": "Changing coordinates invalidates an old automatic hint immediately, before debounce or response",
+      "passed": true
+    },
+    {
+      "name": "Typing coordinates also invalidates automatic map-context defaults before the first lookup",
+      "passed": true
+    },
+    {
+      "name": "Invalid coordinate typing clears automatic values and does not keep old assignment evidence",
+      "passed": true
+    },
+    {
+      "name": "Outside-coordinate resolution leaves automatic geography unresolved rather than keeping an old location",
+      "passed": true
+    },
+    {
+      "name": "A failed geometry lookup cannot revive previous automatic location or assignment evidence",
+      "passed": true
+    },
+    {
+      "name": "Manual location choices survive invalid/outside coordinates and geometry failure",
+      "passed": true
+    },
+    {
+      "name": "A late lookup result cannot replace newer coordinates, manual area choice or another route",
+      "passed": true
+    },
+    {
+      "name": "Known branch typing follows canonical relation and explicit Our stores fills its canonical brand",
+      "passed": true
+    },
+    {
+      "name": "Map coordinate resolution returns source candidates without moving the persistent camera or changing aggregates",
+      "passed": true
+    }
+  ],
+  "passed": 38,
+  "total": 38,
+  "observations": {
+    "province": {
+      "code": "45",
+      "sha256": "ee184e559b88e03d698eded14824127d7ab8df57b1d679fcd68d95dabcdc464b"
+    },
+    "district": {
+      "code": "4511",
+      "sha256": "ba2da7ebf176d7741814a0d36e39355ec28d58939cd1fb2de0b808f4d97cf79c"
+    },
+    "fine": {
+      "province": "45",
+      "name": "เทศบาลตำบล สุวรรณภูมิ",
+      "sha256": "1ff1119f6a551665048d18197087dfd3d52d8cd5fa6a2d181525871ac17f80da",
+      "universeCount": 7954,
+      "legalBoundaryIndependentlyVerified": false
+    },
+    "limits": [
+      "Local source geometries support display candidates, not independently checked statutory assignment.",
+      "Same coordinates do not establish physical branch identity.",
+      "Pure/context checks do not substitute for native browser typing, dropdown, async race and mobile usability QA."
+    ]
+  }
+}

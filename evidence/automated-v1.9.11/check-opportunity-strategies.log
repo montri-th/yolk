@@ -1,0 +1,65 @@
+PASS Eight new canonical strategies are not the historical D/C/B patterns
+PASS Machine contract IDs and actual engine metadata agree
+PASS A fourth joint strategy is rejected, duplicates do not consume choices
+PASS Unknown strategy is rejected rather than inventing an assessment
+PASS Profile defaults determine the view without altering criteria
+PASS Per-scope profile overrides select supported format-specific starter strategies
+PASS Assessment trace retains supplied source, criteria and profile versions without creating dates
+PASS Empty selection yields no candidates but retains the Demand counter
+PASS Demand false, missing, ineligible and disallowed Tier never qualify
+PASS Low combined supply is an underserved survey cue, not a confirmed opportunity
+PASS High total supply is not low merely because our branches are absent
+PASS Observed zero and unknown inventory produce different states
+PASS Unknown-brand U is a joint allocation added to total only once
+PASS Intervals crossing reference remain incomplete; upper below reference qualifies
+PASS Non-bank residual bounds never become repeated actual branch allocations
+PASS Unavailable assignment bounds cannot be mistaken for exact observed absence
+PASS Noninteger or unavailable own-scope counts cannot be used as absence
+PASS Relative reference uses extensive denominator and exact normalization
+PASS Zero, missing, negative and infinite market denominators cannot fabricate low supply
+PASS A percentile score cannot be chosen as a market-size denominator
+PASS Confirmed rival presence supports research, never a proof of winning
+PASS Unknown rivals without a confirmed lower bound remain incomplete
+PASS Explicitly noncomparable submarket prevents supply strategy matches
+PASS Low own supply starts network investigation independently of competitor presence
+PASS Complementary queues use observed positive activity with explicit midrank
+PASS Corporate-profile activity relevance is respected; population alone is not a complementary anchor
+PASS Missing activity is incomplete, reported zeros and below reference are not supported
+PASS Unsupported anchor data and more than three activity choices are rejected
+PASS Segment, cluster, route and future do not fabricate scores or certainty in P0
+PASS Every candidate has bilingual reasons, source references, missing data and a concrete next action
+PASS Metric provenance preserves actual date, source field, unit and no hotel-date invention
+PASS Strategy sorting is deterministic and inputs/history stay byte-equivalent
+PASS fuel: real national strategy queues preserve current Demand, supply bounds, events and source order
+PASS fuel: all eight selected views leave the real eligible ID set unchanged
+PASS grocery: real national strategy queues preserve current Demand, supply bounds, events and source order
+PASS grocery: all eight selected views leave the real eligible ID set unchanged
+PASS nonbank: real national strategy queues preserve current Demand, supply bounds, events and source order
+PASS nonbank: all eight selected views leave the real eligible ID set unchanged
+PASS Khan Ham reproduces sourced worker activity cue without inventing opening hours or purchases
+{
+  "suite": "opportunity-strategies",
+  "checks": 39,
+  "passed": 39,
+  "observations": {
+    "fuel": {
+      "nationalRows": 7954,
+      "demandEligibleCount": 1067,
+      "opportunityViewCount": 1031,
+      "evidenceIncompleteCount": 31
+    },
+    "grocery": {
+      "nationalRows": 7954,
+      "demandEligibleCount": 2859,
+      "opportunityViewCount": 2805,
+      "evidenceIncompleteCount": 5
+    },
+    "nonbank": {
+      "nationalRows": 7954,
+      "demandEligibleCount": 2298,
+      "opportunityViewCount": 1163,
+      "evidenceIncompleteCount": 1135
+    }
+  },
+  "evidence": "Pure arithmetic + real national CityMETER VM/source snapshots; no visual, operations, backend or business-outcome claim"
+}

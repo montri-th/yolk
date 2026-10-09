@@ -1,0 +1,12 @@
+PASS Unknown brand is reviewed rather than certified unbranded or forced competitor
+PASS Positive denominator is mandatory and does not infer empty network
+PASS Uncertain branch identity remains evidence even with one historical pattern; it does not reject confirmed Demand
+PASS Unknown Demand is separate from pattern review and exposes missing metrics
+PASS Current tier explanation removes all eight pattern controls and keeps the three Demand meanings
+PASS Inspection changes no criteria, source, events, shortlist or ranking
+PASS Review copy is bilingual and does not offer a fake approval action
+PASS Current body and location detail explain Demand plus Supply evidence without pattern selection
+PASS Grocery reconciliation is explained separately from unknown brands
+PASS Nonbank residuals require record-level area assignment and are never auto allocated
+PASS Demand cards have a separate accessible shortlist control and reuse existing workspace action
+LOCATION REVIEW REGRESSION: 11 PASS

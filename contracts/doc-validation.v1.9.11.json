@@ -1,0 +1,64 @@
+{
+  "version": "1.9.11",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 1,
+  "tasks": 25,
+  "checks": [
+    {
+      "name": "One current embedded JSON exactly matches standalone",
+      "passed": true
+    },
+    {
+      "name": "Complete 25 dependency-ordered implementation tasks retained",
+      "passed": true
+    },
+    {
+      "name": "Protected source/profiles/Demand definitions unchanged",
+      "passed": true
+    },
+    {
+      "name": "Production/API/schemas remain complete proposed implementation",
+      "passed": true
+    },
+    {
+      "name": "Current counts reconcile",
+      "passed": true
+    }
+  ],
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.11.md",
+    "sha256": "5c7aa0aaace45f47094b632745102b423e4bf49676f942da15d8ce4ad30ff583"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.11.json",
+    "sha256": "b995637aa5577e87d1df8c98b0de8cb50e9f794d3b7a055110f56c7f4e883ff4"
+  },
+  "narrativeRegistry": {
+    "path": "prototype/data/strategy-guide.v1.9.3.json",
+    "sha256": "04aad69b6b3ec79cfae0923a6b743ce9807c1ce63798d04a15e58ec7775ad080"
+  },
+  "mapReadabilityContract": {
+    "path": "contracts/map-readability.v1.9.6.json",
+    "sha256": "89553b810dd166ff0ce21e30cdabe4b241597f2bf3154201dc6f3b881c89e161"
+  },
+  "supplyInventoryContract": {
+    "path": "contracts/supply-inventory.v1.9.11.json",
+    "sha256": "cc71e32e1d5e22d0a3efc287ffe0eb532b2e3d4a81f325c3a3f134987da2b232"
+  },
+  "visualRefinementContract": {
+    "path": "contracts/visual-refinement.v1.9.11.json",
+    "sha256": "88037118a5578f15767b8946ba828a6061e1286e167791fccc5742265a3f605b"
+  },
+  "brandColorRegistry": {
+    "path": "prototype/supply-treemap.js",
+    "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+  },
+  "brandDemoActivityContract": {
+    "path": "contracts/brand-demo-activity.v1.9.11.json",
+    "sha256": "f330a5ee6df0c9877252efa52bcd8de749a7578bc34bbcf0b6c5188ff8a080cb"
+  },
+  "branchPointsContract": {
+    "path": "contracts/branch-points.v1.9.11.json",
+    "sha256": "df0d5017d1ba4c3f289ddd35e32435eb39175dea93e0b7caf052e16d3060c380"
+  }
+}

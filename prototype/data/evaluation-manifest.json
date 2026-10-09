@@ -1,13 +1,13 @@
 {
   "schemaVersion": "yolk.evaluation-manifest/1.0",
   "app": {
-    "release": "1.9.10",
+    "release": "1.9.11",
     "binding": "Exact semantic runtime files; source commit is attested separately after commit to avoid self-reference.",
     "runtimeFiles": [
       {
         "file": "bootstrap.js",
-        "sha256": "fa599d3a7de4ef664900365bd6af23aba328e13daba59e478e3a6a9ad54d4ca0",
-        "bytes": 5821
+        "sha256": "af3f16d5de6d58a480260286ee1853da49f90821b5ebad0f22edd2896ccdb9fa",
+        "bytes": 5974
       },
       {
         "file": "metrics.js",
@@ -26,8 +26,8 @@
       },
       {
         "file": "brand-experience.js",
-        "sha256": "f6e08b9fa2fd747a2465728e336b08eca590d206ec5d0972d0c067813669e354",
-        "bytes": 8571
+        "sha256": "4109e845448decfaa9511cd740631a253a92a1501040a0ba6aeda17e16be73d0",
+        "bytes": 8621
       },
       {
         "file": "demand-factors.js",
@@ -36,8 +36,8 @@
       },
       {
         "file": "industry-workspace.js",
-        "sha256": "cc1c763b983440355b3dcfa9792f28e5ea8947be57f6a2b5dbea112de9126920",
-        "bytes": 24279
+        "sha256": "39e1d2dba8e1212793dc13af6c298d2f2454f7cb75f10c17a8cfc669864acdba",
+        "bytes": 24476
       },
       {
         "file": "opportunity-engine.js",
@@ -51,8 +51,8 @@
       },
       {
         "file": "strategy-ui.js",
-        "sha256": "ea8a38ec67afaf4a2332bb3538b2e9d1d522310533eb9e8aecacc2ab2fe748b7",
-        "bytes": 27495
+        "sha256": "c065253f5658b18f7007482662ed0539e49e797477ac02906b8bae33969c027f",
+        "bytes": 34454
       },
       {
         "file": "decision-ui.js",
@@ -61,8 +61,8 @@
       },
       {
         "file": "app.js",
-        "sha256": "a9f717915c026bb41c923c938d8d4fb5e45edc894a4e9cc386ca470e697d2964",
-        "bytes": 85803
+        "sha256": "e2f32854e65ad67e150bd0fdade8b4dc1adaa5458cc3c9529620648b0e9f8bb7",
+        "bytes": 87946
       }
     ]
   },
