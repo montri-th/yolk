@@ -337,7 +337,7 @@
   },
   "failureHandling": {
     "status": "current_QA_bound",
-    "scope": "Explicit map-source retry and browser-local write failures; current QA receipt pending",
+    "scope": "Explicit map-source retry and browser-local write failures; current bounded QA receipt linked",
     "mapSources": {
       "control": "[data-workspace-source-retry]",
       "api": [
@@ -352,7 +352,7 @@
   "api": {
     "setPointMode": "setPointMode('all'|'groups')",
     "getPointMode": "getPointMode() defaults all",
-    "state": "getState().pointMode; pointLimit(null in all,1000 in groups), groupPointLimit1000, detailPointLimit adaptive120wide/60narrow; pointCanvas {records,lastDrawMs,frames,pending,epoch}; overlap {total,filteredTotal,page,pageSize:12,query,brand}; points {total,shown,represented,clusters,coordinateState,cellPx,mode,renderer,detailMarks,canvasMarks,overlapGroups}",
+    "state": "getState().pointMode; pointLimit(null in all,1000 in groups), groupPointLimit1000, detailPointLimit adaptive500wide/250narrow,width<600CSSpx; pointCanvas {records,lastDrawMs,frames,pending,epoch}; overlap {total,filteredTotal,page,pageSize:12,query,brand}; points {total,shown,represented,clusters,coordinateState,cellPx,mode,renderer,detailMarks,canvasMarks,overlapGroups}",
     "modeMeaning": "all = all filtered valid coordinates; groups = explicit optional screen-space groups",
     "retry": "retrySources() explicitly retries failed current map sources; sourceRetryState() reports pending/error source state"
   },

@@ -108,8 +108,8 @@
     },
     {
       "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.11.md",
-      "bytes": 507134,
-      "sha256": "5c7aa0aaace45f47094b632745102b423e4bf49676f942da15d8ce4ad30ff583"
+      "bytes": 507157,
+      "sha256": "7665554f4fe77277cb9b480040293bd52513a5e87b736e28d53916bdf1939bf9"
     },
     {
       "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.2.md",
@@ -408,8 +408,8 @@
     },
     {
       "path": "contracts/branch-points.v1.9.11.json",
-      "bytes": 23825,
-      "sha256": "df0d5017d1ba4c3f289ddd35e32435eb39175dea93e0b7caf052e16d3060c380"
+      "bytes": 23848,
+      "sha256": "7dd88df9c4dbae2c7e8e195f4e24ed5ac3a4b6f0eb157dab1010509e0057274f"
     },
     {
       "path": "contracts/branch-points.v1.9.8.json",
@@ -464,7 +464,7 @@
     {
       "path": "contracts/doc-validation.v1.9.11.json",
       "bytes": 2158,
-      "sha256": "0ce8a54038a8ff451d427eeeb91e151c027aa7b6d6e38ecfe4d1acfce17bdaa5"
+      "sha256": "8c7521e9ae711d496c5be797b5453b7a877644e51ab3114f820fa61f543b71bc"
     },
     {
       "path": "contracts/doc-validation.v1.9.2.json",
@@ -528,8 +528,8 @@
     },
     {
       "path": "contracts/full-product.v1.9.11.json",
-      "bytes": 436151,
-      "sha256": "b995637aa5577e87d1df8c98b0de8cb50e9f794d3b7a055110f56c7f4e883ff4"
+      "bytes": 436174,
+      "sha256": "3e567dd992ca601845670a0bdf8ed7f919fc633a814f279329746c896f99361a"
     },
     {
       "path": "contracts/full-product.v1.9.2.json",
