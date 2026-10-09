@@ -1,0 +1,9 @@
+PASS Identified own share excludes known/unknown U and distinguishes observed 0%, 100% and an undefined empty denominator
+PASS Share intervals retain source role bounds; assignment uncertainty is never painted as an exact ratio
+PASS Share choropleth consumes exact li.market_share41 LUT with an immutable 0–100% domain, independent of cohort and viewport
+PASS Brand composition reads one direct native country/province/district row; it never sums source LAO joins or point records
+PASS Grocery brand composition is filtered by exact format; PHARMACY and other formats never enter the denominator
+PASS Non-bank direct scopes retain all1233 source legal IDs, not just selectable top10; unknown license membership creates review bounds
+PASS Fine brand breakdown uses one reporting UUID and keeps real reconciliation/assignment uncertainty without duplicating province residuals
+PASS Missing, suppressed, invalid or absent source brand rows never fabricate zero or percentages; an exact empty row has an undefined share
+{"passed":true,"checks":8,"receipt":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.6/supply-market-share-regression-results.json"}

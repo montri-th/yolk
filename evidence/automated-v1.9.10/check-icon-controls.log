@@ -1,0 +1,24 @@
+PASS Actual Thai and English Supply filter controls preserve five visible captions and their real count role
+PASS Actual loaded chip cascade gives symbols their Material face, readable captions Bai Jamjuree and only counts the mono face
+PASS Store, shield, swords and verification glyphs retain the current approved names and icon bytes
+PASS Caption enhancement is idempotent and never wraps ligature text or numeric metadata
+PASS Glyph namespace withstands the retained numeric summary span rule in location detail
+PASS Glyph namespace also survives inherited numeric or display type in headers, counters and icon-bearing labels
+PASS Font success enables symbols only after the declared glyph face resolves
+PASS Missing or failed symbol fonts keep fallback glyph names hidden while caption meaning survives
+PASS Counter formatting no longer globally targets every Supply span, including icons and Thai captions
+PASS Demand graphic reuses the exact original Yolk O glyph without changing identity or font bytes
+PASS Actual Thai and English desktop/mobile Demand navigation uses the fried egg with one readable caption and current state
+PASS Actual Demand headings, map-analysis controls, simple criteria and location verdict reuse the same labelled egg in both languages
+PASS Demand semantic styling retains the Material namespace, theme-aware product accent and caption-only hover rules
+PASS Opportunity collection composes exactly three original Yolk egg graphics with no alternate glyph or changed identity
+PASS Actual Thai and English Opportunity navigation and menu use the three-egg graphic with preserved captions and state
+PASS Three-egg opportunity layout stays in one unframed icon slot; strategy-specific and field-navigation compass glyphs stay unchanged
+{
+  "suite": "icon-controls",
+  "version": "1.9.6",
+  "checks": 16,
+  "passed": 16,
+  "failures": [],
+  "evidence": "Actual Supply/Demand renderers, navigation, caption enhancer, retained font/identity bytes and scoped resting-state CSS cascade fixture. Native font shaping, geometry, themes and device rendering remain separate."
+}

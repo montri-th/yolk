@@ -1,0 +1,466 @@
+PASS ANA02: private draft survives area detail and capture without Apply
+PASS ANA01: generic shortlist actual handler stores the same complete immutable decision schema
+PASS ANA01: removing retains evidence; restoring captures the displayed criteria while retaining work fields
+PASS ANA05: canonical criteria hash is deterministic and rejects ambiguous numeric evidence
+PASS ANA05: manifest binds raw bytes of every source/profile/license/bounds and semantic runtime
+PASS ANA05: Non-bank capture includes license and bounds dependency; snapshot is recursively frozen
+PASS ANA05: missing or different-release manifest rejects capture without a partial snapshot
+PASS ANA01/02: actor, route, revision and draft changes during hashing reject stale decision capture
+PASS ANA04: missing, suppressed, invalid and unknown bounds never become perfect known supply gaps
+PASS ANA04: known measured zero stays valid, but bounds plus unresolved records remain conservative
+PASS ANA03: Demand weight scope and distinct Strategy ordering are explicit without altering Demand membership
+PASS ANA06: evidence queues and calibration hypotheses are visible in both languages
+PASS ANA06: all 37 real brand presets are valid and partition Demand into honest survey queues
+{
+  "suite": "decision-evidence",
+  "checks": 13,
+  "passed": 13,
+  "presets": [
+    {
+      "industry": "fuel",
+      "brand": "ptt",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 1264,
+      "candidates": 1111,
+      "incomplete": 153,
+      "unsupported": 0,
+      "ownN": 1046,
+      "rivalN": 1038
+    },
+    {
+      "industry": "fuel",
+      "brand": "shell",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 1264,
+      "candidates": 994,
+      "incomplete": 270,
+      "unsupported": 0,
+      "ownN": 303,
+      "rivalN": 1519
+    },
+    {
+      "industry": "fuel",
+      "brand": "bangchak",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 1264,
+      "candidates": 1186,
+      "incomplete": 53,
+      "unsupported": 25,
+      "ownN": 643,
+      "rivalN": 1340
+    },
+    {
+      "industry": "fuel",
+      "brand": "caltex",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 1264,
+      "candidates": 1177,
+      "incomplete": 87,
+      "unsupported": 0,
+      "ownN": 254,
+      "rivalN": 1515
+    },
+    {
+      "industry": "fuel",
+      "brand": "cosmo",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 836,
+      "candidates": 827,
+      "incomplete": 9,
+      "unsupported": 0,
+      "ownN": 23,
+      "rivalN": 1585
+    },
+    {
+      "industry": "fuel",
+      "brand": "pt",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 1264,
+      "candidates": 1196,
+      "incomplete": 63,
+      "unsupported": 5,
+      "ownN": 106,
+      "rivalN": 1575
+    },
+    {
+      "industry": "fuel",
+      "brand": "pure",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 836,
+      "candidates": 819,
+      "incomplete": 17,
+      "unsupported": 0,
+      "ownN": 8,
+      "rivalN": 1597
+    },
+    {
+      "industry": "fuel",
+      "brand": "siam-gas",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 836,
+      "candidates": 776,
+      "incomplete": 60,
+      "unsupported": 0,
+      "ownN": 8,
+      "rivalN": 1598
+    },
+    {
+      "industry": "fuel",
+      "brand": "susco",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 836,
+      "candidates": 791,
+      "incomplete": 45,
+      "unsupported": 0,
+      "ownN": 44,
+      "rivalN": 1587
+    },
+    {
+      "industry": "fuel",
+      "brand": "unique-gas",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 836,
+      "candidates": 827,
+      "incomplete": 9,
+      "unsupported": 0,
+      "ownN": 8,
+      "rivalN": 1595
+    },
+    {
+      "industry": "fuel",
+      "brand": "world-gas",
+      "scope": "all_fuel",
+      "errors": [],
+      "demand": 836,
+      "candidates": 804,
+      "incomplete": 32,
+      "unsupported": 0,
+      "ownN": 17,
+      "rivalN": 1595
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:SEVEN_ELEVEN",
+      "scope": "C_STORE",
+      "errors": [],
+      "demand": 2859,
+      "candidates": 2389,
+      "incomplete": 49,
+      "unsupported": 421,
+      "ownN": 3375,
+      "rivalN": 3673
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:TOOGDEE",
+      "scope": "C_STORE",
+      "errors": [],
+      "demand": 2288,
+      "candidates": 2256,
+      "incomplete": 4,
+      "unsupported": 28,
+      "ownN": 2423,
+      "rivalN": 3434
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:LOTUSS",
+      "scope": "HYPERMARKET",
+      "errors": [],
+      "demand": 1958,
+      "candidates": 1952,
+      "incomplete": 0,
+      "unsupported": 6,
+      "ownN": 212,
+      "rivalN": 130
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:CJ_MORE",
+      "scope": "C_STORE",
+      "errors": [],
+      "demand": 2288,
+      "candidates": 2188,
+      "incomplete": 9,
+      "unsupported": 91,
+      "ownN": 1264,
+      "rivalN": 4781
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:BIG_C",
+      "scope": "HYPERMARKET",
+      "errors": [],
+      "demand": 1958,
+      "candidates": 1952,
+      "incomplete": 0,
+      "unsupported": 6,
+      "ownN": 130,
+      "rivalN": 212
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:TOPS",
+      "scope": "SUPERMARKET",
+      "errors": [],
+      "demand": 1410,
+      "candidates": 619,
+      "incomplete": 791,
+      "unsupported": 0,
+      "ownN": 124,
+      "rivalN": 288
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:MAKRO",
+      "scope": "WHOLESALE",
+      "errors": [],
+      "demand": 2981,
+      "candidates": 2932,
+      "incomplete": 29,
+      "unsupported": 20,
+      "ownN": 148,
+      "rivalN": 24
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:LAWSON108",
+      "scope": "C_STORE",
+      "errors": [],
+      "demand": 2859,
+      "candidates": 2848,
+      "incomplete": 11,
+      "unsupported": 0,
+      "ownN": 63,
+      "rivalN": 4794
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:VILLA_MARKET",
+      "scope": "SUPERMARKET",
+      "errors": [],
+      "demand": 1052,
+      "candidates": 486,
+      "incomplete": 566,
+      "unsupported": 0,
+      "ownN": 28,
+      "rivalN": 347
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:MAXVALU",
+      "scope": "SUPERMARKET",
+      "errors": [],
+      "demand": 1052,
+      "candidates": 1052,
+      "incomplete": 0,
+      "unsupported": 0,
+      "ownN": 21,
+      "rivalN": 351
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:FOODLAND",
+      "scope": "SUPERMARKET",
+      "errors": [],
+      "demand": 1052,
+      "candidates": 488,
+      "incomplete": 564,
+      "unsupported": 0,
+      "ownN": 24,
+      "rivalN": 348
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:GOURMET_MARKET",
+      "scope": "SUPERMARKET",
+      "errors": [],
+      "demand": 1052,
+      "candidates": 487,
+      "incomplete": 565,
+      "unsupported": 0,
+      "ownN": 16,
+      "rivalN": 349
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:GO_WHOLESALE",
+      "scope": "WHOLESALE",
+      "errors": [],
+      "demand": 2981,
+      "candidates": 2953,
+      "incomplete": 28,
+      "unsupported": 0,
+      "ownN": 13,
+      "rivalN": 160
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:DONKI",
+      "scope": "SUPERMARKET",
+      "errors": [],
+      "demand": 1052,
+      "candidates": 489,
+      "incomplete": 563,
+      "unsupported": 0,
+      "ownN": 8,
+      "rivalN": 353
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:RIMPING",
+      "scope": "SUPERMARKET",
+      "errors": [],
+      "demand": 1052,
+      "candidates": 1051,
+      "incomplete": 1,
+      "unsupported": 0,
+      "ownN": 7,
+      "rivalN": 349
+    },
+    {
+      "industry": "grocery",
+      "brand": "grocery-brand:FUJI",
+      "scope": "SUPERMARKET",
+      "errors": [],
+      "demand": 1052,
+      "candidates": 1052,
+      "incomplete": 0,
+      "unsupported": 0,
+      "ownN": 2,
+      "rivalN": 353
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0107557000195",
+      "scope": "potential_retail_branch_service",
+      "errors": [],
+      "demand": 2298,
+      "candidates": 31,
+      "incomplete": 2267,
+      "unsupported": 0,
+      "ownN": 0,
+      "rivalN": 0
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0105559126747",
+      "scope": "office_context",
+      "errors": [],
+      "demand": 2298,
+      "candidates": 19,
+      "incomplete": 1604,
+      "unsupported": 675,
+      "ownN": 0,
+      "rivalN": 0
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0105564161598",
+      "scope": "vehicle_title",
+      "errors": [],
+      "demand": 2298,
+      "candidates": 1631,
+      "incomplete": 667,
+      "unsupported": 0,
+      "ownN": 0,
+      "rivalN": 0
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0107563000355",
+      "scope": "vehicle_title",
+      "errors": [],
+      "demand": 1086,
+      "candidates": 929,
+      "incomplete": 157,
+      "unsupported": 0,
+      "ownN": 0,
+      "rivalN": 0
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0107559000290",
+      "scope": "vehicle_title",
+      "errors": [],
+      "demand": 2298,
+      "candidates": 1143,
+      "incomplete": 1155,
+      "unsupported": 0,
+      "ownN": 0,
+      "rivalN": 0
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0107566000542",
+      "scope": "vehicle_title",
+      "errors": [],
+      "demand": 2298,
+      "candidates": 837,
+      "incomplete": 1461,
+      "unsupported": 0,
+      "ownN": 0,
+      "rivalN": 0
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0107564000120",
+      "scope": "potential_retail_branch_service",
+      "errors": [],
+      "demand": 2298,
+      "candidates": 1307,
+      "incomplete": 991,
+      "unsupported": 0,
+      "ownN": 0,
+      "rivalN": 0
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0505560008015",
+      "scope": "potential_retail_branch_service",
+      "errors": [],
+      "demand": 2298,
+      "candidates": 2066,
+      "incomplete": 232,
+      "unsupported": 0,
+      "ownN": 0,
+      "rivalN": 0
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0107538000690",
+      "scope": "vehicle_title",
+      "errors": [],
+      "demand": 1086,
+      "candidates": 1067,
+      "incomplete": 19,
+      "unsupported": 0,
+      "ownN": 0,
+      "rivalN": 0
+    },
+    {
+      "industry": "nonbank",
+      "brand": "legal:0105528033194",
+      "scope": "personal",
+      "errors": [],
+      "demand": 1086,
+      "candidates": 1074,
+      "incomplete": 12,
+      "unsupported": 0,
+      "ownN": 0,
+      "rivalN": 0
+    }
+  ],
+  "failures": [],
+  "evidence": "Real source snapshots + actual capture, model, generic shortlist and strategy APIs in Node VM; native rendering and business calibration require separate evidence."
+}

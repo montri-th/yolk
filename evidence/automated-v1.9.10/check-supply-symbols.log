@@ -1,0 +1,11 @@
+PASS party glyphs are registered DS icon names, retaining machine source codes
+PASS known POI uses its own real square graphic plus the competitor badge
+PASS own branch changes only its party badge, not the company graphic
+PASS missing compact artwork falls back to the party icon without inventing a logo
+PASS unresolved party is distinct from no competitor or unbranded
+PASS TH and EN popup captions explain the same stable glyph assignment
+PASS unsafe artwork paths cannot become map image requests
+PASS symbol CSS retains exact existing party tokens and original image containment
+PASS persistent map keeps fine/editor POIs and enables optional Supply points at every drilldown
+PASS legacy location detail also preserves transparent selected boundary and real marker identity
+{"suite":"supply-symbols","checks":10,"passed":true,"scope":"Source/VM semantics only; native visual review and provider verification are separate."}

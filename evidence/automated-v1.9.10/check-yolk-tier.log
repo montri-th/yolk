@@ -1,0 +1,12 @@
+PASS Pinned LDS base hash matches the tier appearance source
+PASS Tier gradient uses every exact native area LUT sample 20–40 in order
+PASS Native Yolk yellow and egg-white are exact, theme-invariant tokens
+PASS Tier1 solid fallback is the orange endpoint, with one explicit gradient ID
+PASS Unknown, zero and invalid tiers never become egg-white
+PASS CSS gradient uses exact21 samples and stable positions without theme transformations
+PASS Category recipe explicitly disclaims atmosphere and within-polygon magnitude
+PASS Tier labels retain a non-color cue in Thai and English
+PASS SVG definition installs the native21 stops with full opacity
+PASS Repeated map sync does not duplicate the SVG paint server
+PASS Before Leaflet mounts its SVG, gradient setup remains a safe no-op
+{"passed":true,"checks":11}

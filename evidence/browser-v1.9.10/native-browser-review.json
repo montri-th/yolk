@@ -1,0 +1,338 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.9",
+  "version": "1.9.10",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "reviewedAt": "2026-10-09T11:16:31.466Z",
+  "scope": "Actual bounded native checks for current four map refinements plus retained core route/one-map smoke. FinalSatellite72/72loadeddual-provider grids. Thai/English selectedstates/light-dark/narrow-desktop;notallboundaries/allbrands/fullmatrixorphysicaldevices.",
+  "browser": "Native Chromeextension viewport1440x900,390x844,320x760 on usercomputer;notphysicalmobile",
+  "checks": 9,
+  "results": [
+    {
+      "id": "external_hover_focus",
+      "passed": true,
+      "details": "FinalfrozenPhayao113sourcebranches/54.9%own,external34pxdock abovecanvas,fulltree sidepanel,0Leafletarea tooltip;firstdraw928districtcues.",
+      "status": "PASS"
+    },
+    {
+      "id": "native_pointer_unblocked",
+      "passed": true,
+      "details": "NativemousemovedontohighlightedPhayao113branchrecords,0areatooltipsovercanvas; nativeclickatpointerdrilledPhayao, dockcleared,mapinstancecontainercount1.",
+      "status": "PASS"
+    },
+    {
+      "id": "escape_scope_restore",
+      "passed": true,
+      "details": "Escape dismisses external area inspection and returns Supply panel to navigated country scope; no area tooltip on map.",
+      "status": "PASS"
+    },
+    {
+      "id": "sparse_any_zoom_logos",
+      "passed": true,
+      "details": "Trat province:85 detailed original-logo markers/170 image elements loaded at broad20km view; no zoom gate; map host>=600px.",
+      "status": "PASS"
+    },
+    {
+      "id": "zero_null_theme_first_draw",
+      "passed": true,
+      "details": "Real NongSon source0 exact#F4F0E7both themes,solid2px DSoutline#7D877F light/#93A398dark;6source missing fine polygons135deg hatch,aria0versusmissing;cueattrs present first mount.",
+      "status": "PASS"
+    },
+    {
+      "id": "satellite_expand_tiles",
+      "passed": true,
+      "details": "FinalfrozenESA2021+Simplifiedunderlay72/72loadedtiles afterExpand,oneMap. CorrectESA2021/10m+OSMattribution,naturalimageryfilter none,roadfallbackcaption, centeredGoogleURL. Providercoverageholes readableasroads,notinferredwater.",
+      "status": "PASS"
+    },
+    {
+      "id": "mobile_map_details",
+      "passed": true,
+      "details": "390Thai light compactexternaldock and 390Englishdark details normalflowscroll(map scrolls above viewport);320English Criteria nohorizontaloverflow;oneMap preserved.",
+      "status": "PASS"
+    },
+    {
+      "id": "whole_site_navigation",
+      "passed": true,
+      "details": "Demand/Supply/Opportunity/Shortlist/Criteria/Activity navigated nativeTH/EN; same oneLeafletmap retained, actualsourceviews and existingShortlist retained. Businessrecord unchanged. Boundedworkflow smoke, notallstates.",
+      "status": "PASS"
+    },
+    {
+      "id": "dense_canvas_performance",
+      "passed": true,
+      "details": "Finalfrozenruntime13564recordCount=markCount,3cachedsprites,noinventorycap and oneMap;boundedframe18.3ms/warmstartup885.9ms.",
+      "status": "PASS"
+    }
+  ],
+  "measurements": {
+    "densePreUnderlayChange": {
+      "recordCount": 13564,
+      "canvasMarkCount": 13564,
+      "lastDrawMs": 32.3,
+      "startupMs": 852.7,
+      "environment": "Native Chrome1440x900localwarmlocalhost"
+    },
+    "denseFinal": {
+      "recordCount": 13564,
+      "canvasMarkCount": 13564,
+      "spriteCount": 3,
+      "lastDrawMs": 18.3,
+      "startupMs": 885.9
+    }
+  },
+  "performanceBenchmarks": [
+    {
+      "name": "Dense uncapped visible Canvas draw",
+      "durationMs": 18.3,
+      "environment": "Native Chrome1440x900localhost on thiscomputer;warmassetcache",
+      "scope": "13564visiblefilteredNonbankrecords represented by oneCanvas;lastcompletedframe only,notendtoend/p95mobile"
+    },
+    {
+      "name": "Warm local startup",
+      "durationMs": 885.9,
+      "environment": "Native Chrome1440x900localhost;warmassetcache",
+      "scope": "Currentbodystartupmark;notinternetstartup,coldcacheorallbrands"
+    }
+  ],
+  "branchPointsReview": {
+    "passed": true,
+    "checkIds": [
+      "sparse_any_zoom_logos",
+      "dense_canvas_performance",
+      "native_pointer_unblocked"
+    ],
+    "scope": "Actual sparseTrat85logos and denseNonbank13564Canvas;allpointdefaultretained."
+  },
+  "wholeSiteReview": {
+    "passed": true,
+    "checkIds": [
+      "whole_site_navigation",
+      "mobile_map_details"
+    ],
+    "scope": "Boundedroute/one-map andnormalmobileflowsmoke;existinglocalrecordsnotmutated."
+  },
+  "performanceReview": {
+    "passed": true,
+    "checkIds": [
+      "dense_canvas_performance"
+    ],
+    "scope": "MeasuredcurrentnativeChrome lastCanvasdraw/warm-localstartup only."
+  },
+  "supplyInventoryReview": {
+    "passed": true,
+    "checkIds": [
+      "external_hover_focus",
+      "escape_scope_restore",
+      "sparse_any_zoom_logos"
+    ],
+    "scope": "ActualPhayao113directsourcebranches54.9%own andTrat85sourcebranchcomposition;existingbrandcolorregistry unchanged;notallsources."
+  },
+  "visualRefinementReview": {
+    "passed": true,
+    "checkIds": [
+      "external_hover_focus",
+      "zero_null_theme_first_draw",
+      "satellite_expand_tiles",
+      "mobile_map_details"
+    ],
+    "scope": "Actual bounded native checks for current four map refinements plus retained core route/one-map smoke. FinalSatellite72/72loadeddual-provider grids. Thai/English selectedstates/light-dark/narrow-desktop;notallboundaries/allbrands/fullmatrixorphysicaldevices."
+  },
+  "reviewedRegistries": [
+    {
+      "path": "prototype/supply-treemap.js",
+      "bytes": 22806,
+      "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+    }
+  ],
+  "manualGates": [
+    "Physical iPhone/Android touch and Safari",
+    "Complete brand/language/theme/device matrix",
+    "Actual screen-reader speech and all-boundary pointer hover",
+    "OS reduced-motion setting and 130%/200% browser zoom"
+  ],
+  "publication": "not_performed_by_this_receipt",
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.9.10/desktop-th-dark-external-hover.jpg",
+      "bytes": 132977,
+      "sha256": "29e383ab9cc25b94a8e4696a1dbaeb661e2a5b7610a249cf373218cddf577239",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "FinalfrozenruntimeThaiSupplyprovincefocus usescompactexternaldock/fullsidepaneltree, zeroLeafletareatooltips."
+    },
+    {
+      "path": "evidence/browser-v1.9.10/desktop-light-sparse-logos.jpg",
+      "bytes": 130921,
+      "sha256": "86bfbe8c262e87d64ec70c784ac3b15a4800ad459401f6348913b8ef2e665a0b",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "85 visible filtered branch points in Trat province with original brand logos at province view."
+    },
+    {
+      "path": "evidence/browser-v1.9.10/desktop-light-zero-null.jpg",
+      "bytes": 127685,
+      "sha256": "e88e92102fd76d3f3547e6ff9564936670b89ea38f7eefe15170e9dc093d5945",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "Actual observed_zero NongSon population exact lowest LUT,2px solid; six missing fine-area source rows use hatch."
+    },
+    {
+      "path": "evidence/browser-v1.9.10/desktop-dark-zero-null.jpg",
+      "bytes": 140936,
+      "sha256": "67e3143bed94d6eb5ccb9ec60e68a34e7ddaeb75349b8eae0de925a82cd631ee",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "Same exact zero LUT HEX dark theme; neutral DS outline/hatch cues differ without transforming data paint."
+    },
+    {
+      "path": "evidence/browser-v1.9.10/desktop-light-satellite-expanded.jpg",
+      "bytes": 155196,
+      "sha256": "f84f2f6077f459907444912ce785f3d9a3d28a0910459c8b02884e1ac21142a0",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "FinalSatelliteESA2021 plusOSMSimplifiedroadunderlay:72/72tilesloaded afterExpand;source-year-attribution andcoveragefallback."
+    },
+    {
+      "path": "evidence/browser-v1.9.10/mobile-th-light-dock.jpg",
+      "bytes": 47944,
+      "sha256": "78f2e970275db3ee1cda3df8c8f42b0b7027584b9601d607b372ad83aa9ecfcf",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "description": "Thai narrow view actual sourcezero hover compactdock above map; same normal-flow map."
+    },
+    {
+      "path": "evidence/browser-v1.9.10/mobile-en-dark-details.jpg",
+      "bytes": 42750,
+      "sha256": "d20dd03459bb3a2e9b53ea18612215aca43deaaf6d0ed14f10d8560fe6b0285a",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "description": "Normal mobile document scroll exposes Demand fine-location details without fixed map."
+    },
+    {
+      "path": "evidence/browser-v1.9.10/mobile-en-320.jpg",
+      "bytes": 35778,
+      "sha256": "fef82c582bc19df9214115935141eb02f71afbf3c3665f7da98637592c495128",
+      "imagePixels": {
+        "width": 320,
+        "height": 760
+      },
+      "viewport": {
+        "width": 320,
+        "height": 760
+      },
+      "description": "320px English Criteria has no horizontaloverflow and retains one map."
+    }
+  ],
+  "reviewedRuntime": [
+    {
+      "path": "prototype/app.js",
+      "bytes": 85803,
+      "sha256": "a9f717915c026bb41c923c938d8d4fb5e45edc894a4e9cc386ca470e697d2964"
+    },
+    {
+      "path": "prototype/assets/yolk-analytical.css",
+      "bytes": 2756,
+      "sha256": "4a0e4fbf6e7c23e5224c245997b7e2e182bce708dbb92b67ea3d3d003e3ef771"
+    },
+    {
+      "path": "prototype/bootstrap.js",
+      "bytes": 5821,
+      "sha256": "fa599d3a7de4ef664900365bd6af23aba328e13daba59e478e3a6a9ad54d4ca0"
+    },
+    {
+      "path": "prototype/industry-workspace.js",
+      "bytes": 24279,
+      "sha256": "cc1c763b983440355b3dcfa9792f28e5ea8947be57f6a2b5dbea112de9126920"
+    },
+    {
+      "path": "prototype/map-analysis.js",
+      "bytes": 37861,
+      "sha256": "68d5228eaadea61c72553108591d0e7f7f4373bb975ee95411d680feec9ea1fb"
+    },
+    {
+      "path": "prototype/map-hover.css",
+      "bytes": 2762,
+      "sha256": "f098031141aee3f223d45d5b30ace89568f81f7ba8ce35dec9f61f26189e0c9c"
+    },
+    {
+      "path": "prototype/map-hover.js",
+      "bytes": 10313,
+      "sha256": "3ca02f07c0eb108174fb4843b356e05523e4267f18e27adb8b7407e02f2435ce"
+    },
+    {
+      "path": "prototype/model.js",
+      "bytes": 47953,
+      "sha256": "1ef1c44d7aa73e8769b1777cfdd053f2810d59827b1190c6decce5e5d1a07db5"
+    },
+    {
+      "path": "prototype/poi-popup.js",
+      "bytes": 11779,
+      "sha256": "8d961c2851c7eb5305673ac89ea180dbc167292fba0f47d82f63083d1335e19e"
+    },
+    {
+      "path": "prototype/supply-treemap.css",
+      "bytes": 8019,
+      "sha256": "098a9af81f52fb1f3888f5d7c0ab66bf3f8bdc6d823a7851e295d8636996726e"
+    },
+    {
+      "path": "prototype/supply-treemap.js",
+      "bytes": 22806,
+      "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+    },
+    {
+      "path": "prototype/workspace-map.css",
+      "bytes": 28452,
+      "sha256": "5f95f3b7b15d44a667079bd294fb519e780718546ab9ce9ece148204d87e8df0"
+    },
+    {
+      "path": "prototype/workspace-map.js",
+      "bytes": 146176,
+      "sha256": "892773fa27107b1a256c1e14088d740eec5df19ff470cfc12ea9cc540123b929"
+    }
+  ],
+  "sourceObservation": {
+    "sha256": "8542d4654acc55cd6676938ece6a67485b29e57b78f910bb55eaa3878d105f02",
+    "capturedAt": "2026-10-09T11:16:31.466Z",
+    "meaning": "Lossless projection of release owner’s actual frozen current native checks/measurements; not another native execution."
+  }
+}

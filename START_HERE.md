@@ -1,15 +1,15 @@
-# CityMETER: Yolk 1.9.9 — เริ่มที่นี่
+# CityMETER: Yolk 1.9.10 — เริ่มที่นี่
 
 **เลือกแบรนด์ → โอกาสขยาย → ดูเหตุผล → เล็งทำเลพร้อมแผนสำรวจ**
 
-รุ่นนี้แก้ผล red-team ด้านการบันทึกหลายแท็บ แบบร่าง หลักฐานการตัดสินใจ และการสำรวจแผนที่ โดยคงข้อมูล CityMETER และเกณฑ์ Demand เดิม สถานะการตรวจและการเผยแพร่ดูจากหลักฐานแยกด้านล่าง
+รุ่นนี้ปรับ hover ให้อยู่นอกแผนที่ แสดงโลโก้เมื่อจุดน้อย คืนตัวเลือก Satellite พร้อมระบุแหล่ง และแยกศูนย์/ไม่มีข้อมูลตาม DS โดยคงข้อมูล CityMETER และเกณฑ์ Demand เดิม สถานะการตรวจและการเผยแพร่ดูจากหลักฐานแยกด้านล่าง
 
-1. [Product statement + implementation จากศูนย์ไฟล์เดียว](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.9.md) — อ่านส่วน human ก่อน; JSON ท้ายไฟล์ตรงกับ machine blueprint
-2. [Machine blueprint](contracts/full-product.v1.9.9.json) — T00–T24, schema, API, acceptance และ coding prompts
-3. [สิ่งที่แก้จาก red-team](docs/RED_TEAM_RESOLUTION_v1.9.9.md) และ [contract](contracts/red-team-remediation.v1.9.9.json)
-4. [Implementation plan](IMPLEMENTATION_PLAN_v1.9.9.md) · [DS และ assets](DS_ASSET_INTEGRATION.md) · [brand research](docs/BRAND_RESEARCH_v1.9.0.md)
-5. [Release seal](contracts/release.v1.9.9.json) · [QA ปัจจุบัน](evidence/qa-v1.9.9.json) · [Handoff](HANDOFF_v1.9.9.md)
-6. [Release พร้อม provider/live attestation และ ZIP](https://github.com/montri-th/yolk/releases/tag/v1.9.9) — เป็นแหล่ง publication state หลัง seal; ไม่ใช้สถานะ local แทนหลักฐานเว็บจริง
+1. [Product statement + implementation จากศูนย์ไฟล์เดียว](CityMETER_Yolk_Full_Product_and_Implementation_v1.9.10.md) — อ่านส่วน human ก่อน; JSON ท้ายไฟล์ตรงกับ machine blueprint
+2. [Machine blueprint](contracts/full-product.v1.9.10.json) — T00–T24, schema, API, acceptance และ coding prompts
+3. [สี่จุดที่ปรับปรุง](docs/MAP_EXPLORATION_v1.9.10.md) · [สิ่งที่แก้จาก red-team](docs/RED_TEAM_RESOLUTION_v1.9.10.md) และ [contract](contracts/red-team-remediation.v1.9.10.json)
+4. [Implementation plan](IMPLEMENTATION_PLAN_v1.9.10.md) · [DS และ assets](DS_ASSET_INTEGRATION.md) · [brand research](docs/BRAND_RESEARCH_v1.9.0.md)
+5. [Release seal](contracts/release.v1.9.10.json) · [QA ปัจจุบัน](evidence/qa-v1.9.10.json) · [Handoff](HANDOFF_v1.9.10.md)
+6. [Release พร้อม provider/live attestation และ ZIP](https://github.com/montri-th/yolk/releases/tag/v1.9.10) — เป็นแหล่ง publication state หลัง seal; ไม่ใช้สถานะ local แทนหลักฐานเว็บจริง
 
 ## ขอบเขตที่ต้องรักษา
 

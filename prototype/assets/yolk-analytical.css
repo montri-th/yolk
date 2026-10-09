@@ -6,3 +6,62 @@
   --yolk-heat-4: var(--ldm-scale-heat-light-class-5-4);
   --yolk-heat-5: var(--ldm-scale-heat-light-class-5-5);
 }
+/* LDS EVID-05: neutral evidence cues are not additional analytical colours.
+   Numeric data fills retain the exact LUT values on either theme. */
+:root {
+  --yolk-evidence-zero: var(--ldm-data-state-zero-light);
+  --yolk-evidence-no-data: var(--ldm-data-state-no-data-light);
+  --yolk-evidence-border: var(--ldm-foundation-border-emphasis-light);
+  --yolk-evidence-soft: var(--ldm-foundation-surface-soft-light);
+  --yolk-evidence-label: var(--ldm-foundation-text-metadata-light);
+  --yolk-evidence-pending-fill: var(--ldm-semantic-pending-light-background);
+  --yolk-evidence-pending-ink: var(--ldm-semantic-pending-light-foreground);
+}
+:root[data-theme="dark"] {
+  --yolk-evidence-zero: var(--ldm-data-state-zero-dark);
+  --yolk-evidence-no-data: var(--ldm-data-state-no-data-dark);
+  --yolk-evidence-border: var(--ldm-foundation-border-emphasis-dark);
+  --yolk-evidence-soft: var(--ldm-foundation-surface-soft-dark);
+  --yolk-evidence-label: var(--ldm-foundation-text-metadata-dark);
+  --yolk-evidence-pending-fill: var(--ldm-semantic-pending-dark-background);
+  --yolk-evidence-pending-ink: var(--ldm-semantic-pending-dark-foreground);
+}
+.workspace-map-legend .yolk-evidence-legend {
+  color: var(--yolk-evidence-label);
+  white-space: normal;
+}
+.workspace-map-legend .yolk-evidence-swatch {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid var(--yolk-evidence-border);
+  border-radius: 2px;
+}
+.workspace-map-legend .yolk-evidence-known_zero {
+  border: 2px solid var(--yolk-evidence-zero);
+}
+.workspace-map-legend .yolk-evidence-no_data,
+.workspace-map-legend .yolk-evidence-undefined_ratio {
+  background: repeating-linear-gradient(135deg,
+    var(--yolk-evidence-no-data) 0px,
+    var(--yolk-evidence-no-data) 4px,
+    var(--yolk-evidence-border) 4px,
+    var(--yolk-evidence-border) 5px);
+}
+.workspace-map-legend .yolk-evidence-review {
+  background: var(--yolk-evidence-soft);
+  border: 2px dotted var(--yolk-evidence-border);
+}
+.workspace-map-legend .yolk-evidence-suppressed {
+  background: var(--yolk-evidence-soft);
+  border: 2px dashed var(--yolk-evidence-border);
+}
+.workspace-map-legend .yolk-evidence-not_yet {
+  background: var(--yolk-evidence-pending-fill);
+  border: 2px dotted var(--yolk-evidence-pending-ink);
+}
+.workspace-map-legend .yolk-evidence-unclassified {
+  border-style: dashed;
+}

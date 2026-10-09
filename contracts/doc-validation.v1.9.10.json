@@ -1,0 +1,60 @@
+{
+  "version": "1.9.10",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 1,
+  "tasks": 25,
+  "checks": [
+    {
+      "name": "One current embedded JSON exactly matches standalone",
+      "passed": true
+    },
+    {
+      "name": "Complete 25 dependency-ordered implementation tasks retained",
+      "passed": true
+    },
+    {
+      "name": "Protected source/profiles/Demand definitions unchanged",
+      "passed": true
+    },
+    {
+      "name": "Production/API/schemas remain complete proposed implementation",
+      "passed": true
+    },
+    {
+      "name": "Current counts reconcile",
+      "passed": true
+    }
+  ],
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.10.md",
+    "sha256": "62dbf8db65281228ba6678ef3f40b494633188ac14a108e36f376ff90683d95c"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.10.json",
+    "sha256": "411848626c07a4b684835b2cad5225c6f730bc67b25b1c654ad6ed5979eb3777"
+  },
+  "narrativeRegistry": {
+    "path": "prototype/data/strategy-guide.v1.9.3.json",
+    "sha256": "04aad69b6b3ec79cfae0923a6b743ce9807c1ce63798d04a15e58ec7775ad080"
+  },
+  "mapReadabilityContract": {
+    "path": "contracts/map-readability.v1.9.6.json",
+    "sha256": "89553b810dd166ff0ce21e30cdabe4b241597f2bf3154201dc6f3b881c89e161"
+  },
+  "supplyInventoryContract": {
+    "path": "contracts/supply-inventory.v1.9.10.json",
+    "sha256": "4f4dd1770262a2baa76b3ae8d29dd204090e34f1a0dddd88bd95f33c3c907f5c"
+  },
+  "visualRefinementContract": {
+    "path": "contracts/visual-refinement.v1.9.10.json",
+    "sha256": "d23affac0b75782c2dc02dcb8d36f47b45e828f0f48f9c22cde8fcab4a2326cd"
+  },
+  "brandColorRegistry": {
+    "path": "prototype/supply-treemap.js",
+    "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+  },
+  "branchPointsContract": {
+    "path": "contracts/branch-points.v1.9.10.json",
+    "sha256": "69923af2258c98b6f36fbbd63ed43a411207dfd8d717b0192463dec4f9bd699b"
+  }
+}

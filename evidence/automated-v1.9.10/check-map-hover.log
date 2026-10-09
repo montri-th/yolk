@@ -1,0 +1,22 @@
+PASS Province outline uses the exact source polygon over the untouched district colours
+PASS District and location targets preserve exact respective source features
+PASS Hover adds only an unfilled noninteractive outline with the caller token
+PASS Map coordinates cannot position information over the hovered area
+PASS Repeated mouse movement reuses the outline and compact host text
+PASS Native Supply totals reach the side-panel callback but no treemap is rendered over or beside the cursor
+PASS Missing and measured-zero captions retain their source meaning in the dock
+PASS Inside-map presentation sinks fail closed instead of making an overlay
+PASS A host can replace its external dock without replacing the map or source outline
+PASS Replacement removes old outline and stale mouseout cannot erase the newer scope
+PASS The hover token may update without changing native source geometry or analytical fill
+PASS Yellow outline stays above native LUT fills and clearing restores their original order
+PASS Unsupported extents, missing geometry and missing labels cannot create an inspector
+PASS Host text escapes untrusted source names and never contains controls or artwork
+PASS Map click ownership remains unchanged while a hover is visible
+PASS Keyboard focus and blur expose the same name/value without synthetic navigation
+PASS A stale layer blur cannot dismiss a newly focused boundary
+PASS Escape dismisses external information and outline without moving focus; pointer movement cannot reopen it
+PASS Pointer may move into the external inspector to read it, without a chart entering the map
+PASS Destruction removes geometry, inspector content and every owned pointer/focus/key handler
+PASS Module cannot create a Leaflet tooltip, infer geography, fill data, move map or mutate team storage
+MAP HOVER REGRESSION: 21 PASS

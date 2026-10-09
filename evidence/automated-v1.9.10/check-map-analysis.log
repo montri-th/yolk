@@ -1,0 +1,15 @@
+PASS Every quantitative palette exactly matches all41native LDS LUT values on light and dark; tiers use the owner category helper
+PASS Exact zero is known and distinct from absent or invalid source supply
+PASS Unidentified U widens each per-role interval without inventing a midpoint
+PASS Unknown U and missing assignment bounds preserve open uncertainty rather than exact role counts
+PASS Identified total sums O+C only and explicitly excludes known or unknown U
+PASS Existing source assignment/reconciliation bounds survive role and total views
+PASS Area density requires positive finite km² and uses the native area-density scale
+PASS Market rates use the actual relative-supply normalization and explicit dimensional denominator
+PASS Confirmed Demand tier ignores preferred patterns, eligibility and maximum allowed tier
+PASS Raw Demand reads the source metric and national percentile, ignoring stored same-grain or viewport percentiles
+PASS Fixed national quantiles include exact zero, exclude uncertain rows, and have deterministic cutoff ties
+PASS Native rows without an explicit national cohort stay unclassified; no fine-area aggregation fallback exists
+PASS Fine-area view subsets retain the fixed 7,954-row national cohort and do not mutate source rows or criteria
+PASS Real Grocery and Non-bank reconciliation/assignment rows remain ranges rather than invented exact values
+{"passed":true,"checks":14,"receipt":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.0/map-analysis-regression-results.json"}

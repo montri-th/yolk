@@ -1,0 +1,21 @@
+PASS Country pan and zoom coalesce without any analytical redraw or marker work
+PASS A full analytical sync reads DS tokens once before writes and preserves exact fills
+PASS POI popup survives settled pan/zoom with the same native marker and no clear/recreate
+PASS Viewport removal reconciles individual markers without closing another retained popup
+PASS Mobile resize/autopan retains only the open in-scope anchor outside viewport; hiding relationship closes it
+PASS Popup module receives selected-brand/industry/area context; branch identity changes update content without recreation
+PASS Context switch removes previous-brand marker references and stale queued viewport work
+PASS Storage updates retain cached source POIs, reconcile incoming local overlays, and do not change Supply aggregates
+PASS Prepared criteria work is discarded after mutable drafts, cohort changes and validation failures
+PASS Polygon fast rejection keeps exact hole/multipolygon membership and never assigns UUIDs
+PASS Actual height resize keeps the camera; deliberate expand/collapse keeps it even through responsive width changes
+PASS Native popup events expose the mobile expansion state and close restores its normal map height
+PASS Application source guards delayed searches/event navigation and shows pending Supply as U, never inventory zero
+PASS Collapsed mobile gives gestures to page scrolling while every route retains the same map and source data
+PASS Mobile Expand enables deliberate map gestures and Escape restores page scroll and focus without a camera jump
+PASS Breakpoint rotation restores original desktop handlers and repeated updates are idempotent
+PASS Narrow detail entry leaves a deep list scroll for the new heading once, without smooth motion or form/state mutation
+PASS Detail entry waits for available content and rejects queued work after navigation, brand changes or rotation
+PASS Collapsed mobile popup permits page scroll chaining while expanded and desktop retain useful bounded internal scrolling
+PASS Personal navigation overlay updates accessible state and Escape restores focus without shared or map mutation
+{"passed":true,"checks":20,"report":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.0/map-responsiveness-results.json"}

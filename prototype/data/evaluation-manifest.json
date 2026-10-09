@@ -1,7 +1,7 @@
 {
   "schemaVersion": "yolk.evaluation-manifest/1.0",
   "app": {
-    "release": "1.9.9",
+    "release": "1.9.10",
     "binding": "Exact semantic runtime files; source commit is attested separately after commit to avoid self-reference.",
     "runtimeFiles": [
       {

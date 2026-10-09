@@ -47,7 +47,7 @@
  }
  function result(meta,row,patch){return {...meta,id:row?.id??null,lo:null,hi:null,value:null,state:'missing',evidenceState:'missing',exact:false,zero:false,upperOpen:false,percentile:null,denominatorValue:null,unverified:null,sourceState:row?.supply?.state??null,...patch};}
  function supplyInterval(sp,relation){
-  if(!sp||['missing','invalid','suppressed','withheld','not_applicable','source_row_missing'].includes(sp.state))return {state:'missing',reason:sp?.state||'missing_supply'};
+  if(!sp||['missing','no_data','invalid','suppressed','withheld','not_applicable','out_of_scope','not_yet','source_row_missing'].includes(sp.state))return {state:'missing',reason:sp?.state||'missing_supply',evidenceState:sp?.state||'missing'};
   if(relation==='own'&&sp.ownScopeUnavailable)return {state:'missing',reason:'own_scope_unavailable',evidenceState:'not_applicable'};
   function roleBounds(role){
    if(role==='own'&&sp.ownScopeUnavailable)return null;
@@ -72,7 +72,7 @@
  // Identified outlet share never allocates U to either network. Scope/assignment
  // intervals retain conservative ratio bounds; an exact empty denominator is undefined.
  function shareInterval(sp){
-  if(!sp||['missing','invalid','suppressed','withheld','not_applicable','source_row_missing'].includes(sp.state))return {state:'missing',reason:sp?.state||'missing_supply',evidenceState:sp?.state||'missing'};
+  if(!sp||['missing','no_data','invalid','suppressed','withheld','not_applicable','out_of_scope','not_yet','source_row_missing'].includes(sp.state))return {state:'missing',reason:sp?.state||'missing_supply',evidenceState:sp?.state||'missing'};
   if(sp.ownScopeUnavailable)return {state:'missing',reason:'own_scope_unavailable',evidenceState:'not_applicable'};
   const bound=role=>{const bounded=sp[role+'Lower']!==undefined||sp[role+'Upper']!==undefined,lo=bounded?sp[role+'Lower']:sp[role],hi=bounded?sp[role+'Upper']:sp[role];return validCount(lo)&&validCount(hi)&&hi>=lo?{lo,hi}:null;};
   const own=bound('own'),competitor=bound('competitor');if(!own||!competitor)return {state:'missing',reason:'identified_supply_incomplete'};
@@ -148,7 +148,7 @@
   if(s.kind==='demand'){
    const metric=catalog()[s.metric],info=row?.metricStates?.[s.metric],sourceState=typeof info==='string'?info:info?.state,n=row?.metrics?.[s.metric];
    if(!metric?.ready)return result(meta,row,{reason:'unsupported_metric',sourceState:sourceState||null});
-   if(sourceState&&(['suppressed','withheld','not_applicable','not-applicable','invalid','source_row_missing','selected_period_missing'].includes(sourceState)||sourceState.startsWith('missing_')))return result(meta,row,{reason:sourceState,evidenceState:sourceState,sourceState});
+   if(sourceState&&(['missing','no_data','suppressed','withheld','not_applicable','not-applicable','out_of_scope','not_yet','invalid','source_row_missing','selected_period_missing'].includes(sourceState)||sourceState.startsWith('missing_')))return result(meta,row,{reason:sourceState,evidenceState:sourceState,sourceState});
    if(!finiteValue(n))return result(meta,row,{reason:sourceState||'missing_metric',evidenceState:sourceState||'missing',sourceState:sourceState||null});
    let nationalPercentile=null;
    if(typeof AREA_INDEX!=='undefined'&&AREA_INDEX.has(row?.id)&&typeof DISTRIBUTIONS!=='undefined')nationalPercentile=percentile(n,DISTRIBUTIONS[s.metric]);
@@ -163,7 +163,8 @@
    const item=s.metric==='market'?denominator(criteria?.supplyDenominatorId):null;
    if(s.metric==='market'&&!item)return {...r,state:'missing',evidenceState:'missing',lo:null,hi:null,reason:'unsupported_denominator'};
    const d=s.metric==='area'?row?.areaKm2:row?.metrics?.[item.id],denominatorInfo=s.metric==='market'?row?.metricStates?.[item.id]:null,denominatorState=typeof denominatorInfo==='string'?denominatorInfo:denominatorInfo?.state;
-   if(!Number.isFinite(d)||d<=0||['suppressed','withheld','not_applicable','not-applicable','invalid'].includes(denominatorState))return {...r,state:'missing',evidenceState:denominatorState||'missing',lo:null,hi:null,denominatorValue:Number.isFinite(d)?d:null,reason:denominatorState||(!Number.isFinite(d)?'missing_denominator':'nonpositive_denominator')};
+   const unavailableDenominator=['missing','no_data','suppressed','withheld','not_applicable','not-applicable','out_of_scope','not_yet','invalid','selected_period_missing','source_row_missing'].includes(denominatorState)||denominatorState?.startsWith('missing_');
+   if(!Number.isFinite(d)||d<=0||unavailableDenominator)return {...r,state:'missing',evidenceState:denominatorState||'missing',lo:null,hi:null,denominatorValue:unavailableDenominator?null:Number.isFinite(d)?d:null,reason:denominatorState||(!Number.isFinite(d)?'missing_denominator':'nonpositive_denominator')};
    r={...r,lo:(r.lo/d)*meta.normalization,hi:r.hi===null?null:(r.hi/d)*meta.normalization,denominatorValue:d};
    if(!finiteValue(r.lo)||(r.hi!==null&&!finiteValue(r.hi)))return {...r,lo:null,hi:null,state:'missing',evidenceState:'invalid',reason:'invalid_rate'};
   }
@@ -194,5 +195,71 @@
   return {records,palette,legend,cutoffs:cuts,percentilePoints:tier||share?[]:percentilePoints.slice(),cohort:{id:cohortId,total:national.length,exact:known.length,review:values.filter(r=>r.state==='review').length,missing:values.filter(r=>r.state==='missing').length,zero:values.filter(r=>r.zero).length,state:available?'available':'missing',scope:share?'fixed_percent_domain':'fixed_national_same_geographic_grain',viewportRecalibration:false},metadata:{...meta,...scaleSource,...(share?{lutSource:'reference/lds-0.9.7/location-intelligence-0.9.7.json',lutSourceSha256:'2940c5aac3eef1242e501492b5315048c6b5f138496e8139cc116bfbba945e57',scaleVersion:'e18af290eee81d42e63269c261628f0fa108fcd48e5cbff02b407af95a712e51',domain:[0,100]}:{}),classCount:tier?3:41,lutSampleCount:tier?null:41,quantileBoundaryCount:tier||share?0:40,classificationMethod:tier?'confirmed_proxy_tier_owner_categories':share?'fixed_0_100_percent_41_equal_width_classes':'national_exact_comparable_41_quantile_classes',quantileFormula:tier||share?null:'P(i*100/41), i=1…40; linear empirical quantiles of all known exact comparable national values including zero',intervalPolicy:share?'41 equal-width percentage bins; lower inclusive, upper exclusive except 100 inclusive in final bin; known zero class0':'lower inclusive, upper exclusive; tied cuts can create empty bins; final end-bin; observed zero always class0 with an explicit cue',uncertainColorPolicy:'neutral; expose range, never colour an interval as exact',outlierPolicy:tier?'not applicable to named categories':share?'bounded percentage domain 0–100; no quantile clipping':'declared end-bin at or above national P(4000/41) ≈ P97.560976',sourceTruth:'Source-reported inventory and demand proxies; no measured purchases, legal boundary or operating-status certification'}};
  }
 
- global.YolkMapAnalysis=Object.freeze({value,prepare,metadata,brandBreakdown,palettes,scaleSource,percentilePoints,percentile});
+ // EVID-05 presentation is separate from numerical classification. A failed
+ // Demand cutoff is a known category, never a measured zero or missing count.
+ // These neutral tokens are copied exactly from the pinned standalone base;
+ // analytical LUT fills and owner tier paints above are never transformed.
+ const evidenceTokens=Object.freeze({
+  light:Object.freeze({zero:'#7D877F',noData:'#D5DAD6',border:'#7D877F',soft:'#E5E9E6',metadata:'#5C6A61',pendingFill:'#F3EEDB',pendingInk:'#5C6A61'}),
+  dark:Object.freeze({zero:'#93A398',noData:'#404844',border:'#7C8A84',soft:'#2B3534',metadata:'#A6B5B1',pendingFill:'#2C2A22',pendingInk:'#D8CFB2'})
+ });
+ const evidenceKinds=Object.freeze({
+  value:Object.freeze({key:'value',labelTh:'ค่าตามต้นทาง',labelEn:'Source value',glyph:'',pattern:null}),
+  known_zero:Object.freeze({key:'known_zero',labelTh:'0 · ศูนย์ตามต้นทาง',labelEn:'0 · Source-reported zero',glyph:'0',pattern:null}),
+  below_criteria:Object.freeze({key:'below_criteria',labelTh:'ต่ำกว่าเกณฑ์ไข่แดง',labelEn:'Below Yolk criteria',glyph:'',pattern:null}),
+  no_data:Object.freeze({key:'no_data',labelTh:'ไม่มีข้อมูล',labelEn:'No data',glyph:'—',pattern:'135deg hatch'}),
+  review:Object.freeze({key:'review',labelTh:'ข้อมูลรอตรวจ',labelEn:'Evidence needs review',glyph:'?',pattern:'dotted outline'}),
+  suppressed:Object.freeze({key:'suppressed',labelTh:'ปิดค่า',labelEn:'Suppressed',glyph:'',pattern:'dashed outline'}),
+  out_of_scope:Object.freeze({key:'out_of_scope',labelTh:'นอกขอบเขตข้อมูล',labelEn:'Out of scope',glyph:'',pattern:null}),
+  not_yet:Object.freeze({key:'not_yet',labelTh:'ยังไม่ถึงรอบข้อมูล',labelEn:'Not yet available',glyph:'…',pattern:'dotted outline'}),
+  undefined_ratio:Object.freeze({key:'undefined_ratio',labelTh:'ฐานเป็น 0 · คำนวณ % ไม่ได้',labelEn:'Base is 0 · percentage undefined',glyph:'—',pattern:'135deg hatch'}),
+  unclassified:Object.freeze({key:'unclassified',labelTh:'ค่าสีเทียบประเทศยังไม่พร้อม',labelEn:'National colour comparison unavailable',glyph:'—',pattern:'dashed outline'})
+ });
+ function evidenceCue(record,state){
+  const source=record?.evidenceState||record?.sourceState||record?.reason||'',reason=record?.reason||'',s=normalState(state||record);
+  let key='no_data';
+  if(['suppressed','withheld'].includes(source))key='suppressed';
+  else if(['out_of_scope','not_applicable','not-applicable'].includes(source)||reason==='own_scope_unavailable')key='out_of_scope';
+  else if(['not_yet','not-yet'].includes(source))key='not_yet';
+  else if(reason==='zero_identified_denominator')key='undefined_ratio';
+  else if(s.kind==='demand'&&s.metric==='tier'&&(source==='not_qualified'||reason==='no_confirmed_demand_tier'))key='below_criteria';
+  else if(record?.state==='review')key='review';
+  else if(record?.exact===true&&Number.isFinite(record.value))key=record.value===0&&record.zero===true?'known_zero':record.classificationState==='missing_national_cohort'?'unclassified':'value';
+  return evidenceKinds[key];
+ }
+ function styleForEvidence(record,state,options={}){
+  const cue=evidenceCue(record,state),theme=options.theme==='dark'?'dark':'light',tokens=evidenceTokens[theme],allowed=options.allowFill!==false,baseWeight=Number.isFinite(options.baseWeight)?options.baseWeight:0.3;
+  const style={color:tokens.border,weight:baseWeight,opacity:1,fill:allowed,fillOpacity:1,fillColor:record?.paint||record?.color||tokens.soft,dashArray:null};
+  if(cue.key==='known_zero'){style.color=tokens.zero;style.weight=2;}
+  else if(['no_data','undefined_ratio'].includes(cue.key)){style.fillColor='url(#yolk-map-no-data-'+theme+')';style.weight=Math.max(baseWeight,0.85);}
+  else if(cue.key==='suppressed'){style.fillColor=tokens.soft;style.weight=Math.max(baseWeight,1);style.dashArray='6 4';}
+  else if(cue.key==='not_yet'){style.fillColor=tokens.pendingFill;style.color=tokens.pendingInk;style.weight=Math.max(baseWeight,1.2);style.dashArray='1 4';style.lineCap='round';}
+  else if(cue.key==='review'){style.fillColor=tokens.soft;style.weight=Math.max(baseWeight,1.2);style.dashArray='1 4';style.lineCap='round';}
+  else if(['below_criteria','out_of_scope','unclassified'].includes(cue.key)){style.fill=false;if(cue.key==='unclassified')style.dashArray='6 4';}
+  return style;
+ }
+ function ensureEvidencePatterns(container){
+  if(!container?.querySelectorAll||!global.document?.createElementNS)return 0;
+  const ns='http://www.w3.org/2000/svg';let added=0;
+  for(const svg of container.querySelectorAll('svg.leaflet-zoom-animated')){
+   let defs=svg.querySelector('defs[data-yolk-evidence-patterns]');if(defs)continue;
+   defs=global.document.createElementNS(ns,'defs');defs.setAttribute('data-yolk-evidence-patterns','EVID-05');
+   for(const theme of ['light','dark']){
+    const tokens=evidenceTokens[theme],pattern=global.document.createElementNS(ns,'pattern');
+    for(const [name,value]of Object.entries({id:'yolk-map-no-data-'+theme,width:8,height:8,patternUnits:'userSpaceOnUse',patternTransform:'rotate(135)'}))pattern.setAttribute(name,String(value));
+    const rect=global.document.createElementNS(ns,'rect');for(const [name,value]of Object.entries({width:8,height:8,fill:tokens.noData}))rect.setAttribute(name,String(value));pattern.appendChild(rect);
+    const line=global.document.createElementNS(ns,'path');for(const [name,value]of Object.entries({d:'M 0 0 L 0 8',stroke:tokens.border,'stroke-width':1.5}))line.setAttribute(name,String(value));pattern.appendChild(line);defs.appendChild(pattern);
+   }
+   svg.insertBefore(defs,svg.firstChild);added++;
+  }
+  return added;
+ }
+ function evidenceLegend(prepared,options={}){
+  const tier=prepared?.metadata?.kind==='demand'&&prepared?.metadata?.metric==='tier',keys=new Set([...prepared?.records?.values?.()||[]].map(r=>evidenceCue(r,prepared?.metadata).key));
+  if(tier)keys.add('below_criteria');else keys.add('known_zero');keys.delete('value');
+  const order=['known_zero','below_criteria','no_data','review','suppressed','out_of_scope','not_yet','undefined_ratio','unclassified'],escape=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+  return order.filter(key=>keys.has(key)).map(key=>{const cue=evidenceKinds[key];return '<span class="yolk-evidence-legend" data-evidence-cue="'+key+'"><i class="yolk-evidence-swatch yolk-evidence-'+key+'" aria-hidden="true"'+(key==='known_zero'&&prepared?.palette?.[0]?' style="background:'+escape(prepared.palette[0])+'"':'')+'></i><span>'+escape(options.lang==='en'?cue.labelEn:cue.labelTh)+'</span></span>';}).join('');
+ }
+
+ global.YolkMapAnalysis=Object.freeze({value,prepare,metadata,brandBreakdown,palettes,scaleSource,percentilePoints,percentile,evidenceCue,styleForEvidence,ensureEvidencePatterns,evidenceLegend,evidenceTokens});
 })(window);

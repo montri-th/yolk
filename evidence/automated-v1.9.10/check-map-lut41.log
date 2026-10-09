@@ -1,0 +1,23 @@
+PASS count light exactly consumes all41native LUT entries
+PASS count dark exactly consumes all41native LUT entries
+PASS density.area light exactly consumes all41native LUT entries
+PASS density.area dark exactly consumes all41native LUT entries
+PASS density.capita light exactly consumes all41native LUT entries
+PASS density.capita dark exactly consumes all41native LUT entries
+PASS built light exactly consumes all41native LUT entries
+PASS built dark exactly consumes all41native LUT entries
+PASS price light exactly consumes all41native LUT entries
+PASS price dark exactly consumes all41native LUT entries
+PASS Native source hashes, base release and 41-sample traceability are explicit
+PASS 40national quantile boundaries P(i*100/41) produce41indices with all native colours represented on distinct data
+PASS Legend communicates units, thresholds, end-bin and native LUT order without interpolation
+PASS Viewport subsets keep the same national41class boundaries, colours and values
+PASS Interval, absent, suppressed and unknown role values remain uncoloured and outside comparable quantiles
+PASS Observed zero keeps class0 when repeated zero cutoffs would otherwise promote it
+PASS Allzero and tiedpositive datasets retain correct values, explicit zero cues and disclosed empty classes
+PASS Raw metric cutoff equality is lowerinclusive and upperexclusive in all40boundaries
+PASS Tier1/2/3 use three ownercategories with gradient paint, yellow, eggwhite and explicit labels
+PASS fuel actualfine/nativeDistrict views use fixed same-grain41LUTs without altering source or thresholds
+PASS grocery actualfine/nativeDistrict views use fixed same-grain41LUTs without altering source or thresholds
+PASS nonbank actualfine/nativeDistrict views use fixed same-grain41LUTs without altering source or thresholds
+{"passed":true,"checks":22,"receipt":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.0/map-lut41-regression-results.json"}

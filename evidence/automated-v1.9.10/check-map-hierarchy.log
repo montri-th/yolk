@@ -1,0 +1,13 @@
+PASS Country keeps ordinary thin white analytical strokes and province hierarchy without legacy shadow treatment
+PASS Province and district views support white parent context above thinner original fine-area fills
+PASS Theme, criteria and repeated sync preserve actual fills, source values, camera and a single target per scope
+PASS Exact wider hover remains yellow, transparent and independent from neutral parent support
+PASS Supply points retain the quiet hierarchy without halos or any restored child-outline mesh
+PASS Selected fine location remains an unfilled white outline without a contrast field or changed POIs
+PASS Ordinary analytical paths have no remaining drop-shadow; contrast does not filter tiles, markers or data fields
+PASS Actual emitted stylesheet cascade leaves ordinary filled and unfilled white source paths unfiltered
+PASS Stroke-only public panes place a neutral keyline under white boundaries and hover above both but below branch markers
+PASS Country, province, district and selected location keylines reuse exact visible source geometry and ordinary white widths
+PASS Theme, basemap and repeated sync keep keyline geometry cached, exact analytical fills and the current camera
+PASS Point view supports only its existing quiet outline set and loading removes stale boundary pairs
+{"passed":true,"checks":12,"report":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.3/map-hierarchy-regression-results.json"}

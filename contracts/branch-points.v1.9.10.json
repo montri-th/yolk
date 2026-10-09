@@ -1,0 +1,443 @@
+{
+  "schemaVersion": "yolk.branch_points/1.9.10",
+  "version": "1.9.10",
+  "date": "2026-10-09",
+  "status": "final_runtime_values_current_QA_bound",
+  "scope": "All filtered valid branch coordinates by default, optional screen grouping, searchable overlap selection, retryable map sources and bounded performance review. Point display retains original coordinates and source inventory; weighted-model and decision-flow fixes from1.9.9 remain retained.",
+  "extends": [
+    "contracts/visual-refinement.v1.9.7.json",
+    "contracts/supply-inventory.v1.9.7.json",
+    "contracts/mobile-flow.v1.9.5.json",
+    "contracts/interaction-guidance.v1.9.1.json"
+  ],
+  "retainedVersions": {
+    "criteria": "1.9.0",
+    "profiles": "1.9.0",
+    "engine": "1.9.0",
+    "strategies": "1.9.0",
+    "DS": "0.9.7"
+  },
+  "invariants": {
+    "nationalBenchmarkUnchanged": true,
+    "demandTierAndEligibleIdsUnchanged": true,
+    "sourceCountsAndCoverageUnchanged": true,
+    "nativeAdministrativeTotalsSeparateFromViewportPoints": true,
+    "sourceCoordinatesUnchanged": true,
+    "samePersistentMap": true,
+    "permittedCameraAndNavigationPreserved": true,
+    "savedCriteriaAndDraftsPreserved": true,
+    "originalBrandArtworkBytesUnchanged": true,
+    "mobileDocumentFlowPreserved": true,
+    "noSourceWriteOrTeamEvent": true,
+    "numericalSupplyPresetsUnchanged": true,
+    "displayDoesNotMutateAnalyticalInputs": true
+  },
+  "defaultView": {
+    "supply": "regions",
+    "branchPoints": "all_filtered_valid_coordinates",
+    "screenGrouping": false,
+    "pointTruncation": false,
+    "scope": "All applicable coordinate records after current administrative/brand/format/relation/source status filters; offscreen culling is rendering only, not inventory truncation."
+  },
+  "rendering": {
+    "status": "runtime_confirmed",
+    "implementation": "One DOM Canvas and three offscreen 12px role sprites at DPR clamped 1..2, keyed by DPR and exact theme paper/own/competitor/unverified tokens. Every original coordinate uses cached drawImage; per-point WeakMap projection cache tracks lat/lng/zoom, current filters/viewport culling and requestAnimationFrame redraw coalescing. Lazy native popup retains existing actions.",
+    "canvasAtCountry": true,
+    "detailedBrandLogosAndPopupActionsPreserved": true,
+    "stableSourceCoordinates": true,
+    "duplicateDiscovery": "20px screen-hit bins with 9px nearby selection. Exact/near-screen overlaps open a 12-row paged chooser ordered by nearest screen distance, with branch/name/ID search (200-character maximum), exact brand filter, no-match state and explicit nearby zoom. Every source member and exact ID remains available without coordinate spread, jitter or inventory truncation; maximum-zoom/coincident optional groups use the same chooser.",
+    "stateDiagnostics": "Panel DOM point mode/renderer/represented and Canvas records/draw milliseconds/sprite count/frame count are source diagnostics; actual performance claims require current measured receipt.",
+    "contextGuards": "Context/filter/loading/stale guards reset represented/display summaries to explicit zeros; popup source filter/language/revision is refreshed before actions.",
+    "detailPolicy": "Detailed original DOM logo pins whenever visible filtered records <=120 on map host widths >=600px, or <=60 below600px, independent of zoom/drilldown. This is a rendering threshold only; all applicable source records remain represented.",
+    "popupPolicy": "Lazy native popup retains original artwork/name/role and Street View/Google AI/branch actions under current-context guards. Capture delegation supports search, brand, page/back/detail/View branch and explicit nearby zoom. Search changes only the result container, preserving the live search/select DOM, value and focus. Nearby zoom closes the popup and uses min(maxZoom, max(10, currentZoom + 2)); no automatic zoom on filtering.",
+    "coordinateFilter": "Retain existing industry, administrative scope, party, source status and viewport predicates; viewport is visual only, native administrative vectors remain independent.",
+    "popupPlacement": "Dedicated Leaflet workspaceBranchPoints pane 450 below markers 600/tooltip 650/popup 700. Each draw uses public containerPointToLayerPoint([0,0]) and DomUtil.setPosition to cancel pane translation. Native popup autoPan:false; maxHeight=max(140,min(360,hostHeight-72)); next animation frame fits 8px host margins using popup.options.offset and public popup.setLatLng(popup.getLatLng()). This repositions without replaying Leaflet stored HTML or losing live form state. Chooser list maxHeight 260px scrolls while page footer remains outside. UI box offset only: original coordinates and camera stay unchanged.",
+    "statusMeaning": "active means Team confirmed open; verified means Team checked the record. Neither label by itself asserts a field visit or current operational certification."
+  },
+  "optionalGrouping": {
+    "status": "runtime_confirmed",
+    "controlLocation": "Map Options",
+    "default": false,
+    "meaning": "Optional screen-space display grouping only; preserve all members and party counts. Never infer physical clusters, market demand or attraction from screen groups.",
+    "api": "setPointMode('groups')",
+    "selection": "Map Options select with all as default; personal display state only",
+    "gridCellPixels": 56,
+    "memberConservation": true
+  },
+  "performance": {
+    "status": "bounded_current_measured_evidence",
+    "scope": "Fresh measurements and native core journeys must be bound to the current runtime and recorded browser, viewport, dataset and environment. Retained renderer values are implementation facts, not current performance acceptance.",
+    "coreJourneys": [
+      "Expansion opportunities and reasons/guide",
+      "Demand and criteria draft/apply",
+      "Supply regions/all points/grouped points/filter/popup",
+      "Shortlist save/duplicate handling",
+      "Theme/language/navigation",
+      "Normal mobile page scroll and map Expand/Compact/retry"
+    ],
+    "benchmarks": [
+      {
+        "name": "Dense uncapped visible Canvas draw",
+        "durationMs": 18.3,
+        "environment": "Native Chrome1440x900localhost on thiscomputer;warmassetcache",
+        "scope": "13564visiblefilteredNonbankrecords represented by oneCanvas;lastcompletedframe only,notendtoend/p95mobile"
+      },
+      {
+        "name": "Warm local startup",
+        "durationMs": 885.9,
+        "environment": "Native Chrome1440x900localhost;warmassetcache",
+        "scope": "Currentbodystartupmark;notinternetstartup,coldcacheorallbrands"
+      }
+    ],
+    "deviceAndBrowserLimits": "Physical devices, Safari, complete matrix, all providers and production backend remain separate unverified gates.",
+    "loadPolicy": "Release-query-scoped public JSON cache; download runtime scripts concurrently but execute in declared dependency order. Verify actual load behavior/timings rather than promise network-independent speed.",
+    "wholeSiteReview": {
+      "passed": true,
+      "checkIds": [
+        "whole_site_navigation",
+        "mobile_map_details"
+      ],
+      "scope": "Boundedroute/one-map andnormalmobileflowsmoke;existinglocalrecordsnotmutated."
+    },
+    "review": {
+      "passed": true,
+      "checkIds": [
+        "dense_canvas_performance"
+      ],
+      "scope": "MeasuredcurrentnativeChrome lastCanvasdraw/warm-localstartup only."
+    }
+  },
+  "runtimeFiles": [
+    "prototype/workspace-map.js",
+    "prototype/workspace-map.css",
+    "prototype/bootstrap.js",
+    "prototype/industry-workspace.js",
+    "prototype/model.js",
+    "prototype/app.js",
+    "prototype/map-hover.js",
+    "prototype/map-hover.css",
+    "prototype/poi-popup.js"
+  ],
+  "runtimeSources": [
+    {
+      "path": "prototype/workspace-map.js",
+      "bytes": 146176,
+      "sha256": "892773fa27107b1a256c1e14088d740eec5df19ff470cfc12ea9cc540123b929"
+    },
+    {
+      "path": "prototype/workspace-map.css",
+      "bytes": 28452,
+      "sha256": "5f95f3b7b15d44a667079bd294fb519e780718546ab9ce9ece148204d87e8df0"
+    },
+    {
+      "path": "prototype/bootstrap.js",
+      "bytes": 5821,
+      "sha256": "fa599d3a7de4ef664900365bd6af23aba328e13daba59e478e3a6a9ad54d4ca0"
+    },
+    {
+      "path": "prototype/industry-workspace.js",
+      "bytes": 24279,
+      "sha256": "cc1c763b983440355b3dcfa9792f28e5ea8947be57f6a2b5dbea112de9126920"
+    },
+    {
+      "path": "prototype/model.js",
+      "bytes": 47953,
+      "sha256": "1ef1c44d7aa73e8769b1777cfdd053f2810d59827b1190c6decce5e5d1a07db5"
+    },
+    {
+      "path": "prototype/app.js",
+      "bytes": 85803,
+      "sha256": "a9f717915c026bb41c923c938d8d4fb5e45edc894a4e9cc386ca470e697d2964"
+    },
+    {
+      "path": "prototype/map-hover.js",
+      "bytes": 10313,
+      "sha256": "3ca02f07c0eb108174fb4843b356e05523e4267f18e27adb8b7407e02f2435ce"
+    },
+    {
+      "path": "prototype/map-hover.css",
+      "bytes": 2762,
+      "sha256": "f098031141aee3f223d45d5b30ace89568f81f7ba8ce35dec9f61f26189e0c9c"
+    },
+    {
+      "path": "prototype/poi-popup.js",
+      "bytes": 11779,
+      "sha256": "8d961c2851c7eb5305673ac89ea180dbc167292fba0f47d82f63083d1335e19e"
+    }
+  ],
+  "requiredSuites": [
+    "scripts/check-supply-poi-modes.cjs",
+    "scripts/check-unclustered-poi.cjs",
+    "scripts/check-workspace-map.cjs",
+    "scripts/check-map-recovery.cjs",
+    "scripts/check-map-responsiveness.cjs",
+    "scripts/check-workspace-transactions.cjs",
+    "scripts/check-bootstrap-loader.cjs",
+    "scripts/check-map-redteam.cjs",
+    "scripts/check-map-hover.cjs",
+    "scripts/check-poi-popup.cjs"
+  ],
+  "acceptance": [
+    "Supply opens in Region colours; Branch points defaults to every filtered valid source coordinate without screen clustering or an arbitrary marker cap.",
+    "Optional screen grouping lives in Map Options, preserves every member/count and never changes source coordinates or native administrative totals.",
+    "Country point rendering is efficient; detailed original logos, readable names, role cues and existing popup actions remain available where appropriate.",
+    "Coincident/overlapping records remain discoverable by search, brand filter, nearest-screen ordering and exact source ID. Search focus/value survives geometry-only popup repositioning; explicit nearby zoom does not move source coordinates.",
+    "Filter/context/theme/route/resize updates retain map instance, permitted camera, drafts and original coordinate/inventory values. Stale draw, source or popup work cannot overwrite a newer context; separate weighted-model corrections are declared.",
+    "Actual core journeys and load/render/interaction timings are recorded with environment, dataset and limits; no zero-bug, all-device, all-network or backend guarantee.",
+    "Actual TH/EN, light/dark, desktop/narrow all/grouped points and popup content are reviewed; old screenshots and test counts are not current acceptance.",
+    "Release-query public JSON caching and concurrent script download preserve declared execution order, late-context guards and source-byte semantics.",
+    "Failed browser-local writes remain the model transaction owner’s responsibility. Source failures expose an explicit retry without reloading the page; no unearned saved/verified/success state is shown.",
+    "Actual native pointer clicks operate close/page/back/detail/View branch controls inside the visible popup; Canvas must remain below popupPane and popup content must fit or scroll within the actual host. Keyboard-only or Node click dispatch is not pointer/placement acceptance.",
+    "Boundary hover can be dismissed by Escape without changing camera or focus; stationary pointer movement cannot immediately reopen the dismissed target, and pointer transfer to the external dock/side-panel permits reading its contents.",
+    "A failed HTTP request, invalid JSON or invalid source shape can recover on explicit retry; pending requests are deduplicated and late results cannot repaint another industry."
+  ],
+  "verification": {
+    "integrated": {
+      "status": "PASS",
+      "receipt": "evidence/automated-v1.9.10.json",
+      "receiptSha256": "4fffdc627d6fc1a342aa99ca4fc80faf7d588a7311c5aef9eb3158c4bd439043",
+      "requiredSuiteResults": [
+        {
+          "suite": "scripts/check-bootstrap-loader.cjs",
+          "testedAt": "2026-10-09T11:11:47.077282+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "e4ce7dd3e76d74f1f926dfb0c85acf7a7adb81d69c90e974ee00884114bac9df",
+          "outputSha256": "175872f82f49f44616f0a1195f3535fc95bcffe17c6c82bf53755e38d15e9809",
+          "passLines": 7,
+          "checks": 7,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "evidence/automated-v1.9.10/check-bootstrap-loader.log"
+        },
+        {
+          "suite": "scripts/check-map-hover.cjs",
+          "testedAt": "2026-10-09T11:11:17.924727+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "3d3b9d69c9aabe722bdef918a99be91f51598215f9da5a563236cacb6eb22bd3",
+          "outputSha256": "026b25335afa4328fdb03095b8c889b7df8805cb1664249beb058c9da83bbcdc",
+          "passLines": 21,
+          "checks": 21,
+          "countBasis": "exact_PASS_output_lines",
+          "outputEvidence": "evidence/automated-v1.9.10/check-map-hover.log"
+        },
+        {
+          "suite": "scripts/check-map-recovery.cjs",
+          "testedAt": "2026-10-09T11:11:57.249083+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "d01df52ceb516e9eb4e3e584bc69256c9d818db24247d1c0b374cd838e82c09f",
+          "outputSha256": "48095b04b43ca4361e1d2840373b7c7bb6cc61497394a2cc044bb1258a2f876b",
+          "passLines": 17,
+          "checks": 17,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "evidence/automated-v1.9.10/check-map-recovery.log"
+        },
+        {
+          "suite": "scripts/check-map-redteam.cjs",
+          "testedAt": "2026-10-09T11:11:44.734501+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "b95a55d6a34fbcd41e2c1d54aa7a02139b4909982e08d14f71d4523a12162e8e",
+          "outputSha256": "a2d4d76013b95c7e18c0b3fbddcf2f54ccb522ab07a5021ad32d8d45aa35e532",
+          "passLines": 7,
+          "checks": 7,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "evidence/automated-v1.9.10/check-map-redteam.log"
+        },
+        {
+          "suite": "scripts/check-map-responsiveness.cjs",
+          "testedAt": "2026-10-09T11:11:16.826268+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "23c4508b34b938accd94c808262f2164a1a364e4440199a6a62609a7c2cdb3f7",
+          "outputSha256": "a11c3bd242728496213e13dbe6927e0f0f1faa64a2762ab35b5d531128590b22",
+          "passLines": 20,
+          "checks": 20,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "evidence/automated-v1.9.10/check-map-responsiveness.log"
+        },
+        {
+          "suite": "scripts/check-poi-popup.cjs",
+          "testedAt": "2026-10-09T11:11:16.797074+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "21684ea3286696e78c05d21d802e83bab694b86d7278bea3aace557bb16487f7",
+          "outputSha256": "e2ad17f68d950ad9bc452640d883ad7d19f7a316c4974a5d3e39dc44fb1726c7",
+          "passLines": 17,
+          "checks": 17,
+          "countBasis": "exact_PASS_output_lines",
+          "outputEvidence": "evidence/automated-v1.9.10/check-poi-popup.log"
+        },
+        {
+          "suite": "scripts/check-supply-poi-modes.cjs",
+          "testedAt": "2026-10-09T11:11:28.006000+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "f38b8ce314f8c30afb6cfd531aeef7367bedf7dde35e6cbaf8bd64f8c00c1d1c",
+          "outputSha256": "cda18a628e95a10fb5da907c71b471cdd8971513c5c74d836cf58e08336ef648",
+          "passLines": 9,
+          "checks": 9,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "evidence/automated-v1.9.10/check-supply-poi-modes.log"
+        },
+        {
+          "suite": "scripts/check-unclustered-poi.cjs",
+          "testedAt": "2026-10-09T11:11:30.625265+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "7cd2200d41dc2a9c448329007fac4086f27cadcec2da21b5456164506b9420ad",
+          "outputSha256": "0110ece5a0d2639d7b9d9ced6e30bdab58ee88d912b57649c6d4ac78116563d6",
+          "passLines": 16,
+          "checks": 16,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "evidence/automated-v1.9.10/check-unclustered-poi.log"
+        },
+        {
+          "suite": "scripts/check-workspace-map.cjs",
+          "testedAt": "2026-10-09T11:11:11.661324+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "0b4e1e4d006ccd8735672823422cbc5ca50bb421ca43ee2d66c659dc7dd17ecc",
+          "outputSha256": "d10cb0efd72ef2d0605d881d400549259b6fbdd4130641a62f34373082041bdc",
+          "passLines": 31,
+          "checks": 31,
+          "countBasis": "reported_test_case_total",
+          "outputEvidence": "evidence/automated-v1.9.10/check-workspace-map.log"
+        },
+        {
+          "suite": "scripts/check-workspace-transactions.cjs",
+          "testedAt": "2026-10-09T11:11:35.323165+00:00",
+          "exitCode": 0,
+          "passed": true,
+          "testSourceSha256": "1d229c0465d36904bbbaa63117a512aa658ba915552a629d6314aa937523f6ae",
+          "outputSha256": "82cc7fb24a0987107263e6bfecb4546539cfe627253478b55de54448c15603ba",
+          "passLines": 14,
+          "checks": 14,
+          "countBasis": "reported_named_test_cases",
+          "outputEvidence": "evidence/automated-v1.9.10/check-workspace-transactions.log"
+        }
+      ]
+    },
+    "native": {
+      "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "receipt": "evidence/browser-v1.9.10/native-browser-review.json",
+      "receiptSha256": "2b103838b50a3217ff9e1933d86c6561ff9f58eb73311f391612e740aa0eba57",
+      "review": {
+        "passed": true,
+        "checkIds": [
+          "sparse_any_zoom_logos",
+          "dense_canvas_performance",
+          "native_pointer_unblocked"
+        ],
+        "scope": "Actual sparseTrat85logos and denseNonbank13564Canvas;allpointdefaultretained."
+      }
+    },
+    "publication": "not_performed_by_contract"
+  },
+  "failureHandling": {
+    "status": "current_QA_bound",
+    "scope": "Explicit map-source retry and browser-local write failures; current QA receipt pending",
+    "mapSources": {
+      "control": "[data-workspace-source-retry]",
+      "api": [
+        "YolkWorkspaceMap.retrySources()",
+        "YolkWorkspaceMap.sourceRetryState()"
+      ],
+      "policy": "Retry failed province/hierarchy, native district, fine geometry and source-point work explicitly without whole-page reload. Delegate source geometry retry to YOLK_RUNTIME.retrySourceGeometry(). Deduplicate pending requests; parse/shape failures remain retryable. Late results cannot redraw a different current industry/context. Successful retry preserves permitted camera and editable criteria/form drafts.",
+      "basemap": "Basemap provider retry remains a distinct existing action; source retry does not establish external provider availability."
+    },
+    "browserLocalWrites": "The model owns transactional write/rollback and recovery behavior, as specified by contracts/red-team-remediation.v1.9.10.json. Map display must not announce a save or modify team records. This static preview does not provide shared backend transactions."
+  },
+  "api": {
+    "setPointMode": "setPointMode('all'|'groups')",
+    "getPointMode": "getPointMode() defaults all",
+    "state": "getState().pointMode; pointLimit(null in all,1000 in groups), groupPointLimit1000, detailPointLimit adaptive120wide/60narrow; pointCanvas {records,lastDrawMs,frames,pending,epoch}; overlap {total,filteredTotal,page,pageSize:12,query,brand}; points {total,shown,represented,clusters,coordinateState,cellPx,mode,renderer,detailMarks,canvasMarks,overlapGroups}",
+    "modeMeaning": "all = all filtered valid coordinates; groups = explicit optional screen-space groups",
+    "retry": "retrySources() explicitly retries failed current map sources; sourceRetryState() reports pending/error source state"
+  },
+  "nativeEvidence": {
+    "review": {
+      "passed": true,
+      "checkIds": [
+        "sparse_any_zoom_logos",
+        "dense_canvas_performance",
+        "native_pointer_unblocked"
+      ],
+      "scope": "Actual sparseTrat85logos and denseNonbank13564Canvas;allpointdefaultretained."
+    },
+    "checks": [
+      {
+        "id": "native_pointer_unblocked",
+        "passed": true,
+        "details": "NativemousemovedontohighlightedPhayao113branchrecords,0areatooltipsovercanvas; nativeclickatpointerdrilledPhayao, dockcleared,mapinstancecontainercount1.",
+        "status": "PASS"
+      },
+      {
+        "id": "sparse_any_zoom_logos",
+        "passed": true,
+        "details": "Trat province:85 detailed original-logo markers/170 image elements loaded at broad20km view; no zoom gate; map host>=600px.",
+        "status": "PASS"
+      },
+      {
+        "id": "dense_canvas_performance",
+        "passed": true,
+        "details": "Finalfrozenruntime13564recordCount=markCount,3cachedsprites,noinventorycap and oneMap;boundedframe18.3ms/warmstartup885.9ms.",
+        "status": "PASS"
+      }
+    ],
+    "runtimeFiles": [
+      {
+        "path": "prototype/app.js",
+        "bytes": 85803,
+        "sha256": "a9f717915c026bb41c923c938d8d4fb5e45edc894a4e9cc386ca470e697d2964"
+      },
+      {
+        "path": "prototype/bootstrap.js",
+        "bytes": 5821,
+        "sha256": "fa599d3a7de4ef664900365bd6af23aba328e13daba59e478e3a6a9ad54d4ca0"
+      },
+      {
+        "path": "prototype/industry-workspace.js",
+        "bytes": 24279,
+        "sha256": "cc1c763b983440355b3dcfa9792f28e5ea8947be57f6a2b5dbea112de9126920"
+      },
+      {
+        "path": "prototype/map-hover.css",
+        "bytes": 2762,
+        "sha256": "f098031141aee3f223d45d5b30ace89568f81f7ba8ce35dec9f61f26189e0c9c"
+      },
+      {
+        "path": "prototype/map-hover.js",
+        "bytes": 10313,
+        "sha256": "3ca02f07c0eb108174fb4843b356e05523e4267f18e27adb8b7407e02f2435ce"
+      },
+      {
+        "path": "prototype/model.js",
+        "bytes": 47953,
+        "sha256": "1ef1c44d7aa73e8769b1777cfdd053f2810d59827b1190c6decce5e5d1a07db5"
+      },
+      {
+        "path": "prototype/poi-popup.js",
+        "bytes": 11779,
+        "sha256": "8d961c2851c7eb5305673ac89ea180dbc167292fba0f47d82f63083d1335e19e"
+      },
+      {
+        "path": "prototype/workspace-map.css",
+        "bytes": 28452,
+        "sha256": "5f95f3b7b15d44a667079bd294fb519e780718546ab9ce9ece148204d87e8df0"
+      },
+      {
+        "path": "prototype/workspace-map.js",
+        "bytes": 146176,
+        "sha256": "892773fa27107b1a256c1e14088d740eec5df19ff470cfc12ea9cc540123b929"
+      }
+    ],
+    "coverageBoundary": "Observed current browser/viewport/dataset only; no all-device, all-provider, universal performance or zero-bug guarantee."
+  },
+  "semanticChangeBoundary": {
+    "protected": "Demand definitions and eligibility thresholds, numerical industry/brand presets, source dataset bytes, original artwork and exact LDS values are retained.",
+    "corrected": "The retained v1.9.9 weighted model handles missing/suppressed/invalid Supply and unknown-supply bounds explicitly. Captured decision criteria and incomplete/unsupported Strategy queues also change behavior; analytical outputs are not globally asserted unchanged.",
+    "authority": "contracts/red-team-remediation.v1.9.10.json"
+  }
+}

@@ -1,0 +1,32 @@
+PASS All 77 actual province features retain unique exact reporting codes
+PASS All native hierarchy sources cover 928 districts and every 7,954 metric UUID without bounding-box substitution
+PASS One mounted Leaflet instance survives every workspace route and repeated renders
+PASS Substantial width or responsive-breakpoint changes fit the same navigation; height-only changes and route sync do not
+PASS Mobile map options are collapsed by default, keyboard labelled and independent of navigation/map state
+PASS Compact map evidence keeps a verified glyph and readable fallback after either language refresh
+PASS Summary classes use confirmed qualifying Tier, independently of numeric rank score
+PASS District analytical fills are exact full-opacity classes while province polygons remain unfilled
+PASS Criteria comparison matches real-model baseline/draft sets; invalid drafts pause last valid output
+PASS Canonical Opportunities and legacy Strategy use the same changed draft and candidate filters; invalid drafts retain the view
+PASS Source extent focus is explicitly dashed and unfilled; route sync never fits automatically
+PASS All 18 retrieved source polygons render as genuine source geometry rather than extent substitutes
+PASS All 1,105 valid detail markers, party glyphs and branch filters follow actual user choices without truncation
+PASS Responsive width changes preserve an open native POI popup anchor without delayed refitting
+PASS Draft branch coordinates show a neutral D without saving, supply changes or automatic zoom
+PASS Loading clears stale point labels and failed inventory is not described as zero
+PASS A failed context switch clears previous-brand overlays instead of relabelling stale results
+PASS Persistent controls and map accessible names update when language changes
+PASS Country → province → district → fine location has exact source filters, breadcrumbs and back with no duplicate callbacks
+PASS Fine-detail focus preserves the chosen parent for all multi-district source locations
+PASS Coordinate-only records use an actual polygon for view matching without area or aggregate mutation
+PASS Fine comparison preserves old tier colours for baseline and removed rows while selected interiors remain unfilled
+PASS Supply cutoff changes leave raw Demand Yolks unchanged and expose a separate draft-match count
+PASS Late point focus cannot move the map after brand/context switch
+PASS Basemap selection preserves map instance and viewport, with explicit 2021 satellite attribution
+PASS Satellite is explicit about provider and vintage; the Google Maps alternative follows the current camera without embedding undocumented tiles
+PASS Satellite transparency uses one attributed Simplified road underlay; retry and provider changes retire both layers without changing the camera
+PASS White source strokes retain thin relative hierarchy and survive opaque child fills at every drill-down
+PASS Criteria edits restore parent-stroke order without changing camera or source metrics
+PASS Country and province hover expose the exact larger click boundary in yellow without obscuring data
+PASS Native-style first attachment tags every district/fine evidence state, then removes stale tags on a nonanalytical route
+{"passed":true,"checks":31,"report":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.0/workspace-map-regression-results.json"}

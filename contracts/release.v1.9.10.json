@@ -1,0 +1,244 @@
+{
+  "schemaVersion": "yolk.public_release/1.9",
+  "version": "1.9.10",
+  "approvedSourcePreview": "1.9.10-all-branch-points",
+  "date": "2026-10-09",
+  "status": "locally_verified_pending_publication",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "productAuthority": "contracts/product.v1.7.json",
+  "featureExtension": "contracts/branch-points.v1.9.10.json",
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "nationalDemandCutoffsUnchanged": true,
+  "fineModelSemanticsUnchanged": true,
+  "modelChange": "All filtered valid Branch points by default, optional screen grouping and efficient rendering; measured whole-site core-flow performance review. Numerical/source/production semantics unchanged.",
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "publicationDelta": [
+    "Supply opens in Region colours; Branch points defaults to every filtered valid source coordinate without screen clustering or an arbitrary marker cap.",
+    "Optional screen grouping lives in Map Options, preserves every member/count and never changes source coordinates or native administrative totals.",
+    "Country point rendering is efficient; detailed original logos, readable names, role cues and existing popup actions remain available where appropriate.",
+    "Coincident/overlapping records remain discoverable without moving their source coordinates.",
+    "Filter/context/theme/route/resize updates retain map instance, permitted camera, drafts and source semantics; stale draw or popup work cannot overwrite a newer context.",
+    "Actual core journeys and load/render/interaction timings are recorded with environment, dataset and limits; no zero-bug, all-device, all-network or backend guarantee.",
+    "Actual TH/EN, light/dark, desktop/narrow all/grouped points and popup content are reviewed; old screenshots and test counts are not current acceptance."
+  ],
+  "shareImage": {
+    "asset": "prototype/assets/identity/yolk-share-v1.7.png",
+    "family": "1.7",
+    "changedInThisRelease": false,
+    "meaning": "Retained approved1.7family asset; no new1.9render claimed."
+  },
+  "sourceEvidenceBoundary": "Compact public adapters and provenance only; private source acquisition/customer data excluded.",
+  "localVerification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "receipt": "evidence/qa-v1.9.10.json",
+    "automatedReceipt": "evidence/automated-v1.9.10.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.10.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.10/native-browser-review.json",
+    "receiptSha256": "86fc9777492beb27e4570f0cbc28d5e4e8baa978d2f98dec08ad6e03feda27a0",
+    "automatedReceiptSha256": "4fffdc627d6fc1a342aa99ca4fc80faf7d588a7311c5aef9eb3158c4bd439043",
+    "releaseChecksReceiptSha256": "02deaa57c42ccfc163135644806b2e3bfe30c99414d055e78e8ed4ba85846827",
+    "nativeBrowserReceiptSha256": "2b103838b50a3217ff9e1933d86c6561ff9f58eb73311f391612e740aa0eba57",
+    "automatedSuites": 41,
+    "automatedChecks": 680,
+    "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.10; no imported prior results.",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 9,
+    "snapshots": [
+      "evidence/browser-v1.9.10/desktop-th-dark-external-hover.jpg",
+      "evidence/browser-v1.9.10/desktop-light-sparse-logos.jpg",
+      "evidence/browser-v1.9.10/desktop-light-zero-null.jpg",
+      "evidence/browser-v1.9.10/desktop-dark-zero-null.jpg",
+      "evidence/browser-v1.9.10/desktop-light-satellite-expanded.jpg",
+      "evidence/browser-v1.9.10/mobile-th-light-dock.jpg",
+      "evidence/browser-v1.9.10/mobile-en-dark-details.jpg",
+      "evidence/browser-v1.9.10/mobile-en-320.jpg"
+    ],
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.10/desktop-th-dark-external-hover.jpg",
+        "bytes": 132977,
+        "sha256": "29e383ab9cc25b94a8e4696a1dbaeb661e2a5b7610a249cf373218cddf577239",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "FinalfrozenruntimeThaiSupplyprovincefocus usescompactexternaldock/fullsidepaneltree, zeroLeafletareatooltips."
+      },
+      {
+        "path": "evidence/browser-v1.9.10/desktop-light-sparse-logos.jpg",
+        "bytes": 130921,
+        "sha256": "86bfbe8c262e87d64ec70c784ac3b15a4800ad459401f6348913b8ef2e665a0b",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "85 visible filtered branch points in Trat province with original brand logos at province view."
+      },
+      {
+        "path": "evidence/browser-v1.9.10/desktop-light-zero-null.jpg",
+        "bytes": 127685,
+        "sha256": "e88e92102fd76d3f3547e6ff9564936670b89ea38f7eefe15170e9dc093d5945",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Actual observed_zero NongSon population exact lowest LUT,2px solid; six missing fine-area source rows use hatch."
+      },
+      {
+        "path": "evidence/browser-v1.9.10/desktop-dark-zero-null.jpg",
+        "bytes": 140936,
+        "sha256": "67e3143bed94d6eb5ccb9ec60e68a34e7ddaeb75349b8eae0de925a82cd631ee",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Same exact zero LUT HEX dark theme; neutral DS outline/hatch cues differ without transforming data paint."
+      },
+      {
+        "path": "evidence/browser-v1.9.10/desktop-light-satellite-expanded.jpg",
+        "bytes": 155196,
+        "sha256": "f84f2f6077f459907444912ce785f3d9a3d28a0910459c8b02884e1ac21142a0",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "FinalSatelliteESA2021 plusOSMSimplifiedroadunderlay:72/72tilesloaded afterExpand;source-year-attribution andcoveragefallback."
+      },
+      {
+        "path": "evidence/browser-v1.9.10/mobile-th-light-dock.jpg",
+        "bytes": 47944,
+        "sha256": "78f2e970275db3ee1cda3df8c8f42b0b7027584b9601d607b372ad83aa9ecfcf",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Thai narrow view actual sourcezero hover compactdock above map; same normal-flow map."
+      },
+      {
+        "path": "evidence/browser-v1.9.10/mobile-en-dark-details.jpg",
+        "bytes": 42750,
+        "sha256": "d20dd03459bb3a2e9b53ea18612215aca43deaaf6d0ed14f10d8560fe6b0285a",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Normal mobile document scroll exposes Demand fine-location details without fixed map."
+      },
+      {
+        "path": "evidence/browser-v1.9.10/mobile-en-320.jpg",
+        "bytes": 35778,
+        "sha256": "fef82c582bc19df9214115935141eb02f71afbf3c3665f7da98637592c495128",
+        "imagePixels": {
+          "width": 320,
+          "height": 760
+        },
+        "viewport": {
+          "width": 320,
+          "height": 760
+        },
+        "description": "320px English Criteria has no horizontaloverflow and retains one map."
+      }
+    ],
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "scope": "Actual bounded native checks for current four map refinements plus retained core route/one-map smoke. FinalSatellite72/72loadeddual-provider grids. Thai/English selectedstates/light-dark/narrow-desktop;notallboundaries/allbrands/fullmatrixorphysicaldevices.",
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "providerEvidence": "Pending terminal deployment success bound to final source SHA; external attestation separate from local QA.",
+  "liveByteEvidence": "Pending current public emitted-URL/hash/MIME checks in external attestation; not inferred from local QA.",
+  "limits": [
+    "Demand proxy is not observed traffic/purchases/borrowing or a revenueforecast",
+    "Static preview does not implement sharedbackend/serverRBAC/email/LINE/privateproductionmedia",
+    "Native viewport review is not physicaldevice certification",
+    "External provider availability/results need separate verification",
+    "Operator-stated positioning is not measured consumer perception or branch-level offering certification",
+    "Strategy candidates are survey cues, not measured unmet demand, market share, sales or winning probability",
+    "POI coordinate inventories and native choropleth counts have different coverage; screen groups are not a customer-attraction model"
+  ],
+  "retainedContracts": [
+    "contracts/workspace-map.v1.7.json",
+    "contracts/map-analysis.v1.7.2.json",
+    "contracts/location-review.v1.7.3.json",
+    "contracts/map-boundary-appearance.v1.7.4.json",
+    "contracts/branch-context.v1.7.5.json",
+    "contracts/opportunity-strategies.v1.9.0.json",
+    "contracts/full-product.v1.9.0.json",
+    "contracts/interaction-guidance.v1.9.1.json",
+    "contracts/full-product.v1.9.1.json",
+    "contracts/brand-identity-ui.v1.9.2.json",
+    "contracts/full-product.v1.9.2.json",
+    "contracts/full-product.v1.9.3.json",
+    "contracts/expansion-experience.v1.9.3.json",
+    "contracts/full-product.v1.9.4.json",
+    "contracts/map-space.v1.9.4.json",
+    "contracts/full-product.v1.9.5.json",
+    "contracts/mobile-flow.v1.9.5.json",
+    "contracts/full-product.v1.9.6.json",
+    "contracts/map-readability.v1.9.6.json",
+    "contracts/supply-inventory.v1.9.6.json",
+    "contracts/full-product.v1.9.7.json",
+    "contracts/visual-refinement.v1.9.7.json",
+    "contracts/supply-inventory.v1.9.7.json"
+  ],
+  "currentQAOnly": true,
+  "designSystemPackageVerification": {
+    "status": "pending_current_verification"
+  },
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "fullProduct": "contracts/full-product.v1.9.10.json",
+  "responsiveCameraRule": "Explicit Expand/Compact preserves the same map/navigation/context and camera within current geographic zoom/center envelope. Clamp only out-of-envelope camera after host-size changes; ordinary scope-fit and popup safeguards remain.",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  },
+  "tileRecoveryStatus": "current1_9_7_settled_host_resize_fresh_native_evidence_required",
+  "strategyGuide": "prototype/data/strategy-guide.v1.9.3.json",
+  "previousPublishedSource": {
+    "version": "1.9.9",
+    "sourceSha": "86e99efe106a334ca790c33ec669a95942131986",
+    "meaning": "Published historical baseline; not current verification."
+  },
+  "supplyInventoryExtension": "contracts/supply-inventory.v1.9.10.json",
+  "visualRefinementExtension": "contracts/visual-refinement.v1.9.10.json",
+  "branchPointsExtension": "contracts/branch-points.v1.9.10.json"
+}

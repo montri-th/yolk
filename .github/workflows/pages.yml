@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Verify current public artifact, red-team fixes and DS assets
-        run: python3 scripts/verify-pages-v1.9.9.py
+        run: python3 scripts/verify-pages-v1.9.10.py
       - name: Check current boundary/Demand/Opportunity-icon readability and retained mobile flow and retained opportunities, guide, recovery and analytical invariants
         run: |
           node scripts/check-three-industry.cjs
@@ -36,6 +36,7 @@ jobs:
           node scripts/check-cold-branch.cjs
           node scripts/check-branch-context.cjs
           node scripts/check-map-analysis.cjs
+          node scripts/check-map-evidence-states.cjs
           node scripts/check-pattern-counts.cjs
           node scripts/check-analysis-integration.cjs
           node scripts/check-location-review.cjs

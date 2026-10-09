@@ -1,0 +1,15 @@
+PASS One shortlist commit writes entity, context and event once; reload retains target
+PASS Snapshot capture failure has a user-visible error and no mutation or unhandled rejection
+PASS Restored target draft rejects a newer form base rather than overwriting it
+PASS Failed shortlist changes neither memory nor disk and never reports success
+PASS Different-context tabs preserve both target sets and global events through one shared lock
+PASS Same-context concurrent edits conflict instead of overwriting newer entity
+PASS Archive fails atomically then succeeds once, preserving aggregates
+PASS Restore fails atomically then succeeds once, preserving aggregates
+PASS Criteria failure retains draft and team version; success stores one revision/event
+PASS Viewer and unsupported lock environment cannot publish a mutation
+PASS Malformed cached fields recover without crashing and preserve raw bytes
+PASS Malformed nested event/snapshot data preserves valid target and quarantines raw original
+PASS Complex decision event text is concise and bilingual without mutating the saved snapshot
+PASS Photo await re-resolves current entity; replaced/deleted records abort with retained draft
+{"schemaVersion":2,"test":"check-workspace-transactions","passed":true,"checks":[{"name":"One shortlist commit writes entity, context and event once; reload retains target","passed":true},{"name":"Snapshot capture failure has a user-visible error and no mutation or unhandled rejection","passed":true},{"name":"Restored target draft rejects a newer form base rather than overwriting it","passed":true},{"name":"Failed shortlist changes neither memory nor disk and never reports success","passed":true},{"name":"Different-context tabs preserve both target sets and global events through one shared lock","passed":true},{"name":"Same-context concurrent edits conflict instead of overwriting newer entity","passed":true},{"name":"Archive fails atomically then succeeds once, preserving aggregates","passed":true},{"name":"Restore fails atomically then succeeds once, preserving aggregates","passed":true},{"name":"Criteria failure retains draft and team version; success stores one revision/event","passed":true},{"name":"Viewer and unsupported lock environment cannot publish a mutation","passed":true},{"name":"Malformed cached fields recover without crashing and preserve raw bytes","passed":true},{"name":"Malformed nested event/snapshot data preserves valid target and quarantines raw original","passed":true},{"name":"Complex decision event text is concise and bilingual without mutating the saved snapshot","passed":true},{"name":"Photo await re-resolves current entity; replaced/deleted records abort with retained draft","passed":true}],"scope":"Actual app click/submit/committed flow and model persistence; shared Web Locks scheduler, reload, corrupt storage and quota injection in VM. No native/backend claim."}
