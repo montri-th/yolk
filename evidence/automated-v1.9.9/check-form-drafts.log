@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "test": "form-drafts",
+  "kind": "actual_functions_vm_dom_not_native",
+  "checks": [
+    {
+      "name": "Navigation captures leaving form under original route/context before restoring it on back",
+      "passed": true
+    },
+    {
+      "name": "Industry/brand contexts never share unfinished branch drafts",
+      "passed": true
+    },
+    {
+      "name": "Discard tombstone prevents an older workspace snapshot resurrecting cleared draft",
+      "passed": true
+    },
+    {
+      "name": "Unavailable journal reports failure while keeping draft in active memory",
+      "passed": true
+    },
+    {
+      "name": "Restoring a branch draft keeps the original revision for stale-write detection",
+      "passed": true
+    },
+    {
+      "name": "Skip to content focuses the existing form without mutating the route",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

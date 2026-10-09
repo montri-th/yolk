@@ -1,0 +1,60 @@
+{
+  "version": "1.9.9",
+  "result": "bounded_document_consistency_pass",
+  "machineBlocks": 1,
+  "tasks": 25,
+  "checks": [
+    {
+      "name": "One current embedded JSON exactly matches standalone",
+      "passed": true
+    },
+    {
+      "name": "Complete 25 dependency-ordered implementation tasks retained",
+      "passed": true
+    },
+    {
+      "name": "Protected source/profiles/Demand definitions unchanged",
+      "passed": true
+    },
+    {
+      "name": "Production/API/schemas remain complete proposed implementation",
+      "passed": true
+    },
+    {
+      "name": "Current counts reconcile",
+      "passed": true
+    }
+  ],
+  "document": {
+    "path": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.9.md",
+    "sha256": "9a2cd1e915f9372a0d14d57fd448116f1de1b1687b5882b526d0797a1e89fb2d"
+  },
+  "machineContract": {
+    "path": "contracts/full-product.v1.9.9.json",
+    "sha256": "6e5ac709d2646202ffa6f33b5aa2865902b378d257ba40ed69d303166c7eac14"
+  },
+  "narrativeRegistry": {
+    "path": "prototype/data/strategy-guide.v1.9.3.json",
+    "sha256": "04aad69b6b3ec79cfae0923a6b743ce9807c1ce63798d04a15e58ec7775ad080"
+  },
+  "mapReadabilityContract": {
+    "path": "contracts/map-readability.v1.9.6.json",
+    "sha256": "89553b810dd166ff0ce21e30cdabe4b241597f2bf3154201dc6f3b881c89e161"
+  },
+  "supplyInventoryContract": {
+    "path": "contracts/supply-inventory.v1.9.9.json",
+    "sha256": "f4b6e6c7d592793e209ff02b5431ae8130a361642446a4fca2e8fe58cd38ba41"
+  },
+  "visualRefinementContract": {
+    "path": "contracts/visual-refinement.v1.9.9.json",
+    "sha256": "a7b27e9c7a0c382edb102b1d7e63a2a7b27878b2704a784f8d6bad11da8ac879"
+  },
+  "brandColorRegistry": {
+    "path": "prototype/supply-treemap.js",
+    "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+  },
+  "branchPointsContract": {
+    "path": "contracts/branch-points.v1.9.9.json",
+    "sha256": "6335887d434816f0928ac5987d71d7a95f5450249a6f07f70b1d502088c70469"
+  }
+}

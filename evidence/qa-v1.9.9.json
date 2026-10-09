@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "yolk.integrated_qa/1.9",
+  "version": "1.9.9",
+  "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+  "reviewedAt": "2026-10-09T02:31:19.365186+00:00",
+  "automated": {
+    "status": "PASS",
+    "suites": 40,
+    "reportedPassedCases": 663,
+    "receipt": "evidence/automated-v1.9.9.json",
+    "receiptSha256": "752140f94bdcf4b7bffb9726ca22a5dc848204322f8356764e91eac49760b448",
+    "meaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.9; no imported prior results."
+  },
+  "nativeBrowser": {
+    "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "checks": 11,
+    "receipt": "evidence/browser-v1.9.9/native-browser-review.json",
+    "receiptSha256": "a40c879dc25a24d85f3f84f44ad3955c2cfa2cd2d605e3891abf9ee88720eaac",
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.9/desktop-th-dark-supply.jpg",
+        "bytes": 147450,
+        "sha256": "ef752e22f381f7f8d3f673eac07bbb53041d32c755dfec4201c23f3a94c6747a",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Thai desktop, native branch count map; Escape dismissed boundary treemap tooltip without changing route."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/desktop-th-poi-search.jpg",
+        "bytes": 120796,
+        "sha256": "d44710e7dd720b333653708d6307659380ed001a70105351b919e01b96b8345e",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Grocery individual points; dense-hit search and brand filtering retain focus/query and expose exact branch buttons."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/desktop-en-light-expanded.jpg",
+        "bytes": 215146,
+        "sha256": "0b558faa890db36c8a287ad998b592bdd0c459f8885fa2e1e5387ec0a7fe6c84",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "English light theme, expanded Grocery point map after explicit nearby zoom; basemap complete in observed view."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-en-light-details.jpg",
+        "bytes": 37629,
+        "sha256": "d9b521a0b916ad554633601f00863ab04bbc9d2bd30e3c73bf545107ccb45b57",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Mobile viewport scrolled to work cards and survey action; normal page flow, readable English copy and Thai names, no horizontal overflow."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-en-draft-detail.jpg",
+        "bytes": 48544,
+        "sha256": "484e077fd468ea16c7cc3b826e5ab8f8b564d07153d70ee21e9246e20031f58b",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Detail retains the private Demand draft, shows explicit team-criteria reset action without silently applying."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/desktop-th-shortlist-two-contexts.jpg",
+        "bytes": 124874,
+        "sha256": "a9eac096bca90b09b2b3b848a1c8c0275787999b7b3f94a7d3fa624e9c2f9bb9",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Fuel shortlist preserved after different-context second-tab preference write and reload; readable evidence history."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-th-dark-evidence-queue.jpg",
+        "bytes": 33980,
+        "sha256": "2433e13b9326d87285f32781336073f31aec8f1e7ce4b7b8d9bd667c09a267e6",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Thai mobile normal page flow, incomplete-evidence cards with reasons and shortlist action."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-th-320-evidence.jpg",
+        "bytes": 30301,
+        "sha256": "e6548f071993fb3271afa6e3b3cd35041fd507c597015603686cdacf433a2483",
+        "imagePixels": {
+          "width": 320,
+          "height": 760
+        },
+        "viewport": {
+          "width": 320,
+          "height": 760
+        },
+        "description": "320px Thai evidence cards and actions readable; documentwidth320 and maprelative."
+      }
+    ],
+    "fullLanguageThemeDeviceMatrix": false,
+    "physicalDevices": "unverified"
+  },
+  "designSystemPackage": {
+    "version": "0.9.7",
+    "releaseRef": "v0.9.7-owner.1",
+    "checks": 9768,
+    "warnings": 65,
+    "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+    "receipt": "evidence/lds-package-verification.v1.9.9.json",
+    "receiptSha256": "a4160b26df2a4a414eaaf6c6806b20942b83bb328be9be97e732d9c3f2c82313",
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+    "artifactAndAccountTeamCertification": false
+  },
+  "semanticBoundary": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0",
+    "analyticalPaint": "Existing analytical colors/opacity/Tiers retained; retained identified own branch-share display uses exact LDS li.market_share41 with fixed0..100 domain. Count maps keep original national quantiles. Contrast is stroke-only underlay; Demand/Opportunity icons are mnemonics. Source counts, numeric presets and Demand membership unchanged. Unknown/suppressed/unbounded Supply can no longer earn an exact weighted score; draft context and trace persistence corrected.",
+    "supplyInventoryReview": {
+      "passed": true,
+      "checkIds": [
+        "hover_escape",
+        "dense_poi_search",
+        "nonbank_points_performance"
+      ]
+    },
+    "visualRefinementReview": {
+      "passed": true,
+      "checkIds": [
+        "hover_escape",
+        "expanded_tiles_and_light",
+        "mobile_th_dark_review",
+        "narrow_320_and_console"
+      ]
+    }
+  },
+  "publication": "not_performed_by_this_local_QA_receipt",
+  "limits": [
+    "Physical iPhone/Android touch and Safari unverified",
+    "Complete brand/language/theme/device matrix unverified",
+    "Actual screen-reader speech, zoom and all-boundary hover coverage unverified",
+    "Provider/tile/StreetView/Google AI availability requires separate current evidence",
+    "Shared backend/auth/RBAC/outbox/private media not implemented in static preview"
+  ],
+  "scope": "Fresh complete current workflow suites and actual root-owned native observations of red-team remediation across workflows, selected languages/themes/widths and Supply views. One tested boundary hover does not prove all-boundary coverage. Package parity remains separate from rendered artifact/account/team certification."
+}

@@ -1,0 +1,82 @@
+{
+  "version": "1.9.9",
+  "status": "PASS_BOUNDED_RELEASE_SCRIPT_GUARDS",
+  "recordedAt": "2026-10-09T02:34:44.903975+00:00",
+  "checks": 6,
+  "results": [
+    {
+      "id": "release_script_syntax",
+      "status": "PASS",
+      "details": {
+        "scripts": 3
+      }
+    },
+    {
+      "id": "private_traversal_guards",
+      "status": "PASS",
+      "details": {
+        "rejected": 10
+      }
+    },
+    {
+      "id": "explicit_public_allowlist",
+      "status": "PASS",
+      "details": {
+        "files": 867,
+        "runtime": 321
+      }
+    },
+    {
+      "id": "current_plus_retained_suites",
+      "status": "PASS",
+      "details": {
+        "declared": 40,
+        "prior": 37
+      }
+    },
+    {
+      "id": "protected_source_DS_artwork_and_presets",
+      "status": "PASS",
+      "details": {
+        "files": 251,
+        "sameAsSealed1_9_8": true,
+        "runtimeAlgorithms": "Current reliability changes tested separately, not falsely declared display-only."
+      }
+    },
+    {
+      "id": "emitted_release_metadata",
+      "status": "PASS",
+      "details": {
+        "version": "1.9.9",
+        "historicalArtworkBytesRetained": true
+      }
+    }
+  ],
+  "selection": {
+    "path": "contracts/public-copy-selection.v1.9.9.json",
+    "sha256": "6577cb02e6b2ebf712632036a8058ac24f7b6d38c9b88fe7ab53c6569c5ebd5b"
+  },
+  "reviewedFiles": [
+    {
+      "path": "scripts/seal-pages-v1.9.9.py",
+      "bytes": 19966,
+      "sha256": "76ee25192ef818baa3f0cacd5eb8a1e8126c407b39fa649ddf6859a50884603d"
+    },
+    {
+      "path": "scripts/verify-pages-v1.9.9.py",
+      "bytes": 65627,
+      "sha256": "15031dca659a69083dec2994bcb810abb5f61dcee68af87f7d7b89915643dc0f"
+    },
+    {
+      "path": "scripts/check-evidence-closure.py",
+      "bytes": 1819,
+      "sha256": "5d8227f20c3dcfe73c6a13c4bff1b197359c31fa28cb56c563e83166d9efcad3"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "bytes": 3031,
+      "sha256": "f1808448c3e2ae873f1e1c61088902513e400e2dc3ba5a8e9e63198198e2d049"
+    }
+  ],
+  "scope": "Read-only source/path/metadata guards, not browser/provider acceptance."
+}

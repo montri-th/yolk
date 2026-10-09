@@ -40,7 +40,7 @@ function harness(savedWrites = new Map()) {
   const window = {
     YOLK_RUNTIME: runtime, YOLK_PROVINCES: [],
     YOLK_DEMO_DATA: {metadata: {thresholds: {}, poiSampleAreaIds: [areas[0].id]}, areas, pois: []},
-    addEventListener() {}, matchMedia: () => ({addEventListener() {}}), innerWidth: 1440
+    navigator:{locks:{request:(_name,_options,operation)=>Promise.resolve().then(operation)}}, addEventListener() {}, matchMedia: () => ({addEventListener() {}}), innerWidth: 1440
   };
   const sandbox = vm.createContext({
     console, structuredClone, crypto, window,
@@ -165,7 +165,7 @@ async function check(name, test) {
 
   await check('Saved custom criteria, draft, versions, weights and targets survive brand visits and browser reload', async () => {
     await h.select('nonbank', 'legal:0107557000195');
-    run('Y.criteria.version=17;Y.criteria.rankingMode="weighted";Y.criteria.rankingWeights={demand:51,ownGap:37,competitorGap:12};Y.criteria.metricWeights.adult_population_20_64=83;Y.criteria.ownMany=7;Y.criteria.paths[0].all[0].percentile=81;draft=structuredClone(Y.criteria);draft.metricWeights.adult_population_20_64=27;draft.paths[0].all[0].percentile=78;draft.competitorMany=9;draftBase=17;Y.targets={[AREAS[0].id]:{status:"shortlisted",note:"Preserve this work"}};stashContext()');
+    await run('(async()=>{const before=structuredClone(Y.criteria),after=structuredClone(before);after.version=17;after.rankingMode="weighted";after.rankingWeights={demand:51,ownGap:37,competitorGap:12};after.metricWeights.adult_population_20_64=83;after.ownMany=7;after.paths[0].all[0].percentile=81;await commitWorkspaceChange({type:"criteria.updated",entity:"criteria",id:criteriaContextKey(),before,after,changes:diffCriteria(before,after)});await commitWorkspaceChange({type:"place.created",entity:"place",id:AREAS[0].id,before:null,after:{owner:"m",status:"study",note:"Preserve this work",archived:false},changes:[{field:"target",before:false,after:true}]});draft=structuredClone(Y.criteria);draft.metricWeights.adult_population_20_64=27;draft.paths[0].all[0].percentile=78;draft.competitorMany=9;draftBase=17;await stashContext()})()');
     const expected = plain(run('({criteria:Y.criteria,draft,draftBase,targets:Y.targets})'));
     assert.deepEqual(plain(run('criteriaErrors(Y.criteria)')), []);
     assert.deepEqual(plain(run('criteriaErrors(draft)')), []);
@@ -173,16 +173,16 @@ async function check(name, test) {
     await h.select('fuel', 'ptt');
     await h.select('nonbank', 'legal:0107557000195');
     assert.deepEqual(plain(run('({criteria:Y.criteria,draft,draftBase,targets:Y.targets})')), expected);
-    assert.equal(run('Y.events.length'), 0);
-    run('stashContext()');
+    assert.equal(run('Y.events.length'), 2);
+    await run('stashContext()');
     const reloaded = harness(h.writes);
     assert.deepEqual(plain(reloaded.evaluate('({criteria:Y.criteria,draft,draftBase,targets:Y.targets})')), expected);
-    assert.equal(reloaded.evaluate('Y.events.length'), 0);
+    assert.equal(reloaded.evaluate('Y.events.length'), 2);
   });
 
   await check('Explicit Grocery format is remembered per brand; a new brand uses its own default', async () => {
     await h.select('grocery', 'grocery-brand:LOTUSS', 'SUPERMARKET');
-    run('Y.criteria.version=8;Y.criteria.ownMany=6;draft=structuredClone(Y.criteria);draft.competitorMany=7;draftBase=8;stashContext()');
+    await run('(async()=>{const before=structuredClone(Y.criteria),after={...structuredClone(before),version:8,ownMany:6};await commitWorkspaceChange({type:"criteria.updated",entity:"criteria",id:criteriaContextKey(),before,after,changes:diffCriteria(before,after)});draft=structuredClone(Y.criteria);draft.competitorMany=7;draftBase=8;await stashContext()})()');
     const expected = plain(run('({criteria:Y.criteria,draft,draftBase})'));
     await h.select('grocery', 'grocery-brand:CJ_MORE');
     assert.equal(run('Y.supplyScope'), 'C_STORE');

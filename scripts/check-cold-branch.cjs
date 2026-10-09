@@ -137,9 +137,17 @@ function fixture(){
   assert.equal(f.focusCalls.length,0);
  });
 
- await check('Route and criteria-context changes invalidate the working snapshot before rerender',()=>{
-  f.mountForm(loaded.id,1,userValues);h.sandbox.location.hash='#supply';assert.equal(run('workingForm()'),null);
-  h.sandbox.location.hash='#poi/'+loaded.id;f.establishRenderedContext();run('Y.ownBrandId="grocery-brand:CJ_MORE"');assert.equal(run('workingForm()'),null);
+ await check('Leaving a route journals its old form while another branch/context cannot read it; back restores the original draft',()=>{
+  f.mountForm(loaded.id,1,userValues);const originContext=run('criteriaContextKey()'),originBrand=run('Y.ownBrandId'),originHash=h.sandbox.location.hash;
+  const confirmed=run('JSON.stringify({criteria:Y.criteria,targets:Y.targets,events:Y.events})');
+  // Hash changes before render: capture the leaving form under renderedContext/renderedHash.
+  h.sandbox.location.hash='#supply';const leaving=plain(run('rememberWorkingDraft()'));
+  assert.equal(leaving.context,originContext);assert.equal(leaving.hash,originHash);assert.deepEqual(leaving.values,userValues);assert.equal(run('readWorkingDraft()'),null);
+  h.sandbox.location.hash='#poi/different-source-record';assert.equal(run('readWorkingDraft()'),null);
+  h.sandbox.location.hash=originHash;run('Y.ownBrandId="grocery-brand:CJ_MORE"');assert.equal(run('readWorkingDraft()'),null);
+  h.sandbox.originBrand=originBrand;run('Y.ownBrandId=originBrand');const restored=plain(run('readWorkingDraft()'));
+  assert.deepEqual(restored.values,userValues);assert.equal(restored.recordId,loaded.id);assert.equal(restored.recordRevision,'1');
+  assert.equal(run('JSON.stringify({criteria:Y.criteria,targets:Y.targets,events:Y.events})'),confirmed);
  });
 
  await check('Restore leaves file inputs alone and safely ignores an absent form',()=>{

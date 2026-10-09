@@ -80,7 +80,7 @@ check('unsupported extents, missing geometry or missing target labels fail visib
   for (const bad of [{...a,feature:{type:'Feature',geometry:{type:'Point',coordinates:[100,13]}}},{...a,feature:null},{...a,label:''},{...a,level:'country'},{...a,feature:{type:'Feature',geometry:{type:'Polygon',coordinates:[]}}}]) {assert(!helper.show(bad));assert.equal(helper.getState().active,false);assert.equal(map.layers.size,0);}
 });
 check('tooltip escapes labels and never becomes a navigation or mutation proxy',()=>{
-  helper.show({...a,label:'<img src=x onerror=evil()> · province'},{lat:13,lng:100});assert(tips.at(-1).content.includes('&lt;img'));assert(!tips.at(-1).content.includes('<img'));assert.equal(tips.at(-1).options.interactive,false);
+  helper.show({...a,label:'<img src=x onerror=evil()> · province'},{lat:13,lng:100});assert(tips.at(-1).content.includes('&lt;img'));assert(!tips.at(-1).content.includes('<img'));assert.equal(tips.at(-1).options.interactive,true);
 });
 function eventLayer() {
   const handlers = new Map(), dom = new Map();
@@ -91,6 +91,14 @@ check('native hover/move/out binding controls the actual target and preserves cl
 });
 check('keyboard focus/blur uses the same exact target outline without synthetic click',()=>{
   const layer=eventLayer(),unbind=helper.bind(layer,()=>c);layer.dom.get('focus')({});assert.equal(helper.getState().id,c.id);assert.equal(map.renderOrder.at(-1).feature,c.feature);assert.equal(map.renderOrder.at(-1).options.style.color,'#FFBC1F');layer.dom.get('blur')({});assert.equal(helper.getState().active,false);unbind();assert.equal(layer.dom.size,0);
+});
+check('Escape dismisses the current tooltip without changing focus; mousemove cannot immediately reopen it',()=>{
+  const handlers=new Map();sandbox.document={addEventListener:(k,fn)=>handlers.set(k,fn),removeEventListener:(k,fn)=>{if(handlers.get(k)===fn)handlers.delete(k);}};
+  const h=sandbox.YolkMapHover.create({map,L,token:()=>color}),layer=eventLayer();h.bind(layer,()=>a);layer.dom.get('focus')({});assert(h.getState().active);const paths=JSON.stringify(sourcePaints);let handled=0;handlers.get('keydown')({key:'Escape',preventDefault(){handled++},stopPropagation(){handled++}});assert.equal(handled,2);assert(!h.getState().active);layer.handlers.get('mousemove')({latlng:{lat:13,lng:100}});assert(!h.getState().active,'Stationary target stays dismissed');assert.equal(JSON.stringify(sourcePaints),paths);layer.dom.get('blur')({});layer.dom.get('focus')({});assert(h.getState().active,'A fresh focus may show the target again');h.destroy();assert.equal(handlers.size,0);delete sandbox.document;
+});
+check('Pointer can enter the tooltip and read it; leaving both source and tooltip removes it',()=>{
+  const timers=new Map();let id=0;sandbox.setTimeout=fn=>{timers.set(++id,fn);return id;};sandbox.clearTimeout=id=>timers.delete(id);const original=L.tooltip;L.tooltip=options=>{const tip=original(options),element=tip.getElement();element.listeners={};element.addEventListener=(k,fn)=>element.listeners[k]=fn;return tip;};
+  const h=sandbox.YolkMapHover.create({map,L,token:()=>color}),layer=eventLayer();h.bind(layer,()=>a);layer.handlers.get('mouseover')({latlng:{lat:13,lng:100}});const tip=tips.at(-1);assert.equal(tip.options.interactive,true);layer.handlers.get('mouseout')();assert.equal(timers.size,1);tip.getElement().listeners.mouseenter();assert.equal(timers.size,0);assert(h.getState().active);tip.getElement().listeners.mouseleave();for(const fn of timers.values())fn();timers.clear();assert(!h.getState().active);h.destroy();L.tooltip=original;delete sandbox.setTimeout;delete sandbox.clearTimeout;
 });
 check('binding cleanup and destruction remove active geometry and all handlers',()=>{
   const layer=eventLayer();helper.bind(layer,()=>a);layer.handlers.get('mouseover')({latlng:{lat:13,lng:100}});helper.destroy();assert.equal(map.layers.size,0);assert.equal(layer.handlers.size,0);assert.equal(layer.dom.size,0);assert(!helper.show(a));assert.equal(helper.getState().bindingCount,0);

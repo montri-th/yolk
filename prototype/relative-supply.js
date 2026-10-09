@@ -22,7 +22,7 @@
   const rates={own:[],competitor:[]},excludedRows={missingOrNonpositiveDenominator:0,uncertainCounts:0};
   for(const area of AREAS){const d=area.metrics[item.id],sp=area.supply;if(!Number.isFinite(d)||d<=0){excludedRows.missingOrNonpositiveDenominator++;continue;}
    const hasBounds=['ownLower','ownUpper','competitorLower','competitorUpper'].some(key=>sp?.[key]!==undefined);
-   if(hasBounds||!sp||sp.ownScopeUnavailable||sp.unverified!==0||![sp.own,sp.competitor].every(n=>Number.isInteger(n)&&n>=0)){excludedRows.uncertainCounts++;continue;}
+   if(hasBounds||!sp||sp.boundsKnown===false||['missing','invalid','suppressed','not_yet','not_applicable','source_loading'].includes(sp.state)||sp.ownScopeUnavailable||sp.unverified!==0||![sp.own,sp.competitor].every(n=>Number.isInteger(n)&&n>=0)){excludedRows.uncertainCounts++;continue;}
    for(const role of ['own','competitor'])if(sp[role]>0){const rate=(sp[role]/d)*item.unit;if(Number.isFinite(rate)&&rate>0){rates[role].push(rate);}}
   }
   const calibrated=role=>({n:rates[role].length,method:rates[role].length>=5?'median_national_known_positive_exact_rates':'hypothesis_insufficient_sample',threshold:rates[role].length>=5?median(rates[role]):1});

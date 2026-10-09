@@ -55,6 +55,7 @@
  }
  function supplyBounds(row){
   const sp=row.supply||{},u=sp.unverified;
+  if(['missing','invalid','suppressed','not_yet','not_applicable','source_loading'].includes(sp.state))return {valid:false,state:sp.state,own:null,competitor:null,total:null};
   if(sp.boundsKnown===false)return {valid:false,state:'assignment_bounds_unavailable',own:null,competitor:null,total:null};
   if(!num(u))return {valid:false,state:'unresolved_inventory',own:null,competitor:null,total:null};
   const bound=role=>{const lo=sp[role+'Lower']??sp[role],hi=sp[role+'Upper']??sp[role];return Number.isInteger(lo)&&lo>=0&&Number.isInteger(hi)&&hi>=lo&&Number.isInteger(u)?{lo,hi:hi+u}:null;};

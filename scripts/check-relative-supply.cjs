@@ -216,7 +216,7 @@ function evaluatedFixture(h, area, criteria) {
     const fresh = createHarness(), r = fresh.evaluate;
     await fresh.select('fuel','bangchak');
     assert.equal(r('Y.criteria.supplyMode'),'relative'); assert.equal(r('Y.criteria.supplyDenominatorId'),'gfa');
-    r('Y.criteria.supplyMode="count";Y.criteria.ownMany=7;Y.criteria.competitorMany=9;Y.criteria.version=23;draft=structuredClone(Y.criteria);draft.ownMany=8;draftBase=23;stashContext()');
+    await r('(async()=>{const before=structuredClone(Y.criteria),after={...structuredClone(before),supplyMode:"count",ownMany:7,competitorMany:9,version:23};await commitWorkspaceChange({type:"criteria.updated",entity:"criteria",id:criteriaContextKey(),before,after,changes:diffCriteria(before,after)});draft=structuredClone(Y.criteria);draft.ownMany=8;draftBase=23;await stashContext()})()');
     const expected = plain(r('({criteria:Y.criteria,draft,draftBase})'));
     await fresh.select('grocery','grocery-brand:TOPS');
     assert.equal(r('Y.criteria.supplyMode'),'relative'); assert.equal(r('Y.criteria.supplyDenominatorId'),'population');
@@ -226,7 +226,7 @@ function evaluatedFixture(h, area, criteria) {
     assert.equal(r('Y.criteria.supplyMode'),'relative'); assert.equal(r('Y.criteria.supplyDenominatorId'),'population');
     await fresh.select('fuel','bangchak');
     assert.deepEqual(plain(r('({criteria:Y.criteria,draft,draftBase})')),expected);
-    assert.equal(r('Y.events.length'),0); r('stashContext()');
+    assert.equal(r('Y.events.length'),1); await r('stashContext()');
     const reloaded = createHarness(fresh.writes);
     assert.deepEqual(plain(reloaded.evaluate('({criteria:Y.criteria,draft,draftBase})')),expected);
     const key = 'citymeter-yolk-three-industries-workspace-v1';
@@ -237,7 +237,7 @@ function evaluatedFixture(h, area, criteria) {
     assert.equal(legacy.evaluate('Y.criteria.supplyMode'),'count');
     assert.equal(legacy.evaluate('Y.criteria.version'),31);
     assert.equal(legacy.evaluate('Y.criteria.ownMany'),11);
-    assert.equal(legacy.evaluate('Y.events.length'),0);
+    assert.equal(legacy.evaluate('Y.events.length'),1);
   });
 
   await check('All 37 real brand/default-scope contexts produce valid seeds and finite or explicitly missing Supply thresholds across 7,954 UUIDs', async () => {

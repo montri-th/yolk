@@ -25,7 +25,11 @@
     if (!map || !L?.geoJSON) throw new TypeError('YolkMapHover requires the existing Leaflet map and L');
     let active = null, outline = null, tooltip = null, destroyed = false;
     const bindings = new Set(), brandContent = new WeakMap();
-    let tooltipContent = null;
+    let tooltipContent = null, dismissedKey = null, leaveTimer = null, tooltipHovered = false, focusedKey = null;
+    const tooltipElements = new WeakSet();
+    function cancelLeave() { if (leaveTimer != null) root.clearTimeout?.(leaveTimer); leaveTimer = null; }
+    function deferredClear(key) { cancelLeave(); const finish=()=>{leaveTimer=null;if(!tooltipHovered && focusedKey!==key)clear(key);}; if(root.setTimeout)leaveTimer=root.setTimeout(finish,160);else finish(); }
+    function bindTooltipPointer() { const element=tooltip?.getElement?.();if(!element?.addEventListener || tooltipElements.has(element))return;tooltipElements.add(element);L.DomEvent?.disableClickPropagation?.(element);L.DomEvent?.disableScrollPropagation?.(element);element.addEventListener('mouseenter',()=>{tooltipHovered=true;cancelLeave();});element.addEventListener('mouseleave',()=>{tooltipHovered=false;if(active)deferredClear(active.key);}); }
     const colour = () => String(typeof options.token === 'function' ? options.token() || '' : options.token || '').trim();
     function remove(layer, immediate = false) {
       const element = immediate ? layer?.getElement?.() : null;
@@ -36,9 +40,12 @@
     }
     function clear(expected) {
       if (expected && active?.key !== (typeof expected === 'string' ? expected : targetKey(expected))) return false;
-      remove(outline); remove(tooltip,true); outline = null; tooltip = null; tooltipContent = null; active = null;
+      cancelLeave();tooltipHovered=false;remove(outline); remove(tooltip,true); outline = null; tooltip = null; tooltipContent = null; active = null;
       return true;
     }
+    function dismiss() { if(!active)return false;const key=active.key;clear();dismissedKey=key;return true; }
+    function escape(event) { if(event.key==='Escape' && dismiss()){event.preventDefault?.();event.stopPropagation?.();} }
+    root.document?.addEventListener?.('keydown',escape,true);
     function fitTooltip(latlng) {
       const container=map.getContainer?.(),element=tooltip?.getElement?.();
       if(!container?.getBoundingClientRect||!element?.getBoundingClientRect||!map.latLngToContainerPoint||!map.containerPointToLatLng)return;
@@ -56,6 +63,7 @@
       if (destroyed) return false;
       const key = targetKey(target), color = colour();
       if (!key || !usableFeature(target.feature) || !String(target.label || '').trim() || !color) { clear(); return false; }
+      if(key===dismissedKey)return false;dismissedKey=null;cancelLeave();
       const label = String(target.label), title = String(target.title || label), detail = String(target.detail || '');
       const locale=target.lang||root.document?.documentElement?.lang;let brandHTML='';
       if(target.brandBreakdown&&root.YolkSupplyTreemap?.render){const cached=brandContent.get(target.brandBreakdown);if(cached?.lang===locale)brandHTML=cached.html;else {brandHTML=root.YolkSupplyTreemap.render(target.brandBreakdown,{compact:true,lang:locale,id:'supply-hover-brand-breakdown'});brandContent.set(target.brandBreakdown,{lang:locale,html:brandHTML});}}
@@ -71,9 +79,9 @@
       } else if (active.color !== color) { outline.setStyle?.({color}); active.color = color; }
       active.label = label;
       if (latlng && L.tooltip) {
-        if (!tooltip) {tooltip = L.tooltip({direction:'auto', offset:[12,0], opacity:1, interactive:false, className:'workspace-map-hover-tooltip'}).setLatLng(latlng).setContent(content).addTo(map);tooltipContent=content;}
+        if (!tooltip) {tooltip = L.tooltip({direction:'auto', offset:[12,0], opacity:1, interactive:true, className:'workspace-map-hover-tooltip'}).setLatLng(latlng).setContent(content).addTo(map);tooltipContent=content;}
         else {tooltip.setLatLng(latlng);if(tooltipContent!==content){tooltip.setContent(content);tooltipContent=content;}}
-        fitTooltip(latlng);
+        bindTooltipPointer();fitTooltip(latlng);
       } else if (tooltip) { remove(tooltip,true); tooltip = null; tooltipContent = null; }
       return true;
     }
@@ -89,25 +97,26 @@
         const anchor = event?.latlng || (event?.type === 'focus' ? layer.getBounds?.()?.getCenter?.() : null);
         show(target,anchor);
       };
-      const leave = () => { if (lastTarget) clear(lastTarget); lastTarget = null; };
-      const focus = event => enter({...event, type:'focus'});
+      const leave = () => {const key=targetKey(lastTarget);if(key===dismissedKey)dismissedKey=null;if(key)deferredClear(key);lastTarget=null;};
+      const blur = () => {const key=focusedKey||targetKey(lastTarget);focusedKey=null;if(key)clear(key);if(key===dismissedKey)dismissedKey=null;lastTarget=null;};
+      const focus = event => {enter({...event, type:'focus'});focusedKey=targetKey(lastTarget);};
       const attachFocus = () => {
         const next = layer.getElement?.();
         if (next === element) return;
-        if (element?.removeEventListener) { element.removeEventListener('focus',focus); element.removeEventListener('blur',leave); }
+        if (element?.removeEventListener) { element.removeEventListener('focus',focus); element.removeEventListener('blur',blur); }
         element = next || null;
-        if (element?.addEventListener) { element.addEventListener('focus',focus); element.addEventListener('blur',leave); }
+        if (element?.addEventListener) { element.addEventListener('focus',focus); element.addEventListener('blur',blur); }
       };
       layer.on('mouseover',enter); layer.on('mousemove',enter); layer.on('mouseout',leave); layer.on('add',attachFocus); attachFocus();
       const unbind = () => {
         layer.off?.('mouseover',enter); layer.off?.('mousemove',enter); layer.off?.('mouseout',leave); layer.off?.('add',attachFocus);
-        if (element?.removeEventListener) { element.removeEventListener('focus',focus); element.removeEventListener('blur',leave); }
-        leave(); bindings.delete(unbind);
+        if (element?.removeEventListener) { element.removeEventListener('focus',focus); element.removeEventListener('blur',blur); }
+        blur(); bindings.delete(unbind);
       };
       bindings.add(unbind); return unbind;
     }
-    function destroy() { if (destroyed) return; for (const unbind of [...bindings]) unbind(); clear(); destroyed = true; }
-    return Object.freeze({show,clear,bind,destroy,getState:()=>({active:!!active,level:active?.level || null,id:active?.id ?? null,label:active?.label || '',key:active?.key || '',bindingCount:bindings.size})});
+    function destroy() { if (destroyed) return; for (const unbind of [...bindings]) unbind(); clear();root.document?.removeEventListener?.('keydown',escape,true); destroyed = true; }
+    return Object.freeze({show,clear,dismiss,bind,destroy,getState:()=>({active:!!active,level:active?.level || null,id:active?.id ?? null,label:active?.label || '',key:active?.key || '',bindingCount:bindings.size})});
   }
   root.YolkMapHover = Object.freeze({create,usableFeature,version:'1.9.1'});
 })(typeof window !== 'undefined' ? window : globalThis);

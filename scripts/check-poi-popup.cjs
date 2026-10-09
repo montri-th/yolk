@@ -33,7 +33,10 @@ check('relationship has readable label plus shield/swords/review cue', () => {
 check('source status stays visible, source date does not certify current operation', () => {
   assert(rendered.includes('Source record · not field checked')); assert(rendered.includes('2026-10-03'));
   assert(popup.render({...p, relation:'unverified'},opts).includes('Identity or operation needs checking'));
-  assert(popup.render({...p, status:'verified'},opts).includes('Team verified'));
+  assert(popup.render({...p, status:'active'},opts).includes('Team confirmed open'));
+  assert(!popup.render({...p, status:'active'},opts).includes('not field checked'));
+  assert(popup.render({...p, status:'verified'},opts).includes('Team checked the record'));
+  for(const lang of ['th','en']){const active=popup.verification({status:'active',relation:'unverified'},lang);assert.equal(active,lang==='th'?'ทีมยืนยันว่าเปิดอยู่':'Team confirmed open');assert(!/field|survey|สำรวจ/.test(active));}
 });
 check('native map editor hook preserves exact POI ID', () => {
   assert(rendered.includes(`data-workspace-open-poi="${p.id}"`));

@@ -1,0 +1,12 @@
+PASS Count comparison preserves a measured zero
+PASS Rate divides the raw market value with displayed normalization
+PASS Known zero rate is different from absent count
+PASS A missing or zero denominator produces no comparison, never infinity
+PASS Unknown allocation retains intervals on both networks
+PASS Assignment bounds remain bounds without becoming observed counts
+PASS Incomplete unresolved inventory does not look like an empty network
+PASS Paired bars use the same visible local extent and party glyphs
+PASS Small rates retain visible comparable bars without a false one-unit floor
+PASS Rendering never mutates source rows or criteria
+PASS New icon subset is exact emitted official-font bytes, with declared axes
+{"suite":"supply-compare","checks":11,"passed":true,"scope":"Read-only arithmetic, bounds, rendering semantics and exact icon asset; visual/browser validation separate."}

@@ -1,0 +1,142 @@
+PASS Counts derive from non-archived saved targets, never increments kept in UI state
+PASS Both languages have readable exact count markup and a workspace scope label
+PASS Successful add links confirmation to Shortlist and shows exactly one +1 in visible desktop destination
+PASS Mobile source-to-destination cue uses bottom navigation, never hidden desktop sidebar
+PASS No success receipt or malformed delta produces no success notice, count cue or motion
+PASS Duplicate event receipt never replays +1 or motion
+PASS Updating an already shortlisted survey plan confirms saved state without +1 or flight
+PASS Removal gives −1 and final text without an add flight
+PASS Rapid distinct saves replace transient badge instead of accumulating duplicate badges
+PASS Keyboard saves restore the corresponding control after render without moving focus to navigation
+PASS Reduced motion exposes complete final count, +1 and linked message without spatial animation
+PASS Changing reduced-motion preference cancels flight immediately and retains visible final notice
+PASS Personal motion control has clear bilingual copy and a stable label in existing header settings
+PASS Personal checkbox immediately cancels guidance flight and persists only its own preference key
+PASS Reloaded personal preference exposes static saved state without spatial motion, and remains reversible
+PASS Operating-system reduced motion wins even when the personal checkbox is turned off
+PASS Hidden-page interruption clears finite effects and timers without touching saved data
+PASS Repeated script load registers lifecycle listeners only once
+PASS Navigation same-route redraws stay static; an actual route change receives finite active-icon feedback only
+PASS Criteria feedback occurs only when a settled displayed result count changes in the same context
+PASS Criteria save confirmation requires the actual criteria event and offers a relevant next view
+PASS Action timing resolves exact LDS feedback and state tokens; no reveal, observer or ambient loop
+PASS Actual central shortlist action rolls back failed storage and emits no success guidance
+PASS Actual central action restores an archived target as one successful addition; viewers cannot mutate
+PASS Runtime wiring covers Demand/detail/list toggles, Strategy saves, sidebar/mobile count and settled criteria
+PASS Actual Strategy save calls guidance once for creation and update, and never on persistence failure
+{
+  "schema": "yolk-action-guidance-tests/1",
+  "version": "1.9.1",
+  "checkedAt": "2026-10-09T02:26:50.708Z",
+  "kind": "vm_dom_transaction_checks_not_native_visual_qa",
+  "checks": [
+    {
+      "name": "Counts derive from non-archived saved targets, never increments kept in UI state",
+      "passed": true
+    },
+    {
+      "name": "Both languages have readable exact count markup and a workspace scope label",
+      "passed": true
+    },
+    {
+      "name": "Successful add links confirmation to Shortlist and shows exactly one +1 in visible desktop destination",
+      "passed": true
+    },
+    {
+      "name": "Mobile source-to-destination cue uses bottom navigation, never hidden desktop sidebar",
+      "passed": true
+    },
+    {
+      "name": "No success receipt or malformed delta produces no success notice, count cue or motion",
+      "passed": true
+    },
+    {
+      "name": "Duplicate event receipt never replays +1 or motion",
+      "passed": true
+    },
+    {
+      "name": "Updating an already shortlisted survey plan confirms saved state without +1 or flight",
+      "passed": true
+    },
+    {
+      "name": "Removal gives −1 and final text without an add flight",
+      "passed": true
+    },
+    {
+      "name": "Rapid distinct saves replace transient badge instead of accumulating duplicate badges",
+      "passed": true
+    },
+    {
+      "name": "Keyboard saves restore the corresponding control after render without moving focus to navigation",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion exposes complete final count, +1 and linked message without spatial animation",
+      "passed": true
+    },
+    {
+      "name": "Changing reduced-motion preference cancels flight immediately and retains visible final notice",
+      "passed": true
+    },
+    {
+      "name": "Personal motion control has clear bilingual copy and a stable label in existing header settings",
+      "passed": true
+    },
+    {
+      "name": "Personal checkbox immediately cancels guidance flight and persists only its own preference key",
+      "passed": true
+    },
+    {
+      "name": "Reloaded personal preference exposes static saved state without spatial motion, and remains reversible",
+      "passed": true
+    },
+    {
+      "name": "Operating-system reduced motion wins even when the personal checkbox is turned off",
+      "passed": true
+    },
+    {
+      "name": "Hidden-page interruption clears finite effects and timers without touching saved data",
+      "passed": true
+    },
+    {
+      "name": "Repeated script load registers lifecycle listeners only once",
+      "passed": true
+    },
+    {
+      "name": "Navigation same-route redraws stay static; an actual route change receives finite active-icon feedback only",
+      "passed": true
+    },
+    {
+      "name": "Criteria feedback occurs only when a settled displayed result count changes in the same context",
+      "passed": true
+    },
+    {
+      "name": "Criteria save confirmation requires the actual criteria event and offers a relevant next view",
+      "passed": true
+    },
+    {
+      "name": "Action timing resolves exact LDS feedback and state tokens; no reveal, observer or ambient loop",
+      "passed": true
+    },
+    {
+      "name": "Actual central shortlist action rolls back failed storage and emits no success guidance",
+      "passed": true
+    },
+    {
+      "name": "Actual central action restores an archived target as one successful addition; viewers cannot mutate",
+      "passed": true
+    },
+    {
+      "name": "Runtime wiring covers Demand/detail/list toggles, Strategy saves, sidebar/mobile count and settled criteria",
+      "passed": true
+    },
+    {
+      "name": "Actual Strategy save calls guidance once for creation and update, and never on persistence failure",
+      "passed": true
+    }
+  ],
+  "totals": {
+    "passed": 26,
+    "failed": 0
+  }
+}

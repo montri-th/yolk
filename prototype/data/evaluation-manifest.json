@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "yolk.evaluation-manifest/1.0",
+  "app": {
+    "release": "1.9.9",
+    "binding": "Exact semantic runtime files; source commit is attested separately after commit to avoid self-reference.",
+    "runtimeFiles": [
+      {
+        "file": "bootstrap.js",
+        "sha256": "fa599d3a7de4ef664900365bd6af23aba328e13daba59e478e3a6a9ad54d4ca0",
+        "bytes": 5821
+      },
+      {
+        "file": "metrics.js",
+        "sha256": "5dbaa295b0f5f01ff8756c7724c9977cf19dc3ce63c09d88f1a800a28466feed",
+        "bytes": 462
+      },
+      {
+        "file": "model.js",
+        "sha256": "1ef1c44d7aa73e8769b1777cfdd053f2810d59827b1190c6decce5e5d1a07db5",
+        "bytes": 47953
+      },
+      {
+        "file": "relative-supply.js",
+        "sha256": "8e2f2a8324d360af187b4e8a27382d8bca2b35df53f1925c1000abca206c16a6",
+        "bytes": 4554
+      },
+      {
+        "file": "brand-experience.js",
+        "sha256": "f6e08b9fa2fd747a2465728e336b08eca590d206ec5d0972d0c067813669e354",
+        "bytes": 8571
+      },
+      {
+        "file": "demand-factors.js",
+        "sha256": "e302dfa49d7c07c3a3a841fca078003b0fc8d5e2d3ce276b38890a66a5030790",
+        "bytes": 12967
+      },
+      {
+        "file": "industry-workspace.js",
+        "sha256": "cc1c763b983440355b3dcfa9792f28e5ea8947be57f6a2b5dbea112de9126920",
+        "bytes": 24279
+      },
+      {
+        "file": "opportunity-engine.js",
+        "sha256": "0301b6dabb89e353280c85e1408409bcf3b26bb7620f0ebcfb6a277fc3fa4d6d",
+        "bytes": 29637
+      },
+      {
+        "file": "decision-snapshot.js",
+        "sha256": "48d7794fd5183ee83d06234b5796e89a6a8564c425faaeec6a24b860dfb87fc4",
+        "bytes": 5468
+      },
+      {
+        "file": "strategy-ui.js",
+        "sha256": "ea8a38ec67afaf4a2332bb3538b2e9d1d522310533eb9e8aecacc2ab2fe748b7",
+        "bytes": 27495
+      },
+      {
+        "file": "decision-ui.js",
+        "sha256": "c45e852164035b64890876bbed0afd461a17937f6cf9610275ab0b7a1625e259",
+        "bytes": 21600
+      },
+      {
+        "file": "app.js",
+        "sha256": "a9f717915c026bb41c923c938d8d4fb5e45edc894a4e9cc386ca470e697d2964",
+        "bytes": 85803
+      }
+    ]
+  },
+  "dependencies": [
+    {
+      "file": "data/real/area-context.json",
+      "sha256": "c0386d1314efd06cd3d67970d08c7cf182ac9e40be0875a7bd177cc91edb6528",
+      "bytes": 5137429,
+      "id": "area-context"
+    },
+    {
+      "file": "data/real/fuel-supply.json",
+      "sha256": "1cbe85c16bfe81f5ae577b9d3021e83bfd9efadda5d53064f0b5ce58f6574a4c",
+      "bytes": 739583,
+      "id": "fuel-supply"
+    },
+    {
+      "file": "data/real/grocery-supply.json",
+      "sha256": "1ba2b27cf247cbfb11214a3e3a007393b863e3a37aab0809f0a5e1ef813865ff",
+      "bytes": 920101,
+      "id": "grocery-supply"
+    },
+    {
+      "file": "data/real/nonbank-supply.json",
+      "sha256": "6474915e47611b97b931454ee33ff5a9126e9b45b458ee943036e5611d9c4c0b",
+      "bytes": 1122363,
+      "id": "nonbank-supply"
+    },
+    {
+      "file": "contracts/industry-profiles.json",
+      "sha256": "73934c2d0023e39935fe6a1120e516a1442b99489715bc979bd90a83c5e89f65",
+      "bytes": 140971,
+      "id": "industry-profiles"
+    },
+    {
+      "file": "data/brand-presets.v1.7.json",
+      "sha256": "a20aeb4294a916d997b2105e3d6f69125743f66dfc920061f6e749a6617a896c",
+      "bytes": 104482,
+      "id": "brand-presets"
+    },
+    {
+      "file": "data/brand-strategy-profiles.v1.9.0.json",
+      "sha256": "dd72e9493afa3e595c4c1891b937a1f97212c3d54cb4ff62105e4d67607255f3",
+      "bytes": 990752,
+      "id": "brand-strategy-profiles"
+    },
+    {
+      "file": "data/real/nonbank-company-scopes.json",
+      "sha256": "e37d82157f8ec5e24dc6771f3c6d901fa6d1d15e1384f9b0dcd1837b3d912a7d",
+      "bytes": 190804,
+      "id": "nonbank-company-scopes"
+    },
+    {
+      "file": "data/real/nonbank-assignment-bounds.json",
+      "sha256": "8f66548ef51ed3791d36d84755c7ea94e4e95264dc780c332c7b25b2f6705905",
+      "bytes": 12404,
+      "id": "nonbank-assignment-bounds"
+    }
+  ]
+}

@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify public 1.9.7 artifact, source grains and DS assets
-        run: python3 scripts/verify-pages-v1.9.8.py
+      - name: Verify current public artifact, red-team fixes and DS assets
+        run: python3 scripts/verify-pages-v1.9.9.py
       - name: Check current boundary/Demand/Opportunity-icon readability and retained mobile flow and retained opportunities, guide, recovery and analytical invariants
         run: |
           node scripts/check-three-industry.cjs
@@ -48,6 +48,9 @@ jobs:
           node scripts/check-supply-poi-modes.cjs
           node scripts/check-unclustered-poi.cjs
           node scripts/check-workspace-transactions.cjs
+          node scripts/check-form-drafts.cjs
+          node scripts/check-decision-evidence.cjs
+          node scripts/check-map-redteam.cjs
           node scripts/check-bootstrap-loader.cjs
           node scripts/check-strategy-ui.cjs
           node scripts/check-demand-factors.cjs
@@ -59,6 +62,8 @@ jobs:
           node scripts/check-strategy-guide.cjs
           node scripts/check-supply-market-share.cjs
           node scripts/check-supply-treemap.cjs
+      - name: Verify self-contained current regression evidence
+        run: python3 scripts/check-evidence-closure.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static preview

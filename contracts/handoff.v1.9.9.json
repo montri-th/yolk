@@ -1,0 +1,378 @@
+{
+  "schemaVersion": "yolk.developer_handoff/1.9",
+  "version": "1.9.9",
+  "date": "2026-10-09",
+  "status": "locally_verified_pending_publication",
+  "startHere": "START_HERE.md",
+  "fullDocument": "CityMETER_Yolk_Full_Product_and_Implementation_v1.9.9.md",
+  "quickPlan": "IMPLEMENTATION_PLAN_v1.9.9.md",
+  "humanHandoff": "HANDOFF_v1.9.9.md",
+  "assetIndex": "ASSET_INDEX_v1.9.9.md",
+  "machineBlueprint": "contracts/full-product.v1.9.9.json",
+  "activeCriteria": "contracts/full-product.v1.9.9.json",
+  "releaseAuthority": "contracts/release.v1.9.9.json",
+  "runtimeRoot": "prototype/",
+  "normativeRoot": "reference/lds-0.9.7/",
+  "brandGraphics": "prototype/data/brand-logos.v1.7.json",
+  "icons": "contracts/icons.v1.8.0.json",
+  "requiredExternalServices": {
+    "production": "CityMETER stack mapping/auth/datastore/server RBAC/private media/outbox/email/LINE remain tasks",
+    "mapTiles": "Provider URLs and attribution are required; no tile cache is packaged"
+  },
+  "assetPolicy": "Use supplied original assets and current sealed hashes. DS base/profile/icons are pinned; no logo frames or motifs.",
+  "sourcePolicy": "Public compact adapters/provenance only; sources and private acquisition archives remain immutable/excluded.",
+  "experienceInvariants": [
+    "Demand/Tier alone determine active membership",
+    "Supply and weights can reorder, never add or remove confirmed Demand IDs",
+    "legacy patterns/demandMode remain inactive history",
+    "shield identifies own network; swords identifies comparator network",
+    "local paired-bar scale within a location does not compare length across locations",
+    "actual POI keeps source artwork contained in a compact square slot or explicit named theme fallback + name + role badge",
+    "Explicit map expansion/collapse preserves camera within the current geographic zoom/center envelope, including desktop host width; only an out-of-envelope camera may be clamped; ordinary responsive width/breakpoint fitting retains scope and popup anchors.",
+    "source-first form hints preserve manual choices and do not allocate aggregates",
+    "Strategies are a post-Demand projection with distinct candidate, incomplete and unsupported states",
+    "At most three factor families and three metrics per joint rule; at most three selected strategies",
+    "Current profiles seed only unseen brand/scope context; saved applied criteria/drafts win",
+    "Supply defaults to choropleth; optional coordinate POIs at all four drilldown levels without automatic camera changes",
+    "Coordinate groups preserve all available records and never rewrite administrative counts or certify a customer-attraction cluster",
+    "One scope-owned area tooltip; readable scope name, current value and unit",
+    "Optional point view suppresses unnecessary child boundary networks, retaining clickable scope and yellow hover",
+    "Successful new save updates real shortlist count exactly once; duplicate/failure does not",
+    "Finite motion is optional; reduced-motion/interruption final state remains visible and operable",
+    "Three supplied brand graphics bind to stable existing IDs without preset/profile changes",
+    "Supply icons have their own verified icon font and readable separate caption; no raw ligature text or layout overlap",
+    "First page is Expansion opportunities with inline maximum3-of8strategies; Demand/Supply remain supporting pages.",
+    "Legacy#strategy is an alias preserving context/camera/drafts; no duplicate map or team event.",
+    "Paired neutral stroke-only keylines beneath currently visible white source outlines, including POI/fine context; original hierarchy and quiet geometry stay.",
+    "Expanded mode is personal display state; current source/native tile recovery must be verified before a retry/availability claim.",
+    "Read-only bilingual guide explains all eight current strategies with hypothetical examples and accessible illustrations; opening/closing never changes strategy selection or criteria.",
+    "Native parent vectors supply parent totals/distribution; no LAO crosswalk or POI-marker rollup.",
+    "Unknown U and unresolved licence evidence never silently become own/competitor exact counts.",
+    "O+C count0 stays known while0/0 share remains undefined; valid0/100 ratios retain percentage domain.",
+    "Each verified brand has a stable exact approved DS categorical swatch chosen near its original artwork primary color; names/counts remain readable in both themes; no artwork mutation.",
+    "Near-Thailand envelope blocks unrelated distant panning/zooming without changing administrative scope or Demand membership.",
+    "Expand/Compact settles the existing host and refreshes visible tiles while preserving map instance, permitted camera and unsaved work; clamp only out-of-envelope zoom/center; sampled native tiles visibly load after repeated cycles.",
+    "Options/Expand and areas/points remain four usable, labeled, meaningful-icon buttons in one compact row at recorded narrow and desktop widths.",
+    "All visible numerical quantities consistently use comma grouping and preserve precision/units/no-data/bounds, while calculation/storage/input values stay numerical.",
+    "Actual TH/EN narrow/desktop and both themes are reviewed; per-state observed checks are not a physical-device/full-matrix certificate.",
+    "Supply opens in Region colours; Branch points defaults to every filtered valid source coordinate without screen clustering or an arbitrary marker cap.",
+    "Optional screen grouping lives in Map Options, preserves every member/count and never changes source coordinates or native administrative totals.",
+    "Country point rendering is efficient; detailed original logos, readable names, role cues and existing popup actions remain available where appropriate.",
+    "Coincident/overlapping records remain discoverable without moving their source coordinates.",
+    "Filter/context/theme/route/resize updates retain map instance, permitted camera, drafts and source semantics; stale draw or popup work cannot overwrite a newer context.",
+    "Actual core journeys and load/render/interaction timings are recorded with environment, dataset and limits; no zero-bug, all-device, all-network or backend guarantee.",
+    "Actual TH/EN, light/dark, desktop/narrow all/grouped points and popup content are reviewed; old screenshots and test counts are not current acceptance."
+  ],
+  "packageEvidence": {
+    "zip": "CityMETER_Yolk_Handoff_v1.9.9.zip — generation/source-bound external attestation pending",
+    "currentQA": {
+      "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+      "receipt": "evidence/qa-v1.9.9.json",
+      "automatedReceipt": "evidence/automated-v1.9.9.json",
+      "releaseChecksReceipt": "evidence/release-checks-v1.9.9.json",
+      "nativeBrowserReceipt": "evidence/browser-v1.9.9/native-browser-review.json",
+      "receiptSha256": "0576ee9c985a2449caed4230c34d3ae18ec9e60ad2d0c40a061c74e63261295d",
+      "automatedReceiptSha256": "752140f94bdcf4b7bffb9726ca22a5dc848204322f8356764e91eac49760b448",
+      "releaseChecksReceiptSha256": "cd7ec0fd3e0bbd8d8c2218f4f3b1514bb4b7333ee897c08e8ba0528c786f7eb3",
+      "nativeBrowserReceiptSha256": "a40c879dc25a24d85f3f84f44ad3955c2cfa2cd2d605e3891abf9ee88720eaac",
+      "automatedSuites": 40,
+      "automatedChecks": 663,
+      "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.9; no imported prior results.",
+      "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+      "browserChecks": 11,
+      "snapshots": [
+        "evidence/browser-v1.9.9/desktop-th-dark-supply.jpg",
+        "evidence/browser-v1.9.9/desktop-th-poi-search.jpg",
+        "evidence/browser-v1.9.9/desktop-en-light-expanded.jpg",
+        "evidence/browser-v1.9.9/mobile-en-light-details.jpg",
+        "evidence/browser-v1.9.9/mobile-en-draft-detail.jpg",
+        "evidence/browser-v1.9.9/desktop-th-shortlist-two-contexts.jpg",
+        "evidence/browser-v1.9.9/mobile-th-dark-evidence-queue.jpg",
+        "evidence/browser-v1.9.9/mobile-th-320-evidence.jpg"
+      ],
+      "snapshotFiles": [
+        {
+          "path": "evidence/browser-v1.9.9/desktop-th-dark-supply.jpg",
+          "bytes": 147450,
+          "sha256": "ef752e22f381f7f8d3f673eac07bbb53041d32c755dfec4201c23f3a94c6747a",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "description": "Thai desktop, native branch count map; Escape dismissed boundary treemap tooltip without changing route."
+        },
+        {
+          "path": "evidence/browser-v1.9.9/desktop-th-poi-search.jpg",
+          "bytes": 120796,
+          "sha256": "d44710e7dd720b333653708d6307659380ed001a70105351b919e01b96b8345e",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "description": "Grocery individual points; dense-hit search and brand filtering retain focus/query and expose exact branch buttons."
+        },
+        {
+          "path": "evidence/browser-v1.9.9/desktop-en-light-expanded.jpg",
+          "bytes": 215146,
+          "sha256": "0b558faa890db36c8a287ad998b592bdd0c459f8885fa2e1e5387ec0a7fe6c84",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "description": "English light theme, expanded Grocery point map after explicit nearby zoom; basemap complete in observed view."
+        },
+        {
+          "path": "evidence/browser-v1.9.9/mobile-en-light-details.jpg",
+          "bytes": 37629,
+          "sha256": "d9b521a0b916ad554633601f00863ab04bbc9d2bd30e3c73bf545107ccb45b57",
+          "imagePixels": {
+            "width": 390,
+            "height": 844
+          },
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "description": "Mobile viewport scrolled to work cards and survey action; normal page flow, readable English copy and Thai names, no horizontal overflow."
+        },
+        {
+          "path": "evidence/browser-v1.9.9/mobile-en-draft-detail.jpg",
+          "bytes": 48544,
+          "sha256": "484e077fd468ea16c7cc3b826e5ab8f8b564d07153d70ee21e9246e20031f58b",
+          "imagePixels": {
+            "width": 390,
+            "height": 844
+          },
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "description": "Detail retains the private Demand draft, shows explicit team-criteria reset action without silently applying."
+        },
+        {
+          "path": "evidence/browser-v1.9.9/desktop-th-shortlist-two-contexts.jpg",
+          "bytes": 124874,
+          "sha256": "a9eac096bca90b09b2b3b848a1c8c0275787999b7b3f94a7d3fa624e9c2f9bb9",
+          "imagePixels": {
+            "width": 1440,
+            "height": 900
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "description": "Fuel shortlist preserved after different-context second-tab preference write and reload; readable evidence history."
+        },
+        {
+          "path": "evidence/browser-v1.9.9/mobile-th-dark-evidence-queue.jpg",
+          "bytes": 33980,
+          "sha256": "2433e13b9326d87285f32781336073f31aec8f1e7ce4b7b8d9bd667c09a267e6",
+          "imagePixels": {
+            "width": 390,
+            "height": 844
+          },
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "description": "Thai mobile normal page flow, incomplete-evidence cards with reasons and shortlist action."
+        },
+        {
+          "path": "evidence/browser-v1.9.9/mobile-th-320-evidence.jpg",
+          "bytes": 30301,
+          "sha256": "e6548f071993fb3271afa6e3b3cd35041fd507c597015603686cdacf433a2483",
+          "imagePixels": {
+            "width": 320,
+            "height": 760
+          },
+          "viewport": {
+            "width": 320,
+            "height": 760
+          },
+          "description": "320px Thai evidence cards and actions readable; documentwidth320 and maprelative."
+        }
+      ],
+      "physicalDevices": "unverified",
+      "fullLanguageThemeMatrix": false,
+      "scope": "Bounded actual local native review: main workflows across Fuel/Grocery/Nonbank, draft retention, two-tab cross-context writes, captured draft detail, dense-hit search/filter/exact POI, Escape hover, Expand tiles, evidence queues, TH/EN light/dark sampled states. Not full matrix/physical hardware/provider certification.",
+      "productionBackend": "not_implemented_in_static_preview"
+    },
+    "retainedBaseline": "evidence/qa-v1.9.7.json — historical only",
+    "provider": "pending_terminal_success_for_final_source",
+    "liveBytes": "pending_current_emitted_url_checks"
+  },
+  "strategyContract": "contracts/opportunity-strategies.v1.9.0.json",
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "interactionExtension": "contracts/interaction-guidance.v1.9.1.json",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  },
+  "brandIdentityUIExtension": "contracts/brand-identity-ui.v1.9.2.json",
+  "expansionExperience": "contracts/expansion-experience.v1.9.3.json",
+  "strategyGuide": "prototype/data/strategy-guide.v1.9.3.json",
+  "mapSpace": "contracts/map-space.v1.9.4.json",
+  "localVerification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "receipt": "evidence/qa-v1.9.9.json",
+    "automatedReceipt": "evidence/automated-v1.9.9.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.9.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.9/native-browser-review.json",
+    "receiptSha256": "0576ee9c985a2449caed4230c34d3ae18ec9e60ad2d0c40a061c74e63261295d",
+    "automatedReceiptSha256": "752140f94bdcf4b7bffb9726ca22a5dc848204322f8356764e91eac49760b448",
+    "releaseChecksReceiptSha256": "cd7ec0fd3e0bbd8d8c2218f4f3b1514bb4b7333ee897c08e8ba0528c786f7eb3",
+    "nativeBrowserReceiptSha256": "a40c879dc25a24d85f3f84f44ad3955c2cfa2cd2d605e3891abf9ee88720eaac",
+    "automatedSuites": 40,
+    "automatedChecks": 663,
+    "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.9; no imported prior results.",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 11,
+    "snapshots": [
+      "evidence/browser-v1.9.9/desktop-th-dark-supply.jpg",
+      "evidence/browser-v1.9.9/desktop-th-poi-search.jpg",
+      "evidence/browser-v1.9.9/desktop-en-light-expanded.jpg",
+      "evidence/browser-v1.9.9/mobile-en-light-details.jpg",
+      "evidence/browser-v1.9.9/mobile-en-draft-detail.jpg",
+      "evidence/browser-v1.9.9/desktop-th-shortlist-two-contexts.jpg",
+      "evidence/browser-v1.9.9/mobile-th-dark-evidence-queue.jpg",
+      "evidence/browser-v1.9.9/mobile-th-320-evidence.jpg"
+    ],
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.9/desktop-th-dark-supply.jpg",
+        "bytes": 147450,
+        "sha256": "ef752e22f381f7f8d3f673eac07bbb53041d32c755dfec4201c23f3a94c6747a",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Thai desktop, native branch count map; Escape dismissed boundary treemap tooltip without changing route."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/desktop-th-poi-search.jpg",
+        "bytes": 120796,
+        "sha256": "d44710e7dd720b333653708d6307659380ed001a70105351b919e01b96b8345e",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Grocery individual points; dense-hit search and brand filtering retain focus/query and expose exact branch buttons."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/desktop-en-light-expanded.jpg",
+        "bytes": 215146,
+        "sha256": "0b558faa890db36c8a287ad998b592bdd0c459f8885fa2e1e5387ec0a7fe6c84",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "English light theme, expanded Grocery point map after explicit nearby zoom; basemap complete in observed view."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-en-light-details.jpg",
+        "bytes": 37629,
+        "sha256": "d9b521a0b916ad554633601f00863ab04bbc9d2bd30e3c73bf545107ccb45b57",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Mobile viewport scrolled to work cards and survey action; normal page flow, readable English copy and Thai names, no horizontal overflow."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-en-draft-detail.jpg",
+        "bytes": 48544,
+        "sha256": "484e077fd468ea16c7cc3b826e5ab8f8b564d07153d70ee21e9246e20031f58b",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Detail retains the private Demand draft, shows explicit team-criteria reset action without silently applying."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/desktop-th-shortlist-two-contexts.jpg",
+        "bytes": 124874,
+        "sha256": "a9eac096bca90b09b2b3b848a1c8c0275787999b7b3f94a7d3fa624e9c2f9bb9",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Fuel shortlist preserved after different-context second-tab preference write and reload; readable evidence history."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-th-dark-evidence-queue.jpg",
+        "bytes": 33980,
+        "sha256": "2433e13b9326d87285f32781336073f31aec8f1e7ce4b7b8d9bd667c09a267e6",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Thai mobile normal page flow, incomplete-evidence cards with reasons and shortlist action."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-th-320-evidence.jpg",
+        "bytes": 30301,
+        "sha256": "e6548f071993fb3271afa6e3b3cd35041fd507c597015603686cdacf433a2483",
+        "imagePixels": {
+          "width": 320,
+          "height": 760
+        },
+        "viewport": {
+          "width": 320,
+          "height": 760
+        },
+        "description": "320px Thai evidence cards and actions readable; documentwidth320 and maprelative."
+      }
+    ],
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "scope": "Bounded actual local native review: main workflows across Fuel/Grocery/Nonbank, draft retention, two-tab cross-context writes, captured draft detail, dense-hit search/filter/exact POI, Escape hover, Expand tiles, evidence queues, TH/EN light/dark sampled states. Not full matrix/physical hardware/provider certification.",
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "mobileFlow": "contracts/mobile-flow.v1.9.5.json",
+  "mapReadability": "contracts/map-readability.v1.9.6.json",
+  "supplyInventoryDisplay": "contracts/supply-inventory.v1.9.9.json",
+  "visualRefinement": "contracts/visual-refinement.v1.9.9.json",
+  "branchPoints": "contracts/branch-points.v1.9.9.json"
+}

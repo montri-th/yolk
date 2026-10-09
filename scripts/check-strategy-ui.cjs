@@ -21,6 +21,8 @@ function harness(savedWrites = new Map()) {
   const make = Function('require', '__dirname', fixture + '\nreturn harness;')(require, __dirname);
   const h = make(savedWrites), global = h.sandbox.window;
   h.runtime.sourceHashes = Object.fromEntries(['area-context', 'fuel-supply', 'grocery-supply', 'nonbank-supply'].map(id => [id, fileHash('prototype/data/real/' + id + '.json')]));
+  h.runtime.evaluationManifest=JSON.parse(read('prototype/data/evaluation-manifest.json'));
+  h.runtime.release=h.runtime.evaluationManifest.app.release;
   h.sandbox.document.querySelector = () => null;
   h.sandbox.testScopeIds = null;
   h.sandbox.mapNavigationTitle = () => "Country";
@@ -30,7 +32,7 @@ function harness(savedWrites = new Map()) {
   h.sandbox.inMapArea = area => !h.sandbox.testScopeIds || h.sandbox.testScopeIds.has(area.id);
   const numLine = read('prototype/app.js').split('\n').find(line => line.startsWith('const num='));
   vm.runInContext(numLine, h.sandbox);
-  for (const name of ['decision-ui.js', 'opportunity-engine.js', 'strategy-ui.js']) {
+  for (const name of ['decision-ui.js', 'opportunity-engine.js', 'decision-snapshot.js', 'strategy-ui.js']) {
     vm.runInContext(read('prototype/' + name), h.sandbox, {filename: name});
     if (name === 'decision-ui.js') h.sandbox.YolkDecisions = global.YolkDecisions;
   }
@@ -43,7 +45,7 @@ function selectStrategyChange(h, id, checked) {
 }
 function clickStrategy(h, action, id, disabled = false) {
   const button = {disabled, dataset: {strategyAction: action, id}};
-  h.documentListeners.get('click').at(-1)({target: {closest: () => button}});
+  return h.documentListeners.get('click').at(-1)({target: {closest: () => button}});
 }
 function renderedCards(html) {
   return [...html.matchAll(/<label class="strategy-choice[\s\S]*?<\/label>/g)].map(match => match[0]);
@@ -132,7 +134,7 @@ function countText(html, caption) {
 
   await check('Strategy preferences survive browser reload and remain isolated between Grocery formats', async () => {
     h.ui.setSelected(['network_infill']);
-    run('stashContext()');
+    await run('stashContext()');
     const reloaded = harness(h.writes); reloaded.evaluate('Y.route="strategy";Y.lang="en"');
     assert.deepEqual(plain(reloaded.ui.selectedIds()), ['network_infill']);
     await h.select('grocery', 'grocery-brand:LOTUSS', 'HYPERMARKET');
@@ -245,9 +247,9 @@ function countText(html, caption) {
     h.ui.setSelected(ids);
   });
 
-  await check('Actual shortlist save records one owner, evidence snapshot, contextual event and nine peer recipients', () => {
+  await check('Actual shortlist save records one owner, evidence snapshot, contextual event and nine peer recipients', async () => {
     run('Y.actor="m";delete Y.targets[testAreaId]'); const events = run('Y.events.length'), committed = h.sandbox.committedCount;
-    clickStrategy(h, 'save', candidate.id);
+    await clickStrategy(h, 'save', candidate.id);
     const target = plain(run('Y.targets[testAreaId]')), event = plain(run('Y.events[0]'));
     assert.equal(target.owner, 'm'); assert.equal(target.status, 'study'); assert.equal(target.archived, false);
     assert.equal(target.strategyAssessment.reportingAreaId, candidate.id);
@@ -257,27 +259,27 @@ function countText(html, caption) {
     assert.equal(h.sandbox.committedCount, committed + 1);
   });
 
-  await check('Refreshing a survey plan preserves existing owner, status and notes and logs the before/after assessment', () => {
-    run('Y.targets[testAreaId].owner="p";Y.targets[testAreaId].status="survey";Y.targets[testAreaId].note="Check the road crossing"');
+  await check('Refreshing a survey plan preserves existing owner, status and notes and logs the before/after assessment', async () => {
+    await run('commitWorkspaceChange({type:"place.updated",entity:"place",id:testAreaId,before:structuredClone(Y.targets[testAreaId]),after:{...Y.targets[testAreaId],owner:"p",status:"survey",note:"Check the road crossing"},changes:[{field:"owner",before:"m",after:"p"}]})');
     const previous = plain(run('Y.targets[testAreaId].strategyAssessment')); h.ui.setSelected(['network_infill']);
-    clickStrategy(h, 'save', candidate.id); const target = plain(run('Y.targets[testAreaId]')), event = plain(run('Y.events[0]'));
+    await clickStrategy(h, 'save', candidate.id); const target = plain(run('Y.targets[testAreaId]')), event = plain(run('Y.events[0]'));
     assert.equal(target.owner, 'p'); assert.equal(target.status, 'survey'); assert.equal(target.note, 'Check the road crossing');
     assert.equal(event.type, 'place.updated'); assert.deepEqual(event.changes[0].before, previous);
     assert.deepEqual(event.changes[0].after.strategyIds, ['network_infill']);
   });
 
-  await check('Viewer cannot save a survey plan; accessible actions visibly disable editing', () => {
+  await check('Viewer cannot save a survey plan; accessible actions visibly disable editing', async () => {
     run('Y.actor="v0"'); const before = run('JSON.stringify({targets:Y.targets,events:Y.events})');
-    clickStrategy(h, 'save', candidate.id); assert.equal(run('JSON.stringify({targets:Y.targets,events:Y.events})'), before);
+    await clickStrategy(h, 'save', candidate.id); assert.equal(run('JSON.stringify({targets:Y.targets,events:Y.events})'), before);
     const html = h.ui.page(); assert(/data-strategy-action="save" data-id="[^"]+" disabled/.test(html));
     run('Y.actor="m"');
   });
 
-  await check('A local persistence failure rolls back the saved target and action event', () => {
+  await check('A local persistence failure rolls back the saved target and action event', async () => {
     const before = run('JSON.stringify({target:Y.targets[testAreaId],events:Y.events})');
     const original = h.sandbox.localStorage.setItem;
     h.sandbox.localStorage.setItem = () => {throw new Error('Injected storage quota failure');};
-    clickStrategy(h, 'save', candidate.id);
+    await clickStrategy(h, 'save', candidate.id);
     h.sandbox.localStorage.setItem = original;
     assert.equal(run('JSON.stringify({target:Y.targets[testAreaId],events:Y.events})'), before);
   });

@@ -67,14 +67,14 @@ function refreshPointRelations(){
 let industryRequest=0;
 async function fetchRuntime(name){if(window.YOLK_RUNTIME.fetchPublicJson)return window.YOLK_RUNTIME.fetchPublicJson('data/real/'+name);let response=await fetch('data/real/'+name);if(!response.ok)throw new Error(name+' HTTP '+response.status);return response.json()}
 async function selectIndustryContext(industry,brand=null,scope=null){
- if(!Y.loading)stashContext();const ticket=++industryRequest;Y.loading=true;Y.loadError=null;Y.pointError=null;Y.industry=industry;const profile=PROFILE_BY_ID[industry];Y.ownBrandId=brand||profile.defaultOwnBrandId;Y.supplyScope=scope||Y.brandScopes?.[industry+'|'+Y.ownBrandId]||(window.YolkBrands?YolkBrands.scopeFor(industry,Y.ownBrandId):profile.defaultScope);Y.pointState='not_loaded';Y.province='';Y.poiArea='';Y.poiQuery='';Y.brandFilter='';Y.marketPage=0;Y.page=0;
+ if(!Y.loading)await stashContext();const ticket=++industryRequest;Y.loading=true;Y.loadError=null;Y.pointError=null;Y.industry=industry;const profile=PROFILE_BY_ID[industry];Y.ownBrandId=brand||profile.defaultOwnBrandId;Y.supplyScope=scope||Y.brandScopes?.[industry+'|'+Y.ownBrandId]||(window.YolkBrands?YolkBrands.scopeFor(industry,Y.ownBrandId):profile.defaultScope);Y.pointState='not_loaded';Y.province='';Y.poiArea='';Y.poiQuery='';Y.brandFilter='';Y.marketPage=0;Y.page=0;
  if(typeof render==='function')render();
  try{
   if(!window.YOLK_RUNTIME.supplyCache.has(industry)){const data=await fetchRuntime(industry+'-supply.json');window.YOLK_RUNTIME.supplyCache.set(industry,data)}
   if(industry==='nonbank'){if(!window.YOLK_RUNTIME.companyScopes)window.YOLK_RUNTIME.companyScopes=await fetchRuntime('nonbank-company-scopes.json');if(!window.YOLK_RUNTIME.assignmentBounds)window.YOLK_RUNTIME.assignmentBounds=await fetchRuntime('nonbank-assignment-bounds.json');}
   if(ticket!==industryRequest)return;
   const data=window.YOLK_RUNTIME.supplyCache.get(industry);if(!(window.YolkBrands?YolkBrands.visibleBrands(industry,data.brands):data.brands).some(b=>b.id===Y.ownBrandId)){Y.ownBrandId=profile.defaultOwnBrandId;Y.supplyScope=profile.defaultScope;}
-  loadCriteriaContext();applyIndustryData();initializeRelativeContext();Y.pointState=window.YOLK_RUNTIME.pointCache.has(industry)?'ready':'not_loaded';Y.loading=false;save();if(typeof render==='function')render();
+  loadCriteriaContext();applyIndustryData();initializeRelativeContext();Y.pointState=window.YOLK_RUNTIME.pointCache.has(industry)?'ready':'not_loaded';Y.loading=false;await save();if(typeof render==='function')render();
  }catch(error){if(ticket!==industryRequest)return;Y.loading=false;Y.loadError=String(error.message);if(typeof render==='function')render()}
 }
 function currentCriteriaEvents(){return Y.events.filter(e=>e.entity==='criteria'&&e.entity_id===criteriaContextKey())}
@@ -112,7 +112,9 @@ if(!PROFILE_BY_ID[Y.industry])Y.industry='fuel';
 if(!window.YOLK_RUNTIME.supplyCache.get(Y.industry)?.brands.some(b=>b.id===Y.ownBrandId))Y.ownBrandId=PROFILE_BY_ID[Y.industry].defaultOwnBrandId;
 loadCriteriaContext();applyIndustryData();initializeRelativeContext();
 
-async function ensureSourceGeometry(){if(window.YOLK_RUNTIME.geometryState)return;window.YOLK_RUNTIME.geometryState='loading';try{const geometries=await fetchRuntime('source-geometries.json');for(const [id,feature]of Object.entries(geometries)){const area=AREA_INDEX.get(id);if(!area)continue;area.mapContext.boundary=feature;area.mapContext.boundaryStatus='source';area.mapContext.sourceLabel=feature.properties.source_url;area.mapContext.observedAt='2026-10-03';area.geometryStatus='direct_source_polygon'}window.YOLK_RUNTIME.geometryState='ready';if(Y.route==='place')render()}catch(error){window.YOLK_RUNTIME.geometryState='error'}}
+async function ensureSourceGeometry({retry=false}={}){if(window.YOLK_RUNTIME.geometryState==='loading'||window.YOLK_RUNTIME.geometryState==='ready'||(window.YOLK_RUNTIME.geometryState==='error'&&!retry))return;window.YOLK_RUNTIME.geometryState='loading';try{const geometries=await fetchRuntime('source-geometries.json');for(const [id,feature]of Object.entries(geometries)){const area=AREA_INDEX.get(id);if(!area)continue;area.mapContext.boundary=feature;area.mapContext.boundaryStatus='source';area.mapContext.sourceLabel=feature.properties.source_url;area.mapContext.observedAt='2026-10-03';area.geometryStatus='direct_source_polygon'}window.YOLK_RUNTIME.geometryState='ready';if(Y.route==='place')render()}catch(error){window.YOLK_RUNTIME.geometryState='error'}}
+
+window.YOLK_RUNTIME.retrySourceGeometry=()=>ensureSourceGeometry({retry:true});
 
 document.addEventListener('toggle',event=>{if(event.target.matches?.('.workspace-context-disclosure'))Y.contextExpanded=event.target.open;},true);
 window.matchMedia('(max-width:699px)').addEventListener('change',()=>{Y.contextExpanded=false;if(typeof render==='function')render();});

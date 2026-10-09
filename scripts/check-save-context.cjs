@@ -14,7 +14,7 @@ async function fixture(fresh=false,options={}){
  h.sandbox.setTimeout=setTimeout;h.sandbox.window.indexedDB=indexedDB;
  h.sandbox.FormData=class{constructor(f){this.data=f.values}[Symbol.iterator](){return Object.entries(this.data)[Symbol.iterator]()}};
  const errorElement={set textContent(v){errors.push(v)},get textContent(){return errors.at(-1)||''}};
- h.sandbox.$=()=>errorElement;h.sandbox.notify=s=>notices.push(s);h.sandbox.committed=()=>{calls.push('committed');run('stashContext();refreshPointRelations()')};
+ h.sandbox.$=()=>errorElement;h.sandbox.notify=s=>notices.push(s);h.sandbox.clearWorkingDraft=()=>{};vm.runInContext(app.split('\n').find(line=>line.startsWith('const committed=')).replace('const committed=','globalThis.actualCommitted='),h.sandbox);h.sandbox.committed=(quiet)=>{calls.push('committed');return h.sandbox.actualCommitted(quiet)};
  vm.runInContext(fs.readFileSync(path.join(root,'prototype/branch-context.js'),'utf8'),h.sandbox,{filename:'branch-context.js'});
  vm.runInContext(fs.readFileSync(path.join(root,'prototype/branch-photos.js'),'utf8'),h.sandbox,{filename:'branch-photos.js'});
  const api=h.sandbox.window.YolkBranchPhotos;h.sandbox.YolkBranchPhotos=api;

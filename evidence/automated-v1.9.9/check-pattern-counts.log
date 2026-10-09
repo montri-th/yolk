@@ -1,0 +1,15 @@
+PASS each card matches a single-pattern model evaluation over the same national cohort
+PASS unchecked cards retain their counts, including when no pattern is currently checked
+PASS Demand high excludes all four low-demand patterns; all-demand mode includes them
+PASS Tier gate is respected for all-demand and high-demand modes without changing low-demand membership
+PASS Supply changes refresh counts from the model instead of keeping a previous snapshot
+PASS all eight counts use one cached model read, not a separate evaluation for each card
+PASS unknown Demand is omitted while multi-pattern Supply uncertainty is retained on each possible card
+PASS missing/zero market denominator remains review, never a confirmed absence or forced card
+PASS province/viewport slices and duplicate or alien UUIDs cannot masquerade as the national cohort
+PASS invalid numeric criteria and loading/error states display unavailable instead of zero
+PASS retained diagnostic sync updates counters; current bilingual explainer has no pattern controls
+PASS counts do not alter criteria, eligibility, ranking, events, source values or national cutoffs
+PASS grocery counts retain the same 7,954-area national universe and source uncertainty
+PASS nonbank counts retain the same 7,954-area national universe and source uncertainty
+PATTERN COUNTS REGRESSION: 14 PASS

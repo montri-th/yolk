@@ -1,0 +1,21 @@
+{
+  "passed": 15,
+  "checks": [
+    "Mount pairs every supported exact-number field and preserves original nodes/labels",
+    "Factor-owned percentile fields keep their own sliders without a duplicate generic bridge",
+    "Repeated mount/sync preserves focused nodes and installs one event bridge",
+    "Dragging emits one bubbling original-number input to the existing handler",
+    "Range change forwards one change without repeating the input mutation",
+    "Exact decimal typing stays exact while the integer slider is only an approximate handle",
+    "Empty typing stays empty/NaN, never silently becomes zero, and can recover by dragging",
+    "Disabled fieldsets and explicit disabled inputs propagate to slider without coercing values",
+    "Supporting hit slider uses actual six metric controls, preserving existing exact-input bounds",
+    "Supply count and weight slider endpoints keep zero weight valid",
+    "Language sync updates readable captions/ARIA without rebuilding controls",
+    "Supply gap-reference direction is explicit, described to assistive users and absent from unrelated sliders",
+    "Mount accepts a single exact input and does not dispatch artificial changes",
+    "Relative supply slider carries decimal precision and explicit denominator unit",
+    "Display commas never enter number-input or slider machine values, including rate precision"
+  ],
+  "limits": "DOM contract tests only. Native drag/touch, focus behavior under real rendering and theme/layout are covered separately by browser QA."
+}

@@ -1,0 +1,19 @@
+PASS outline uses the exact supplied province source polygon over district colouring
+PASS province and district drill targets use their exact respective district/fine source features
+PASS hover adds only an unfilled non-interactive outline with an exact caller-supplied token
+PASS same target mouse movement reuses outline and tooltip rather than re-rendering data
+PASS Compact brand hover renders once per source summary/language and mousemove changes only position
+PASS Measured tooltip anchors fit the map top/bottom inset without camera movement, extra rendering or duplicate hover instances
+PASS replacement removes the old outline; stale mouseout cannot erase newer hover
+PASS rapid scope changes reuse one tooltip and immediate clear removes Leaflet fade-out DOM
+PASS outline refreshes the caller hover token without changing source geometry or analytical fill
+PASS yellow hover stays above native LUT fills and removal restores the untouched source painter order
+PASS unsupported extents, missing geometry or missing target labels fail visibly closed
+PASS tooltip escapes labels and never becomes a navigation or mutation proxy
+PASS native hover/move/out binding controls the actual target and preserves click owner
+PASS keyboard focus/blur uses the same exact target outline without synthetic click
+PASS Escape dismisses the current tooltip without changing focus; mousemove cannot immediately reopen it
+PASS Pointer can enter the tooltip and read it; leaving both source and tooltip removes it
+PASS binding cleanup and destruction remove active geometry and all handlers
+PASS module contains no centroid, crosswalk guess, opaque paint, fetch or team mutation
+MAP HOVER REGRESSION: 18 PASS

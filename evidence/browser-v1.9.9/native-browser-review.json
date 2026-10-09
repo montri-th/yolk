@@ -1,0 +1,634 @@
+{
+  "schemaVersion": "yolk.native_browser_review/1.9",
+  "version": "1.9.9",
+  "status": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+  "reviewedAt": "2026-10-09T02:30:42.827Z",
+  "scope": "Bounded actual local native review: main workflows across Fuel/Grocery/Nonbank, draft retention, two-tab cross-context writes, captured draft detail, dense-hit search/filter/exact POI, Escape hover, Expand tiles, evidence queues, TH/EN light/dark sampled states. Not full matrix/physical hardware/provider certification.",
+  "browser": "Native Chrome via CUA on user computer; desktop1440x900 and emulated320/390 widths",
+  "checks": 11,
+  "results": [
+    {
+      "id": "hover_escape",
+      "passed": true,
+      "details": "Bangkok keyboard boundary tooltip shows 591 identified branches /31.1% own share; Escape removes tooltip (1→0), focus remains boundary and route #supply.",
+      "status": "PASS"
+    },
+    {
+      "id": "dense_poi_search",
+      "passed": true,
+      "details": "26,336 Grocery points; native keyboard hit opens6,852 screen-near records at current camera; Thai search รัชดา gives65, brand filter gives shown subset;12 rows maximum, query/focus retained. No source count changed.",
+      "status": "PASS"
+    },
+    {
+      "id": "expanded_tiles_and_light",
+      "passed": true,
+      "details": "Expand at1440×900 after nearby zoom:18/18 tile images complete with nonzero natural width; no horizontal overflow, four controls in one row; light-theme branch glyphs/boundary underlay visible.",
+      "status": "PASS"
+    },
+    {
+      "id": "mobile_details_flow",
+      "passed": true,
+      "details": "Native page scroll at390×844 exposes reason cards and survey action below map; map position relative, content width390 with no overflow. Viewport emulation, not physical touch device.",
+      "status": "PASS"
+    },
+    {
+      "id": "draft_detail",
+      "passed": true,
+      "details": "Grocery 7-Eleven team2859 qualified; private Deep-yolk-only shows643. Open place preserves private-draft banner and displayed criteria, explicit Use team criteria available; team revision not applied.",
+      "status": "PASS"
+    },
+    {
+      "id": "cross_tab_context_preservation",
+      "passed": true,
+      "details": "Native two tabs: tabA saved Bangchak ศาลาแดง; tabB remained7-Eleven and changed language; reloadA thenOpencontext showsFuel saved1 while Grocery saved1 persists. Events retain concise Thai snapshot summaries. Browser-local only.",
+      "status": "PASS"
+    },
+    {
+      "id": "form_draft_and_skip",
+      "passed": true,
+      "details": "Final runtime: unsaved branch name QA draft final freeze and Thai note survive Demand navigation + browserBack; Skiplink retains #poi/new and focuses #content. No branch created.",
+      "status": "PASS"
+    },
+    {
+      "id": "nonbank_evidence_queue",
+      "passed": true,
+      "details": "Nonbank MTC national2298Demand:31candidate+2267incomplete+0nosignal; explicit uncalibratedreference n=0message; selectingincomplete shows2267queue with BangSue first and nextaction, not zero-demand interpretation.",
+      "status": "PASS"
+    },
+    {
+      "id": "nonbank_points_performance",
+      "passed": true,
+      "details": "Finalruntime nativeChrome1440×900:13564filteredcoordinates represented/painted individually,3sprites; recorded frame51.1ms;24/24basemaptiles complete; no horizontal overflow. Not FPS/wholeinteraction/deviceSLA.",
+      "status": "PASS"
+    },
+    {
+      "id": "mobile_th_dark_review",
+      "passed": true,
+      "details": "Thai dark390×844 evidencequeue visuallyreviewed:clearcardheadings/icons/actions, scroll reaches lowercards; mapnotfixed. Physicaltouch nottested.",
+      "status": "PASS"
+    },
+    {
+      "id": "narrow_320_and_console",
+      "passed": true,
+      "details": "Finalruntime320×760 Thai evidencecards visuallyreviewed; documentwidth320,maprelative. Nativecapturedconsoleerrorlistempty inthissession; not universalzero-bug claim.",
+      "status": "PASS"
+    }
+  ],
+  "measurements": {},
+  "performanceBenchmarks": [
+    {
+      "name": "Nonbank individual-point Canvas redraw",
+      "durationMs": 51.1,
+      "environment": "Native Chrome1440x900 localhost on usercomputer;13,564filteredrecords,3cachedsprites",
+      "scope": "One DOM-reported final-runtime completed frame; not interactionlatency/FPS/network or universalSLA."
+    },
+    {
+      "name": "Grocery individual-point Canvas redraw",
+      "durationMs": 34.7,
+      "environment": "Native Chrome1440x900 localhost;26,336filteredrecords,3sprites",
+      "scope": "One observed frame during currentremediation chooser QA; not universalSLA."
+    }
+  ],
+  "branchPointsReview": {
+    "passed": true,
+    "checkIds": [
+      "dense_poi_search",
+      "nonbank_points_performance",
+      "expanded_tiles_and_light"
+    ]
+  },
+  "wholeSiteReview": {
+    "passed": true,
+    "checkIds": [
+      "form_draft_and_skip",
+      "cross_tab_context_preservation",
+      "draft_detail",
+      "nonbank_evidence_queue",
+      "mobile_details_flow",
+      "narrow_320_and_console"
+    ]
+  },
+  "performanceReview": {
+    "passed": true,
+    "checkIds": [
+      "nonbank_points_performance",
+      "dense_poi_search"
+    ]
+  },
+  "supplyInventoryReview": {
+    "passed": true,
+    "checkIds": [
+      "hover_escape",
+      "dense_poi_search",
+      "nonbank_points_performance"
+    ]
+  },
+  "visualRefinementReview": {
+    "passed": true,
+    "checkIds": [
+      "hover_escape",
+      "expanded_tiles_and_light",
+      "mobile_th_dark_review",
+      "narrow_320_and_console"
+    ]
+  },
+  "reviewedRegistries": [
+    {
+      "path": "prototype/supply-treemap.js",
+      "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+    }
+  ],
+  "manualGates": [
+    "Physical iPhone/Android touch and Safari",
+    "Complete brand/language/theme/device matrix",
+    "Actual screen-reader speech and all-boundary pointer hover",
+    "OS reduced-motion setting and 130%/200% browser zoom"
+  ],
+  "publication": "not_performed_by_this_receipt",
+  "screenshots": [
+    {
+      "path": "evidence/browser-v1.9.9/desktop-th-dark-supply.jpg",
+      "bytes": 147450,
+      "sha256": "ef752e22f381f7f8d3f673eac07bbb53041d32c755dfec4201c23f3a94c6747a",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "Thai desktop, native branch count map; Escape dismissed boundary treemap tooltip without changing route."
+    },
+    {
+      "path": "evidence/browser-v1.9.9/desktop-th-poi-search.jpg",
+      "bytes": 120796,
+      "sha256": "d44710e7dd720b333653708d6307659380ed001a70105351b919e01b96b8345e",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "Grocery individual points; dense-hit search and brand filtering retain focus/query and expose exact branch buttons."
+    },
+    {
+      "path": "evidence/browser-v1.9.9/desktop-en-light-expanded.jpg",
+      "bytes": 215146,
+      "sha256": "0b558faa890db36c8a287ad998b592bdd0c459f8885fa2e1e5387ec0a7fe6c84",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "English light theme, expanded Grocery point map after explicit nearby zoom; basemap complete in observed view."
+    },
+    {
+      "path": "evidence/browser-v1.9.9/mobile-en-light-details.jpg",
+      "bytes": 37629,
+      "sha256": "d9b521a0b916ad554633601f00863ab04bbc9d2bd30e3c73bf545107ccb45b57",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "description": "Mobile viewport scrolled to work cards and survey action; normal page flow, readable English copy and Thai names, no horizontal overflow."
+    },
+    {
+      "path": "evidence/browser-v1.9.9/mobile-en-draft-detail.jpg",
+      "bytes": 48544,
+      "sha256": "484e077fd468ea16c7cc3b826e5ab8f8b564d07153d70ee21e9246e20031f58b",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "description": "Detail retains the private Demand draft, shows explicit team-criteria reset action without silently applying."
+    },
+    {
+      "path": "evidence/browser-v1.9.9/desktop-th-shortlist-two-contexts.jpg",
+      "bytes": 124874,
+      "sha256": "a9eac096bca90b09b2b3b848a1c8c0275787999b7b3f94a7d3fa624e9c2f9bb9",
+      "imagePixels": {
+        "width": 1440,
+        "height": 900
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "description": "Fuel shortlist preserved after different-context second-tab preference write and reload; readable evidence history."
+    },
+    {
+      "path": "evidence/browser-v1.9.9/mobile-th-dark-evidence-queue.jpg",
+      "bytes": 33980,
+      "sha256": "2433e13b9326d87285f32781336073f31aec8f1e7ce4b7b8d9bd667c09a267e6",
+      "imagePixels": {
+        "width": 390,
+        "height": 844
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "description": "Thai mobile normal page flow, incomplete-evidence cards with reasons and shortlist action."
+    },
+    {
+      "path": "evidence/browser-v1.9.9/mobile-th-320-evidence.jpg",
+      "bytes": 30301,
+      "sha256": "e6548f071993fb3271afa6e3b3cd35041fd507c597015603686cdacf433a2483",
+      "imagePixels": {
+        "width": 320,
+        "height": 760
+      },
+      "viewport": {
+        "width": 320,
+        "height": 760
+      },
+      "description": "320px Thai evidence cards and actions readable; documentwidth320 and maprelative."
+    }
+  ],
+  "reviewedRuntime": [
+    {
+      "path": "prototype/action-guidance.css",
+      "bytes": 3634,
+      "sha256": "2ee9ffb287045d2b18a9f3dc57fdbedbdc1f871b30cefed8610b761fac70c3e8"
+    },
+    {
+      "path": "prototype/action-guidance.js",
+      "bytes": 12639,
+      "sha256": "e67a19a025657257f15e3b0466a5d9601252a3c582aa2a08cfed2c82f44c5b9f"
+    },
+    {
+      "path": "prototype/analysis-ui.css",
+      "bytes": 4669,
+      "sha256": "0184e3b4f845195e8a8f6812ee1f5c079390e3cd3dc28b865a6689e6fa897ce7"
+    },
+    {
+      "path": "prototype/analysis-ui.js",
+      "bytes": 13927,
+      "sha256": "447ebca601b9a589d1d79ecd217bda5401e9de1a887b53804320dd199722bea7"
+    },
+    {
+      "path": "prototype/app.js",
+      "bytes": 85803,
+      "sha256": "a9f717915c026bb41c923c938d8d4fb5e45edc894a4e9cc386ca470e697d2964"
+    },
+    {
+      "path": "prototype/assets/color-srgb-07.production.css",
+      "bytes": 14096,
+      "sha256": "60fbdbf1df810980e3f233d4861c6e9f39790c4d63bdb29bf09c0d4c016d288b"
+    },
+    {
+      "path": "prototype/assets/fonts.css",
+      "bytes": 2776,
+      "sha256": "868806b207db6064669db29452fd35ab634aafb344a537b5ddf1e05393ceb9e9"
+    },
+    {
+      "path": "prototype/assets/yolk-analytical.css",
+      "bytes": 370,
+      "sha256": "f0e5b15899a018ddb5c63fc67706cb01cd1d66ea294a5f3760257606fd3c8c9d"
+    },
+    {
+      "path": "prototype/base.css",
+      "bytes": 19343,
+      "sha256": "dfd6cb0930a2e4c311392d63c4483beead0e9c06b0ba106138bd5fee5204919d"
+    },
+    {
+      "path": "prototype/bootstrap.js",
+      "bytes": 5821,
+      "sha256": "fa599d3a7de4ef664900365bd6af23aba328e13daba59e478e3a6a9ad54d4ca0"
+    },
+    {
+      "path": "prototype/branch-context.js",
+      "bytes": 13199,
+      "sha256": "bf7b189c14eccb7644f4fea21cbf4c64f6c7afd98fdb42ed8cc921c3db421c09"
+    },
+    {
+      "path": "prototype/branch-photos.css",
+      "bytes": 3743,
+      "sha256": "c275b384a4460c5e2189f8bb15e5fc564d1b9abac904f035802086f0b0c9453b"
+    },
+    {
+      "path": "prototype/branch-photos.js",
+      "bytes": 16690,
+      "sha256": "5681b525a470ed03108ece96bf1faf277675b4edcf2d1543fadd1d0cf3dd63fd"
+    },
+    {
+      "path": "prototype/brand-experience.css",
+      "bytes": 5751,
+      "sha256": "d80b37ad382b366d0e905ee05428eeca0553f030f5db5e16082fe292f68bb6fb"
+    },
+    {
+      "path": "prototype/brand-experience.js",
+      "bytes": 8571,
+      "sha256": "f6e08b9fa2fd747a2465728e336b08eca590d206ec5d0972d0c067813669e354"
+    },
+    {
+      "path": "prototype/criteria-controls.css",
+      "bytes": 3632,
+      "sha256": "943b547753a2413a6ce84b803a30e38dbc7ab1ec2829ec1d49146a4224f47960"
+    },
+    {
+      "path": "prototype/criteria-controls.js",
+      "bytes": 8747,
+      "sha256": "2d9168a9ee0c1a0aba051974bd8ae018fff64e7a05c4397377754265a5b63f42"
+    },
+    {
+      "path": "prototype/criteria-map.css",
+      "bytes": 14734,
+      "sha256": "dd8b03ada6d57aa3c89ee4c984cea7c0bd9654f0edaefc073bfd34e436299fb3"
+    },
+    {
+      "path": "prototype/criteria-map.js",
+      "bytes": 19142,
+      "sha256": "30c38bf0586e8e5f0ae784980813ed102d205387faaa9cf61ffb236816d98e64"
+    },
+    {
+      "path": "prototype/data/thailand-provinces.js",
+      "bytes": 495902,
+      "sha256": "053f780e80ef7d6c64cc12cc5cf3c79adebb36b7be32f0cba6a76869a8ca876e"
+    },
+    {
+      "path": "prototype/decision-snapshot.js",
+      "bytes": 5468,
+      "sha256": "48d7794fd5183ee83d06234b5796e89a6a8564c425faaeec6a24b860dfb87fc4"
+    },
+    {
+      "path": "prototype/decision-ui.css",
+      "bytes": 4688,
+      "sha256": "48a01d16416dce290ad15370c2a9048bd7e36ae8be58e2832aeda77721241e08"
+    },
+    {
+      "path": "prototype/decision-ui.js",
+      "bytes": 21600,
+      "sha256": "c45e852164035b64890876bbed0afd461a17937f6cf9610275ab0b7a1625e259"
+    },
+    {
+      "path": "prototype/demand-factors.js",
+      "bytes": 12967,
+      "sha256": "e302dfa49d7c07c3a3a841fca078003b0fc8d5e2d3ce276b38890a66a5030790"
+    },
+    {
+      "path": "prototype/experience.css",
+      "bytes": 17206,
+      "sha256": "6e5706792803f5d4f33c05fd1f24e767a940b9d3898c6536fd017dbf67c9dbdd"
+    },
+    {
+      "path": "prototype/icons.css",
+      "bytes": 5410,
+      "sha256": "4e5abd91d0c49cda61b247b17592b2dc7d02ef5593454fa9210e98def0ab17b0"
+    },
+    {
+      "path": "prototype/icons.js",
+      "bytes": 4191,
+      "sha256": "fd6a091015d75d07d43e3fd907d76831a87a7e6e7b7afbc1d15e5b5d436ed90d"
+    },
+    {
+      "path": "prototype/identity.css",
+      "bytes": 4685,
+      "sha256": "0edf17cce07fcca9aa2462e747e29b283bb7a49673b4ec4ebc4289b5c7d93f92"
+    },
+    {
+      "path": "prototype/industry-workspace.css",
+      "bytes": 4016,
+      "sha256": "1d552437a0467dc47370c5a75cb4d5ec69405c26aa7ec665ff968581d335f22e"
+    },
+    {
+      "path": "prototype/industry-workspace.js",
+      "bytes": 24279,
+      "sha256": "cc1c763b983440355b3dcfa9792f28e5ea8947be57f6a2b5dbea112de9126920"
+    },
+    {
+      "path": "prototype/landscape.css",
+      "bytes": 8391,
+      "sha256": "f3a6ccfc5c0c85d97dfbf675eec4d549168a96191a22a49690db5ce394b9b533"
+    },
+    {
+      "path": "prototype/landscape.js",
+      "bytes": 22595,
+      "sha256": "1c64916813e02708b7c147cbcb636fc4adb108a38bd60d15a519355b71d304c3"
+    },
+    {
+      "path": "prototype/leaderboard.js",
+      "bytes": 2974,
+      "sha256": "39d20e0e1758b76668625fff8a61b0843b71ac44791ec0b43d78dab97d945718"
+    },
+    {
+      "path": "prototype/location-map.css",
+      "bytes": 9137,
+      "sha256": "fabdc09ac176331496c21af105a9c13cc0cd6c3e203edfc33cdb3bed709d5817"
+    },
+    {
+      "path": "prototype/location-map.js",
+      "bytes": 22852,
+      "sha256": "cb6fdf93021fa76c9f1ea47403ae28ea3c723d21876eec88140886bb886f39e8"
+    },
+    {
+      "path": "prototype/location-review.css",
+      "bytes": 3015,
+      "sha256": "4ba00025168fe27b2d08593c657c96096c955a6d1be78e313f6a60d7f48f907a"
+    },
+    {
+      "path": "prototype/location-review.js",
+      "bytes": 15381,
+      "sha256": "f53dea80589afe4ee862fa347decebdc40d402510aab070952bdf415935514d9"
+    },
+    {
+      "path": "prototype/map-analysis.js",
+      "bytes": 30553,
+      "sha256": "f02c3c4835a357e2856c871cec9f4ac3321214dd1e7fc05d53e31ce279e76900"
+    },
+    {
+      "path": "prototype/map-hover.css",
+      "bytes": 1964,
+      "sha256": "7a2ff89b8e930859b8df82ba08a394c63f3e9df5d24ab83bbf680c6a99a626bf"
+    },
+    {
+      "path": "prototype/map-hover.js",
+      "bytes": 10421,
+      "sha256": "cb1578b82452cd33007a32dd7394bf02d074484a35843a95b7199a23c5ab910f"
+    },
+    {
+      "path": "prototype/map-space.css",
+      "bytes": 3814,
+      "sha256": "726c95863206e4ad9295d5ca3f832bc1da81b6af2983ecafeb90515c2c544396"
+    },
+    {
+      "path": "prototype/metrics.js",
+      "bytes": 462,
+      "sha256": "5dbaa295b0f5f01ff8756c7724c9977cf19dc3ce63c09d88f1a800a28466feed"
+    },
+    {
+      "path": "prototype/model.js",
+      "bytes": 47953,
+      "sha256": "1ef1c44d7aa73e8769b1777cfdd053f2810d59827b1190c6decce5e5d1a07db5"
+    },
+    {
+      "path": "prototype/opportunity-engine.js",
+      "bytes": 29637,
+      "sha256": "0301b6dabb89e353280c85e1408409bcf3b26bb7620f0ebcfb6a277fc3fa4d6d"
+    },
+    {
+      "path": "prototype/poi-popup.css",
+      "bytes": 4265,
+      "sha256": "e1252528f4ef62f19c20523166b69335fc46d0bfb126c1ced026b9855e5da796"
+    },
+    {
+      "path": "prototype/poi-popup.js",
+      "bytes": 11779,
+      "sha256": "8d961c2851c7eb5305673ac89ea180dbc167292fba0f47d82f63083d1335e19e"
+    },
+    {
+      "path": "prototype/relative-supply.js",
+      "bytes": 4554,
+      "sha256": "8e2f2a8324d360af187b4e8a27382d8bca2b35df53f1925c1000abca206c16a6"
+    },
+    {
+      "path": "prototype/simple-criteria.css",
+      "bytes": 3978,
+      "sha256": "8a339ba9bfe149ca06369ef942ead78d6514d9269ff646228c600d3479977287"
+    },
+    {
+      "path": "prototype/simple-criteria.js",
+      "bytes": 4320,
+      "sha256": "f45719cb0da3cef5bfe36e0878d2411792653dea58646a74caa8b9f39cd61a9b"
+    },
+    {
+      "path": "prototype/strategy-guide.css",
+      "bytes": 4495,
+      "sha256": "d0ae12e09553593179ad3b7f43706ff78610d5e925c698e130e60b350c6cfd5a"
+    },
+    {
+      "path": "prototype/strategy-guide.js",
+      "bytes": 8431,
+      "sha256": "0397f41e72486742e861f6eae4ea2badb4c39a08e5b81a70240a54b2c51959ec"
+    },
+    {
+      "path": "prototype/strategy-ui.css",
+      "bytes": 7110,
+      "sha256": "8f31e8548c3053895c4f0e02b3676768806634025980518be0c2980c875a21de"
+    },
+    {
+      "path": "prototype/strategy-ui.js",
+      "bytes": 27495,
+      "sha256": "ea8a38ec67afaf4a2332bb3538b2e9d1d522310533eb9e8aecacc2ab2fe748b7"
+    },
+    {
+      "path": "prototype/supply-compare.js",
+      "bytes": 3877,
+      "sha256": "36d9028d27c434d3ede5c74f077ec9574ecaec0831d1bee56a07b921431b8291"
+    },
+    {
+      "path": "prototype/supply-symbols.css",
+      "bytes": 2706,
+      "sha256": "0b5c7ebb3f6ee93c1d927e1d6bfbc2bcefac5cb259f771de094313c4cc748538"
+    },
+    {
+      "path": "prototype/supply-treemap.css",
+      "bytes": 8019,
+      "sha256": "098a9af81f52fb1f3888f5d7c0ab66bf3f8bdc6d823a7851e295d8636996726e"
+    },
+    {
+      "path": "prototype/supply-treemap.js",
+      "bytes": 22806,
+      "sha256": "7d6fe31998eeae1be4d3f2c7e14c35183395a78e85d976d35b53f9fb930f608c"
+    },
+    {
+      "path": "prototype/supply-ui.js",
+      "bytes": 20423,
+      "sha256": "58f0fcee96fb9f7c1f76d990f6e38d88a16889e96e007a6dffaae14ff14ddc7e"
+    },
+    {
+      "path": "prototype/theme.js",
+      "bytes": 3843,
+      "sha256": "8b30487f88108db7c91e2521737904e2367c569a75b77bec2896f807d2a13d5d"
+    },
+    {
+      "path": "prototype/vendor/lds-0.9.7/color-srgb-10.production.css",
+      "bytes": 133444,
+      "sha256": "3d34924a249804c4573da5b136303141b67c47f24a3f00dd5d7b86b521d9dfc8"
+    },
+    {
+      "path": "prototype/vendor/lds-0.9.7/fonts.css",
+      "bytes": 1786,
+      "sha256": "a2564ee20060ac90db6b6ef2b2e18d54671005e4b6736823d2ebb2c0ddb3fbd6"
+    },
+    {
+      "path": "prototype/vendor/lds-0.9.7/lds-0.9.7-ext.css",
+      "bytes": 26891,
+      "sha256": "11c764df4e3b6d2cd42daecbe8481a2e9ff0913136d987ce3039453ed482221f"
+    },
+    {
+      "path": "prototype/vendor/lds-0.9.7/lds-0.9.7.css",
+      "bytes": 137,
+      "sha256": "5512425b092f9197412ffb0f1b5b0e7a2060172ebf5d83174c6b0e94ef266fee"
+    },
+    {
+      "path": "prototype/vendor/lds-0.9.7/location-intelligence-0.9.7.css",
+      "bytes": 100181,
+      "sha256": "8d80360f8fef805e8b69aff67eb9b73df2babda379f19ccbec0beeb293a0999d"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.css",
+      "bytes": 14806,
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6"
+    },
+    {
+      "path": "prototype/vendor/leaflet-1.9.4/leaflet.js",
+      "bytes": 147552,
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
+    },
+    {
+      "path": "prototype/workspace-layout.css",
+      "bytes": 8607,
+      "sha256": "47a92fa138c3f1835ae8bfdff1e1e7fb38ec4e2fd3c312e166cf661c67ca23a7"
+    },
+    {
+      "path": "prototype/workspace-map.css",
+      "bytes": 28452,
+      "sha256": "5f95f3b7b15d44a667079bd294fb519e780718546ab9ce9ece148204d87e8df0"
+    },
+    {
+      "path": "prototype/workspace-map.js",
+      "bytes": 140151,
+      "sha256": "ccc7ae424b1dfc26bcc51108e32333dd4d0ca4002517bd492a8c02a8eb20d6c3"
+    },
+    {
+      "path": "prototype/yolk-focus.css",
+      "bytes": 3487,
+      "sha256": "c554262665d5f000cb8d264cd465834f3910f9dab878083b51cb4f9d4e2d8ab3"
+    },
+    {
+      "path": "prototype/yolk-tier-style.css",
+      "bytes": 1326,
+      "sha256": "60eec5f86c6b0d41d47761eda3b39d4d5ca6b489063225200ba51ea1f48b7975"
+    },
+    {
+      "path": "prototype/yolk-tier-style.js",
+      "bytes": 3750,
+      "sha256": "a282c7ad0ff9e31bce6c9d42515e9633bd761e680cda2d95ddd7a0cbcaada62d"
+    },
+    {
+      "path": "prototype/yolk.css",
+      "bytes": 21641,
+      "sha256": "b6c2dea6b2b1d61c1a4113ce7e04b6f3acaa37213ef1a6df8a946e34d653d77e"
+    }
+  ],
+  "sourceObservation": {
+    "sha256": "01a06c3819f0e4f8c139566cd7879fa0bafdc257625e6e4dfab71fb42edea303",
+    "capturedAt": "2026-10-09T02:30:42.827Z",
+    "meaning": "Lossless projection of release owner’s actual frozen current native checks/measurements; not another native execution."
+  }
+}

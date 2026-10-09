@@ -1,0 +1,252 @@
+{
+  "schemaVersion": "yolk.public_release/1.9",
+  "version": "1.9.9",
+  "approvedSourcePreview": "1.9.9-all-branch-points",
+  "date": "2026-10-09",
+  "status": "locally_verified_pending_publication",
+  "deploymentType": "GitHub Pages static public preview",
+  "publicUrl": "https://montri-th.github.io/yolk/",
+  "artifactPath": "prototype",
+  "dsVersion": "0.9.7",
+  "industries": [
+    "fuel",
+    "grocery",
+    "nonbank"
+  ],
+  "productAuthority": "contracts/product.v1.7.json",
+  "featureExtension": "contracts/branch-points.v1.9.9.json",
+  "nationalReportingUUIDs": 7954,
+  "metricCount": 25,
+  "nationalDemandCutoffsUnchanged": true,
+  "fineModelSemanticsUnchanged": true,
+  "modelChange": "All filtered valid Branch points by default, optional screen grouping and efficient rendering; measured whole-site core-flow performance review. Numerical/source/production semantics unchanged.",
+  "browserLocalSimulation": true,
+  "sharedBackendImplemented": false,
+  "publicationDelta": [
+    "Supply opens in Region colours; Branch points defaults to every filtered valid source coordinate without screen clustering or an arbitrary marker cap.",
+    "Optional screen grouping lives in Map Options, preserves every member/count and never changes source coordinates or native administrative totals.",
+    "Country point rendering is efficient; detailed original logos, readable names, role cues and existing popup actions remain available where appropriate.",
+    "Coincident/overlapping records remain discoverable without moving their source coordinates.",
+    "Filter/context/theme/route/resize updates retain map instance, permitted camera, drafts and source semantics; stale draw or popup work cannot overwrite a newer context.",
+    "Actual core journeys and load/render/interaction timings are recorded with environment, dataset and limits; no zero-bug, all-device, all-network or backend guarantee.",
+    "Actual TH/EN, light/dark, desktop/narrow all/grouped points and popup content are reviewed; old screenshots and test counts are not current acceptance."
+  ],
+  "shareImage": {
+    "asset": "prototype/assets/identity/yolk-share-v1.7.png",
+    "family": "1.7",
+    "changedInThisRelease": false,
+    "meaning": "Retained approved1.7family asset; no new1.9render claimed."
+  },
+  "sourceEvidenceBoundary": "Compact public adapters and provenance only; private source acquisition/customer data excluded.",
+  "localVerification": {
+    "status": "PASS_BOUNDED_CURRENT_LOCAL_QA",
+    "receipt": "evidence/qa-v1.9.9.json",
+    "automatedReceipt": "evidence/automated-v1.9.9.json",
+    "releaseChecksReceipt": "evidence/release-checks-v1.9.9.json",
+    "nativeBrowserReceipt": "evidence/browser-v1.9.9/native-browser-review.json",
+    "receiptSha256": "0576ee9c985a2449caed4230c34d3ae18ec9e60ad2d0c40a061c74e63261295d",
+    "automatedReceiptSha256": "752140f94bdcf4b7bffb9726ca22a5dc848204322f8356764e91eac49760b448",
+    "releaseChecksReceiptSha256": "cd7ec0fd3e0bbd8d8c2218f4f3b1514bb4b7333ee897c08e8ba0528c786f7eb3",
+    "nativeBrowserReceiptSha256": "a40c879dc25a24d85f3f84f44ad3955c2cfa2cd2d605e3891abf9ee88720eaac",
+    "automatedSuites": 40,
+    "automatedChecks": 663,
+    "checkCountMeaning": "Sum of positive actual reported test-case totals, named-case list lengths or exact PASS output lines; not individual assertion counts. Every suite freshly executed for1.9.9; no imported prior results.",
+    "browserStatus": "PASS_BOUNDED_NATIVE_BROWSER_REVIEW",
+    "browserChecks": 11,
+    "snapshots": [
+      "evidence/browser-v1.9.9/desktop-th-dark-supply.jpg",
+      "evidence/browser-v1.9.9/desktop-th-poi-search.jpg",
+      "evidence/browser-v1.9.9/desktop-en-light-expanded.jpg",
+      "evidence/browser-v1.9.9/mobile-en-light-details.jpg",
+      "evidence/browser-v1.9.9/mobile-en-draft-detail.jpg",
+      "evidence/browser-v1.9.9/desktop-th-shortlist-two-contexts.jpg",
+      "evidence/browser-v1.9.9/mobile-th-dark-evidence-queue.jpg",
+      "evidence/browser-v1.9.9/mobile-th-320-evidence.jpg"
+    ],
+    "snapshotFiles": [
+      {
+        "path": "evidence/browser-v1.9.9/desktop-th-dark-supply.jpg",
+        "bytes": 147450,
+        "sha256": "ef752e22f381f7f8d3f673eac07bbb53041d32c755dfec4201c23f3a94c6747a",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Thai desktop, native branch count map; Escape dismissed boundary treemap tooltip without changing route."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/desktop-th-poi-search.jpg",
+        "bytes": 120796,
+        "sha256": "d44710e7dd720b333653708d6307659380ed001a70105351b919e01b96b8345e",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Grocery individual points; dense-hit search and brand filtering retain focus/query and expose exact branch buttons."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/desktop-en-light-expanded.jpg",
+        "bytes": 215146,
+        "sha256": "0b558faa890db36c8a287ad998b592bdd0c459f8885fa2e1e5387ec0a7fe6c84",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "English light theme, expanded Grocery point map after explicit nearby zoom; basemap complete in observed view."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-en-light-details.jpg",
+        "bytes": 37629,
+        "sha256": "d9b521a0b916ad554633601f00863ab04bbc9d2bd30e3c73bf545107ccb45b57",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Mobile viewport scrolled to work cards and survey action; normal page flow, readable English copy and Thai names, no horizontal overflow."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-en-draft-detail.jpg",
+        "bytes": 48544,
+        "sha256": "484e077fd468ea16c7cc3b826e5ab8f8b564d07153d70ee21e9246e20031f58b",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Detail retains the private Demand draft, shows explicit team-criteria reset action without silently applying."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/desktop-th-shortlist-two-contexts.jpg",
+        "bytes": 124874,
+        "sha256": "a9eac096bca90b09b2b3b848a1c8c0275787999b7b3f94a7d3fa624e9c2f9bb9",
+        "imagePixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "description": "Fuel shortlist preserved after different-context second-tab preference write and reload; readable evidence history."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-th-dark-evidence-queue.jpg",
+        "bytes": 33980,
+        "sha256": "2433e13b9326d87285f32781336073f31aec8f1e7ce4b7b8d9bd667c09a267e6",
+        "imagePixels": {
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "description": "Thai mobile normal page flow, incomplete-evidence cards with reasons and shortlist action."
+      },
+      {
+        "path": "evidence/browser-v1.9.9/mobile-th-320-evidence.jpg",
+        "bytes": 30301,
+        "sha256": "e6548f071993fb3271afa6e3b3cd35041fd507c597015603686cdacf433a2483",
+        "imagePixels": {
+          "width": 320,
+          "height": 760
+        },
+        "viewport": {
+          "width": 320,
+          "height": 760
+        },
+        "description": "320px Thai evidence cards and actions readable; documentwidth320 and maprelative."
+      }
+    ],
+    "physicalDevices": "unverified",
+    "fullLanguageThemeMatrix": false,
+    "scope": "Bounded actual local native review: main workflows across Fuel/Grocery/Nonbank, draft retention, two-tab cross-context writes, captured draft detail, dense-hit search/filter/exact POI, Escape hover, Expand tiles, evidence queues, TH/EN light/dark sampled states. Not full matrix/physical hardware/provider certification.",
+    "productionBackend": "not_implemented_in_static_preview"
+  },
+  "providerEvidence": "Pending terminal deployment success bound to final source SHA; external attestation separate from local QA.",
+  "liveByteEvidence": "Pending current public emitted-URL/hash/MIME checks in external attestation; not inferred from local QA.",
+  "limits": [
+    "Demand proxy is not observed traffic/purchases/borrowing or a revenueforecast",
+    "Static preview does not implement sharedbackend/serverRBAC/email/LINE/privateproductionmedia",
+    "Native viewport review is not physicaldevice certification",
+    "External provider availability/results need separate verification",
+    "Operator-stated positioning is not measured consumer perception or branch-level offering certification",
+    "Strategy candidates are survey cues, not measured unmet demand, market share, sales or winning probability",
+    "POI coordinate inventories and native choropleth counts have different coverage; screen groups are not a customer-attraction model"
+  ],
+  "retainedContracts": [
+    "contracts/workspace-map.v1.7.json",
+    "contracts/map-analysis.v1.7.2.json",
+    "contracts/location-review.v1.7.3.json",
+    "contracts/map-boundary-appearance.v1.7.4.json",
+    "contracts/branch-context.v1.7.5.json",
+    "contracts/opportunity-strategies.v1.9.0.json",
+    "contracts/full-product.v1.9.0.json",
+    "contracts/interaction-guidance.v1.9.1.json",
+    "contracts/full-product.v1.9.1.json",
+    "contracts/brand-identity-ui.v1.9.2.json",
+    "contracts/full-product.v1.9.2.json",
+    "contracts/full-product.v1.9.3.json",
+    "contracts/expansion-experience.v1.9.3.json",
+    "contracts/full-product.v1.9.4.json",
+    "contracts/map-space.v1.9.4.json",
+    "contracts/full-product.v1.9.5.json",
+    "contracts/mobile-flow.v1.9.5.json",
+    "contracts/full-product.v1.9.6.json",
+    "contracts/map-readability.v1.9.6.json",
+    "contracts/supply-inventory.v1.9.6.json",
+    "contracts/full-product.v1.9.7.json",
+    "contracts/visual-refinement.v1.9.7.json",
+    "contracts/supply-inventory.v1.9.7.json"
+  ],
+  "currentQAOnly": true,
+  "designSystemPackageVerification": {
+    "status": "CURRENT_PACKAGE_PARITY_PASS_ONLY",
+    "releaseRef": "v0.9.7-owner.1",
+    "checks": 9768,
+    "warnings": 65,
+    "scope": "Package parity, theme-invariant Story and Location light values, inherited signed source, analytical math, CSS projection and standalone document/schema consistency only. No artifact or team-installation conformance claim.",
+    "version": "0.9.7",
+    "receipt": "evidence/lds-package-verification.v1.9.9.json",
+    "receiptSha256": "a4160b26df2a4a414eaaf6c6806b20942b83bb328be9be97e732d9c3f2c82313",
+    "artifactAndAccountTeamCertification": false
+  },
+  "brandProfiles": "prototype/data/brand-strategy-profiles.v1.9.0.json",
+  "fullProduct": "contracts/full-product.v1.9.9.json",
+  "responsiveCameraRule": "Explicit Expand/Compact preserves the same map/navigation/context and camera within current geographic zoom/center envelope. Clamp only out-of-envelope camera after host-size changes; ordinary scope-fit and popup safeguards remain.",
+  "semanticVersions": {
+    "criteria": "1.9.0",
+    "engine": "1.9.0",
+    "profiles": "1.9.0",
+    "strategies": "1.9.0"
+  },
+  "tileRecoveryStatus": "current1_9_7_settled_host_resize_fresh_native_evidence_required",
+  "strategyGuide": "prototype/data/strategy-guide.v1.9.3.json",
+  "previousPublishedSource": {
+    "version": "1.9.7",
+    "sourceSha": "ac90402d0ddedbb5f43409e2b28d095f34522ac2",
+    "meaning": "Clean published v1.9.7 historical baseline; not v1.9.9 proof."
+  },
+  "supplyInventoryExtension": "contracts/supply-inventory.v1.9.9.json",
+  "visualRefinementExtension": "contracts/visual-refinement.v1.9.9.json",
+  "branchPointsExtension": "contracts/branch-points.v1.9.9.json"
+}

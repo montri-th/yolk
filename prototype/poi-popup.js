@@ -78,7 +78,8 @@
     return `<span class="yolk-supply-pin yolk-supply-pin-${relation.key}${branded?' yolk-supply-pin-branded':''}" aria-hidden="true" data-supply-party="${relation.key}">${branded?mark(p):`<span class="yolk-supply-pin-symbol">${cue}</span>`}${branded?`<span class="yolk-supply-pin-badge">${cue}</span>`:''}</span>`;
   }
   function verification(p, lang) {
-    if (p.status === 'verified') return text(lang, 'ทีมตรวจแล้ว', 'Team verified');
+    if (p.status === 'active') return text(lang, 'ทีมยืนยันว่าเปิดอยู่', 'Team confirmed open');
+    if (p.status === 'verified') return text(lang, 'ทีมตรวจข้อมูลแล้ว', 'Team checked the record');
     if (p.status === 'closed') return text(lang, 'บันทึกว่าปิด · ตรวจล่าสุดอีกครั้ง', 'Recorded closed · recheck current status');
     if (p.status === 'pending' || p.relation === 'unverified') return text(lang, 'รอตรวจข้อมูลและสถานะเปิด', 'Identity or operation needs checking');
     return p.sourceRecord ? text(lang, 'รายการต้นทาง · ยังไม่สำรวจหน้างาน', 'Source record · not field checked') : text(lang, 'ทีมบันทึก · รอตรวจข้อมูล', 'Team record · not yet verified');
@@ -95,5 +96,5 @@
       <details class="yolk-poi-question"><summary>${icon('help')}${text(lang, 'คำถามสำหรับสำรวจทำเล', 'Question for your site study')}</summary><p>${esc(urls.prompt)}</p><p>${text(lang, 'หาก AI Mode เปิดไม่ได้ ใช้คำถามเดียวกันใน','If AI Mode is unavailable, use the same question in')} <a href="${esc(urls.search)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Google Search ${icon('open_in_new')}</a></p></details>
     </section>`;
   }
-  root.YolkPoiPopup = Object.freeze({render, marker, mark, prompt, links, publicContext, relationship, validPoint, version:'1.8.0'});
+  root.YolkPoiPopup = Object.freeze({render, marker, mark, prompt, links, publicContext, relationship, verification, validPoint, version:'1.8.0'});
 })(typeof window !== 'undefined' ? window : globalThis);

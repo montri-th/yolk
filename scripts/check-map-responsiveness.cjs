@@ -66,7 +66,7 @@ async function check(name,fn){try{await fn();checks.push({name,passed:true})}cat
   h.sandbox.window.innerWidth=1099;h.sandbox.window.listeners.resize();assert(Object.keys(initial).every(name=>map[name].enabled()));api.setMapExpanded(false);flushFrames();assert(Object.keys(initial).every(name=>!map[name].enabled()));h.sandbox.window.innerWidth=1440;h.sandbox.window.listeners.resize();for(const [name,expected]of Object.entries(initial))assert.equal(map[name].enabled(),expected);assert.equal(maps.length,1);
  });
  await check('Narrow detail entry leaves a deep list scroll for the new heading once, without smooth motion or form/state mutation',()=>{
-  const app=fs.readFileSync(path.join(root,'prototype/app.js'),'utf8'),start=app.indexOf('let mobileDetailEntry=null;'),end=app.indexOf('function workingForm()',start),vm=require('node:vm');assert(start>=0&&end>start);
+  const app=fs.readFileSync(path.join(root,'prototype/app.js'),'utf8'),start=app.indexOf('let mobileDetailEntry=null;'),end=app.indexOf('const WORKING_DRAFT_PREFIX=',start),vm=require('node:vm');assert(start>=0&&end>start);
   const frames=[],calls=[],state={loading:false,draft:{buildingP2:87},criteria:{version:7},form:{name:'Unsaved branch',photos:['kept']},targets:{},events:[]},before=JSON.stringify(state);
   const heading={scrollIntoView(options){calls.push(options);context.window.scrollY=1000}},content={querySelector:selector=>selector==='.page-head'?heading:null};
   const context={window:{innerWidth:390,scrollY:5011.5,requestAnimationFrame:fn=>frames.push(fn)},location:{hash:'#place/new-location'},Y:state,criteriaContextKey:()=> 'grocery:7eleven',$:()=>content};vm.createContext(context);vm.runInContext(app.slice(start,end),context);
@@ -77,7 +77,7 @@ async function check(name,fn){try{await fn();checks.push({name,passed:true})}cat
   assert(app.includes('const previousHash=renderedHash;'));assert(app.includes('queueMobileDetailEntry(previousHash)'));assert(app.includes("if(window.innerWidth>=1100||!['place','poi'].includes(Y.route))window.scrollTo(0,0)"));
  });
  await check('Detail entry waits for available content and rejects queued work after navigation, brand changes or rotation',()=>{
-  const app=fs.readFileSync(path.join(root,'prototype/app.js'),'utf8'),start=app.indexOf('let mobileDetailEntry=null;'),end=app.indexOf('function workingForm()',start),vm=require('node:vm'),frames=[],calls=[];let heading=null,key='fuel:ptt';
+  const app=fs.readFileSync(path.join(root,'prototype/app.js'),'utf8'),start=app.indexOf('let mobileDetailEntry=null;'),end=app.indexOf('const WORKING_DRAFT_PREFIX=',start),vm=require('node:vm'),frames=[],calls=[];let heading=null,key='fuel:ptt';
   const context={window:{innerWidth:1099,requestAnimationFrame:fn=>frames.push(fn)},location:{hash:'#poi/loading-id'},Y:{loading:true},criteriaContextKey:()=>key,$:()=>({querySelector:()=>heading})};vm.createContext(context);vm.runInContext(app.slice(start,end),context);
   context.queueMobileDetailEntry('#supply');assert.equal(frames.length,0);context.Y.loading=false;context.queueMobileDetailEntry('#poi/loading-id');assert.equal(frames.length,0);heading={scrollIntoView:options=>calls.push(options)};context.queueMobileDetailEntry('#poi/loading-id');assert.equal(frames.length,1);
   context.location.hash='#demand';frames.shift()();assert.equal(calls.length,0);

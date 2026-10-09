@@ -1,0 +1,17 @@
+PASS Initial tile start is tracked before addTo, then real completion hides loading without inferring data availability
+PASS Mixed loaded and failed tiles show a recoverable partial error; removed grid tiles no longer keep stale errors
+PASS Explicit background retry recreates only the same provider/style layer and ignores all retired tile callbacks
+PASS Fractional camera zoom survives same-style retry while provider tile requests remain integer for every basemap
+PASS Retry and style replacement remove retired map listeners before clearing local handlers, so later resize/zoom is safe
+PASS Style switching rejects late events from the retired layer, preserving the view and current imagery state
+PASS Retry is a deliberate accessible action, bilingual and independent from the common data-source warning
+PASS Expansion and collapse preserve a manually chosen camera even when the observer sees a major width change before the frame
+PASS Real bundled Leaflet clamps distant pan targets to Thailand at fractional zoom without excluding source geometry
+PASS Whole-Thailand zoom-out floor follows actual host projection, allows full-country fit, and clamps only out-of-envelope cameras
+PASS Real TileLayer view initialization keeps a rounded provider grid and the exact fractional camera transform
+PASS Settled host resize reconstructs only the imagery grid once, preserves camera/paths/source, and ignores repeated same-size callbacks
+PASS Resize waits across changing dimensions, and an explicit style replacement cancels stale pending work
+PASS Escape closes options before collapsing the map and restores focus to the relevant labelled control
+PASS Explicit scope fit uses actual map-host edges without subtracting the external legend; fractional zoom is allowed
+PASS Canonical Opportunities keeps fine-area selection in the same workflow with no forced detail-route callback
+{"passed":true,"checks":16,"report":"/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.3/map-recovery-regression-results.json"}

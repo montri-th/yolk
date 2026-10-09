@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Two branches / 20,000 people = 1 per 10,000; three / 100,000 = 0.3, with coherent pattern and gap ordering",
+      "passed": true
+    },
+    {
+      "name": "Source-explicit zero branch counts are usable; absent/zero/nonfinite/negative denominators remain unknown",
+      "passed": true
+    },
+    {
+      "name": "Equivalent denominator/rate unit conversion leaves count thresholds, classifications and rankings invariant",
+      "passed": true
+    },
+    {
+      "name": "Legacy count mode and absent-mode migration retain exact count thresholds and uncertainty behavior",
+      "passed": true
+    },
+    {
+      "name": "Fuel unknown-brand U stays jointly allocated: impossible Pioneer/Crowded states and independent ranking bounds are excluded",
+      "passed": true
+    },
+    {
+      "name": "Assignment/reconciliation lower–upper intervals survive normalization and remain uncertain in patterns/ranking",
+      "passed": true
+    },
+    {
+      "name": "Changing ranking weights cannot alter Supply high/low classification or the eligible UUID set",
+      "passed": true
+    },
+    {
+      "name": "Calibration is the unrounded median of positive exact national rates, never a quota or the filtered province",
+      "passed": true
+    },
+    {
+      "name": "Fewer than five positive exact observations use an explicit insufficient-sample hypothesis of one branch/unit",
+      "passed": true
+    },
+    {
+      "name": "The denominator whitelist excludes densities, percentiles, fiscal revenue and arbitrary/unknown IDs",
+      "passed": true
+    },
+    {
+      "name": "Denominator changes/reseeding are a private draft: committed criteria, events, source inventory and national cuts stay unchanged",
+      "passed": true
+    },
+    {
+      "name": "New contexts start in relative mode after their own inventory loads; saved count criteria/draft/version survive visits and reload",
+      "passed": true
+    },
+    {
+      "name": "All 37 real brand/default-scope contexts produce valid seeds and finite or explicitly missing Supply thresholds across 7,954 UUIDs",
+      "passed": true
+    },
+    {
+      "name": "Every supported alternate brand format/scope uses its own real inventory and family with valid relative thresholds",
+      "passed": true
+    }
+  ],
+  "elapsedMs": 29639,
+  "receipt": "/Users/montri/.codex/.chatgpt-projects/g-p-69eaf5bda8708191988c7c9c0be17ed8/deliverables/yolk-v1.9.0/relative-supply-regression-results.json"
+}

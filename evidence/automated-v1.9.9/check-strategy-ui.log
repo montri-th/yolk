@@ -1,0 +1,52 @@
+PASS Actual eight strategy cards emit eight meaningful allowed DS glyphs and readable labels
+PASS All profile choices map to current brands/scopes, operator claims and reachable source IDs
+PASS Strategy preferences initialize from the current brand/format profile, not another brand
+PASS Selection rejects zero, four, duplicate and unknown strategies without changing saved criteria
+PASS A fourth checkbox is disabled; attempting it restores the checkbox and preserves the personal view
+PASS Strategy change events update only local preferences and rerender without adding team activity
+PASS Strategy preferences survive browser reload and remain isolated between Grocery formats
+PASS fuel: all strategy views preserve national Demand membership, tiers, source and team revisions
+PASS fuel: map projection filters candidates without repainting or mutating original Demand tiers
+PASS fuel: actual page counters, strategy-card counts and result cards agree within an administrative scope
+PASS grocery: all strategy views preserve national Demand membership, tiers, source and team revisions
+PASS grocery: map projection filters candidates without repainting or mutating original Demand tiers
+PASS grocery: actual page counters, strategy-card counts and result cards agree within an administrative scope
+PASS nonbank: all strategy views preserve national Demand membership, tiers, source and team revisions
+PASS nonbank: map projection filters candidates without repainting or mutating original Demand tiers
+PASS nonbank: actual page counters, strategy-card counts and result cards agree within an administrative scope
+PASS Evidence-only strategies show a survey guide and empty candidate state, never a fabricated match
+PASS Merged opportunity entry and old strategy route use the same private draft and candidate IDs without changing Demand
+PASS Shortlist snapshot captures exact criteria, scope, actual source hashes, evidence states and first tasks
+PASS Snapshots deeply freeze the captured criteria and strategy selection against later draft edits
+PASS Actual shortlist save records one owner, evidence snapshot, contextual event and nine peer recipients
+PASS Refreshing a survey plan preserves existing owner, status and notes and logs the before/after assessment
+PASS Viewer cannot save a survey plan; accessible actions visibly disable editing
+PASS A local persistence failure rolls back the saved target and action event
+PASS Saved plan detail presents tasks, uncertainty and snapshot revision in Thai and English
+{
+  "suite": "strategy-ui",
+  "checks": 25,
+  "passed": 25,
+  "observations": {
+    "fuel": {
+      "nationalRows": 7954,
+      "demandEligible": 1264,
+      "candidates": 1208,
+      "incomplete": 48
+    },
+    "grocery": {
+      "nationalRows": 7954,
+      "demandEligible": 2859,
+      "candidates": 2805,
+      "incomplete": 5
+    },
+    "nonbank": {
+      "nationalRows": 7954,
+      "demandEligible": 2298,
+      "candidates": 1163,
+      "incomplete": 1135
+    }
+  },
+  "failures": [],
+  "evidence": "Actual Strategy UI handlers/markup + real nationwide CityMETER model and source snapshots in VM. Scoped predicate supplied by harness; Leaflet rendering, font rendering, backend authorization and business outcomes are separate checks."
+}
